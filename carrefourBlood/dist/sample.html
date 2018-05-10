@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>pageTitle</title>
+    <meta name="description" content="pageDesc">
+    <meta name="viewport" content="width=640;initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <meta itemprop="name" content="pageTitle">
+    <meta itemprop="description" content="pageDesc">
+    <meta itemprop="image">
+    <meta property="og:title" content="pageTitle">
+    <meta property="og:description" content="pageDesc">
+    <meta property="og:type" content="article">
+    <meta property="og:image">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <!--CDN link -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script src="https://code.createjs.com/preloadjs-0.6.1.min.js"></script>
+    <script src="https://use.typekit.net/ucz4dlw.js"></script>
+    <script>
+        try {
+            Typekit.load({
+                async: true
+            });
+        } catch (e) {}
+    </script>
+    <script src="js/vendor.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="https://unpkg.com/vue-grecaptcha@latest/dist/vue-grecaptcha.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaInit&amp;render=explicit" async defer></script>
+</head>
+<!--html body-->
+
+<body>
+    <div class="l-wrap" id="app">
+        <!-- render nav view-->
+        <div class="l-main">
+            <div class="l-view">
+                <nav class="nav" id="nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+                    <div class="nav__hd">
+                        <div class="l-container">
+                            <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO">LOGO</a></h1>
+                            <div class="nav-fbshare" v-on:click="fbShare();return false;"></div>
+                            <div class="nav-btn">
+                                <div class="one"></div>
+                                <div class="two"></div>
+                                <div class="three"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-bd">
+                        <div class="l-container">
+                            <div class="nav-menu" role="navigation">
+                                <ul class="clearfix">
+                                    <li class="nav-item"><a href="index.html" alt="項目" itemprop="url" title="項目"><span>首頁</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>快來滴血認親拿好禮</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>活動辦法</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>影片專區</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>與家樂福成為一家人</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>家樂福facebook</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>家樂福Instagram</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>家樂福LINE官方帳號</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>得獎名單 | 3月15日公布</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="l-box">
+                    <section class="sample" id="el">
+                        <div class="sample__hd"></div>
+                        <div class="sample__bd"></div>
+                        <div class="sample__ft"></div>
+                        <section>
+                            <div class="l-container">
+                                <h2>{{initText}}</h2>
+                                <div class="vue">
+                                    <form v-on:submit.prevent="signup">
+                                        <select v-model="selectOpt">
+                        <option v-for="obj in selectLists" :disabled="obj.value == ''" v-bind:value="obj.value">{{obj.text}}</option>
+                      </select>
+                                        <p>select Val : {{selectOpt}}</p>
+                                        <button type="submit">submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="sample__content">
+                                <div class="l-container">
+                                    <div class="l-vm">
+                                        <div class="l-vm__content">
+                                            <h2>demo verticle</h2>
+                                            <p>灰色區塊內垂直置中</p>
+                                            <div class="sprite__demo"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="l-container">
+                                <div class="mdDemo">
+                                    <h2>#jade scss example</h2>
+                                    <div>
+                                        <h3>##<span>Interpolation</span>by jade</h3>
+                                    </div>
+                                    <div>
+                                        <h3>##jade loop</h3>
+                                        <div class="row1">
+                                            <p>row+1</p>
+                                        </div>
+                                        <div class="row2">
+                                            <p>row+2</p>
+                                        </div>
+                                        <div class="row3">
+                                            <p>row+3</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </section>
+                </div>
+            </div><a class="step__other" href="javascript: void(0)" title="" alt="">滴血認親拿好禮</a>
+            <div class="laymask__left"></div>
+            <div class="laymask__right"></div>
+            <!--render main view-->
+        </div>
+        <transition name="fade">
+            <div class="popup" v-show="popup" v-cloak>
+                <div class="popup__box">
+                    <div class="popup__hd">
+                        <h2 class="popup__title">您是否已經確認資料正確無誤</h2>
+                        <p class="popup__txt">如需再次修改會員資料<br>請洽詢客服 0809-001-365</p>
+                    </div>
+                    <div class="popup__bd"><a class="stepbtn stepbtn--yes" href="javascript:" alt="" title="" v-on:click="popupGo();">是，我確定</a><a class="stepbtn stepbtn--no" href="javascript:" alt="" title="" v-on:click="popupClose();">等等，我再確認一下</a></div>
+                </div>
+            </div>
+        </transition>
+    </div>
+    <div class="l-footer footer">
+        <div class="l-container">
+            <div class="footer__bg">
+                <p>客服專線：0809-001-365</p>
+            </div>
+            <div class="copyright">
+                <p>Copyright@2018 CarrefourTaiwan. All Rights Reserved. 建議使用 IE10.0 以上瀏覽器</p>
+            </div>
+        </div>
+    </div>
+    <div class="fb-root"></div>
+    <script type="text/javascript">
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.4&appId=262477160615577";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+</body>
+
+</html>

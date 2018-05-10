@@ -1,0 +1,1286 @@
+@charset 'UTF-8';
+@import url("//use.typekit.net/ucz4dlw.css");
+/* ----- IMPORT -----*/
+
+//1.utils
+@import "utils/_bemify.scss"; 
+    //A set of Sass mixins to write well-structured, maintainable, idiomatic BEM-style .scss source:
+@import "utils/_variables.scss";
+@import "utils/_mixins.scss";
+@import "utils/_grid.scss";
+//sprite scss import 至少要啟用gulp一次
+//@import "_sprite.scss";
+//2.vendors
+//3.base
+@import "base/_reset.scss";
+@import "base/_typography.scss";
+//4.layout
+@import "layout/_layout.scss";
+@import "layout/_nav.scss";
+//5.components
+@import "components/_load.scss";
+//html 在 load.js 裡
+//6.pages
+//7.themes
+
+$tran:0.3s ease-in all;
+$boxShadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.1);
+
+@keyframes redhand {
+    0%, 100% { background: none; }
+    50% { background: red; }
+}
+
+.sample {
+    .l-vm {
+        height: 180px;
+        width: 100%;
+        background: #d6d6d6;
+        text-align: center;
+        box-shadow: $boxShadow;
+    }
+    .l-vm__content {
+        background: red;
+        min-height: 100px;
+    }
+    @include respond-to(small-up) {}
+    section ,h2, h3{
+        margin: 0 0 20px;
+        span {
+            color: red;
+        }
+    }
+    @for $i from 1 through 3 {
+        .row#{$i} {
+            color: red;
+        } 
+    }
+}
+
+[v-cloak] {
+    display: none;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-active {
+    opacity: 0;
+}
+
+.l-wrap {
+
+}
+.l-main {
+    margin: 0 auto;
+    >.l-container {
+        overflow: hidden;
+    }
+    .l-box {
+        transition: all 0.3s ease-out;
+    }
+    &--active {
+
+        .l-box {
+            transform: translateX(-320px); 
+        }
+    }
+}
+
+.nav-fbshare {
+    background: url(../images/fb-share.png) 0 0 no-repeat;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 10px;
+    right: 80px;
+    cursor: pointer;
+}
+
+@keyframes floating {
+    0%   {transform: translateY(0);}
+    50%  {transform: translateY(10px);}
+    100% {transform: translateY(0);}
+}
+
+.footer {
+    &__bg {
+        background: url(../images/bg-footer.png) 0 0 no-repeat;
+        color: #fff;
+        height: 42px;
+        line-height: 42px;
+        text-align: center;
+    }
+    .copyright {
+        color: #000;
+        text-align: center;
+        height: 43px;
+        line-height: 43px;
+    }
+}
+
+.step__other {
+    background: url(../images/step-other.png) 0 0 no-repeat;
+    width: 109px;
+    height: 489px;
+    top: 50vh;
+    margin-top: -245px;
+    right: -109px;
+    overflow:hidden;
+    text-indent: 110%;
+    white-space: nowrap;
+    position: fixed;
+    z-index: 2002;
+}
+
+._freeze {
+    overflow: hidden;
+}
+
+.stepbtn {
+    background: url(../images/step-btn-bg.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+    width: 510px;
+    height: 77px;
+    text-align: center;
+    line-height: 70px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 30px auto 0;
+    cursor: pointer;
+    a {
+        color: #fff;
+    }
+}
+
+@keyframes scale {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    12% {
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+    25% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+    32%{
+        -webkit-transform: scale(0.7);
+        transform: scale(0.7);
+    }
+    50% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+._transform_scale {
+    animation: scale 4s linear infinite;
+}
+
+/*=============================================
+=            main            =
+=============================================*/
+
+.index {
+    .kv {
+        background: url(../images/bg-kv.png) 0 0 no-repeat;
+        height: 890px;
+        margin: 70px 0 0 0;
+        &__hd {
+            box-sizing: border-box;
+            padding: 80px 0 0 0;
+            position: relative;
+        }
+        &__title {
+            background: url(../images/kv-title.png) 0 0 no-repeat;
+            width: 574px;
+            height: 272px;
+            margin: 0 auto;
+            overflow:hidden;
+            text-indent: 110%;
+            white-space: nowrap;
+        }
+        &__bd {
+            box-sizing: border-box;
+            padding: 30px 0 0 0;
+            position: relative;
+        }
+        &__item {
+            background-image: url('../images/kv-item-1.png');
+            width: 498px;
+            height: 469px;
+            margin: 0 auto;
+            opacity: 0;
+        }
+        // &__hand {
+        //     background: url(../images/kv-hand.png) 0 0 no-repeat;
+        //     width: 141px;
+        //     height: 243px;
+        //     position: absolute;
+        //     bottom: -300px;
+        //     left: 50%;
+        //     margin-left: -40px;
+        // }
+        &__hand {
+            width: 300px;
+            height: 391px;
+            position: absolute;
+            bottom: -110px;
+            left: 50%;
+            margin-left: -150px;
+            &--1 {
+                background: url(../images/kv-hand.png) 0 0 no-repeat;
+                bottom: -391px;
+            }
+            &--2 {
+                background: url(../images/kv-hand-2.png) 0 0 no-repeat;
+                opacity: 0;
+            }
+            &--3 {
+                background: url(../images/kv-hand-3.png) 0 0 no-repeat;
+                opacity: 0;
+            }
+            &--4 {
+                background: url(../images/kv-hand-4.png) 0 0 no-repeat;
+                // bottom: -391px;
+                opacity: 0;
+            }
+            &--5 {
+                background: url(../images/kv-hand-5.png) 0 0 no-repeat;
+                opacity: 0;
+            }
+            &--6 {
+                background: url(../images/kv-hand-6.png) 0 0 no-repeat;
+                opacity: 0;
+            }
+            &--7 {
+                background: url(../images/kv-hand-7.png) 0 0 no-repeat;
+                opacity: 0;
+            }
+            &--8 {
+                background: url(../images/kv-hand-8.png) 0 0 no-repeat;
+                opacity: 0;
+            }
+        }
+        &__blood {
+            background: url(../images/kv-blood.png) 0 0 no-repeat;
+            width: 176px;
+            height: 165px;
+            position: absolute;
+            bottom: 190px;
+            left: 50%;
+            margin-left: -88px;
+            opacity: 0;
+            transform: scale(0.3);
+            &--bg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+        }
+        &__ft {
+            box-sizing: border-box;
+            padding: 20px 0 0 0;
+            position: relative;
+        }
+        &__more {
+            animation: floating linear 2s infinite;
+            background: url(../images/kv-more.png) 0 0 no-repeat;
+            cursor: pointer;
+            width: 127px;
+            height: 87px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin-left: -63px;
+            overflow:hidden;
+            text-indent: 110%;
+            white-space: nowrap;
+            z-index: 2;
+        }
+        .ripple-wrap {
+            width: 300px;
+            height: 300px;
+            border-radius: 100%;
+            position: absolute;
+            left: 50%;
+            transform: translate(-48%);
+            top: 65px;
+            overflow: hidden;
+            opacity: 0.8;
+        }
+        #ripple {
+            position: absolute;
+            opacity: 0;
+            left: -20px;
+        }
+    }
+    
+    .step {
+        background: url(../images/bg-step.png) 0 0 repeat-y;
+        // height: 1570px;
+        position: relative;
+        overflow: hidden;
+        .sakurahana {
+            background: url(../images/step-sakura.png) 0 0 no-repeat;
+            height: 199px;
+            position: relative;
+            z-index: 1;
+        }
+        &__hd {
+            box-sizing: border-box;
+            padding: 20px 0 0 0;
+        }
+        &__title {
+            margin: 0 auto;
+            position: relative;
+            overflow:hidden;
+            text-indent: 110%;
+            white-space: nowrap;
+            z-index: 1;
+            &--title1 {
+                background: url(../images/step-title-1.png) 0 0 no-repeat;
+                width: 516px;
+                height: 212px;
+            }
+            &--title2 {
+                background: url(../images/step-title-2.png) 0 0 no-repeat;
+                width: 303px;
+                height: 147px;
+            }
+        }
+        &__bd {
+            box-sizing: border-box;
+            padding: 40px 0 0 0;
+        }
+        &__ft {
+            box-sizing: border-box;
+            padding: 60px 0 0 0;
+        }
+        &__box {
+            margin: 15px 0;
+            overflow:hidden;
+            text-indent: 110%;
+            white-space: nowrap;
+            position: relative;
+            &--step1 {
+                background: url(../images/step-pic-step1.png) 0 0 no-repeat;
+                height: 110px;
+            }
+            &--step2 {
+                background: url(../images/step-pic-step2.png) 0 0 no-repeat;
+                height: 110px;
+            }
+            &--step3 {
+                background: url(../images/step-pic-step3.png) 0 0 no-repeat;
+                height: 170px;
+            }
+            .btn_step-1 {
+                background: url(../images/btn-start-1.png) 0 0 no-repeat;
+                width: 167px;
+                height: 55px;
+                position: absolute;
+                bottom: -5px;
+                right: 98px;
+            }
+        }
+        &__items {
+            background: url(../images/step-items.png) 0 0 no-repeat;
+            height: 350px;
+            margin: 40px 0 0 0;
+            overflow:hidden;
+            text-indent: 110%;
+            white-space: nowrap;
+        }
+        .btn_step-2 {
+            background: url(../images/btn-start-2.png) 0 0 no-repeat;
+            width: 449px;
+            height: 95px;
+            margin: 0 auto;
+            display: block;
+            overflow:hidden;
+            text-indent: 110%;
+            white-space: nowrap;
+            position: relative;
+            z-index: 9;
+        }
+    }
+
+    .gifts {
+        display: none;
+    }
+
+    .video {
+        background: url(../images/bg-step.png) 0 0 no-repeat;
+        &__hd {
+            padding: 60px  0 0 0;
+        }
+        &__title {
+            background: url(../images/video-title.png) 0 0 no-repeat;
+            width: 304px;
+            height: 147px;
+            margin: 0 auto;
+            overflow:hidden;
+            text-indent: 110%;
+            white-space: nowrap;
+        }
+        &__bd {
+            padding: 25px 0 0 0;
+        }
+        &__ft {
+            padding: 50px 0;
+        }
+        &__box {
+            height: 360px;
+        }
+        #player {
+            position: relative;
+            z-index: 9;
+        }
+        .btn_step-3 {
+            background: url(../images/btn-start-3.png) 0 0 no-repeat;
+            width: 449px;
+            height: 95px;
+            margin: 0 auto;
+            display: block;
+            overflow:hidden;
+            text-indent: 110%;
+            white-space: nowrap;
+            position: relative;
+            z-index: 9;
+        }
+    }
+}
+
+.process {
+    margin-top: 70px;
+    > .l-container {
+        background: url(../images/bg-steptel.png) 0 0 no-repeat;
+        background-size: 100% 100%;
+        min-height: 960px;
+    }
+    .stepbtn {
+        background: url(../images/step-btn-bg.png) 0 0 no-repeat;
+        background-size: 100% 100%;
+        width: 510px;
+        height: 77px;
+        text-align: center;
+        line-height: 70px;
+        color: #fff;
+        font-size: 30px;
+        font-weight: bold;
+        font-family: "source-han-serif-tc";
+        margin: 30px auto 0;
+        cursor: pointer;
+        &--close {
+            background-size: 100% 100%;
+            width: 300px;
+        }
+    }
+    .steptel {
+        background: url(../images/bg-steptel.png) 0 0 no-repeat;
+        background-size: 100% 100%;
+        min-height: 960px;
+        &__hd {
+            box-sizing: border-box;
+            padding: 90px 0 0 0;
+        }
+        &__title {
+            background: url(../images/steptel-title.png) 0 0 no-repeat;
+            width: 441px;
+            height: 98px;
+            margin: 0 auto;
+            overflow:hidden;
+            text-indent: 110%;
+            white-space: nowrap;
+        }
+        &__txt {
+            box-sizing: border-box;
+            color: #e1c361;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            padding: 10px 0;
+        }
+        hr {
+            background-color: #e1c361;
+            border: 0;
+            width: 390px;
+            height: 1px;
+            margin: 0 auto;
+        }
+        &__bd {
+            padding: 20px 0 0 0;
+        }
+        &__selbox {
+            text-align: center;
+            .tel {
+                color: #fff;
+                font-size: 26px;
+                vertical-align: top;
+                line-height: 35px;
+            }
+            input[type="radio"] {
+                display: none;
+            }
+            .radiobg {
+                width: 33px;
+                height: 35px;
+                background: url(../images/input-radio-bg.png) no-repeat 0 0;
+                display: inline-block;
+                cursor: pointer;
+                &__active {
+                    background: url(../images/input-radio-checked-bg.png) no-repeat 0 0;
+                }
+            }
+        }
+        &__number {
+            background: url(../images/step-input-bg.png) 0 0 no-repeat;
+            box-sizing: border-box;
+            margin: 0 auto;
+            padding: 10px 0 0 0;
+            width: 458px;
+            height: 74px;
+            text-align: center;
+        }
+        &__numtxt {
+            box-sizing: border-box;
+            color: #554307;
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 49px;
+            padding: 0px 0 0 20px;
+        }
+        &__clickbox {
+            width: 400px;
+            margin: 0 auto;
+            padding: 0 0 0 15px;
+        }
+        &__btn {
+            cursor: pointer;
+            float: left;
+            width: 115px;
+            height: 115px;
+            margin: 7px 7px;
+            overflow: hidden;
+            text-indent: 110%;
+            white-space: nowrap;
+            position: relative;
+            &--1 {
+                background: url(../images/steptel-btn-1.png) 0 0 no-repeat;
+            }
+            &--2 {
+                background: url(../images/steptel-btn-2.png) 0 0 no-repeat;
+            }
+            &--3 {
+                background: url(../images/steptel-btn-3.png) 0 0 no-repeat;
+            }
+            &--4 {
+                background: url(../images/steptel-btn-4.png) 0 0 no-repeat;
+            }
+            &--5 {
+                background: url(../images/steptel-btn-5.png) 0 0 no-repeat;
+            }
+            &--6 {
+                background: url(../images/steptel-btn-6.png) 0 0 no-repeat;
+            }
+            &--7 {
+                background: url(../images/steptel-btn-7.png) 0 0 no-repeat;
+            }
+            &--8 {
+                background: url(../images/steptel-btn-8.png) 0 0 no-repeat;
+            }
+            &--9 {
+                background: url(../images/steptel-btn-9.png) 0 0 no-repeat;
+            }
+            &--10 {
+                background: url(../images/steptel-btn-10.png) 0 0 no-repeat;
+            }
+            &--11 {
+                background: url(../images/steptel-btn-11.png) 0 0 no-repeat;
+            }
+            &--12 {
+                background: url(../images/steptel-btn-12.png) 0 0 no-repeat;
+            }
+        }
+    }
+    .stepid {
+        background: url(../images/bg-steptel.png) 0 0 no-repeat;
+        background-size: 100% 100%;
+        min-height: 960px;
+        > .l-container {
+            width: 520px;
+            margin: 0 auto;
+        }
+        &__hd {
+            box-sizing: border-box;
+            padding: 100px 0 0 0;
+            hr {
+                background-color: #e1c361;
+                border: 0;
+                height: 1px;
+                margin: 30px auto 0;
+            }
+        }
+        &__title {
+            background: url(../images/stepid-title.png) 0 0 no-repeat;
+            width: 501px;
+            height: 96px;
+            margin: 0 auto;
+            overflow:hidden;
+            text-indent: 110%;
+            white-space: nowrap;
+        }
+        &__txt {
+            box-sizing: border-box;
+            color: #e1c361;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            width: 500px;
+            margin: 30px auto 0;
+            line-height: 1.2;
+        }
+        &__bd {
+            padding: 10px 0 0 0;
+        }
+        &__selbox {
+            width: 450px;
+            margin: 10px auto 0;
+            label {
+                color: #fff;
+                font-size: 26px;
+                vertical-align: top;
+                line-height: 35px;
+            }
+            input[type="radio"] {
+                display: none;
+            }
+            .uidarc {
+                font-size: 24px;
+                letter-spacing: -1.2px;
+            }
+            .radiobg {
+                width: 33px;
+                height: 35px;
+                background: url(../images/input-radio-bg.png) no-repeat 0 0;
+                display: inline-block;
+                cursor: pointer;
+                &__active {
+                    background: url(../images/input-radio-checked-bg.png) no-repeat 0 0;
+                }
+            }
+        }
+        &__userid {
+            background: url(../images/step-input-bg.png) 0 0 no-repeat;
+            width: 458px;
+            height: 74px;
+            border: 0;
+            padding: 0 0 0 20px;
+            font-size: 30px;
+            input[type="text"] {
+                background: none;
+                border: 0;
+                margin-top: 18px;
+                width: 400px;
+            }
+        }
+        .checkbox {
+            background: url(../images/checkbox-bg.png) 0 0 no-repeat;
+            width: 32px;
+            height: 32px;
+            float: left;
+            cursor: pointer;
+            &__txt {
+                float: left;
+                width: 400px;
+                padding: 0 0 0 5px;
+                font-size: 22px;
+            }
+            &__active {
+                background: url(../images/checkbox-checked-bg.png) 0 0 no-repeat;
+            }
+            input {
+                display: none;
+            }
+        }
+        .stepbtn {
+            background: url(../images/step-btn-bg.png) 0 0 no-repeat;
+            background-size: 306px 100%;
+            width: 306px;
+            height: 77px;
+            text-align: center;
+            line-height: 70px;
+            color: #fff;
+            font-size: 30px;
+            font-weight: bold;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+    }
+    .stepsuccess {
+        background: url(../images/bg-process.png) 0 0 no-repeat;
+        background-size: 100% 100%;
+        min-height: 1760px;
+        > .l-container {
+            width: 520px;
+            margin: 0 auto;
+        }
+        &__hd {
+            box-sizing: border-box;
+            padding: 80px 0 0 0;
+        }
+        hr {
+            background-color: #e1c361;
+            border: 0;
+            height: 1px;
+            margin: 40px auto 0;
+        }
+        &__title {
+            background: url(../images/stepsuccess-title.png) 0 0 no-repeat;
+            width: 170px;
+            height: 44px;
+            margin: 0 auto;
+            overflow: hidden;
+            text-indent: 110%;
+            white-space: nowrap;
+        }
+        &__havedays {
+            background: url(../images/stepsuccess-havedays.png) 0 0 no-repeat;
+            width: 503px;
+            height: 77px;
+            margin: 15px auto 0;
+            position: relative;
+        }
+        &__days {
+            position: absolute;
+            color: #e1c361;
+            font-size: 36px;
+            font-weight: bold;
+            left: 270px;
+            text-align: center;
+            width: 100px;
+        }
+        &__registration {
+            color: #f9f7e6;
+            font-size: 26px;
+            text-align: center;
+            margin: 10px auto 0;
+        }
+        &__noday {
+            background: url(../images/stepsuccess-noday.png) 0 0 no-repeat;
+            width: 485px;
+            height: 78px;
+            margin: 40px auto 0;
+            overflow: hidden;
+            text-indent: 110%;
+            white-space: nowrap;
+        }
+        &__awards {
+            width: 473px;
+            height: 495px;
+            margin: 30px auto 0;
+            position: relative;
+            .stepbtn--getaward {
+                background-size: 100% 100%;
+                position: absolute;
+                width: 315px;
+                margin-left: -157px;
+                left: 50%;
+                bottom: 60px;
+            }
+            .stepbtn--ungetaward {
+                background: url(../images/step-btn-disabled.png) 0 0 no-repeat;
+                background-size: 100% 100%;
+                cursor: default;
+            }
+            .stepsuccess__note {
+                color: #b0b0b0;
+                font-family: "source-han-serif-tc";
+                font-size: 22px;
+                position: absolute;
+                bottom: 25px;
+                left: 140px;
+            }
+            &--award1 {
+                background: url(../images/stepsuccess-award-1.png) 0 0 no-repeat;
+            }
+        }
+        &__txt {
+            color: #e1c361;
+            font-size: 30px;
+            font-weight: 600;
+            text-align: center;
+            margin: 30px 0 0 0;
+            line-height: 1.2;
+        }
+        &__formarea {
+            margin: 30px auto 0;
+            width: 450px;
+        }
+        &__inputbox {
+            background: url(../images/step-input-bg.png) 0 0 no-repeat;
+            width: 100%;
+            height: 74px;
+            font-size: 19px;
+            padding: 0 0 0 30px;
+            input {
+                background: none;
+                border: 0;
+                margin-top: 23px;
+                width: 90%;
+                outline: none;
+            }
+            select {
+                background: none;
+                border: 0;
+                margin-top: 20px;
+                width: 90%;
+                outline: none;
+            }
+            &--small {
+                box-sizing: border-box;
+                background: url(../images/step-input-small-bg.png) 0 0 no-repeat;
+                display: inline-block;
+                width: 186px;
+                height: 74px;
+            }
+            &--med {
+                box-sizing: border-box;
+                background: url(../images/step-input-med-bg.png) 0 0 no-repeat;
+                display: inline-block;
+                width: 260px;
+                height: 74px;
+            }
+        }
+        .formarea__txt {
+            text-align: right;
+            color: #a0a0a0;
+            font-size: 24px;
+        }
+        .red {
+            color: #e60012;
+        }
+        .checkbox {
+            background: url(../images/checkbox-bg.png) 0 0 no-repeat;
+            width: 32px;
+            height: 32px;
+            float: left;
+            margin: 20px 0 0 0;
+            cursor: pointer;
+            &__txt {
+                float: left;
+                width: 400px;
+                padding: 0 0 0 5px;
+                font-size: 22px;
+                text-align: left;
+                color: #fff;
+                margin: 15px 0 0 0;
+                line-height: 1.5;
+            }
+            &__active {
+                background: url(../images/checkbox-checked-bg.png) 0 0 no-repeat;
+            }
+            input {
+                display: none;
+            }
+        }
+    }
+    .stepshare {
+        background: url(../images/bg-process.png) 0 0 no-repeat;
+        background-size: 100% 100%;
+        min-height: 1190px;
+        padding-bottom: 80px;
+        > .l-container {
+            width: 520px;
+            margin: 0 auto;
+        }
+        &__hd {
+            box-sizing: border-box;
+            padding: 80px 0 0 0;
+            hr {
+                background-color: #e1c361;
+                border: 0;
+                height: 1px;
+                margin: 30px auto 0;
+            }
+        }
+        &__title {
+            background: url(../images/stepshare-title.png) 0 0 no-repeat;
+            width: 431px;
+            height: 71px;
+            margin: 0 auto;
+            overflow:hidden;
+            text-indent: 110%;
+            white-space: nowrap;
+        }
+        &__bd {
+            margin: 30px 0 0 0;
+        }
+        &__awards {
+            width: 473px;
+            margin: 0 auto;
+        }
+        &__award--after {
+            padding: 80px 0 0 0;
+        }
+        &__txt {
+            color: #e1c361;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            margin: 30px 0 0 0;
+        }
+        &__sharebtn {
+            cursor: pointer;
+            width: 504px;
+            height: 77px;
+            margin: 20px auto 0;
+            overflow:hidden;
+            text-indent: 110%;
+            white-space: nowrap;
+            &--fb {
+                background: url(../images/sharebtn-fb.png) 0 0 no-repeat;
+            }
+        }
+        .linebox {
+            margin: 10px auto 0;
+            text-align: center;
+        }
+    }
+    .stepfail {
+        background: url(../images/bg-steptel.png) 0 0 no-repeat;
+        background-size: 100% 100%;
+        min-height: 960px;
+        > .l-container {
+            width: 520px;
+            margin: 0 auto;
+        }
+        &__hd {
+            box-sizing: border-box;
+            padding: 80px 0 0 0;
+            hr {
+                background-color: #e1c361;
+                border: 0;
+                height: 1px;
+                margin: 30px auto 0;
+            }
+        }
+        &__title {
+            background: url(../images/stepfail-title.png) 0 0 no-repeat;
+            width: 450px;
+            height: 34px;
+            margin: 0 auto;
+            overflow:hidden;
+            text-indent: 110%;
+            white-space: nowrap;
+        }
+        &__bd {
+            margin: 15px 0 0 0;
+        }
+        &__txt {
+            color: #e1c361;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 15px 0 0 0;
+            line-height: 1.5;
+        }
+        &__failpic {
+            background: url(../images/stepfail-pic.png) 0 0 no-repeat;
+            width: 473px;
+            height: 372px;
+            margin: 0 auto;
+            overflow: hidden;
+            text-indent: 110%;
+            white-space: nowrap;
+        }
+        .stepbtn--outlink {
+            margin: 10px auto 0;
+        }
+        .stepbtn--retry {
+            margin: 10px auto 0;
+        }
+    }
+    .robot {
+        width: 304px;
+        margin: 15px auto;
+    }
+}
+
+.popup {
+    background: rgba(0,0,0,0.9);
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 9999;
+    &__box {
+        background: url(../images/bg-popup.png) 0 0 no-repeat;
+        width: 491px;
+        height: 378px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -189px 0 0 -245px;
+        text-align: center;
+    }
+    &__hd {
+        margin: 90px 0 0 0;
+    }
+    &__title {
+        font-weight: bold;
+        font-size: 32px;
+    }
+    &__txt {
+        font-weight: bold;
+        font-size: 26px;
+        line-height: 1.5;
+        margin: 25px 0 0 0;
+    }
+    .stepbtn--yes {
+        width: 188px;
+        height: 74px;
+        display: inline-block;
+        font-size: 26px;
+        margin: 0 5px 0 0;
+    }
+    .stepbtn--no {
+        width: 250px;
+        height: 74px;
+        display: inline-block;
+        font-size: 26px;
+    }
+}
+
+.note {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.9);
+    position: fixed;
+    font-family: 'source-han-serif-tc';
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    overflow-y: auto;
+    &__box {
+        background: url(../images/bg-note.png) 0 0 no-repeat;
+        width: 640px;
+        margin: 0 auto;
+        position: relative;
+    }
+    &__close {
+        background: url(../images/note-close.png) 0 0 no-repeat;
+        width: 23px;
+        height: 23px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+    }
+    &__hd {
+        padding: 60px 0 0 0;
+    }
+    &__title {
+        background: url(../images/note-title.png) 0 0 no-repeat;
+        width: 307px;
+        height: 151px;
+        margin: 0 auto;
+        overflow:hidden;
+        text-indent: 110%;
+        white-space: nowrap;
+    }
+    &__bd {
+        margin: 20px 0 0 30px;
+        padding: 0 30px 20px;
+    }
+    &__li {
+        color: #fff;
+        list-style: decimal;
+        margin: 0 0 0 2rem;
+        font-size: 20px;
+        line-height: 1.5;
+        margin: 0 0 10px 0;
+        text-shadow: 2px 2px 3px #000;
+    }
+}
+
+.btnarea {
+    margin: 30px 0 0 0;
+}
+
+.btn__note {
+    background: url(../images/btn-note.png) 0 0 no-repeat;
+    width: 206px;
+    height: 42px;
+    margin: 0 auto;
+    overflow: hidden;
+    text-indent: 110%;
+    white-space: nowrap;
+    cursor: pointer;
+    position: relative;
+    z-index: 9;
+}
+/*=====  End of main  ======*/
+
+.mask {
+    background: url(../images/step-blood.png) 0 0 no-repeat;
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin: 0 0 0 -45px;
+    opacity: 0;
+    z-index: 1;
+}
+
+.mask--2 {
+    background: url(../images/step-blood-2.png) 0 0 no-repeat;
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin: 0 0 0 -45px;
+    opacity: 0;
+    z-index: 1;
+}
+
+.mask--3 {
+    background: url(../images/step-blood-3.png) 0 0 no-repeat;
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin: 0 0 0 -45px;
+    opacity: 0;
+    z-index: 1;
+}
+
+.laymask__left {
+    background: url(../images/red_bg.gif) 0 0 repeat;
+    position: fixed;
+    width: 50%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    margin-left: -320px;
+    margin-top: 70px;
+    z-index: 2001;
+}
+
+.laymask__right {
+    background: url(../images/red_bg.gif) 0 0 repeat;
+    position: fixed;
+    width: 50%;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    margin-right: -320px;
+    margin-top: 70px;
+    z-index: 2001;
+}
+
+.sel {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.award {
+    background: url(../images/bg-step.png) 0 0 repeat-y;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    padding: 45px 0;
+    margin: 70px 0 0 0;
+    &__pic {
+        background: url(../images/award-pic.png) 0 0 no-repeat;
+        background-size: cover;
+        width: 553px;
+        height: 1816px;
+        margin: 0 auto;
+    }
+}
+
+//sakura
+#sakura {
+    overflow: hidden;
+    width: 640px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 0;
+    opacity: 0;
+}
+.hana {
+    position: absolute;
+    height: 0;
+    width: 0;
+    border: 10px solid pink;
+    border-radius: 15px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.hana::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -7px;
+    left: -7px;
+    height: 0;
+    width: 0;
+    border: 10px solid pink;
+    border-radius: 15px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+}
+.y1 {
+    -webkit-animation:v1 10s infinite;
+    animation:v1 10s infinite;
+}
+.y2 {
+    -webkit-animation:v2 9s infinite;
+    animation:v2 9s infinite;
+}
+@-webkit-keyframes v1 {
+    from{ -webkit-transform: rotate(0deg); }
+    50%{ -webkit-transform: rotate(270deg); }
+    to{ -webkit-transform: rotate(1deg); }
+}
+@-webkit-keyframes v2 {
+    from{ -webkit-transform: rotate(-90deg) scale(.8); }
+    50%{ -webkit-transform: rotate(-360deg) scale(.8); }
+    to{ -webkit-transform: rotate(-89deg) scale(.8); }
+}
+@keyframes v1 {
+    from{ transform: rotate(0deg); }
+    50%{ transform: rotate(270deg); }
+    to{ transform: rotate(1deg); }
+}
+@keyframes v2 {
+    from{ transform: rotate(-90deg) scale(.8); }
+    50%{ transform: rotate(-360deg) scale(.8); }
+    to{ transform: rotate(-89deg) scale(.8); }
+}
+
+.fa {
+    color: #ea8289;
+    position: absolute;
+    overflow: hidde;
+}

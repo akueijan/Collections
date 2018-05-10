@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>滴血認親回娘家，家樂福千萬點數等你拿！</title>
+    <meta name="description" content="馬上進入活動網站，輸入你的會員註冊電話號碼，完成會員認證，立即領取娘家好禮乙份，還能再抽1,000萬會員點數！">
+    <meta name="viewport" content="width=640;initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <meta itemprop="name" content="滴血認親回娘家，家樂福千萬點數等你拿！">
+    <meta itemprop="description" content="馬上進入活動網站，輸入你的會員註冊電話號碼，完成會員認證，立即領取娘家好禮乙份，還能再抽1,000萬會員點數！">
+    <meta itemprop="image" content="http://friendoprod.blob.core.windows.net/ipage/template/1/images/carrefour/fbsharefamily.jpg">
+    <meta property="og:title" content="滴血認親回娘家，家樂福千萬點數等你拿！">
+    <meta property="og:description" content="馬上進入活動網站，輸入你的會員註冊電話號碼，完成會員認證，立即領取娘家好禮乙份，還能再抽1,000萬會員點數！">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://friendoprod.blob.core.windows.net/ipage/template/1/images/carrefour/fbsharefamily.jpg">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <!--CDN link -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script src="https://code.createjs.com/preloadjs-0.6.1.min.js"></script>
+    <script src="https://use.typekit.net/ucz4dlw.js"></script>
+    <script>
+        try {
+            Typekit.load({
+                async: true
+            });
+        } catch (e) {}
+    </script>
+    <script src="js/vendor.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="https://unpkg.com/vue-grecaptcha@latest/dist/vue-grecaptcha.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaInit&amp;render=explicit" async defer></script>
+</head>
+<!--html body-->
+
+<body>
+    <div class="l-wrap" id="app">
+        <!-- render nav view-->
+        <div class="l-main">
+            <div class="l-view">
+                <nav class="nav" id="nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+                    <div class="nav__hd">
+                        <div class="l-container">
+                            <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO">LOGO</a></h1>
+                            <div class="nav-fbshare" v-on:click="fbShare();return false;"></div>
+                            <div class="nav-btn">
+                                <div class="one"></div>
+                                <div class="two"></div>
+                                <div class="three"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-bd">
+                        <div class="l-container">
+                            <div class="nav-menu" role="navigation">
+                                <ul class="clearfix">
+                                    <li class="nav-item"><a href="index.html" alt="項目" itemprop="url" title="項目"><span>首頁</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>快來滴血認親拿好禮</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>活動辦法</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>影片專區</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>與家樂福成為一家人</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>家樂福facebook</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>家樂福Instagram</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>家樂福LINE官方帳號</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>得獎名單 | 3月15日公布</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="l-box">
+                    <div class="l-container">
+                        <transition name="fade">
+                            <div class="step1" v-show="step.telNum" v-cloak>
+                                <h2>欸~別急著叫阿母，我還不知道你是哪位捏?</h2>
+                                <p>請填寫電話號碼驗證會員身份</p>
+                                <input type="radio" name="tel" value="0" id="mobile" checked>
+                                <label for="mobile">手機號碼</label>
+                                <input type="radio" name="tel" value="1" id="homeNum">
+                                <label for="homeNum">市內電話</label>
+                                <div class="sss1"><span class="txt" v-cloak>{{ numStr }}</span></div><br>
+                                <div class="telarea" id="foo">
+                                    <div class="btn" v-on:click="pushVal(1)">
+                                        <p>1</p>
+                                        <div class="div1"></div>
+                                    </div>
+                                    <div class="btn" v-on:click="pushVal(2)">
+                                        <p>2</p>
+                                        <div class="div1"></div>
+                                    </div>
+                                    <div class="btn" v-on:click="pushVal(3)">
+                                        <p>3</p>
+                                        <div class="div1"></div>
+                                    </div>
+                                    <div class="btn" v-on:click="pushVal(4)">
+                                        <p>4</p>
+                                        <div class="div1"></div>
+                                    </div>
+                                    <div class="btn" v-on:click="pushVal(5)">
+                                        <p>5</p>
+                                        <div class="div1"></div>
+                                    </div>
+                                    <div class="btn" v-on:click="pushVal(6)">
+                                        <p>6</p>
+                                        <div class="div1"></div>
+                                    </div>
+                                    <div class="btn" v-on:click="pushVal(7)">
+                                        <p>7</p>
+                                        <div class="div1"></div>
+                                    </div>
+                                    <div class="btn" v-on:click="pushVal(8)">
+                                        <p>8</p>
+                                        <div class="div1"></div>
+                                    </div>
+                                    <div class="btn" v-on:click="pushVal(9)">
+                                        <p>9</p>
+                                        <div class="div1"></div>
+                                    </div>
+                                    <div class="btn" v-on:click="pushVal(0)">
+                                        <p>0</p>
+                                        <div class="div1"></div>
+                                    </div>
+                                    <div class="btn" v-on:click="delStr()">
+                                        <p>X</p>
+                                        <div class="div1"></div>
+                                    </div>
+                                </div>
+                                <div v-on:click="telNum_sumit();">
+                                    <p>GO</p>
+                                </div>
+                            </div>
+                        </transition>
+                        <transition name="fade">
+                            <div class="step2" v-show="step.personId" v-cloak>
+                                <h2>阿唷！突然覺得你蠻面熟的但還差一點點就能想起你...</h2>
+                                <p>為確保您的權益請填寫身分證字號或居留證號(非本國籍)進行完整驗證</p>
+                                <input type="radio" name="id" id="perid" checked>
+                                <label for="perid">身份證字號</label>
+                                <input type="radio" name="id" id="arc">
+                                <label for="arc">居留證號 Alien resident certificate ( ARC )</label><br>
+                                <input v-model="profile.perId"><br>
+                                <input type="checkbox" id="agree">
+                                <label for="agree">我已了解活動辦法並同意提供個人資料作為會員身份驗證與活動參加使用</label><br>
+                                <vue-grecaptcha v-model="captchaResponse" ref="recaptcha"></vue-grecaptcha>
+                                <div v-on:click="personId_sumit();">
+                                    <p>這次一定沒問題</p>
+                                </div>
+                            </div>
+                        </transition>
+                        <transition name="fade">
+                            <div class="step3" v-show="step.successPage" v-cloak>
+                                <h2>喔喔喔~原來...原來是你啊！距離上次見面已經是<span class="red">{{ days }}</span>天前了耶~為你準備小小心意，就請收下吧！</h2>
+                                <div class="getitems"><img width="640" height="300"></div>
+                                <h2>請確認您的會員資料領取優惠券領取成功再抽家樂福<span class="red">1,000萬</span>會員點數</h2>
+                                <form>
+                                    <div>
+                                        <label for="userName">姓名(不可修改)</label>
+                                        <input id="userName" v-model="profile.uName">
+                                    </div>
+                                    <div>
+                                        <label for="userCity">*縣市</label>
+                                        <input id="userCity" v-model="profile.uCity">
+                                    </div>
+                                    <div>
+                                        <label for="userArea">*地區</label>
+                                        <input id="userArea" v-model="profile.uArea">
+                                    </div>
+                                    <div>
+                                        <label for="userAddres">*地址</label>
+                                        <input id="userAddres" v-model="profile.uAdr">
+                                    </div>
+                                    <div>
+                                        <label for="userHometel">居住電話</label>
+                                        <input id="userHometel" v-model="profile.uTel">
+                                    </div>
+                                    <div>
+                                        <label for="userMobile">*手機</label>
+                                        <input id="userMobile" v-model="profile.uMobile">
+                                    </div>
+                                    <div>
+                                        <label for="userEmail">*電子信箱</label>
+                                        <input id="userEmail" v-model="profile.uEmail">
+                                    </div>
+                                    <p>*為必填欄位</p>
+                                    <input type="checkbox" id="correct">
+                                    <label for="correct">我已經確認會員資料正確無誤，並瞭解如需再次修改可洽詢客服 0809-001-365</label>
+                                    <a href="javascript:" v-on:click="successPage_sumit();">
+                                        <p>填寫完成，那我就不客氣地收下囉~</p>
+                                    </a>
+                                </form>
+                            </div>
+                        </transition>
+                        <transition name="fade">
+                            <div class="step4" v-show="step.itemShare" v-cloak>
+                                <h2>成功領取娘家好禮！請於結帳時出示下方條碼使用</h2>
+                                <div class="getitems"><img width="640" height="300"></div>
+                                <h2>快來好康逗相報~樓頂揪樓下~阿母揪阿爸作伙拿好康哦~~</h2><a href="javascript:" v-on:click="fbShare();return false;">facebook 分享</a>
+                                <div class="line">LINE 分享</div>
+                            </div>
+                        </transition>
+                        <transition name="fade">
+                            <div class="step5" v-show="step.falsePage" v-cloak>
+                                <h2>哇！原來是我尚未結緣的家人！</h2>
+                                <p>查無此會員資料，請重新再試一次或洽詢客服 0809-001-365若為非會員可先至家樂福門市申辦會員後即可參加拿好禮</p>
+                                <div class="getitems"><img width="640" height="300"></div><a href="javascript:" v-on:click="falsePage_sumit();">我要再試一次</a><a href="javascript:" alt="" title="">認親不嫌晚，秒變會員抽千萬點數！</a>
+                            </div>
+                        </transition>
+                    </div>
+                </div>
+            </div><a class="step__other" href="javascript: void(0)" title="" alt="">滴血認親拿好禮</a>
+            <div class="laymask__left"></div>
+            <div class="laymask__right"></div>
+            <!--render main view-->
+        </div>
+        <transition name="fade">
+            <div class="popup" v-show="popup" v-cloak>
+                <div class="popup__box">
+                    <div class="popup__hd">
+                        <h2 class="popup__title">您是否已經確認資料正確無誤</h2>
+                        <p class="popup__txt">如需再次修改會員資料<br>請洽詢客服 0809-001-365</p>
+                    </div>
+                    <div class="popup__bd"><a class="stepbtn stepbtn--yes" href="javascript:" alt="" title="" v-on:click="popupGo();">是，我確定</a><a class="stepbtn stepbtn--no" href="javascript:" alt="" title="" v-on:click="popupClose();">等等，我再確認一下</a></div>
+                </div>
+            </div>
+        </transition>
+    </div>
+    <div class="l-footer footer">
+        <div class="l-container">
+            <div class="footer__bg">
+                <p>客服專線：0809-001-365</p>
+            </div>
+            <div class="copyright">
+                <p>Copyright@2018 CarrefourTaiwan. All Rights Reserved. 建議使用 IE10.0 以上瀏覽器</p>
+            </div>
+        </div>
+    </div>
+    <div class="fb-root"></div>
+    <script src="js/appStep.js"></script>
+    <script type="text/javascript">
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.4&appId=262477160615577";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+</body>
+
+</html>

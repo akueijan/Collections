@@ -1,0 +1,51 @@
+﻿doctype
+html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
+    //page default Information
+    block pageInfo
+        - var pageTitle = "滴血認親回娘家，家樂福千萬點數等你拿！"
+        - var pageDesc = "馬上進入活動網站，輸入你的會員註冊電話號碼，完成會員認證，立即領取娘家好禮乙份，還能再抽1,000萬會員點數！"
+        - var sharepic = "http://friendoprod.blob.core.windows.net/ipage/template/1/images/carrefour/fbsharefamily.jpg"
+    //html head
+    include _head.pug
+    //html body
+    body
+        div.l-wrap#app
+            // render nav view
+            div.l-main
+                div.l-view
+                    include _nav.pug
+                    div.l-box
+                        block page_main
+                a(href="javascript: void(0)" title="" alt="").step__other 滴血認親拿好禮
+                div.laymask__left
+                div.laymask__right
+                //render main view
+            transition(name="fade")
+                div(v-show="popup" v-cloak).popup
+                    div.popup__box
+                        div.popup__hd
+                            h2.popup__title 您是否已經確認資料正確無誤
+                            p.popup__txt 如需再次修改會員資料
+                                br
+                                | 請洽詢客服 0809-001-365
+                        div.popup__bd
+                            a.stepbtn.stepbtn--yes(href="javascript:" alt="" title="" v-on:click="popupGo();") 是，我確定
+                            a.stepbtn.stepbtn--no(href="javascript:" alt="" title="" v-on:click="popupClose();") 等等，我再確認一下
+        div.l-footer.footer
+            div.l-container
+                div.footer__bg
+                    p 客服專線：0809-001-365
+                div.copyright 
+                    p Copyright@2018 CarrefourTaiwan. All Rights Reserved. 建議使用 IE10.0 以上瀏覽器
+        div.fb-root
+        block bottomScript
+        //- for loading
+        script(type='text/javascript').       
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.4&appId=262477160615577";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));

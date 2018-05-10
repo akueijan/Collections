@@ -1,0 +1,126 @@
+﻿//- page laytout name
+extends _layout.pug
+
+//- page html
+block page_main
+    .l-container
+        transition(name="fade")
+            div.step1(v-show="step.telNum" v-cloak)
+                h2 欸~別急著叫阿母，我還不知道你是哪位捏?
+                p 請填寫電話號碼驗證會員身份
+                input(type="radio" name="tel" value="0" id="mobile" checked) 
+                label(for="mobile") 手機號碼
+                input(type="radio" name="tel"  value="1" id="homeNum") 
+                label(for="homeNum") 市內電話
+                div.sss1
+                    span.txt(v-cloak) {{ numStr }}
+                br
+                div.telarea#foo
+                    div.btn(v-on:click="pushVal(1)")
+                        p 1
+                        div.div1
+                    div.btn(v-on:click="pushVal(2)")
+                        p 2
+                        div.div1
+                    div.btn(v-on:click="pushVal(3)")
+                        p 3
+                        div.div1
+                    div.btn(v-on:click="pushVal(4)")
+                        p 4
+                        div.div1
+                    div.btn(v-on:click="pushVal(5)")
+                        p 5
+                        div.div1
+                    div.btn(v-on:click="pushVal(6)")
+                        p 6
+                        div.div1
+                    div.btn(v-on:click="pushVal(7)")
+                        p 7
+                        div.div1
+                    div.btn(v-on:click="pushVal(8)")
+                        p 8
+                        div.div1
+                    div.btn(v-on:click="pushVal(9)")
+                        p 9
+                        div.div1
+                    div.btn(v-on:click="pushVal(0)")
+                        p 0
+                        div.div1
+                    div.btn(v-on:click="delStr()")
+                        p X
+                        div.div1
+                div(v-on:click="telNum_sumit();")
+                    p GO
+        transition(name="fade")
+            div.step2(v-show="step.personId" v-cloak)
+                h2 阿唷！突然覺得你蠻面熟的但還差一點點就能想起你...
+                p 為確保您的權益請填寫身分證字號或居留證號(非本國籍)進行完整驗證
+                input(type="radio" name="id" id="perid" checked) 
+                label(for="perid") 身份證字號
+                input(type="radio" name="id" id="arc") 
+                label(for="arc") 居留證號 Alien resident certificate ( ARC )
+                br
+                input(v-model="profile.perId")
+                br
+                input(type="checkbox" id="agree") 
+                label(for="agree") 我已了解活動辦法並同意提供個人資料作為會員身份驗證與活動參加使用
+                br
+                vue-grecaptcha(v-model="captchaResponse" ref="recaptcha")
+                div(v-on:click="personId_sumit();")
+                    p 這次一定沒問題
+        transition(name="fade")
+            div.step3(v-show="step.successPage" v-cloak)
+                h2 喔喔喔~原來...原來是你啊！距離上次見面已經是
+                    span.red {{ days }}
+                    | 天前了耶~為你準備小小心意，就請收下吧！
+                div.getitems
+                    img(width="640" height="300")
+                h2 請確認您的會員資料領取優惠券領取成功再抽家樂福
+                    span.red 1,000萬
+                    | 會員點數
+                form
+                    div
+                        label(for="userName") 姓名(不可修改)
+                        input(id="userName" v-model="profile.uName")
+                    div
+                        label(for="userCity") *縣市
+                        input(id="userCity" v-model="profile.uCity")
+                    div
+                        label(for="userArea") *地區
+                        input(id="userArea" v-model="profile.uArea")
+                    div
+                        label(for="userAddres") *地址
+                        input(id="userAddres" v-model="profile.uAdr")
+                    div
+                        label(for="userHometel") 居住電話
+                        input(id="userHometel" v-model="profile.uTel")
+                    div
+                        label(for="userMobile") *手機
+                        input(id="userMobile" v-model="profile.uMobile")
+                    div
+                        label(for="userEmail") *電子信箱
+                        input(id="userEmail" v-model="profile.uEmail")
+                    p *為必填欄位
+                    input(type="checkbox" id="correct") 
+                    label(for="correct") 我已經確認會員資料正確無誤，並瞭解如需再次修改可洽詢客服 0809-001-365
+                    a(href="javascript:" v-on:click="successPage_sumit();") 
+                        p 填寫完成，那我就不客氣地收下囉~
+        transition(name="fade")
+            div.step4(v-show="step.itemShare" v-cloak)
+                h2 成功領取娘家好禮！請於結帳時出示下方條碼使用
+                div.getitems
+                    img(width="640" height="300")
+                h2 快來好康逗相報~樓頂揪樓下~阿母揪阿爸作伙拿好康哦~~
+                a(href="javascript:" v-on:click="fbShare();return false;") facebook 分享
+                div.line LINE 分享
+        transition(name="fade")
+            div.step5(v-show="step.falsePage" v-cloak)
+                h2 哇！原來是我尚未結緣的家人！
+                p 查無此會員資料，請重新再試一次或洽詢客服 0809-001-365若為非會員可先至家樂福門市申辦會員後即可參加拿好禮
+                div.getitems
+                    img(width="640" height="300")
+                a(href="javascript:" v-on:click="falsePage_sumit();") 我要再試一次
+                a(href="javascript:" alt="" title="") 認親不嫌晚，秒變會員抽千萬點數！
+
+block bottomScript
+    script(src="js/appStep.js")

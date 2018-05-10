@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>滴血認親回娘家，家樂福千萬點數等你拿！</title>
+    <meta name="description" content="馬上進入活動網站，輸入你的會員註冊電話號碼，完成會員認證，立即領取娘家好禮乙份，還能再抽1,000萬會員點數！">
+    <meta name="viewport" content="width=640;initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <meta itemprop="name" content="滴血認親回娘家，家樂福千萬點數等你拿！">
+    <meta itemprop="description" content="馬上進入活動網站，輸入你的會員註冊電話號碼，完成會員認證，立即領取娘家好禮乙份，還能再抽1,000萬會員點數！">
+    <meta itemprop="image" content="http://friendoprod.blob.core.windows.net/ipage/template/1/images/carrefour/fbsharefamily.jpg">
+    <meta property="og:title" content="滴血認親回娘家，家樂福千萬點數等你拿！">
+    <meta property="og:description" content="馬上進入活動網站，輸入你的會員註冊電話號碼，完成會員認證，立即領取娘家好禮乙份，還能再抽1,000萬會員點數！">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://friendoprod.blob.core.windows.net/ipage/template/1/images/carrefour/fbsharefamily.jpg">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <!--CDN link -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script src="https://code.createjs.com/preloadjs-0.6.1.min.js"></script>
+    <script src="https://use.typekit.net/ucz4dlw.js"></script>
+    <script>
+        try {
+            Typekit.load({
+                async: true
+            });
+        } catch (e) {}
+    </script>
+    <script src="js/vendor.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="https://unpkg.com/vue-grecaptcha@latest/dist/vue-grecaptcha.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaInit&amp;render=explicit" async defer></script>
+</head>
+<!--html body-->
+
+<body>
+    <div class="l-wrap" id="app">
+        <!-- render nav view-->
+        <div class="l-main">
+            <div class="l-view">
+                <nav class="nav" id="nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+                    <div class="nav__hd">
+                        <div class="l-container">
+                            <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO">LOGO</a></h1>
+                            <div class="nav-fbshare" v-on:click="fbShare();return false;"></div>
+                            <div class="nav-btn">
+                                <div class="one"></div>
+                                <div class="two"></div>
+                                <div class="three"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-bd">
+                        <div class="l-container">
+                            <div class="nav-menu" role="navigation">
+                                <ul class="clearfix">
+                                    <li class="nav-item"><a href="index.html" alt="項目" itemprop="url" title="項目"><span>首頁</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>快來滴血認親拿好禮</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>活動辦法</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>影片專區</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>與家樂福成為一家人</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>家樂福facebook</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>家樂福Instagram</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>家樂福LINE官方帳號</span></a></li>
+                                    <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>得獎名單 | 3月15日公布</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="l-box">
+                    <section class="process">
+                        <div class="l-container">
+                            <div class="steptel">
+                                <div class="steptel__hd">
+                                    <h2 class="steptel__title">別急著叫阿母，我還不知你是哪位?</h2>
+                                    <p class="steptel__txt">請填寫電話號碼驗證會員身份</p>
+                                    <hr>
+                                </div>
+                                <div class="steptel__bd">
+                                    <div class="steptel__selbox">
+                                        <label class="radiobg" v-bind:class="{ radiobg__active: utel_checked }">
+                        <input type="radio" id="telmobile" name="contactType" checked>
+                      </label>
+                                        <label class="tel" for="telmobile">手機號碼</label>
+                                        <label class="radiobg" v-bind:class="{ radiobg__active: !utel_checked }">
+                        <input type="radio" id="telhome" name="contactType">
+                      </label>
+                                        <label class="tel" for="telhome">市內電話</label>
+                                    </div>
+                                    <div class="steptel__number">
+                                        <p class="steptel__numtxt">{{ numStr }}</p>
+                                        <p class="steptel__numtxt">請輸入02-XXXXXXX</p>
+                                        <p class="steptel__numtxt">請輸入09XXXXXXXX</p>
+                                    </div>
+                                    <div class="steptel__clickbox">
+                                        <ul class="clearfix" id="keyboard">
+                                            <li class="steptel__btn steptel__opt--1 steptel__btn--1" v-on:click="pushVal(1)">1
+                                                <div class="mask"></div>
+                                            </li>
+                                            <li class="steptel__btn steptel__opt--3 steptel__btn--2" v-on:click="pushVal(2)">2
+                                                <div class="mask--3"></div>
+                                            </li>
+                                            <li class="steptel__btn steptel__opt--2 steptel__btn--3" v-on:click="pushVal(3)">3
+                                                <div class="mask--2"></div>
+                                            </li>
+                                            <li class="steptel__btn steptel__opt--3 steptel__btn--4" v-on:click="pushVal(4)">4
+                                                <div class="mask--3"></div>
+                                            </li>
+                                            <li class="steptel__btn steptel__opt--2 steptel__btn--5" v-on:click="pushVal(5)">5
+                                                <div class="mask--2"></div>
+                                            </li>
+                                            <li class="steptel__btn steptel__opt--1 steptel__btn--6" v-on:click="pushVal(6)">6
+                                                <div class="mask"></div>
+                                            </li>
+                                            <li class="steptel__btn steptel__opt--1 steptel__btn--7" v-on:click="pushVal(7)">7
+                                                <div class="mask"></div>
+                                            </li>
+                                            <li class="steptel__btn steptel__opt--2 steptel__btn--8" v-on:click="pushVal(8)">8
+                                                <div class="mask--2"></div>
+                                            </li>
+                                            <li class="steptel__btn steptel__opt--3 steptel__btn--9" v-on:click="pushVal(9)">9
+                                                <div class="mask--3"></div>
+                                            </li>
+                                            <li class="steptel__btn steptel__opt--2 steptel__btn--10" v-on:click="contactConfirm()">確定
+                                                <div class="mask--2"></div>
+                                            </li>
+                                            <li class="steptel__btn steptel__opt--1 steptel__btn--11" v-on:click="pushVal(0)">0
+                                                <div class="mask"></div>
+                                            </li>
+                                            <li class="steptel__btn steptel__opt--3 steptel__btn--12" v-on:click="delStr()">刪除
+                                                <div class="mask--3"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stepid">
+                                <div class="l-container">
+                                    <div class="stepid__hd">
+                                        <h2 class="stepid__title">阿唷!突然覺得你蠻面熟的...</h2>
+                                        <hr>
+                                        <p class="stepid__txt">為確保您的權益 請填寫身分證字號或居留證號(非本國籍)進行完整驗證</p>
+                                    </div>
+                                    <div class="stepid__bd">
+                                        <div class="stepid__selbox">
+                                            <label class="radiobg" v-bind:class="{ radiobg__active: uid_checked }">
+                          <input type="radio" id="userid" name="uidType" checked>
+                        </label>
+                                            <label for="userid">身分證字號</label>
+                                        </div>
+                                        <div class="stepid__selbox">
+                                            <label class="radiobg" v-bind:class="{ radiobg__active: !uid_checked }">
+                          <input type="radio" id="userarc" name="uidType">
+                        </label>
+                                            <label for="userarc">居留證號 <span class="uidarc">Alien resident certificate ( ARC )</span></label>
+                                        </div>
+                                        <div class="stepid__selbox">
+                                            <div class="stepid__userid">
+                                                <input type="text">
+                                            </div>
+                                        </div>
+                                        <div class="stepid__selbox clearfix">
+                                            <label class="checkbox" v-bind:class="{ checkbox__active: checkbox_checked }">
+                          <input type="checkbox" id="agrcheck_profile" checked>
+                        </label>
+                                            <label class="checkbox__txt" for="agrcheck_profile">我已了解活動辦法並同意提供個人資料作為會員身份驗證與活動參加使用</label>
+                                        </div>
+                                        <div class="stepid__selbox">
+                                            <div class="robot">我不是機器人區域</div>
+                                        </div>
+                                        <div class="stepid__selbox">
+                                            <div class="stepbtn stepbtn--uid">這次一定沒問題</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stepsuccess">
+                                <div class="l-container">
+                                    <div class="stepsuccess__hd">
+                                        <h2 class="stepsuccess__title">認親成功</h2>
+                                        <div class="stepsuccess__havedaysbox">
+                                            <div class="stepsuccess__havedays"><span class="stepsuccess__days">33333</span></div>
+                                            <div class="stepsuccess__registration">( 註冊日期：民國 107 年 01 月 01 日 )</div>
+                                        </div>
+                                        <div class="stepsuccess__noday">感動吶~以後要常常回來 </div>
+                                    </div>
+                                    <div class="stepsuccess__bd">
+                                        <div class="stepsuccess__awards"><img src="images/stepsuccess-award-1.png">
+                                            <div class="stepbtn stepbtn--getaward stepbtn--ungetaward">領取娘家好禮</div>
+                                            <p class="stepsuccess__note">(請先完成會員資料)</p>
+                                        </div>
+                                        <hr>
+                                        <p class="stepsuccess__txt">請確認您的會員資料領取優惠券<br>領取成功再抽家樂福1,000萬會員點數</p>
+                                        <div class="stepsuccess__formarea">
+                                            <ul>
+                                                <li class="stepsuccess__inputbox">
+                                                    <input type="text">
+                                                </li>
+                                                <li class="stepsuccess__inputbox">
+                                                    <select>
+                              <option value="台北市">台北市</option>
+                            </select>
+                                                </li>
+                                                <li class="stepsuccess__inputbox">
+                                                    <select>
+                              <option value="中山區">中山區</option>
+                            </select>
+                                                </li>
+                                                <li class="stepsuccess__inputbox">
+                                                    <input type="text">
+                                                </li>
+                                                <li class="stepsuccess__inputbox">
+                                                    <input type="text">
+                                                </li>
+                                                <li class="stepsuccess__inputbox">
+                                                    <input type="text">
+                                                </li>
+                                                <li class="stepsuccess__inputbox">
+                                                    <input type="text">
+                                                </li>
+                                                <li class="stepsuccess__inputbox">
+                                                    <input type="text">
+                                                </li>
+                                            </ul>
+                                            <p class="formarea__txt"> <span class="red">*</span>為必填欄位</p>
+                                            <div class="steptel__selbox clearfix">
+                                                <label class="checkbox" v-bind:class="{ checkbox__active: checkbox_checked }">
+                            <input type="checkbox" id="agrcheck_data" checked>
+                          </label>
+                                                <label class="checkbox__txt" for="agrcheck_data">我已經確認會員資料正確無誤，並瞭解如需再次修改可洽詢客服 0809-001-365</label>
+                                            </div>
+                                        </div>
+                                        <div class="stepbtn stepbtn--profile" v-on:click="popupOpen()">填寫完成，那我就不客氣地收下囉~</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stepshare">
+                                <div class="l-container">
+                                    <div class="stepshare__award--before">
+                                        <div class="stepsuccess__hd"></div>
+                                        <h2 class="stepsuccess__title">認親成功</h2>
+                                        <div class="stepsuccess__havedaysbox">
+                                            <div class="stepsuccess__havedays"><span class="stepsuccess__days">33333</span></div>
+                                            <div class="stepsuccess__registration">( 註冊日期：民國 107 年 01 月 01 日 )</div>
+                                        </div>
+                                        <div class="stepsuccess__noday">感動吶~以後要常常回來 </div>
+                                        <div class="stepsuccess__bd">
+                                            <div class="stepsuccess__awards"><img src="images/stepsuccess-award-1.png">
+                                                <div class="stepbtn stepbtn--getaward">領取娘家好禮</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="stepshare__award--after">
+                                        <div class="stepshare__bd">
+                                            <div class="stepshare__awards"><img src="images/stepshare-award-1.png"></div>
+                                            <div class="stepbtn stepbtn--close">關閉</div>
+                                        </div>
+                                    </div>
+                                    <p class="stepshare__txt">快來好康逗相報~作伙拿好康哦！</p>
+                                    <div class="stepshare__sharebtn stepshare__sharebtn--fb" v-on:click="fbShare();return false;">
+                                        <p>facebook分享</p>
+                                    </div>
+                                    <div class="linebox">
+                                        <div class="line"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stepfail">
+                                <div class="l-container">
+                                    <div class="stepfail__hd">
+                                        <h2 class="stepfail__title">哇！原來是我尚未結緣的家人！</h2>
+                                        <hr>
+                                        <p class="stepfail__txt">查無此會員資料，請重新再試一次<br>或洽詢客服 0809-001-365<br>非會員可至門市申辦會員後即可參加拿好禮</p>
+                                    </div>
+                                    <div class="stepfail__bd">
+                                        <div class="stepfail__failpic">認親不成功</div>
+                                        <div class="steptel__selbox">
+                                            <div class="stepbtn stepbtn--outlink"> <a href="#">認親不嫌晚，秒變會員抽千萬點數！</a></div>
+                                        </div>
+                                        <div class="steptel__selbox">
+                                            <div class="stepbtn stepbtn--retry">我要再試一次！</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div><a class="step__other" href="javascript: void(0)" title="" alt="">滴血認親拿好禮</a>
+            <div class="laymask__left"></div>
+            <div class="laymask__right"></div>
+            <!--render main view-->
+        </div>
+        <transition name="fade">
+            <div class="popup" v-show="popup" v-cloak>
+                <div class="popup__box">
+                    <div class="popup__hd">
+                        <h2 class="popup__title">您是否已經確認資料正確無誤</h2>
+                        <p class="popup__txt">如需再次修改會員資料<br>請洽詢客服 0809-001-365</p>
+                    </div>
+                    <div class="popup__bd"><a class="stepbtn stepbtn--yes" href="javascript:" alt="" title="" v-on:click="popupGo();">是，我確定</a><a class="stepbtn stepbtn--no" href="javascript:" alt="" title="" v-on:click="popupClose();">等等，我再確認一下</a></div>
+                </div>
+            </div>
+        </transition>
+    </div>
+    <div class="l-footer footer">
+        <div class="l-container">
+            <div class="footer__bg">
+                <p>客服專線：0809-001-365</p>
+            </div>
+            <div class="copyright">
+                <p>Copyright@2018 CarrefourTaiwan. All Rights Reserved. 建議使用 IE10.0 以上瀏覽器</p>
+            </div>
+        </div>
+    </div>
+    <div class="fb-root"></div>
+    <script src="js/appStep.js"></script>
+    <script type="text/javascript">
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.4&appId=262477160615577";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+</body>
+
+</html>

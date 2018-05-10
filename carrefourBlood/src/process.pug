@@ -1,0 +1,172 @@
+﻿//- page laytout name
+extends _layout.pug
+
+//- page html
+block page_main
+    section.process
+        div.l-container
+            div.steptel
+                div.steptel__hd
+                    h2.steptel__title 別急著叫阿母，我還不知你是哪位?
+                    p.steptel__txt 請填寫電話號碼驗證會員身份
+                    hr
+                div.steptel__bd
+                    div.steptel__selbox
+                        label.radiobg(v-bind:class="{ radiobg__active: utel_checked }")
+                            input(type="radio" id="telmobile" name="contactType" checked)
+                        label.tel(for="telmobile") 手機號碼
+                        label.radiobg(v-bind:class="{ radiobg__active: !utel_checked }")
+                            input(type="radio" id="telhome" name="contactType")
+                        label.tel(for="telhome") 市內電話
+                    div.steptel__number
+                        p.steptel__numtxt {{ numStr }}
+                        p.steptel__numtxt 請輸入02-XXXXXXX
+                        p.steptel__numtxt 請輸入09XXXXXXXX
+                    div.steptel__clickbox
+                        ul.clearfix#keyboard
+                            li.steptel__btn.steptel__opt--1.steptel__btn--1(v-on:click="pushVal(1)") 1
+                                div.mask
+                            li.steptel__btn.steptel__opt--3.steptel__btn--2(v-on:click="pushVal(2)") 2
+                                div.mask--3
+                            li.steptel__btn.steptel__opt--2.steptel__btn--3(v-on:click="pushVal(3)") 3
+                                div.mask--2
+                            li.steptel__btn.steptel__opt--3.steptel__btn--4(v-on:click="pushVal(4)") 4
+                                div.mask--3
+                            li.steptel__btn.steptel__opt--2.steptel__btn--5(v-on:click="pushVal(5)") 5
+                                div.mask--2
+                            li.steptel__btn.steptel__opt--1.steptel__btn--6(v-on:click="pushVal(6)") 6
+                                div.mask
+                            li.steptel__btn.steptel__opt--1.steptel__btn--7(v-on:click="pushVal(7)") 7
+                                div.mask
+                            li.steptel__btn.steptel__opt--2.steptel__btn--8(v-on:click="pushVal(8)") 8
+                                div.mask--2
+                            li.steptel__btn.steptel__opt--3.steptel__btn--9(v-on:click="pushVal(9)") 9
+                                div.mask--3
+                            li.steptel__btn.steptel__opt--2.steptel__btn--10(v-on:click="contactConfirm()") 確定
+                                div.mask--2
+                            li.steptel__btn.steptel__opt--1.steptel__btn--11(v-on:click="pushVal(0)") 0
+                                div.mask
+                            li.steptel__btn.steptel__opt--3.steptel__btn--12(v-on:click="delStr()") 刪除
+                                div.mask--3
+            div.stepid
+                div.l-container
+                    div.stepid__hd
+                        h2.stepid__title 阿唷!突然覺得你蠻面熟的...
+                        hr
+                        p.stepid__txt 為確保您的權益 請填寫身分證字號或居留證號(非本國籍)進行完整驗證
+                    div.stepid__bd
+                        div.stepid__selbox
+                            label.radiobg(v-bind:class="{ radiobg__active: uid_checked }")
+                                input(type="radio" id="userid" name="uidType" checked)
+                            label(for="userid") 身分證字號
+                        div.stepid__selbox
+                            label.radiobg(v-bind:class="{ radiobg__active: !uid_checked }")
+                                input(type="radio" id="userarc" name="uidType")
+                            label(for="userarc") 居留證號 
+                                span.uidarc Alien resident certificate ( ARC )
+                        div.stepid__selbox
+                            div.stepid__userid
+                                input(type="text")
+                        div.stepid__selbox.clearfix
+                            label.checkbox(v-bind:class="{ checkbox__active: checkbox_checked }")
+                                input(type="checkbox" id="agrcheck_profile" checked)
+                            label.checkbox__txt(for="agrcheck_profile") 我已了解活動辦法並同意提供個人資料作為會員身份驗證與活動參加使用
+                        div.stepid__selbox
+                            div.robot 我不是機器人區域
+                        div.stepid__selbox
+                            div.stepbtn.stepbtn--uid 這次一定沒問題
+            div.stepsuccess
+                div.l-container
+                    div.stepsuccess__hd
+                        h2.stepsuccess__title 認親成功
+                        div.stepsuccess__havedaysbox 
+                            div.stepsuccess__havedays
+                                span.stepsuccess__days 33333
+                            div.stepsuccess__registration ( 註冊日期：民國 107 年 01 月 01 日 )
+                        div.stepsuccess__noday 感動吶~以後要常常回來 
+                    div.stepsuccess__bd
+                        div.stepsuccess__awards
+                            img(src="images/stepsuccess-award-1.png")
+                            div.stepbtn.stepbtn--getaward.stepbtn--ungetaward 領取娘家好禮
+                            p.stepsuccess__note (請先完成會員資料)
+                        hr
+                        p.stepsuccess__txt 請確認您的會員資料領取優惠券
+                            br
+                            | 領取成功再抽家樂福1,000萬會員點數
+                        div.stepsuccess__formarea
+                            ul
+                                li.stepsuccess__inputbox
+                                    input(type="text")
+                                li.stepsuccess__inputbox
+                                    select
+                                        option(value ="台北市") 台北市
+                                li.stepsuccess__inputbox
+                                    select
+                                        option(value ="中山區") 中山區
+                                li.stepsuccess__inputbox
+                                    input(type="text")
+                                //- li.stepsuccess__inputbox.stepsuccess__inputbox--small
+                                //-     input(type="text")
+                                li.stepsuccess__inputbox
+                                    input(type="text")
+                                li.stepsuccess__inputbox
+                                    input(type="text")
+                                li.stepsuccess__inputbox
+                                    input(type="text")
+                                li.stepsuccess__inputbox
+                                    input(type="text")
+                            p.formarea__txt 
+                                span.red *
+                                | 為必填欄位
+                            div.steptel__selbox.clearfix
+                                label.checkbox(v-bind:class="{ checkbox__active: checkbox_checked }")
+                                    input(type="checkbox" id="agrcheck_data" checked)
+                                label.checkbox__txt(for="agrcheck_data") 我已經確認會員資料正確無誤，並瞭解如需再次修改可洽詢客服 0809-001-365
+                        div(v-on:click="popupOpen()").stepbtn.stepbtn--profile 填寫完成，那我就不客氣地收下囉~
+            div.stepshare
+                div.l-container
+                    div.stepshare__award--before
+                        div.stepsuccess__hd
+                        h2.stepsuccess__title 認親成功
+                        div.stepsuccess__havedaysbox 
+                            div.stepsuccess__havedays
+                                span.stepsuccess__days 33333
+                            div.stepsuccess__registration ( 註冊日期：民國 107 年 01 月 01 日 )
+                        div.stepsuccess__noday 感動吶~以後要常常回來 
+                        div.stepsuccess__bd
+                            div.stepsuccess__awards
+                                img(src="images/stepsuccess-award-1.png")
+                                div.stepbtn.stepbtn--getaward 領取娘家好禮
+                    div.stepshare__award--after
+                        div.stepshare__bd
+                            div.stepshare__awards
+                                img(src="images/stepshare-award-1.png")
+                            div.stepbtn.stepbtn--close 關閉
+                    p.stepshare__txt 快來好康逗相報~作伙拿好康哦！
+                    div(v-on:click="fbShare();return false;").stepshare__sharebtn.stepshare__sharebtn--fb
+                        p facebook分享
+                    div.linebox
+                        div.line
+            div.stepfail
+                div.l-container
+                    div.stepfail__hd
+                        h2.stepfail__title 哇！原來是我尚未結緣的家人！
+                        hr
+                        p.stepfail__txt 查無此會員資料，請重新再試一次
+                            br
+                            | 或洽詢客服 0809-001-365
+                            br
+                            | 非會員可至門市申辦會員後即可參加拿好禮
+                    div.stepfail__bd
+                        div.stepfail__failpic 認親不成功
+                        div.steptel__selbox
+                            div.stepbtn.stepbtn--outlink 
+                                a(href="#") 認親不嫌晚，秒變會員抽千萬點數！
+                        div.steptel__selbox
+                            div.stepbtn.stepbtn--retry 我要再試一次！
+
+
+block bottomScript
+    script(src="js/appStep.js")
+    
+    
