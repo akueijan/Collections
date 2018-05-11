@@ -30,6 +30,6 @@
 | zebra stripes | are neat        |    $1 |
 | test | 測試        |    $3333 |
 
-[1]: https://akueijan.github.io/Collections/carrefourBlood/dist/index.html
+[1]: https://akueijan.github.io/Collections/carrefourBlood/dist/index.html target="_blank"
 [2]: https://akueijan.github.io/Collections/carrefourBrics-2/dist/index.html
 		 
