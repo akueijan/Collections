@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+  <!--page default Information-->
+  <!--html head-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>pageTitle</title>
+    <meta name="description" content="pageDesc">
+    <meta name="viewport" content="width=device-width initial-scale=1.0 ,shrink-to-fit=no">
+    <!-- Schema.org markup for Google+-->
+    <meta itemprop="name" content="pageTitle">
+    <meta itemprop="description" content="pageDesc">
+    <meta itemprop="image" content="指定顯示圖片">
+    <!-- og-->
+    <meta property="og:title" content="pageTitle">
+    <meta property="og:description" content="pageDesc">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="指定顯示圖片">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="css/main.css"><!--CDN link -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <!-- for loading-->
+    <script src="https://code.createjs.com/preloadjs-0.6.1.min.js"></script>
+    <script src="js/animatescroll.min.js"></script>
+    <script src="js/ScrollMagic.js"></script>
+    <script src="lib/vue.js"></script>
+    <script src="lib/mobile-detect.min.js"></script>
+    <script src="lib/jquery.lazyload.js"></script><!--[if IE]><style>.accordion__item {transition: 0s;-webkit-transition: 0s;transition-delay: 0s;-webkit-transition-delay: 0s;}</style><![endif]-->
+  </head>
+  <!--html body-->
+  <body>
+    <div id="app" class="l-wrap">
+      <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="nav">
+        <div class="l-container">
+          <div class="nav-bd clearfix">
+            <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO">LOGO</a></h1>
+            <div class="nav-btn">
+              <div class="one"></div>
+              <div class="two"></div>
+              <div class="three"></div>
+            </div>
+            <div role="navigation" class="nav-menu">
+              <div class="nav-menu-area">
+                <ul class="clearfix">
+                  <li class="nav-item n1-active"><a href="index.html" alt="首頁" itemprop="url" title="首頁" v-on:click="scrollTo('#top')">首頁</a></li>
+                  <li class="nav-item n2"><a href="brands.html" alt="品牌故事" itemprop="url" title="品牌故事" v-on:click="">品牌故事</a></li>
+                  <li class="nav-item n3"><a href="events.html" alt="活動辦法" itemprop="url" title="活動辦法" v-on:click="">活動辦法</a></li>
+                  <li class="nav-item n4"><a href="qa.html" alt="Q&amp;A" itemprop="url" title="Q&amp;A" v-on:click="">Q&A</a></li>
+                  <li class="nav-item n5"><a href="javascript:" alt="熱映廣告" itemprop="url" title="熱映廣告" v-on:click="ctrlVideo()">熱映廣告</a></li>
+                  <li class="nav-item n6"><a href="javascript:" alt="fb分享" itemprop="url" title="fb分享" v-on:click="">facebook 分享</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- render nav view-->
+      <section id="el" class="sample">
+        <div class="sample__hd"></div>
+        <div class="sample__bd"></div>
+        <div class="sample__ft"></div>
+        <section>
+          <div class="l-container">
+            <h2>{{initText}}</h2>
+            <div class="vue">
+              <form v-on:submit.prevent="signup">
+                <select v-model="selectOpt">
+                  <option v-for="obj in selectLists" :disabled="obj.value == ''" v-bind:value="obj.value">{{obj.text}}</option>
+                </select>
+                <p>select Val : {{selectOpt}}</p>
+                <button type="submit">submit</button>
+              </form>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="sample__content">
+            <div class="l-container">
+              <div class="l-vm">
+                <div class="l-vm__content">
+                  <h2>demo verticle</h2>
+                  <p>灰色區塊內垂直置中</p>
+                  <div class="sprite__demo"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="l-container">
+            <div class="mdDemo">
+              <h2>#jade scss example</h2>
+              <div>
+                <h3>##<span>Interpolation</span>by jade</h3>
+              </div>
+              <div>
+                <h3>##jade loop</h3>
+                <div class="row1"> 
+                  <p>row+1</p>
+                </div>
+                <div class="row2"> 
+                  <p>row+2</p>
+                </div>
+                <div class="row3"> 
+                  <p>row+3</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <!--render main view-->
+      <!--影片pop-->
+      <transition name="fade">
+        <div v-show="openPopup&amp;&amp;openVideo" class="popup">
+          <div class="popup__mask"></div>
+          <div class="popup__content">
+            <div id="popup__movie">
+              <div v-on:click="ctrlVideo()" class="popup__close"> </div>
+              <div>
+                <div class="video__wrapper">
+                  <div id="player"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+      <!--投票pop-->
+      <transition name="fade">
+        <div v-show="openPopup&amp;&amp;openVotes" class="popup votesPop">
+          <div class="popup__mask"></div>
+          <div class="popup__content">
+            <div id="popup__events">
+              <div v-on:click="ctrlVotes()" class="popup__close"> </div>
+              <div class="fl-container">
+                <div class="popevns-title"></div>
+                <div class="popevns-item item1"><a href="#" class="btn-fbshare-popup"></a></div>
+                <div class="popevns-item item2"><a href="#" class="btn-fbshare-popup"></a></div>
+                <div class="popevns-item item3"><a href="#" class="btn-fbshare-popup"></a></div>
+                <div class="popevns-item item4"><a href="#" class="btn-fbshare-popup"></a></div>
+                <div class="popevns-item item5"><a href="#" class="btn-fbshare-popup"></a></div>
+                <div class="popevns-item item6"><a href="#" class="btn-fbshare-popup"></a></div>
+                <div class="popevns-item item7"><a href="#" class="btn-fbshare-popup"></a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+      <section class="browser-pop">
+        <div class="mask"></div>
+        <div class="browser-pop__hd"></div>
+        <div class="browser-pop__bd browser-pop__bd--ios"></div>
+        <div class="browser-pop__bd browser-pop__bd--ios__other"><a href="javascript:" class="browser-pop__btn-close hideText">我知道了</a></div>
+        <div class="browser-pop__bd browser-pop__bd--android"></div>
+        <div class="browser-pop__bd browser-pop__bd--android__other"><a href="javascript:" class="browser-pop__btn-close hideText">我知道了</a></div>
+        <div class="browser-pop__ft"></div>
+      </section>
+    </div>
+    <div class="l-footer footer">
+      <div class="l-container">
+        <p>Copyright@ 2017 Carrefour. All Rights Reserved.</p>
+      </div>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+﻿//page laytout name
+extends _layout.jade
+block pageInfo
+    - var pageTitle = "家樂福BRIC'S活動"
+    - var pageDesc = "家樂福敘述"
+//page html
+block page_main
+    div.l-main
+        section.index#top
+            div.kv
+                div.btn-fbshare.pc-only
+                    a(href="#" alt="fb分享" title="fb分享")
+                // mb 主kv
+                div.kv-main.mb-only
+                    a.moreBric(href="javascript:" v-on:click="optSection=true") 
+                // mb 主kv 彈出的產品選單
+                transition(name="fade")
+                    div.kv-opts.mb-only(v-show="optSection")
+                        div.opt-items.clearfix
+                            div.item
+                                a.action(href="javascript:" v-on:click="scrollTo('#article1')")
+                            div.item
+                                a.action(href="javascript:" v-on:click="scrollTo('#article2')")
+                            div.item
+                                a.action(href="javascript:" v-on:click="scrollTo('#article3')")
+                            div.item
+                                a.action(href="javascript:" v-on:click="scrollTo('#article4')")
+                            div.item
+                                a.action(href="javascript:" v-on:click="scrollTo('#article5')")
+                            div.item
+                                a.action(href="javascript:" v-on:click="scrollTo('#article6')")
+                            div.item
+                                a.action(href="javascript:" v-on:click="scrollTo('#article7')")
+                // pc 主kv function
+                div.accordion.pc-only
+                    ul.clearfix(v-on:click="")
+                        li.accordion__item.i1.lazy(data-original="img/bg1.jpg")
+                            div.area
+                                
+                            div.area--active
+                                
+                            div.mask
+                            a.action(href="javascript:" v-on:click="scrollTo('#article6')")
+                        li.accordion__item.i2.lazy(data-original="img/bg2.jpg")
+                            div.area
+                                
+                            div.area--active
+                                
+                            div.mask
+                            a.action(href="javascript:" v-on:click="scrollTo('#article4')")
+                        li.accordion__item.i3.lazy(data-original="img/bg3.jpg")
+                            div.area
+                                
+                            div.area--active
+                                
+                            div.mask
+                            a.action(href="javascript:" v-on:click="scrollTo('#article3')")              
+                        li.accordion__item.i4.lazy.active(data-original="img/bg4.jpg")
+                            div.area
+                                
+                            div.area--active
+                                
+                            div.mask
+                            a.action(href="javascript:" v-on:click="scrollTo('#article1')")
+                        li.accordion__item.i5.lazy(data-original="img/bg5.jpg")
+                            div.area
+                                
+                            div.area--active
+                                
+                            div.mask
+                            a.action(href="javascript:" v-on:click="scrollTo('#article7')")
+                        li.accordion__item.i6.lazy(data-original="img/bg6.jpg")
+                            div.area
+                                
+                            div.area--active
+                                
+                            div.mask
+                            a.action(href="javascript:" v-on:click="scrollTo('#article5')")
+                        li.accordion__item.i7.lazy(data-original="img/bg7.jpg")
+                            div.area
+                                
+                            div.area--active
+                                
+                            div.mask
+                            a.action(href="javascript:" v-on:click="scrollTo('#article2')")
+                div.kv-ft
+                    div.l-container
+                        div.nav-menu.pc-only(role="navigation")
+                            ul.clearfix
+                                li.nav-item.n1
+                                    //- a(href="#top" alt="首頁" itemprop="url" title="首頁" v-on:click="openPopup=true")
+                                    a(href="#top" alt="首頁" itemprop="url" title="首頁" v-on:click="scrollTo('#top')")
+                                li.nav-item.n2
+                                    a(href="brands.html" alt="品牌故事" itemprop="url" title="品牌故事" v-on:click="")
+                                li.nav-item.n3
+                                    a(href="events.html" alt="活動辦法" itemprop="url" title="活動辦法" v-on:click="")
+                                li.nav-item.n4
+                                    a(href="qa.html" alt="Q&A" itemprop="url" title="Q&A" v-on:click="")
+                                li.nav-item.n5
+                                    a(href="javascript:" alt="熱映廣告" itemprop="url" title="熱映廣告" v-on:click="ctrlVideo()")
+                div.kv-other.pc-only
+            div.kv-ad
+                div.l-container.mksibpp
+                    h1 首頁標題
+                    button(v-on:click="ctrlVideo()") 觀看影片
+                    button(v-on:click="scrollTo('#article2')") scrollTo
+            div.info
+                div.l-container
+                    article#article1
+                        div.pt-button.pc-only
+                            a(href="javascript:" v-on:click="ctrlVotes()")
+                                div.btn-events
+                        div.mb-pt-button.mb-only
+                            a(href="javascript:")
+                                div.btn-events
+                    article#article2
+                        div.pt-button.pc-only
+                            a(href="javascript:" v-on:click="ctrlVotes()") 
+                                div.btn-events
+                        div.mb-pt-button.mb-only
+                            a(href="javascript:") 
+                                div.btn-events
+                    article#article3
+                        div.pt-button.pc-only
+                            a(href="javascript:" v-on:click="ctrlVotes()") 
+                                div.btn-events
+                        div.mb-pt-button.mb-only
+                            a(href="javascript:") 
+                                div.btn-events
+                    article#article4
+                        div.pt-button.pc-only
+                            a(href="javascript:" v-on:click="ctrlVotes()") 
+                                div.btn-events
+                        div.mb-pt-button.mb-only
+                            a(href="javascript:") 
+                                div.btn-events
+                    article#article5
+                        div.pt-button.pc-only
+                            a(href="javascript:" v-on:click="ctrlVotes()") 
+                                div.btn-events
+                        div.mb-pt-button.mb-only
+                            a(href="javascript:") 
+                                div.btn-events
+                    article#article6
+                        div.pt-button.pc-only
+                            a(href="javascript:" v-on:click="ctrlVotes()") 
+                                div.btn-events
+                        div.mb-pt-button.mb-only
+                            a(href="javascript:") 
+                                div.btn-events
+                    article#article7
+                        div.pt-button.pc-only
+                            a(href="javascript:" v-on:click="ctrlVotes()") 
+                                div.btn-events
+                        div.mb-pt-button.mb-only
+                            a(href="javascript:") 
+                                div.btn-events
+            div.itemsfixed.side
+                ul
+                    li.pc-only
+                        a.side__btn.btn1(href="javascript:" v-on:click="scrollTo('#article1')")
+                    li.pc-only
+                        a.side__btn.btn2(href="javascript:" v-on:click="scrollTo('#article2')")
+                    li.pc-only
+                        a.side__btn.btn3(href="javascript:" v-on:click="scrollTo('#article3')")
+                    li.pc-only
+                        a.side__btn.btn4(href="javascript:" v-on:click="scrollTo('#article4')")
+                    li.pc-only
+                        a.side__btn.btn5(href="javascript:" v-on:click="scrollTo('#article5')")
+                    li.pc-only
+                        a.side__btn.btn6(href="javascript:" v-on:click="scrollTo('#article6')")
+                    li.pc-only
+                        a.side__btn.btn7(href="javascript:" v-on:click="scrollTo('#article7')")
+                    li
+                        div.topbtn 
+                            a(href="javascript:" v-on:click="scrollTo('#top')")

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+  <!--page default Information-->
+  <!--html head-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>家樂福BRIC'S活動</title>
+    <meta name="description" content="家樂福敘述">
+    <meta name="viewport" content="width=device-width initial-scale=1.0 ,shrink-to-fit=no">
+    <!-- Schema.org markup for Google+-->
+    <meta itemprop="name" content="家樂福BRIC'S活動">
+    <meta itemprop="description" content="家樂福敘述">
+    <meta itemprop="image" content="指定顯示圖片">
+    <!-- og-->
+    <meta property="og:title" content="家樂福BRIC'S活動">
+    <meta property="og:description" content="家樂福敘述">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="指定顯示圖片">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="css/main.css"><!--CDN link -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <!-- for loading-->
+    <script src="https://code.createjs.com/preloadjs-0.6.1.min.js"></script>
+    <script src="js/animatescroll.min.js"></script>
+    <script src="js/ScrollMagic.js"></script>
+    <script src="lib/vue.js"></script>
+    <script src="lib/mobile-detect.min.js"></script>
+    <script src="lib/jquery.lazyload.js"></script><!--[if IE]><style>.accordion__item {transition: 0s;-webkit-transition: 0s;transition-delay: 0s;-webkit-transition-delay: 0s;}</style><![endif]-->
+  </head>
+  <!--html body-->
+  <body>
+    <div id="app" class="l-wrap">
+      <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="nav">
+        <div class="l-container">
+          <div class="nav-bd clearfix">
+            <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO">LOGO</a></h1>
+            <div class="nav-btn">
+              <div class="one"></div>
+              <div class="two"></div>
+              <div class="three"></div>
+            </div>
+            <div role="navigation" class="nav-menu">
+              <div class="nav-menu-area">
+                <ul class="clearfix">
+                  <li class="nav-item n1-active"><a href="index.html" alt="首頁" itemprop="url" title="首頁" v-on:click="scrollTo('#top')">首頁</a></li>
+                  <li class="nav-item n2"><a href="brands.html" alt="品牌故事" itemprop="url" title="品牌故事" v-on:click="">品牌故事</a></li>
+                  <li class="nav-item n3"><a href="events.html" alt="活動辦法" itemprop="url" title="活動辦法" v-on:click="">活動辦法</a></li>
+                  <li class="nav-item n4"><a href="qa.html" alt="Q&amp;A" itemprop="url" title="Q&amp;A" v-on:click="">Q&A</a></li>
+                  <li class="nav-item n5"><a href="javascript:" alt="熱映廣告" itemprop="url" title="熱映廣告" v-on:click="ctrlVideo()">熱映廣告</a></li>
+                  <li class="nav-item n6"><a href="javascript:" alt="fb分享" itemprop="url" title="fb分享" v-on:click="">facebook 分享</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- render nav view-->
+      <div class="l-main">
+        <section id="top" class="index">
+          <div class="kv">
+            <div class="btn-fbshare pc-only"><a href="#" alt="fb分享" title="fb分享"></a></div>
+            <!-- mb 主kv-->
+            <div class="kv-main mb-only"><a href="javascript:" v-on:click="optSection=true" class="moreBric"> </a></div>
+            <!-- mb 主kv 彈出的產品選單-->
+            <transition name="fade">
+              <div v-show="optSection" class="kv-opts mb-only">
+                <div class="opt-items clearfix">
+                  <div class="item"><a href="javascript:" v-on:click="scrollTo('#article1')" class="action"></a></div>
+                  <div class="item"><a href="javascript:" v-on:click="scrollTo('#article2')" class="action"></a></div>
+                  <div class="item"><a href="javascript:" v-on:click="scrollTo('#article3')" class="action"></a></div>
+                  <div class="item"><a href="javascript:" v-on:click="scrollTo('#article4')" class="action"></a></div>
+                  <div class="item"><a href="javascript:" v-on:click="scrollTo('#article5')" class="action"></a></div>
+                  <div class="item"><a href="javascript:" v-on:click="scrollTo('#article6')" class="action"></a></div>
+                  <div class="item"><a href="javascript:" v-on:click="scrollTo('#article7')" class="action"></a></div>
+                </div>
+              </div>
+            </transition>
+            <!-- pc 主kv function-->
+            <div class="accordion pc-only">
+              <ul v-on:click="" class="clearfix">
+                <li data-original="img/bg1.jpg" class="accordion__item i1 lazy">
+                  <div class="area"></div>
+                  <div class="area--active"></div>
+                  <div class="mask"></div><a href="javascript:" v-on:click="scrollTo('#article6')" class="action"></a>
+                </li>
+                <li data-original="img/bg2.jpg" class="accordion__item i2 lazy">
+                  <div class="area"></div>
+                  <div class="area--active"></div>
+                  <div class="mask"></div><a href="javascript:" v-on:click="scrollTo('#article4')" class="action"></a>
+                </li>
+                <li data-original="img/bg3.jpg" class="accordion__item i3 lazy">
+                  <div class="area"></div>
+                  <div class="area--active"></div>
+                  <div class="mask"></div><a href="javascript:" v-on:click="scrollTo('#article3')" class="action">             </a>
+                </li>
+                <li data-original="img/bg4.jpg" class="accordion__item i4 lazy active">
+                  <div class="area"></div>
+                  <div class="area--active"></div>
+                  <div class="mask"></div><a href="javascript:" v-on:click="scrollTo('#article1')" class="action"></a>
+                </li>
+                <li data-original="img/bg5.jpg" class="accordion__item i5 lazy">
+                  <div class="area"></div>
+                  <div class="area--active"></div>
+                  <div class="mask"></div><a href="javascript:" v-on:click="scrollTo('#article7')" class="action"></a>
+                </li>
+                <li data-original="img/bg6.jpg" class="accordion__item i6 lazy">
+                  <div class="area"></div>
+                  <div class="area--active"></div>
+                  <div class="mask"></div><a href="javascript:" v-on:click="scrollTo('#article5')" class="action"></a>
+                </li>
+                <li data-original="img/bg7.jpg" class="accordion__item i7 lazy">
+                  <div class="area"></div>
+                  <div class="area--active"></div>
+                  <div class="mask"></div><a href="javascript:" v-on:click="scrollTo('#article2')" class="action"></a>
+                </li>
+              </ul>
+            </div>
+            <div class="kv-ft">
+              <div class="l-container">
+                <div role="navigation" class="nav-menu pc-only">
+                  <ul class="clearfix">
+                    <li class="nav-item n1"><a href="#top" alt="首頁" itemprop="url" title="首頁" v-on:click="scrollTo('#top')"></a>
+                    </li>
+                    <li class="nav-item n2"><a href="brands.html" alt="品牌故事" itemprop="url" title="品牌故事" v-on:click=""></a></li>
+                    <li class="nav-item n3"><a href="events.html" alt="活動辦法" itemprop="url" title="活動辦法" v-on:click=""></a></li>
+                    <li class="nav-item n4"><a href="qa.html" alt="Q&amp;A" itemprop="url" title="Q&amp;A" v-on:click=""></a></li>
+                    <li class="nav-item n5"><a href="javascript:" alt="熱映廣告" itemprop="url" title="熱映廣告" v-on:click="ctrlVideo()"></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="kv-other pc-only"></div>
+          </div>
+          <div class="kv-ad">
+            <div class="l-container mksibpp">
+              <h1>首頁標題</h1>
+              <button v-on:click="ctrlVideo()">觀看影片</button>
+              <button v-on:click="scrollTo('#article2')">scrollTo</button>
+            </div>
+          </div>
+          <div class="info">
+            <div class="l-container">
+              <article id="article1">
+                <div class="pt-button pc-only"><a href="javascript:" v-on:click="ctrlVotes()">
+                    <div class="btn-events"></div></a></div>
+                <div class="mb-pt-button mb-only"><a href="javascript:">
+                    <div class="btn-events"></div></a></div>
+              </article>
+              <article id="article2">
+                <div class="pt-button pc-only"><a href="javascript:" v-on:click="ctrlVotes()"> 
+                    <div class="btn-events"></div></a></div>
+                <div class="mb-pt-button mb-only"><a href="javascript:"> 
+                    <div class="btn-events"></div></a></div>
+              </article>
+              <article id="article3">
+                <div class="pt-button pc-only"><a href="javascript:" v-on:click="ctrlVotes()"> 
+                    <div class="btn-events"></div></a></div>
+                <div class="mb-pt-button mb-only"><a href="javascript:"> 
+                    <div class="btn-events"></div></a></div>
+              </article>
+              <article id="article4">
+                <div class="pt-button pc-only"><a href="javascript:" v-on:click="ctrlVotes()"> 
+                    <div class="btn-events"></div></a></div>
+                <div class="mb-pt-button mb-only"><a href="javascript:"> 
+                    <div class="btn-events"></div></a></div>
+              </article>
+              <article id="article5">
+                <div class="pt-button pc-only"><a href="javascript:" v-on:click="ctrlVotes()"> 
+                    <div class="btn-events"></div></a></div>
+                <div class="mb-pt-button mb-only"><a href="javascript:"> 
+                    <div class="btn-events"></div></a></div>
+              </article>
+              <article id="article6">
+                <div class="pt-button pc-only"><a href="javascript:" v-on:click="ctrlVotes()"> 
+                    <div class="btn-events"></div></a></div>
+                <div class="mb-pt-button mb-only"><a href="javascript:"> 
+                    <div class="btn-events"></div></a></div>
+              </article>
+              <article id="article7">
+                <div class="pt-button pc-only"><a href="javascript:" v-on:click="ctrlVotes()"> 
+                    <div class="btn-events"></div></a></div>
+                <div class="mb-pt-button mb-only"><a href="javascript:"> 
+                    <div class="btn-events"></div></a></div>
+              </article>
+            </div>
+          </div>
+          <div class="itemsfixed side">
+            <ul>
+              <li class="pc-only"><a href="javascript:" v-on:click="scrollTo('#article1')" class="side__btn btn1"></a></li>
+              <li class="pc-only"><a href="javascript:" v-on:click="scrollTo('#article2')" class="side__btn btn2"></a></li>
+              <li class="pc-only"><a href="javascript:" v-on:click="scrollTo('#article3')" class="side__btn btn3"></a></li>
+              <li class="pc-only"><a href="javascript:" v-on:click="scrollTo('#article4')" class="side__btn btn4"></a></li>
+              <li class="pc-only"><a href="javascript:" v-on:click="scrollTo('#article5')" class="side__btn btn5"></a></li>
+              <li class="pc-only"><a href="javascript:" v-on:click="scrollTo('#article6')" class="side__btn btn6"></a></li>
+              <li class="pc-only"><a href="javascript:" v-on:click="scrollTo('#article7')" class="side__btn btn7"></a></li>
+              <li>
+                <div class="topbtn"> <a href="javascript:" v-on:click="scrollTo('#top')"></a></div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+      <!--render main view-->
+      <!--影片pop-->
+      <transition name="fade">
+        <div v-show="openPopup&amp;&amp;openVideo" class="popup">
+          <div class="popup__mask"></div>
+          <div class="popup__content">
+            <div id="popup__movie">
+              <div v-on:click="ctrlVideo()" class="popup__close"> </div>
+              <div>
+                <div class="video__wrapper">
+                  <div id="player"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+      <!--投票pop-->
+      <transition name="fade">
+        <div v-show="openPopup&amp;&amp;openVotes" class="popup votesPop">
+          <div class="popup__mask"></div>
+          <div class="popup__content">
+            <div id="popup__events">
+              <div v-on:click="ctrlVotes()" class="popup__close"> </div>
+              <div class="fl-container">
+                <div class="popevns-title"></div>
+                <div class="popevns-item item1"><a href="#" class="btn-fbshare-popup"></a></div>
+                <div class="popevns-item item2"><a href="#" class="btn-fbshare-popup"></a></div>
+                <div class="popevns-item item3"><a href="#" class="btn-fbshare-popup"></a></div>
+                <div class="popevns-item item4"><a href="#" class="btn-fbshare-popup"></a></div>
+                <div class="popevns-item item5"><a href="#" class="btn-fbshare-popup"></a></div>
+                <div class="popevns-item item6"><a href="#" class="btn-fbshare-popup"></a></div>
+                <div class="popevns-item item7"><a href="#" class="btn-fbshare-popup"></a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+      <section class="browser-pop">
+        <div class="mask"></div>
+        <div class="browser-pop__hd"></div>
+        <div class="browser-pop__bd browser-pop__bd--ios"></div>
+        <div class="browser-pop__bd browser-pop__bd--ios__other"><a href="javascript:" class="browser-pop__btn-close hideText">我知道了</a></div>
+        <div class="browser-pop__bd browser-pop__bd--android"></div>
+        <div class="browser-pop__bd browser-pop__bd--android__other"><a href="javascript:" class="browser-pop__btn-close hideText">我知道了</a></div>
+        <div class="browser-pop__ft"></div>
+      </section>
+    </div>
+    <div class="l-footer footer">
+      <div class="l-container">
+        <p>Copyright@ 2017 Carrefour. All Rights Reserved.</p>
+      </div>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
+</html>

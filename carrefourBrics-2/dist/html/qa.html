@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>家樂福BRIC'S活動</title>
+    <meta name="description" content="家樂福敘述">
+    <meta name="viewport" content="width=device-width initial-scale=1.0 ,shrink-to-fit=no">
+    <!-- Schema.org markup for Google+-->
+    <meta itemprop="name" content="家樂福BRIC'S活動">
+    <meta itemprop="description" content="家樂福敘述">
+    <meta itemprop="image" content="指定顯示圖片">
+    <!-- og-->
+    <meta property="og:title" content="家樂福BRIC'S活動">
+    <meta property="og:description" content="家樂福敘述">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="指定顯示圖片">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <!--CDN link -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <!-- for loading-->
+    <script src="https://code.createjs.com/preloadjs-0.6.1.min.js"></script>
+    <script src="js/animatescroll.min.js"></script>
+    <script src="js/ScrollMagic.js"></script>
+    <script src="lib/vue.js"></script>
+    <script src="lib/mobile-detect.min.js"></script>
+    <script src="lib/jquery.lazyload.js"></script>
+    <!--[if IE]><style>.accordion__item {transition: 0s;-webkit-transition: 0s;transition-delay: 0s;-webkit-transition-delay: 0s;}</style><![endif]-->
+</head>
+<!--html body-->
+
+<body>
+    <div id="app" class="l-wrap">
+        <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="nav">
+            <div class="l-container">
+                <div class="nav-bd clearfix">
+                    <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO">LOGO</a></h1>
+                    <div class="nav-btn">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                    <div role="navigation" class="nav-menu">
+                        <div class="nav-menu-area">
+                            <ul class="clearfix">
+                                <li class="nav-item n1-active"><a href="index.html" alt="首頁" itemprop="url" title="首頁" v-on:click="scrollTo('#top')">首頁</a></li>
+                                <li class="nav-item n2"><a href="brands.html" alt="品牌故事" itemprop="url" title="品牌故事" v-on:click="">品牌故事</a></li>
+                                <li class="nav-item n3"><a href="events.html" alt="活動辦法" itemprop="url" title="活動辦法" v-on:click="">活動辦法</a></li>
+                                <li class="nav-item n4"><a href="qa.html" alt="Q&amp;A" itemprop="url" title="Q&amp;A" v-on:click="">Q&A</a></li>
+                                <li class="nav-item n5"><a href="javascript:" alt="熱映廣告" itemprop="url" title="熱映廣告" v-on:click="ctrlVideo()">熱映廣告</a></li>
+                                <li class="nav-item n6"><a href="javascript:" alt="fb分享" itemprop="url" title="fb分享" v-on:click="">facebook 分享</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- render nav view-->
+        <div class="l-main">
+            <section class="qa page">
+                <div class="l-container">
+                    <div class="qa-area">
+                        <div class="qa-content">
+                            <ul>
+                                <li>
+                                    <div class="row clearfix">
+                                        <div class="q-area"></div>
+                                        <h3 class="qa-title">BRIC'S是何種材質製造呢?</h3>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row clearfix">
+                                        <div class="a-area"></div>
+                                        <p class="qa-txt">產品選用210D尼龍牛津布製成，材質柔軟，縫紉過程中可能出現些許的磨擦痕跡或摺痕為正常現象，不影響產品品質，外層更加以PVC塗層進行防潑水處理，增加耐用性。</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="qa-content">
+                            <ul>
+                                <li>
+                                    <div class="row clearfix">
+                                        <div class="q-area"></div>
+                                        <h3 class="qa-title">BRIC'S該如何清潔呢?</h3>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row clearfix">
+                                        <div class="a-area"></div>
+                                        <p class="qa-txt">一般髒汙先用清水沾布輕輕擦拭，或者用中性清潔劑，千萬不要用洗衣機清洗，因為容易破壞原有的防潑水處理， 甚至破壞布料及金屬配件。不可水洗、不可漂白、不可烘乾、不可熨燙、不可乾洗。</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="qa-content">
+                            <ul>
+                                <li>
+                                    <div class="row clearfix">
+                                        <div class="q-area"></div>
+                                        <h3 class="qa-title">BRIC'S為什麼不能放濡濕物品呢?</h3>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row clearfix">
+                                        <div class="a-area"></div>
+                                        <p class="qa-txt">因為長時間將濡濕物品長時間放在包袋內，可能會有染色或脫色的可能。</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="qa-content">
+                            <ul>
+                                <li>
+                                    <div class="row clearfix">
+                                        <div class="q-area"></div>
+                                        <h3 class="qa-title">為什麼BRIC'S內含的小金屬不宜接觸化學物品呢?</h3>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row clearfix">
+                                        <div class="a-area"></div>
+                                        <p class="qa-txt">因為金屬部份接觸含化學成份之氣液體，如酸鹼清潔劑、氯氣、鹽水、香水等，容易造成氧化而受損。</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="qa-content">
+                            <ul>
+                                <li>
+                                    <div class="row clearfix">
+                                        <div class="q-area"></div>
+                                        <h3 class="qa-title">BRIC'S長期不使用時該如何收納呢?</h3>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row clearfix">
+                                        <div class="a-area"></div>
+                                        <p class="qa-txt">當產品長期不使用時，請在包包內部塞入包裝紙或其他替代物品來防止包包變形，並使用防塵袋放置在通風處保存防止發霉。</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="qa-content">
+                            <ul>
+                                <li>
+                                    <div class="row clearfix">
+                                        <div class="q-area"></div>
+                                        <h3 class="qa-title">BRIC'S可以裝入重物嗎?</h3>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row clearfix">
+                                        <div class="a-area"></div>
+                                        <p class="qa-txt">不可以，因為產品承重不宜過重，避免接縫處脫線破裂而造成產品破損。</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="qa-content">
+                            <ul>
+                                <li>
+                                    <div class="row clearfix">
+                                        <div class="q-area"></div>
+                                        <h3 class="qa-title">BRIC'S電腦包/公事包可以放進筆記型電腦嗎?</h3>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row clearfix">
+                                        <div class="a-area"></div>
+                                        <p class="qa-txt">可以。筆記型電腦是可以放進電腦包/公事包內，但電腦包/公事包功能為保護及防止筆記型電腦被異物刮損，但無法保證若筆記型電腦不小心掉落時不受損傷，僅能減少外部對筆記型電腦之衝擊，請消費者要自行小心保護。</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="dl-area clearfix">
+                            <h3 class="title">檢驗報告下載</h3>
+                            <a href="../images/TUV材質檢驗報告.pdf" alt="" title="" target="_blank" class="dl-icon">
+                                <div class="dl-photo"></div>
+                                <p class="dl-items">TUV材質檢驗</p>
+                                <div class="dl-btn"></div>
+                            </a>
+                            <a href="../images/行李箱SGS檢驗報告.pdf" alt="" title="" target="_blank" class="dl-icon">
+                                <div class="dl-photo"></div>
+                                <p class="dl-items">行李箱SGS檢驗</p>
+                                <div class="dl-btn"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn-top"></a>
+            </section>
+        </div>
+        <!--render main view-->
+    </div>
+    <div class="l-footer footer">
+        <div class="l-container">
+            <p>Copyright@ 2017 Carrefour. All Rights Reserved.</p>
+        </div>
+    </div>
+    <script src=""></script>
+</body>
+
+</html>

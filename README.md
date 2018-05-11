@@ -20,15 +20,16 @@
 		模版製作: Photoshop、Html5、Css3、Javascript、Pug、Scss
 
 		framework: jQuery、Vue、Bootstrap
-		
+
 		切版環境: node.js gulp
 		
 ## 作品: 
 
-| Left-Aligned  | Center Aligned  | Right Aligned |
-| :------------ |:---------------:| -----:|
-| col 3 is      | some wordy text | $1600 |
+| [家樂福 滴血認親][1] | [家樂福 Brics][2] | $1600 |
 | col 2 is      | centered        |   $12 |
 | zebra stripes | are neat        |    $1 |
 | test | 測試        |    $3333 |
+
+[1]: https://akueijan.github.io/Collections/carrefourBlood/dist/index.html
+[2]: https://akueijan.github.io/Collections/carrefourBrics-2/dist/index.html
 		 

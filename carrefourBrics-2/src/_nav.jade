@@ -1,0 +1,24 @@
+nav.nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+    div.l-container
+        div.nav-bd.clearfix
+            h1.nav-logo
+                a(href="index.html" alt="LOGO" title="LOGO") LOGO
+            div.nav-btn
+                div.one
+                div.two
+                div.three
+            div.nav-menu(role="navigation")
+                div.nav-menu-area
+                    ul.clearfix
+                        li.nav-item.n1-active
+                            a(href="index.html" alt="首頁" itemprop="url" title="首頁" v-on:click="scrollTo('#top')") 首頁
+                        li.nav-item.n2
+                            a(href="brands.html" alt="品牌故事" itemprop="url" title="品牌故事" v-on:click="") 品牌故事
+                        li.nav-item.n3
+                            a(href="events.html" alt="活動辦法" itemprop="url" title="活動辦法" v-on:click="") 活動辦法
+                        li.nav-item.n4
+                            a(href="qa.html" alt="Q&A" itemprop="url" title="Q&A" v-on:click="") Q&A
+                        li.nav-item.n5
+                            a(href="javascript:" alt="熱映廣告" itemprop="url" title="熱映廣告" v-on:click="ctrlVideo()") 熱映廣告
+                        li.nav-item.n6
+                            a(href="javascript:" alt="fb分享" itemprop="url" title="fb分享" v-on:click="") facebook 分享

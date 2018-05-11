@@ -1,0 +1,1561 @@
+@charset 'UTF-8';
+
+/* ----- IMPORT -----*/
+
+//1.utils
+@import "utils/_bemify.scss"; 
+    //A set of Sass mixins to write well-structured, maintainable, idiomatic BEM-style .scss source:
+@import "utils/_variables.scss";
+@import "utils/_mixins.scss";
+@import "utils/_grid.scss";
+//sprite scss import 至少要啟用gulp一次
+//@import "_sprite.scss";
+//2.vendors
+//3.base
+@import "base/_reset.scss";
+@import "base/_typography.scss";
+//4.layout
+@import "layout/_layout.scss";
+@import "layout/_nav.scss";
+//5.components
+@import "components/_load.scss";
+//html 在 load.js 裡
+//6.pages
+//7.themes
+
+$tran:0.3s ease-in all;
+$boxShadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.1);
+
+.sample {
+    .l-vm {
+        height: 180px;
+        width: 100%;
+        background: #d6d6d6;
+        text-align: center;
+        box-shadow: $boxShadow;
+    }
+    .l-vm__content {
+        background: red;
+        min-height: 100px;
+    }
+    @include respond-to(small-up) {}
+    section ,h2, h3{
+        margin: 0 0 20px;
+        span {
+            color: red;
+        }
+    }
+    @for $i from 1 through 3 {
+        .row#{$i} {
+            color: red;
+        } 
+    }
+}
+
+.k {
+    width: 100%;
+}
+
+/*=============================
+=            basic            =
+=============================*/
+@mixin ft($size) {
+    font-size: $size+px;
+    font-size: ($size/10)+rem;
+}
+
+.hide-text {
+    overflow:hidden;
+    text-indent: 110%;
+    white-space: nowrap;
+}
+
+.pc-only {
+    @include respond-to (small) {
+        display: none !important;
+    };
+}
+
+.mb-only {
+    @include respond-to (small-up) {
+        display: none !important;
+    };
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
+
+.test {
+    width: vw(200);
+    @include respond-to (small) {
+        width: mvw(200);
+    };
+}
+
+.hideBox {
+    display: none;
+}
+
+/*=====  End of basic  ======*/
+
+/*==============================
+=            layout            =
+==============================*/
+
+.page {
+    padding: vw(0) 0 0 0;
+}
+
+.nav {
+    position: fixed;
+    @include respond-to (small-up) {
+        .isOnFirst {
+            display: none;
+        };
+    };
+    @include respond-to (small) {
+        position: fixed;
+    };
+    >.l-container {
+        height: 100%;
+        width: 100%;
+    }
+    &-bd {
+        height: 100%;
+    }
+    &-logo {
+        width: vw(200);
+        height: vw(80);
+        position: relative;
+        left: vw(80);
+        top: vw(0);
+        @extend .hide-text;
+        @include respond-to(small) {
+            margin: 0 0 0 20px;
+            width: mvw(200);
+            height: mvw(60);
+            left: mvw(0);
+            top: mvw(0);
+        }
+    }
+}
+
+.footer{
+    height: vw(70);
+    background: #807f80;
+    font-family: "Constantia";
+    letter-spacing: vw(1);
+    @include respond-to(small){
+        height: mvw(73);
+        line-height: mvw(55);
+    }
+    .l-container{
+        width: 100%;
+        margin-right: vw(10);
+        p{
+        padding-right: vw(60);
+        font-size: vw(14);
+        padding-top: vw(35);
+        @include respond-to(small){
+            font-size: mvw(18);
+            text-align: center;
+            padding-right: 0;
+            }
+        }
+    }
+}
+
+.popup {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    &__mask {
+        background: rgba(0,0,0,0.9);
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    &__content {
+        position: relative;
+        height: 100vh;
+        overflow-y: scroll;
+    }
+    &__close {
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 32px;
+        position: absolute;
+        width: vw(34);
+        height: vw(34);
+        background: url(../images/btn-x.png);
+        background-size: cover;
+        right: vw(44);
+        top: vw(38);
+        z-index: 999;
+        @include respond-to (small){
+            width: mvw(35);
+            height: mvw(35);
+            top: mvw(18);
+        }
+    }
+    #popup__movie{
+        width: vw(890);
+        height: vw(884);
+        background: #fff;
+        position: relative;
+        margin: vw(50) auto 0;
+        background: url(../images/popup-movie-bg.jpg);
+        background-size: cover;
+        @include respond-to (small){
+            width: mvw(606);
+            height: mvw(600);
+            margin: mvw(100) auto 0;
+        }
+    }
+    #popup__events{
+        width: vw(1920);
+        margin-top: vw(50);
+        position: relative;
+        .fl-container{
+            width: vw(1440);
+            position: relative;
+        }
+        .popup__close{
+            width: vw(34);
+            height: vw(34);
+            background: url(../images/btn-x-w.png);
+            background-size: cover;
+            position: absolute;
+            left: vw(1540);
+            padding-right: vw(1);
+        }
+        .popevns-title{
+            width: vw(824);
+            height: vw(176);
+            background: url(../images/popevns-title-bg.png);
+            background-size: cover;
+            margin: 0 auto;
+        }
+        .popevns-item{
+            float: left;
+            margin: vw(5);
+            text-align: center;
+                .btn-fbshare-popup{
+                    width: vw(112);
+                    height: vw(33);
+                    background: url(../images/btn-fbshare-popup.png);
+                    background-size: cover;
+                    display: block;
+                    margin: 0 auto;
+                    margin-top: vw(300);
+                }
+            &.item1{
+                width: vw(520);
+                height: vw(721);
+                background: url(../images/popevns-item-1.png);
+                background-size: cover;
+                .btn-fbshare-popup{
+                    margin-top: vw(660);
+                }
+            }
+            &.item2{
+                width: vw(283);
+                height: vw(355);
+                background: url(../images/popevns-item-2.png);
+                background-size: cover;
+            }
+            &.item3{
+                width: vw(283);
+                height: vw(355);
+                background: url(../images/popevns-item-3.png);
+                background-size: cover;
+            }
+            &.item4{
+                width: vw(283);
+                height: vw(355);
+                background: url(../images/popevns-item-4.png);
+                background-size: cover;
+            }
+            &.item5{
+                width: vw(283);
+                height: vw(355);
+                background: url(../images/popevns-item-5.png);
+                background-size: cover;
+            }
+            &.item6{
+                width: vw(283);
+                height: vw(355);
+                background: url(../images/popevns-item-6.png);
+                background-size: cover;
+            }
+            &.item7{
+                width: vw(283);
+                height: vw(355);
+                background: url(../images/popevns-item-7.png);
+                background-size: cover;
+            }
+        }
+    }
+}
+/*=====  End of layout  ======*/
+
+
+/*===============================
+=            content            =
+===============================*/
+.btn-fbshare{
+    text-align: right;
+    padding:vw(45) vw(0) vw(8) 0;
+    height: vw(32);
+    width: vw(1817);
+    margin: 0 auto;
+    a{
+        width: vw(90);
+        height: vw(32);
+        background: url(../images/btn-fbshare.jpg);
+        background-size: cover;
+        display: block;
+        float: right;
+    }
+}
+
+.itemsfixed{
+    position: fixed;
+    right: vw(35);
+    bottom: vw(100);
+    z-index: 9;
+    li{
+        margin-top: vw(25);
+        text-align: center;
+        width: 14px;
+        height: 14px;
+        border-radius: 100%;
+        border: 1px solid #aaa;
+        background: #999;
+        text-align: center;
+        vertical-align: middle;
+        position: relative;
+        a{
+            width: 10px;
+            height: 10px;
+            margin: 2px 0 0 0;
+            border-radius: 100%;
+            display: inline-block;
+        }
+        .action{
+            background: #333;
+        }
+    }
+    li:nth-child(8){
+        border: 0;
+        background: none;
+    }
+    .topbtn{
+        width: vw(54);
+        height: vw(55);
+        background: url(../images/topbtn.png);
+        background-size: cover;
+        position: relative;
+        right: vw(20);
+        a{
+            width: vw(54);
+            height: vw(55);
+            display: block;
+        }
+        @include respond-to(small){
+            background: url(../images/mb-topbtn.png);
+            width: mvw(61);
+            height: mvw(61);
+            background-size: cover;
+            right: mvw(60);
+            bottom: mvw(50);
+            a{
+                width: mvw(61);
+                height: mvw(61);
+            }
+        }
+    }
+}
+
+.kv {
+    position: relative;
+    height: auto;
+    overflow: hidden;
+    width: vw(1920);
+    @include respond-to(small){
+        height: auto;
+        background: #e1e2e2;
+    }
+    &-expand {
+        background: rgba(0,0,0,0.75);
+        color: #fff;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 100%;
+        top: 0;
+        z-index: 999;
+        overflow-y: scroll;
+        box-sizing: border-box;
+        padding: 80px 0;
+    }
+    &-ft {
+        background: rgba(255,255,255,0.9);
+        width: vw(1920);
+        height: vw(346);
+        background: url(../images/kv-ft-bg.jpg);
+        background-size: cover;
+        @include respond-to(small){
+            background: url(../images/mb-kv-ft-bg.jpg);
+            background-size: cover;
+            width: mvw(640);
+            height: mvw(228);
+        }
+        .l-container{
+            width: vw(1920);
+        }
+    }
+    &-main {
+        background: url(../images/mb-kv3.jpg) no-repeat center center rgba(0,0,0,0.5);
+        background-size: cover;
+        height: mvw(674);
+        position: relative;
+        margin: 70px 0 0 0;
+    }
+    &-opts {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: mvw(60);
+    }
+    .nav-menu{
+        position: absolute;
+        left: vw(1300);
+        bottom: vw(-300);
+        z-index: 9;
+        float: left;
+        .nav-item{
+            margin-right: vw(30);
+        }
+        .n1{
+            width: vw(144);
+            height: vw(104);
+            background: url(../images/kv-nav-icon1_2.png);
+            background-size: cover;
+            position: absolute;
+            left: vw(-120);
+        }
+        .n2{
+            width: vw(157);
+            height: vw(104);
+            background: url(../images/kv-nav-icon2.png);
+            background-size: cover;
+            &:hover{
+                background: url(../images/kv-nav-icon2_2.png);
+                background-size: cover;
+            }
+        }
+        .n3{
+            width: vw(93);
+            height: vw(104);
+            background: url(../images/kv-nav-icon3.png);
+            background-size: cover;
+            &:hover{
+                background: url(../images/kv-nav-icon3_2.png);
+                background-size: cover;
+            }
+        }
+        .n4{
+            width: vw(65);
+            height: vw(104);
+            background: url(../images/kv-nav-icon4.png);
+            background-size: cover;
+            &:hover{
+                background: url(../images/kv-nav-icon4_2.png);
+                background-size: cover;
+            }
+        }
+        .n5{
+            width: vw(90);
+            height: vw(104);
+            background: url(../images/kv-nav-icon5.png);
+            background-size: cover;
+            &:hover{
+                background: url(../images/kv-nav-icon5_2.png);
+                background-size: cover;
+            }
+        }
+    }
+    &-other{
+        width: vw(340);
+        height: vw(403);
+        background: url(../images/other-pic-1.png) no-repeat;
+        background-size: 100%;
+        position: absolute;
+        right: vw(-33);
+        bottom: vw(24);
+    }
+}
+
+.accordion{
+    width: vw(1817);
+    height: vw(751);
+    background: #fff;
+    overflow: hidden;
+    margin: 0 auto;
+    ul {
+        max-width: 1920px;
+        margin: 0 auto;
+        white-space: nowrap;
+    }
+    ul li{
+        list-style: none;
+        display: inline-block;
+        margin-right: -4px;
+    }
+    &__item {
+        width: 13%;
+        height: vw(752);
+        position: relative;
+        transition: 0.4s;
+        transition-delay: 0.1s;
+        overflow: hidden;
+        .action {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        .title {
+            color: #fff;
+            position: absolute;
+            font-size: 20px;
+            left: 50%;
+            bottom: 55%;
+            transition: 0.4s;
+            transform: translateX(-50%);
+        }
+        .area {
+            transition: 0.4s;
+            .title {
+                font-size: 20px;
+            }
+            &--active {
+                transition: 0.4s;
+                opacity: 0;
+                .title {
+                    font-size: 40px;
+                }
+            }
+        }
+        &.active {
+            width: vw(406);
+            .area {
+                opacity: 0;
+                &--active {
+                    opacity: 1;
+                }
+            }
+            .mask {
+                display: none;
+            }
+        }
+        &.i1 {
+            background: #999999;
+            background: url(../images/bg1.jpg) left center no-repeat #1a1a1a;
+            background-size: cover;
+        }
+        &.i2 {
+            background: url(../images/bg2.jpg) center center no-repeat #7f7f7f ;
+            background-size: cover; 
+        }
+        &.i3 {
+            background: url(../images/bg3.jpg) center center no-repeat #666666;
+            background-size: cover; 
+        }
+        &.i4 {
+            background: url(../images/bg4.jpg) center center no-repeat #4d4d4d;
+            background-size: cover; 
+        }
+        &.i5 {
+            background: url(../images/bg5.jpg) center center no-repeat #333333;
+            background-size: cover; 
+        }
+        &.i6 {
+         background: url(../images/bg6.jpg) center center no-repeat #333333;
+            background-size: cover; 
+        }
+        &.i7 {
+            background: url(../images/bg7.jpg) right center no-repeat #000;
+            background-size: cover;
+            width: 23%;
+            .title {
+                left: 15%
+            }
+            .area {
+                transition: 0s;
+                &--active {
+                    .title {
+                        left: 50%;
+                    }
+                }
+            }
+        }
+        .mask {
+            background: rgba(0,0,0,0.5);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &.is--ie {
+        .accordion__item {
+            transition: none;
+            transition-delay: none;            
+        }
+    }
+}
+
+.info {
+    box-sizing: border-box;
+    > .l-container{
+        width: vw(1920);
+    }
+    article {
+        width: vw(1920);
+        height: vw(956);
+    }
+    #article1{
+        background: url(../images/items-01.jpg);
+        background-size: cover;
+        position: relative;
+        .btn-events{
+            position: absolute;
+            top: vw(543);
+            left: vw(753);
+            background-size: cover;
+        }
+        @include respond-to(small){
+            background: url(../images/mb-items-01.jpg)no-repeat;
+            width: mvw(640);
+            height: mvw(903);
+            background-size: cover;
+            .btn-events{
+                background: url(../images/mb-btn-fbshare.png)no-repeat;
+                width: mvw(236);
+                height: mvw(142);
+                background-size: cover;
+                top: mvw(757);
+                left: mvw(60);
+            }
+        }
+    }
+    #article2{
+        background: url(../images/items-02.jpg);
+        background-size: cover;
+        position: relative;
+        .btn-events{
+            position: absolute;
+            top: vw(596);
+            left: vw(536);
+            background-size: cover;
+        }
+        @include respond-to(small){
+            background: url(../images/mb-items-02.jpg)no-repeat;
+            width: mvw(640);
+            height: mvw(903);
+            background-size: cover;
+            .btn-events{
+                background: url(../images/mb-btn-fbshare.png)no-repeat;
+                width: mvw(236);
+                height: mvw(142);
+                background-size: cover;
+                top: mvw(757);
+                left: mvw(60);
+            }
+        }
+    }
+    #article3{
+        background: url(../images/items-03.jpg);
+        background-size: cover;
+        position: relative;
+        .btn-events{
+            position: absolute;
+            top: vw(616);
+            left: vw(776);
+            background-size: cover;
+        }
+        @include respond-to(small){
+            background: url(../images/mb-items-03.jpg)no-repeat;
+            width: mvw(640);
+            height: mvw(903);
+            background-size: cover;
+            .btn-events{
+                background: url(../images/mb-btn-fbshare.png)no-repeat;
+                width: mvw(236);
+                height: mvw(142);
+                background-size: cover;
+                top: mvw(757);
+                left: mvw(60);
+            }
+        }
+    }
+    #article4{
+        background: url(../images/items-04.jpg);
+        background-size: cover;
+        position: relative;
+        .btn-events{
+            position: absolute;
+            top: vw(723);
+            left: vw(523);
+            background-size: cover;
+        }
+        @include respond-to(small){
+            background: url(../images/mb-items-04.jpg)no-repeat;
+            width: mvw(640);
+            height: mvw(903);
+            background-size: cover;
+            .btn-events{
+                background: url(../images/mb-btn-fbshare.png)no-repeat;
+                width: mvw(236);
+                height: mvw(142);
+                background-size: cover;
+                top: mvw(757);
+                left: mvw(60);
+            }
+        }
+    }
+    #article5{
+        background: url(../images/items-05.jpg);
+        background-size: cover;
+        position: relative;
+        .btn-events{
+            position: absolute;
+            top: vw(565);
+            left: vw(762);
+            background-size: cover;
+        }
+        @include respond-to(small){
+            background: url(../images/mb-items-05.jpg)no-repeat;
+            width: mvw(640);
+            height: mvw(903);
+            background-size: cover;
+            .btn-events{
+                background: url(../images/mb-btn-fbshare.png)no-repeat;
+                width: mvw(236);
+                height: mvw(142);
+                background-size: cover;
+                top: mvw(757);
+                left: mvw(60);
+            }
+        }
+    }
+    #article6{
+        background: url(../images/items-06.jpg);
+        background-size: cover;
+        position: relative;
+        .btn-events{
+            position: absolute;
+            top: vw(726);
+            left: vw(646);
+            background-size: cover;
+        }
+        @include respond-to(small){
+            background: url(../images/mb-items-06.jpg)no-repeat;
+            width: mvw(640);
+            height: mvw(903);
+            background-size: cover;
+            .btn-events{
+                background: url(../images/mb-btn-fbshare.png)no-repeat;
+                width: mvw(236);
+                height: mvw(142);
+                background-size: cover;
+                top: mvw(757);
+                left: mvw(60);
+            }
+        }
+    }
+    #article7{
+        background: url(../images/items-07.jpg);
+        background-size: cover;
+        position: relative;
+        .btn-events{
+            position: absolute;
+            top: vw(722);
+            left: vw(835);
+            background-size: cover;
+        }
+        @include respond-to(small){
+            background: url(../images/mb-items-07.jpg)no-repeat;
+            width: mvw(640);
+            height: mvw(903);
+            background-size: cover;
+            .btn-events{
+                background: url(../images/mb-btn-fbshare.png)no-repeat;
+                width: mvw(236);
+                height: mvw(142);
+                background-size: cover;
+                top: mvw(757);
+                left: mvw(60);
+            }
+        }
+    }
+}
+
+.opt-items {
+    .item {
+        width: 100%;
+        height: mvw(128);
+        position: relative;
+        a {
+            display: block;
+            height: 100%;
+        }
+        &:nth-child(1){
+            background: url(../images/mb-bg-1.jpg);
+            background-size: cover;
+        }
+        &:nth-child(2){
+            background: url(../images/mb-bg-2.jpg);
+            background-size: cover;
+        }
+        &:nth-child(3){
+            background: url(../images/mb-bg-3.jpg);
+            background-size: cover;
+        }
+        &:nth-child(4){
+            background: url(../images/mb-bg-4.jpg);
+            background-size: cover;
+        }
+        &:nth-child(5){
+            background: url(../images/mb-bg-5.jpg);
+            background-size: cover;
+        }
+        &:nth-child(6){
+            background: url(../images/mb-bg-6.jpg);
+            background-size: cover;
+        }
+        &:nth-child(7){
+            background: url(../images/mb-bg-7.jpg);
+            background-size: cover;
+        }
+    }
+    a{
+        height: 100%;
+        display: block;
+    }
+}
+
+.video__wrapper {
+    text-align: center;
+    width: vw(830);
+    height: vw(620);
+    margin: vw(0) auto 0;
+    padding: vw(90) 0 0 0;
+    @include respond-to(small){
+        width: 96%;
+        height: mvw(420);
+        margin: mvw(200) auto 0;
+        padding: mvw(65) 0 0 0;
+    }
+}
+
+.kv-ad{
+    width: vw(1920);
+    height: vw(360);
+    background: url(../images/kv-ad.jpg);
+    background-size: cover;
+    @include respond-to(small){
+        width: mvw(640);
+        height: mvw(420);
+        background: url(../images/mb-kv-ad.jpg);
+        background-size: cover;
+    }
+}
+
+.side {
+    display: none;
+    @include respond-to(small){
+        display: block;
+    }
+}
+
+
+/*====品牌故事頁====*/
+.brands{
+    margin-top: vw(100);
+    width: vw(1920);
+    height: vw(886);
+    background: url(../images/story-bg.jpg)no-repeat center top;
+    background-size: cover;
+    position: relative;
+    @include respond-to(small){
+        width: mvw(640);
+        height: mvw(1530);
+        background: url(../images/mb-story-bg.jpg)no-repeat center top;
+        background-size: cover;
+        margin-top: mvw(60);
+    }
+    &__bd{
+        display: none;
+        @include respond-to(small){
+            display: block;
+            width: mvw(480);
+            position: absolute;
+            left: mvw(70);
+            top: mvw(704);
+            font-family: "微軟正黑體";
+            p{
+            color: #fff;
+            font-size: mvw(26);
+            line-height: mvw(40);
+            letter-spacing: mvw(1.2);
+            }
+        }
+    }
+}
+/*====品牌故事頁 end====*/
+
+/*==== 活動辦法頁 ====*/
+.events{
+    .btn-top{
+        width: vw(66);
+        height: vw(68);
+        background: url(../images/topbtn-2.png)no-repeat;
+        background-size: cover;
+        display: block;
+        float: left;
+        position: absolute;
+        bottom: vw(20);
+        left: vw(891);
+        @include respond-to(small){
+            width: mvw(66);
+            height: mvw(68);
+            background-size: cover;
+            left: mvw(280);
+            bottom: mvw(20);
+        }
+    }
+    .l-container{
+        width: vw(1920);
+        @include respond-to(small){
+            width: mvw(640);
+        }
+    }
+    .tabbox{
+        @include respond-to(small){
+            margin-top: mvw(63);
+        }
+        #content1{
+            width: vw(1920);
+            height: vw(4137);
+            background: url(../images/event-bg-1.jpg)no-repeat;
+            background-size: cover;
+            @include respond-to(small){
+                width: mvw(640);
+                height: mvw(8039);
+                background: url(../images/mb-event-bg-1.jpg)no-repeat;
+                background-size: contain;
+            }
+            .readme-1{
+                width: vw(800);
+                height: vw(150);
+                font-family: "微軟正黑體";
+                font-size: vw(22);
+                line-height: vw(40);
+                letter-spacing: vw(1.2);
+                position: absolute;
+                top: vw(380);
+                left: vw(690);
+                img{
+                    vertical-align: middle;
+                    max-width: 100%;
+                }
+                @include respond-to(small){
+                    width: mvw(500);
+                    font-size: mvw(28);
+                    line-height: mvw(46);
+                    letter-spacing: mvw(2);
+                    top: mvw(478);
+                    left: mvw(83);
+                }
+            }
+            .readme-2{
+                width: vw(782);
+                height: vw(425);
+                font-family: "微軟正黑體";
+                font-size: vw(22);
+                line-height: vw(40);
+                letter-spacing: vw(1.2);
+                position: absolute;
+                top: vw(3210);
+                left: vw(740);
+                ul{
+                    li{
+                        list-style-type: decimal;
+                        padding-right: vw(5);
+                    }
+                    &:nth-child(2){
+                        margin-top: vw(50);
+                    }
+                }
+                @include respond-to(small){
+                    width: mvw(490);
+                    font-size: mvw(26);
+                    line-height: mvw(43);
+                    letter-spacing: mvw(1);
+                    top: mvw(6252);
+                    left: mvw(100);
+                    ul{
+                        li{
+                            margin-bottom: mvw(15);
+                        }
+                        &:nth-child(2){
+                            margin-top: mvw(160);
+                        }
+                    }
+                }
+            }
+            .txt-red{
+                color: #ff004c;
+            }
+            .txt-underline{
+                text-decoration: underline;
+            }
+            .card-1{
+                width: vw(73);
+                height: vw(38);
+                @include respond-to(small){
+                    width: mvw(73);
+                    height: mvw(38);
+                }
+            }
+            .card-2{
+                width: vw(73);
+                height: vw(38);
+                @include respond-to(small){
+                    width: mvw(73);
+                    height: mvw(38);
+                }
+            }
+            .card-3{
+                width: vw(28);
+                height: vw(41);
+                @include respond-to(small){
+                    width: mvw(28);
+                    height: mvw(41);
+                }
+            }
+            .card-4{
+                width: vw(28);
+                height: vw(41);
+                @include respond-to(small){
+                    width: mvw(28);
+                    height: mvw(41);
+                }
+            }
+        }
+        #content2{
+            width: vw(1920);
+            height: vw(3235);
+            background: url(../images/event-bg-2.jpg);
+            background-size: cover;
+            position: relative;
+            @include respond-to(small){
+                width: mvw(640);
+                height: mvw(5995);
+                background: url(../images/mb-event-bg-2.jpg);
+                background-size: contain;
+            }
+            .readme{
+                font-family: "微軟正黑體";
+                font-size: vw(22);
+                line-height: vw(30);
+                letter-spacing: vw(1);
+                @include respond-to(small){
+                    font-size: mvw(26);
+                    line-height: mvw(45);
+                }
+                ul{
+                    li{
+                        list-style-type: decimal;
+                        padding-right: vw(5);
+                    }
+                }
+                &.readme-1{
+                    width: vw(735);
+                    position: absolute;
+                    top: vw(420);
+                    left: vw(690);
+                    @include respond-to(small){
+                        width: mvw(485);
+                        top: mvw(410);
+                        left: mvw(76);
+                    }
+                }
+                &.readme-2{
+                    width: vw(735);
+                    position: absolute;
+                    top: vw(630);
+                    left: vw(520);
+                    @include respond-to(small){
+                        width: mvw(485);
+                        top: mvw(760);
+                        left: mvw(76);
+                    }
+                }
+                &.readme-3{
+                    width: vw(705);
+                    position: absolute;
+                    top: vw(840);
+                    left: vw(750);
+                    @include respond-to(small){
+                        width: mvw(485);
+                        top: mvw(1130);
+                        left: mvw(76);
+                    }
+                }
+                &.readme-4{
+                    width: vw(724);
+                    height: vw(300);
+                    position: absolute;
+                    top: vw(1230);
+                    left: vw(550);
+                    li{
+                        &:nth-child(2){
+                            margin-top: vw(30);
+                        }
+                    }
+                    @include respond-to(small){
+                        width: mvw(485);
+                        top: mvw(1790);
+                        left: mvw(100);
+                        li{
+                            &:nth-child(2){
+                                margin-top: mvw(60);
+                            }
+                        }
+                    }
+                }
+                &.readme-5{
+                    width: vw(935);
+                    position: absolute;
+                    top: vw(1750);
+                    left: vw(550);
+                    li{
+                        margin-bottom: vw(25);
+                    }
+                    @include respond-to(small){
+                        width: mvw(485);
+                        top: mvw(2700);
+                        left: mvw(100);
+                        li{
+                            margin-bottom: mvw(40);
+                        }
+                    }
+                }
+            }
+            .txt-2{
+                width: vw(705);
+                position: absolute;
+                top: vw(950);
+                left: vw(780);
+                @include respond-to(small){
+                    width: mvw(455);
+                    top: mvw(1350);
+                    left: mvw(110);
+                }
+            }
+        }
+    }
+}
+/*==== 活動辦法頁 end====*/
+
+/*==== Q&A ====*/
+.qa{
+    width: vw(1920);
+    height: vw(1830);
+    background: url(../images/qa-bg.jpg)no-repeat;
+    background-size: cover;
+    margin-top: vw(100);
+    position: relative;
+    @include respond-to(small){
+        width: mvw(640);
+        height: mvw(2232);
+        background: url(../images/mb-qa-bg.jpg)no-repeat;
+        background-size: cover;
+        margin-top: mvw(60);
+    }
+    .l-container{
+        width: vw(1920);
+    }
+    &-area{
+        width: vw(915);
+        margin: 0 auto;
+        padding-top: vw(300);
+        @include respond-to(small){
+            width: mvw(505);
+            padding-top: mvw(245);
+            padding-left: mvw(20);
+        }
+    }
+    &-content{
+        margin-bottom: vw(29);
+        @include respond-to(small){
+            margin-bottom: mvw(40);
+        }
+        li{
+            margin-bottom: vw(10);
+            @include respond-to(small){
+                margin-bottom: mvw(10);
+            }
+        }
+    }
+    .q-area{
+        width: vw(68);
+        height: vw(55 );
+        background: url(../images/icon-q.png)no-repeat;
+        background-size: cover;
+        float: left;
+        @include respond-to(small){
+            width: mvw(68);
+            height: mvw(55 );
+        }
+    }
+    .a-area{
+        width: vw(68);
+        height: vw(55);
+        background: url(../images/icon-a.png)no-repeat;
+        background-size: cover;
+        float: left;
+        @include respond-to(small){
+            width: mvw(68);
+            height: mvw(55 );
+        }
+    }
+    .qa-title{
+        width: vw(825);
+        font-family: "微軟正黑體";
+        font-size: vw(24);
+        font-weight: bold;
+        color: #003476;
+        margin: vw(20) 0 0 vw(10);
+        float: left;
+        @include respond-to(small){
+            font-size: mvw(24);
+            width: mvw(415);
+            margin: mvw(20) 0 0 mvw(10);
+        }
+    }
+    .qa-txt{
+        width: vw(825);
+        font-family: "微軟正黑體";
+        font-size: vw(20);
+        color: #000;
+        margin: vw(0) 0 0 vw(10);
+        line-height: vw(24);
+        letter-spacing: vw(1.2);
+        float: left;
+        padding-top: vw(7);
+        @include respond-to(small){
+            font-size: mvw(20);
+            width: mvw(415);
+            margin: 0 0 0 mvw(10);
+            line-height: mvw(30);
+            letter-spacing: mvw(1.2);
+        }
+    }
+    .dl-area{
+        margin-top: vw(70);
+        margin-left: vw(20);
+        @include respond-to(small){
+            margin-top: mvw(70);
+            margin-left: mvw(20);
+        }
+        .title{
+            font-family: "微軟正黑體";
+            font-size: vw(24);
+            font-weight: bold;
+            color: #003476;
+            float: left;
+            @include respond-to(small){
+                font-size: mvw(24);
+                float: none;
+            }
+        }
+    }
+    .dl-icon{
+        float: left;
+        margin: vw(8) 0 0 vw(78);
+        width: vw(140);
+        height: vw(200);
+        display: block;
+        text-align: center;
+        @include respond-to(small){
+            width: mvw(150);
+            height: mvw(200);
+            margin: vw(60) 0 0 vw(180);
+        }
+    }
+    .dl-photo{
+        width: vw(105);
+        height: vw(121);
+        background: url(../images/icon-paper.png)no-repeat;
+        background-size: cover;
+        margin: 0 auto;
+        margin-bottom: vw(10);
+        @include respond-to(small){
+            width: mvw(105);
+            height: mvw(120);
+            margin-bottom: mvw(10);
+        }
+    }
+    .dl-items{
+        font-family: "微軟正黑體";
+        font-size: vw(20);
+        font-weight: bold;
+        color: #003476;
+        margin-bottom: vw(10);
+        white-space: nowrap;
+        @include respond-to(small){
+            font-size: mvw(20);
+            margin-bottom: mvw(10);
+        }
+    }
+    .dl-btn{
+        width: vw(101);
+        height: vw(37);
+        background: url(../images/btn-download.png)no-repeat;
+        background-size: cover;
+        margin: 0 auto;
+        @include respond-to(small){
+            width: mvw(101);
+            height: mvw(37);
+        }
+    }
+    .btn-top{
+        width: vw(66);
+        height: vw(68);
+        background: url(../images/topbtn-2.png)no-repeat;
+        background-size: cover;
+        display: block;
+        float: left;
+        position: absolute;
+        bottom: vw(20);
+        left: vw(891);
+        @include respond-to(small){
+            width: mvw(66);
+            height: mvw(68);
+            background-size: cover;
+            left: mvw(280);
+            bottom: vw(80);
+        }
+    }
+}
+/*==== Q&A end ====*/
+
+/*=====  End of content  ======*/
+
+/*===========================
+=            etc            =
+===========================*/
+.h {
+    background: #ffffff;
+    height: 200vh;
+}
+
+.demoFtTitle {
+    font-size: 60px;
+}
+
+.moreBric {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: mvw(140);
+    height: mvw(139);
+    background: url(../images/mb-kv-btn.png)no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    padding: mvw(40) 0 0 0;
+}
+
+.btn-events{
+    width: vw(194);
+    height: vw(49);
+    background: url(../images/btn-events.jpg);
+    background-size: cover;
+    float: left;
+}
+
+.mksibpp{
+    display: none;
+}
+
+
+/*===== 活動頁頁籤 =====*/
+
+.tabbox {
+    margin: 0 auto;
+    width: vw(1920);
+    text-align: left;
+    border: 0px solid #666;
+    position: relative;
+    margin-top: vw(100);
+    @include respond-to(small){
+        margin-top: mvw(63);
+    }
+    .content > div {
+        display: none;
+        padding: 20px 25px 5px;
+    }
+    input {
+        display: none;
+    }
+    .tp {
+        display: inline-block;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .tp-1{
+        position: absolute;
+        left: vw(426);
+        width: vw(190);
+        height: vw(60);
+        background: url(../images/events-btn-1_1.png) no-repeat;
+        background-size: cover;
+        z-index: 9;
+        @include respond-to(small){
+            left: mvw(50);
+            width: mvw(260);
+            height: mvw(80);
+            background-size: cover;
+        }
+    }
+    .tp-2{
+        position: absolute;
+        left: vw(620);
+        width: vw(216);
+        height: vw(60);
+        background: url(../images/events-btn-2_1.png) no-repeat;
+        background-size: cover;
+        z-index: 9;
+        @include respond-to(small){
+            left: mvw(315);
+            width: mvw(291);
+            height: mvw(80);
+            background-size: cover;
+        }
+    }
+    input:checked + .tp-1 {
+        background: url(../images/events-btn-1.png) no-repeat;
+        background-size: cover;
+    }
+    input:checked + .tp-2 {
+        background: url(../images/events-btn-2.png) no-repeat;
+        background-size: cover;
+    }
+    #tab1:checked ~ .content #content1,
+    #tab2:checked ~ .content #content2, {
+        display: block;
+        text-align: left;
+    }
+}
+/*===== 活動頁頁籤 end=====*/
+.footer-color-1{
+    background: #795e4d;
+}
+
+
+.browser-pop {
+    position: absolute;
+    background: rgba(0,0,0,0.7);
+    height: 100vh;
+    min-height: 1200px;
+    top:0;
+    bottom: 0;
+    left: 0px;
+    right: 0px;
+    z-index: 9999;
+    // overflow: scroll;
+    .mask {
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.5);
+        position: fixed;
+        top:0px;
+        bottom: 0px;        
+    }
+    &__bd {
+        position: relative;
+    }
+    .browser-pop__bd--ios {
+        background:url(../images/browserAlert.jpg) no-repeat 50% 50%;
+        background-size: cover;
+        margin: 15vh auto 0 auto;
+        width: vw(620);
+        height: vw(360);
+        @include respond-to(small){
+            width: mvw(620);
+            height: mvw(360);
+        }
+    }
+    .browser-pop__bd--ios__other {
+        background:url(../images/browserAlert.jpg) no-repeat 50% 50%;
+        background-size: cover;
+        margin: 15vh auto 0 auto;
+        width: 620px;
+        height: 360px;
+        @include respond-to(small){
+            width: mvw(620);
+            height: mvw(360);
+        }
+    }
+    .browser-pop__bd--android {
+        background:url(../images/browserAlert.jpg) no-repeat 50% 50%;
+        background-size: cover;
+        margin: 15vh auto 0 auto;
+        width: 620px;
+        height: 360px;
+        @include respond-to(small){
+            width: mvw(620);
+            height: mvw(360);
+        }
+    }
+    .browser-pop__bd--android__other {
+        background:url(../images/browserAlert.jpg) no-repeat 50% 50%;
+        background-size: cover;
+        margin: 15vh auto 0 auto;
+        width: 620px;
+        height: 360px;
+        @include respond-to(small){
+            width: mvw(620);
+            height: mvw(360);
+        }
+    }
+    .browser-pop__btn-close {
+        display: block;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+}
+/*=====  End of etc  ======*/
+
+

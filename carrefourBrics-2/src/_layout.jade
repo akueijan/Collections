@@ -1,0 +1,63 @@
+﻿doctype
+html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
+    //page default Information
+    block pageInfo
+        - var pageTitle = "首頁"
+        - var pageDesc = "敘述"
+    //html head
+    include _head.jade
+    //html body
+    body
+        div.l-wrap#app
+            include _nav.jade
+            // render nav view
+            block page_main
+            //render main view
+            //影片pop
+            transition(name="fade")
+                div.popup(v-show="openPopup&&openVideo")
+                    div.popup__mask
+                    div.popup__content
+                        div#popup__movie
+                            div.popup__close(v-on:click="ctrlVideo()") 
+                            div
+                                div.video__wrapper
+                                        //- // 1. The <iframe> (and video player) will replace this <div> tag.
+                                        div#player
+            //投票pop
+            transition(name="fade")
+                div.popup.votesPop(v-show="openPopup&&openVotes")
+                    div.popup__mask
+                    div.popup__content
+                        div#popup__events
+                            div.popup__close(v-on:click="ctrlVotes()") 
+                            div.fl-container
+                                div.popevns-title
+                                div.popevns-item.item1
+                                    a.btn-fbshare-popup(href="#")
+                                div.popevns-item.item2
+                                    a.btn-fbshare-popup(href="#")
+                                div.popevns-item.item3
+                                    a.btn-fbshare-popup(href="#")
+                                div.popevns-item.item4
+                                    a.btn-fbshare-popup(href="#")
+                                div.popevns-item.item5
+                                    a.btn-fbshare-popup(href="#")
+                                div.popevns-item.item6
+                                    a.btn-fbshare-popup(href="#")
+                                div.popevns-item.item7
+                                    a.btn-fbshare-popup(href="#")
+            section.browser-pop
+                div.mask
+                div.browser-pop__hd
+                div.browser-pop__bd.browser-pop__bd--ios
+                div.browser-pop__bd.browser-pop__bd--ios__other
+                    a.browser-pop__btn-close.hideText(href="javascript:") 我知道了
+                div.browser-pop__bd.browser-pop__bd--android
+                div.browser-pop__bd.browser-pop__bd--android__other
+                    a.browser-pop__btn-close.hideText(href="javascript:") 我知道了
+                div.browser-pop__ft
+        div.l-footer.footer
+            div.l-container
+                p Copyright@ 2017 Carrefour. All Rights Reserved.
+        script(src="js/app.js")
