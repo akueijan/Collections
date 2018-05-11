@@ -1,0 +1,127 @@
+﻿//page laytout name
+extends _layout.jade
+
+//page html
+block page_main
+    section.data
+        //資料填寫開始
+        section.data__form
+            div.data__title 立即登錄發票抽好禮
+            div.l-container
+                div.data__txt.red 
+                    span.red 中獎者須以此處輸入資訊為憑進行領獎
+                    br
+                    | 本期活動僅限紙本電子發票登錄參加
+                    br
+                    | 使用之紙本電子發票開立日期必須在活動時間內
+                form.data__formarea
+                    ul
+                        li.list
+                            label(for="username").list__title 聯絡姓名 :
+                            div.list__content
+                                input.list__input(placeholder="請輸入姓名" type="text" name="username" id="username")
+                        li.list
+                            label(for="usertel").list__title 手機號碼 :
+                            div.list__content
+                                input.list__input(placeholder="請輸入10位數字" type="tel" name="usertel" id="usertel" maxlength="10")
+                        li.list
+                            label(for="date").list__title 發票期別 :
+                            div.list__content
+                                select(name="date" id="date").dates
+                                    option(value="") 106年9-10月
+                                    option(value="") 106年11-12月
+                        li.list
+                            label(for="ticnum").list__title 發票號碼 :
+                            div.list__content
+                                input.list__input(placeholder="請輸入2位英文+8位數字" type="text" name="ticnum" id="ticnum" maxlength="10")
+                        li.list
+                            label(for="autonum").list__title 發票隨機碼 :
+                            div.list__content
+                                input.list__input(placeholder="請輸入4位數字" type="tel" name="autonum" id="autonum" maxlength="4")
+                    div.data__btnarea
+                        a(href="javascript:" v-on:click="openPop=!openPop,pupTicket=!pupTicket").btn 電子發票範例
+                            i.btn__icon
+                    div.data__formtxt
+                        label
+                            input.checkbox(type="checkbox" name="check" id="check")
+                        label.checktxt(for="check") 我已同意味全食品工業股份有限公司活動辦法及相關規定。
+                    div.roboarea
+                        //這裡是放我不是機器人區域
+                    div.btnarea
+                        input.btn(type="button" value="送出資料")
+            div.bottomline
+        //資料填寫成功開始
+        section.data__success
+            div.data__success__box
+                div.l-container
+                    div.data__success__title--1 恭喜您完成發票登錄!
+                    div.data__success__txt--1 因系統連結財政部驗證發票最長須費時
+                        span.red 48小時，
+                        br
+                        | 系統會於發票驗證通過
+                        br
+                        | "確定發票中消費品項含有貝納頌系列任一商品"後，
+                        br
+                        | 隨即發出簡訊通知成功。
+                    div.data__success__item 刮刮卡
+                    p 請下載粉多集點卡APP刮出大獎
+                div.data__success__bottom-line
+                a(href="javascript:").databtn--more.btn--more 看更多好康
+            div.data__success__info
+                div.data__success__title--2 立即下載粉多集點卡APP大量發票免輸入掃描QRCode累積點數更方便
+                div.l-container
+                    dl.data__success__list
+                        dt.data__success__icon.data__success__icon--icon1 好康1
+                        dd.data__success__txt 下載粉多集點卡
+                            br
+                            | 刮出大獎-威秀電影票
+                        div.data__success__img.data__success__img--img1
+                    dl.data__success__list
+                        dt.data__success__icon.data__success__icon--icon2 好康2
+                        dd.data__success__txt 立即掃描電子發票
+                            br
+                            | 集滿360點再送貝納頌經典曼特寧1瓶
+                            br
+                            | (消費1元 = 1點)
+                        div.data__success__img.data__success__img--img2
+                    dl.data__success__list
+                        dt.data__success__icon.data__success__icon--icon3 好康3
+                        dd.data__success__txt 隨時查詢帳戶內現有點數，
+                            br
+                            | 更多好康不漏接。 
+                        div.data__success__img.data__success__img--img3
+                    div.data__success__bottom-line
+                div.data__success__downarea
+                    a(href="javascript:").link.link--appstore
+                    a(href="javascript:").link.link--googleplay
+        //已登錄過發票
+        section.data__success.data__success--over
+            div.data__success__box
+                div.l-container
+                    div.data__success__title--1 恭喜您完成發票登錄!
+                    div.data__success__txt--1 因系統連結財政部驗證發票最長須費時48小時，
+                        br
+                        | 系統會於發票驗證通過後，即可獲得「貝納頌」點數
+            div.data__success__bottom-line
+            div.data__success__info
+                div.data__success__title--2 立即下載粉多集點卡APP大量發票免輸入掃描QRCode累積點數更方便
+                div.l-container
+                    dl.data__success__list
+                        dt.data__success__icon.data__success__icon--icon1 好康1
+                        dd.data__success__txt 使用粉多集點卡APP掃描電子發票
+                            br
+                            | 集滿360點再送貝納頌經典曼特寧1瓶
+                            br
+                            | (消費1元 = 1點)
+                        div.data__success__img.data__success__img--img2
+                    dl.data__success__list
+                        dt.data__success__icon.data__success__icon--icon2 好康2
+                        dd.data__success__txt 隨時查詢帳戶內現有點數
+                            br
+                            | 更多好康不漏接
+                        div.data__success__img.data__success__img--img3
+                    div.data__success__bottom-line
+                div.data__success__downarea
+                    a(href="javascript:").link.link--appstore
+                    a(href="javascript:").link.link--googleplay
+ 

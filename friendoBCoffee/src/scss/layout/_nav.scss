@@ -1,0 +1,104 @@
+$nav_height: 80px;
+$nav_height_mb: 80px;
+
+.nav {
+    position: fixed;
+    top: 0;
+    z-index: 9;
+    height: $nav_height_mb;
+    &-btn {
+        display: block;
+        z-index: 9;
+    }
+    .l-container {
+        position: static;
+    }
+    &-logo {
+        width: 209px;
+        height: $nav_height_mb;
+        line-height: $nav_height_mb;
+        //z-index: 9;
+    }
+    //MOBILE NAV MENU
+    &-menu {
+        background: $brandColor1;
+        background-color: rgba(255,255,255,0.8);
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: -100vh;
+        transition: all 0.3s ease-out;
+        z-index: 4;
+        ul {
+            padding: 65px 0;
+            margin: 100px 35px;
+            li {
+                width: 100%;
+                text-align: center;
+                // &:not(:last-child) {
+                //     border-bottom: 1px solid #fff;
+                // }
+                a {
+                    font-size: 3rem;
+                    width: 100%;
+                    height: 80px;
+                    line-height: 80px;
+                }
+                &:hover {
+                    a {
+                        background: none;
+                    }
+                }
+
+            }
+        }
+    }
+    &--active {
+        .nav-menu {
+            top: 0;
+            //box-shadow: 0 0 0 9999px rgba(0,0,0,0.5);
+        }
+    }
+    //MOBILE NAV MenuBtn
+    &-btn {
+        border-radius: 10px;
+        display: block;
+        width: 90px;
+        height: 90px;
+        position: absolute;
+        cursor: pointer;
+        right: 10px;
+        top:10px;
+        background: rgba(0,0,0,0);
+        >.one,
+        >.two,
+        >.three {
+            border-radius: 5px;
+            width: 50px;
+            height: 5px;
+            background: #000;
+            margin: 10px auto;
+            backface-visibility: hidden;
+            transition-duration: 0.3s;
+        }
+        >.one {
+            margin: 20px auto 8px;
+        }
+    }
+    &--active {
+        .nav-btn {
+            background: transparent;
+            >.one {
+                background: #000;
+                transform: (rotate(45deg) translate(7px, 8px));
+            }
+            >.two {
+                opacity: 0;
+            }
+            >.three {
+                background: #000;
+                transform: (rotate(-45deg) translate(14px, -14px));
+            }
+        }
+    }
+}

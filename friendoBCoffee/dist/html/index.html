@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>首頁</title>
+    <meta name="description" content="敘述">
+    <meta name="viewport" content="width=640; maximum-scale=1.0; user-scalable=0">
+    <!-- Schema.org markup for Google+-->
+    <meta itemprop="name" content="首頁">
+    <meta itemprop="description" content="敘述">
+    <meta itemprop="image" content="指定顯示圖片">
+    <!-- og-->
+    <meta property="og:title" content="首頁">
+    <meta property="og:description" content="敘述">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="指定顯示圖片">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
+    <!--CDN link -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <!-- for loading-->
+    <script src="https://code.createjs.com/preloadjs-0.6.1.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<!--html body-->
+
+<body>
+    <div id="app" class="l-wrap">
+        <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="nav">
+            <div class="l-container">
+                <div class="nav-bd">
+                    <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO">LOGO</a></h1>
+                    <div class="nav-btn">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                    <div role="navigation" class="nav-menu">
+                        <ul class="clearfix">
+                            <li class="nav-item nav-item__index"><a href="index.html" alt="項目" itemprop="url" title="項目"><span>首　　頁</span></a></li>
+                            <li class="nav-item nav-item__data"><a href="data.html" alt="項目" itemprop="url" title="項目"><span>登錄發票</span></a></li>
+                            <li class="nav-item nav-item__products"><a href="index.html#eventsActive" alt="項目" itemprop="url" title="項目"><span>四重禮活動辦法</span></a></li>
+                            <li class="nav-item nav-item__award"><a href="award.html" alt="項目" itemprop="url" title="項目"><span>得獎名單</span></a></li>
+                            <li class="nav-item nav-item__about"><a href="about.html" alt="項目" itemprop="url" title="項目"><span>關於粉多集點卡</span></a></li>
+                            <li class="nav-item"><a href="products.html" alt="項目" itemprop="url" title="項目"><span>喝的極品貝納頌</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- render nav view-->
+        <div class="l-main">
+            <section class="index">
+                <section class="kv">
+                    <div class="kv__title">貝納頌集點搶抽iphoneX</div>
+                    <div class="kv__btnarea"><a href="data.html" class="btn kv__btn">立即登錄發票<i class="btn__icon"></i></a></div>
+                    <div class="kv__img--products"></div>
+                    <div class="kv__img--beans"></div><a href="javascript:" class="kvbtn--more btn--more">好禮四重送</a>
+                    <div id="eventsActive"></div>
+                </section>
+                <section class="events">
+                    <div class="events__step">
+                        <div class="events__title">貝納頌集點四重禮 活動時間：2017年10月23日~2017年12月18日</div>
+                        <div class="events__pic">活動四重驟</div>
+                        <div class="events__box-top"></div>
+                        <div class="events__box">
+                            <div class="l-container">
+                                <!--第一重-->
+                                <div class="events__list">
+                                    <h2 class="events__list__title events__list__title--title1">第一重 - 登錄發票抽iPhoneX</h2>
+                                    <div class="events__list__img events__list__img--img1"></div>
+                                    <div class="events__list__conts">3名</div>
+                                    <div class="events__list__txt">●凡於活動期間購買『貝納頌全系列任一商品』，於活動網頁完成登錄紙本電子發票即可抽iPhone X (3名)。每張發票享有一次抽獎機會，登錄發票越多，抽獎機會越多。</div><a href="data.html" class="btn">立即登錄發票<i class="btn__icon"></i></a>
+                                </div>
+                                <div class="events__list__line"></div>
+                                <!--第二重-->
+                                <div class="events__list">
+                                    <h2 class="events__list__title events__list__title--title2">第二重 - 首次完成登錄發票威秀電影票、貝納頌經典曼特寧等你刮</h2>
+                                    <div class="events__list__img events__list__img--img2"></div>
+                                    <div class="events__list__conts">110名</div>
+                                    <div class="events__list__txt">●凡於活動期間購買『貝納頌全系列任一商品』，首次於活動網頁完成紙本電子發票登錄，並下載粉多集點卡APP完成會員註冊(既有會員無須重新註冊)，開啟APP取得虛擬刮刮樂乙張，有機會刮中威秀電影票1張(110名)或貝納頌經典曼特寧1瓶(800名)。</div><a href="data.html" class="btn">立即登錄發票<i class="btn__icon"></i></a>
+                                </div>
+                                <div class="events__list__line"></div>
+                                <!--第三重-->
+                                <div class="events__list">
+                                    <h2 class="events__list__title events__list__title--title3">第三重 - 1元=1點集360點換貝納頌乙瓶</h2>
+                                    <div class="events__list__img events__list__img--img3"></div>
+                                    <div class="events__list__txt">●凡於活動期間購買『貝納頌全系列任一商品』，至活動網頁完成紙本電子發票登錄，並下載粉多集點卡APP完成會員註冊(既有會員無須重新註冊)，即可參加集點兌換貝納頌活動，每消費貝納頌產品1元獲得1點，集滿360點並在APP點選確認兌換後，APP將核發一張虛擬優惠券存入APP會員「我的口袋」中，集點者點選優惠券後即取得一組兌換代碼，可於2017/ 12/31前以該組兌換代碼至全家便利商店兌換貝納頌咖啡(經典曼特寧風味)乙瓶。</div>
+                                    <div class="events__list__txt">●消費者於登錄發票後，將進行驗證程序，核算貝納頌產品消費金額，驗證時間約為登錄後48小時，驗證完成後，參加集點之會員即可獲得相對應之點數。</div>
+                                    <div class="events__list__txt">●兌換流程：</div>
+                                    <div class="events__list__slider">
+                                        <div class="mySlick">
+                                            <div class="slider-img1"></div>
+                                            <div class="slider-img2"></div>
+                                            <div class="slider-img3"></div>
+                                        </div>
+                                    </div><a href="data.html" class="btn">立即登錄發票<i class="btn__icon"></i></a>
+                                </div>
+                                <div class="events__list__line"></div>
+                                <!--第四重-->
+                                <div class="events__list">
+                                    <h2 class="events__list__title events__list__title--title4">第四重 - 前1000名完成活動者全家購物金再加碼</h2>
+                                    <div class="events__list__img events__list__img--img4"></div>
+                                    <div class="events__list__txt">●凡於活動期間購買『貝納頌全系列任一商品』，至活動網頁完成紙本電子發票登錄，並下載粉多集點卡APP，前1000名完成粉多集點卡APP會員註冊，憑1點(每消費1元獲得1點)即可取得一組NT$25全家超商購物金兌換代碼，至全家便利商店兌換產品。本重好禮每人僅限兌換乙次。</div>
+                                    <div class="events__list__txt">●兌換流程：</div>
+                                    <div class="events__list__slider">
+                                        <div class="mySlick">
+                                            <div class="slider-img1"></div>
+                                            <div class="slider-img2_2"></div>
+                                            <div class="slider-img3_2"></div>
+                                        </div>
+                                    </div><a href="data.html" class="btn">立即登錄發票<i class="btn__icon"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="events__box-bottom"></div>
+                        <div class="events__item-pics">貝納頌全系列商品皆適用</div>
+                    </div>
+                    <div class="events__awards">
+                        <div class="l-container">
+                            <h2 class="events__title events__awards__title--1">活動獎項</h2>
+                            <ul>
+                                <li class="events__title-list"><span class="red">第一重獎項 :</span><br>iPhone X乙支(價值約NT$35900元)，共3名。</li>
+                                <li class="events__title-list"> <span class="red">第二重獎項 :</span>
+                                    <ul>
+                                        <li>威秀電影票乙張(價值約NT$300元)，共110名。</li>
+                                        <li>貝納頌咖啡(經典曼特寧風味)乙瓶(價值NT$30元)，共800名。</li>
+                                    </ul>
+                                </li>
+                                <li class="events__title-list"> <span class="red">第三重獎項 :</span><br>貝納頌咖啡(經典曼特寧風味)乙瓶(價值NT$30元)，符合集點條件即贈，不限名額。</li>
+                                <li class="events__title-list"> <span class="red">第四重獎項 :</span><br>全家便利商店購物金乙份(價值NT$25元)，共1000名。</li>
+                            </ul>
+                            <h2 class="events__title events__awards__title--2">抽獎時間和方式及中獎名單公告日期</h2>
+                            <ul>
+                                <li class="events__title-list">iPhone X抽獎 : 於2017年12月25日(一)，在台北市中山區松江路207號，以電腦隨機方式抽獎，並於2017年12月27日(三)於活動網站公布得獎名單。</li>
+                                <li class="events__title-list">威秀電影票: 於活動期間內符合活動條件者，粉多集點卡APP將以電腦隨機方式給予虛擬刮刮卡乙張，刮開刮刮卡即可得知結果，活動期間內每周二於活動網站公布得獎名單。</li>
+                                <li class="events__title-list">貝納頌咖啡(經典曼特寧風味)乙瓶抽獎 : 於活動期間內符合活動條件者，粉多集點卡APP將以電腦隨機方式給予虛擬刮刮卡乙張，刮開刮刮卡即可得知結果，本獎項不另行公布得獎名單。</li>
+                                <li class="events__title-list">貝納頌咖啡(經典曼特寧風味)贈品 : 於活動期間內符合活動條件即贈一組兌獎代碼，可於2017/12/31前至全家便利商店兌換貝納頌咖啡經典曼特寧乙瓶。</li>
+                            </ul>
+                        </div>
+                        <div class="events__txt__box--rule">
+                            <h2 v-on:click="openRule=!openRule" v-bind:class="{'events__rule__title--open':openRule}" class="events__rule__title">注意事項</h2>
+                            <transition name="fade">
+                                <div v-show="openRule" class="events__rule__area">
+                                    <div class="l-container">
+                                        <h2 class="events__rule__title--title1">注意事項</h2>
+                                        <ul>
+                                            <li>本活動由味全食品工業股份有限公司舉辦，並委由春樹科技股份有限公司(粉多集點卡)製作執行。活動之粉多集點卡APP係春樹科技股份有限公司所擁有，消費者有任何疑問，請來電02-77028887詢問。</li>
+                                            <li>本活動僅限登錄紙本電子發票，每張發票限登錄一次，且消費日期應在本活動期間內。電子發票驗證最長須耗時48小時，待驗證完成後系統即會送出刮刮卡/貝納頌點數至粉多集點卡APP，若後續有退換貨情形，粉多集點卡APP點數將退回。</li>
+                                            <li>參加第一重抽獎者應保留發票正本，得獎者最遲應於2018/1/10前將收件人詳細資訊，回傳至粉多集點卡客服信箱 app_service@friendo.com.tw。並將機會中獎回覆函及發票正本寄至臺北市中山區松江路207號10樓春樹科技股份有限公司(信封封面應註明本活動名稱)，逾時即喪失資格。發票上若未記載購買品項明細，應另外附上購買明細，以做為領獎憑證。</li>
+                                            <li>本活動所有獎項須於2017/12/31前兌換完成，逾期即喪失資格。本活動第一重iPhone X獎項將於2018/01/22寄發，第二重威秀電影票將於得獎人至粉多集點卡APP填寫完整收件資訊後2週內寄出。</li>
+                                            <li>贈品不得轉售或是折換現金，贈品以實物為準，圖片僅供參考。</li>
+                                            <li>春樹科技一概以本活動參加者所提供之個人資料寄送得獎贈品，如事後有更改未通知本公司者，本公司將不另行寄送得獎贈品。</li>
+                                            <li>中獎者請務必提供真實、完整之領獎資料，以便進行領獎作業。如因資料錯誤或不正確，導致無法通知得獎訊息、確認得獎者或獎品寄送後遭退回，皆將視為棄權。</li>
+                                            <li>活動獎項將以包裹郵寄，在郵寄或運送過程中，非可歸責於春樹科技股份有限公司之事由所造成的毀壞、遲遞、錯遞或遺失，春樹科技恕不負責。</li>
+                                            <li>如因電腦病毒、駭客入侵、技術失誤、數據遺失、網路擠塞等網路技術的任何因素，以致遞交資料缺失或抽獎活動無法進行，春樹科技股份有限公司無需承擔任何責任。</li>
+                                            <li>獎項說明未盡之事宜，依中獎通知簡訊說明為準，中獎者不得要求更換獎項或兌換現金、折讓或任何調整事項。</li>
+                                            <li>依主管稽徵機關規定，機會中獎獎項超過NT$20,000元得獎者，須自行負擔10%中獎所得稅；中獎金額超過NT$1,000元者，需繳交身分證正反面影本，以供報稅使用。</li>
+                                            <li>凡居住在台、澎、金、馬者，均可參加本次活動，只要符合參加者之資格，春樹科技股份有限公司保有審查之權利，若經查核有不符本活動規定之參加者，春樹科技股份有限公司將取消其參加或得獎之資格。</li>
+                                            <li>春樹科技股份有限公司保留審核參加及中獎資格，決定修正及變更活動內容之權利。</li>
+                                            <li>粉多集點卡會員之「指定商品發票集點活動」相關使用方式及限制，依粉多集點卡APP公佈之「粉多集點卡服務條款」為準。若因違反誠信原則或不正當之方法取得本活動資格者，春樹科技股份有限公司將逕予以取消集點與兌換資格，且不另行通知。</li>
+                                            <li>春樹科技股份有限公司有權對本活動所有事宜做出解釋或裁決。</li>
+                                            <li>參加活動者一旦參加本活動，則表示同意接受本辦法之拘束，如有違反，春樹科技股份有限公司得取消其參加資格。</li>
+                                            <li>蒐集利用個人資料告知事項
+                                                <ul>
+                                                    <li>(1)春樹科技股份有限公司舉辦上述活動，為進行蒐集、處理及利用個人資料，特依「個人資料保護法」第八條之規定，告知擬參加之消費者下列事項：
+                                                        <ul>
+                                                            <li>a.蒐集人：春樹科技股份有限公司</li>
+                                                            <li>b.目的：行銷、贈獎及其相關事項</li>
+                                                            <li>c.個資類別：C001辨識個人者。如姓名、住址、電話、行動電話等。C003政府資料中之辨識者：如身分證統一編號等。及C011個人描述：年齡、性別、出生年月日等。</li>
+                                                            <li>d.由蒐集人一時在台灣地區就贈獎活動之相關事項使用個資</li>
+                                                            <li>e.參加人得以畫面或電子郵件查詢，或請求閱覽、製給複本、請求補充或更正、請求停止蒐集、處理或利用、請求刪除</li>
+                                                            <li>f.不提供不能參加兌獎活動，或將被取消中獎資格</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>(2)春樹科技股份有限公司將尊重參加人之權益，絕不逾越上述特定目的之必要範圍，從事蒐集、處理及利用參加人個人資料，且非經同意，亦絕不任意竄改或洩漏或提供第三人使用。若有逾越上述特定目的之必要範圍之蒐集、處理及利用，春樹科技股份有限公司將事先以書面、電子郵件、傳真或其他適當方式通知並取得參加人書面之同意。</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </transition>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <!--render main view-->
+        </div>
+        <div v-show="loading" v-cloak class="loading">
+            <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        </div>
+        <div v-show="pupOops" v-cloak class="popup popup--oops">
+            <div class="container">
+                <div v-on:click="pupOops=!pupOops" class="popup__btn__close">
+                    <div class="one"></div>
+                    <div class="two"></div>
+                </div>
+                <div class="popup__box">
+                    <div class="__popup__txtarea">
+                        <h2 class="popup__h2">Oops!資料有誤!</h2>
+                        <p class="popup__txt">親愛的用戶你的“手機號碼”格式填寫錯誤，請再次確認填寫資料。</p>
+                        <div class="btn__area"><a href="javascript:" class="btn popup__btn">確定<i class="btn__icon"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div v-show="pupTicket" v-cloak class="popup popup--ticket">
+            <div class="container">
+                <div v-on:click="openPop=!openPop,pupTicket=!pupTicket" class="popup__btn__close">
+                    <div class="one"></div>
+                    <div class="two"></div>
+                </div>
+                <div class="popup__box">
+                    <div class="popup__img"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="l-footer footer">
+        <div class="gotoparea">
+            <div class="gotop"></div>
+        </div>
+        <div class="l-container"></div>
+    </div>
+    <script src="../js/app.js"></script>
+</body>
+
+</html>
