@@ -1,0 +1,168 @@
+﻿//- page laytout name
+extends _layout.pug
+block pageInfo
+    - var pageTitle = "登錄發票 | 救救邊緣人"
+    - var pageDesc = "快到任一超商購買活動指定商品,登錄紙本電子發票,25000份好禮買一送一,還有機會再抽冰島來回機票及總價10萬元全家禮券、RO虛擬寶物等好禮！"
+    - var pageJs = "invoice.js"
+//- page html
+block page_main
+    section.invoice#invoice(v-cloak)
+        transition(name="fade" mode="out-in")
+            section.event_info(v-if="first")
+                div.title
+                    img(src="images/event-title.png", alt="")
+                    p.subtitle 買一捐一為邊緣人送暖
+                ul.info__list
+                    li
+                        img(src="images/event-icon1.png" alt="")
+                        div.txt
+                            i.step 1
+                            p 
+                                | 即日起至2/28，
+                                br
+                                | 購買
+                                a(href="../sharegift.html") 
+                                    span.blue 指定商品
+                                    img(src="images/search-icon.png", alt="")
+                    li
+                        img(src="images/event-icon2.png" alt="")
+                        div.txt
+                            i.step 2
+                            p 
+                                | 紙本電子發票登錄完成
+                                span.red 免費
+                                | 加送你
+                                span.small 朋友
+                                | 一份
+                    li
+                        img(src="images/event-icon3.png" alt="")
+                        div.txt
+                            i.step 3
+                            p 
+                                | 活動加碼：
+                                br
+                                | 抽冰島來回機票！
+                div.info__btn
+                    p 《關懷邊緣人人有責》
+                    div.btn(v-on:click="first = false;")
+                        span 我知道了
+        
+        transition(name="fade" mode="out-in")
+            div#invoice_form(v-show="(!success&&!first)")
+                div.title
+                    img(src="images/invoice-title.png" alt="立即登錄發票 取得分享資格")
+                div.info
+                    p 中獎者須以此處輸入資訊進行領獎
+                    p 本活動僅限紙本電子發票登錄參加使用之紙本電子發票開立日期必須在活動時間內，並購買活動指定商品
+                ul.data__formarea
+                    li
+                        label(for="usernamme") 聯絡人姓名
+                        div.list__content
+                            input(v-model="username" type="text" name="user_name" placeholder="請輸入姓名" id="username")
+                    li
+                        label(for="phone") 手 機 號 碼
+                        div.list__content
+                            input(v-model="phone" type="text" maxlength = "10" name="cell_no" placeholder="請輸入10位數字" id="phone")
+                    li
+                        label(for="inv_date") 發 票 期 別
+                        div.list__content
+                            select#inv_date(name="inv_date" v-model="inv_date")
+                                option(value="") 請選擇
+                                option(v-if = "nowdate >= 10702" value="10702") 2018年 1~2月
+                                option(v-if = "nowdate >= 10704" value="10704") 2018年 3~4月
+                    li
+                        label(for="inv_num") 發 票 號 碼
+                        div.list__content
+                            input(v-model="inv_num" type="text" maxlength = "10" name="inv_num" placeholder="請輸入2位英文＋8位數字" id="inv_num")
+                    li
+                        label(for="random_number") 發票隨機碼
+                        div.list__content
+                            input(v-model="random_number" type="text" maxlength = "4" name="random_number" placeholder="請輸入4位數字" id="random_number")
+                div.sample-btn(@click="demo = true")
+                    p 電子發票範例
+
+                label.check
+                    input(v-model="check" type="checkbox" value="1" name="check")
+                    span 我已同意粉多集點卡活動辦法及相關規定
+                div.g-recaptcha(data-sitekey="6LceEUAUAAAAANergLgEa9pGgU8x2acFIy7re_pw")
+                button.submit-btn(@click="post_inv" )
+                    .sk-fading-circle(v-if="loading")
+                        .sk-circle(v-for="(el,i) in 12" :class="'sk-circle' + (i+1)")
+                    span(v-if="!loading") 送出資料
+                div.catboy
+                    img(src="images/cat-boy2.png", alt="")
+            //- success view
+        transition(name="fade" mode="out-in")
+            div.success__view(v-if="success")
+                div.title
+                    img(src="images/success-title.png", alt="")
+                div.subinfo
+                    p 
+                        | 立即下載粉多集點卡APP
+                        br
+                        | 領取免費好禮捐助給朋友
+                        br
+                        | 再抽
+                        span 再抽總價十萬元全家購物金及RO虛擬寶物
+                a.download-btn(href="https://goo.gl/V9YNqr" target="_blank")
+                    span 下載領取
+                div.desc
+                    p.stitle 溫馨小提醒
+                    p 
+                        | 因系統連結財政部驗證發票最長須費時
+                        br
+                        | 48小時，系統會於發票驗證通過確定
+                        br
+                        | 發票中含有指定消費品項商品後
+                        br 
+                        | 即獲得分享商品資格
+                div.title
+                    img(src="images/success-title2.png", alt="")
+                div.slider
+                    p 開啟粉多集點卡APP，領取<br>「邊緣人刮刮卡」  
+                    carousel-3d.slider__items(:controls-visible="false" :autoplay="false" :disable3d="true" :space="100" :autoplay-timeout="3000" :display="1" :width="525" :height="1200" :border="0" v-on:before-slide-change="sliderOneChange")
+                        slide(:index="0")
+                            figure
+                                img(src="images/slider-item1.png", alt="至「我的優惠」點選邊緣人刮刮卡")
+                                figcaption 至「我的優惠」點選邊緣人刮刮卡
+                        slide(:index="1")
+                            figure
+                                img(src="images/slider-item2.png", alt="取得邊緣人刮刮卡並刮開獎項")
+                                figcaption 取得邊緣人刮刮卡並刮開獎項
+                        slide(:index="2")
+                            figure
+                                img(src="images/slider-item3.png", alt="待發票驗證成功後，即可領取刮刮樂獎項")
+                                figcaption 待發票驗證成功後，即可領取刮刮樂獎項
+                    div.slider__bots
+                        div.bot(v-for='(el,i) in 3' :class="(i == slider_inx.section1)?'active':'' ")
+                div.title
+                    img(src="images/success-title3.png", alt="")
+                div.slider
+                    p 獲得禮物分享資格，救救邊緣人<br>立刻行動！  
+                    carousel-3d.slider__items(:controls-visible="false" :autoplay="false" :disable3d="true" :space="100" :autoplay-timeout="3000" :display="1" :width="525" :height="1200" :border="0" v-on:before-slide-change="sliderTwoChange")
+                        slide(:index="0")
+                            figure
+                                img(src="images/slider-item4.png", alt="至「我的優惠」點選邊緣人刮刮卡")
+                                figcaption 進入邊緣人活動分享專區
+                        slide(:index="1")
+                            figure
+                                img(src="images/slider-item5.png", alt="符合分享資格，選擇欲分享的商品給你的朋友")
+                                figcaption 符合分享資格，選擇欲分享的商品給你的朋友
+                    div.slider__bots
+                        div.bot(v-for='(el,i) in 2' :class="(i == slider_inx.section2)?'active':'' ")
+                a.friendo-download(href="https://goo.gl/V9YNqr" target="_blank")
+                    img(src="images/friendo-download.png", alt="")
+                    img(v-if="(device_type == 0 || device_type == 1)" src="images/apple-icon.png", alt="")
+                    img(v-if="(device_type == 0 || device_type == 2)" src="images/android-icon.png", alt="")
+                <div class="fb-page" data-href="https://www.facebook.com/%E7%B2%89%E5%A4%9A%E9%9B%86%E9%BB%9E%E5%8D%A1-162366487595576/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/%E7%B2%89%E5%A4%9A%E9%9B%86%E9%BB%9E%E5%8D%A1-162366487595576/" class="fb-xfbml-parse-ignore">
+                        <a href="https://www.facebook.com/%E7%B2%89%E5%A4%9A%E9%9B%86%E9%BB%9E%E5%8D%A1-162366487595576/">粉多集點卡</a>
+                    </blockquote>
+                </div>
+        transition(name="fade" mode="out-in")
+            div.demo__view(v-if="demo")
+                section.demo__content
+                    div.demo-close(v-on:click="demo=false")
+                    div.view
+                        p 電子發票範例
+                        img(src="images/sample-invoice.png", alt="")

@@ -1,0 +1,99 @@
+﻿//page laytout name
+extends _layout.jade
+
+//page html
+block page_main
+    section.data
+        //資料填寫開始
+        section.data__form
+            div.data__title 立即登錄發票抽好禮
+            div.l-container
+                div.data__txt 本期活動僅限電子發票登錄參加
+                    br
+                    | 使用之電子發票開立日期必須在活動時間內
+                div.data__txt--small (2017/09/27~10/31)
+                form.data__formarea
+                    ul
+                        li.list
+                            div.list__title 聯絡姓名 :
+                            div.list__content
+                                input.list__input(placeholder="請輸入姓名")
+                        li.list
+                            div.list__title 手機號碼 :
+                            div.list__content
+                                input.list__input(placeholder="請輸入10位數字")
+                        li.list
+                            div.list__title 發票日期 :
+                            div.list__content
+                                select.dates
+                                    option(value="") 106年9-10月
+                                    option(value="") 106年11-12月
+                        li.list
+                            div.list__title 發票號碼 :
+                            div.list__content
+                                input.list__input(placeholder="請輸入2位英文+8位數字")
+                        li.list
+                            div.list__title 發票隨機碼 :
+                            div.list__content
+                                input.list__input(placeholder="請輸入4位數字")
+                    div.data__btnarea
+                        a(href="javascript:").btn 查看發票填寫範例
+                            i.btn__icon
+                    div.data__formtxt
+                        label
+                            input.checkbox(type="checkbox")
+                        p 我已同意台灣樂金生活健康股份有限公司活動辦法及相關規定。
+                    div.roboarea
+                        //這裡是放我不是機器人區域
+                    div.btnarea
+                        input.btn(type="button" value="送出資料")
+        //資料填寫成功開始
+        section.data__success
+            div.data__success__title 恭喜!
+                br
+                | 你的發票已經成功登錄!
+            div.l-container
+                div.data__txt 完成登錄發票，抽萬元現金券。
+                    br
+                    | 買越多，中獎機率越高！
+                div.btnarea
+                    a(href="javascript:").btn 登錄更多發票
+                        i.btn__icon
+                div.events__txt__box
+                    h1.events__titleh1
+                        span.pink 消費集點請你
+                        span.coffee 喝咖啡
+                    p.events__txtarea 活動期間，購買
+                        span.pink 『ON THE BODY』
+                        | 或
+                        span.pink 『麗奇』
+                        | 系列商品，單筆消費滿100元以上(含)，並下載『粉多集點卡APP』綁定手機門號，成功登錄電子發票者，即可累積微香點數1點(單筆消費滿200元即可獲贈2點，依此類推….)，點數發送以簡訊告知。憑微香會員點數每 5 點即可兌換cama美式咖啡電子兌換序號乙組。
+                    dl.events__list
+                        dt.events__list__title 兌換流程
+                    dl.events__list
+                        dt.events__list__icon.events__list__icon--icon1
+                        dl.events__list__txtarea
+                            h2.events__list__step-title.pink STEP1
+                            p.events__list__step-txt 開啟粉多集點卡APP，進入ON THE BODY集點專區。
+                    dl.events__list
+                        dt.events__list__icon.events__list__icon--icon2
+                        dl.events__list__txtarea
+                            h2.events__list__step-title.pink STEP2
+                            p.events__list__step-txt 點選兌換「cama美式咖啡」，獲得咖啡電子兌換序號一組。
+                    dl.events__list
+                        dt.events__list__icon.events__list__icon--icon3
+                        dl.events__list__txtarea
+                            h2.events__list__step-title.pink STEP3
+                            p.events__list__step-txt 前往全台cama門市，出示咖啡電子兌換序號，即可兌換cama美式咖啡乙杯。
+                    dl.events__list
+                        dt.events__list__title 集點須知
+                        p.events__list__step-txt2 您所消費累積的微香點數，請至
+                            span.red 【粉多集點卡APP】
+                            | 中查詢 (需事先綁定您的手機號碼)
+                        ul
+                            li 電子發票需經財政部系統驗證(時間約需48小時)，驗證後符合活動資格之發票，始可參加微香點數集點活動，系 統同步將微香點數累積至粉多集點卡APP中 (非電子發票 恕不得參加集點活動)。
+                            li 粉多集點卡APP為本公司委外合作廠商春樹科技股份有限 公司(以下簡稱春樹公司)開發，會員之「指定商品發票集 點活動」相關使用方式及限制，依春樹公司公佈之「粉 多集點卡服務條款」為準。若因違反誠信原則或不正之 方法取得本活動資格者，春樹公司將逕予以取消集點與 兌換資格，且不另行通知。
+                    div.storearea
+                        a.store__icon.store__icon--icon1(href="javascript:") App Store
+                        a.store__icon.store__icon--icon2(href="javascript:") Google Play
+                        div.img__search 請上網搜尋粉多集點卡

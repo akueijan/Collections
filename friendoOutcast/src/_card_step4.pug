@@ -1,0 +1,9 @@
+div.s4__content(v-if="step == 4")
+    div.title
+        p 請挑一張卡片樣式
+
+    //- div.line_share(="line_share")
+    a.line_share(:href="share_link" target="_blank")
+        img(src="http://2.bp.blogspot.com/-tsIDMPhBx18/VPGxHZtjsnI/AAAAAAAALIU/1b_VO721HDw/s1600/line-share-button.png" alt="line share")
+
+    input(type="text" :value="share_link")

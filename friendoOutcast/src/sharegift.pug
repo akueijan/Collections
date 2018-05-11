@@ -1,0 +1,35 @@
+//- page laytout name
+extends _layout.pug
+block pageInfo
+    - var pageTitle = "救救邊緣人商品 | 救救邊緣人"
+    - var pageDesc = "快到任一超商購買活動指定商品,登錄紙本電子發票,25000份好禮買一送一,還有機會再抽冰島來回機票及總價10萬元全家禮券、RO虛擬寶物等好禮！"
+    - var pageJs = "sharegift.js"
+//- page html
+block page_main
+    section.sharegift#sharegift(v-cloak)
+        div.info
+            h2.title 【救救邊緣人】活動指定商品
+            p.info 購買下列指定商品，登錄發票即可分享留言給你認識的邊緣人！若商品已沒有剩餘數量，則無法再取得該商品分享資格。
+
+        section.prods
+            div.prod__item(v-for="(prod,key) in products" :class="(prod.available_qty <= 0)?'gray':'' ")
+                div.main__box
+                    div.main__img
+                        img(:src="prod.prod_url+'&op=resize&w=400'", :alt="prod.prod_name")
+                    div.main__txt
+                        p {{prod.prod_name}}
+                div.top
+                    div.share_num 
+                        span 已分享: {{prod.shared_qty}}
+                    div.available_num
+                        span(v-if="prod.available_qty > 0") 剩下: {{prod.available_qty}} 份
+                        span.red(v-else) 哭哭送完了
+        
+        div.sharegift__btnarea
+            div.sharegift__btn
+                a(href="invoice.html" alt="登錄發票" itemprop="url" title="登錄發票"): span 登錄發票
+        div.sharegift__ft
+    div.fixed__btnarea
+        div.fixed__btn
+            a(href="invoice.html" alt="登錄發票" itemprop="url" title="登錄發票"): span 登錄發票
+        

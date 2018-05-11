@@ -1,0 +1,54 @@
+﻿//- //- page laytout name
+extends _layout.pug
+block pageInfo
+    - var pageTitle = "得獎名單 | 救救邊緣人"
+    - var pageDesc = "快到任一超商購買活動指定商品,登錄紙本電子發票,25000份好禮買一送一,還有機會再抽冰島來回機票及總價10萬元全家禮券、RO虛擬寶物等好禮！"
+    - var pageJs = "award.js"
+//- page html
+block page_main
+    section.award#award(v-cloak)
+        div.award__hd
+            div.award__title 得獎名單
+        div.award__bd
+            div.award__date(v-show="award_date")
+                p 於
+                    span.red 3/15公告幸運得主
+            div.award__listarea(v-show="award_list")
+                div.award__first
+                    div.award__listarea__title 冰島來回機票
+                        span.small (1張)
+                    table.award__tab
+                        tr
+                            th 姓名
+                            th 電話
+                        tr(v-for="data in data_list[0]")
+                            td {{data.name.substr(0,1)}}O{{data.name.substr(2)}}
+                            td {{data.phone.substr(0,4)}}****{{data.phone.substr(8)}}
+                div.award__list
+                    div.award__listarea__title 生活酵素微泡飲禮盒
+                        span.small (10名)
+                    table.award__tab
+                        tr
+                            th 姓名
+                            th 電話
+                        tr(v-for="data in data_list[1]")
+                            td {{data.name.substr(0,1)}}O{{data.name.substr(2)}}
+                            td {{data.phone.substr(0,4)}}****{{data.phone.substr(8)}}
+                    //- table.award__tab
+                    //-     tr
+                    //-         th 姓名
+                    //-         th 電話
+                    //-     tr
+                    //-         td 王O明
+                    //-         td 0911***853
+                div.award__list
+                    div.award__listarea__title RO天使波利氣泡水24瓶/箱
+                        span.small (10名)
+                    table.award__tab
+                        tr
+                            th 姓名
+                            th 電話
+                        tr(v-for="data in data_list[2]")
+                            td {{data.name.substr(0,1)}}O{{data.name.substr(2)}}
+                            td {{data.phone.substr(0,4)}}****{{data.phone.substr(8)}}
+        div.award__ft

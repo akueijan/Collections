@@ -29,10 +29,14 @@
 | [家樂福 滴血認親][1] | 版型切版 + 資料串接 | 
 | [家樂福 Brics][2]    | 版型切版            |
 | [集點卡X貝納頌][3]   | 版型切版 + 動畫     |
-| [集點卡X左岸咖啡][4] | 版型切版 + 動畫     |
+| [粉多集點卡X左岸咖啡][4] | 版型切版 + 動畫     |
+| [粉多集點卡XOnthebody][5] | 版型切版 + 動畫     |
+| [粉多集點卡 - 邊緣人活動][6] | 版型切版 + 動畫     |
 
 
 [1]: https://akueijan.github.io/Collections/carrefourBlood/dist/index.html
 [2]: https://akueijan.github.io/Collections/carrefourBrics-2/dist/index.html
 [3]: http://o2o.friendo.com.tw/bernachon?utm_source=friendo&utm_medium=bernachon_brands_280x380&utm_campaign=bernachon
 [4]: https://akueijan.github.io/Collections/friendoLecafe/dist/index.html
+[5]: https://akueijan.github.io/Collections/friendoOnthebody/dist/index.html
+[6]: http://o2o.friendo.com.tw/loner?utm_source=friendo&utm_medium=loner_brands_280x380&utm_campaign=loner

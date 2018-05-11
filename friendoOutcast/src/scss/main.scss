@@ -1,0 +1,58 @@
+@charset 'UTF-8';
+
+/* ----- IMPORT -----*/
+
+//1.utils
+@import "utils/_color.scss";
+@import "utils/_bemify.scss"; 
+    //A set of Sass mixins to write well-structured, maintainable, idiomatic BEM-style .scss source:
+@import "utils/_variables.scss";
+@import "utils/_mixins.scss";
+@import "utils/_grid.scss";
+//sprite scss import 至少要啟用gulp一次
+//@import "_sprite.scss";
+//2.vendors
+//3.base
+@import "base/_reset.scss";
+@import "base/_typography.scss";
+//4.layout
+@import "layout/_layout.scss";
+@import "layout/_nav.scss";
+//5.components
+@import "components/_load.scss";
+//html 在 load.js 裡
+//6.pages
+@import "pages/_index.scss";
+@import "pages/_invoice.scss";
+@import "pages/_card.scss";
+@import "pages/_about.scss";
+@import "pages/_award.scss";
+@import "pages/_sharegift.scss";
+@import "pages/_gift.scss";
+@import "pages/_opencard.scss";
+//7.themes
+
+
+[v-cloak] * {
+    display: none;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .3s ease;
+}
+
+.fade-enter,
+.fade-leave-to
+{
+    opacity: 0;
+}
+
+.noqty{
+    background: red;
+}
+
+.l-main>section{
+    min-height: calc(100vh - #{$nav_height});
+
+}

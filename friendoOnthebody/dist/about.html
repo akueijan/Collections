@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+  <!--page default Information-->
+  <!--html head-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>首頁</title>
+    <meta name="description" content="敘述">
+    <meta name="viewport" content="width=640">
+    <!-- Schema.org markup for Google+-->
+    <meta itemprop="name" content="首頁">
+    <meta itemprop="description" content="敘述">
+    <meta itemprop="image" content="指定顯示圖片">
+    <!-- og-->
+    <meta property="og:title" content="首頁">
+    <meta property="og:description" content="敘述">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="指定顯示圖片">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+    <link rel="stylesheet" href="css/main.css"><!--CDN link -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <!-- for loading-->
+    <script src="https://code.createjs.com/preloadjs-0.6.1.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <!--html body-->
+  <body>
+    <div id="app" class="l-wrap">
+      <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="nav">
+        <div class="l-container">
+          <div class="nav-bd">
+            <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO">LOGO</a></h1>
+            <div class="nav-btn">
+              <div class="one"></div>
+              <div class="two"></div>
+              <div class="three"></div>
+            </div>
+            <div role="navigation" class="nav-menu">
+              <ul class="clearfix">
+                <li class="nav-item nav-item__index"><a href="index.html" alt="項目" itemprop="url" title="項目"><span>首頁</span></a></li>
+                <li class="nav-item nav-item__data"><a href="data.html" alt="項目" itemprop="url" title="項目"><span>立即登錄發票抽好禮</span></a></li>
+                <li class="nav-item nav-item__products"><a href="products.html" alt="項目" itemprop="url" title="項目"><span>通路優惠</span></a></li>
+                <li class="nav-item nav-item__award"><a href="award.html" alt="項目" itemprop="url" title="項目"><span>得獎公告</span></a></li>
+                <li class="nav-item nav-item__about"><a href="about.html" alt="項目" itemprop="url" title="項目"><span>關於粉多集點卡</span></a></li>
+                <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><i class="icon-fb">fb-icon</i><span>粉絲團</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- render nav view-->
+      <div class="l-main">
+        <section class="about">
+          <section class="about__head">
+            <div class="about__title">關於粉多集點卡</div>
+            <div class="l-container">
+              <div class="data__txt">餐廳用餐&便利商店消費&搭車交通，<br>粉多集點卡，最輕鬆集點的集點APP</div>
+            </div>
+          </section>
+          <section class="about__body">
+            <div class="l-container">
+              <div class="events__txt__box">
+                <dt class="events__list__icon events__list__icon--icon2"></dt>
+                <dl class="events__list__txtarea">
+                  <h2 class="events__list__step-title pink">掃描產品電子發票QR Code，點數1秒輕鬆集</h2>
+                  <p class="events__list__step-txt">不限通路購買合作品牌產品，掃描電子發票即享點數回饋。</p>
+                </dl>
+              </div>
+              <div class="events__txt__box">
+                <dt class="events__list__icon events__list__icon--icon3"></dt>
+                <dl class="events__list__txtarea">
+                  <h2 class="events__list__step-title pink">報上手機號碼就能集，不再擔心遺失集點卡</h2>
+                  <p class="events__list__step-txt">於特約店家報上手機號碼，不須開啟App就能立刻集點。</p>
+                </dl>
+              </div>
+              <div class="events__txt__box">
+                <dt class="events__list__icon events__list__icon--icon1"></dt>
+                <dl class="events__list__txtarea">
+                  <h2 class="events__list__step-title pink">一卡通在手，吃喝玩樂消費回饋通通有</h2>
+                  <p class="events__list__step-txt">不只日常大眾通勤，生活消費都能集。</p>
+                </dl>
+              </div>
+              <div class="storearea">
+                <div class="download">立即下載，粉多集點卡</div><a href="javascript:" class="store__icon store__icon--icon1">App Store</a><a href="javascript:" class="store__icon store__icon--icon2">Google Play</a>
+                <div class="img__search">請上網搜尋粉多集點卡</div>
+              </div>
+            </div>
+          </section>
+        </section>
+        <!--render main view-->
+      </div>
+      <div v-show="loading" v-cloak class="loading">
+        <div class="spinner">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+        </div>
+      </div>
+      <div v-show="pupOops" v-cloak class="popup popup--oops">
+        <div class="container">
+          <div class="popup__btn__close">
+            <div class="one"></div>
+            <div class="two"></div>
+          </div>
+          <div class="popup__box">
+            <div class="__popup__txtarea">
+              <h2 class="popup__h2">Oops!資料有誤!</h2>
+              <p class="popup__txt">親愛的用戶你的“手機號碼”格式填寫錯誤，請再次確認填寫資料。</p>
+              <div class="btn__area"><a href="javascript:" class="btn popup__btn">確定<i class="btn__icon"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-show="pupTicket" v-cloak class="popup popup--ticket">
+        <div class="container">
+          <div class="popup__btn__close">
+            <div class="one"></div>
+            <div class="two"></div>
+          </div>
+          <div class="popup__box">
+            <div class="popup__img"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="l-footer footer">
+      <div class="gotoparea">
+        <div class="gotop"></div>
+      </div>
+      <div class="l-container">
+        <div class="footer__logos">全台通路<a href="products.html"></a></div>
+        <p>Copyright@2017台灣樂金生活健康股份有限公司 x 春樹科技股份有限公司. <br>All Rights Reserved.</p>
+      </div>
+    </div>
+    <script src="../js/app.js"></script>
+  </body>
+</html>

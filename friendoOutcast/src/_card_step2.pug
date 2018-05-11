@@ -1,0 +1,26 @@
+div.s2__content(v-if="step == 2")
+    div.title
+        p.r 好想大聲說！  
+        p.i 留言寫下你想對朋友説的話
+    div.form_div
+        label.list
+            p 對 方 暱 稱
+            input(type="text" v-model="share_obj.toName" placeholder="輸入對方暱稱")
+        label.list
+            p 我 的 暱 稱
+            input(type="text" v-model="share_obj.fromName" placeholder="輸入我的暱稱")
+        label.list.text
+            p 想跟對方說什麼？
+            div.cat
+                img(src="images/textarea-cat.png", alt="")
+            textarea.msg(v-model="share_obj.msg" placeholder="40個中文字內" maxlength="40")
+        div.sample_btn
+            button.sample(@click="sample_text(1)")
+                span 示範留言1
+            button.sample(@click="sample_text(2)")
+                span 示範留言2
+    div.pre_next
+        button.pre(@click="pre_step")
+            span 返回
+        button.next(@click="next_step")
+            span 下一步

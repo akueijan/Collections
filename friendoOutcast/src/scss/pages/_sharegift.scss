@@ -1,0 +1,167 @@
+﻿.sharegift {
+    position: relative;
+    padding: 0 40px 270px;
+    .info {
+        box-sizing: border-box;
+        padding: 40px 0 0 0;
+        .title {
+            background: url(../images/sharegift-title.png) 0 0 no-repeat;
+            width: 403px;
+            height: 185px;
+            margin: 0 auto;
+            overflow:hidden;
+            text-indent: 110%;
+            white-space: nowrap;
+        }
+        p {
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 1.3;
+            width: 510px;
+            margin: 0 auto;
+        }
+    }
+    .prods {
+        min-height: 100vh;
+        margin-top: 50px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        .prod__item {
+            display: inline-block;
+            .top {
+                display: block;
+                padding: 0 10px;
+                margin-bottom: 20px;
+            }
+            .main_img {
+                text-align: center;
+            }
+        }
+    }
+    .prod__item {
+        width: 260px;
+        margin: 0 0 50px 0;
+        &:nth-last-child(1), &:nth-child(2) {
+            margin: 0;
+        }
+    }
+    .main__box {
+        border: 5px solid #000;
+        border-bottom: 0;
+    }
+    .main__img {
+        width: 240px;
+        margin: 0 auto;
+        img {
+            width: 240px;
+        }
+    }
+    .main__txt {
+        background: #000;
+        color: #fff;
+        height: 120px;
+        text-align: center;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        p {
+            font-size: 30px;
+            line-height: 36px;
+            padding: 0 20px;
+        }
+    }
+    .share_num, .available_num {
+        text-align: center;
+        font-size: 28px;
+        font-weight: 600;
+        margin: 10px 0 0 0;
+    }
+    .available_num {
+        margin: 7px 0 0 0;
+    }
+    
+    &__ft {
+        background: url(../images/cat-boy-sleep.png) 0 0 no-repeat;
+        width: 485px;
+        height: 294px;
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        margin: 0 0 0 -242px;
+    }
+    .gray{
+        .main__box {
+            border: 5px solid #b0b0b0;
+            border-bottom: 0;
+            position: relative;
+            &:before {
+                position: absolute;
+                background: url(../images/award-item-over.png) 0 0 no-repeat;
+                content: "";
+                width: 160px;
+                height: 160px;
+                top: 50%;
+                left: 50%;
+                margin: -120px 0 0 -80px;
+            }
+        }
+        .main__txt {
+            background: #b0b0b0;
+        }
+        span {
+            color: #b0b0b0;
+        }
+        .red {
+            color: #fb3343;
+        }
+    }
+    &__btnarea {
+        margin: 20px 0;
+        text-align: center;
+    }
+    &__btn {
+        background: url(../images/nav-btn.png) 0 0 no-repeat;
+        width: 475px;
+        height: 129px;
+        margin: 0 auto;
+        a {
+            display: block;
+            width: 475px;
+            height: 129px;
+            line-height: 120px;
+            span {
+                color: #000;
+                font-size: 50px;
+                font-weight: 900;
+            }
+        }
+    }
+}
+
+.fixed__btnarea {
+    position: fixed;
+    bottom: -200px;
+    width: 100%;
+    max-width: 750px;
+    left: 50%;
+    margin-left: -375px;
+}
+.fixed__btn {
+    background: url(../images/fixed-btn.png) 0 0 no-repeat;
+    width: 750px;
+    height: 193px;
+    text-align: center;
+    a {
+        display: block;
+        width: 750px;
+        height: 193px;
+        padding: 100px 0 0 0;
+        span {
+            color: #000;
+            font-size: 50px;
+            font-weight: 900;
+        }
+    }
+}

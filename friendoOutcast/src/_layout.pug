@@ -1,0 +1,28 @@
+﻿- var jsFolder = "js/"
+doctype
+html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
+    //page default Information
+    block pageInfo
+        - var pageTitle = "邊緣人"
+        - var pageDesc = "邊緣人邊緣人"
+    //html head
+    include _head.pug
+    //html body
+    body
+        div.l-wrap#app
+            div.l-main
+                include _nav.pug
+                if nobox
+                    div.page__content.nobox
+                        block page_main
+                else
+                    div.page__content
+                        block page_main
+        div.l-footer.footer
+            div.l-container
+                p Copyright © 2018  春樹科技股份有限公司 x 粉多集點<br>All Rights Reserved.
+        div.fb-root
+        script(id="appjs" src= jsFolder + "app.js" mode=`${dev_mode}` )
+        if pageJs
+            script(src= jsFolder + pageJs)
+        script(type='text/javascript')

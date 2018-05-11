@@ -1,0 +1,52 @@
+//- page laytout name
+extends _layout.pug
+block pageInfo
+    - var pageTitle = "填寫電話號碼 | 救救邊緣人"
+    - var pageDesc = "快到任一超商購買活動指定商品,登錄紙本電子發票,25000份好禮買一送一,還有機會再抽冰島來回機票及總價10萬元全家禮券、RO虛擬寶物等好禮！"
+    - var pageJs = "gift.js"
+//- page html
+block page_main
+    section.gift#gift(v-cloak)
+        div.content(v-if="!success&&errorStyle==0")
+            div.from_title
+                p 你的朋友 
+                    br
+                    span.red {{gift_data.from}} 
+                    br
+                    | 送給你一份神祕禮物及卡片
+            div.giftimg
+                img(src="images/gift.gif" alt="")
+            div.input_number
+                label 
+                    p 請留下您的手機號碼，並下載APP免費領取商品兌換券。
+                    p 最晚須於{{gift_data.expire_date}}前領取
+                    input(type="tel" v-model="phone" maxlength="10" placeholder="請填寫手機號碼")
+                div.btn(v-on:click="send_phone")
+                    span 領取兌換券
+        div.success_view(v-if="success")
+            h3 快下載粉多集點卡APP 
+                br
+                | 領取神祕禮物及卡片
+            div.get_giftimg
+                img(src="images/get_gift.gif" alt="")
+            p 25000份豐富好禮免費送給你
+            a(href="https://goo.gl/V9YNqr" target="_blank").btn
+                span 下載領取
+        div.error_view.s1(v-if="errorStyle==1")
+            h3 Oops！
+                br
+                | 禮物領取似乎出了狀況喔！
+            div.oops_giftimg
+            p 
+                span.bold {{gift_data.expire_date}}前有效
+                br
+                | 本次禮物領取資格已逾期
+                br
+                | 快通知你的朋友重新分享一次吧！
+            div.btn(v-on:click="send_phone")
+                span 更多活動資訊
+        div.error_view.s2(v-if="errorStyle==2 || errorStyle==4")
+            h3 {{errorMsg}}
+            div.over_giftimg
+            div.btn(v-on:click="send_phone")
+                span 更多活動資訊

@@ -1,0 +1,21 @@
+div.s3__content(v-if="step == 3")
+    div.title
+        p 送出卡片前，記得檢查一下有沒有錯字哦！
+    div.preview_card
+        div.maincard
+            img(:src="share_obj.card.url" :alt="share_obj.card.name")
+        div.share_msg(:style="share_obj.card.text_pos")
+            p.to {{share_obj.toName}} :
+            p.msg {{share_obj.msg}}
+            p.from {{share_obj.fromName}}
+        div.prod_main(:style="share_obj.card.prod_pos")
+            img(:src="share_obj.prod_img+'&op=resize&w=300'" :alt="share_obj.prod_name")
+    p 
+        | 卡片送出後，
+        span.red 禮物分享機會就用掉囉
+        | !  
+    div.pre_share
+        button.next(@click="line_share")
+            span 給指定朋友
+        button.pre(@click="pre_step")
+            span 返回

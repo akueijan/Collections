@@ -1,0 +1,36 @@
+//- //- page laytout name
+extends _layout.pug
+block pageInfo
+    - var pageTitle = "關於粉多集點卡 | 救救邊緣人"
+    - var pageDesc = "快到任一超商購買活動指定商品,登錄紙本電子發票,25000份好禮買一送一,還有機會再抽冰島來回機票及總價10萬元全家禮券、RO虛擬寶物等好禮！"
+    - var pageJs = "about.js"
+//- page html
+block page_main
+    section.about#about(v-cloak)
+        div.about__hd
+            h2.about__title 粉多集點卡
+            p 餐廳用餐&便利商店消費&搭車交通，粉多集點卡，最輕鬆集點的集點APP
+        div.about__bd(@click="test")
+            ul
+                li
+                    div.about__icon
+                        div.about__icon--1
+                    div.about__txt
+                        p 
+                            span.red 一卡通在手，吃喝玩樂消費回饋通通有
+                            | 不只日常大眾通勤，生活消費都能集。
+                li
+                    div.about__icon
+                        div.about__icon--2
+                    div.about__txt
+                        p 
+                            span.red 掃描產品電子發票QR Code，點數1秒輕鬆集
+                            | 不限通路購買合作品牌產品，掃描電子發票即享點數回饋。
+                li
+                    div.about__icon
+                        div.about__icon--3
+                    div.about__txt
+                        p 
+                            span.red 報上手機號碼就能集，不再擔心遺失集點卡
+                            | 於特約店家報上手機號碼，不須開啟App就能立刻集點。
+            div.about__link(v-on:click="link_download()") 史上最方便之集點，立即下載

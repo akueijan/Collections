@@ -1,0 +1,18 @@
+div.s1__content(v-if="step == 1")
+    //- div.show_card(v-if="showcard")
+    //-     div.close(@click="closecard")
+    //-     img(:src="showcard.url" :alt="showcard.name")
+    div.title
+        p 請挑選一張喜歡的卡片樣式  
+    div.cards
+        div.card_obj(v-for="(card,key) in image_obj" @click="select_card(key)")
+            div.card_img(:class="(card_no == key)? 'select':''")
+                .box
+                    img(:src="card.url"  :alt="card.name")
+                    img.prod_img(:src="share_obj.prod_img+'&op=resize&w=120'" :style="card.prod_pos")
+            p.name {{card.name}}
+    div.pre_next
+        button.pre(@click="pre_step")
+            span 返回
+        button.next(@click="next_step")
+            span 下一步

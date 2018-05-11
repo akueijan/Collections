@@ -1,0 +1,79 @@
+//- page laytout name
+extends _layout.pug
+block pageInfo
+    - var pageTitle = "商品分享專區 | 救救邊緣人"
+    - var pageDesc = "快到任一超商購買活動指定商品,登錄紙本電子發票,25000份好禮買一送一,還有機會再抽冰島來回機票及總價10萬元全家禮券、RO虛擬寶物等好禮！"
+    - var pageJs = "card.js"
+//- page html
+block page_main
+    section.card#card(v-cloak)
+        transition(name="fade" mode="out-in")
+            section.step_start(v-if="step == 0")
+                div.info
+                    p.title 
+                        img(src="images/card-title.png", alt="")
+                    ul.subtitle 
+                        li 當商品剩餘數量為0時，無法再分享該商品
+                        li 同一位朋友僅限收到分享的相同商品一次
+                ul.prods
+                    li.thead
+                        p 商品名稱
+                        p 數量
+                        p 可分享禮物數
+                    li(v-for="(prod,inx) in first_pords" :class="(prod.shared_qty <= 0)?'noqty':''")
+                        p.name {{prod.prod_name}}
+                        p.qty {{prod.available_qty}}
+                        div.share_btn(v-if="prod.shared_qty > 0" v-on:click="check_share(inx)")
+                            i.icon
+                                img(src="images/gift-icon.png", alt="")
+                            span &nbsp;&nbsp;x{{prod.shared_qty}}
+                        p(v-else) -
+                transition(name="fade")
+                    ul.more_prods(v-show="more")
+                        li(v-for="(prod,inx) in more_prods" :class="(prod.shared_qty <= 0)?'noqty':''")
+                            p.name {{prod.prod_name}}
+                            p.qty {{prod.available_qty}}
+                            div.share_btn(v-if="prod.shared_qty > 0" v-on:click="check_share(inx)")
+                                i.icon
+                                span 數量 x {{prod.shared_qty}}
+                            p(v-else) -
+                p.load_mode(v-on:click="more = !more" :class="more?'open':''") 
+                    span 看更多商品
+                div.cat-gift
+                    img(src="images/cat-gift.png", alt="")
+        transition(name="fade" mode="out-in")
+            section.steps(v-if="step != 0")
+                div.steps__bot
+                    transition(name="fade")
+                        img(src="images/step1-img.png", alt="挑選卡片樣式" v-if="step == 1")
+                        img(src="images/step2-img.png", alt="填寫留言" v-if="step == 2")
+                        img(src="images/step3-img.png", alt="預覽並發送" v-if="step == 3")
+                div.steps__content
+                    transition(name="fade")
+                        include _card_step1.pug
+                    transition(name="fade")
+                        include _card_step2.pug
+                    transition(name="fade")
+                        include _card_step3.pug
+        transition(name="fade")
+            div.popup(v-if="popup")
+                div.popup__info
+                    div.select_prod(v-if="!success")
+                        div.text
+                            p 選擇&nbsp;
+                            p
+                                | "
+                                span {{share_obj.prod_name}}
+                                | "
+                            p &nbsp;作為你的分享禮物嗎？
+                        div.btns
+                            button.close(v-on:click="clear_share")
+                                span 取消
+                            button.next(v-on:click="next_step")
+                                span 確認
+                    div.success_text(v-else)
+                        div.text
+                            p 分享完成
+                        div.btns
+                            a.next(href="../index.html")
+                                span 確認

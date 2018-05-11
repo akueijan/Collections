@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>首頁</title>
+    <meta name="description" content="敘述">
+    <meta name="viewport" content="width=640">
+    <!-- Schema.org markup for Google+-->
+    <meta itemprop="name" content="首頁">
+    <meta itemprop="description" content="敘述">
+    <meta itemprop="image" content="指定顯示圖片">
+    <!-- og-->
+    <meta property="og:title" content="首頁">
+    <meta property="og:description" content="敘述">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="指定顯示圖片">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <!--CDN link -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <!-- for loading-->
+    <script src="https://code.createjs.com/preloadjs-0.6.1.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<!--html body-->
+
+<body>
+    <div id="app" class="l-wrap">
+        <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="nav">
+            <div class="l-container">
+                <div class="nav-bd">
+                    <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO">LOGO</a></h1>
+                    <div class="nav-btn">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                    <div role="navigation" class="nav-menu">
+                        <ul class="clearfix">
+                            <li class="nav-item nav-item__index"><a href="index.html" alt="項目" itemprop="url" title="項目"><span>首頁</span></a></li>
+                            <li class="nav-item nav-item__data"><a href="data.html" alt="項目" itemprop="url" title="項目"><span>立即登錄發票抽好禮</span></a></li>
+                            <li class="nav-item nav-item__products"><a href="products.html" alt="項目" itemprop="url" title="項目"><span>通路優惠</span></a></li>
+                            <li class="nav-item nav-item__award"><a href="award.html" alt="項目" itemprop="url" title="項目"><span>得獎公告</span></a></li>
+                            <li class="nav-item nav-item__about"><a href="about.html" alt="項目" itemprop="url" title="項目"><span>關於粉多集點卡</span></a></li>
+                            <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><i class="icon-fb">fb-icon</i><span>粉絲團</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- render nav view-->
+        <div class="l-main">
+            <section class="index">
+                <section class="kv">
+                    <div class="kv__title">微香淨化論</div>
+                    <div class="kv__btnarea">
+                        <div class="kv__btnarea--light"></div><a href="data.html" class="btn">立即登錄<i class="btn__icon"></i></a>
+                    </div>
+                    <div class="kv__img--peo1"></div>
+                    <div class="kv__img--1"></div>
+                    <div class="kv__img--2"></div>
+                    <div class="kv__img--logo"></div><a href="javascript:" class="kv__btn--more"></a>
+                </section>
+                <section class="events">
+                    <div class="events__title">微香淨化 雙重好禮</div>
+                    <div class="l-container">
+                        <dl class="events__list">
+                            <dt class="events__list__title">活動時間</dt>
+                            <dd class="events__list__txt">2017/09/27 ~ 10/31</dd>
+                        </dl>
+                        <dl class="events-list">
+                            <dt class="events__list__title">活動說明</dt>
+                        </dl>
+                        <p class="events__txt__title"><i class="events__txt__icon"></i>第一重 登錄發票抽萬元</p>
+                        <div class="events__txt__box">
+                            <p class="events__txt">凡於活動期間，單筆購買『ON THE BODY』或『麗奇』任兩件商品(同品牌或不同品牌皆可)，成功登錄電子發票即可抽家樂福萬元禮券等好禮。並於2017/10/18、11/08公布得獎名單於活動網站。</p>
+                            <div class="events__txt__img events__txt__img--img1"></div>
+                            <div class="btnarea"><a href="data.html" class="btn">立即登錄發票<i class="btn__icon"></i></a></div>
+                        </div>
+                        <p class="events__txt__title"><i class="events__txt__icon"></i>第二重 消費集點請你喝咖啡</p>
+                        <div class="events__txt__box">
+                            <p class="events__txt">活動期間，購買『ON THE BODY』或『麗奇』系列商品，單筆消費滿100元以上(含)，並下載『粉多集點卡APP』綁定手機門號，成功登錄電子發票者，即可累積微香點數1點(單筆消費滿200元即可獲贈2點，依此類推….)，點數發送以簡訊告知。憑微香會員點數每 5 點即可兌換cama美式咖啡電子兌換序號乙組。</p>
+                            <div class="events__txt__img events__txt__img--img2"></div>
+                            <dl class="events__list">
+                                <dt class="events__list__txt2">兌換流程</dt>
+                            </dl>
+                            <dl class="events__list">
+                                <dt class="events__list__icon events__list__icon--icon1"></dt>
+                                <dl class="events__list__txtarea">
+                                    <h2 class="events__list__step-title pink">STEP1</h2>
+                                    <p class="events__list__step-txt">開啟粉多集點卡APP，進入ON THE BODY集點專區。</p>
+                                </dl>
+                            </dl>
+                            <dl class="events__list">
+                                <dt class="events__list__icon events__list__icon--icon2"></dt>
+                                <dl class="events__list__txtarea">
+                                    <h2 class="events__list__step-title pink">STEP2</h2>
+                                    <p class="events__list__step-txt">點選兌換「cama美式咖啡」，獲得咖啡電子兌換序號一組。</p>
+                                </dl>
+                            </dl>
+                            <dl class="events__list">
+                                <dt class="events__list__icon events__list__icon--icon3"></dt>
+                                <dl class="events__list__txtarea">
+                                    <h2 class="events__list__step-title pink">STEP3</h2>
+                                    <p class="events__list__step-txt">前往全台cama門市，出示咖啡電子兌換序號，即可兌換cama美式咖啡乙杯。</p>
+                                </dl>
+                            </dl>
+                        </div>
+                        <div class="events__txt__box events__txt__box--rule">
+                            <h3 v-on:click="openRule=!openRule" v-bind:class="{'events__rule__title--open':openRule}" class="events__rule__title">注意事項</h3>
+                            <transition name="fade">
+                                <div v-show="openRule" class="events__rule__area">
+                                    <ul>
+                                        <li>本活動由台灣樂金生活健康股份有限公司主辦（以下簡 稱本公司或主辦單位），活動獎品由本公司獨家提供 ，贈品以實物為準，恕不得要求兌換等值商品或是折 換現金，中獎者請掌握兌獎時效，逾期視同棄權。</li>
+                                        <li>本活動有效發票，開立日期需為 2017/09/27~2017/10/31 23:59。</li>
+                                        <li>【第一重 登錄發票抽萬元】
+                                            <ul>
+                                                <li>凡購買ON THE BODY或麗奇任兩件商品，即可登 錄發票參加活動，每張發票僅能登錄一次，且僅 有一次中獎機會；完成登錄之發票當次無中獎者 ，可繼續參與下次抽獎。</li>
+                                                <li>中獎名單分別於10/18、11/08公告在活動網頁中 ，同步以E-mail通知得獎者，中獎者需於 2017/11/17前寄回領獎相關資料及中獎之發票正 本，中獎發票正本一經寄交本公司兌獎，不得要 求退還亦不得有異議。中獎發票正本如有毀損、 塗改、變造等情況，本公司得以取消得獎資格並 保留法律追訴權，參加者應負一切相關法律責任。</li>
+                                            </ul>10/18 : 自9/27~10/14期間登錄者中抽出<br>家樂福禮券1,000元(5名) / 雞尾酒券10名 (每名2張)<br>11/08 : 自9/27~10/31期間登錄者中抽出<br>家樂福禮券1,000元(5名) / 雞尾酒券9名 (每名2張)。
+                                        </li>
+                                        <li>【第二重 消費集點請你喝咖啡】
+                                            <ul>
+                                                <li>凡購買ON THE BODY或麗奇系列商品，單筆消費滿100元以上(含) ，且需下載「粉多集點卡APP」 綁定手機門號，成功登錄電子發票者，即可累積微香點數1點 (單筆消費滿200元即可獲贈2點，依此類推….)，點數發送以簡訊告知。憑微香會員點數每 5 點，即可兌換cama美式咖啡電子兌換序號乙組(限量1000組)。</li>
+                                                <li>cama美式咖啡電子兌換序號，兌換日期即日起至 2017.12.31，逾期視同棄權，贈品恕不得補差價 兌換其他等值商品及折換現金。</li>
+                                                <li>電子發票需經財政部系統驗證(時間約需48小時)， 驗證後符合活動資格之發票，始可參加微香點數集點活動，系統同步將微香點數累積至粉多集點卡APP中 (非電子發票恕不得參加集點活動)。</li>
+                                                <li>粉多集點卡APP為本公司委外合作廠商春樹科技股份有限公司(以下簡稱春樹公司)開發，會員之「指 定商品發票集點活動」相關使用方式及限制，依春樹公司公佈之「粉多集點卡服務條款」為準。</li>
+                                                <li>若因違反誠信原則或不正之方法取得本活動資格者，春樹公司將逕予以取消集點與兌換資格，且不另行通知。</li>
+                                            </ul>
+                                        </li>
+                                        <li>參加者保證所有填寫或提供之資料均為真實正確內容 ，未冒用或盜用任何第三人之資料，如有不實或不正 確之情事，經確認後將無條件取消與本活動相關之所 有資格。如有致損害於本公司或其他任何第三人，參 加者應負一切相關法律責任。</li>
+                                        <li>參加本活動所提供之個人資料，視同個資保護法授權 同意，您的基本資料可做為本公司於商品售後服務通 聯資訊及本抽獎活動之中獎資料核對、領獎聯絡通知 …等使用，無法提供資料者視同放棄獎項， 本公司不 再另行通知，亦不補發。</li>
+                                        <li>獎項的通知、聯絡、兌領、發票號碼…等，皆以消費者於活動網站中所輸入的資料為依據；若因填寫錯誤導致無法聯繫中獎者、獎項無法寄出或獎品遺失等， 視同放棄中獎權利。</li>
+                                        <li>依本公司內部兌獎稽核的需求，中獎者於兌獎時需繳 交身分證正反面影本，並需依中華民國所得稅法規定 ，舉凡中獎金額或獎項年度累計價值超過新台幣 1,000  元(含)以上，將列入本年度之個人綜合所得稅申報，主 辦單位將於次年度開立扣繳憑單寄送予中獎者，資料 不齊者視同自願放棄中獎權利。</li>
+                                        <li>中獎者同意主辦單位無需負擔獎項產品責任與維修保 固，一旦派獎後，若有遺失、遭冒領或遭竊等喪失占 有之情形，主辦單位恕不負責補發；運送過程中因非 可歸責於主辦單位之事由造成損壞、延滯、錯遞，主 辦單位概不負責。</li>
+                                        <li>主辦單位保留修改活動與獎項細節的權利，無須事前通 知，並有權對本活動所有事宜作出解釋或裁決。如本 活動因不可抗力之特殊原因無法執行時，主辦單位有 權決定取消、終止、修改或暫停本活動。</li>
+                                        <li>本活動僅限設籍於台灣本島地區參加。主辦單位不處理 郵寄獎品至海外地區之事宜。如贈品因無人收件或地 址錯誤等原因遭退件，活動小組得通知中獎者辦理親 領手續，中獎人如限期內未領獎即視同放棄。</li>
+                                        <li>台灣樂金生活健康股份有限公司保有修改活動及贈品相關細節權利，若因不可抗拒因素，得保留活動執行與 否之權利。 如有相關本活動任何問題，歡迎至ON THE  BODY官方粉絲團私訊留言，留言請註明【微香淨化活 動提問】並留下姓名及電話，本公司將安排專人回覆 處理。</li>
+                                    </ul>
+                                </div>
+                            </transition>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <!--render main view-->
+        </div>
+        <div v-show="loading" v-cloak class="loading">
+            <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        </div>
+        <div v-show="pupOops" v-cloak class="popup popup--oops">
+            <div class="container">
+                <div class="popup__btn__close">
+                    <div class="one"></div>
+                    <div class="two"></div>
+                </div>
+                <div class="popup__box">
+                    <div class="__popup__txtarea">
+                        <h2 class="popup__h2">Oops!資料有誤!</h2>
+                        <p class="popup__txt">親愛的用戶你的“手機號碼”格式填寫錯誤，請再次確認填寫資料。</p>
+                        <div class="btn__area"><a href="javascript:" class="btn popup__btn">確定<i class="btn__icon"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div v-show="pupTicket" v-cloak class="popup popup--ticket">
+            <div class="container">
+                <div class="popup__btn__close">
+                    <div class="one"></div>
+                    <div class="two"></div>
+                </div>
+                <div class="popup__box">
+                    <div class="popup__img"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="l-footer footer">
+        <div class="gotoparea">
+            <div class="gotop"></div>
+        </div>
+        <div class="l-container">
+            <div class="footer__logos">全台通路<a href="products.html"></a></div>
+            <p>Copyright@2017台灣樂金生活健康股份有限公司 x 春樹科技股份有限公司. <br>All Rights Reserved.</p>
+        </div>
+    </div>
+    <script src="../js/app.js"></script>
+</body>
+
+</html>

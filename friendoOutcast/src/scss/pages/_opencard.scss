@@ -1,0 +1,55 @@
+#opencard{
+    border: 0;
+    border-radius: 0px;
+    padding-bottom: 60px;
+    background: transparent;
+    font-size: 0;
+    .preview_card {
+        position: relative;
+        .maincard {
+            width: 100%;
+            img {
+                max-width: 100%;
+            }
+        }
+        .prod_main {
+            position: absolute;
+            img {
+                width: 100%;
+            }
+        }
+        .share_msg {
+            position: absolute;
+            text-align: left;
+            p {
+                font-size: 39px;
+                line-height: 1.5;
+                font-weight: 600;
+                &.from {
+                    position: absolute;
+                    text-align: right;
+                    bottom: 0;
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .bottom{
+        padding:40px;
+        text-align: center;
+        background: #fff;
+        border-bottom: 8px solid #9b603d;
+        >p{
+            font-size: 30px;
+            line-height: 38px;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        &__btns{
+            .btn{
+                display: inline-block;
+                margin: 0 10px;
+            }
+        }
+    }
+}

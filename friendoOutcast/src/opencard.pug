@@ -1,0 +1,26 @@
+//- page laytout name
+extends _layout.pug
+block pageInfo
+    - var pageTitle = "開啟卡片 | 救救邊緣人"
+    - var pageDesc = "快到任一超商購買活動指定商品,登錄紙本電子發票,25000份好禮買一送一,還有機會再抽冰島來回機票及總價10萬元全家禮券、RO虛擬寶物等好禮！"
+    - var pageJs = "opencard.js"
+    - var nobox = true
+//- page html
+block page_main
+    section.opencard#opencard(v-cloak)
+        div.preview_card
+            div.maincard
+                img(:src="card_data.card.url" :alt="card_data.card.name")
+            div.share_msg(:style="card_data.card.text_pos")
+                p.to {{card_data.to}} :
+                p.msg {{card_data.msg}}
+                p.from {{card_data.from}}
+            div.prod_main(:style="card_data.card.prod_pos")
+                img(:src="card_data.prod_url+'&op=resize&w=400'" alt="")
+        div.bottom
+            p 快來揪朋友一起拯救邊緣人
+            div.bottom__btns
+                a.fb.btn(href="https://www.facebook.com/sharer/sharer.php?u=http%3A//192.168.11.122%3A3001/" target="_blank")
+                    img(src="images/fb-share-btn.png", alt="fb share")
+                a.line.btn(href="https://social-plugins.line.me/lineit/share?url=http://192.168.11.122:3001/" target="_blank")
+                    img(src="images/line-share-s.png", alt="fb share")
