@@ -1,0 +1,213 @@
+.scratchcard {
+    padding: 60px 40px;
+    &__continer {
+        background: url("../images/index-infobg-top.png") center top / 100% auto no-repeat,
+        url("../images/index-infobg-bottom.png") center bottom / 100% auto no-repeat;
+        padding: 110px 0px;
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 76px;
+            height: 108px;
+            background:url("../images/coffee-bean.png") center / cover no-repeat;
+        }
+        &:after{
+            content:"";
+            position: absolute;
+            bottom: -50px;
+            left: -34px;
+            width: 152px;
+            height: 228px;
+            background:url("../images/leaf.png") center / cover no-repeat;
+        }
+        &__main {
+            background: url("../images/index-infobg-line.png") center / 100%;
+            text-align: center;
+            overflow: hidden;
+            padding-bottom: 30px;
+            .sacratch__info{
+                color: $font_color1;
+                margin-bottom: 55px;
+                font-weight: 600;
+                .title {
+                    font-size: 45px;
+                    line-height: 55px;
+                }
+                .first {
+                    margin-top: 90px;
+                    .info{
+                        font-size: 30px;
+                        margin-bottom: 10px;
+                    }
+                    .subtitle{
+                        font-size: 35px;
+                    }
+                }
+                .loser{
+                    margin-top: 70px;
+                    .info{
+                        font-size: 25px;
+                        line-height: 35px;
+                    }
+                }
+                .winner{
+                    .red{
+                        color: $font_pink;
+                    }
+                    .info{
+                        font-size: 25px;
+                        line-height: 40px;
+                    }
+                }
+            }
+            .addr__from{
+                position: relative;
+                .main-title{
+                    background: url("../images/title-pattern.png") center / 100% no-repeat;
+                    padding: 20px 65px;
+                    display: inline-block;
+                    margin-bottom: 40px;
+                    >p{
+                        font-size: 30px;
+                        line-height: 35px;
+                        font-weight: 600;
+                        margin-top: 5px;
+                    }
+                }
+                >form{
+                    padding: 0 55px;
+                    button {
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        background: transparent;
+                        border: 0;
+                        outline:0;
+                    }
+                    .label {
+                        text-align: left;
+                        font-weight: 600;
+                        margin-bottom: 55px;
+                        display: block;
+                        input{
+                            width: 100%;
+                            font-size: 28px;
+                            padding: 15px;
+                            border: 5px solid $font_color1;
+                        }
+                        .cityArea {
+                            margin-bottom: 15px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            select {
+                                font-size: 28px;
+                                padding: 15px;
+                                border: 5px solid $font_color1;
+                                width: 48%;
+                                background: url("../images/arr-down.png") 97% center no-repeat;
+                                -webkit-appearance: none;
+                                -moz-appearance: none;
+                            }
+                        }
+                        p{
+                            color: $font_color1;
+                            margin-bottom: 5px;
+                            font-size: 30px;
+                            line-height: 40px;
+                        }
+                    }
+                }
+                .checkview{
+                    min-height: 520px;
+                    padding-top: 20px;
+                    .content{
+                        padding: 0 60px;
+                        table{
+                            text-align: left;
+                            padding-bottom:108px;
+                            display: block;
+                            tr{
+                                display: block;
+                                margin-bottom: 15px;
+                                td{
+                                    font-size: 30px;
+                                    line-height: 40px;
+                                    vertical-align: top;
+                                    font-weight: 600;
+                                    &:nth-of-type(1){
+                                        width: 180px;
+                                        text-align: justify;
+                                        height: 40px;
+                                        color: $font_color1;
+                                        &:after {
+                                            content: "";
+                                            display: inline-block;
+                                            width: 100%;
+                                            line-height: 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .btns{
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            >div{
+                                display: inline-block;
+                                margin: 0 10px;
+                                cursor: pointer;
+                                &.submit-btn{
+                                    background: url("../images/submit-addr-btnBG.png") center / cover no-repeat;
+                                    width: 260px;
+                                    height: 101px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .scratchcard__success{
+                .success__info{
+                    .text{
+                        font-size: 35px;
+                        line-height: 1.5;
+                        color: $font_color1;
+                        font-weight: 600;
+                        padding: 200px 0px;
+                    }
+                    .btns a{
+                        margin: 0 10px;
+                    }
+                }
+            }
+        }
+    }
+    &--card {
+        box-sizing: content-box;
+        display: inline-block;
+        border-radius: 15px;
+        overflow: hidden;
+        font-size: 0;
+        margin-bottom: 70px;
+    }
+    &--btns{
+        .first{
+            height: 70px;
+        }
+        .loser{
+            text-align: center;
+            >a{
+                display: inline-block;
+                margin: 0px 10px;
+                img{
+                    width: 305px;
+                }
+            }
+        }
+    }
+}

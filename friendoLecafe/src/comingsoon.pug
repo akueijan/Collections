@@ -1,0 +1,39 @@
+﻿//- page laytout name
+
+extends _layout.pug
+block pageInfo
+    - var pageTitle = "首頁 | 左岸咖啡館"
+    - var pageDesc = "凡購買左岸咖啡館全系列商品,登錄電子發票即有機會抽中法國的秘密甜點—森林莓果佐起士蛋糕~登錄越多中獎機會越高！"
+    - var pageJs = "index.js"
+//- page html
+block page_main
+    div.index#index
+        div.kv
+            div.kv__hd
+                h2.kv__slogan 左岸咖啡館，浪漫甜點時光
+            div.kv__bd
+                h3.kv__title 買左岸咖啡館系列商品 邀您品嘗法國的秘密甜點
+                div.kv__items
+                a(href="invoice.html" alt="立即登錄發票" title="立即登錄發票").kv__btn 立即登錄發票
+                div.kv__txt ＊本活動參與需透過紙本電子發票資料進行驗證。
+            div.kv__ft
+                div.kv__more(v-on:click="scrollMore()") 甜蜜好禮大方送
+    div.comingsoon#comingsoon
+        div.comingsoon__bg
+        div.comingsoon__box
+            div.comingsoon__hd
+                h2.comingsoon__title 左岸咖啡館，浪漫甜點時光 COMING SOON
+            div.comingsoon__bd
+                div.counter
+                    div.days
+                        div.value 00
+                        span days
+                    div.hours
+                        div.value 00
+                        span hrs
+                    div.minutes
+                        div.value 00
+                        span mins
+                    div.seconds
+                        div.value 00
+                        span sec

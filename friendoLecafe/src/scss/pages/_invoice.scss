@@ -1,0 +1,274 @@
+﻿.invoice {
+    padding: 0 0 60px 0;
+    .pink {
+        color: $font_pink;
+    }
+    .info {
+        padding: 60px 0 20px 0;
+        color: $font_color1;
+        position: relative;
+        &__deco--1 {
+            background: url(../images/coffee-bean.png) 0 0 no-repeat;
+            background-size: cover;
+            width: 76px;
+            height: 108px;
+            position: absolute;
+            top: 40px;
+            right: 45px;
+        }
+        &__deco--2 {
+            background: url(../images/leaf.png) 0 0 no-repeat;
+            background-size: cover;
+            width: 152px;
+            height: 228px;
+            position: absolute;
+            bottom: -40px;
+            left: 5px;
+        }
+        .red {
+            color: $font_red;
+        }
+        .font-wold {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        &__box {
+            width: 667px;
+            margin: 0 auto;
+            &--top {
+                background: url(../images/index-infobg-top.png) 0 0 no-repeat;
+                background-size: cover;
+                height: 110px;
+            }
+            &--area {
+                background: url(../images/index-infobg-line.png) 0 0 repeat-y;
+                padding: 0 0 30px 0;
+            }
+            &--bottom {
+                background: url(../images/index-infobg-bottom.png) 0 0 no-repeat;
+                background-size: cover;
+                height: 110px;
+            }
+            &--hd {
+                padding: 30px 0 0 0;
+            }
+            &--bd {
+                padding: 70px 0 0 0;
+            }
+        }
+        &__title {
+            background: url(../images/products-title.png) 0 0 no-repeat;
+            background-size: cover;
+            width: 542px;
+            height: 145px;
+            margin: 0 auto;
+            @extend .hide-text;
+        }
+        &__btn {
+            background: url(../images/kv-btn.png) top center no-repeat;
+            background-size: cover;
+            display: block;
+            width: 464px;
+            height: 101px;
+            margin: 0 auto;
+            @extend .hide-text;
+        }
+    }
+    #invoice_form {
+        padding: 0 65px;
+        .title {
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+    }
+    &__txt {
+        margin: 0 auto 70px;
+        p {
+            text-align: center;
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+    }
+    form {
+        text-align: center;
+    }
+    .data__formarea {
+        padding: 0 10px;
+        li {
+            display: flex;
+            align-items: center;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            margin: 0 0 25px 0;
+            &:last-of-type{
+                margin-bottom: 40px;
+                small{
+                    width: 100%;
+                    font-size: 18px;
+                    text-align: left;
+                    display: block;
+                    margin-top: 10px;
+                    font-weight: 900;
+                    color: $font_pink;
+                }
+            }
+        }
+        label {
+            width: 150px;
+            text-align: left;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .list__content {
+            width: 330px;
+            height: 65px;
+            border: 5px solid $border_color3;
+            &.noborder{
+                border: 0;
+            }
+            input, p{
+                width: 100%;
+                height: 100%;
+                font-size: 26px;
+                padding: 0 0 0 20px;
+            }
+            p {
+                flex: 1;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+    .sample-btn {
+        cursor: pointer;
+        padding: 0 2px 0 0;
+        margin: 0 0 50px 0;
+        text-align: right;
+    }
+    .check {
+        color: #000;
+        padding: 0 10px;
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 1.3;
+        input {
+            width: 30px;
+            height: 30px;
+            margin: 0 5px 0 0;
+            vertical-align: top;
+        }
+        span{
+            width: 475px;
+            text-align: left;
+            display: inline-block;
+        }
+    }
+    #recaptcha {
+        padding-top: 25px;
+        margin: 60px auto;
+        > div {
+            transform: scale(1.67);
+            transform-origin: 50%;
+            margin: 0 auto;
+        }
+    }
+    .submit-btn {
+        cursor: pointer;
+        box-shadow: none;
+        border: 0;
+        background: url(../images/invoice-submit-btnBG.png) 0 0 no-repeat;
+        width: 464px;
+        height: 101px;
+        margin: 30px auto 0;
+        outline: 0;
+    }
+    .checkOTP {
+        position: relative;
+        h2 {
+            margin: 0 auto 65px;
+            padding: 0 40px;
+            text-align: center; 
+        }
+        &__content {
+            width: 534px;
+            margin: 0 auto;
+            position: relative;
+            li {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-between;
+                margin: 0 0 60px 0;
+                &:nth-last-child(1) {
+                    justify-content: center;
+                }
+            }
+            input {
+                width: 340px;
+                height: 74px;
+                border: 5px solid $border_color3;
+                font-size: 28px;
+                padding: 5px 10px;
+            }
+            p {
+                font-size: 34px;
+                font-weight: bold;
+                color: #000;
+                line-height: 74px;
+            }
+        }
+        .change-btn {
+            background: none;
+            border: none;
+            box-shadow: none;
+            border-radius: 16px;
+            background-color: $bg-color-2;
+            cursor: pointer;
+            color: #fff;
+            width: 120px;
+            height: 74px;
+            font-size: 30px;
+            font-weight: 600;
+            text-align: center;
+            outline: 0;
+        }
+        .resend-btn {
+            background: none;
+            border: none;
+            box-shadow: none;
+            border-radius: 16px;
+            background-color: $bg-color-2;
+            cursor: pointer;
+            color: #fff;
+            width: 157px;
+            height: 74px;
+            font-size: 30px;
+            font-weight: 600;
+            text-align: center;
+            outline: 0;
+        }
+        .check-btn {
+            background: url(../images/submit-addr-btnBG-2.png) 0 0 no-repeat;
+            background-size: cover;
+            border: 0;
+            box-shadow: none;
+            cursor: pointer;
+            width: 373px;
+            height: 101px;
+            outline: 0;
+            span {
+                background: url(../images/submit-addr-btn-2.png) 0 0 no-repeat;
+                background-size: cover;
+                display: inline-block;
+                width: 373px;
+                height: 101px;
+                @extend .hide-text;
+            }
+        }
+        .ps {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 30px;
+        }
+    }
+}

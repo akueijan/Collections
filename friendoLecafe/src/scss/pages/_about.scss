@@ -1,0 +1,108 @@
+﻿.about {
+    box-sizing: border-box;
+    padding: 0 30px 100px;
+    .red {
+        color: $font_red;
+    }
+    p {
+        color: $font_color1;
+        // margin: 30px auto 0;
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 1.3;
+    }
+    .contentarea {
+        box-sizing: border-box;
+        width: 667px;
+        margin: 0 auto;
+        padding: 60px 0 0 0;
+        &__top {
+            background: url(../images/index-infobg-top.png) 0 0 no-repeat;
+            height: 110px;
+        }
+        &__box {
+            background: url(../images/index-infobg-line.png) 0 0 repeat-y;
+            box-sizing: border-box;
+            padding: 0 50px;
+            &--bd {
+                box-sizing: border-box;
+                padding: 50px 0 0 0;
+            }
+            &--ft {
+                padding: 55px 0 0 0;
+            }
+        }
+        &__bottom {
+            background: url(../images/index-infobg-bottom.png) 0 0 no-repeat;
+            height: 110px;
+        }
+        &__title {
+            background: url(../images/about-title.png) 0 0 no-repeat;
+            width: 570px;
+            height: 148px;
+            margin: 0 auto;
+            @extend .hide-text;
+        }
+    }
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 0 50px 0;
+        &:nth-last-child(1) {
+            margin: 0;
+        }
+    }
+    &__icon{
+        width: 230px;
+        text-align: center;
+        &--1 {
+            background: url(../images/about-icon-1.png) 0 0 no-repeat;
+            width: 222px;
+            height: 218px;
+            margin: 0 auto;
+        }
+        &--2 {
+            background: url(../images/about-icon-2.png) 0 0 no-repeat;
+            width: 204px;
+            height: 204px;
+            margin: 0 auto;
+        }
+        &--3 {
+            background: url(../images/about-icon-3.png) 0 0 no-repeat;
+            width: 204px;
+            height: 212px;
+            margin: 0 auto;
+        }
+    }
+    &__txt {
+        width: 310px;
+        font-size: 30px;
+        margin: 0 0 0 20px;
+    }
+    &__link {
+        background: url(../images/about-download.png) 0 0 no-repeat;
+        margin: 0 auto;
+        width: 490px;
+        height: 239px;
+        cursor: pointer;
+        @extend .hide-text;
+        &--apple {
+            background: url(../images/about-download-apple.png) 0 0 no-repeat;
+            margin: 0 auto;
+            width: 490px;
+            height: 239px;
+            cursor: pointer;
+            @extend .hide-text;
+        }
+        &--google {
+            background: url(../images/about-download-google.png) 0 0 no-repeat;
+            margin: 0 auto;
+            width: 490px;
+            height: 239px;
+            cursor: pointer;
+            @extend .hide-text;
+        }
+    }
+    
+}

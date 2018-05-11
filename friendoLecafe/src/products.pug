@@ -1,0 +1,58 @@
+﻿//- page laytout name
+
+extends _layout.pug
+block pageInfo
+    - var pageTitle = "商品分享專區 | 左岸咖啡館"
+    - var pageDesc = "凡購買左岸咖啡館全系列商品,登錄電子發票即有機會抽中法國的秘密甜點—森林莓果佐起士蛋糕~登錄越多中獎機會越高！"
+    - var pageJs = "products.js"
+//- page html
+block page_main
+    div.products#products
+        div.info
+            div.info__box
+                div.info__box--top
+                div.info__box--area
+                    div.info__box--hd
+                        h2.info__title 左岸咖啡館全商品皆適用
+                    div.info__box--bd
+                        ul.products__area
+                            li.products__box
+                                div.products__pic
+                                    img(src='images/products-pic-1.png')
+                                div.products__content
+                                    p 左岸咖啡館
+                                        br
+                                        | 拿鐵咖啡
+                            li.products__box
+                                div.products__pic
+                                    img(src='images/products-pic-2.png')
+                                div.products__content
+                                    p 左岸咖啡館
+                                        br
+                                        | 曼特寧風味咖啡
+                            li.products__box
+                                div.products__pic
+                                    img(src='images/products-pic-3.png')
+                                div.products__content
+                                    p 左岸咖啡館
+                                        br
+                                        | 昂列奶茶
+                            li.products__box
+                                div.products__pic
+                                    img(src='images/products-pic-4.png')
+                                div.products__content
+                                    p 左岸咖啡館
+                                        br
+                                        | 昂列咖啡
+                            li.products__box
+                                div.products__pic
+                                    img(src='images/products-pic-5.png')
+                                div.products__content
+                                    p 左岸咖啡館
+                                        br
+                                        | 無加糖拿鐵咖啡
+                    div.info__box--ft
+                        a(href="invoice.html" alt="立即登錄發票" title="立即登錄發票" @click="gaEvant('click', 'products_登入發票btn', 'products_登入發票btn');").info__btn 立即登錄發票
+                div.info__box--bottom
+            div.info__deco--1
+            div.info__deco--2

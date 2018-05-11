@@ -1,0 +1,127 @@
+﻿/* 
+_mixins
+*/
+$breaktype: (
+	'small'  : 0,
+	'small-up':  0,
+	'medium' : 0,
+	'large' : 0
+);
+	
+$breakpoints: (
+	'small'  : 640px,
+	'medium' : 960px,
+	'large' : 1441px
+);
+	
+// Retrieves the value from the key
+// If the key exists in the map 
+// Prints a media query based on the value
+@mixin respond-to($breakpoint) {
+
+	$value: map-get($breaktype, $breakpoint);
+	@if $value !=null {
+	    @if $breakpoint=='small' {
+	        @media (max-width: map-get($breakpoints, 'small')) and (min-width: 0) {
+	            @content;
+	        }
+	    }
+	    //排除
+	    @else if $breakpoint=='small-up' {
+	        @media (min-width: map-get($breakpoints, 'small')+1) {
+	            @content;
+	        }
+	    }
+	    @else if $breakpoint=='medium' {
+	        @media (min-width: map-get($breakpoints, 'small')+1) and (max-width: map-get($breakpoints, 'medium')) {
+	            @content;
+	        }
+	    }
+	    @else{
+			@media (min-width: map-get($breakpoints, 'large')){
+			    @content;
+			}
+	    }
+	}
+	// If the key doesn't exist in the map
+	@else {
+		@warn "Unfortunately, no value could be retrieved from `#{$breaktype}`. " + "Please make sure it is defined in `$breakpoints` map.";
+	}	
+};
+
+/* 定義 media query 樣式名稱*/
+$mobile: 430px;
+$pad: 768px;
+$desktop: 1024px;
+$desktop-w: 1280px;
+$desktop-hd: 1440px;
+$desktop-fullhd: 1920px;
+
+// RWD
+
+@mixin rwd($width,$max_min:"min") {
+	@media only screen and (#{$max_min}-width: $width) {
+		@content
+	}
+};
+	
+@mixin rwd-h($height,$max_min:"min") {
+	@media only screen and (#{$max_min}-height: $height) {
+		@content
+	}
+};
+
+
+@mixin hideText($w,$h){
+    width:$w;
+    height:$h;
+    overflow:hidden;
+    text-indent: 110%;
+    white-space: nowrap;
+}
+
+%content-size{
+	// padding: 60px 50px;
+	// min-height: 100vh;
+	position: relative;
+	max-width: 750px;
+	margin: 0 auto;
+	>section{
+		background: #fff;
+		border: 8px solid #9b603d;
+		border-radius: 20px;
+		height: 100%;
+		position: relative;
+	}
+}
+%close-btn {
+	width: 70px;
+	height: 70px;
+	// background: #000;
+	// border-radius: 50%;
+	transform: rotate(45deg);
+	cursor: pointer;
+	&:after,
+	&:before {
+		content: "";
+		width: 70px;
+		background: #6a5c4e;
+		height: 20px;
+		border-radius: 10px;
+		display: block;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	&:after {
+		transform: translate(-50%, -50%) rotate(90deg);
+	}
+}
+.hideText {
+	display: block;
+    overflow:hidden;
+    text-indent: 110%;
+    white-space: nowrap;	
+}
+

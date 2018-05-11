@@ -1,0 +1,75 @@
+head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='edge,chrome=1')
+    title #{pageTitle}
+    meta(name='description', content=pageDesc)
+    meta(name='viewport', content='width=750;initial-scale=1; maximum-scale=1.0; user-scalable=no;')
+    //- Schema.org markup for Google+
+    meta(itemprop="name" content=pageTitle)
+    meta(itemprop="description" content=pageDesc)
+    meta(itemprop="image" content="images/share-img.jpg")
+
+    //- og
+    meta(property="og:title" content=pageTitle)
+    meta(property="og:description" content=pageDesc)
+    meta(property="og:type" content="article")
+    meta(property="og:image" content="images/share-img.jpg")
+
+    //- TODO : Place favicon.ico and apple-touch-icon.png in the root directory
+    link(rel="Shortcut Icon" type="images/x-icon" href="images/icon.ico")
+    link(rel='stylesheet', href='css/main.css')
+    
+    <!--CDN link -->
+    script(src='https://www.youtube.com/iframe_api')
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.3.6/mobile-detect.min.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js")
+    script(src='https://www.google.com/recaptcha/api.js')
+    script(type="text/javascript" src="//cloudfront.loggly.com/js/loggly.tracker-latest.min.js" async)
+    //- for loading
+    script(src="https://code.createjs.com/preloadjs-0.6.1.min.js")
+    //- local js 順序不可調整
+    script(src="js/vendor.js")
+    script(src="js/lib.js")
+    //- <!-- Global site tag (gtag.js) - Google Analytics -->
+    //- script(async src="https://www.googletagmanager.com/gtag/js?id=UA-71833282-1")
+    //- script.
+    //-     window.dataLayer = window.dataLayer || [];
+    //-     function gtag(){dataLayer.push(arguments);}
+    //-     gtag('js', new Date());
+    //-     gtag('config', 'UA-71833282-1',{send_page_view:true});
+    script
+        include js/gdn.js
+    script(type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js")
+    noscript
+        div(style="display:inline;")
+        img(height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/957162462/?guid=ON&amp;script=0")
+    script.
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-34903007-23', 'auto');
+        ga('send', 'pageview');
+    <!-- Facebook Pixel Code -->
+    script.
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '525795494240921');
+        fbq('track', 'PageView');
+    noscript
+        img(height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=525795494240921&ev=PageView&noscript=1")
+    <!-- End Facebook Pixel Code -->
+    script.
+        var _LTracker = _LTracker || [];
+        _LTracker.push({'logglyKey': '8016ea6d-fa64-4c93-bddb-461c5e78fd99',
+        'sendConsoleErrors' : true,
+        'tag' : 'loggly-jslogger'  });

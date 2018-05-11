@@ -1,0 +1,77 @@
+//- page laytout name
+extends _layout.pug
+block pageInfo
+    - var pageTitle = "登錄發票 | 左岸咖啡館"
+    - var pageDesc = "凡購買左岸咖啡館全系列商品,登錄發票即有機會抽中法國的秘密甜點—森林莓果佐起士蛋糕~登錄越多中獎機會越高！"
+    - var pageJs = "invoice.js"
+//- page html
+block page_main
+    div.invoice#invoice
+        div.info
+            div.info__box
+                div.info__box--top
+                div.info__box--area
+                    transition(name="fade" mode="out-in")
+                        div#invoice_form(v-show="(step==0)")
+                            div.title
+                                img(src="images/invoice-title.png" alt="立即登錄發票 取得分享資格")
+                            div.invoice__txt
+                                p.pink 中獎者須以此處輸入資訊為憑進行領獎
+                                br
+                                p 僅限開立日期為活動時間內<br>之紙本發票參加使用
+                            form(v-on:submit.prevent = "post_inv")
+                                ul.data__formarea
+                                    li
+                                        label(for="usernamme") 聯絡人姓名
+                                        div.list__content
+                                            input(v-model="username" type="text" name="user_name" placeholder="請輸入姓名" id="username")
+                                    li
+                                        label(for="phone") 手 機 號 碼
+                                        div.list__content
+                                            input(v-model="phone" type="tel" maxlength = "10" name="cell_no" placeholder="請輸入10位數字" id="phone")
+                                    li
+                                        label(for="inv_date") 發 票 期 別
+                                        div.list__content.noborder
+                                            p 2018年 3~4月
+                                    li
+                                        label(for="inv_num") 發 票 號 碼
+                                        div.list__content
+                                            input(v-model="num" type="text" maxlength = "10" name="inv_num" placeholder="請輸入2位英文＋8位數字" id="inv_num")
+                                    li
+                                        label(for="random_number") 發票隨機碼
+                                        div.list__content
+                                            input(v-model="random_number" type="tel" maxlength = "4" name="random_number" placeholder="請輸入4位數字" id="random_number")
+                                            small * 傳統紙本發票請輸入9998
+                                div.sample-btn(@click="error_msg = 'sample_ticket'")
+                                    img(src="images/invoice-ticke-btn.png")
+                                label.check
+                                    input(v-model="check" type="checkbox" value="1" name="check")
+                                    span 我已同意統一企業股份有限公司活動辦法及相關規定。
+                                div#recaptcha.g-recaptcha(data-sitekey="6Lf210oUAAAAAI_IxBjSIcmxjdA_BWO-f4UXljuR")
+                                button.submit-btn(type="submit")
+                                    div.sk-fading-circle(v-if="loading")
+                                        div.sk-circle(v-for="(el,i) in 12" :class="'sk-circle' + (i+1)")
+                                    img(v-if="!loading" src="images/invoice-submit-btn.png", alt="")
+
+                    transition(name="fade" mode="out-in")
+                        div.checkOTP(v-show="(step==1)")
+                            h2
+                                img(src="images/invoice-title-2.png" alt="完成簡訊認證")
+                            div.checkOTP__content
+                                ul
+                                    li
+                                        p 簡訊認證　{{phone.substr(0,4)+"***"+phone.substr(7,9)}}
+                                        button.change-btn(@click="goBack") 修改
+                                    li
+                                        input(type="tel" v-model="verifyCode" maxlength = "5" placeholder="請輸入5位數字認證碼")
+                                        button.resend-btn(@click="ResendSMS")
+                                            span 重新寄送
+                                    li
+                                        button.check-btn(@click="post_code" )
+                                            div.sk-fading-circle(v-if="loading")
+                                                div.sk-circle(v-for="(el,i) in 12" :class="'sk-circle' + (i+1)")
+                                            span(v-if="!loading") 確認
+                                p.ps ※當您收到簡訊確認碼後，請務必於30分鐘內完成認證程序，超過30分鐘後，確認碼將失效，若未收到簡訊，請按重新發送簡訊。
+                div.info__box--bottom
+            div.info__deco--1
+            div.info__deco--2

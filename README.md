@@ -24,14 +24,15 @@
 		切版環境: node.js gulp
 		
 ## 作品demo: 
-| 作品名稱 | 負責項目 |
-| :------------ |:---------------:|
+| 作品名稱             | 負責項目            |
+| :------------------- |:-------------------:|
 | [家樂福 滴血認親][1] | 版型切版 + 資料串接 | 
-| [家樂福 Brics][2] | 版型切版 |
-| [集點卡X貝納頌][3] | 版型切版 + 動畫 |
+| [家樂福 Brics][2]    | 版型切版            |
+| [集點卡X貝納頌][3]   | 版型切版 + 動畫     |
+| [集點卡X左岸咖啡][4] | 版型切版 + 動畫     |
 
 
 [1]: https://akueijan.github.io/Collections/carrefourBlood/dist/index.html
 [2]: https://akueijan.github.io/Collections/carrefourBrics-2/dist/index.html
-[3]: https://akueijan.github.io/Collections/friendoBCoffee/dist/index.html
-		 
+[3]: http://o2o.friendo.com.tw/bernachon?utm_source=friendo&utm_medium=bernachon_brands_280x380&utm_campaign=bernachon
+[4]: https://akueijan.github.io/Collections/friendoLecafe/dist/index.html

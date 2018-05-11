@@ -1,0 +1,20 @@
+//- page laytout name
+extends _layout.pug
+block pageInfo
+    - var pageTitle = "登錄發票 | 左岸咖啡館"
+    - var pageDesc = "凡購買左岸咖啡館全系列商品,登錄電子發票即有機會抽中法國的秘密甜點—森林莓果佐起士蛋糕~登錄越多中獎機會越高！"
+    - var pageJs = "survey.js"
+//- page html
+block page_main
+    div.survey#survey
+        div.survey__continer
+            div.survey__continer__main
+                div.survey__form
+                    form(@submit.prevent="submitSurvey")
+                        p.question {{question}}
+                        p.example {{example}}
+                        input.answer(v-model="answer" placeholder="請填寫答案")
+                        button.submit-btn(type="submit")
+                            .sk-fading-circle(v-if="loading")
+                                .sk-circle(v-for="(el,i) in 12" :class="'sk-circle' + (i+1)")
+                            img(v-if="!loading" src="images/survey-submit.png", alt="")

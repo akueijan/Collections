@@ -1,0 +1,105 @@
+﻿.products {
+    padding: 0 0 60px 0;
+    .info {
+        padding: 60px 0 20px 0;
+        color: $font_color1;
+        position: relative;
+        &__deco--1 {
+            background: url(../images/coffee-bean.png) 0 0 no-repeat;
+            background-size: cover;
+            width: 76px;
+            height: 108px;
+            position: absolute;
+            top: 70px;
+            right: 45px;
+        }
+        &__deco--2 {
+            background: url(../images/leaf.png) 0 0 no-repeat;
+            background-size: cover;
+            width: 152px;
+            height: 228px;
+            position: absolute;
+            bottom: -40px;
+            left: 5px;
+        }
+        .red {
+            color: $font_red;
+        }
+        .font-wold {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        &__box {
+            width: 667px;
+            margin: 0 auto;
+            &--top {
+                background: url(../images/index-infobg-top.png) 0 0 no-repeat;
+                background-size: cover;
+                height: 110px;
+            }
+            &--area {
+                background: url(../images/index-infobg-line.png) 0 0 repeat-y;
+                padding: 0 0 30px 0;
+            }
+            &--bottom {
+                background: url(../images/index-infobg-bottom.png) 0 0 no-repeat;
+                background-size: cover;
+                height: 110px;
+            }
+            &--hd {
+                padding: 30px 0 0 0;
+            }
+            &--bd {
+                padding: 70px 0 0 0;
+            }
+        }
+        &__title {
+            background: url(../images/products-title.png) 0 0 no-repeat;
+            background-size: cover;
+            width: 542px;
+            height: 145px;
+            margin: 0 auto;
+            @extend .hide-text;
+        }
+        &__btn {
+            background: url(../images/kv-btn.png) top center no-repeat;
+            background-size: cover;
+            display: block;
+            width: 464px;
+            height: 101px;
+            margin: 0 auto;
+            @extend .hide-text;
+        }
+    }
+    &__area {
+        padding: 0 65px;
+        display: flex;
+        align-items: center;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+    &__box {
+        margin: 0 0 60px 0;
+        text-align: center;
+    }
+    &__content {
+        background: url(../images/products-content-bg.png) top center no-repeat;
+        background-size: cover;
+        width: 213px;
+        height: 69px;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        p {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.2;
+        }
+    }
+}

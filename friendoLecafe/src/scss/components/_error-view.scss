@@ -1,0 +1,47 @@
+#error__popup{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 20;
+    background: url("../images/wood_background.jpg");
+    .error__container{
+        position: relative;
+        max-width: $viewport;
+        margin: 0 auto;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .close{
+            width: 70px;
+            height: 70px;
+            background:url("../images/popup-close.png") center / cover no-repeat;
+            position: absolute;
+            right: 40px;
+            top: 40px;
+            cursor: pointer;
+        }
+        .error__popup__main{
+            width: 565px;
+            .box1{
+                margin-left: -35px;
+            }
+            .info{
+                text-align: center;
+                font-size: 55px;
+                line-height: 65px;
+                color: $font_color1;
+                margin-bottom: 100px;
+                font-weight: 600;
+            }
+            .close--btn{
+                width: 100%;
+                height: 121px;
+                background: url("../images/error-close.png") center / cover no-repeat;
+                cursor: pointer;
+            }
+        }
+    }
+}

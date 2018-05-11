@@ -1,0 +1,72 @@
+.survey {
+    padding: 60px 40px;
+    &__continer {
+        background: url("../images/index-infobg-top.png") center top / 100% auto no-repeat, url("../images/index-infobg-bottom.png") center bottom / 100% auto no-repeat;
+        padding: 110px 0px;
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 76px;
+            height: 108px;
+            background: url("../images/coffee-bean.png") center / cover no-repeat;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: -34px;
+            width: 152px;
+            height: 228px;
+            background: url("../images/leaf.png") center / cover no-repeat;
+        }
+        &__main {
+            background: url("../images/index-infobg-line.png") center / 100%;
+            text-align: center;
+            overflow: hidden;
+            padding-bottom: 30px;
+        }
+    }
+    &__form{
+        padding: 65px 73px;
+        .question {
+            font-size: 35px;
+            line-height: 45px;
+            font-weight: 600;
+            text-align: left;
+            color: $font_color1;
+            margin-bottom: 45px;
+            white-space: pre-wrap;
+        }
+        .example {
+            color: $font_color1;
+            margin-bottom: 80px;
+            font-size: 25px;
+            line-height: 30px;
+            text-align: left;
+            font-weight: 600;
+            font-family: '微軟正黑體';
+            white-space: pre-wrap;
+        }
+        .answer{
+            width: 100%;
+            height: 74px;
+            border: 5px solid $border_color3;
+            font-size: 28px;
+            padding: 5px 10px;
+            margin-bottom: 110px;
+        }
+        .submit-btn {
+            font-size: 0;
+            background: url("../images/survey-submitbg.png") center / cover no-repeat;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            border: 0;
+            outline:0;
+            width: 373px;
+            cursor: pointer;
+        }
+    }
+}

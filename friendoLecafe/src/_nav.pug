@@ -1,0 +1,30 @@
+nav.nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+    div.l-container
+        div.nav-bd
+            div.nav-left
+                h1.nav-logo(@click="gaEvant('click','logo','logo_link')")
+                    a(href="index.html" alt="LOGO" title="LOGO")
+                        img(src="images/logo.png", alt="")
+            div.nav-right
+                div.nav-btn
+                    div.one
+                    div.two
+                    div.three
+                    img(src="images/menu-btn.png", alt="")
+            div.nav-menu(role="navigation")
+                div.menu-content
+                    div.nav-close
+                    ul.clearfix
+                        li.nav-item
+                            a(href="index.html" alt="首頁" itemprop="url" title="首頁" @click="gaEvant('click','menu_首頁','menu_link')")
+                                img(src="images/menu-btn-1.png", alt="")
+                        li.nav-item
+                            //- survey
+                            a(href="invoice.html" alt="登錄發票" itemprop="url" title="登錄發票" @click="gaEvant('click','menu_登入發票','menu_linkㄉ')")
+                                img(src="images/menu-btn-2.png", alt="")
+                        li.nav-item
+                            a(href="about.html" alt="關於粉多集點卡" itemprop="url" title="關於粉多集點卡" @click="gaEvant('click','menu_關於粉多集點卡','menu_link')")
+                                img(src="images/menu-btn-3.png", alt="")
+                        li.nav-item
+                            a(href="products.html" alt="左岸咖啡館" itemprop="url" title="左岸咖啡館" @click="gaEvant('click','menu_左岸咖啡館','menu_link')")
+                                img(src="images/menu-btn-4.png", alt="")

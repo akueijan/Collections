@@ -1,0 +1,44 @@
+extends _layout.pug
+block pageInfo
+    - var pageTitle = "關於粉多集點卡 | 左岸咖啡館"
+    - var pageDesc = "凡購買左岸咖啡館全系列商品,登錄電子發票即有機會抽中法國的秘密甜點—森林莓果佐起士蛋糕~登錄越多中獎機會越高！"
+    - var pageJs = "about.js"
+//- page html
+block page_main
+    div.about#about
+        div.contentarea
+            div.contentarea__top
+            div.contentarea__box
+                div.contentarea__box--hd
+                    h2.contentarea__title 關於粉多集點卡
+                div.contentarea__box--bd
+                    ul
+                        li
+                            div.about__icon
+                                div.about__icon--1
+                            div.about__txt
+                                p
+                                    span.red 一卡通在手，吃喝玩樂消費回饋通通有
+                                    br
+                                    | 不只日常大眾通勤，生活消費都能集。
+                        li
+                            div.about__icon
+                                div.about__icon--2
+                            div.about__txt
+                                p 
+                                    span.red 掃描產品電子發票QR Code，點數1秒輕鬆集
+                                    br
+                                    | 不限通路購買合作品牌產品，掃描電子發票即享點數回饋。
+                        li
+                            div.about__icon
+                                div.about__icon--3
+                            div.about__txt
+                                p 
+                                    span.red 報上手機號碼就能集，不再擔心遺失集點卡
+                                    br
+                                    | 於特約店家報上手機號碼，不須開啟App就能立刻集點。
+                div.contentarea__box--ft
+                    div.about__link(v-on:click="link_download()" v-show="isDesktop") 史上最方便之集點，立即下載
+                    div.about__link--apple(v-on:click="isIOs()" v-show="isIphone") 史上最方便之集點，立即下載
+                    div.about__link--google(v-on:click="isGoogle()" v-show="isAndroid") 史上最方便之集點，立即下載
+            div.contentarea__bottom

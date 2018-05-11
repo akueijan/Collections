@@ -1,0 +1,36 @@
+@charset 'UTF-8';
+/* ----- IMPORT -----*/
+@import url('//fonts.googleapis.com/css?family=EB+Garamond');
+//1.utils
+@import "utils/_color.scss";
+@import "utils/_bemify.scss"; 
+    //A set of Sass mixins to write well-structured, maintainable, idiomatic BEM-style .scss source:
+@import "utils/_variables.scss";
+@import "utils/_mixins.scss";
+@import "utils/_grid.scss";
+//sprite scss import 至少要啟用gulp一次
+//@import "_sprite.scss";
+//2.vendors
+//3.base
+@import "base/_reset.scss";
+@import "base/_helpers.scss";
+@import "base/_typography.scss";
+//4.layout
+@import "layout/_layout.scss";
+@import "layout/_nav.scss";
+//5.components
+@import "components/_load.scss";
+@import "components/_error-view.scss";
+//html 在 load.js 裡
+//6.pages
+@import "pages/_index.scss";
+@import "pages/_invoice.scss";
+@import "pages/_about.scss";
+@import "pages/_scratchcard.scss";
+@import "pages/_products.scss";
+@import "pages/_survey.scss";
+//7.themes
+
+[v-cloak] * {
+    display: none;
+}

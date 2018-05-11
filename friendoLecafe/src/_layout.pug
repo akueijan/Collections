@@ -1,0 +1,42 @@
+﻿- var jsFolder = "js/"
+if (dev_mode) 
+    - var apiUrl = "//cardipass.azurewebsites.net/lecafe/";
+else
+    - var apiUrl = "/lecafe/";
+
+doctype
+html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
+    //page default Information
+    block pageInfo
+        - var pageTitle = "左岸咖啡"
+        - var pageDesc = "左岸咖啡"
+    //html head
+    include _head.pug
+    //html body
+    body
+        div.l-wrap#app(v-cloak)
+            div.l-main
+                include _nav.pug
+                div.page__content
+                    block page_main
+                transition(name="fade" mode="out-in")
+                    #error__popup(v-if="error_msg!=''")
+                        .error__container
+                            div.close(@click="errorDone")
+                            div.error__popup__main
+                                div.box1(v-if="error_msg=='sample_ticket'")
+                                    img(src="images/sample-ticket.png", alt="")
+                                div.box2(v-else)
+                                    div.info {{error_msg}}
+                                    div.close--btn(@click="errorDone")
+                                
+            div.l-footer.footer
+                div.l-container
+                    p Copyright © 2018  春樹科技股份有限公司 x 粉多集點卡<br>All Rights Reserved.
+        div.fb-root
+        if more_js
+            script(src= jsFolder + more_js)
+        script(id="appjs" src= jsFolder + "app.js?v="+timestamp mode=`${dev_mode}` site=`${apiUrl}`)
+        if pageJs
+            script(src= jsFolder + pageJs+"?v="+timestamp)
+        script(type='text/javascript')

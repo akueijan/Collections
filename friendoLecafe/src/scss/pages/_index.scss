@@ -1,0 +1,404 @@
+.index {
+    .kv {
+        background: url(../images/kv-bg.png) top center no-repeat;
+        background-size: cover;
+        width: 100%; // height: 100vh;
+        padding-bottom: 60px;
+        &__hd {
+            padding: 25px 0 0 0;
+            position: relative;
+            box-sizing: border-box;
+        }
+        &__slogan {
+            background: url(../images/kv-slogan.png) top center no-repeat;
+            background-size: cover;
+            width: 624px;
+            height: 203px;
+            margin: 0 auto;
+            opacity: 0;
+            @extend .hide-text;
+        }
+        &__bd {
+            padding: 30px 0 0 0;
+            position: relative;
+            box-sizing: border-box;
+        }
+        &__title {
+            background: url(../images/kv-title.png) top center no-repeat;
+            background-size: cover;
+            width: 340px;
+            height: 104px;
+            margin: 0 auto;
+            opacity: 0;
+            @extend .hide-text;
+        }
+        &__items {
+            background: url(../images/kv-items.png) top center no-repeat;
+            background-size: cover;
+            width: 715px;
+            height: 707px; // position: absolute; 
+            // top: 60px;
+            // left: 10px;
+            margin: -80px auto 0;
+            opacity: 0;
+        }
+        &__btn {
+            background: url(../images/kv-btn.gif) top center no-repeat;
+            background-size: cover;
+            display: block;
+            width: 464px;
+            height: 101px;
+            margin: -120px auto 0;
+            opacity: 0;
+            @extend .hide-text;
+        }
+        &__txt {
+            color: #fff;
+            text-align: center;
+            font-size: 18px;
+            margin: 15px 0 0 0;
+            display: block;
+        }
+        &__ft {
+            padding: 30px 0 80px 0;
+            box-sizing: border-box;
+            position: relative;
+        }
+        &__more {
+            animation: index-updw 2s infinite ease-in-out;;
+            background: url(../images/kv-more.png) top center no-repeat;
+            background-size: cover;
+            cursor: pointer;
+            width: 193px;
+            height: 83px;
+            margin: 0 auto;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            @extend .hide-text;
+        }
+    }
+    .info {
+        padding: 60px 0 20px 0;
+        color: $font_color1;
+        position: relative;
+        &__deco--1 {
+            background: url(../images/coffee-bean.png) 0 0 no-repeat;
+            background-size: cover;
+            width: 76px;
+            height: 108px;
+            position: absolute;
+            top: 70px;
+            right: 45px;
+        }
+        &__deco--2 {
+            background: url(../images/leaf.png) 0 0 no-repeat;
+            background-size: cover;
+            width: 152px;
+            height: 228px;
+            position: absolute;
+            bottom: -40px;
+            left: 5px;
+        }
+        .red {
+            color: $font_red;
+        }
+        .font-wold {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        &__box {
+            width: 667px;
+            margin: 0 auto;
+            &--top {
+                background: url(../images/index-infobg-top.png) 0 0 no-repeat;
+                background-size: cover;
+                height: 110px;
+            }
+            &--area {
+                background: url(../images/index-infobg-line.png) 0 0 repeat-y;
+                padding: 0 0 30px 0;
+            }
+            &--bottom {
+                background: url(../images/index-infobg-bottom.png) 0 0 no-repeat;
+                background-size: cover;
+                height: 110px;
+            }
+            &--hd {
+                padding: 30px 0 0 0;
+                &::after {
+                    content:"";
+                    background: url(../images/deco-line.png) 0 0 no-repeat;
+                    background-size: cover;
+                    width: 405px;
+                    height: 22px;
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+            &--bd {
+                padding: 70px 0 0 0;
+            }
+        }
+        &__title {
+            background: url(../images/index-info-coffees.png) 0 0 no-repeat;
+            background-size: cover;
+            width: 574px;
+            height: 299px;
+            margin: 0 auto;
+            @extend .hide-text;
+        }
+        &__sp-product {
+            background: url(../images/index-info-cake.png) 0 0 no-repeat;
+            background-size: cover;
+            width: 647px;
+            height: 400px;
+            margin: 0 auto;
+            @extend .hide-text;
+        }
+        &__steparea {
+            padding: 60px 65px 30px;
+            &::before {
+                content:"";
+                background: url(../images/deco-line.png) 0 0 no-repeat;
+                background-size: cover;
+                width: 405px;
+                height: 22px;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        &__step--title {
+            background: url(../images/index-process-title.png) 0 0 no-repeat;
+            background-size: cover;
+            width: 168px;
+            height: 42px;
+            margin: 60px auto 0;
+            @extend .hide-text;
+        }
+        &__step {
+            margin: 30px auto 0;
+            li {
+                margin: 0 0 30px 0;
+                display: flex;
+                align-items: center;
+                p {
+                    font-size: 25px;
+                    font-weight: 600;
+                    line-height: 1.3;
+                }
+            }
+        }
+        &__icon {
+            width: 145px;
+            height: 120px;
+            &--icon1 {
+                background: url(../images/index-icon-1.png) 0 0 no-repeat;
+                background-size: 120px auto;
+            }
+            &--icon2 {
+                background: url(../images/index-icon-2.png) 0 0 no-repeat;
+                background-size: 120px auto;
+            }
+            &--icon3 {
+                background: url(../images/index-icon-3.png) 0 0 no-repeat;
+                background-size: 120px auto;
+            }
+            &--icon4 {
+                background: url(../images/index-icon-4.png) 0 0 no-repeat;
+                background-size: 120px auto;
+            }
+            &::after {
+                content:"";
+                display: block;
+                width: 3px;
+                height: 110px;
+                border-right: 3px solid $border_right;
+                margin: 5px 0 0 140px;
+            }
+        }
+        &__content {
+            width: 372px;
+            margin: 0 0 0 20px;
+            font-family: "微軟正黑體",Arial, Helvetica, sans-serif;
+        }
+        &__readme {
+            margin: 55px 0 0 0;
+            li {
+                margin: 0 0 35px 0;
+                display: inline-block;
+            }
+            p {
+                font-size: 25px;
+                font-weight: 600;
+                line-height: 1.3;
+            }
+        }
+        &__btn {
+            background: url(../images/kv-btn.png) top center no-repeat;
+            background-size: cover;
+            display: block;
+            width: 464px;
+            height: 101px;
+            margin: 0 auto;
+            @extend .hide-text;
+        }
+    }
+    .note {
+        color: $font_color1;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.5;
+        letter-spacing: 1.2px;
+        padding: 70px 65px;
+        &__title {
+            background: url(../images/index-note-title.png) top center no-repeat;
+            cursor: pointer;
+            height: 42px;
+            margin: 0 auto;
+            position: relative;
+            @extend .hide-text;
+            &:after {
+                content: "";
+                background: url(../images/note-deco-close.png) top center no-repeat;
+                background-size: cover;
+                width: 35px;
+                height: 35px;
+                display: inline-block;
+                position: absolute;
+                top: 10%;
+                right: 180px;
+                transition: 0.3s;
+            }
+            &--isOpen {
+                &:after {
+                    content: "";
+                    background: url(../images/note-deco-open.png) top center no-repeat;
+                    background-size: cover;
+                    width: 35px;
+                    height: 35px;
+                    display: inline-block;
+                    position: absolute;
+                    top: 10%;
+                    right: 180px;
+                    transition: 0.3s;
+                }
+            }
+        }
+        &__bd {
+            padding: 60px 0 0 0;
+            position: relative;
+        }
+        &__opt--1 {
+            margin: 0 0 0 24px;
+                > li {
+                    margin: 0 0 15px 0;
+                    list-style-type: decimal;
+                    padding: 0 0 0 10px;
+            }
+        }
+        &__opt--2 {
+            margin: 0 0 0 30px;
+            >li {
+                list-style-type: upper-alpha;
+                margin: 0 0 10px 0;
+                padding: 0 0 0 10px;
+            }
+        }
+        &__opt--3 {
+            margin: 0 0 0 25px;
+            > li {
+                list-style-type: lower-roman;
+                margin: 0 0 5px 0;
+                padding: 0 0 0 10px;
+            }
+        }
+    }
+}
+
+.comingsoon {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    &__bg {
+        background: #fff;
+        opacity: 0.9;
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    &__box {
+        width: 750px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -65%);
+        text-align: center;
+    }
+    &__title {
+        background: url(../images/coming-soon-title.png) 0 0 no-repeat;
+        background-size: cover;
+        width: 531px;
+        height: 213px;
+        margin: 0 auto;
+        @extend .hide-text;
+    }
+    &__bd {
+        box-sizing: border-box;
+        padding: 15px 0 0 0;
+    }
+}
+.comingsoon {
+    .counter {
+        display: inline-block;
+        padding: 10px 15px;
+        background-color: #a59588;
+        border-radius: 8px;
+        font-size: 0;
+        >div {
+            display: inline-block;
+            padding: 0 15px;
+        }
+        .days,
+        .hours,
+        .minutes,
+        .seconds {
+            text-align: center;
+            color: $coming_color;
+            .value {
+                display: block;
+                font-size: 35px;
+                width: 100%;
+                display: block;
+                font-weight: 900;
+            }
+            span {
+                font-size: 16px;
+                width: 100%;
+                display: block;
+                opacity: .75;
+            }
+        }
+    }
+    .centerIt {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+}
+
+@-webkit-keyframes index-updw {
+    0%,
+    100% {
+        bottom: 0px;
+    }
+    40% {
+        bottom: -15px;
+    }
+}

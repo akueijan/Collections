@@ -1,0 +1,97 @@
+//- page laytout name
+extends _layout.pug
+block pageInfo
+    - var pageTitle = "登錄發票 | 左岸咖啡館"
+    - var pageDesc = "凡購買左岸咖啡館全系列商品,登錄電子發票即有機會抽中法國的秘密甜點—森林莓果佐起士蛋糕~登錄越多中獎機會越高！"
+    - var pageJs = "scratchcard.js"
+    - var more_js = "city.js"
+//- page html
+block page_main
+    div.scratchcard#scratchcard
+        div.scratchcard__continer
+            div.scratchcard__continer__main
+                transition(name="fade" mode="out-in")
+                    div.lottery__main(v-if="!gotoAddr" key="lottery")
+                        div.sacratch__info
+                            transition(name="fade" mode="out-in")
+                                div.first(v-if="!cardOpen" key="first")
+                                    p.title 恭喜您完成發票登錄
+                                    p.info 獲得左岸咖啡館浪漫甜點時光
+                                    p.subtitle 刮刮卡乙張！
+                                div.winner(v-if="cardOpen&&awardWin" key="winner")
+                                    p.title 恭喜您獲得
+                                    p.title.red {{awardName}}
+                                    p.info 請至下個頁面填寫獎品寄件資訊。
+                                div.loser(v-if="cardOpen&&!awardWin" key="loser")
+                                    p.title 美好的甜點，值得等待...
+                                    p.info 活動至2018/4/30止，
+                                    p.info 登錄越多發票中獎機會越高喔！
+                        div.scratchcard--card
+                            div.card__main
+                        div.scratchcard--btns
+                            transition(name="fade" mode="out-in")
+                                div.first(v-if="!cardOpen" key="first")
+                                div.winner(v-if="cardOpen&&awardWin" key="winner" @click="gotoAddr=true")
+                                    img(src="images/submit-addr.png", alt="")
+                                div.loser(v-if="cardOpen&&!awardWin"  key="loser")
+                                    a(href="about.html")
+                                        img(src="images/more-activity.png", alt="")
+                                    a(href="invoice.html")
+                                        img(src="images/more-invoice.png", alt="")
+                    div.addr__from(v-if="gotoAddr&&!success" key="addr")
+                        div.main-title
+                            img(src="images/scratchcard-title.png", alt="")
+                            transition(name="fade" mode="out-in")
+                                p(v-if="!checkAddr" key="form") 請填寫下列資訊
+                                p(v-if="checkAddr" key="view") 請再次確認寄件資訊是否正確
+                        transition(name="fade" mode="out-in")
+                            form(@submit.prevent="checkAddrView" v-if="!checkAddr" key="form")
+                                label.label
+                                    p 姓名
+                                    input(type="text" v-model="addrForm.username")
+                                label.label
+                                    p 連絡電話
+                                    input(type="tel" v-model="addrForm.phone" maxlength="10")
+                                div.label
+                                    p 獎品寄送地址
+                                    div.cityArea
+                                        select(name="cityInx" v-model="addrForm.cityInx")
+                                            option(value="") 選擇城市
+                                            option(v-for="(item, inx) in citys" :value="inx") {{item.city_name}}
+                                        select(name="area" v-model="addrForm.areaInx")
+                                            option(value="") 選擇地區
+                                            option(v-for="(item, inx) in areas" :value="inx") {{item.area_name}}
+                                    label
+                                        input(type="text" v-model="addrForm.addr")
+                                button(type="submit")
+                                    img(src="images/submit-btn.png", alt="")
+                            div.checkview(v-if="checkAddr" key="checkview")
+                                div.content
+                                    table
+                                        tr
+                                            td 姓名
+                                            td ：
+                                            td {{addrForm.username}}
+                                        tr
+                                            td 連絡電話
+                                            td ：
+                                            td {{addrForm.phone.substr(0,4)+"***"+addrForm.phone.substr(7,9)}}
+                                        tr
+                                            td 獎品寄送地址
+                                            td ：
+                                            td {{citys[addrForm.cityInx].city_name+areas[addrForm.areaInx].area_name+addrForm.addr}}
+                                    div.btns
+                                        div.submit-btn(@click="submitAddr")
+                                            .sk-fading-circle(v-if="loading")
+                                                .sk-circle(v-for="(el,i) in 12" :class="'sk-circle' + (i+1)")
+                                            img(v-if="!loading" src="images/submit-addr-btn.png", alt="")
+                                        div.pre-btn(@click="checkAddr=false")
+                                            img(src="images/pre-btn.png", alt="")
+                    div.scratchcard__success(v-if="success" key="success")
+                        div.success__info
+                            div.text 感謝您的填寫，<br>客服人員會儘速確認寄件資訊，<br>獎品寄出前將會以簡訊通知。
+                            div.btns
+                                a(href="about.html")
+                                    img(src="images/more-activity.png", alt="")
+                                a(href="invoice.html")
+                                    img(src="images/more-invoice.png", alt="")
