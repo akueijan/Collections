@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>首頁</title>
+    <meta name="description" content="#{pageDesc}">
+    <meta name="viewport" content="width=640">
+    <meta itemprop="name" content="#{pageTitle}">
+    <meta itemprop="description" content="#{pageDesc}">
+    <meta itemprop="image" content="指定顯示圖片">
+    <meta property="og:title" content="#{pageTitle}">
+    <meta property="og:description" content="#{pageDesc}">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="指定顯示圖片">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <!--CDN link -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <script src="../js/particles.min.js"></script>
+    <script src="../js/animatescroll.min.js"></script>
+    <script src="https://code.createjs.com/preloadjs-0.6.1.min.js"></script>
+    <script src="../lib/vue.js"></script>
+</head>
+<!--html body-->
+
+<body>
+    <div class="l-wrap" id="app">
+        <div id="particles-js"></div>
+        <nav class="nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <div class="nav-top">
+                <div class="l-container"><a class="nav-logo" href="index.html" alt="元大期貨" title="元大期貨Yuanta"> </a></div>
+            </div>
+            <div class="nav-bottom">
+                <div class="l-container clearfix">
+                    <div class="nav-btn">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                    <div class="nav-menu" role="navigation">
+                        <ul class="clearfix">
+                            <li class="nav-item nav-item--iscurrent"><a href="index.html" alt="首頁" itemprop="url" title="項目"><span>首頁</span></a></li>
+                            <li class="nav-item"><a href="index.html" alt="抽獎專區" itemprop="url" title="抽獎專區"><span>抽獎專區</span></a></li>
+                            <li class="nav-item"><a href="index.html" alt="線上開戶" itemprop="url" title="線上開戶"><span>線上開戶</span></a></li>
+                            <li class="nav-item"><a href="index.html" alt="得獎公告" itemprop="url" title="得獎公告"><span>得獎公告</span></a></li>
+                            <li class="nav-item"><a href="index.html" alt="活動辦法" itemprop="url" title="活動辦法"><span>活動辦法  </span></a></li>
+                            <li class="nav-item nav-item--isOpen"><a href="index.html" alt="登出" itemprop="url" title="登出"><span>登出</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="popup" style="display:none;">
+            <div class="popup__mask"></div>
+            <div class="popup__content">
+                <div class="l-vm">
+                    <div class="l-vm__content">
+                        <div class="popup__box" style="display:none;">
+                            <div class="popup__msg1" style="display:none;">
+                                <h2 class="popup__title">確定要抽全部?</h2>
+                                <p class="popup__txt">(提醒：將會用掉您6次抽獎機會)</p>
+                            </div>
+                            <div class="popup__msg2" style="display:none;">
+                                <h2 class="popup__title">確定抽獎?</h2>
+                                <p class="popup__txt">(提醒：將會用掉您1次抽獎機會)</p>
+                            </div>
+                            <div class="popup__msg3" style="display:none;">
+                                <p class="popup__txt">您的抽獎機會用完囉！<br>繼續交易，再回來抽豪禮！</p>
+                            </div>
+                            <div class="popup__btnarea"><a class="btn btn-small" href="javascript:" alt="" title="">確認</a><a class="btn btn-small" href="javascript:" alt="" title="">取消</a></div>
+                        </div>
+                        <div class="popup__loading">
+                            <div class="popup__loading-swag"></div>
+                            <div class="popup__loading-pic"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- render nav view-->
+        <!--div.l-fb
+      div.l-container
+          div.fb-box
+              .fb-like(data-href='#', data-layout='button_count', data-action='like', data-show-faces='false', data-share='true') 
+      -->
+        <div class="l-main">
+            <section class="index">
+                <div class="kvarea">
+                    <div class="l-container">
+                        <div class="kvbg"></div>
+                        <div class="kvbglight"></div>
+                        <div class="kvframe"></div>
+                        <div class="kvpeo-1"></div>
+                        <div class="kvword-1"></div>
+                        <div class="kvpeo-2"></div>
+                        <div class="kvword-2"></div>
+                        <h1 class="kv-title">外幣富豪俱樂部業界最多貨幣對小額投資變富豪</h1><a class="btn kv-btn" href="javascript:" alt="" title="">立刻登入抽豪禮</a><a class="btn kv-btn" href="javascript:" alt="" title="" style="display:none;">我的抽獎專區 </a>
+                        <div class="kv-item1">iPhone最新款</div>
+                        <div class="kv-item2">Gogoro2</div>
+                        <div class="kv-item3">美國雙人來回機票</div><a class="kvmore" href="javascript:" alt="" title=""><span class="down"></span></a>
+                    </div>
+                </div>
+                <div class="videoarea">
+                    <div class="l-container">
+                        <div class="videopic"></div>
+                        <h2 class="title">輕鬆投資變富豪</h2>
+                        <div class="videoplay"></div>
+                    </div>
+                </div>
+                <div class="eventarea">
+                    <div class="l-container">
+                        <div class="event-1">
+                            <div class="evpeo-1"></div>
+                            <div class="box">
+                                <div class="box__hd"></div>
+                                <div class="box__bd">
+                                    <h2 class="title">交易即抽好手氣</h2>
+                                    <div class="pic-1"></div>
+                                    <div class="row clearfix">
+                                        <div class="txt-title">活動期間 :</div>
+                                        <div class="txt">即日起至2017/12/31</div>
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="txt-title">活動對象 :</div>
+                                        <div class="txt">開立槓桿交易商帳戶之客戶</div>
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="txt-title">活動商品 :</div>
+                                        <div class="txt">全系列貨幣對，共32種貨幣對商品</div>
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="txt-title">活動內容 :</div>
+                                        <div class="txt list-1">
+                                            <ul>
+                                                <li>於活動期間累積交易任一貨幣對累積達2手(含)以上，即可獲得1次抽獎機會，交易達4手(含)可獲得2次抽獎機會...以此類推，交易越多，中獎機會越大。</li>
+                                                <li>凡交易EUR/USD、USD/JPY、GBP/USD、AUD/USD等四種熱門商品， 累積交易量達2手(含)即可獲得2次抽獎機會，累積交易量達4手(含)即可獲得4次抽獎機會，依此類推。</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="eventitem"></div>
+                                    <div class="row clearfix items">
+                                        <div class="txt-title">獎項內容 :</div>
+                                        <div class="txt list-2">
+                                            <ul>
+                                                <li class="clearfix">
+                                                    <div class="items">Gogoro 2 Plus</div>
+                                                    <div class="cun">1台</div>
+                                                </li>
+                                                <li class="clearfix">
+                                                    <div class="items">iPhone 最新款</div>
+                                                    <div class="cun">5台</div>
+                                                </li>
+                                                <li class="clearfix">
+                                                    <div class="items">Rimowa 行李箱</div>
+                                                    <div class="cun">3組</div>
+                                                </li>
+                                                <li class="clearfix">
+                                                    <div class="items">美國雙人來回機票</div>
+                                                    <div class="cun">1份</div>
+                                                </li>
+                                                <li class="clearfix">
+                                                    <div class="items">澳洲雙人來回機票</div>
+                                                    <div class="cun">1份</div>
+                                                </li>
+                                                <li class="clearfix">
+                                                    <div class="items">歐洲雙人來回機票</div>
+                                                    <div class="cun">1份</div>
+                                                </li>
+                                                <li class="clearfix">
+                                                    <div class="items">日本雙人來回機票</div>
+                                                    <div class="cun">2份</div>
+                                                </li>
+                                                <li class="clearfix">
+                                                    <div class="items">專屬機場接送折價券(來回)</div>
+                                                    <div class="cun">20張</div>
+                                                </li>
+                                                <li class="clearfix">
+                                                    <div class="items">7-11 購物金200元</div>
+                                                    <div class="cun">100張</div>
+                                                </li>
+                                                <li class="clearfix">
+                                                    <div class="items">咖啡兌換券</div>
+                                                    <div class="cun">150張</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div><a class="btn btngo" href="javascript:" alt="" title="">前往抽獎</a>
+                                </div>
+                                <div class="box__ft"></div>
+                            </div>
+                        </div>
+                        <div class="event-2">
+                            <div class="box">
+                                <div class="box__hd"></div>
+                                <div class="box__bd">
+                                    <h2 class="title">富豪入門禮</h2>
+                                    <div class="row clearfix">
+                                        <div class="txt-title">活動期間 :</div>
+                                        <div class="txt">即日起至2017/12/31</div>
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="txt-title">活動對象 :</div>
+                                        <div class="txt">從未於元大期貨開立槓桿保證金契約交易帳戶者</div>
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="txt-title">活動商品 :</div>
+                                        <div class="txt">全系列貨幣對，共32種貨幣對商品</div>
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="txt-title">活動內容 :</div>
+                                        <div class="txt list-1">於活動期間，透過facebook或活動連結邀請好友開立「槓桿交易商帳戶」，被邀請者成功開戶並交易任一貨幣對累積交易量達1手(含)以上者，即可獲得7-ELEVEN CITY CAFÉ一杯及7-ELEVEN 200元商品抵用券，邀請者則可獲得7-ELEVEN CITY CAFÉ一杯。</div>
+                                    </div>
+                                    <table class="tab-2">
+                                        <tr>
+                                            <th>參加對象</th>
+                                            <th>獎品</th>
+                                        </tr>
+                                        <tr>
+                                            <td>成功開戶者</td>
+                                            <td>7-11 CITY CAFE</td>
+                                        </tr>
+                                        <tr>
+                                            <td>交易任一貨幣對累積交易量<br>達1手(含)以上者</td>
+                                            <td>7-ELEVEN 200元商品抵用券(限領一次)</td>
+                                        </tr>
+                                    </table><a class="btn btngo" href="javascript:" alt="" title="">我要開戶</a>
+                                </div>
+                                <div class="box__ft"></div>
+                            </div>
+                            <div class="eventpic-1"></div>
+                            <div class="eventpic-2"></div>
+                            <div class="eventpic-3"></div>
+                        </div>
+                        <div class="more"><a class="eventmore eventmore--isOpen" href="javascript:" alt="" title="">詳細辦法</a>
+                            <div class="moretxt" style="display:block;">
+                                <ul>
+                                    <li>本交易競賽活動之各獎項領獎申請書在2018/1/31前截止收件(郵戳為憑)，主辦單位於2018/2/15前陸續將獎品寄出。</li>
+                                    <li>各獎項通知得獎者的聯絡方式，以得獎者於活動網站中所輸入的資料為依據。</li>
+                                    <li>獎項的寄送資料以得獎者於領獎申請書所提供的資料為依據，參加者請於填寫完個人資料後，再次確認。</li>
+                                    <li>若因留填資料不正確造成無法聯繫及寄送，或領獎時無法於時限內提供相關所需檢附資料不可歸責於主辦單位之事宜，則視為自動棄權，主辦單位不負責變更得獎者聯絡地址或得獎者姓名之責任，以避免產生以人頭戶冒領獎項之情況。</li>
+                                    <li>參加本活動所提供之個人資料，視同個資保護法授權同意可做為主辦單位及主辦單位之媒體行銷公司為本交易競賽活動之得獎資料核對、領獎聯絡通知、獎品兌領…等使用，無法提供資料的參加者或得獎者視同放棄獎項，不再另行通知，亦不補發。</li>
+                                    <li>參加者於參加本交易競賽活動之同時，即同意接受本交易競賽活動之規範。參加者保證所有填寫或提供之資料均為真實正確內容，未冒用或盜用任何第三人之資料，如有不實或不正確之情事，經確認後將無條件取消與本交易競賽活動相關之所有資格。如有致損害於主辦單位或其他任何第三人，參加者應負一切相關法律責任。</li>
+                                    <li>本交易競賽活動參加者如有任何因電腦、網路、電話、技術或不可歸責於主辦單位之事由，使參加者所寄出或登錄之資料有遲延、遺失、錯誤、無法辨識或毀損，導致資料無效之情況，主辦單位概不負任何法律責任，參加者或得獎者不得異議。</li>
+                                    <li>如有參加者以各類電腦程式等不當方式參與本交易競賽活動，主辦單位有權裁奪取消其抽獎資格，並由符合資格之其餘參加者中遞補得獎資格。</li>
+                                    <li>主辦單位就本交易競賽活動參加者之資格，保有審查之權利，若以不當之電腦程式或其他明顯違反活動公平性之方式，或經查核有不符合本交易競賽活動辦法之參加資格者，一經主辦單位發現或經第三人檢舉，主辦單位得以立即取消其得獎資格，追回獎金獎品，並得依法行使相關權利與追訴不法。</li>
+                                    <li>依中華民國所得稅法規定，舉凡中獎金額或獎項年度累計價值超過新台幣 1,000 元(含)以上，將列入本年度之個人綜合所得稅申報，主辦單位將於次年度開立扣繳憑單寄送予得獎者，得獎者應於兌獎時需繳交身分證正反面影本。另中獎獎品價值超過新台幣 20,000元(含)以上者，應自行負擔機會中獎所得稅，依法應預先扣繳 10% 稅金；外籍得獎人士不分金額依法應繳交20%機會中獎所得稅及居留證影本。因此，得獎者應將兌獎資料連同預繳稅金一併繳回，方得進行兌獎，拒繳交兌獎資料或稅金者，視同自願放棄中獎權利。</li>
+                                    <li>主辦單位有權使用獲獎者參賽期間相關交易紀錄，作為出版或廣宣使用。為保障投資人隱私，如未徵得獲獎者同意披露相關個人資訊將以匿名方式進行。</li>
+                                    <li>得獎者不得轉讓獎品於他人，非獎金類贈品亦不得要求折換現金或其他非主辦單位提供之商品，並同意主辦單位對獎項或獎品無需負擔產品責任與維修保固。</li>
+                                    <li>主辦單位保留修改活動與獎項細節的權利，無須事前通知，並有權對本交易競賽活動所有事宜作出解釋或裁決。如本交易競賽活動因不可抗力之特殊原因無法執行時，主辦單位有權決定取消、終止、修改或暫停本交易競賽活動。</li>
+                                    <li>獎品僅寄送台灣本島地區；寄送獎品過程中，若發生任何毀壞、錯遞、延遲或遺失、遭冒領或遭竊等喪失占有之情形等非主辦單位疏失所造成者，主辦單位恕不負責。</li>
+                                    <li>各類獎項均有領取期限，請得獎者自行注意時限，如逾期未領取，主辦單位恕不負責。</li>
+                                </ul>
+                                <p class="other">如有任何疑問請洽客服人員，服務專線：0800-333-338、電子信箱：leverage.brk@yuanta.com</p>
+                            </div><a class="btn btnmore" href="javascript:" alt="" title="">了解更多外幣保證金</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--render main view-->
+        </div>
+    </div>
+    <div class="l-footer footer">
+        <div class="l-container">
+            <p class="footer__warning">槓桿保證金契約各類型交易，皆具高財務槓桿特性，交易人可能承受極大的損失亦或有獲利，且需承擔交易上及其他損失之風險（該風險可能極為重大）；又使用電子式交易，仍可能面臨斷線、斷電、網路壅塞等不確定因素，致使買賣指令無法即時傳送或延遲。以上風險甚為簡要，對所有投資風險及影響市場行情之因素無法逐一詳述，交易人應依自身之財務狀況、經驗、目標及其他相關情況，審慎評估此類交易是否合宜，交易人應確認完全瞭解個別契約、交易及權利義務特性及所暴露之風險後為之。<br>元大期貨 許可證照字號：105年金管期總字第002號
+                0800-333-338 臺北市中山區南京東路三段225號11樓及12樓</p>
+        </div>
+    </div>
+    <div class="fb-root"></div>
+    <script src="../js/particles.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/app2.js"></script>
+</body>
+<script type="text/javascript">
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.4&appId=262477160615577";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+</html>

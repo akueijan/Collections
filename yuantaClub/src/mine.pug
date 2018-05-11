@@ -1,0 +1,173 @@
+﻿//- page laytout name
+extends _layout.pug
+
+//- page html
+block page_main
+    section.mine
+        div.hd
+            div.l-container.clearfix 
+                div.hd__head.clearfix
+                    div.head__pic1
+                    div.head__content
+                        h2 敬愛的
+                            span 王先生
+                            |,您好!
+                        div.head__txt
+                            ul
+                                li 您已累積
+                                    span 168
+                                    |次抽獎機會
+                                li 您仍尚有
+                                    span 68
+                                    |次抽獎機會
+                                li 您已使用
+                                    span 100
+                                    |次抽獎機會
+                div.hd__body
+                    div.hybox.clearfix 
+                        div.row.clearfix
+                            h2.title 免費喝咖啡
+                            //- p.txt 邀請好友加入，再享更多免費咖啡！
+                        div.row.clearfix
+                            input(type="text" value="www.yuantafutures.com.tw/20...").inputtxt
+                            a(href="javascript:" alt="" title="").btncopy 複製連結
+                            a(href="javascript:" alt="" title="").btnfb fb
+                        p.code 還有機會再拿7-ELEVEN禮券！
+                    div.body__pic1
+                    div.body__pic2
+                    div.body__pic3
+        div.bd
+            div.l-container
+                div.bd__head.clearfix
+                    a(href="javascript:" alt="" title="").title.isTitle1.isActive 我的獎項 / 交易資訊
+                    a(href="javascript:" alt="" title="").title.isTitle2 抽獎專區
+                div.bd__body
+                    div.box
+                        div.box__hd
+                        div.box__bd
+                            // mine-info start
+                            div.mine-info(style="display:block")
+                                div.itembox.clearfix
+                                    h2.title.title1 我的獎項
+                                    p.no-info 您還沒有抽到獎品喔!
+                                    div.items
+                                        div.itempic
+                                            div.itempic__pic.isAwards2
+                                        h4.itemtxt iphone最新版 - 1台
+                                        p 
+                                            span.w-yellow.w-size30 恭喜您!
+                                        p 將會有專人與您聯絡!
+                                    div.items
+                                        div.itempic
+                                            div.itempic__pic.isAwards1
+                                        h4.itemtxt Gogoro 2 - 1台
+                                        p
+                                            span.w-yellow.w-size30 恭喜您!
+                                        p 將會有專人與您聯絡!
+                                    div.items
+                                        div.itempic
+                                            div.itempic__pic.isAwards1
+                                        h4.itemtxt Gogoro 2 - 1台
+                                        p
+                                            span.w-yellow.w-size30 恭喜您!
+                                        p 將會有專人與您聯絡!
+                                    div.items
+                                        div.itempic
+                                            div.itempic__pic.isAwards1
+                                        h4.itemtxt Gogoro 2 - 1台
+                                        p
+                                            span.w-yellow.w-size30 恭喜您!
+                                        p 將會有專人與您聯絡!
+                                    div.items
+                                        div.itempic
+                                            div.itempic__pic.isAwards1
+                                        h4.itemtxt Gogoro 2 - 1台
+                                        p
+                                            span.w-yellow.w-size30 恭喜您!
+                                        p 將會有專人與您聯絡!
+                                    div.items
+                                        div.itempic
+                                            div.itempic__pic.isAwards11
+                                        h4.itemtxt 咖啡兌換券 - 3張
+                                        a(href="javascript:" alt="" title="").btn.btnget 點我領取
+                                    div.items
+                                        div.itempic
+                                            div.itempic__pic.isAwards11
+                                        h4.itemtxt 咖啡兌換券 - 3張
+                                        a(href="javascript:" alt="" title="").btn.btnget 點我領取
+                                div.line
+                                div.infobox.clearfix
+                                    h2.title.title2 交易資訊
+                                    p.no-info 您還沒有交易累積，快去交易抽豪禮!
+                                    div.list
+                                        ul
+                                            li.infocha
+                                                p.dollarbox
+                                                    i.icon.isIcon-0
+                                                    span.dollarbox-txt EUR 歐元歐元
+                                                    i.icon.isIcon-2
+                                                    span.dollarbox-txt USD 美元美元
+                                                    span.dollarbox-cun.w-yellow 1200手
+                                            li.infocha
+                                                p.dollarbox
+                                                    i.icon.isIcon-0
+                                                    span.dollarbox-txt EUR 歐元
+                                                    i.icon.isIcon-2
+                                                    span.dollarbox-txt USD 美元
+                                                    span.w-yellow 120手
+                                            li.infocha
+                                                p.dollarbox
+                                                    i.icon.isIcon-0
+                                                    span.dollarbox-txt EUR 歐元
+                                                    i.icon.isIcon-2
+                                                    span.dollarbox-txt USD 美元
+                                                    span.w-yellow 120手
+                                            li.infocha
+                                                p.dollarbox
+                                                    i.icon.isIcon-0
+                                                    span.dollarbox-txt EUR 歐元
+                                                    i.icon.isIcon-2
+                                                    span.dollarbox-txt USD 美元
+                                                    span.w-yellow 120手
+                                    div.line2
+                                    div.lasttime 
+                                        p 最後更新時間：2017/08/02 09:00
+                            // mine-info end
+                            // mine-lottery start
+                            div.mine-lottery#lottery
+                                div.dolls
+                                    div.peo1-first
+                                    div.peo1-fail
+                                    div.peo1-win
+                                    div.peo2
+                                div.result
+                                    div.lightBg
+                                    div.plate
+                                    p.result__text.failText.isFail 
+                                        span.isBold 您沒有抽中...
+                                        br
+                                        |請多多交易，
+                                        br.mb-only
+                                        |再來試一試手氣唷！
+                                    p.result__text.winText 恭喜您！您抽中了
+                                        br
+                                        span.isColor.isBold Gogoro
+                                        |及
+                                        br.mb-only
+                                        span.isColor.isBold 專屬機場接送折價券
+                                        span.isColor (來回)
+                                    div.cover
+                                    div.result__item.winPic
+                                        div.isAwards1
+                                    div.result__fail.failPic.resultFail
+                                div.mine-lottery__bd
+                                    div.btn-area.isFirst
+                                        a(href="javascript:" v-on:click="draw(false)").btn.btn--no 抽一次
+                                        a(href="javascript:" alt="" title="").btn 抽全部
+                                div.mine-lottery__ft
+                                    div.btn-area.isPlayed
+                                        a(href="javascript:" alt="" title="" v-on:click="resetLottery(false)").btn.btn-small 確認獎項
+                                        a(href="javascript:" alt="" title="" v-on:click="playAgain()").btn.btn-small 再抽一次
+                            // mine-info end
+                        div.box__ft
+                

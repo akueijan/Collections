@@ -34,6 +34,7 @@
 | [粉多集點卡 - 邊緣人活動][6] | 版型切版 + 動畫     |
 | [3M省水活動][7] | 版型切版 + 動畫     |
 | [台新基金][8] | 版型切版 + 動畫     |
+| [元大富豪俱樂部][9] | 版型切版 + 動畫     |
 
 
 [1]: https://akueijan.github.io/Collections/carrefourBlood/dist/index.html
@@ -44,3 +45,4 @@
 [6]: http://o2o.friendo.com.tw/loner?utm_source=friendo&utm_medium=loner_brands_280x380&utm_campaign=loner
 [7]: https://akueijan.github.io/Collections/threeMSave/dist/index.html
 [8]: https://akueijan.github.io/Collections/tsFund/dist/index.html
+[9]: http://www.yuantafutures.com.tw/2017forex2/index.aspx?utm_source=friendo&utm_medium=brand_banner

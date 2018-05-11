@@ -1,0 +1,33 @@
+﻿//- page laytout name
+extends _layout.pug
+
+//- page html
+block page_main
+    div.login
+        div.login__hd
+        div.login__bd
+            div.loginBox
+                div.loginBox__hd
+                    h3.title
+                    p *若登入有疑問，請洽元大期貨
+                        br.mb-only
+                        |24 小時客服專線 0800-333-338
+                div.loginBox__bd
+                    i.swag3
+                    i.doll1-2
+                    i.poles
+                    div.inputArea.clearfix
+                        div.inputRow
+                            label(for="account") 交易帳號
+                            div.inputWrap
+                                input#account(type="text")
+                        div.inputRow
+                            label(for="pw") 交易密碼
+                            div.inputWrap
+                                input#pw(type="password")
+                    div.btn-area
+                        button.btn.btnLogin 登入
+                        br
+                        a.link(href="javascript:") 還沒有槓桿交易商帳戶? 立即開戶
+                            i
+        div.login__ft

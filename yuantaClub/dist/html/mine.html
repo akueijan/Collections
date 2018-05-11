@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>首頁</title>
+    <meta name="description" content="#{pageDesc}">
+    <meta name="viewport" content="width=640">
+    <meta itemprop="name" content="#{pageTitle}">
+    <meta itemprop="description" content="#{pageDesc}">
+    <meta itemprop="image" content="指定顯示圖片">
+    <meta property="og:title" content="#{pageTitle}">
+    <meta property="og:description" content="#{pageDesc}">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="指定顯示圖片">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <!--CDN link -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <script src="../js/particles.min.js"></script>
+    <script src="../js/animatescroll.min.js"></script>
+    <script src="https://code.createjs.com/preloadjs-0.6.1.min.js"></script>
+    <script src="../lib/vue.js"></script>
+</head>
+<!--html body-->
+
+<body>
+    <div class="l-wrap" id="app">
+        <div id="particles-js"></div>
+        <nav class="nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <div class="nav-top">
+                <div class="l-container"><a class="nav-logo" href="index.html" alt="元大期貨" title="元大期貨Yuanta"> </a></div>
+            </div>
+            <div class="nav-bottom">
+                <div class="l-container clearfix">
+                    <div class="nav-btn">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                    <div class="nav-menu" role="navigation">
+                        <ul class="clearfix">
+                            <li class="nav-item nav-item--iscurrent"><a href="index.html" alt="首頁" itemprop="url" title="項目"><span>首頁</span></a></li>
+                            <li class="nav-item"><a href="index.html" alt="抽獎專區" itemprop="url" title="抽獎專區"><span>抽獎專區</span></a></li>
+                            <li class="nav-item"><a href="index.html" alt="線上開戶" itemprop="url" title="線上開戶"><span>線上開戶</span></a></li>
+                            <li class="nav-item"><a href="index.html" alt="得獎公告" itemprop="url" title="得獎公告"><span>得獎公告</span></a></li>
+                            <li class="nav-item"><a href="index.html" alt="活動辦法" itemprop="url" title="活動辦法"><span>活動辦法  </span></a></li>
+                            <li class="nav-item nav-item--isOpen"><a href="index.html" alt="登出" itemprop="url" title="登出"><span>登出</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="popup" style="display:none;">
+            <div class="popup__mask"></div>
+            <div class="popup__content">
+                <div class="l-vm">
+                    <div class="l-vm__content">
+                        <div class="popup__box" style="display:none;">
+                            <div class="popup__msg1" style="display:none;">
+                                <h2 class="popup__title">確定要抽全部?</h2>
+                                <p class="popup__txt">(提醒：將會用掉您6次抽獎機會)</p>
+                            </div>
+                            <div class="popup__msg2" style="display:none;">
+                                <h2 class="popup__title">確定抽獎?</h2>
+                                <p class="popup__txt">(提醒：將會用掉您1次抽獎機會)</p>
+                            </div>
+                            <div class="popup__msg3" style="display:none;">
+                                <p class="popup__txt">您的抽獎機會用完囉！<br>繼續交易，再回來抽豪禮！</p>
+                            </div>
+                            <div class="popup__btnarea"><a class="btn btn-small" href="javascript:" alt="" title="">確認</a><a class="btn btn-small" href="javascript:" alt="" title="">取消</a></div>
+                        </div>
+                        <div class="popup__loading">
+                            <div class="popup__loading-swag"></div>
+                            <div class="popup__loading-pic"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- render nav view-->
+        <!--div.l-fb
+      div.l-container
+          div.fb-box
+              .fb-like(data-href='#', data-layout='button_count', data-action='like', data-show-faces='false', data-share='true') 
+      -->
+        <div class="l-main">
+            <section class="mine">
+                <div class="hd">
+                    <div class="l-container clearfix">
+                        <div class="hd__head clearfix">
+                            <div class="head__pic1"></div>
+                            <div class="head__content">
+                                <h2>敬愛的<span>王先生</span>,您好!</h2>
+                                <div class="head__txt">
+                                    <ul>
+                                        <li>您已累積<span>168</span>次抽獎機會</li>
+                                        <li>您仍尚有<span>68</span>次抽獎機會</li>
+                                        <li>您已使用<span>100</span>次抽獎機會</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hd__body">
+                            <div class="hybox clearfix">
+                                <div class="row clearfix">
+                                    <h2 class="title">免費喝咖啡</h2>
+                                </div>
+                                <div class="row clearfix">
+                                    <input class="inputtxt" type="text" value="www.yuantafutures.com.tw/20..."><a class="btncopy" href="javascript:" alt="" title="">複製連結</a><a class="btnfb" href="javascript:" alt="" title="">fb</a>
+                                </div>
+                                <p class="code">還有機會再拿7-ELEVEN禮券！</p>
+                            </div>
+                            <div class="body__pic1"></div>
+                            <div class="body__pic2"></div>
+                            <div class="body__pic3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bd">
+                    <div class="l-container">
+                        <div class="bd__head clearfix"><a class="title isTitle1 isActive" href="javascript:" alt="" title="">我的獎項 / 交易資訊</a><a class="title isTitle2" href="javascript:" alt="" title="">抽獎專區</a></div>
+                        <div class="bd__body">
+                            <div class="box">
+                                <div class="box__hd"></div>
+                                <div class="box__bd">
+                                    <!-- mine-info start-->
+                                    <div class="mine-info" style="display:block;">
+                                        <div class="itembox clearfix">
+                                            <h2 class="title title1">我的獎項</h2>
+                                            <p class="no-info">您還沒有抽到獎品喔!</p>
+                                            <div class="items">
+                                                <div class="itempic">
+                                                    <div class="itempic__pic isAwards2"></div>
+                                                </div>
+                                                <h4 class="itemtxt">iphone最新版 - 1台</h4>
+                                                <p> <span class="w-yellow w-size30">恭喜您!</span></p>
+                                                <p>將會有專人與您聯絡!</p>
+                                            </div>
+                                            <div class="items">
+                                                <div class="itempic">
+                                                    <div class="itempic__pic isAwards1"></div>
+                                                </div>
+                                                <h4 class="itemtxt">Gogoro 2 - 1台</h4>
+                                                <p><span class="w-yellow w-size30">恭喜您!</span></p>
+                                                <p>將會有專人與您聯絡!</p>
+                                            </div>
+                                            <div class="items">
+                                                <div class="itempic">
+                                                    <div class="itempic__pic isAwards1"></div>
+                                                </div>
+                                                <h4 class="itemtxt">Gogoro 2 - 1台</h4>
+                                                <p><span class="w-yellow w-size30">恭喜您!</span></p>
+                                                <p>將會有專人與您聯絡!</p>
+                                            </div>
+                                            <div class="items">
+                                                <div class="itempic">
+                                                    <div class="itempic__pic isAwards1"></div>
+                                                </div>
+                                                <h4 class="itemtxt">Gogoro 2 - 1台</h4>
+                                                <p><span class="w-yellow w-size30">恭喜您!</span></p>
+                                                <p>將會有專人與您聯絡!</p>
+                                            </div>
+                                            <div class="items">
+                                                <div class="itempic">
+                                                    <div class="itempic__pic isAwards1"></div>
+                                                </div>
+                                                <h4 class="itemtxt">Gogoro 2 - 1台</h4>
+                                                <p><span class="w-yellow w-size30">恭喜您!</span></p>
+                                                <p>將會有專人與您聯絡!</p>
+                                            </div>
+                                            <div class="items">
+                                                <div class="itempic">
+                                                    <div class="itempic__pic isAwards11"></div>
+                                                </div>
+                                                <h4 class="itemtxt">咖啡兌換券 - 3張</h4><a class="btn btnget" href="javascript:" alt="" title="">點我領取</a>
+                                            </div>
+                                            <div class="items">
+                                                <div class="itempic">
+                                                    <div class="itempic__pic isAwards11"></div>
+                                                </div>
+                                                <h4 class="itemtxt">咖啡兌換券 - 3張</h4><a class="btn btnget" href="javascript:" alt="" title="">點我領取</a>
+                                            </div>
+                                        </div>
+                                        <div class="line"></div>
+                                        <div class="infobox clearfix">
+                                            <h2 class="title title2">交易資訊</h2>
+                                            <p class="no-info">您還沒有交易累積，快去交易抽豪禮!</p>
+                                            <div class="list">
+                                                <ul>
+                                                    <li class="infocha">
+                                                        <p class="dollarbox"><i class="icon isIcon-0"></i><span class="dollarbox-txt">EUR 歐元歐元</span><i class="icon isIcon-2"></i><span class="dollarbox-txt">USD 美元美元</span><span class="dollarbox-cun w-yellow">1200手</span></p>
+                                                    </li>
+                                                    <li class="infocha">
+                                                        <p class="dollarbox"><i class="icon isIcon-0"></i><span class="dollarbox-txt">EUR 歐元</span><i class="icon isIcon-2"></i><span class="dollarbox-txt">USD 美元</span><span class="w-yellow">120手</span></p>
+                                                    </li>
+                                                    <li class="infocha">
+                                                        <p class="dollarbox"><i class="icon isIcon-0"></i><span class="dollarbox-txt">EUR 歐元</span><i class="icon isIcon-2"></i><span class="dollarbox-txt">USD 美元</span><span class="w-yellow">120手</span></p>
+                                                    </li>
+                                                    <li class="infocha">
+                                                        <p class="dollarbox"><i class="icon isIcon-0"></i><span class="dollarbox-txt">EUR 歐元</span><i class="icon isIcon-2"></i><span class="dollarbox-txt">USD 美元</span><span class="w-yellow">120手</span></p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="line2"></div>
+                                            <div class="lasttime">
+                                                <p>最後更新時間：2017/08/02 09:00</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- mine-info end-->
+                                    <!-- mine-lottery start-->
+                                    <div class="mine-lottery" id="lottery">
+                                        <div class="dolls">
+                                            <div class="peo1-first"></div>
+                                            <div class="peo1-fail"></div>
+                                            <div class="peo1-win"></div>
+                                            <div class="peo2"></div>
+                                        </div>
+                                        <div class="result">
+                                            <div class="lightBg"></div>
+                                            <div class="plate"></div>
+                                            <p class="result__text failText isFail"> <span class="isBold">您沒有抽中...</span><br>請多多交易，<br class="mb-only">再來試一試手氣唷！</p>
+                                            <p class="result__text winText">恭喜您！您抽中了<br><span class="isColor isBold">Gogoro</span>及<br class="mb-only"><span class="isColor isBold">專屬機場接送折價券</span><span class="isColor">(來回)</span></p>
+                                            <div class="cover"></div>
+                                            <div class="result__item winPic">
+                                                <div class="isAwards1"></div>
+                                            </div>
+                                            <div class="result__fail failPic resultFail"></div>
+                                        </div>
+                                        <div class="mine-lottery__bd">
+                                            <div class="btn-area isFirst"><a class="btn btn--no" href="javascript:" v-on:click="draw(false)">抽一次</a><a class="btn" href="javascript:" alt="" title="">抽全部</a></div>
+                                        </div>
+                                        <div class="mine-lottery__ft">
+                                            <div class="btn-area isPlayed"><a class="btn btn-small" href="javascript:" alt="" title="" v-on:click="resetLottery(false)">確認獎項</a><a class="btn btn-small" href="javascript:" alt="" title="" v-on:click="playAgain()">再抽一次</a></div>
+                                        </div>
+                                    </div>
+                                    <!-- mine-info end-->
+                                </div>
+                                <div class="box__ft"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--render main view-->
+        </div>
+    </div>
+    <div class="l-footer footer">
+        <div class="l-container">
+            <p class="footer__warning">槓桿保證金契約各類型交易，皆具高財務槓桿特性，交易人可能承受極大的損失亦或有獲利，且需承擔交易上及其他損失之風險（該風險可能極為重大）；又使用電子式交易，仍可能面臨斷線、斷電、網路壅塞等不確定因素，致使買賣指令無法即時傳送或延遲。以上風險甚為簡要，對所有投資風險及影響市場行情之因素無法逐一詳述，交易人應依自身之財務狀況、經驗、目標及其他相關情況，審慎評估此類交易是否合宜，交易人應確認完全瞭解個別契約、交易及權利義務特性及所暴露之風險後為之。<br>元大期貨 許可證照字號：105年金管期總字第002號
+                0800-333-338 臺北市中山區南京東路三段225號11樓及12樓</p>
+        </div>
+    </div>
+    <div class="fb-root"></div>
+    <script src="../js/particles.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/app2.js"></script>
+</body>
+<script type="text/javascript">
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.4&appId=262477160615577";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+</html>
