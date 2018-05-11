@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>首頁</title>
+    <meta name="description" content="敘述">
+    <meta name="viewport" content="width=640">
+    <!-- Schema.org markup for Google+-->
+    <meta itemprop="name" content="首頁">
+    <meta itemprop="description" content="敘述">
+    <meta itemprop="image" content="指定顯示圖片">
+    <!-- og-->
+    <meta property="og:title" content="首頁">
+    <meta property="og:description" content="敘述">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="指定顯示圖片">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <!--CDN link -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <!-- for loading-->
+    <script src="js/animatescroll.min.js"></script>
+    <script src="js/ScrollMagic.js"></script>
+    <script src="js/animation.gsap.js"></script>
+    <script src="lib/vue.js"></script>
+</head>
+<!--html body-->
+
+<body>
+    <div id="app" class="l-wrap">
+        <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="nav">
+            <div class="l-container">
+                <div class="nav-bd">
+                    <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO">LOGO</a></h1>
+                    <div class="nav-btn">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                    <div role="navigation" class="nav-menu">
+                        <ul class="clearfix">
+                            <li class="nav-item"><a href="index.html" alt="省下「半桶水」捐給需要的人" itemprop="url" title="省下「半桶水」捐給需要的人"><span><div class="play-btn"></div>省下「半桶水」捐給需要的人</span></a></li>
+                            <li class="nav-item nav-item--iscurrent"><a href="index.html" alt="立即協助" itemprop="url" title="立即協助"><span>立即協助</span></a></li>
+                            <li class="nav-item"><a href="page.html" alt="省水妙招排行榜" itemprop="url" title="省水妙招排行榜"><span>省水妙招排行榜</span></a></li>
+                            <li class="nav-item"><a href="page.html" alt="省水妙招實況" itemprop="url" title="省水妙招實況"><span>省水妙招實況</span></a></li>
+                            <li class="nav-item"><a href="page.html" alt="活動辦法" itemprop="url" title="活動辦法"><span>活動辦法</span></a></li>
+                            <li class="nav-item"><a href="page.html" alt="3M邀你一起愛護台灣" itemprop="url" title="3M邀你一起愛護台灣"><span>3M邀你一起愛護台灣</span></a></li>
+                            <li class="nav-item">
+                                <a href="page.html" alt="FB粉絲團" itemprop="url" title="FB粉絲團">
+                                    <div class="icon-fb">FB粉絲團</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- render nav view-->
+        <div class="l-main">
+            <transition name="fade">
+                <section class="event">
+                    <div class="l-container">
+                        <div class="photo-1"></div>
+                        <div class="photo-2"></div>
+                        <div class="event__hd">
+                            <h2 class="title">活動辦法</h2>
+                        </div>
+                        <div class="event__bd">
+                            <table class="event-wrap">
+                                <tr>
+                                    <td>
+                                        <h4>活動時間</h4>
+                                    </td>
+                                    <td>
+                                        <h4>2017/4/25~5/31</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>活動說明</h4>
+                                    </td>
+                                    <td>
+                                        <p>台灣是缺水國家，生活用水量卻高過歐美將近一倍！我們需要你，提供最佳的省水妙招，將平常的生活用水量減半，一起為水資源努力！3M會將每一位參加的作品換作為半桶水，將省下的水捐給桃園復興鄉長興國小，幫助他們度過缺水期！</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>參加方式</h4>
+                                    </td>
+                                    <td>
+                                        <p>點擊<span class="btn-basic btn--kv"><a href="#" class="btn">立即協助</a></span> 獻出你的省水妙招，投稿內容請描述你如何讓日常用水量減半(量)的省水方法，並上傳一張示意圖，投稿完成後，主辦單位將於24小時內完成審核(如遇假日順延)，審核成功後將公開在 <span class="btn-basic btn--kv"><a href="#" class="btn">省水妙招排行榜</a></span>，參加就可以抽獎，還能揪好友衝人氣獎好禮，入選評審獎拍成影片再送3M淨水器！</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>活動獎項</h4>
+                                    </td>
+                                    <td>
+                                        <ul class="list-1">
+                                            <li>
+                                                <h4>最佳評審獎</h4>
+                                                <p>於活動期間獻出你的省水妙招，經主辦單位遴選拍成省水挑戰者，可獲得 <span class="red">3M Filtrete™極淨便捷系列S004淨水器</span> 乙組，遴選公布日期為2017年5/4、5/11、5/18、5/25共4名，公布於活動首頁省水妙招實況影片。</p>
+                                            </li>
+                                            <li>
+                                                <h4>最佳人氣獎</h4>
+                                                <p>於活動期間獻出你的省水妙招，並於5/25 00:00結算票數，獲得省水妙招票選前3名者，可獲得 <span class="red">3M 智慧型淨水系統(DWS2500)</span> 乙組。</p>
+                                            </li>
+                                            <li>
+                                                <h4>參加獎</h4>
+                                                <p>於活動截止前獻出你的省水妙招，就有機會抽中 <span class="red">3M Filtrete™ 隨身水壺</span> 乙組，共40名。</p>
+                                            </li>
+                                            <li>
+                                                <ul class="gif-items clearfix">
+                                                    <li>
+                                                        <div class="items-pic item-1"></div>
+                                                        <h4>3M Filtrete™ 極淨便捷系列<br>S004淨水器</h4>
+                                                        <p>市價 <span class="red">7,290</span> 元</p>
+                                                    </li>
+                                                    <li>
+                                                        <div class="items-pic item-2"></div>
+                                                        <h4>3M 智慧型淨水系統<br>DWS2500</h4>
+                                                        <p>市價 <span class="red">18,800</span> 元</p>
+                                                    </li>
+                                                    <li>
+                                                        <div class="items-pic item-3"></div>
+                                                        <h4>3M Filtrete™ <br>隨身水壺</h4>
+                                                        <p>市價 <span class="red">199</span> 元</p>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>領獎方式</h4>
+                                    </td>
+                                    <td>
+                                        <p>得獎名單將於 2017/6/6 公布於本網站，活動小組將以得獎者所填寫的 E-mail 信箱，寄發得獎通知給得獎者，不再另行通知，得獎者須於 2016/6/13 前回覆得獎通知上所列應回覆之項目，如地址等資料，並於2017/6/20前寄出獎品</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>注意事項</h4>
+                                    </td>
+                                    <td>
+                                        <ul class="list-2">
+                                            <li>
+                                                <p>參加本抽獎活動所提供之個人資料，視同個資保護法授權同意可做為主辦單位及主辦單位之媒體行銷公司與第三方物流本活動售後服務通聯資訊與本抽獎活動之得獎資料核對、領獎聯絡通知、獎品兌領…等使用，無法提供資料的參加者或得獎者視同放棄獎項，不再另行通知，亦不補發。</p>
+                                            </li>
+                                            <li>
+                                                <p>參加者於參加本活動之同時，即同意接受本抽獎活動之規範。參加者保證所有填寫或提供之資料均為真實正確內容，未冒用或盜用任何第三人之資料，如有不實或不正確之情事，經確認後將無條件取消與本活動相關之所有資格。如有致損害於本公司或其他任何第三人，參加者應負一切相關法律責任。</p>
+                                            </li>
+                                            <li>
+                                                <p>本活動參加者如有任何因電腦、網路、電話、技術或不可歸責於主辦單位之事由，使參加者所寄出或登錄之資料有遲延、遺失、錯誤、無法辨識或毀損，導致資料無效之情況，主辦單位概不負任何法律責任，參加者或得獎者不得異議。</p>
+                                            </li>
+                                            <li>
+                                                <p>依中華民國所得稅法規定，舉凡中獎金額或獎項年度累計價值超過新台幣 1,000 元(含)以上，將列入本年度之個人綜合所得稅申報，主辦單位將於次年度開立扣繳憑單寄送予得獎者，得獎者應於兌獎時需繳交身分證正反面影本。另中獎獎品價值超過新台幣 20,000 元(含)以上者，應自行負擔機會中獎所得稅，依法應預先扣繳 10% 稅金；外籍得獎人士不分金額依法應繳交20%機會中獎所得稅及居留證影本。因此，得獎者應將兌獎資料連同預繳稅金一併繳回，方得進行兌獎，拒繳交兌獎資料或稅金者，視同自願放棄中獎權利。</p>
+                                            </li>
+                                            <li>
+                                                <p>得獎者不得轉讓獎品於他人，亦不得要求折換現金或其他非主辦單位提供之商品，並同意主辦單位對獎項或獎品無需負擔產品責任與維修保固。</p>
+                                            </li>
+                                            <li>
+                                                <p>主辦單位保留修改活動與獎項細節的權利，無須事前通知，並有權對本活動所有事宜作出解釋或裁決。如本活動因不可抗力之特殊原因無法執行時，主辦單位有權決定取消、終止、修改或暫停本活動。</p>
+                                            </li>
+                                            <li>
+                                                <p>本活動獎品由本公司獨家提供。</p>
+                                            </li>
+                                            <li>
+                                                <p>獎品僅寄送台灣本島地區；寄送獎品過程中，若發生任何毀壞、錯遞、延遲或遺失、遭冒領或遭竊等喪失占有之情形等非主辦單位疏失所造成者，主辦單位恕不負責。本領獎申請書收件截止日2017/6/7 (三)前(郵戳為憑)，主辦單位於2017/6/21(五)前統一將獎品寄出。</p>
+                                            </li>
+                                            <li>
+                                                <p>本活動相關問題請洽詢：<br>客服信箱：mailme201608@gmail.com<br>(服務時間：週一～五10:00-18:00)</p>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div><a href="javascript:" class="goTop js-gotop">PAGE TOP</a>
+                    </div>
+                </section>
+            </transition>
+            <!--render main view-->
+        </div>
+        <!--投票-->
+        <transition name="fade">
+            <div v-show="confirmVotes" class="popup">
+                <div class="popup__mask"></div>
+                <div class="popup__content">
+                    <div class="l-contanier">
+                        <div class="confirm__box">
+                            <p class="confirm__text">你今天還有 <span class="num">2</span><span class="unit">次</span>投票機會</p>
+                            <div class="btn-area">
+                                <div class="btn-basic"><a href="javascript:" v-on:click="actionVote()">確定</a></div>
+                            </div>
+                            <a href="javascript:" v-on:click="actionVote()" class="btn-close"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+        <transition name="fade">
+            <div v-show="videoPopup" class="popup">
+                <div class="popup__mask"></div>
+                <div class="popup__content">
+                    <div id="popup__movie">
+                        <div class="popup__close">
+                            <div class="video__wrapper">
+                                <div v-show="players[0]" class="inner">
+                                    <div id="player1"></div>
+                                </div>
+                                <div v-show="players[1]" class="inner">
+                                    <div id="player2"></div>
+                                </div>
+                                <a href="javascript:" v-on:click="closeVideo" class="btn-close"> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+        <div id="loading"></div>
+    </div>
+    <div class="l-footer footer"></div>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

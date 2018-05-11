@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>成為Nissan玩咖</title>
+    <meta name="description" content="填寫資料成為NISSAN玩咖就有機會抽中Samsonite貝殼盥洗包！">
+    <meta name="viewport" content="width=640;initial-scale=1; maximum-scale=1.0; user-scalable=no;">
+    <meta itemprop="name" content="成為Nissan玩咖">
+    <meta itemprop="description" content="填寫資料成為NISSAN玩咖就有機會抽中Samsonite貝殼盥洗包！">
+    <meta itemprop="image" content="images/share-img.jpg">
+    <meta property="og:title" content="成為Nissan玩咖">
+    <meta property="og:description" content="填寫資料成為NISSAN玩咖就有機會抽中Samsonite貝殼盥洗包！">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="images/share-img.jpg">
+    <link rel="Shortcut Icon" type="images/x-icon" href="images/icon.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <!--CDN link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.3.6/mobile-detect.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script type="text/javascript" src="//cloudfront.loggly.com/js/loggly.tracker-latest.min.js" async></script>
+    <script src="https://code.createjs.com/preloadjs-0.6.1.min.js"></script>
+    <script src="js/vendor.js"></script>
+    <script src="js/lib.js"></script>
+    <!--GA code-->
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-34903007-30', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script>
+        var _LTracker = _LTracker || [];
+        _LTracker.push({
+            'logglyKey': '8016ea6d-fa64-4c93-bddb-461c5e78fd99',
+            'sendConsoleErrors': true,
+            'tag': 'Nissan-FunTaiwan'
+        });
+    </script>
+</head>
+<!--html body-->
+
+<body>
+    <div class="l-wrap" id="app" v-cloak>
+        <div class="l-main">
+            <div class="page__content">
+                <transition mode="out-in" name="fade">
+                    <section class="registry" id="registry" v-show="!pageload">
+                        <transition mode="out-in" name="fade">
+                            <div class="form1area" v-if="isform1" key="form1">
+                                <div class="form1__bg">
+                                    <h1 class="logo"></h1>
+                                    <div class="registry__hd">
+                                        <div class="registry__title--form1">成為NISSAN玩咖</div>
+                                    </div>
+                                    <div class="registry__bd" v-bind:class="{ 'ns-owner': owner }">
+                                        <form v-on:submit.prevent="SendData">
+                                            <ul>
+                                                <li>
+                                                    <label for="name"><i class="icon__person"></i>姓名</label>
+                                                    <input id="name" maxlength="10" placeholder="範例 : 王大明" v-model="name">
+                                                </li>
+                                                <li>
+                                                    <label><i class="icon__date"></i>出生日期</label>
+                                                    <div class="selectbox">
+                                                        <select class="selyear" v-model="birthday.year">
+                                <option value="1918">1918</option>
+                                <option value="1919">1919</option>
+                                <option value="1920">1920</option>
+                                <option value="1921">1921</option>
+                                <option value="1922">1922</option>
+                                <option value="1923">1923</option>
+                                <option value="1924">1924</option>
+                                <option value="1925">1925</option>
+                                <option value="1926">1926</option>
+                                <option value="1927">1927</option>
+                                <option value="1928">1928</option>
+                                <option value="1929">1929</option>
+                                <option value="1930">1930</option>
+                                <option value="1931">1931</option>
+                                <option value="1932">1932</option>
+                                <option value="1933">1933</option>
+                                <option value="1934">1934</option>
+                                <option value="1935">1935</option>
+                                <option value="1936">1936</option>
+                                <option value="1937">1937</option>
+                                <option value="1938">1938</option>
+                                <option value="1939">1939</option>
+                                <option value="1940">1940</option>
+                                <option value="1941">1941</option>
+                                <option value="1942">1942</option>
+                                <option value="1943">1943</option>
+                                <option value="1944">1944</option>
+                                <option value="1945">1945</option>
+                                <option value="1946">1946</option>
+                                <option value="1947">1947</option>
+                                <option value="1948">1948</option>
+                                <option value="1949">1949</option>
+                                <option value="1950">1950</option>
+                                <option value="1951">1951</option>
+                                <option value="1952">1952</option>
+                                <option value="1953">1953</option>
+                                <option value="1954">1954</option>
+                                <option value="1955">1955</option>
+                                <option value="1956">1956</option>
+                                <option value="1957">1957</option>
+                                <option value="1958">1958</option>
+                                <option value="1959">1959</option>
+                                <option value="1960">1960</option>
+                                <option value="1961">1961</option>
+                                <option value="1962">1962</option>
+                                <option value="1963">1963</option>
+                                <option value="1964">1964</option>
+                                <option value="1965">1965</option>
+                                <option value="1966">1966</option>
+                                <option value="1967">1967</option>
+                                <option value="1968">1968</option>
+                                <option value="1969">1969</option>
+                                <option value="1970">1970</option>
+                                <option value="1971">1971</option>
+                                <option value="1972">1972</option>
+                                <option value="1973">1973</option>
+                                <option value="1974">1974</option>
+                                <option value="1975">1975</option>
+                                <option value="1976">1976</option>
+                                <option value="1977">1977</option>
+                                <option value="1978">1978</option>
+                                <option value="1979">1979</option>
+                                <option value="1980">1980</option>
+                                <option value="1981">1981</option>
+                                <option value="1982">1982</option>
+                                <option value="1983">1983</option>
+                                <option value="1984">1984</option>
+                                <option value="1985">1985</option>
+                                <option value="1986">1986</option>
+                                <option value="1987">1987</option>
+                                <option value="1988">1988</option>
+                                <option value="1989">1989</option>
+                                <option value="1990">1990</option>
+                                <option value="1991">1991</option>
+                                <option value="1992">1992</option>
+                                <option value="1993">1993</option>
+                                <option value="1994">1994</option>
+                                <option value="1995">1995</option>
+                                <option value="1996">1996</option>
+                                <option value="1997">1997</option>
+                                <option value="1998">1998</option>
+                                <option value="1999">1999</option>
+                                <option value="2000">2000</option>
+                                <option value="2001">2001</option>
+                                <option value="2002">2002</option>
+                                <option value="2003">2003</option>
+                                <option value="2004">2004</option>
+                                <option value="2005">2005</option>
+                                <option value="2006">2006</option>
+                                <option value="2007">2007</option>
+                                <option value="2008">2008</option>
+                                <option value="2009">2009</option>
+                                <option value="2010">2010</option>
+                                <option value="2011">2011</option>
+                                <option value="2012">2012</option>
+                                <option value="2013">2013</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                              </select><span>年</span>
+                                                        <select class="selmonth" v-model="birthday.month">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                              </select><span>月</span>
+                                                        <select class="selday" v-model="birthday.day">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                              </select><span>日</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <label for="phone"> <i class="icon__mobile"></i>手機號碼</label>
+                                                    <input id="phone" type="tel" placeholder="範例 : 0918345678" maxlength="10" v-model="phone">
+                                                </li>
+                                                <li>
+                                                    <input id="owner" type="checkbox" v-model="owner">
+                                                    <label for="owner">我是NISSAN車主<span class="sp">(非車主亦可參加活動)</span></label>
+                                                </li>
+                                                <li class="platebox" v-show="owner">
+                                                    <label for="plate">車牌號碼</label>
+                                                    <input id="plate" maxlength="15" placeholder="範例 : ABC-1111" style="text-transform:uppercase;" v-model="car_no">
+                                                </li>
+                                                <li class="agreebox">
+                                                    <input id="agree" type="checkbox" v-model="agree">
+                                                    <label for="agree">點擊確認，即表示我同意NISSAN汽車</label>
+                                                    <p><a href="http://new.nissan.com.tw/nissan/info/line-bc" target="_blank">LINE Business Connect會員服務條款</a></p>
+                                                </li>
+                                                <li class="submitbox">
+                                                    <button class="submit-btn" type="submit"> <span v-if="!loading">確　認</span>
+                              <div class="sk-fading-circle" v-if="loading">
+                                <div class="sk-circle" v-for="(el,i) in 12" :class="'sk-circle' + (i+1)"></div>
+                              </div>
+                            </button>
+                                                </li>
+                                            </ul>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="notearea">
+                                    <div class="note__title" v-on:click="note_toggle">活動辦法</div>
+                                    <transition mode="out-in" name="fade">
+                                        <div class="notebox" v-show="notebox">
+                                            <ul>
+                                                <li>本活動期間為2018/5/11~2018/5/23，中獎名單將於2018/5/30公布NISSAN官網。</li>
+                                                <li>每組LINE的帳號於活動期間(2018/5/11~2018/5/23)僅擁有一次抽獎機會。</li>
+                                                <li>本活動之得獎者將由NISSAN汽車委託之執行公司，以LINE訊息及電話通知，得獎者須加入NISSAN TW LINE官方帳號好友，且不得封鎖NISSAN TW LINE官方帳號，並須於期限內完整提供寄送資料（收件人姓名／手機號碼／寄送地址）；逾期回覆及寄送資料提供不完整視同放棄得獎資格，且NISSAN汽車無須負任何責任。</li>
+                                                <li>本活動參加資格與獎項寄送僅限居住於中華民國台澎金馬地區之中華民國國籍居民，海外地區恕無法配送。</li>
+                                                <li>活動參與者應保證填寫或提出之資料均為真實，且未冒用或盜用任何第三人之資料，如冒用或盜用任何第三人之資料之法律責任由活動參與者自行負責，概與主辦單位及承辦單位無關。如查獲不實，主辦單位及承辦單位除撤銷其得獎資格，並無提供所獲獎項之義務，若獎項業經配送，並有向中獎者請求新台幣六百元之懲罰性賠償金及相關行政費用與他損害賠償之權利。</li>
+                                                <li>活動過程中若因不可抗力或電腦系統故障等因素，直接或間接造成NISSAN汽車無法履行其全部或部分義務，或參加者伺服器故障、損壞、延誤或資料有訛誤或其他失責情況，NISSAN汽車均無須負任何責任。</li>
+                                                <li>對於所發出之贈品在郵寄或運送過程中，所造成的毀壞、延誤、錯遞或遺失，NISSAN汽車概不負責。</li>
+                                                <li>活動參與者同意收取由NISSAN汽車發出與該活動有關的電話、電子郵件及手機簡訊。</li>
+                                                <li>如有任何爭議，NISSAN汽車保留最終決定權。</li>
+                                                <li>主辦單位就本活動保留更換活動及獎項內容、兌換之權利，並有提前終止或延長活動時間最終決定權；如遇颱風、停電、罷工等不可歸責於主辦單位及承辦單位之情事，亦同。本活動相關變動事宜以NISSAN汽車官方網站公告為準。</li>
+                                            </ul>
+                                        </div>
+                                    </transition>
+                                </div>
+                            </div>
+                            <div class="form2area" v-if="isform2" key="form2">
+                                <h1 class="logo"></h1>
+                                <div class="registry__hd">
+                                    <div class="registry__title--form2">成為NISSAN玩咖</div>
+                                </div>
+                                <div class="registry__bd">
+                                    <form class="form2" v-on:submit.prevent="SendRegistry">
+                                        <ul>
+                                            <li>
+                                                <p>驗證碼已發送至<span>{{ phone.substr(0,4)+"***"+phone.substr(7,3) }}</span></p>
+                                            </li>
+                                            <li class="refixarea">
+                                                <button class="btn-refix" type="button" v-on:click="refix"></button>
+                                            </li>
+                                            <li>
+                                                <input type="tel" id="otp" placeholder="請輸入6位數字驗證碼" maxlength="6" v-model="otp">
+                                            </li>
+                                            <li>
+                                                <button class="btn-send" type="submit">輸入完畢</button>
+                                                <button class="btn-resend" type="button" v-on:click="resendOTP" v-bind:disabled="SMSdisabled &lt; 60" v-bind:class="{ opacity80:SMSdisabled &lt; 60}"> <span class="txt">重新發送驗證碼</span><span class="second">({{SMSdisabled}}秒)</span></button>
+                                            </li>
+                                        </ul>
+                                        <ul class="readmetxt">
+                                            <li>
+                                                <p>未完成手機驗證，將無法獲得抽獎資格。</p>
+                                            </li>
+                                            <li>
+                                                <p>當您收到簡訊驗證碼後，請務必於10分鐘內完成驗證程序，超過10分鐘後，驗證碼將失效；若未收到簡訊，請按重新發送簡訊。</p>
+                                            </li>
+                                            <li>
+                                                <p>若無法順利完成驗證手續，請洽客服<span class="red"> <a href="tel:0800-088-888">0800-088-888</a></span>。</p>
+                                            </li>
+                                        </ul>
+                                    </form>
+                                </div>
+                            </div>
+                        </transition>
+                    </section>
+                </transition>
+            </div>
+            <transition name="fade" mode="out-in">
+                <div id="error__popup" v-if="error_msg!=''">
+                    <div class="error__container">
+                        <div class="close" @click="errorDone"></div>
+                        <div class="error__popup__main">
+                            <div class="box2">
+                                <div class="info">{{error_msg}}</div>
+                                <div class="close--btn" @click="errorDone"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </transition>
+        </div>
+    </div>
+    <div class="fb-root"></div>
+    <script id="appjs" src="js/app.js?v=1525858901880" mode="true" site="https://ns2-nissan.azurewebsites.net/"></script>
+    <script src="js/registry.js?v=1525858901880"></script>
+    <script type="text/javascript"></script>
+</body>
+
+</html>

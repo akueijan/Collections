@@ -1,0 +1,86 @@
+﻿doctype
+html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
+    //page default Information
+    //html head
+    block pageInfo
+        - var pageTitle = "聰明小資族 理財大薪基 | 台新銀行"
+        - var pageDesc = "低薪時代什麼都漲的飛快，錢永遠不夠用、也沒有財可理嗎？讓財經專家林奇芬&美女主播李佳玲教你理財秘訣，創造屬於自己的大薪基！"
+    include _head.pug
+    //html body
+    body
+        // Facebook Pixel Code
+        script.
+            ! function(f, b, e, v, n, t, s) {
+                if (f.fbq) return;
+                n = f.fbq = function() {
+                    n.callMethod ?
+                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                };
+                if (!f._fbq) f._fbq = n;
+                n.push = n;
+                n.loaded = !0;
+                n.version = '2.0';
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = !0;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s)
+            }(window, document, 'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '525795494240921');
+            fbq('track', 'PageView');
+        noscript
+            img(img height="1" width="1" style="display:none;" src="https://www.facebook.com/tr?id=525795494240921&amp;ev=PageView&amp;noscript=1")
+        // End Facebook Pixel Code
+
+        // Google Code for &#21488;&#26032;&#22522;&#37329; Conversion Page
+        script.
+            /* <![CDATA[ */
+            var google_conversion_id = 957162462;
+            var google_conversion_label = "7izkCKu263kQ3se0yAM";
+            var google_remarketing_only = false;
+            /* ]]> */
+        script(scr="//www.googleadservices.com/pagead/conversion.js")
+        noscript
+            div(style="display:inline;")
+                img(height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/957162462/?label=7izkCKu263kQ3se0yAM&amp;guid=ON&amp;script=0")
+        // Google Code for &#21488;&#26032;&#22522;&#37329; Conversion Page end
+
+        div.l-wrap#app
+            include _nav.pug
+            // render nav view
+            div.l-main
+                block page_main
+                //render main view
+            transition(name="fade")
+                div(v-show="popup" v-cloak).popup
+                    div.popup__box
+                        div(v-on:click="closePopup();").popup__close
+                            div.nav-btn
+                                div.one
+                                div.three
+                        h2.popup__title 已經擁有信託帳戶了嗎？
+                        div.btnarea
+                            a.btn(href="https://my.taishinbank.com.tw/WB/app/buy_fund.html?utm_source=TS&utm_medium=EVENT&utm_content=BUTTON_Fund_Risk&utm_campaign=EB" title="我要買基金" alt="我要買基金" target='_blank' v-on:click="closePopup(),gaEvent('專家秘訣','popup_left')") 是，我要買基金
+                            a.btn(href="https://my.taishinbank.com.tw/ExtraServiceAP/InteAcct/index.jsp?utm_source=TS&utm_medium=EVENT&utm_content=BUTTON_Fund_Risk&utm_campaign=EB" title="我要開戶" alt="我要開戶" target='_blank' v-on:click="closePopup(),gaEvent('專家秘訣','popup_right')") 否，我要開戶
+            transition(name="fade")
+                div(v-show="noticepopup" v-cloak).popup
+                    div.popup__box
+                        div(v-on:click="noticeclosePopup();").popup__close
+                            div.nav-btn
+                                div.one
+                                div.three
+                        h2.popup__title 提醒您，購買前需完成風險屬性評量
+                        div.btnarea
+                            a.btn(href="https://my.taishinbank.com.tw/WB/app/buy_fund.html?utm_source=TS&utm_medium=EVENT&utm_content=BUTTON_Fund_Risk&utm_campaign=EB" title="前往申購" alt="前往申購" target='_blank' v-on:click="noticeclosePopup(),gaEvent('專家秘訣','popup_left')") 前往申購
+                            a.btn(href="https://my.taishinbank.com.tw/WB/app/f_PIW.html?utm_source=TS&amp;utm_medium=EVENT&amp;utm_content=BUTTON_Fund_Risk&amp;utm_campaign=EB" title="立即測驗" alt="立即測驗" target='_blank' v-on:click="noticeclosePopup();") 否，立即測驗
+        div.l-footer.footer
+            p.pc-only ©台新國際商業銀行 Copyright Taishin International Bank. All Rights Reserved. 建議瀏覽器版本：IE8以上
+            p.mb-only ©台新國際商業銀行 Copyright Taishin International Bank. All Rights Reserved.
+            a.footer__logo(href="/index.html")
+        block bottomScripts
+        
+        script(src="../js/app.js")
+        script.
+            

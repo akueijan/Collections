@@ -1,0 +1,314 @@
+﻿//- page laytout name
+extends _layout.pug
+//- page html
+block page_main
+    section.index
+        section.kv
+            div.kv__book
+            div.kv__slogn 聰明小資族 理財大薪基
+            div.kv__peo1 林奇芬
+            div.kv__peo2 李佳玲
+            a(href="javascript:void(0)" v-on:click="gaEvent('KV','KV_benefit')" alt="新戶首購享優惠" title="新戶首購享優惠").kv__other 新戶首購享優惠
+            div(v-on:click="gaEvent('KV','KV_readmore')").kv__more 了解更多
+        section.sec2#sec2
+            h2.title 小資族必備的基金知識
+            div.bd-box
+                div.bd-pic.bd-pic--1
+                div.bd-txt.bd-txt--1
+                    h3.title--1 什麼是基金
+                    p.txt--1 基金是股票、貨幣、債券等的集合體，白話來說基金投資就是集合一群人的資金，交給基金經理人透過他們專業的研究判斷，將資金分散投資在股票，債券或貨幣上，再藉由基金投資獲取的利益，例如： 基金本身賺得的收益所發放的利息或買低賣高時的價差，又或者投資的項目是海外基金，而該國的貨幣變強在脫手基金時兌換成新臺幣的過程賺取的匯差。
+            div.bd-box#sec2-2
+                div.bd-pic.bd-pic--2
+                div.bd-txt.bd-txt--2
+                    h3.title--2 投資基金有何好處?
+                    p.txt--2 初次投資的上班族因工作忙碌無法時刻盯盤，加上對投資專業知識的不足。正好可以選擇將錢交給專業的基金經理人。他們集合每位投資人的小額資金成為大筆資金，來購買較高價的投資產品，以獲取更佳的報酬。
+            div.bd-box#sec2-3
+                div.bd-pic.bd-pic--3
+                div.bd-txt.bd-txt--3
+                    h3.title--3 小薪族群投資 首選定期定額
+                    p.txt--3 比起一張動則上萬的股票，定期定額的基金投資就猶如存錢般的簡單。只要每個月持續投入3000元定期定額的買進，交由專業團隊操作不用自己時刻擔心盯盤，除了能提高投資績效，心情也不會隨市場變化起伏是較保守的投資方式，適合有長期理財規劃且小額投資預算的上班族。
+        section.sec3#sec3
+            div.l-container
+                h2.title 聽聽專家怎麼說
+                div.video
+                    div#player
+                div.bd
+                    div.bd-box.clearfix
+                        div.bd-box-left
+                            div.bd-box-pic
+                            div.bd-box-content
+                                h3.txt-title 理財作家林奇芬建議
+                                p.txt 如果用定時定額投資股票型基金，要達到5%報酬率不是很困難的事，甚至10%達成率也不低。用基金投資強迫儲蓄、累積資產，只要你願意開始就有機會，再加上目前還有隨身理財APP在手，更能即時掌握資訊，做好管理，想打造小金庫，一點都不難。
+                                    br
+                                    br
+                                    a(href="http://blog.cnyes.com/my/vip-blog36/article2475274" alt="看更多" title="看更多" target="_blank") 看更多>>
+                        div.bd-box-right
+                            div.bd-box-pic.bd-box-pic--2
+                            div.bd-box-content
+                                h3.txt-title.txt-title--2 美女主播李佳玲建議
+                                p.txt 簡單來說基金投資就是適合手裡有一點點閒錢的人，對工作忙碌，想要偷懶交給專家幫忙處理理財事宜的小資族，是需要一些時間、耐心和定力才能等到甜美的果實。希望大家看完「小資與專家的基金理財對談」，最後能夠一起讓存摺再多好幾個零！
+                                    br
+                                    br
+                                    a(href="https://www.facebook.com/notes/%E6%9D%8E%E4%BD%B3%E7%8E%B2/%E7%90%86%E8%B2%A1%E5%B0%8F%E5%BF%83%E5%BE%97/1545929758777196/" alt="看更多" title="看更多" target="_blank") 看更多>>
+        section.sec4#sec4
+            div.l-container
+                h2.title 新戶首購享優惠 
+                div.bd
+                    table.tab
+                        tr
+                            td.color-pink1
+
+                            td
+                                div.icon-2
+                            td 
+                                div.icon-3
+                        tr
+                            td.color-pink2
+                                h3.tab-title.red 申購通路
+                            td(colspan="2")
+                                p 網銀 / 行動銀行APP
+                        tr
+                            td.color-pink1
+                                h3.tab-title.red 單筆優惠
+                            td
+                                p 首購當日
+                                    span.red.font24 3.8
+                                    span.red 折
+                            td
+                                p 一般常態 : 每個月首筆交易之當日
+                                    span.red.font24 2
+                                    span.red 折
+                                p 季促銷活動：單次申購金 額達10 萬元(含)以上 時，可享"0 手續費"
+                        tr
+                            td.color-pink2
+                                h3.tab-title.red 定期定額優惠
+                            td
+                                p 首購當日享
+                                p 2018/6/29前扣款
+                                    span.red.font24 3
+                                    span.red 折
+                                    | ，
+                                p 2018/7/1扣款樂活雲/幸福雲/
+                                p 夢想雲/雲端會員
+                                    span.red.font24 4.5
+                                    span.red 折
+                                p 理財商品新戶
+                                    span.red.font24 5
+                                    span.red 折
+                            td(style="vertical-align: middle;")
+                                p 2018/1/1 ~ 3/31
+                                p 每個月手筆交易之當日新申請件，
+                                p 享
+                                    span.red 前
+                                    span.red.font24 6
+                                    span.red 次扣款
+                                    span.red.font24 0
+                                    span.red 手續費，
+                                    span.red 第
+                                    span.red.font24 7
+                                    span.red 次起扣款
+                                    span.red.font24 3
+                                    span.red 折
+                    div.psarea.clearfix
+                        div.icon_ps
+                        p 理財商品新戶定義 : 
+                        p.ps 未購買過境內外基金/全球讚賞集合管理帳戶/國內ETF/外國ETF/外國股票 /外國特別股(PS)/海外債券(CB)。(保險商品除外)
+                    div.morearea
+                        a.more(href="https://www.taishinbank.com.tw/TS/TS02/TS0204/iFundNew/FN06/FN0601/index.htm?utm_source=fund_landingpage_button" alt="詳細優惠說明" title="詳細優惠說明" target="_blank" v-on:click="gaEvent('專家秘訣','Benefit_readmore')") 詳細優惠說明 
+                            span.red >>
+                    div.btnarea
+                        a.btn(href="javascript:void(0)" alt="線上開立信託帳戶" title="線上開立信託帳戶" v-on:click="popupOpen(),gaEvent('專家秘訣','Benefit_register'),fb('台新基金_專家秘訣','Benefit_register')") 線上開立信託帳戶
+                            i.icon-little
+                    div.tick
+                        h3 無法申購基金嗎? 立刻申請信託帳戶吧！
+                        p * 申請信託帳戶前請先確認您已擁有台新臺/外幣活存帳戶。
+                            br
+                            | * 請先備妥您的晶片金融卡及晶片讀卡機。
+        section.sec5#sec5
+            div.l-container
+                h2.title 依照你的投資風險等級，挑選適合你的基金
+                div.bd
+                    div.block.block--1
+                        h2.title 安心養
+                        h3 適合穩定中累積財富理性務實的你/妳，在適度低風險中安心養大財富
+                        ul.listboxarea.clearfix
+                            li.listbox
+                                h4.listbox-title 安聯四季豐收債券組合
+                                div.btnarea
+                                    a.btn-more(href="https://www.taishinbank.com.tw/TS/TS02/TS0204/iFundNew/FN11/index.htm?sUrl=%24W%24WR%24WR03%5DDJHTM%7BA%7DACDD35-5458&utm_source=product_low_1&utm_term=2018" alt="" title="" target="_blank" v-on:click="gaEvent('基金組合','Product_low_1')") 瞭解更多
+                                        i.listbox-icon.listbox-icon--1
+                        div.btn_area
+                            div.btn_box
+                                a(href="javascript:void(0)" alt="申購基金" title="申購基金" v-on:click="gaEvent('基金組合','Product_lowbu'),fb('台新基金_基金組合','Product_lowbu'),noticepopupOpen()").btn 申購基金
+                                    i.icon-little
+                    div.block.block--2
+                        h2.title 中利提
+                        h3 適合想小試身手勇於投資的你/妳，在中度風險積極創造財富
+                        ul.listboxarea.clearfix
+                            li.listbox
+                                h4.listbox-title 貝萊德全球多元因子ETF
+                                div.btnarea
+                                    a.btn-more(href="https://www.taishinbank.com.tw/TS/TS02/TS0204/iFundNew/FN11/index.htm?sUrl=%24W%24WR%24WR03%5DDJHTM%7BA%7DACBR24-8973&utm_source=product_medium_1&utm_term=2018" alt="台新智慧生活基金" title="台新智慧生活基金" target="_blank" v-on:click="gaEvent('基金組合','Product_medium_1')") 瞭解更多
+                                        i.listbox-icon.listbox-icon--2
+                            li.listbox
+                                h4.listbox-title 駿利亨德森平衡基金
+                                div.btnarea
+                                    a.btn-more(href="https://www.taishinbank.com.tw/TS/TS02/TS0204/iFundNew/FN11/index.htm?sUrl=%24W%24WB%24WB03%5DDJHTM%7BA%7DJA%5EB7-JAA4&utm_source=product_medium_2&utm_term=2018" alt="野村環球基金" title="野村環球基金" target="_blank" v-on:click="gaEvent('基金組合','Product_medium_2')") 瞭解更多
+                                        i.listbox-icon.listbox-icon--2
+                            li.listbox
+                                h4.listbox-title 摩根－JPM多重收益基金
+                                div.btnarea
+                                    a.btn-more(href="https://www.taishinbank.com.tw/TS/TS02/TS0204/iFundNew/FN11/index.htm?sUrl=%24W%24WB%24WB03%5DDJHTM%7BA%7DJF%5EA5-JFB4&utm_source=product_medium_3&utm_term=2018" alt="聯博國際醫療基金Ａ" title="聯博國際醫療基金Ａ" target="_blank" v-on:click="gaEvent('基金組合','Product_medium_3')") 瞭解更多
+                                        i.listbox-icon.listbox-icon--2
+                            li.listbox
+                                h4.listbox-title 鋒裕新興市場債券
+                                div.btnarea
+                                    a.btn-more(href="https://www.taishinbank.com.tw/TS/TS02/TS0204/iFundNew/FN11/index.htm?sUrl=%24W%24WB%24WB03%5DDJHTM%7BA%7DPI%5EA8-PIG7&utm_source=product_medium_4&utm_term=2018" alt="天達新興市場多重收益" title="天達新興市場多重收益" target="_blank" v-on:click="gaEvent('基金組合','Product_medium_4')") 瞭解更多
+                                        i.listbox-icon.listbox-icon--2
+                        div.btn_area
+                            div.btn_box
+                                a(href="javascript:void(0)" alt="申購基金" title="申購基金" v-on:click="gaEvent('基金組合','Product_medium_buy'),fb('台新基金_基金組合','Product_medium_buy'),noticepopupOpen()").btn 申購基金
+                                    i.icon-little
+                    div.block.block--3
+                        h2.title 高利紅
+                        h3 適合對基金市場有獨到遠見追求致勝財富，並能承擔較高風險的你/妳
+                        ul.listboxarea.clearfix
+                            li.listbox
+                                h4.listbox-title 富蘭克林生技領航基金
+                                div.btnarea
+                                    a.btn-more(href="https://www.taishinbank.com.tw/TS/TS02/TS0204/iFundNew/FN11/index.htm?sUrl=%24W%24WB%24WB03%5DDJHTM%7BA%7DFL%5E81-FRK7&utm_source=product_high_1&utm_term=2018" alt="富蘭克林坦伯頓－生技領航基金Ａ" title="富蘭克林坦伯頓－生技領航基金Ａ" target="_blank" v-on:click="gaEvent('基金組合','Product_high_1')") 瞭解更多
+                                        i.listbox-icon.listbox-icon--3
+                            li.listbox
+                                h4.listbox-title 摩根日本（日圓）基金
+                                div.btnarea
+                                    a.btn-more(href="https://www.taishinbank.com.tw/TS/TS02/TS0204/iFundNew/FN11/index.htm?sUrl=%24W%24WB%24WB03%5DDJHTM%7BA%7DJF%5EC7-JFK5&utm_source=product_high_2&utm_term=2018" alt="台新中國傘型 - 台新中証消費服務領先指數" title="台新中國傘型 - 台新中証消費服務領先指數" target="_blank" v-on:click="gaEvent('基金組合','Product_high_2')") 瞭解更多
+                                        i.listbox-icon.listbox-icon--3
+                            li.listbox
+                                h4.listbox-title 貝萊德世界能源
+                                div.btnarea
+                                    a.btn-more(href="https://www.taishinbank.com.tw/TS/TS02/TS0204/iFundNew/FN11/index.htm?sUrl=%24W%24WB%24WB03%5DDJHTM%7BA%7DSH%5EA6-MSK3&utm_source=product_high_3&utm_term=2018" alt="貝萊德世界能源基金A2" title="貝萊德世界能源基金A2" target="_blank" v-on:click="gaEvent('基金組合','Product_high_3')") 瞭解更多
+                                        i.listbox-icon.listbox-icon--3
+                        div.btn_area
+                            div.btn_box
+                                a(href="javascript:void(0)" alt="申購基金" title="申購基金" v-on:click="gaEvent('基金組合','Product_high_buy'),fb('台新基金_基金組合','Product_high_buy'),noticepopupOpen()").btn 申購基金
+                                    i.icon-little
+        section.sec6#sec6
+            div.l-container
+                h2.title 理財小幫手－台新行動APP
+                div.bd
+                    ul.listboxarea.clearfix
+                        li.listbox
+                            h2.title.title--1 基金申購彈指完成
+                            div.picbox
+                                div.sec6-pic--1
+                            p 投資基金無須跑銀行!
+                            p 使用網路/行動銀行購買基金
+                            p 填入申購資訊與金額確認送出後
+                            p 即可完成申購!
+                            div.btnarea
+                                a(href="https://www.taishinbank.com.tw/TS/TS02/TS0207/TS020703/TS02070302/TSB0359926?utm_source=TS&utm_medium=EVENT&utm_content=BUTTON_Fund_Risk&utm_campaign=EB" alt="線上申購教學" title="線上申購教學" target="_blank" v-on:click="gaEvent('APP理財小幫手','APP_buy')").btn 線上申購教學
+                                    i.icon-little
+                        li.listbox
+                            h2.title.title--2 市場行情隨時查
+                            div.picbox
+                                div.sec6-pic--2
+                            p 將特定基金商品
+                            p 設為我的觀察基金
+                            p 市場波動訊息一手掌握
+                            p 投資無須緊迫盯盤!
+                            div.btnarea
+                                a(href="https://www.taishinbank.com.tw/TS/TS02/TS0207/TS020703/TS02070302/TSB0595404?utm_source=TS&utm_medium=EVENT&utm_content=BUTTON_Fund_Risk&utm_campaign=EB" alt="教我設定觀察基金" title="教我設定觀察基金" target="_blank" v-on:click="gaEvent('APP理財小幫手','APP_observe')").btn 教我設定觀察基金
+                                    i.icon-little
+                        li.listbox
+                            h2.title.title--3 即時交易設定
+                            div.picbox
+                                div.sec6-pic--3
+                            p 設定停損停利點
+                            p 可即時於線上進行贖回
+                            p 轉換事件變更等交易
+                            p 投資省時又省力!
+                            div.btnarea
+                                a(href="https://www.taishinbank.com.tw/TS/TS02/TS0207/TS020703/TS02070302/TSB0359858?utm_source=TS&utm_medium=EVENT&utm_content=BUTTON_Fund_Risk&utm_campaign=EB" alt="設定教學" title="設定教學" target="_blank" v-on:click="gaEvent('APP理財小幫手','APP_setting')").btn 設定教學
+                                    i.icon-little
+                div.bd.dlarea
+                    div.listbox
+                        h2.title 立即下載
+                        ul.outlinkbox.clearfix
+                            li.outlink
+                                div.qrcode
+                            li.outlink
+                                a.icon-ios(href="https://goo.gl/YRMgga" alt="ios" title="ios" target="_blank" v-on:click="gaEvent('APP理財小幫手','Download_ios')")
+                            li.outlink
+                                a.icon-google(href="https://play.google.com/store/apps/details?id=tw.com.taishinbank.mobile&hl=zh_TW" alt="google" title="google" target="_blank" v-on:click="gaEvent('APP理財小幫手','Download_Android')")
+        section.sec7#sec7
+            div.l-container
+                h2.title 基金投資警語
+                div.bd
+                    p 各基金經金管會核准或同意生效，惟不表示絕無風險，本行及基金經理公司以往之經理績效不保證基金之最低投資收益；本行及基金經理公司除盡善良管理人之注意義務外，不負責各基金之盈虧，亦不保證最低之收益，投資人申購前應詳閱基金公開說明書。投資基金所應承擔之相關風險及應負擔之費用(含分銷費用等)已揭露於基金公開說明書或投資人須知中，投資人可至公開資訊觀測站或境外基金資訊觀測站查閱。基金並非存款，基金投資非屬存款保險承保範圍，投資人需自負盈虧。基金投資具投資風險，此一風險可能使本金發生虧損，其中可能之最大損失為全部信託本金。投資人應依其自行判斷進行投資。
+                    br
+                    p 定期定額投資警語：投資人因不同時間進場，將有不同之投資績效，過去之績效亦不代表未來績效之保證。
+        a.goTop(href="https://my.taishinbank.com.tw/WB/app/f_PIW.html?utm_source=TS&utm_medium=EVENT&utm_content=BUTTON_Fund_Risk&utm_campaign=EB" title="申購基金前必測!" alt="申購基金前必測!" target="_blank" v-on:click="gaEvent('KV','Risktest'),fb('台新基金_KV','Risktest')")
+block bottomScripts
+    script.
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '100%',
+                width: '100%',
+                videoId: 'GE6b2FlcqUQ',
+                playerVars: {
+                    'rel': 0 
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange,
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            //- event.target.playVideo();
+        }
+
+        var ytHasPlay = false;
+        var ytHasLongPlay = false;
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING && !ytHasPlay) {
+                ga ('send', { 
+                    hitType: 'event', 
+                    eventCategory: 'Usability', 
+                    eventAction: 'playYT', 
+                    eventLabel:'影片播放'
+                })
+                ytHasPlay = true;
+            }
+            
+            if(event.data == 1){
+                detectLongPlay();
+            }
+        }
+
+        function stopVideo() {
+            player.stopVideo();
+        }
+
+        function detectLongPlay(){
+            if(player.getPlayerState()==1) {
+                var detectorYT = setTimeout(function(){
+                    if(!ytHasLongPlay&&player.getCurrentTime()>=10){
+                        ytHasLongPlay = true;
+                        ga ('send', { hitType: 'event', 
+                                eventCategory: 'Usability', 
+                                eventAction: 'playYT', 
+                                eventLabel:'影片播放到10秒以後'})
+                    } else {
+                        detectLongPlay();
+                    }
+                },1000)
+            }
+        }

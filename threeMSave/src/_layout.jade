@@ -1,0 +1,46 @@
+﻿doctype
+html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
+    //page default Information
+    block pageInfo
+        - var pageTitle = "首頁"
+        - var pageDesc = "敘述"
+    //html head
+    include _head.jade
+    //html body
+    body
+        div#app.l-wrap
+            include _nav.jade
+            // render nav view
+            div.l-main
+                block page_main
+                //render main view
+            //投票
+            transition(name="fade")
+                div.popup(v-show="confirmVotes")
+                    div.popup__mask
+                    div.popup__content
+                        div.l-contanier
+                            div.confirm__box
+                                p.confirm__text 你今天還有 
+                                    span.num 2
+                                    span.unit 次
+                                    |投票機會
+                                div.btn-area
+                                    div.btn-basic
+                                        a(href="javascript:" v-on:click="actionVote()") 確定
+                                a.btn-close(href="javascript:" v-on:click="actionVote()")
+            transition(name="fade")
+                div.popup(v-show="videoPopup")
+                    div.popup__mask
+                    div.popup__content
+                        div#popup__movie
+                            div.popup__close
+                                div.video__wrapper
+                                    div.inner(v-show="players[0]")
+                                        div#player1
+                                    div.inner(v-show="players[1]")
+                                        div#player2
+                                    a.btn-close(href="javascript:" v-on:click="closeVideo") 
+            div#loading
+        div.l-footer.footer
+        script(src="js/app.js")

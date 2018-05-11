@@ -1,0 +1,40 @@
+﻿- var jsFolder = "js/"
+if (dev_mode) 
+    - var apiUrl = "https://ns2-nissan.azurewebsites.net/";
+else
+    - var apiUrl = "/";
+
+doctype
+html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
+    //page default Information
+    block pageInfo
+        - var pageTitle = "成為Nissan玩咖"
+        - var pageDesc = "填寫資料成為NISSAN玩咖就有機會抽中Samsonite貝殼盥洗包！"
+    //html head
+    include _head.pug
+    //html body
+    body
+        div.l-wrap#app(v-cloak)
+            div.l-main
+                include _nav.pug
+                div.page__content
+                    block page_main
+                transition(name="fade" mode="out-in")
+                    #error__popup(v-if="error_msg!=''")
+                        .error__container
+                            div.close(@click="errorDone")
+                            div.error__popup__main
+                                div.box2
+                                    div.info {{error_msg}}
+                                    div.close--btn(@click="errorDone")
+                                
+            //- div.l-footer.footer
+            //-     div.l-container
+            //-         p Copyright © 2018  春樹科技股份有限公司 x 粉多集點卡<br>All Rights Reserved.
+        div.fb-root
+        if more_js
+            script(src= jsFolder + more_js)
+        script(id="appjs" src= jsFolder + "app.js?v="+timestamp mode=`${dev_mode}` site=`${apiUrl}`)
+        if pageJs
+            script(src= jsFolder + pageJs+"?v="+timestamp)
+        script(type='text/javascript')

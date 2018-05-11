@@ -1,0 +1,49 @@
+#error__popup{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 20;
+    background: rgba(255,255,255,0.8);
+    .error__container{
+        position: relative;
+        max-width: $viewport;
+        margin: 180px auto 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background:url("../images/popup-bg.png") center / cover no-repeat;
+        width: 542px;
+        height: 409px;
+        .close{
+            width: 66px;
+            height: 69px;
+            background:url("../images/popup-close.png") center / cover no-repeat;
+            position: absolute;
+            right: 40px;
+            top: 40px;
+            cursor: pointer;
+        }
+        .error__popup__main{
+            margin: 120px auto 0;
+            .box1{
+                margin-left: -35px;
+            }
+            .info{
+                text-align: center;
+                font-size: 30px;
+                line-height: 36px;
+                color: #2a6caa;
+                font-weight: bold;
+            }
+            .close--btn{
+                width: 225px;
+                height: 95px;
+                background: url("../images/error-close.png") center / cover no-repeat;
+                cursor: pointer;
+                margin: 90px auto 0;
+            }
+        }
+    }
+}

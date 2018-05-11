@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>首頁</title>
+    <meta name="description" content="敘述">
+    <meta name="viewport" content="width=640">
+    <!-- Schema.org markup for Google+-->
+    <meta itemprop="name" content="首頁">
+    <meta itemprop="description" content="敘述">
+    <meta itemprop="image" content="指定顯示圖片">
+    <!-- og-->
+    <meta property="og:title" content="首頁">
+    <meta property="og:description" content="敘述">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="指定顯示圖片">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <!--CDN link -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <!-- for loading-->
+    <script src="js/animatescroll.min.js"></script>
+    <script src="js/ScrollMagic.js"></script>
+    <script src="js/animation.gsap.js"></script>
+    <script src="lib/vue.js"></script>
+</head>
+<!--html body-->
+
+<body>
+    <div id="app" class="l-wrap">
+        <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="nav">
+            <div class="l-container">
+                <div class="nav-bd">
+                    <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO">LOGO</a></h1>
+                    <div class="nav-btn">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                    <div role="navigation" class="nav-menu">
+                        <ul class="clearfix">
+                            <li class="nav-item"><a href="index.html" alt="省下「半桶水」捐給需要的人" itemprop="url" title="省下「半桶水」捐給需要的人"><span><div class="play-btn"></div>省下「半桶水」捐給需要的人</span></a></li>
+                            <li class="nav-item nav-item--iscurrent"><a href="index.html" alt="立即協助" itemprop="url" title="立即協助"><span>立即協助</span></a></li>
+                            <li class="nav-item"><a href="page.html" alt="省水妙招排行榜" itemprop="url" title="省水妙招排行榜"><span>省水妙招排行榜</span></a></li>
+                            <li class="nav-item"><a href="page.html" alt="省水妙招實況" itemprop="url" title="省水妙招實況"><span>省水妙招實況</span></a></li>
+                            <li class="nav-item"><a href="page.html" alt="活動辦法" itemprop="url" title="活動辦法"><span>活動辦法</span></a></li>
+                            <li class="nav-item"><a href="page.html" alt="3M邀你一起愛護台灣" itemprop="url" title="3M邀你一起愛護台灣"><span>3M邀你一起愛護台灣</span></a></li>
+                            <li class="nav-item">
+                                <a href="page.html" alt="FB粉絲團" itemprop="url" title="FB粉絲團">
+                                    <div class="icon-fb">FB粉絲團</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- render nav view-->
+        <div class="l-main">
+            <transition name="fade">
+                <section class="rank">
+                    <div class="area-1 show">
+                        <div class="l-container">
+                            <div class="rank-close"></div>
+                        </div>
+                    </div>
+                    <div class="area-2">
+                        <div class="rank__hd">
+                            <h2 class="title">得獎公告 </h2>
+                        </div>
+                        <div class="rank__bd">
+                            <div class="l-container">
+                                <div class="rank-area rank-area--1">
+                                    <div class="rank__photo-1"></div>
+                                    <h4 class="title">最佳評審獎 4名</h4>
+                                    <div class="rank__content">
+                                        <div class="gift"></div>
+                                        <div class="txt-title">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li class="title-1">省水主題</li>
+                                                <li class="title-1">投稿人</li>
+                                                <li class="title-1">聯絡電話</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li>5.04</li>
+                                                <li><a href="#">用噴灑代替沖洗</a></li>
+                                                <li>省水大師</li>
+                                                <li>0935-XXX-X07</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li>5.11</li>
+                                                <li>尚未公布</li>
+                                                <li> </li>
+                                                <li> </li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li>5.18</li>
+                                                <li>尚未公布</li>
+                                                <li> </li>
+                                                <li> </li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li>5.25</li>
+                                                <li>尚未公布</li>
+                                                <li> </li>
+                                                <li> </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rank-area rank-area--2">
+                                    <div class="rank__photo-2"></div>
+                                    <h4 class="title">最佳人氣獎 3名</h4>
+                                    <div class="rank__content rank__content--2">
+                                        <div class="gift"></div>
+                                        <div class="txt-title">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li class="title-1">省水主題</li>
+                                                <li class="title-1">投稿人</li>
+                                                <li class="title-1">聯絡電話</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>效法日本的省水</li>
+                                                <li>林佩瑩</li>
+                                                <li>0980-XXX-X53</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>洗米水的好處</li>
+                                                <li>王雅玲</li>
+                                                <li>0952-XXX-X35</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>用每日刷牙的漱口水來沖馬桶</li>
+                                                <li><span class="spFont">許碧吟</span></li>
+                                                <li>0912-XXX-X27</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rank-area rank-area--3">
+                                    <div class="rank__photo-3"></div>
+                                    <div class="rank__photo-4"></div>
+                                    <h4 class="title">參加獎 40 名</h4>
+                                    <div class="rank__content rank__content--3">
+                                        <div class="gift"></div>
+                                        <div class="txt-title">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li class="title-1">省水主題</li>
+                                                <li class="title-1">投稿人</li>
+                                                <li class="title-1">聯絡電話</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>水是最重要的</li>
+                                                <li>呂淑妙</li>
+                                                <li>0981-XXX-X81</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>洗米水洗碗盤</li>
+                                                <li>徐婉淩</li>
+                                                <li>0936-XXX-X53</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>衣服達人</li>
+                                                <li>劉家銘</li>
+                                                <li>0928-XXX-X97</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>寶特瓶省水法</li>
+                                                <li>美菱</li>
+                                                <li>0936-XXX-X82</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>省水肥荷包</li>
+                                                <li>陳怡潔</li>
+                                                <li>0932-XXX-X84</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>調整馬桶浮球高度</li>
+                                                <li>廖美清</li>
+                                                <li>0938-XXX-X45</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>控制適量</li>
+                                                <li>冠皓</li>
+                                                <li>0978-XXX-X70</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>收集洗澡前溫水來沖馬桶</li>
+                                                <li>楊雅筑</li>
+                                                <li>0988-XXX-X63</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>擦地板好省水</li>
+                                                <li>Demian</li>
+                                                <li>0916-XXX-X55</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>接水盆，很簡單</li>
+                                                <li>林家榆</li>
+                                                <li>0921-XXX-X48</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>澆花要選時間</li>
+                                                <li>王詠皓</li>
+                                                <li>0928-XXX-X20</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>除濕機的水拿來澆花</li>
+                                                <li>許田</li>
+                                                <li>0972-XXX-X28</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>省水標章</li>
+                                                <li>Phil</li>
+                                                <li>0930-XXX-X99</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>自己用水自己儲(除)</li>
+                                                <li>Ronald Lee</li>
+                                                <li>0919-XXX-X58</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>下雨天</li>
+                                                <li>逸</li>
+                                                <li>0928-XXX-X32</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>雨天洗衣服</li>
+                                                <li>Rain</li>
+                                                <li>0987-XXX-X21</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>洗碗廚餘先刮掉</li>
+                                                <li>葉聖馨</li>
+                                                <li>0989-XXX-X69</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>馬桶水量減半</li>
+                                                <li>Alice</li>
+                                                <li>0936-XXX-X82</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>省水</li>
+                                                <li>濯吾足</li>
+                                                <li>0987-XXX-X21</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>遷移歐洲，當個省水的歐洲人吧！</li>
+                                                <li>張君維</li>
+                                                <li>0912-XXX-X20</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>廢水沖馬桶</li>
+                                                <li>蔡奇芬</li>
+                                                <li>0965-XXX-X95</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>河邊種菜</li>
+                                                <li>小孫</li>
+                                                <li>0928-XXX-X32</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>洗手水沖馬桶</li>
+                                                <li>怡婷</li>
+                                                <li>0988-XXX-X12</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>擦澡</li>
+                                                <li>楊琇羢</li>
+                                                <li>0919-XXX-X49</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>擦拭代替沖洗</li>
+                                                <li>蘇顯星</li>
+                                                <li>0970-XXX-X22</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>小水盆大作戰</li>
+                                                <li>游惠英</li>
+                                                <li>0920-XXX-X90</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>省水馬桶</li>
+                                                <li>林明宏</li>
+                                                <li>0932-XXX-X45</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>兩段式馬桶</li>
+                                                <li>郭訓志</li>
+                                                <li>0973-XXX-X51</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>噴霧式水龍頭</li>
+                                                <li>小義</li>
+                                                <li>0928-XXX-X32</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>食物解凍</li>
+                                                <li>周鴻均</li>
+                                                <li>0913-XXX-X66</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>洗澡</li>
+                                                <li>劉道生</li>
+                                                <li>0903-XXX-X32</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>洗菜的水沖馬桶</li>
+                                                <li>董淑娟</li>
+                                                <li>0965-XXX-X37</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>洗過菜的水拿來澆花或沖馬桶</li>
+                                                <li>黃麗蓉</li>
+                                                <li>0972-XXX-X42</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>用雨水拖地</li>
+                                                <li>張晃銘</li>
+                                                <li>0925-XXX-X35</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>用洗米水洗碗</li>
+                                                <li>黃千慈</li>
+                                                <li>0922-XXX-X78</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>洗米水沖馬桶</li>
+                                                <li>小君</li>
+                                                <li>0965-XXX-X78</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>馬桶裝寶特瓶</li>
+                                                <li>魏秀蕊</li>
+                                                <li>0971-XXX-X34</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>冷氣機水沖洗陽台</li>
+                                                <li>薛青芳</li>
+                                                <li>0905-XXX-X50</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>太空的方法</li>
+                                                <li>周冠宇</li>
+                                                <li>0913-XXX-X66</li>
+                                            </ul>
+                                        </div>
+                                        <div class="txt-area">
+                                            <ul class="clearfix">
+                                                <li></li>
+                                                <li>沖澡代替泡澡</li>
+                                                <li>小威</li>
+                                                <li>0928-XXX-X32</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </transition><a href="javascript:" class="goTop js-gotop">PAGE TOP</a>
+            <!--render main view-->
+        </div>
+        <!--投票-->
+        <transition name="fade">
+            <div v-show="confirmVotes" class="popup">
+                <div class="popup__mask"></div>
+                <div class="popup__content">
+                    <div class="l-contanier">
+                        <div class="confirm__box">
+                            <p class="confirm__text">你今天還有 <span class="num">2</span><span class="unit">次</span>投票機會</p>
+                            <div class="btn-area">
+                                <div class="btn-basic"><a href="javascript:" v-on:click="actionVote()">確定</a></div>
+                            </div>
+                            <a href="javascript:" v-on:click="actionVote()" class="btn-close"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+        <transition name="fade">
+            <div v-show="videoPopup" class="popup">
+                <div class="popup__mask"></div>
+                <div class="popup__content">
+                    <div id="popup__movie">
+                        <div class="popup__close">
+                            <div class="video__wrapper">
+                                <div v-show="players[0]" class="inner">
+                                    <div id="player1"></div>
+                                </div>
+                                <div v-show="players[1]" class="inner">
+                                    <div id="player2"></div>
+                                </div>
+                                <a href="javascript:" v-on:click="closeVideo" class="btn-close"> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+        <div id="loading"></div>
+    </div>
+    <div class="l-footer footer"></div>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

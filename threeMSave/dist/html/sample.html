@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>pageTitle</title>
+    <meta name="description" content="pageDesc">
+    <meta name="viewport" content="width=640">
+    <!-- Schema.org markup for Google+-->
+    <meta itemprop="name" content="pageTitle">
+    <meta itemprop="description" content="pageDesc">
+    <meta itemprop="image" content="指定顯示圖片">
+    <!-- og-->
+    <meta property="og:title" content="pageTitle">
+    <meta property="og:description" content="pageDesc">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="指定顯示圖片">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <!--CDN link -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <!-- for loading-->
+    <script src="js/animatescroll.min.js"></script>
+    <script src="js/ScrollMagic.js"></script>
+    <script src="js/animation.gsap.js"></script>
+    <script src="lib/vue.js"></script>
+</head>
+<!--html body-->
+
+<body>
+    <div id="app" class="l-wrap">
+        <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="nav">
+            <div class="l-container">
+                <div class="nav-bd">
+                    <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO">LOGO</a></h1>
+                    <div class="nav-btn">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                    <div role="navigation" class="nav-menu">
+                        <ul class="clearfix">
+                            <li class="nav-item"><a href="index.html" alt="省下「半桶水」捐給需要的人" itemprop="url" title="省下「半桶水」捐給需要的人"><span><div class="play-btn"></div>省下「半桶水」捐給需要的人</span></a></li>
+                            <li class="nav-item nav-item--iscurrent"><a href="index.html" alt="立即協助" itemprop="url" title="立即協助"><span>立即協助</span></a></li>
+                            <li class="nav-item"><a href="page.html" alt="省水妙招排行榜" itemprop="url" title="省水妙招排行榜"><span>省水妙招排行榜</span></a></li>
+                            <li class="nav-item"><a href="page.html" alt="省水妙招實況" itemprop="url" title="省水妙招實況"><span>省水妙招實況</span></a></li>
+                            <li class="nav-item"><a href="page.html" alt="活動辦法" itemprop="url" title="活動辦法"><span>活動辦法</span></a></li>
+                            <li class="nav-item"><a href="page.html" alt="3M邀你一起愛護台灣" itemprop="url" title="3M邀你一起愛護台灣"><span>3M邀你一起愛護台灣</span></a></li>
+                            <li class="nav-item">
+                                <a href="page.html" alt="FB粉絲團" itemprop="url" title="FB粉絲團">
+                                    <div class="icon-fb">FB粉絲團</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- render nav view-->
+        <div class="l-main">
+            <section id="el" class="sample">
+                <div class="sample__hd"></div>
+                <div class="sample__bd"></div>
+                <div class="sample__ft"></div>
+                <section>
+                    <div class="l-container">
+                        <h2>{{initText}}</h2>
+                        <div class="vue">
+                            <form v-on:submit.prevent="signup">
+                                <select v-model="selectOpt">
+                    <option v-for="obj in selectLists" :disabled="obj.value == ''" v-bind:value="obj.value">{{obj.text}}</option>
+                  </select>
+                                <p>select Val : {{selectOpt}}</p>
+                                <button type="submit">submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="sample__content">
+                        <div class="l-container">
+                            <div class="l-vm">
+                                <div class="l-vm__content">
+                                    <h2>demo verticle</h2>
+                                    <p>灰色區塊內垂直置中</p>
+                                    <div class="sprite__demo"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="l-container">
+                        <div class="mdDemo">
+                            <h2>#jade scss example</h2>
+                            <div>
+                                <h3>##<span>Interpolation</span>by jade</h3>
+                            </div>
+                            <div>
+                                <h3>##jade loop</h3>
+                                <div class="row1">
+                                    <p>row+1</p>
+                                </div>
+                                <div class="row2">
+                                    <p>row+2</p>
+                                </div>
+                                <div class="row3">
+                                    <p>row+3</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <!--render main view-->
+        </div>
+        <!--投票-->
+        <transition name="fade">
+            <div v-show="confirmVotes" class="popup">
+                <div class="popup__mask"></div>
+                <div class="popup__content">
+                    <div class="l-contanier">
+                        <div class="confirm__box">
+                            <p class="confirm__text">你今天還有 <span class="num">2</span><span class="unit">次</span>投票機會</p>
+                            <div class="btn-area">
+                                <div class="btn-basic"><a href="javascript:" v-on:click="actionVote()">確定</a></div>
+                            </div>
+                            <a href="javascript:" v-on:click="actionVote()" class="btn-close"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+        <transition name="fade">
+            <div v-show="videoPopup" class="popup">
+                <div class="popup__mask"></div>
+                <div class="popup__content">
+                    <div id="popup__movie">
+                        <div class="popup__close">
+                            <div class="video__wrapper">
+                                <div v-show="players[0]" class="inner">
+                                    <div id="player1"></div>
+                                </div>
+                                <div v-show="players[1]" class="inner">
+                                    <div id="player2"></div>
+                                </div>
+                                <a href="javascript:" v-on:click="closeVideo" class="btn-close"> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+        <div id="loading"></div>
+    </div>
+    <div class="l-footer footer"></div>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

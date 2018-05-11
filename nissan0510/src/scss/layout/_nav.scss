@@ -1,0 +1,127 @@
+$nav_height: 120px;
+$nav_height_mb: 0px;
+
+/* only needed once */
+
+.nav {
+    $nav:nav;
+    text-align: center;
+    height: $nav_height;
+    background: #fff;
+    &-bd {
+        padding: 30px 45px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+    &-left{
+        flex: 1;
+        text-align: left;
+    }
+
+    &-right {
+        flex: 1;
+        text-align: right;
+    }
+
+    &-logo {
+        font-size: 0;
+        display: inline-block;
+        a {
+            display: block;
+        }
+    }
+    &-btn {
+        display: inline-block;
+        z-index: 5;
+        cursor: pointer;
+        >div {
+            width: 62px;
+            height: 10px;
+            background: #000;
+            border-radius: 5px;
+            margin-bottom: 12px;
+            display: none;
+            &:last-of-type{
+                margin-bottom: 0;
+            }
+        }
+        >img {
+            display: inline-block;
+        }
+    }
+    &-icon {
+        background: url(../images/nav-icon.png) 0 0 no-repeat;
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        margin: 0 0 0 20px;
+    }
+    &-menu {
+        position: absolute;
+        width: 100%;
+        background: url("../images/wood_background.jpg");
+        left: 0;
+        top: 0;
+        transition:all .3s ease-in-out;
+        z-index: 20;
+        padding: 150px 50px 0;
+        transform: translateY(-100%);
+        height: 100vh;
+        overflow: auto;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .menu-content{
+            position: relative;
+            width: 100%;
+            .nav-close {
+                position: absolute;
+                top: -100px;
+                right: -30px;
+                @extend %close-btn
+            }
+        }
+        ul {
+            li {            
+                display: block;
+                width: 100%;
+                margin-bottom: 26px;
+                &:last-of-type{
+                    margin-bottom: 0px;
+                }
+                a {
+                    display: inline-block;
+                    font-size: 1.8rem;
+                    line-height: 3;
+                    width: 556px;
+                    background: url("../images/nav-btn.png") center 5px / 100% no-repeat;
+                    span{
+                        display: block;
+                        line-height: 130px;
+                        font-size: 50px;
+                        font-weight: 900;
+                        color: #fefefe;
+                    }
+                }
+            }
+        }
+        .catboy{
+            margin-top: 25px;
+            margin-bottom: -18px;
+        }
+    }
+    &--active {
+        .nav-menu {
+            transform: translateY(0%);
+        }
+        .nav-btn {
+            > img {
+                display: none;
+            }
+        }
+    }
+}
+

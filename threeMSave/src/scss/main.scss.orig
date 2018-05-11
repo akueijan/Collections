@@ -1,0 +1,1367 @@
+@charset 'UTF-8';
+
+/* ----- IMPORT -----*/
+
+//1.utils
+@import "utils/_bemify.scss"; 
+    //A set of Sass mixins to write well-structured, maintainable, idiomatic BEM-style .scss source:
+@import "utils/_variables.scss";
+@import "utils/_mixins.scss";
+@import "utils/_grid.scss";
+//sprite scss import 至少要啟用gulp一次
+//@import "_sprite.scss";
+//2.vendors
+//3.base
+@import "base/_reset.scss";
+@import "base/_typography.scss";
+//4.layout
+@import "layout/_layout.scss";
+@import "layout/_nav.scss";
+//5.components
+@import "components/_load.scss";
+//html 在 load.js 裡
+//6.pages
+//7.themes
+
+$tran:0.3s ease-in all;
+$boxShadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.1);
+
+.sample {
+    .l-vm {
+        height: 180px;
+        width: 100%;
+        background: #d6d6d6;
+        text-align: center;
+        box-shadow: $boxShadow;
+    }
+    .l-vm__content {
+        background: red;
+        min-height: 100px;
+    }
+    @include respond-to(small-up) {}
+    section ,h2, h3{
+        margin: 0 0 20px;
+        span {
+            color: red;
+        }
+    }
+    @for $i from 1 through 3 {
+        .row#{$i} {
+            color: red;
+        } 
+    }
+}
+/*=============================
+=            basic            =
+=============================*/
+
+%hide-text {
+    overflow: hidden;
+    text-indent: 110%;
+    white-space: nowrap;
+}
+.pc-only {
+    @include respond-to (small) {
+        display: none;
+    };
+}
+.mb-only {
+    @include respond-to (small-up) {
+        display: none;
+    };
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
+
+.btn-basic {
+    background: #000;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 2px;
+    width: 180px;
+    display: inline-block;
+    text-align: center;
+    @include respond-to (small) {
+        width: 260px;
+    }
+    a {
+        background: #000;
+        border: 1px solid #fff;
+        border-radius: 6px;
+        color: #fff;
+        display: block;
+        line-height: 2;
+        letter-spacing: 0.2em;
+        @include ft(18);
+        font-weight: bold;
+        padding: 5px 0;
+        outline: none;
+        @include respond-to (small) {
+            line-height: 2.5;
+        }
+    }
+    &:hover {
+        background: #fff;
+        a {
+            background: #fff;
+            border: 1px solid #000;
+            color: #000;
+        }
+    }
+    &.btn {
+        &--readmore {
+            width: 420px;
+        }
+        &--fbShare {
+            background: #4767aa;
+            a {
+                background: #4767aa;
+                color: #fff; 
+            }
+            &:hover {
+                a {
+                    border: 1px solid #fff;
+                    background: rgba(71,103,170,0.8);
+                }
+            }
+        }
+    }
+}
+
+.goTop {
+    color: #000;
+    border-top: 4px solid #000;
+    font-weight: bold;
+    padding: 10px 0 0 0;
+    @include ft(24);
+    position: fixed;
+    right: 30px;
+    bottom: 160px;
+}
+
+/*=====  End of basic  ======*/
+
+/*=====================================
+=            layout custom            =
+=====================================*/
+
+.l-wrap {
+    background: url(../images/bg-pattern.jpg) center top repeat-y;
+}
+
+.page {
+    &__title {
+        @include ft(60);
+        font-weight: bold;
+        padding: 20px 0;
+    }
+    &__desc {
+        @include ft(22);
+        font-weight: bold;
+    }
+}
+
+.btn-area {
+    text-align: center;
+}
+
+.nav {
+    &-logo {
+        margin: 0 0 0 -20px;
+        @include respond-to(small) {
+             margin: 0 0 0 10px;
+        }
+        a {
+            background: url(../images/logo.png) center center no-repeat;
+            @extend %hide-text;
+            width: 131px;
+        }
+    }
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    &__mask {
+        background: rgba(0,0,0,0.2);
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    &__content {
+        position: relative;
+        height: 100vh;
+        overflow-y: scroll;
+    }
+    &__close {
+    }
+}
+/*=====  End of layout custom  ======*/
+
+/*============================
+=            page            =
+============================*/
+.kv{
+    height: 701px;
+    background: url(../images/bg-title.jpg)no-repeat top center;
+    position: relative;
+    overflow: hidden;
+    z-index: 3;
+    @include respond-to(small) {
+        background: url(../images/mb-bg-title.jpg)no-repeat top center;
+        height: 961px;
+    }
+    &__title{
+        width: 700px;
+        height: 396px;
+        background: url(../images/kv-title.png)no-repeat top center;
+        background-size: cover;
+        position: absolute;
+        left: 138px;
+        top: 40px; 
+        @include respond-to(small) {
+            width: 552px;
+            height: 299px;
+            left: 33px;
+            top: 115px;
+        }
+    }
+    &__photo-1{
+        width: 435px;
+        height: 516px;
+        background: url(../images/kv-dog.png)no-repeat top center;
+        position: absolute;
+        left: -185px;
+        top: 190px;
+        @include respond-to(small) {
+            width: 210px;
+            height: 329px;
+            left: -40px;
+            top: 725px;
+            background-size: contain;
+        }
+    }
+    &__photo-2{
+        width: 654px;
+        height: 796px;
+        background: url(../images/kv-mic.png)no-repeat top center;
+        position: absolute;
+        right: -290px;
+        top: 123px;
+        @include respond-to(small) {
+            width: 350px;
+            height: 385px;
+            left: 370px;
+            top: 580px;
+            background-size: cover;
+        }
+    }
+    &__photo-3{
+        width: 204px;
+        height: 185px;
+        background: url(../images/bg-water.png)no-repeat top center;
+        position: absolute;
+        top: 504px;
+        left: 195px;
+        @include respond-to(small) {
+            left: 180px;
+            top: 754px;
+            width: 221px;
+            height: 195px;
+            background-size: cover;
+        }
+    }
+    .kv__h3{
+        position: absolute;
+        @include ft(26);
+        font-weight: bold;
+        top: 370px;
+        left: 300px;
+        @include respond-to(small) {
+            top: 376px;
+            left: 150px;
+            @include ft(24);
+        }
+        a{
+            width: 35px;
+            height: 35px;
+            display: block;
+            position: absolute;
+            top: -8px;
+            left: 365px;
+            img{
+                width: 100%;
+            }
+            @include respond-to(small) {
+                top: 40px;
+                left: 140px;
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
+    .txt-1{
+        @include ft(15);
+        font-weight: bold;
+        color: #fff;
+        transform: rotate(-25deg);
+        position: absolute;
+        top: 57px;
+        left: 50px;
+        text-align: center;
+        line-height: 22px;
+        @include respond-to(small) {
+            top: 50px;
+            left: 55px;
+            line-height: 26px;
+        }
+    }
+    .count{
+        color: #fff100;
+        @include ft(30);
+        font-weight: bold;
+        letter-spacing: 1.5px;
+        @include respond-to(small) {
+            letter-spacing: 2.5px;
+        }
+    }
+    .txt-2{
+        position: absolute;
+        top: 415px;
+        left: 320px;
+        text-align: center;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        @include ft(15);
+        line-height: 24px;
+        .txt-bold{
+            font-weight: bold;
+            @include ft(17);
+        }
+        @include respond-to(small) {
+            @include ft(18);
+            top: 480px;
+            left: 94px;
+            line-height: 30px;
+        }
+    }
+    .btn--kv{
+        position: absolute;
+        top: 528px;
+        left: 390px;
+        @include respond-to(small) {
+            top: 640px;
+            left: 185px;
+        }
+    }
+}
+
+.bd{
+    &-hd{
+        /*height: 906px;
+        background: url(../images/body-area-bg-1.png)no-repeat top center;*/
+        height: 906px;
+        transform:skewY(-6deg);
+        transform-origin:left bottom;
+        overflow: hidden;
+        position: relative;
+        margin-top: 0px;
+        z-index: 2;
+        @include respond-to(small) {
+            height: 727px;
+        }
+        &--bg{
+            width: 100%;
+            height: 1026px;
+            background: url(../images/body-area-bg-1.png)no-repeat top center;
+            background-size: cover;
+            transform:skewY(6deg);
+            @include respond-to(small) {
+                background: url(../images/mb-body-area-bg-1.png)no-repeat center -60px;
+            }
+        }
+    }
+    &__title{
+        width: 1024px;
+        height: 216px;
+        background: url(../images/body-title.png)no-repeat top center;
+        background-size: contain;
+        position: absolute;
+        top: 300px;
+        left: -28px;
+        z-index: 1;
+        @include respond-to(small) {
+            width: 555px;
+            height: 150px;
+            background-size: 100% auto;
+            top: 234px;
+            left: 45px;
+        }
+    }
+    .btn--bd-1{
+        position: absolute;
+        top: 568px;
+        left: 290px;
+        @include respond-to(small) {
+            top: 415px;
+            left: 185px;
+        }
+    }
+    .btn--bd-2{
+        position: absolute;
+        top: 568px;
+        left: 490px;
+        @include respond-to(small) {
+            top: 515px;
+            left: 185px;
+        }
+    }
+    &-content{
+        position: relative;
+        height: 2388px;
+        background: url(../images/bg-body-content.jpg)no-repeat;
+        margin-top: -135px;
+        @include respond-to(small) {
+            height: 3373px;
+            background: url(../images/mb-bg-body-content.jpg)no-repeat;
+            background-size: cover;
+        }
+    }
+
+    &__photo-1{
+        width: 464px;
+        height: 465px;
+        background: url(../images/body-pic-1.png)no-repeat;
+        position: absolute;
+        top: 315px;
+        right: -330px;
+        @include respond-to(small) {
+            width: 237px;
+            height: 233px;
+            top: 396px;
+            left: 450px;
+            background-size: cover;
+        }
+    }
+    &__photo-2{
+        width: 579px;
+        height: 1400px;
+        background: url(../images/body-pic-2.png)no-repeat;
+        position: absolute;
+        top: 753px;
+        left: -560px;
+        @include respond-to(small) {
+            width: 229px;
+            height: 557px;
+            background-size: cover;
+            top: 2082px;
+            left: -15px;
+        }
+    }
+    &__photo-3{
+        width: 913px;
+        height: 819px;
+        background: url(../images/body-pic-3.png)no-repeat;
+        position: absolute;
+        top: 1000px;
+        right: -840px;
+        @include respond-to(small) {
+            width: 345px;
+            height: 290px;
+            background-size: cover;
+            top: 2112px;
+            left: 380px;
+        }
+    }
+    &__photo-4{
+        width: 397px;
+        height: 469px;
+        background: url(../images/body-pic-4.png)no-repeat;
+        position: absolute;
+        top: 1850px;
+        right: -240px;
+        @include respond-to(small) {
+            width: 186px;
+            height: 215px;
+            background-size: cover;
+            top: 3122px;
+            left: 419px;
+        }
+    }
+    .blvideo{
+        width: 1040px;
+        position: relative;
+        z-index: 5;
+        left: -34px;
+        top: -60px;
+        @include respond-to(small) {
+            width: 500px;
+            margin: 0 auto;
+            left: inherit;
+            top: 0;
+        }
+        li{
+            width: 48%;
+            height: 500px;
+            margin: 10px;
+            background: #eee;
+            float: left;
+            position: relative;
+            @include respond-to(small) {
+                width: 100%;
+            }
+            h4{
+                background: rgba(255,255,255,0.8);
+                line-height: 36px;
+                text-align: center;
+                color: #000;
+                position: absolute;
+                width: 100%;
+                bottom: 0;
+                @include ft(24);
+                font-weight: bold;
+                letter-spacing: 10px;
+            }
+            .btn-play{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin: -73px 0 0 -36px;
+            }
+            a{
+                width: 73px;
+                height: 73px;
+                display: block;
+            }
+        }
+    }
+    .rank{
+        .rank__title{
+            width: 949px;
+            height: 290px;
+            background: url(../images/body-title-2.png);
+            position: absolute;
+            top: 51px;
+            @include respond-to(small) {
+                width: 530px;
+                height: 194px;
+                background-size: cover;
+                background: url(../images/mb-body-title-2.png);
+                left: 60px;
+                top: 220px;
+            }
+        }
+    }
+    .btn--bd-3{
+    top: 360px;
+    left: 280px;
+    position: absolute;
+    @include respond-to(small) {
+            top: 425px;
+            left: 185px;
+        }
+    }
+    .btn--bd-4{
+        top: 360px;
+        left: 480px;
+        position: absolute;
+        @include respond-to(small) {
+            top: 505px;
+            left: 185px;
+        }
+    }
+    .rank__photo-1{
+        width: 131px;
+        height: 131px;
+        background: url(../images/body-icon-1.png)no-repeat;
+        position: absolute;
+        top: 405px;
+        left: 130px;
+        z-index: 2;
+        @include respond-to(small) {
+            width: 117px;
+            height: 118px;
+            background-size: contain;
+            top: 580px;
+            left: 40px;
+        }
+    }
+    .rank__table{
+        width: 768px;
+        position: absolute;
+        top: 470px;
+        left: 96px;
+        word-wrap: break-word;
+        word-break: break-all;
+        @include respond-to(small) {
+            width: 568px;
+            top: 660px;
+            left: 36px;
+        }
+        tr:nth-child(1){
+            background: #488de0;
+        }
+        th{
+            @include ft(24);
+            font-weight: bold;
+            letter-spacing: 10px;
+            text-align: center;
+            color: #fff;
+            line-height: 50px;
+            height: 50px;
+            width: 46%;
+            border: 0;
+            &:nth-child(1){
+                width: 8%;
+            }
+        }
+        td{
+            @include ft(20);
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-align: center;
+            color: #fff;
+            line-height: 30px;
+            height: 50px;
+            border: 2px solid #fff;
+            background: #000;
+            vertical-align: middle;
+            padding: 5px;
+        }
+    }
+}
+
+.step {
+    padding: 80px 0 0 0;
+    box-sizing: border-box;
+    &__hd {
+        text-align: center;
+        margin: 0 0 45px 0;
+        .titleStep {
+            background: url(../images/step-title.png) no-repeat center bottom;
+            height: 60px;
+            @extend %hide-text;
+            @include respond-to(small) {
+                background: url(../images/step-title_mb.png) no-repeat center bottom;
+                height: 140px;
+            }
+        }
+        .titleData {
+            background: url(../images/title-data.png) no-repeat center bottom;
+            height: 60px;
+            @extend %hide-text;
+            @include respond-to(small) {
+                background: url(../images/title-data_mb.png) no-repeat center bottom;
+                height: 140px;
+            }
+        }
+        .desc {
+            background: url(../images/step-desc.png) no-repeat center bottom;
+            height: 40px;
+            @extend %hide-text;
+            @include respond-to(small) {
+                background: url(../images/step-desc_mb.png) no-repeat center bottom;
+                height: 120px;
+            }
+        }
+    }
+    &-data {
+        .step__bd {
+            padding: 0 0 400px 0;
+        }
+    }
+    .decoBottom {
+        background: url(../images/deco-bottom.png) no-repeat center bottom;
+        width: 1328px;
+        height: 653px;
+        position: absolute;
+        left: 50%;
+        bottom: 70px;
+        margin: 0 0 0 -664px;
+        @include respond-to(small) {
+            background: url(../images/mb-deco-bottom.png) no-repeat center bottom; 
+            bottom: 40px;
+        }
+    }
+    &__end {
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-75%);
+        @include respond-to(small) {
+            width: 500px;
+        }
+        p {
+            margin: 0 0 25px 0;
+        }
+        .msg {
+            @include ft(24);
+            font-weight: bold;
+            line-height: 1.5;
+            @include respond-to(small) {
+                line-height: 1.8;
+            }
+            span {
+                color: #0088e8;
+                text-decoration: underline;
+                margin: 0 5px;
+            }
+        }
+        .alert {
+            color: #e60012;
+            font-weight: bold;
+            line-height: 1.5;
+            @include ft(18);
+            @include respond-to(small) {
+                @include ft(20);
+                line-height: 1.8;
+                word-break: keep-all;
+
+            }
+        }
+    }
+}
+
+.form {
+    &__title {
+        color: #000000;
+        @include ft(18);
+        font-weight: bold;
+        letter-spacing: 0.3em;
+        margin: 0 0 10px 0;
+        label {
+            cursor: pointer;
+        }
+        @include respond-to(small) {
+            text-align: center;
+            @include ft(24);
+        }
+    }
+    &__box {
+        background: #dadada;
+        box-sizing: border-box;
+        padding: 20px;
+        input, textarea {
+            background: none;
+            border: none;
+            width: 100%;
+            @include ft(14);
+            resize: none;
+            outline: 0;
+            @include respond-to(small) {
+                text-align: center;
+                @include ft(20);
+            }
+        }
+    }
+}
+
+.upload {
+    @include respond-to(small) {
+        padding-bottom: 300px;
+    }
+    input, textarea {
+    }
+    &__ft {
+        position: relative;
+        text-align: center;
+        @include respond-to(small) {
+            width: 500px;
+            margin: 0 auto;
+        }
+        p {
+            @include ft(14);
+            line-height: 1.5;
+            @include respond-to(small) {
+                @include ft(20);
+            }
+        }
+        .line1 {
+            font-weight: bold;
+        }  
+        .line2 {
+
+        }
+    }
+    .decoItem {
+        position: absolute;
+        background: url(../images/step-deco1.png) no-repeat center top;
+        width: 734px;
+        height: 413px;
+        left: 415px;
+        top: 350px;
+        bottom: 0;
+        @include respond-to(small) {
+            left: -80px;
+            top: 1380px;
+        }
+    }
+    .row {
+        width: 730px;
+        margin: 0 auto 20px auto;
+        @include respond-to(small) {
+            width: 500px;
+            margin: 0 auto;
+        }
+        .col {
+            width: 100%;
+            float: left;
+            position: relative;
+            @include respond-to(small) {
+                margin: 20px auto;
+            }
+            &.col1 {
+                width: 275px;
+                margin: 0 20px 0 0;
+                @include respond-to(small) {
+                    width: 100%;
+                    margin: 20px auto;
+                }
+            }
+            &.col2 {
+                width: 435px;
+                @include respond-to(small) {
+                    width: 100%;
+                    margin: 20px auto;
+                }
+            }
+            &.col3 {
+                #userPost {
+                    @include respond-to(small) {
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+    .btn-area {
+        padding: 30px 0 50px 0;
+    }
+    &__box {
+        background: #dadada;
+        width: 400px;
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+        float: left;
+        margin: 0 10px 10px 0;
+        @include respond-to(small) {
+            width: 500px;
+            height: 500px;
+            margin: 0 10px 20px 0;
+        }
+    }
+    &__img {
+        width: 100%;
+    }
+    &__widget {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        .option {
+            position: absolute;
+            @extend %hide-text;
+            &.up {
+                background: url(../images/arrow_up.png) no-repeat center top;
+                width: 37px;
+                height: 22px;
+                left: 50%;
+                top: 20px;
+                margin: 0 0 0 -18px;
+            }
+            &.down {
+                background: url(../images/arrow_down.png) no-repeat center top;
+                width: 37px;
+                height: 22px;
+                left: 50%;
+                bottom: 20px;
+                margin: 0 0 0 -18px;
+            }
+            &.left {
+                background: url(../images/arrow_left.png) no-repeat center top;
+                width: 22px;
+                height: 34px;
+                top: 50%;
+                left: 20px;
+                margin: -17px 0 0 0px;
+            }
+            &.right {
+                background: url(../images/arrow_right.png) no-repeat center top;
+                width: 22px;
+                height: 34px;
+                right: 20px;
+                top: 50%;
+                margin: -17px 0 0 0px;
+            }
+            &.rotate {
+                background: url(../images/icon_rotate.png) no-repeat center top;
+                width: 44px;
+                height: 39px;
+                left: 50%;
+                top: 50%;
+                margin: -20px 0 0 -22px;
+            }
+        }
+    }
+    &__func {
+        float: left;
+        width: 100%;
+        height: 100px;
+        .zoom {
+            position: absolute;
+            width: 50px;
+            @include respond-to(small-up) {
+                left: 410px;
+                top: 28px;
+            }
+            @include respond-to(small) {
+                width: auto;
+                position: relative;
+                left: 80px;
+            }
+            &__btn {
+                display: inline-block;
+                float: left;
+                width: 50px;
+                height: 50px;
+                margin: 0 0 10px 0;
+                @include respond-to(small) {
+                    margin: 0 0 10px 10px;
+                }
+                &.zoomIn {
+                    background: url(../images/zIn.png) no-repeat center center #767676;
+                }
+                &.zoomOut {
+                    background: url(../images/zOut.png) no-repeat center center #767676;
+                }
+            }
+        }
+    }
+    &__logo {
+        background: url(../images/upload-logo.png) no-repeat center top;
+        width: 128px;
+        height: 32px;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+    }
+    &__btn {
+        background: url(../images/upload-btn.png) no-repeat center top;
+        width: 160px;
+        height: 99px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: -50px 0 0 -80px;
+        @extend %hide-text;
+    }
+    &__re {
+        background: #e9e9e9;
+        border: 2px solid #c7c7c7;
+        box-sizing: border-box;
+        color: #c7c7c7;
+        display: inline-block;
+        @include ft(16);
+        letter-spacing: 0.3em;
+        text-align: center;
+        width: 160px;
+        height: 45px;
+        line-height: 45px;
+        @include respond-to(small) {
+            float: left;
+            width: 300px;
+            height: 50px;
+        }
+    }
+}
+
+.data {
+    .row {
+        width: 730px;
+        margin: 0 auto 20px auto;
+        @include respond-to(small) {
+            width: 500px;
+            margin: 0 auto;
+        }
+        .col {
+            width: 100%;
+            float: left;
+            position: relative;
+            @include respond-to(small) {
+                margin: 20px auto;
+                text-align: center;
+            }
+            &.col1 {
+                width: 275px;
+                margin: 0 20px 0 0;
+                @include respond-to(small) {
+                    width: 100%;
+                    margin: 20px auto;
+                }
+            }
+            &.col2 {
+                width: 435px;
+                @include respond-to(small) {
+                    width: 100%;
+                    margin: 20px auto;
+                }
+            }
+        }
+    }
+    &__bd {
+        margin: 0 0 45px 0;
+    }
+    &-law {
+        width: 730px;
+        margin: 0 auto;
+        @include ft(14);
+        line-height: 1.5;
+        @include respond-to(small) {
+            width: 500px;
+            margin: 20px auto;
+            @include ft(18);
+        }
+        ol li {
+            list-style: decimal;
+            margin-left: 1.4rem;
+            @include respond-to(small) {
+                line-height: 1.8;
+            }
+        }
+    }
+    .checkLaw {
+        color: #000;
+        font-weight: bold;
+        @include ft(14);
+        text-decoration: underline;
+        @include respond-to(small) {
+            @include ft(18);
+            height: 30px;
+            line-height: 30px;
+        }
+        input {
+            margin: 0 5px 0 0;
+            @include respond-to(small) {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+}
+
+.list {
+    background: url(../images/list-bg.png) no-repeat center -50px;
+    min-height: 100vh;
+<<<<<<< HEAD
+    @include respond-to(small) {
+        background: url(../images/mb-list-bg.png) no-repeat center top;
+    }
+=======
+    padding: 0 0 120px 0;
+>>>>>>> 9a604527d21abe451ce2a9f1da48212342b4e9bc
+    &__hd {
+        padding: 190px 0 0 0;
+        @include respond-to(small) {
+            padding: 280px 0 0 0;
+        }
+        .title {
+            background: url(../images/list-title.png) no-repeat center top;
+            height: 300px;
+            @extend %hide-text;
+            @include respond-to(small) {
+                background: url(../images/mb-list-title.png) no-repeat center top;
+                height: 225px;
+            }
+        }
+    }
+    &-wrap {
+        width: 1350px;
+        margin: 0 0 0 -195px;
+        @include respond-to(small) {
+            width: 640px;
+            margin: 0;
+        }
+    }
+    &-widget {
+        margin: 0 25px 20px;
+        @include respond-to(small) {
+            text-align: center;
+        }
+        .sort {
+            @include ft(18);
+            color: #000;
+            position: relative;
+            margin: 0 20px 0 0;
+            padding: 36px 0 0 0;
+            @include respond-to(small) {
+                @include ft(20);
+                margin: 0 30px 0 0;
+                font-weight: bold;
+            }
+            &:after {
+                content: "";
+                background: url(../images/icon-option.png) no-repeat right top;
+                height: 26px;
+                width: 100%;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+            }
+            &:hover {
+                color: #e60012;
+                &:after {
+                    background: url(../images/icon-option.png) no-repeat right bottom;
+                }
+            }
+            &.is--current {
+                color: #e60012;
+                &:after {
+                    background: url(../images/icon-option.png) no-repeat right bottom;
+                } 
+            }
+        }
+    }
+    .btn-area {
+        .btn-basic {
+            margin: 0 0 10px 0;
+        }
+    }
+}
+
+.post {
+    width: 400px;
+    margin: 0 25px 50px;
+    position: relative;
+    float: left;
+    @include respond-to(small) {
+        width: 236px;
+    }
+    &__box {
+        position: relative;
+        margin: 0 0 20px 0;
+        >img {
+            width: 100%;
+        }
+        .mask {
+            background: rgba(0,0,0,0.3);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+        &-vote {
+            background: rgba(0,0,0,0.3);
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+            .vote {
+                color: #fff;
+                font-weight: bold;
+                @include ft(22);
+                display: block;
+                position: relative;
+                width: 100%;
+                height: 100%;
+                letter-spacing: 0.2em;
+            }
+            .fbShare {
+                background: url(../images/icon-fb1.png) no-repeat center center;
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+        }    
+    }
+    &__info {
+        position: relative;
+        line-height: 1.5;
+        .getVotes {
+            color: #e60012;
+            @include ft(28);
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+            top: 0;
+            @include respond-to(small) {
+                position: relative;
+            }
+        }
+        .info1, .info2 {
+            font-weight: bold;
+        }
+        .info1 {
+            @include ft(28);
+        }
+        .info2 {
+            @include ft(18);
+        }
+        .content {
+            @include ft(18);
+        }
+        .more {
+            color: #000;
+        }
+    }
+    &:hover {
+        .post__box {
+            .mask {
+                display: none;
+            }
+            &-vote {
+                background: rgba(174,13,26,0.7);
+            }
+        }
+        .post__info {
+            .info1, .info2 , .content , .more {
+                color: #e60012;
+            }
+        }
+    } 
+}
+
+.single {
+    padding: 0 0 60px 0;
+    &__hd {
+        text-align: center;
+        padding: 100px 0 0 0;
+        margin: 0 0 30px 0;
+        .title {
+            font-weight: bold;
+            @include ft(28);
+        }
+    }
+    .back {
+        margin: 0 0 20px 0;
+    }
+    &-post {
+        margin: 0 0 30px 0;
+        .col {
+            float: left;
+            &.col1 {
+                width: 400px;
+                margin: 0 40px 0 0;
+            }
+            &.col2 {
+                width: 400px;
+            }
+        }
+        .imgWrap {
+            background: #828282;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            >img {
+                width: 100%;
+            }
+        }
+        &__info {
+            .votes {
+                color: #e60012;
+                @include ft(30);
+                font-weight: bold;
+            }
+            .title {
+                @include ft(18);
+                font-weight: bold;
+            }
+            .content {
+                @include ft(14);
+            }
+            p {
+                margin: 0 0 10px 0;
+                line-height: 1.5;
+            }
+        }
+    }
+    &__wrap {
+        position: relative;
+        width: 840px;
+        margin: 0 auto 20px;
+    }
+    &__ft {
+        text-align: center;
+        >p {
+            @include ft(28);
+            font-weight: bold;
+        }
+    }
+    .btn-area {
+        .btn-basic {
+            margin: 0 10px;
+        }
+    }
+}
+/*=====  End of page  ======*/
+
+/*===========================
+=            etc            =
+===========================*/
+.btn{
+    height: 40px;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+        &:hover{
+        background: #fff;
+        border: 1px solid #fff;
+    }
+    .btn-in{
+        width: 178px;
+        height: 38px;
+        display: inline-block;
+        background: #000;
+        border-radius: 5px;
+        margin-top: 1px;
+        &:hover{
+            background: #fff;
+            border: 1px solid #000;
+            margin-top: 0px;
+        }
+    }
+    a{
+        color: #fff;
+        display: block;
+        height: 38px;
+        line-height: 38px;
+        @include ft(16);
+        font-weight: bold;
+        letter-spacing: 1.2px;
+        &:hover{
+            color: #000;
+        }
+    }
+}
+.bule{
+    color: #024fab;
+}
+
+
+.btn-play{
+    width: 73px;
+    height: 73px;
+    background: url(../images/btn-play-2.png);
+}
+/*=====  End of etc  ======*/

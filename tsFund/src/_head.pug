@@ -1,0 +1,45 @@
+head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='edge,chrome=1')
+    title #{pageTitle}
+    meta(name='description', content=pageDesc)
+    meta(name='viewport', content="width=640" minimum-scale="1.0," maximum-scale="1.0," user-scalable="no")
+    //- Schema.org markup for Google+
+    meta(itemprop="name" content=pageTitle)
+    meta(itemprop="description" content=pageDesc)
+    meta(itemprop="image" content="http://friendoprod.blob.core.windows.net/project/tsreward/tsreward_fbshare.jpg")
+    //- og
+    meta(property="og:title" content=pageTitle)
+    meta(property="og:description" content=pageDesc)
+    meta(property="og:image" content="http://friendoprod.blob.core.windows.net/project/tsreward/tsreward_fbshare.jpg")
+    //- TODO : Place favicon.ico and apple-touch-icon.png in the root directory
+    link(rel="Shortcut Icon" type="images/x-icon" href="images/fav.ico")
+    link(rel='stylesheet', href='css/main.css')
+
+    <!--CDN link -->
+    script(src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.js")
+    //- script(src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.js")    
+    script(src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js")
+    //- //- for loading
+    script(src="../lib/vue.js")
+    // Google Analytics
+    script.
+        (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-34903007-14', 'auto');
+            ga('create', 'UA-74878556-1', 'auto', 'clientTracker');
+            ga('send', 'pageview');
+            ga('clientTracker.send', 'pageview'); 
+    // End Google Analytics

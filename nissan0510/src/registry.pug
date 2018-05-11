@@ -1,0 +1,108 @@
+﻿extends _layout.pug
+block pageInfo
+    - var pageTitle = "成為Nissan玩咖"
+    - var pageDesc = "填寫資料成為NISSAN玩咖就有機會抽中Samsonite貝殼盥洗包！"
+    - var pageJs = "registry.js"
+//- page html
+block page_main
+    transition(mode="out-in" name="fade")
+        section.registry#registry(v-show="!pageload")
+            transition(mode="out-in" name="fade")
+                div.form1area(v-if="isform1" key='form1')
+                    div.form1__bg
+                        h1.logo
+                        div.registry__hd
+                            div.registry__title--form1 成為NISSAN玩咖
+                        div.registry__bd(v-bind:class="{ 'ns-owner': owner }")
+                            form(v-on:submit.prevent="SendData")
+                                ul
+                                    li
+                                        label(for="name")
+                                            i.icon__person
+                                            | 姓名
+                                        input(id="name" maxlength="10" placeholder="範例 : 王大明" v-model="name")
+                                    li
+                                        label
+                                            i.icon__date
+                                            | 出生日期
+                                        div.selectbox
+                                            select(v-model="birthday.year").selyear
+                                                - for (let x = 1918; x < 2018; x++)
+                                                    option(value=x)= x
+                                            span 年
+                                            select(v-model="birthday.month").selmonth
+                                                - for (let x =1; x < 13; x++)
+                                                    option(value=x)= x
+                                                //- option(disabled value="") 1
+                                            span 月
+                                            select(v-model="birthday.day").selday
+                                                - for (let x =1; x < 32; x++)
+                                                    option(value=x)= x
+                                                //- option(disabled value="") 1
+                                            span 日
+                                    li
+                                        label(for="phone") 
+                                            i.icon__mobile
+                                            | 手機號碼
+                                        input(id="phone" type="tel" placeholder="範例 : 0918345678" maxlength="10" v-model="phone")
+                                    li
+                                        input(id="owner" type="checkbox" v-model="owner")
+                                        label(for="owner") 我是NISSAN車主
+                                            span.sp (非車主亦可參加活動)
+                                    li.platebox(v-show="owner")
+                                        label(for="plate") 車牌號碼
+                                        input(id="plate" maxlength="15" placeholder="範例 : ABC-1111" style="text-transform:uppercase;" v-model="car_no")
+                                    li.agreebox
+                                        input(id="agree" type="checkbox" v-model="agree")
+                                        label(for="agree") 點擊確認，即表示我同意NISSAN汽車
+                                        p
+                                            a(href="http://new.nissan.com.tw/nissan/info/line-bc" target="_blank") LINE Business Connect會員服務條款
+                                    li.submitbox
+                                        button.submit-btn(type="submit") 
+                                            span(v-if="!loading") 確　認
+                                            div.sk-fading-circle(v-if="loading")
+                                                div.sk-circle(v-for="(el,i) in 12" :class="'sk-circle' + (i+1)")
+                    div.notearea
+                        div.note__title(v-on:click="note_toggle") 活動辦法
+                        transition(mode="out-in" name="fade")
+                            div.notebox(v-show="notebox")
+                                ul
+                                    li 本活動期間為2018/5/11~2018/5/23，中獎名單將於2018/5/30公布NISSAN官網。
+                                    li 每組LINE的帳號於活動期間(2018/5/11~2018/5/23)僅擁有一次抽獎機會。
+                                    li 本活動之得獎者將由NISSAN汽車委託之執行公司，以LINE訊息及電話通知，得獎者須加入NISSAN TW LINE官方帳號好友，且不得封鎖NISSAN TW LINE官方帳號，並須於期限內完整提供寄送資料（收件人姓名／手機號碼／寄送地址）；逾期回覆及寄送資料提供不完整視同放棄得獎資格，且NISSAN汽車無須負任何責任。
+                                    li 本活動參加資格與獎項寄送僅限居住於中華民國台澎金馬地區之中華民國國籍居民，海外地區恕無法配送。
+                                    li 活動參與者應保證填寫或提出之資料均為真實，且未冒用或盜用任何第三人之資料，如冒用或盜用任何第三人之資料之法律責任由活動參與者自行負責，概與主辦單位及承辦單位無關。如查獲不實，主辦單位及承辦單位除撤銷其得獎資格，並無提供所獲獎項之義務，若獎項業經配送，並有向中獎者請求新台幣六百元之懲罰性賠償金及相關行政費用與他損害賠償之權利。
+                                    li 活動過程中若因不可抗力或電腦系統故障等因素，直接或間接造成NISSAN汽車無法履行其全部或部分義務，或參加者伺服器故障、損壞、延誤或資料有訛誤或其他失責情況，NISSAN汽車均無須負任何責任。
+                                    li 對於所發出之贈品在郵寄或運送過程中，所造成的毀壞、延誤、錯遞或遺失，NISSAN汽車概不負責。
+                                    li 活動參與者同意收取由NISSAN汽車發出與該活動有關的電話、電子郵件及手機簡訊。
+                                    li 如有任何爭議，NISSAN汽車保留最終決定權。
+                                    li 主辦單位就本活動保留更換活動及獎項內容、兌換之權利，並有提前終止或延長活動時間最終決定權；如遇颱風、停電、罷工等不可歸責於主辦單位及承辦單位之情事，亦同。本活動相關變動事宜以NISSAN汽車官方網站公告為準。
+                div.form2area(v-if="isform2" key='form2')
+                    h1.logo
+                    div.registry__hd
+                        div.registry__title--form2 成為NISSAN玩咖
+                    div.registry__bd
+                        form(v-on:submit.prevent="SendRegistry").form2
+                            ul
+                                li
+                                    p 驗證碼已發送至
+                                        span {{ phone.substr(0,4)+"***"+phone.substr(7,3) }}
+                                li.refixarea
+                                    button.btn-refix(type="button" v-on:click="refix")
+                                li
+                                    input(type="tel" id="otp" placeholder="請輸入6位數字驗證碼" maxlength="6" v-model="otp")
+                                li
+                                    button.btn-send(type="submit") 輸入完畢
+                                    button.btn-resend(type="button" v-on:click="resendOTP" v-bind:disabled="SMSdisabled < 60" v-bind:class="{ opacity80:SMSdisabled < 60}") 
+                                        span.txt 重新發送驗證碼
+                                        span.second ({{SMSdisabled}}秒)
+                            ul.readmetxt
+                                li
+                                    p 未完成手機驗證，將無法獲得抽獎資格。
+                                li
+                                    p 當您收到簡訊驗證碼後，請務必於10分鐘內完成驗證程序，超過10分鐘後，驗證碼將失效；若未收到簡訊，請按重新發送簡訊。
+                                li
+                                    p 若無法順利完成驗證手續，請洽客服
+                                        span.red 
+                                            a(href="tel:0800-088-888") 0800-088-888
+                                        | 。

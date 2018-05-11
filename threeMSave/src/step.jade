@@ -1,0 +1,128 @@
+﻿//page laytout name
+extends _layout.jade
+
+//page html
+block page_main
+    section.step
+        div.step__hd
+            div.l-container
+                h2.titleStep 我有省水妙招
+                h3.desc 你有超酷的省水妙招嗎？揪好友幫你衝人氣！獎好禮！
+        div.step__bd
+            div.l-container
+                form(id="")
+                    div.upload
+                        div.upload__bd
+                            div.decoItem
+                            div.row.clearfix
+                                div.col.col1
+                                    p.form__title 
+                                        label 暱稱
+                                    div.form__box
+                                        input(type="text" placeholder="請輸入您的暱稱")
+                                div.col.col2
+                                    p.form__title  
+                                        label(for="topic") 省水主題
+                                    div.form__box
+                                        input(id="topic" type="text" placeholder="請填寫你的省水主題")
+                            div.row.clearfix
+                                div.col.col3
+                                    p.form__title 
+                                        label(for="userPost") 我的妙招
+                                    div.form__box
+                                        textarea(id="userPost" rows="5" cols="50")
+                            div.row.clearfix
+                                div.col.col4
+                                    p.form__title 妙招示範
+                                    div.upload__tool.clearfix
+                                        div.upload__box
+                                            //上傳後的圖片
+                                            img.upload__img(alt="")
+                                            //上傳按鈕
+                                            a.upload__btn(href="javascript:") 上傳妙招圖片
+                                            div.upload__widget
+                                                a.option.up(href="javascript") 上
+                                                a.option.right(href="javascript") 右
+                                                a.option.down(href="javascript") 下
+                                                a.option.left(href="javascript") 左
+                                                a.option.rotate(href="javascript") 選轉
+                                            div.upload__logo
+                                        div.upload__func.clearfix
+                                            a.upload__re(href="javascript:") 重新上傳
+                                            div.zoom 
+                                                a.zoom__btn.zoomIn(href="javascript:") 
+                                                a.zoom__btn.zoomOut(href="javascript:") 
+                        div.upload__ft
+                            p.line1 投稿完成後，主辦單位將於3天內完成審核審核成功後將公開在[半桶水省水妙招票選]
+                            p.line2 如有謾罵留言、不雅文字、垃圾訊息、張貼不雅照片等情事，投稿將列為審核失敗並刪除
+                        div.btn-area
+                            div.btn-basic
+                                a(href="javascript:") 下一步
+    section.step.step-data
+        div.decoBottom
+        // step__hd step__bd　填完資料後　更換完step end
+        div.step__hd
+            div.l-container
+                h2.titleData 填寫抽獎資料
+        div.step__bd
+            div.l-container
+                form(id="")
+                    div.data
+                        div.data__hd
+                            div.row.clearfix
+                                div.col.col1
+                                    p.form__title 
+                                        label 收件人
+                                    div.form__box
+                                        input(type="text" placeholder="請填寫獎品收件人姓名")
+                                div.col.col2
+                                    p.form__title 
+                                        label 聯絡手機
+                                    div.form__box
+                                        input(type="text" placeholder="請填寫你的省水主題請填寫你的省水主題主題")
+                            div.row.clearfix
+                                div.col.col3
+                                    p.form__title 
+                                        label Email
+                                    div.form__box
+                                        input(type="text" placeholder="請填寫獎品收件人網址")
+                            div.row.clearfix
+                                div.col.col4
+                                    p.form__title 
+                                        label 聯絡地址
+                                    div.form__box
+                                        input(type="text" placeholder="請填寫聯絡地址")
+                            div.row.clearfix
+                                div.col.col5
+                                    a.checkLaw(href="javascript:") 
+                                        input(type="checkbox")
+                                        |我已閱讀並同意條款說明
+                        div.data__bd
+                            dl.data-law
+                                dt 個人資料保護事項:
+                                dd
+                                    ol
+                                        li 依據個人資料保護法，參加本活動者視為瞭解及同意美商3M台灣子公司本於抽獎活動之需要進行蒐集、處理及利用其個人資料(包括電話、e-mail等資訊。具體項目詳如本活動參與頁面及活動辦法內所列事項。)  參加者如欲閱覽、變更、刪除個資或要求3M台灣停止蒐集、處理及利用個人資料，請通知美商3M台灣子公司要求辦理。
+                                        li 蒐集個人資料公司：美商3M台灣子公司及受其委託從事郵寄、運送、活動舉辦、執行研究調查第之第三人。
+                                        li 蒐集之目的：消費者抽獎活動及3M產品推廣宣傳、行銷、市場調查、研究等。
+                                        li 個人資料之利用者: 本公司、本公司委託機關及執行本活動時之必要相關人員。
+                                        li 相關資料保存期限為自活動參與日至活動結束後2個年（中獎開立扣繳憑單者，依稅法規定年限保存）。
+                                        li 參加本活動者同意3M台灣將其個人資料(包括電話、e-mail等資訊。具體項目詳如本活動參與頁面及活動辦法內所列事項。)使用於與本抽獎活動相關之處理及利用。參加者不同意個資被使用時可通知3M台灣取消使用。
+                                        li 您可以自由選擇是否提供您的個人資料，若您選擇不提供個人資料或提供不完全時，本公司將無法進行必要之處理作業，致無法讓您參加本活動，並將取消您的中獎資格。
+                        div.btn-area
+                            div.btn-basic
+                                a(href="javascript:") 完成
+        div.step__end(style="display:none")
+            p.msg 協助完成！主辦單位將於3天內完成審核
+                br
+                |審核成功後將公開在
+                span 半桶水省水妙招票選
+                br
+                |感謝您的熱心參與！
+            p.alert *如有謾罵留言、不雅文字、垃圾訊息、張貼不雅照片等情事
+                br
+                |本篇投稿將列為審核失敗並刪除
+            div.btn-area
+                div.btn-basic
+                    a(href="javascript:") 返回首頁
+

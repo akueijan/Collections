@@ -1,0 +1,1618 @@
+@charset 'UTF-8';
+
+/* ----- IMPORT -----*/
+
+//1.utils
+@import "utils/_bemify.scss"; 
+    //A set of Sass mixins to write well-structured, maintainable, idiomatic BEM-style .scss source:
+@import "utils/_variables.scss";
+@import "utils/_mixins.scss";
+@import "utils/_grid.scss";
+//sprite scss import 至少要啟用gulp一次
+//@import "_sprite.scss";
+//2.vendors
+//3.base
+@import "base/_reset.scss";
+@import "base/_typography.scss";
+//4.layout
+@import "layout/_layout.scss";
+@import "layout/_nav.scss";
+//5.components
+// @import "components/_load.scss";
+//html 在 load.js 裡
+//6.pages
+//7.themes
+
+/*==============================
+=            common            =
+==============================*/
+@keyframes floating {
+    0%   {transform: translateY(0);}
+    50%  {transform: translateY(10px);}
+    100% {transform: translateY(0);}
+}
+
+[v-cloak] {
+    display: none;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-active {
+    opacity: 0;
+}
+
+._freeze {
+    overflow-y: hidden;
+}
+
+.goTop {
+    background: url(../images/pic-fixed.png) no-repeat center center;
+    background-size: cover;
+    width: vw(265);
+    height: vw(288);
+    position: fixed;
+    top: vw(200);
+    right: vw(-265);
+    z-index: 5;
+    @include respond-to(small) {
+        background: url(../images/mb-pic-fixed.png) no-repeat center center;
+        bottom: mvw(-100);
+        left: 0;
+        top: auto;
+        width: mvw(640);
+        height: mvw(100);
+    } 
+}
+
+.btn {
+    background: #bb1017;
+    color: #fff;
+    display: inline-block;
+    font-size: vw(30);
+    font-weight: bold;
+    vertical-align: middle;
+    width: 100%;
+    height: vw(85);
+    line-height: vw(85);
+    @include respond-to(small) {
+        font-size: mvw(30);
+        height: mvw(85);
+        line-height: mvw(85);
+    }
+    &:hover {
+        color: #fff100;
+    }
+    .icon-little {
+        background: url(../images/pic-sec4-icon-little.png) 0 0 no-repeat;
+        background-size: cover;
+        display: inline-block;
+        margin: vw(-5) 0 0 vw(10);
+        vertical-align: middle;
+        width: vw(29);
+        height: vw(29);
+        @include respond-to(small) {
+            margin: mvw(-10) 0 0 mvw(10);
+            width: mvw(29);
+            height: mvw(29);
+        }
+    }
+}
+
+.btn-more {
+    background: #626262;
+    color: #fff;
+    display: inline-block;
+    font-size: vw(20);
+    text-align: center;
+    line-height: vw(40);
+    width: 100%;
+    height: vw(40);
+    @include respond-to(small) {
+        font-size: mvw(20);
+        line-height: mvw(30);
+        height: mvw(30);
+    }
+    &:hover {
+        color: #fff100;
+    }
+    .listbox-icon {
+        width: vw(22);
+        height: vw(22);
+        display: inline-block;
+        vertical-align: middle;
+        margin: vw(-3) 0 0 vw(10);
+        @include respond-to(small) {
+            width: mvw(16);
+            height: mvw(16);
+            margin: mvw(-3) 0 0 mvw(10);
+        }
+        &--1 {
+            background: url(../images/pic-sec5-icon-little_1.png) 0 0 no-repeat;
+            background-size: cover;
+        }
+        &--2 {
+            background: url(../images/pic-sec5-icon-little_2.png) 0 0 no-repeat;
+            background-size: cover;
+        }
+        &--3 {
+            background: url(../images/pic-sec5-icon-little_3.png) 0 0 no-repeat;
+            background-size: cover;
+        }
+    }
+}
+
+.pc-only {
+    display: block;
+    @include respond-to(small) {
+        display: none;
+    }
+}
+
+.mb-only {
+    display: none;
+    @include respond-to(small) {
+        display: block;
+    }
+}
+
+.popup {
+    background: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99;
+    &__box {
+        border: vw(1) solid #ccc;
+        background: #fff;
+        box-shadow: vw(2) vw(2) vw(5) #ccc;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: vw(-150) 0 0 vw(-200);
+        padding: vw(0) vw(15);
+        width: vw(400);
+        height: vw(300);
+        @include respond-to(small) {
+            border: mvw(1) solid #ccc;
+            box-shadow: mvw(2) mvw(2) mvw(5) #ccc;
+            margin: mvw(-150) 0 0 mvw(-200);
+            padding: mvw(0) mvw(15);
+            width: mvw(400);
+            height: mvw(300);
+        }
+    }
+    &__title {
+        font-size: vw(24);
+        margin: vw(100) auto 0;
+        @include respond-to(small) {
+            font-size: mvw(24);
+            margin: mvw(100) auto 0;
+        }
+    }
+    &__close {
+        position: absolute;
+        top: vw(10);
+        right: vw(10);
+        cursor: pointer;
+        @include respond-to(small) {
+            top: mvw(10);
+            right: mvw(-15);
+        }
+        .nav-btn {
+            background: transparent;
+            >.one {
+                border-radius: vw(5);
+                width: vw(40);
+                height: vw(8);
+                background: #fff;
+                margin: vw(10) auto;
+                backface-visibility: hidden;
+                transition-duration: 0.3s;
+                background: #bb1017;
+                transform: (rotate(45deg) translate(vw(0), vw(7)));
+                @include respond-to(small) {
+                    border-radius: mvw(5);
+                    width: mvw(40);
+                    height: mvw(8);
+                    margin: mvw(10) auto;
+                    transform: (rotate(45deg) translate(mvw(0), mvw(7)));
+                }
+            }
+            >.three {
+                border-radius: vw(5);
+                width: vw(40);
+                height: vw(8);
+                background: #fff;
+                margin: vw(10) auto;
+                backface-visibility: hidden;
+                transition-duration: 0.3s;
+                background: #bb1017;
+                transform: (rotate(-45deg) translate(vw(6), vw(-13)));
+                @include respond-to(small) {
+                    border-radius: mvw(5);
+                    width: mvw(40);
+                    height: mvw(8);
+                    margin: mvw(10) auto;
+                    transform: (rotate(-45deg) translate(mvw(6), mvw(-13)));
+                }
+            }
+        }
+    }
+    .btnarea {
+        text-align: center;
+        margin: vw(40) auto 0;
+        @include respond-to(small) {
+            margin: mvw(40) auto 0;
+        }
+        .btn {
+            display: inline-block;
+            font-size: vw(20);
+            margin: 0 vw(10) 0 0;
+            width: 48%;
+            height: vw(50);
+            line-height: vw(50);
+            @include respond-to(small) {
+                font-size: mvw(20);
+                margin: 0 mvw(10) 0 0;
+                height: mvw(50);
+                line-height: mvw(50);
+            }
+            &:nth-last-child(1) {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.no-background {
+    background: none !important;
+}
+/*=====  End of common  ======*/
+
+/*==============================
+=            layout            =
+==============================*/
+
+.l-container {
+    width: vw(1280);
+    margin: 0 auto;
+    @include respond-to(small) {
+        width: mvw(580);
+    }
+}
+
+.nav {
+    background: #fff;
+    &-menu {
+        text-align: center;
+        ul {
+            display: inline-block;
+            margin-left: vw(-20);
+            @include respond-to(small) {
+                margin-left: 0;
+                margin: mvw(50) auto 0;
+                width: 80%;
+            }
+            li {
+                margin: 0 vw(20) 0;
+                // height: $nav_height;
+                // line-height: $nav_height;
+                @include respond-to(small) {
+                    //border-bottom: 1px solid #bb1017;
+                    margin: 0;
+                    padding: mvw(30) 0;
+                }
+                &:nth-last-child(1) {
+                    a {
+                        border: 0;
+                    }
+                }
+                a {
+                    border-right: 1px solid #000;
+                    color: #000000;
+                    font-size: vw(22);
+                    font-weight: bold;
+                    margin: vw(20) 0 0 0;
+                    padding: 0 vw(40) 0 0;
+                    vertical-align: top;
+                    height: auto;
+                    line-height: normal;
+                    @include respond-to(small) {
+                        border: 0;
+                        font-size: mvw(24);
+                    }
+                    &:hover {
+                        color: #bb1017;
+                    }
+                }
+            }
+        }
+        @include respond-to(small) {
+
+        }
+    }
+    // &-active {
+    //     text-align: center;
+    //     border-top: 2px solid red;
+    // }
+}
+
+.l-footer {
+    background: $color-red;
+    color: #fff;
+    font-size: vw(16);
+    position: relative;
+    @include respond-to(small) {
+        font-size: mvw(16);
+    }
+    p {
+        font-size: vw(20);
+        padding: 0 0 0 vw(50);
+        @include respond-to(small) {
+            font-size: mvw(14);
+            padding: 0 0 0 mvw(12);
+        }
+    }
+    .footer__logo {
+        background: url(../images/footer-logo.png) no-repeat center top;
+        background-size: cover;
+        cursor: default;
+        position: absolute;
+        width: vw(240);
+        height: vw(70);
+        right: 0;
+        top: 0;
+        @include respond-to(small) {
+            width: mvw(140);
+            height: mvw(40);
+        }
+    }
+}
+
+.nav {
+    position: absolute;
+    width: 100%;
+    z-index: 9;
+    &-logo {
+        margin-left: vw(40);
+        a {
+            background: url(../images/logo.png) no-repeat left center;
+            background-size: 100% auto;
+            width: vw(160);
+            cursor: auto;
+            @extend .hideText;
+            @include respond-to(small) {
+                width: mvw(253);
+                background: url(../images/logo.png) no-repeat left center;
+                background-size: auto mvw(47);
+            } 
+        }
+    }
+    .l-container {
+    }
+}
+
+/*=====  End of layout  ======*/
+
+body {
+    background: #f8f8f8;
+    font-size: vw(20);
+}
+
+.index {
+    .kv {
+        background: url(../images/bg-kv.png) 0 0 no-repeat;
+        background-size: 100% 100%;
+        height: 100vh;
+        position: relative;
+        @include respond-to(small) {
+            background: url(../images/mb-bg-kv.png) 0 bottom no-repeat;
+            background-size: cover;
+        }
+        &__book {
+            background: url(../images/pic-kv-book.png) 0 0 no-repeat;
+            background-size: cover;
+            width: vw(1453);
+            height: vw(938);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin-left: vw(-726);
+            opacity: 0;
+            @extend .hideText;
+            @include respond-to(small) {
+                background: url(../images/mb-pic-kv-book.png) 0 0 no-repeat;
+                background-size: cover;
+                width: mvw(640);
+                height: mvw(660);
+                margin-left: mvw(-320);
+            }
+        }
+        &__slogn {
+            background: url(../images/pic-kv-slogn.png) 0 0 no-repeat;
+            background-size: cover;
+            width: vw(829);
+            height: vw(489);
+            position: absolute;
+            bottom: vw(100); //old 240
+            left: 50%;
+            margin-left: vw(-414);
+            opacity: 0;
+            @extend .hideText;
+            @include respond-to(small) {
+                background: url(../images/mb-pic-kv-slogn.png) 0 0 no-repeat;
+                background-size: cover;
+                width: mvw(531);
+                height: mvw(313);
+                bottom: mvw(260);
+                left: 50%;
+                margin:0 0 0 mvw(-265);
+            }
+        }
+        &__peo1 {
+            background: url(../images/pic-kv-peo_1.png) 0 0 no-repeat;
+            background-size: cover;
+            width: vw(513);
+            height: vw(475);
+            position: absolute; 
+            bottom: vw(260);
+            left: vw(520); //100
+            opacity: 0;
+            @extend .hideText;
+            @include respond-to(small) {
+                background: url(../images/mb-pic-kv-peo_1.png) 0 0 no-repeat;
+                background-size: cover;
+                width: mvw(270);
+                height: mvw(304);
+                bottom: mvw(600);
+                left: mvw(80);
+            }
+        }
+        &__peo2 {
+            background: url(../images/pic-kv-peo_2.png) 0 0 no-repeat;
+            background-size: cover;
+            width: vw(445);
+            height: vw(495);
+            position: absolute; 
+            bottom: vw(260);
+            left: vw(925); //1325
+            opacity: 0;
+            @extend .hideText;
+            @include respond-to(small) {
+                background: url(../images/mb-pic-kv-peo_2.png) 0 0 no-repeat;
+                background-size: cover;
+                width: mvw(257);
+                height: mvw(312);
+                bottom: mvw(600);
+                left: mvw(320);
+            }
+        }
+        &__other {
+            background: url(../images/pic-kv-other.png) 0 0 no-repeat;
+            background-size: cover;
+            width: vw(184);
+            height: vw(184);
+            position: absolute; 
+            bottom: 0;
+            right: 0;
+            @extend .hideText;
+            @include respond-to(small) {
+                width: mvw(184);
+                height: mvw(184);
+            }
+        }
+        &__more {
+            animation: floating linear 2s infinite;
+            background: url(../images/pic-kv-more.png) 0 0 no-repeat;
+            background-size: cover;
+            cursor: pointer;
+            width: vw(99);
+            height: vw(63);
+            position: absolute;
+            bottom: vw(20);
+            left: 50%;
+            margin-left: vw(-50);
+            @extend .hideText;
+            @include respond-to(small) {
+                width: mvw(99);
+                height: mvw(63);
+                bottom: mvw(100);
+                margin-left: mvw(-50);
+            }
+        }
+    }
+    .sec2 {
+        background: #ffffff;
+        height: vw(2435);
+        position: relative;
+        padding: vw(120) 0 0 0;
+        @include respond-to(small) {
+            height: mvw(2400);
+            padding: mvw(80) 0 0 0;
+        } 
+        .title {
+            background: url(../images/pic-sec2-title_1.png) center center no-repeat;
+            background-size: auto 100%;
+            height: vw(64);
+            @extend .hideText;
+            @include respond-to(small) {
+                height: mvw(48);
+            }
+        }
+        .bd-box {
+            height: vw(650);
+            position: relative;
+            width: vw(1600); 
+            margin: vw(100) auto 0;
+            @include respond-to(small) {
+                width: mvw(500);
+                height: mvw(750);
+                margin: mvw(50) auto 0;
+            }
+            .bd-txt {
+                position: absolute; 
+                @include respond-to(small) {
+                    position: relative;
+                    width: 100%;
+                    text-align: center;
+                }
+                h3 {
+                    padding: 0 0 0 vw(15); 
+                    font-size: vw(36);
+                    @include respond-to(small) {
+                        padding: 0 0 0 mvw(15); 
+                        font-size: mvw(36);
+                        display: inline-block;
+                    }
+                }
+                .title--1 {
+                    border-left: vw(10) solid #c1e5d2;
+                    @include respond-to(small) {
+                        border-left: mvw(10) solid #c1e5d2;
+                    }
+                }
+                .title--2 {
+                    border-left: vw(10) solid #fff2ab;
+                    @include respond-to(small) {
+                        border-left: mvw(10) solid #fff2ab;
+                    }
+                }
+                .title--3 {
+                    border-left: vw(10) solid #ffdde4;
+                    @include respond-to(small) {
+                        border-left: mvw(10) solid #ffdde4;
+                    }
+                }
+                p {
+                    line-height: 2;
+                    margin: vw(20) 0 0 0;
+                    padding: 0 0 vw(20) 0;
+                    font-size: 1vw;
+                    width: vw(460);
+                    @include respond-to(small) {
+                        margin: mvw(20) auto 0;
+                        padding: 0 0 mvw(20) 0;
+                        font-size: mvw(22);
+                        width: mvw(455);
+                        text-align: left;
+                    }
+                }
+                &--1 {
+                    border-bottom: 1px solid #c1e5d2;
+                    top: vw(100);
+                    left: vw(130);
+                    opacity: 0;
+                    @include respond-to(small) {
+                        border: 0;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+                &--2 {
+                    border-bottom: 1px solid #fff2ab;
+                    top: vw(100);
+                    left: vw(1130);
+                    opacity: 0;
+                    @include respond-to(small) {
+                        border: 0;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+                &--3 {
+                    border-bottom: 1px solid #ffdde4;
+                    top: vw(100);
+                    left: vw(130);
+                    opacity: 0;
+                    @include respond-to(small) {
+                        border: 0;
+                        top: mvw(-90);
+                        left: 0;
+                    }
+                }
+            }
+            .bd-pic--1 {
+                background: url(../images/pic-sec2-block_1.png) 0 0 no-repeat;
+                background-size: cover;
+                width: vw(997);
+                height: vw(620);
+                position: absolute;
+                left: vw(520);
+                opacity: 0;
+                @include respond-to(small) {
+                    width: mvw(486);
+                    height: mvw(302);
+                    left: 0;
+                    top: mvw(420);
+                    &:after {
+                        content: " ";
+                        background: #c1e5d2;
+                        display: block;
+                        width: 100%;
+                        height: mvw(2);
+                        margin: mvw(340) 0 0 0;
+                    }
+                }
+            }
+            .bd-pic--2 {
+                background: url(../images/pic-sec2-block_2.png) 0 0 no-repeat;
+                background-size: cover;
+                width: vw(977);
+                height: vw(620);
+                position: absolute;
+                left: vw(30);
+                opacity: 0;
+                @include respond-to(small) {
+                    width: mvw(486);
+                    height: mvw(302);
+                    left: 0;
+                    top: mvw(320);
+                    &:after {
+                        content: " ";
+                        background: #fff2ab;
+                        display: block;
+                        width: 100%;
+                        height: mvw(2);
+                        margin: mvw(340) 0 0 0;
+                    }
+                }
+            }
+            .bd-pic--3 {
+                background: url(../images/pic-sec2-block_3.png) 0 0 no-repeat;
+                background-size: cover;
+                width: vw(997);
+                height: vw(630);
+                position: absolute;
+                left: vw(520);
+                opacity: 0;
+                @include respond-to(small) {
+                    width: mvw(486);
+                    height: mvw(302);
+                    left: 0;
+                    top: mvw(300);
+                    &:after {
+                        content: " ";
+                        background: #ffdde4;
+                        display: block;
+                        width: 100%;
+                        height: mvw(2);
+                        margin: mvw(340) 0 0 0;
+                    }
+                }
+            }
+        }
+    }
+    .sec3 {
+        background: #e5e5e5;
+        position: relative;
+        padding: vw(120) 0 vw(270) 0;
+        opacity: 0;
+        @include respond-to(small) {
+            padding: mvw(75) 0 mvw(150) 0;
+        }
+        .title {
+            background: url(../images/pic-sec3-title_1.png) center center no-repeat;
+            background-size: auto 100%;
+            height: vw(64);
+            @extend .hideText;
+            @include respond-to(small) {
+                height: mvw(48);
+            }
+        }
+        .video {
+            background: #fff;
+            margin: vw(100) 0 0 0;
+            width: vw(1280);
+            height: vw(720);
+            // display: none;
+            @include respond-to(small) {
+                margin: mvw(50) auto 0;
+                width: mvw(460);
+                height: mvw(260);
+            }
+        }
+        .bd {
+            margin: vw(40) 0 0 0;
+            @include respond-to(small) {
+                margin: mvw(40) 0 0 0;
+            }
+            &-box {
+                &-left {
+                    float: left;
+                    width: vw(620);
+                    @include respond-to(small) {
+                        float: none;
+                        width: mvw(460);
+                        margin: 0 auto;
+                    }
+                }
+                &-right {
+                    float: right;
+                    width: vw(620);
+                    @include respond-to(small) {
+                        float: none;
+                        width: mvw(460);
+                        margin: mvw(50) auto 0;
+                    }
+                }
+                &-pic {
+                    background-color: #fff;
+                    background: url(../images/pic-sec3-peo_1.png) center top no-repeat;
+                    background-size: cover;
+                    height: vw(603);
+                    @include respond-to(small) {
+                        background: url(../images/mb-pic-sec3-peo_1.png) center top no-repeat;
+                        background-size: cover;
+                        background-color: #fff;
+                        height: mvw(320);
+                    }
+                    &--2 {
+                        background: url(../images/pic-sec3-peo_2.png) center top no-repeat;
+                        background-size: cover;
+                        height: vw(604);
+                        @include respond-to(small) {
+                            background: url(../images/mb-pic-sec3-peo_2.png) center top no-repeat;
+                            background-size: cover;
+                            background-color: #fff;
+                            height: mvw(320);
+                        }
+                    }
+                }
+                &-content {
+                    background: url(../images/pic-sec3-talk.png) center top no-repeat;
+                    background-size: cover;
+                    float: left;
+                    width: vw(621);
+                    height: vw(563);
+                    margin: vw(10) 0 0 0;
+                    padding: vw(100) 0 0 0;
+                    @include respond-to(small) {
+                        float: none;
+                        width: mvw(460);
+                        height: mvw(500);
+                        margin: mvw(10) 0 0 0;
+                        padding: mvw(80) 0 0 0;
+                    }
+                    &--2 {
+                        float: right;
+                        @include respond-to(small) {
+                            float: none;
+                        }
+                    }
+                    .txt-title {
+                        background: url(../images/pic-sec3-title_2.png) center top no-repeat;
+                        background-size: auto 100%;
+                        height: vw(63);
+                        @extend .hideText;
+                        @include respond-to(small) {
+                            height: mvw(63);
+                        }
+                        &--2 {
+                            background: url(../images/pic-sec3-title_3.png) center top no-repeat;
+                            background-size: auto 100%;
+                        }
+                    }
+                    .txt {
+                        font-size: vw(24);
+                        margin: vw(40) auto 0 ;
+                        line-height: 2;
+                        width: vw(480);
+                        @include respond-to(small) {
+                            font-size: mvw(22);
+                            margin: mvw(20) auto 0 ;
+                            line-height: 2;
+                            width: mvw(380);
+                        }
+                    }
+                    a {
+                        float: right;
+                        color: #b30718;
+                        font-size: vw(24);
+                        font-weight: bold;
+                        &:hover {
+                            color: #000;
+                        }
+                        @include respond-to(small) {
+                            font-size: mvw(22);
+                        }
+                    }
+                }
+            }
+        }
+        &::after {
+            content: " ";
+            background: url(../images/pic-mod_1.png) 0 0 no-repeat;
+            background-size: cover;
+            display: block;
+            width: vw(1920);
+            height: vw(220);
+            position: absolute;
+            bottom: 0;
+            @include respond-to(small) {
+                width: mvw(640);
+                height: mvw(120);
+            }
+        }
+    }
+    .sec4 {
+        background: #f8f8f8;
+        position: relative;
+        opacity: 0;
+        @include respond-to(small) {
+            padding: mvw(40) 0 0 0;
+        }
+        .title {
+            background: url(../images/pic-sec4-title_1.png) center center no-repeat;
+            background-size: auto 100%;
+            height: vw(64);
+            @extend .hideText;
+            @include respond-to(small) {
+                height: mvw(48);
+            }
+        }
+        &__kv {
+            background: url(../images/pic-sec4-kv.jpg) 0 0 no-repeat;
+            background-size: cover;
+            width: vw(911);
+            height: vw(562);
+            margin: vw(30) auto vw(20);
+            display: none;
+        }
+        .bd {
+            margin: vw(80) auto 0;
+            @include respond-to(small) {
+                margin: mvw(40) auto 0;
+            }
+        }
+        .tab {
+            width: 100%;
+            tr {
+                &:nth-child(even) {
+                    background: #eeeeee;
+                }
+            }
+            .color-pink1 {
+                background: #ffeef2;
+            }
+            .color-pink2 {
+                background: #ffdde4;
+            }
+            td {
+                border-right: vw(3) solid #fff;
+                font-size: vw(16);
+                text-align: center;
+                line-height: 2;
+                //height: vw(100);
+                padding: vw(20) 0;
+                vertical-align: middle;
+                @include respond-to(small) {
+                    border-right: mvw(2) solid #fff;
+                    font-size: mvw(20);
+                    padding: mvw(20) mvw(5);
+                }
+                &:nth-child(1) {
+                    font-size: vw(24);
+                    font-weight: bold;
+                    width: vw(280);
+                    @include respond-to(small) {
+                        font-size: mvw(24);
+                        width: mvw(180);
+                    }
+                }
+                &:nth-child(2) {
+                    box-sizing: border-box;
+                    padding: vw(10) vw(50);
+                    width: vw(500);
+                    @include respond-to(small) {
+                        padding: mvw(10) mvw(30);
+                        width: mvw(200);
+                    }
+                }
+                &:nth-child(3) {
+                    border: 0;
+                    padding: vw(10) vw(50);
+                    width: vw(500);
+                    @include respond-to(small) {
+                        padding: mvw(10) mvw(30);
+                        width: mvw(200);
+                    }
+                }
+                p {
+                    font-size: vw(22);
+                    @include respond-to(small) {
+                        font-size: mvw(20);
+                    }
+                }
+                .ps {
+                    font-size: vw(16);
+                    margin: vw(20) 0 0 0;
+                    line-height: 1.5;
+                    @include respond-to(small) {
+                        font-size: mvw(18);
+                        margin: mvw(20) 0 0 0;
+                    }
+                }
+                .font24 {
+                    font-size: vw(24);
+                    font-weight: bold;
+                    @include respond-to(small) {
+                        font-size: mvw(24);
+                    }
+                }
+                .red {
+                    color: #bd2b30;
+                }
+            }
+            .icon-1 {
+                background: url(../images/pic-sec4-icon_1.png) 0 0 no-repeat;
+                background-size: cover;
+                margin: 0 auto;
+                width: vw(93);
+                height: vw(140);
+                @include respond-to(small) {
+                    background-size: auto 100%;
+                    width: mvw(60);
+                    height: mvw(86);
+                }
+            }
+            .icon-2 {
+                background: url(../images/pic-sec4-icon_2.png) 0 0 no-repeat;
+                background-size: cover;
+                margin: 0 auto;
+                width: vw(98);
+                height: vw(141);
+                @include respond-to(small) {
+                    background-size: auto 100%;
+                    width: mvw(60);
+                    height: mvw(86);
+                }
+            }
+            .icon-3 {
+                background: url(../images/pic-sec4-icon_3.png) 0 0 no-repeat;
+                background-size: cover;
+                margin: 0 auto;
+                width: vw(98);
+                height: vw(141);
+                @include respond-to(small) {
+                    background-size: auto 100%;
+                    width: mvw(60);
+                    height: mvw(86);
+                }
+            }
+        }
+        .psarea {
+            padding: vw(10) 0;
+            @include respond-to(small) {
+                padding: mvw(10) 0;
+            }
+            .icon_ps {
+                background: url(../images/icon-ps.png) 0 0 no-repeat;
+                background-size: cover;
+                display: inline-block;
+                width: vw(44);
+                height: vw(44);
+                float: left;
+                margin: vw(5) vw(10) 0 0;
+                @include respond-to(small) {
+                    background-size: cover;
+                    width: mvw(60);
+                    height: mvw(60);
+                    margin: mvw(5) mvw(10) 0 0;
+                }
+            }
+            p {
+                font-size: vw(20);
+                line-height: 1.5;
+                @include respond-to(small) {
+                    font-size: mvw(20);
+                }
+            }
+            .ps {
+                font-size: vw(16);
+                @include respond-to(small) {
+                    font-size: mvw(16);
+                }
+            }
+        }
+        .morearea {
+            margin: vw(10) 0 0 0;
+            text-align: right;
+            @include respond-to(small) {
+                margin: mvw(10) 0 0 0;
+            }
+            .more {
+                border-bottom: 1px solid #bb2128;
+                color: #000;
+                font-size: vw(20);
+                padding: 0 0 vw(10) 0;
+                @include respond-to(small) {
+                    font-size: mvw(20);
+                    padding: 0 0 mvw(10) 0;
+                }
+                &:hover {
+                    color: #bb2128;
+                }
+            }
+            .red {
+                color: #bb2128;
+            }
+        }
+        .btnarea {
+            text-align: center;
+            margin: vw(40) auto 0;
+            width: vw(410);
+            @include respond-to(small) {
+                margin: mvw(60) auto 0;
+                width: mvw(410);
+            }
+        }
+        .tick {
+            margin: vw(40) 0 0 0;
+            text-align: center;
+            @include respond-to(small) {
+                margin: mvw(40) 0 0 0;
+            }
+            h3 {
+                border-bottom: 1px solid #bb1017;
+                color: #000;
+                font-size: vw(22);
+                text-align: center;
+                padding: 0 0 vw(10) 0;
+                width: vw(400);
+                margin: 0 auto;
+                @include respond-to(small) {
+                    font-size: mvw(20);
+                    font-weight: bold;
+                    padding: 0 0 mvw(10) 0;
+                    width: mvw(360);
+                }
+            }
+            p {
+                color: #707070;
+                font-size: vw(22);
+                line-height: 2;
+                margin: vw(15) 0;
+                @include respond-to(small) {
+                    font-size: mvw(18);
+                    margin: mvw(15) 0;
+                    line-height: 1.5;
+                }
+            }
+        }
+        &:after {
+            content: "";
+            background: url(../images/pic-mod_2.png) 0 0 no-repeat;
+            background-size: cover;
+            display: block;
+            width: vw(1920);
+            height: vw(171);
+            @include respond-to(small) {
+                width: mvw(640);
+                height: mvw(60);
+            }
+        }
+    }
+    .sec5 {
+        background: #ffffff;
+        position: relative;
+        padding: vw(50) 0;
+        opacity: 0;
+        @include respond-to(small) {
+            padding: mvw(50) 0 0 0;
+        }
+        .title {
+            background: url(../images/pic-sec5-title_1.png) center center no-repeat;
+            background-size: auto 100%;
+            height: vw(64);
+            @extend .hideText;
+            @include respond-to(small) {
+                background-size: auto 100%;
+                // width: mvw(456);
+                height: mvw(35);
+            }
+        }
+        .bd {
+            padding: vw(50) 0 0 0;
+            @include respond-to(small) {
+                padding: mvw(20) 0 0 0;
+            }
+        }
+        .block {
+            border: vw(4) solid #000;
+            border-radius: vw(10);
+            box-sizing: border-box;
+            margin: vw(100) 0 0 0;
+            position: relative;
+            padding: vw(45) vw(30);
+            @include respond-to(small) {
+                border: mvw(4) solid #000;
+                border-radius: mvw(10);
+                margin: mvw(40) 0 mvw(80) 0;
+                position: relative;
+                padding: mvw(45) mvw(30);
+            }
+            .title {
+                width: vw(613);
+                height: vw(90);
+                position: absolute;
+                top: vw(-45);
+                left: 50%;
+                margin-left: vw(-306);
+                @include respond-to(small) {
+                    width: mvw(460);
+                    height: mvw(64);
+                    top: mvw(-32);
+                    margin-left: mvw(-230);
+                }
+            }
+            h3 {
+                text-align: center;
+                font-size: vw(30);
+                font-weight: bold;
+                margin: vw(40) 0;
+                @include respond-to(small) {
+                    font-size: mvw(24);
+                    margin: mvw(20) auto;
+                    width: mvw(380);
+                    line-height: 1.5;
+                }
+            }
+            .listbox {
+                background: url(../images/bg-sec5-lightbox.png) 0 0 repeat;
+                box-sizing: border-box;
+                float: left;
+                text-align: center;
+                margin: vw(10);
+                padding: 0 vw(15);
+                width: vw(380);
+                height: vw(220);
+                position: relative;
+                @include respond-to(small) {
+                    margin: mvw(10);
+                    padding: mvw(0) mvw(15);
+                    width: mvw(236);
+                    height: mvw(130);
+                }
+                &-title {
+                    display: inline-block;
+                    text-align: center;
+                    line-height: 1.5;
+                    font-size: vw(30);
+                    font-weight: bold;
+                    padding: 0 0 0 vw(10);
+                    margin: vw(40) 0 0 0;
+                    @include respond-to(small) {
+                        font-size: mvw(20);
+                        line-height: 1.2;
+                        padding: 0 0 0 mvw(10);
+                        margin: mvw(30) 0 0 0;
+                    }
+                    &:before {
+                        content: "";
+                        background: #000;
+                        height: vw(35);
+                        width: vw(10);
+                        display: inline-block;
+                        vertical-align: text-bottom;
+                        margin: 0 vw(15) 0 0;
+                        @include respond-to(small) {
+                            height: mvw(25);
+                            width: mvw(10);
+                            margin: 0 mvw(5) 0 0;
+                        }
+                    }
+                }
+                .btnarea {
+                    width: vw(220);
+                    position: absolute;
+                    bottom: vw(20);
+                    left: 50%;
+                    margin-left: vw(-110);
+                    @include respond-to(small) {
+                        width: mvw(145);
+                        margin-left: mvw(-74);
+                        bottom: mvw(10);
+                    }
+                }
+            }
+            &--1 {
+                border: 4px solid #c7e2d3;
+                .title {
+                    background: url(../images/pic-sec5-title_2.png) 0 0 no-repeat;
+                    background-size: cover;
+                }
+                .listbox-title {
+                    &:before {
+                        background: #c7e2d3;
+                    }
+                }
+            }
+            &--2 {
+                border: 4px solid #fff2ab;
+                .title {
+                    background: url(../images/pic-sec5-title_3.png) 0 0 no-repeat;
+                    background-size: cover;
+                }
+                .listbox-title {
+                    &:before {
+                        background: #fff2ab;
+                    }
+                }
+            }
+            &--3 {
+                border: 4px solid #fbe2e7;
+                .title {
+                    background: url(../images/pic-sec5-title_4.png) 0 0 no-repeat;
+                    background-size: cover;
+                }
+                .listbox-title {
+                    &:before {
+                        background: #fbe2e7;
+                    }
+                }
+            }
+            .btn_area {
+                margin: vw(40) auto 0;
+                text-align: center;
+                @include respond-to(small) {
+                    margin: mvw(30) auto 0;
+                }
+            }
+            .btn_box {
+                width: vw(300);
+                margin: 0 auto;
+                @include respond-to(small) {
+                    width: mvw(200);
+                }
+                .btn {
+                    height: vw(60);
+                    line-height: vw(60);
+                    @include respond-to(small) {
+                        height: mvw(50);
+                        line-height: mvw(50);
+                    }
+                }
+            }
+        }
+    }
+    .sec6 {
+        background: #f8f8f8;
+        position: relative;
+        padding: vw(50) 0 vw(500) 0;
+        opacity: 0;
+        @include respond-to(small) {
+            padding: mvw(50) 0 mvw(100) 0;
+        }
+        .bd {
+            padding: vw(100) 0 0 0;
+            @include respond-to(small) {
+                padding: mvw(50) 0 0 0;
+            }
+        }
+        .title {
+            background: url(../images/pic-sec6-title_1.png) center center no-repeat;
+            background-size: auto 100%;
+            height: vw(64);
+            @extend .hideText;
+            @include respond-to(small) {
+                height: mvw(48);
+            }
+            &--1 {
+                background: url(../images/pic-sec6-title_2.png) center center no-repeat;
+                background-size: auto 100%;
+                width: vw(341);
+                height: vw(104);
+                position: absolute;
+                top: vw(-52);
+                left: 50%;
+                margin-left: vw(-171);
+                @include respond-to(small) {
+                    width: mvw(341);
+                    height: mvw(104);
+                    top: mvw(-52);
+                    left: 50%;
+                    margin-left: mvw(-171);
+                }
+            }
+            &--2 {
+                background: url(../images/pic-sec6-title_3.png) center center no-repeat;
+                background-size: auto 100%;
+                width: vw(342);
+                height: vw(95);
+                position: absolute;
+                top: vw(-47);
+                left: 50%;
+                margin-left: vw(-171);
+                @include respond-to(small) {
+                    width: mvw(342);
+                    height: mvw(95);
+                    top: mvw(-47);
+                    margin-left: mvw(-171);
+                }
+            }
+            &--3 {
+                background: url(../images/pic-sec6-title_4.png) center center no-repeat;
+                background-size: auto 100%;
+                width: vw(341);
+                height: vw(95);
+                position: absolute;
+                top: vw(-47);
+                left: 50%;
+                margin-left: vw(-171);
+                @include respond-to(small) {
+                    width: mvw(341);
+                    height: mvw(95);
+                    top: mvw(-47);
+                    margin-left: mvw(-171);
+                }
+            }
+        }
+        .listbox {
+            background: url(../images/bg-sec5-lightbox.png) 0 0 repeat;
+            border: vw(5) solid #bb1017;
+            border-radius: vw(10);
+            box-sizing: border-box;
+            float: left;
+            text-align: center;
+            margin: vw(10) vw(25) vw(10) 0; 
+            padding: vw(50) vw(20) vw(20);
+            width: vw(410);
+            position: relative;
+            @include respond-to(small) {
+                border: mvw(5) solid #bb1017;
+                border-radius: mvw(10);
+                float: none;
+                width: mvw(400);
+                margin: mvw(30) auto mvw(80);
+                padding: mvw(50) mvw(20) mvw(20);
+            }
+            &:nth-last-child(1) {
+                margin-right: 0;
+                @include respond-to(small) {
+                    margin: mvw(30) auto;
+                }
+            }
+            .picbox {
+                margin: 0 auto;
+                width: vw(240);
+                height: vw(175);
+                position: relative;
+                @include respond-to(small) {
+                    width: mvw(355);
+                    height: mvw(175);
+                    margin: mvw(10) auto 0;
+                }
+            }
+            .sec6-pic--1 {
+                background: url(../images/pic-sec6-pic_1.png) 0 0 no-repeat;
+                background-size: cover;
+                width: vw(87);
+                height: vw(154);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin: vw(-77) 0 0 vw(-43);
+                @include respond-to(small) {
+                    width: mvw(87);
+                    height: mvw(154);
+                    margin: mvw(-77) 0 0 mvw(-43);
+                }
+            }
+            .sec6-pic--2 {
+                background: url(../images/pic-sec6-pic_2.png) 0 0 no-repeat;
+                background-size: cover;
+                width: vw(117);
+                height: vw(118);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin: vw(-59) 0 0 vw(-58); 
+                @include respond-to(small) {
+                    width: mvw(117);
+                    height: mvw(118);
+                    margin: mvw(-59) 0 0 mvw(-58);
+                }
+            }
+            .sec6-pic--3 {
+                background: url(../images/pic-sec6-pic_3.png) 0 0 no-repeat;
+                background-size: cover;
+                width: vw(107);
+                height: vw(135);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin: vw(-67) 0 0 vw(-53); 
+                @include respond-to(small) {
+                    width: mvw(107);
+                    height: mvw(135);
+                    margin: mvw(-67) 0 0 mvw(-53);
+                }
+            }
+            p {
+                font-size: vw(18);
+                font-weight: bold;
+                line-height: 2;
+                @include respond-to(small) {
+                    font-size: mvw(20);
+                    line-height: 2;
+                }
+            }
+            .btnarea {
+                margin: vw(10) 0 0 0;
+                @include respond-to(small) {
+                    margin: mvw(18) 0 0 0;
+                }
+                .btn {
+                    height: vw(70);
+                    line-height: vw(70);
+                    @include respond-to(small) {
+                        height: mvw(70);
+                        line-height: mvw(70);
+                    }
+                }
+            }
+        }
+        .dlarea {
+            margin: vw(50) 0 0 0;
+            padding: 0;
+            @include respond-to(small) {
+                margin: 0;
+            }
+            .listbox {
+                width: 100%;
+                @include respond-to(small) {
+                    width: mvw(400);
+                    margin: mvw(60) auto 0;
+                }
+            }
+            .title {
+                background: url(../images/pic-sec6-title_5.png) center center no-repeat;
+                background-size: auto 100%;
+                width: vw(342);
+                height: vw(94);
+                margin: vw(-47) 0 0 vw(-171);
+                position: absolute;
+                left: 50%;
+                top: 0;
+                @include respond-to(small) {
+                    background: url(../images/mb-pic-sec6-title_5.png) center center no-repeat;
+                    background-size: auto 100%;
+                    width: mvw(342);
+                    height: mvw(94);
+                    margin: mvw(-47) 0 0 mvw(-171);
+                }
+            }
+            .outlinkbox {
+                width: vw(1000);
+                margin: vw(20) auto;
+                @include respond-to(small) {
+                    width: mvw(330);
+                    margin: 0 auto;
+                }
+            }
+            .outlink {
+                float: left;
+                text-align: center;
+                vertical-align: middle;
+                margin-right: vw(50);
+                height: vw(250);
+                position: relative;
+                @include respond-to(small) {
+                    float: none;
+                    margin: mvw(40) auto;
+                    height: auto;
+                }
+                &:nth-last-child(1) {
+                    margin-right: 0;
+                    @include respond-to(small) {
+                        margin: mvw(40) auto;
+                    }
+                }
+            }
+            .qrcode {
+                background: url(../images/pic-sec6-qrcode.png) 0 0 no-repeat;
+                background-size: cover;
+                width: vw(211);
+                height: vw(211);
+                @include respond-to(small) {
+                    margin: 0 auto;
+                    width: mvw(211);
+                    height: mvw(211);
+                }
+            }
+            .icon-ios {
+                background: url(../images/icon-ios.png) 0 0 no-repeat;
+                background-size: cover;
+                display: inline-block;
+                width: vw(338);
+                height: vw(99);
+                margin-top: vw(65);
+                @include respond-to(small) {
+                    width: mvw(338);
+                    height: mvw(99);
+                    margin-top: mvw(0);
+                }
+            }
+            .icon-google {
+                background: url(../images/icon-google.png) 0 0 no-repeat;
+                background-size: cover;
+                display: inline-block;
+                width: vw(338);
+                height: vw(99);
+                margin-top: vw(65);
+                @include respond-to(small) {
+                    width: mvw(338);
+                    height: mvw(99);
+                    margin-top: vw(0);
+                }
+            }
+        }
+    }
+    .sec7 {
+        background: url(../images/pic-sec7-bg.png) 0 0 repeat-y;
+        border-top: vw(4) solid #bb1017;
+        position: relative;
+        padding: vw(100) 0;
+        opacity: 0;
+        @include respond-to(small) {
+            border-top: mvw(4) solid #bb1017;
+            padding: mvw(80) 0;
+        }
+        .title {
+            border-bottom: vw(2) solid #bb1017;
+            color: #bb1017;
+            text-align: center;
+            font-size: vw(36);
+            font-weight: bold;
+            margin: 0 auto;
+            padding: 0 0 vw(10) 0;
+            width: vw(220);
+            @include respond-to(small) {
+                border-bottom: mvw(2) solid #bb1017;
+                font-size: mvw(36);
+                padding: 0 0 mvw(10) 0;
+                width: mvw(220);
+            }
+        }
+        .bd {
+            margin: vw(70) 0 0 0;
+            @include respond-to(small) {
+                margin: mvw(40) 0 0 0;
+                padding: 0 mvw(40);
+            }
+            p {
+                font-size: vw(16);
+                font-weight: bold;
+                line-height: 2;
+                @include respond-to(small) {
+                    font-size: mvw(20);
+                }
+            }
+        }
+    }
+}

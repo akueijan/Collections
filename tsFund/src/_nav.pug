@@ -1,0 +1,21 @@
+nav.nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+        div.nav-bd
+            h1.nav-logo
+                a(href="/index.html" alt="台新銀行" title="台新銀行") 台新銀行
+            div.nav-btn(v-on:click="gaEvent('KV','Menu')")
+                div.one
+                div.two
+                div.three
+            div.nav-menu(role="navigation")
+                div.nav-menu-area
+                    ul.clearfix
+                        li.nav-item
+                            a(href="#sec2" alt="小資必備理財" itemprop="url" title="小資必備理財" v-on:click="scrollTo('#sec2'),gaEvent('KV','Menu_knowledge')") 小資必備理財
+                        li.nav-item.n2
+                            a(href="#sec3" alt="專家秘訣" itemprop="url" title="專家秘訣" v-on:click="scrollTo('#sec3'),gaEvent('KV','Menu_tips')") 專家秘訣
+                        li.nav-item.n3
+                            a(href="#sec5" alt="基金組合" itemprop="url" title="基金組合" v-on:click="scrollTo('#sec5'),gaEvent('KV','Menu_product')") 基金組合
+                        li.nav-item.n4
+                            a(href="#sec4" alt="新戶優惠" itemprop="url" title="新戶優惠" v-on:click="scrollTo('#sec4'),gaEvent('KV','Menu_benefit')") 新戶優惠
+                        li.nav-item.n5
+                            a(href="#sec6" alt="APP理財小幫手" itemprop="url" title="APP理財小幫手" v-on:click="scrollTo('#sec6'),gaEvent('KV','Menu_app')") APP理財小幫手

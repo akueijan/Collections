@@ -1,0 +1,58 @@
+﻿.ending {
+    background: url(../images/ending-bg.png) 0 0 no-repeat;
+    background-size: 100% auto;
+    min-height: 100vh;
+    height: 975px;
+    position: relative;
+    .logo {
+        background: url(../images/logo.png) 0 0 no-repeat;
+        width: 89px;
+        height: 101px;
+        position: absolute;
+        top: 0;
+        left: 42px;
+    }
+    &__hd {
+        padding: 40px 0 0 0;
+    }
+    &__title {
+        background: url(../images/ending-title.png) 0 0 no-repeat;
+        width: 437px;
+        height: 198px;
+        margin: 0 0 0 115px;
+    }
+    &__bd {
+        padding: 10px 0 120px 0;
+        position: relative;
+        .randompic {
+            width: 482px;
+            height: 394px;
+            margin: 0 auto;
+        }
+        .pic__bug {
+            background: url(../images/ending-bug.png) 0 0 no-repeat;
+            width: 137px;
+            height: 183px;
+            position: absolute;
+            top: -8px;
+            left: 65px;
+        }
+        .pic__car {
+            background: url(../images/ending-car.png) 0 0 no-repeat;
+            width: 569px;
+            height: 219px;
+            position: absolute;
+            top: 325px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    &__ft {
+        padding: 20px 0 0 0;
+        position: relative;
+        .linearea {
+            margin: 0 auto;
+            text-align: center;
+        }
+    }
+}

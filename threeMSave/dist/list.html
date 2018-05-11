@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+  <!--page default Information-->
+  <!--html head-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>首頁</title>
+    <meta name="description" content="敘述">
+    <meta name="viewport" content="width=640">
+    <!-- Schema.org markup for Google+-->
+    <meta itemprop="name" content="首頁">
+    <meta itemprop="description" content="敘述">
+    <meta itemprop="image" content="指定顯示圖片">
+    <!-- og-->
+    <meta property="og:title" content="首頁">
+    <meta property="og:description" content="敘述">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="指定顯示圖片">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+    <link rel="stylesheet" href="css/main.css"><!--CDN link -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <!-- for loading-->
+    <script src="js/animatescroll.min.js"></script>
+    <script src="js/ScrollMagic.js"></script>
+    <script src="js/animation.gsap.js"></script>
+    <script src="lib/vue.js"></script>
+  </head>
+  <!--html body-->
+  <body>
+    <div id="app" class="l-wrap">
+      <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="nav">
+        <div class="l-container">
+          <div class="nav-bd">
+            <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO">LOGO</a></h1>
+            <div class="nav-btn">
+              <div class="one"></div>
+              <div class="two"></div>
+              <div class="three"></div>
+            </div>
+            <div role="navigation" class="nav-menu">
+              <ul class="clearfix">
+                <li class="nav-item"><a href="index.html" alt="省下「半桶水」捐給需要的人" itemprop="url" title="省下「半桶水」捐給需要的人"><span><div class="play-btn"></div>省下「半桶水」捐給需要的人</span></a></li>
+                <li class="nav-item nav-item--iscurrent"><a href="index.html" alt="立即協助" itemprop="url" title="立即協助"><span>立即協助</span></a></li>
+                <li class="nav-item"><a href="page.html" alt="省水妙招排行榜" itemprop="url" title="省水妙招排行榜"><span>省水妙招排行榜</span></a></li>
+                <li class="nav-item"><a href="page.html" alt="省水妙招實況" itemprop="url" title="省水妙招實況"><span>省水妙招實況</span></a></li>
+                <li class="nav-item"><a href="page.html" alt="活動辦法" itemprop="url" title="活動辦法"><span>活動辦法</span></a></li>
+                <li class="nav-item"><a href="page.html" alt="3M邀你一起愛護台灣" itemprop="url" title="3M邀你一起愛護台灣"><span>3M邀你一起愛護台灣</span></a></li>
+                <li class="nav-item"><a href="page.html" alt="FB粉絲團" itemprop="url" title="FB粉絲團"><div class="icon-fb">FB粉絲團</div></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- render nav view-->
+      <div class="l-main">
+        <transition name="fade">
+          <section class="list">
+            <div class="list__hd">
+              <h2 class="title">半桶水省水妙招票選｜你覺得誰的省水妙招最酷？馬上投票給他！你也可以分享自己的省水妙招，揪好友衝人氣！獎好禮！</h2>
+            </div>
+            <div class="list__bd">
+              <div class="l-container">
+                <div class="list-wrap">
+                  <div class="list-widget clearfix"><a href="javascript:" class="sort is--current">依最新投稿排序</a><a href="javascript:" class="sort">依票數排序</a></div>
+                  <div class="list-posts clearfix">
+                    <div class="post">
+                      <div class="post__box"><img src="https://dummyimage.com/400x400/fff/000" alt="">
+                        <div class="post__box-vote"><a href="javascript:" class="vote">投票給他</a><a href="javascript:" class="fbShare"> </a></div>
+                        <div class="mask"></div>
+                      </div>
+                      <div class="post__info">
+                        <p class="info1">美國加利福尼亞州</p>
+                        <p class="getVotes"><span>3,501   票</span></p>
+                        <p class="info2">英睿欽文大德弘功</p>
+                        <p class="content"> <span>雅虎公司是美國一間跨國發展的資訊技術公司，主要業務為入口網站經營及廣告服務，並提供一系列產品包括：搜尋引擎、電子信箱、社交以...</span><a href="javascirpt:" target="_blank" class="more">more</a></p>
+                      </div>
+                    </div>
+                    <div class="post">
+                      <div class="post__box"><img src="https://dummyimage.com/400x400/fff/000" alt="">
+                        <div class="post__box-vote"><a href="javascript:" class="vote">投票給他</a><a href="javascript:" class="fbShare"> </a></div>
+                        <div class="mask"></div>
+                      </div>
+                      <div class="post__info">
+                        <p class="info1">美國加利福尼亞州</p>
+                        <p class="getVotes"><span>3,501   票</span></p>
+                        <p class="info2">英睿欽文大德弘功</p>
+                        <p class="content"> <span>雅虎公司是美國一間跨國發展的資訊技術公司，主要業務為入口網站經營及廣告服務，並提供一系列產品包括：搜尋引擎、電子信箱、社交以...</span><a href="javascirpt:" target="_blank" class="more">more</a></p>
+                      </div>
+                    </div>
+                    <div class="post">
+                      <div class="post__box"><img src="https://dummyimage.com/400x400/fff/000" alt="">
+                        <div class="post__box-vote"><a href="javascript:" class="vote">投票給他</a><a href="javascript:" class="fbShare"> </a></div>
+                        <div class="mask"></div>
+                      </div>
+                      <div class="post__info">
+                        <p class="info1">美國加利福尼亞州</p>
+                        <p class="getVotes"><span>3,501   票</span></p>
+                        <p class="info2">英睿欽文大德弘功</p>
+                        <p class="content"> <span>雅虎公司是美國一間跨國發展的資訊技術公司，主要業務為入口網站經營及廣告服務，並提供一系列產品包括：搜尋引擎、電子信箱、社交以...</span><a href="javascirpt:" target="_blank" class="more">more</a></p>
+                      </div>
+                    </div>
+                    <div class="post">
+                      <div class="post__box"><img src="https://dummyimage.com/400x400/fff/000" alt="">
+                        <div class="post__box-vote"><a href="javascript:" class="vote">投票給他</a><a href="javascript:" class="fbShare"> </a></div>
+                        <div class="mask mask--disable"></div>
+                      </div>
+                      <div class="post__info">
+                        <p class="info1">美國加利福尼亞州</p>
+                        <p class="getVotes"><span>3,501   票</span></p>
+                        <p class="info2">英睿欽文大德弘功</p>
+                        <p class="content"> <span>雅虎公司是美國一間跨國發展的資訊技術公司，主要業務為入口網站經營及廣告服務，並提供一系列產品包括：搜尋引擎、電子信箱、社交以...</span><a href="javascirpt:" target="_blank" class="more">more</a></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="btn-area">
+                  <div class="btn-basic btn--readmore"><a href="javascript:">ＲＥＡＤ　ＭＯＲＥ</a></div>
+                  <p>每天可投3票，不得重複投票</p>
+                </div><a href="javascript:" class="goTop js-gotop">PAGE TOP</a>
+              </div>
+            </div>
+          </section>
+        </transition>
+        <transition name="fade">
+          <section class="single">
+            <div class="single__hd">
+              <h2 class="title">暱稱美國加利福尼亞州</h2>
+            </div>
+            <div class="single__bd">
+              <div class="l-container">
+                <div class="single__wrap">
+                  <div class="back">
+                    <div class="btn-basic"><a href="javascript:">返回</a></div>
+                  </div>
+                  <div class="single-post clearfix">
+                    <div class="col col1">
+                      <div class="imgWrap"><img src="https://dummyimage.com/400x200/fff/000" alt=""></div>
+                    </div>
+                    <div class="col col2">
+                      <div class="single-post__info">
+                        <p class="votes"> <span>3,501</span>票</p>
+                        <p class="title">主題英睿欽文大德弘功</p>
+                        <p class="content">雅虎公司是美國一間跨國發展的資訊技術公司，主要業務為入口網站經營及廣告服務，並提供一系列產品包括：搜尋引擎、電子信箱、社交以雅虎公司是美國一間跨國發展的資訊技術公司，主要業務為入口網站經營及廣告服務，並提供一系列產品包括：搜尋引擎、電子信箱、社交以雅虎公司是美國一間跨國發展的資訊技術公司，主要業務為入口網站經營及廣告服務，並提供一系列產品包括：搜尋引擎、電子信箱、社交以雅虎公司是美國一間跨國發展的資訊技術公司，主要業務為入口網站經營及廣告服務，並提供一系列產品包括：搜尋引擎、電子信箱、社交以雅虎公司是美國一間跨國發展的資訊技術公司，主要業務為入口網站經營及交。</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="single__ft">
+                    <p>快投我一票！幫我衝人氣拿大獎!</p>
+                  </div>
+                </div>
+                <div class="btn-area">
+                  <div class="btn-basic"><a href="javascript:">投票給他</a></div>
+                  <div class="btn-basic btn--fbShare"><a href="javascript:">FB分享</a></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </transition>
+        <!--render main view-->
+      </div>
+      <!--投票-->
+      <transition name="fade">
+        <div v-show="confirmVotes" class="popup">
+          <div class="popup__mask"></div>
+          <div class="popup__content">
+            <div class="l-contanier">
+              <div class="confirm__box">
+                <p class="confirm__text">你今天還有 <span class="num">2</span><span class="unit">次</span>投票機會</p>
+                <div class="btn-area">
+                  <div class="btn-basic"><a href="javascript:" v-on:click="actionVote()">確定</a></div>
+                </div><a href="javascript:" v-on:click="actionVote()" class="btn-close"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+      <transition name="fade">
+        <div v-show="videoPopup" class="popup">
+          <div class="popup__mask"></div>
+          <div class="popup__content">
+            <div id="popup__movie">
+              <div class="popup__close">
+                <div class="video__wrapper">
+                  <div v-show="players[0]" class="inner">
+                    <div id="player1"></div>
+                  </div>
+                  <div v-show="players[1]" class="inner">
+                    <div id="player2"></div>
+                  </div><a href="javascript:" v-on:click="closeVideo" class="btn-close"> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+      <div id="loading"></div>
+    </div>
+    <div class="l-footer footer"></div>
+    <script src="js/app.js"></script>
+  </body>
+</html>

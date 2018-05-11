@@ -1,0 +1,19 @@
+extends _layout.pug
+block pageInfo
+    - var pageTitle = "成為Nissan玩咖"
+    - var pageDesc = "填寫資料成為NISSAN玩咖就有機會抽中Samsonite貝殼盥洗包！"
+    - var pageJs = "ending.js"
+//- page html
+block page_main
+    section.ending#ending
+        h1.logo
+        div.ending__hd
+            div.ending__title
+        div.ending__bd
+            div.randompic
+                img(v-bind:src="randomImage")
+            div.pic__bug
+            div.pic__car
+        div.ending__ft
+            div.linearea
+                div.line
