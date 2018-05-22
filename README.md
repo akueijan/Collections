@@ -43,6 +43,6 @@
 [4]: https://akueijan.github.io/Collections/friendoLecafe/dist/index.html
 [5]: https://akueijan.github.io/Collections/friendoOnthebody/dist/index.html
 [6]: http://o2o.friendo.com.tw/loner?utm_source=friendo&utm_medium=loner_brands_280x380&utm_campaign=loner
-[7]: https://akueijan.github.io/Collections/threeMSave/dist/index.html
-[8]: https://akueijan.github.io/Collections/tsFund/dist/index.html
+[7]: http://site.friendo.com.tw/savewater
+[8]: http://site.friendo.com.tw/Taishin_fund?utm_source=friendo&utm_campaign=brand_banner
 [9]: http://www.yuantafutures.com.tw/2017forex2/index.aspx?utm_source=friendo&utm_medium=brand_banner
