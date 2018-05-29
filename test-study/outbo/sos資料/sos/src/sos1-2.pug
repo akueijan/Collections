@@ -1,0 +1,849 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    title Baxter SOS系統 | PD利潤試算
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='keywords', content='')
+    meta(name='author', content='')
+block page_main
+    .container
+        .col-md-12
+            .dashhead.mb-1
+                .dashhead-titles
+                    h6.dashhead-subtitle PD 利潤試算
+                    h2.dashhead-title  HD/PD Profit spreadsheet
+            // 標籤功能
+            //
+                <div class="hr-divider mb-4">
+                <ul class="nav nav-pills hr-divider-content hr-divider-nav">
+                <li class="nav-item">
+                <a class="nav-link active" href="#"><span class="icon icon-calculator"></span> HD試算</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#"><span class="icon icon-calculator"></span> PD試算</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#"><span class="icon icon-time-slot"></span> HD/PD 試算比較</a>
+                </li>
+                </ul>
+                </div>
+            // 標籤
+            ul.nav.nav-bordered.mt-4.mt-md-2.mb-0.clearfix(role='tablist')
+                li.nav-item(role='presentation')
+                    a.nav-link(href='#seciton01_1', role='tab', data-toggle='tab', aria-controls='hd', aria-expanded='true')
+                        span.icon.icon-calculator
+                        |  HD試算
+                li.nav-item(role='presentation')
+                    a.nav-link.active(href='#seciton01_2', role='tab', data-toggle='tab', aria-controls='pd', aria-expanded='false')
+                        span.icon.icon-calculator
+                        |  PD試算
+                li.nav-item(role='presentation')
+                    a.nav-link(href='#seciton01_3', role='tab', data-toggle='tab', aria-controls='hdvspd', aria-expanded='false')
+                        span.icon.icon-time-slot
+                        |  HD/PD 試算比較
+            hr.mt-0.mb-4
+            // 麵包屑
+            //
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html"><span class="icon icon-calculator"></span> HD試算</a></li>
+                <li class="breadcrumb-item active">開始試算</li>
+                </ol>
+            div.tab-content
+                // seciton01_1
+                div#seciton01_1.tab-pane.active(role='tabpanel', aria-expanded='true')
+                // seciton01_2
+                #seciton01_2.tab-pane.active(role='tabpanel', aria-expanded='false')
+                    div.row
+                        //健保給付
+                        div.col-lg-12.mb-4
+                            div.row
+                                div.col-lg-12.mb-3
+                                    h6
+                                        span.icon.icon-leaf
+                                        | 健保給付
+                                //追蹤處置費
+                                div.col-lg-12.mb-1
+                                    span.icon.icon-shopping-bag.text-danger 追蹤處置費
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 醫護人員費
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 5,235
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 5,235
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 特殊材料費
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 440
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 440
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 醫材耗品費
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 1,500
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 1,500
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 檢查費
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 1,500
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-mutesd 1,500
+                                div.col-lg-12.mb-4
+                                    div.list-group-item.list-group-item-action.justify-content-between.text-success
+                                        | 健保給付金額
+                                        span.text-danger 8,675
+                                    div.list-group-item.list-group-item-action.justify-content-between
+                                        span 保障點值
+                                        input.col-md-4.form-control.text-left(type='text', placeholder='1.00')
+                                        span 每月追縱處置費
+                                //腹膜透析液
+                                div.col-lg-12.mb-1
+                                    span.icon.icon-shopping-bag.text-danger 腹膜透析液
+                                div.col-lg-12.mb-1
+                                    div.list-group-item.list-group-item-action.justify-content-between.text-success
+                                        small.delta-indicator.text-success 腹膜透析液等(incl. Cassette, 租金)
+                                        span.text-danger 藥品一點一元給付
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 26,308
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 25,668
+                                div.col-lg-12.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between.text-success
+                                        span CAPD
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 使用比例
+                                        span.text-muted 60%
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 21,120
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 1.5L/2.0L / 2.5L
+                                        span.text-muted 
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        input.col-md-6.form-control.text-right(type='text', placeholder='120')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 176
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 21,120
+                                div.col-lg-12.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between.text-success
+                                        span APD
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 使用比例
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='40%')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 26,922
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 透析點值
+                                        span.text-muted 0.8167
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 5L
+                                        span.text-muted 
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        input.col-md-6.form-control.text-right(type='text', placeholder='60')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 286
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 17,160
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 2L (加洗一袋比例)
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='50%')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 15
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 176
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 2,640
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted Cassette
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 30
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 224
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 5,488
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted HomeChoice租金
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 2,000
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 1,633
+                                div.col-lg-12.mb-4
+                                    .list-group-item.list-group-item-action.justify-content-between.text-success
+                                        span Extraneal
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 使用Extraneal佔所有PD病人比例
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='47%')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 30
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 與Dianeal給付差額
+                                        span.text-muted 158
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 4,740
+                                //藥品
+                                div.col-lg-12.mb-1
+                                    span.icon.icon-shopping-bag.text-danger 藥品
+                                div.col-lg-12.mb-1
+                                    div.list-group-item.list-group-item-action.justify-content-between.text-success
+                                        small.delta-indicator.text-success 藥品
+                                        span.text-danger 藥品一點一元給付
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='5,613')
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 紅血球生成素(EPO)
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted 2000 iu / vial
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='8')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 396
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 3,168
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 活性維生素
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted tablet
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='30')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 22
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 660
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 磷結合劑
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted tablet
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='60')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 60
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 水溶性維生素B
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted tablet
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='30')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 30
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 水溶性維生素C
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted tablet
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='30')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 30
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 葉酸Folic acid
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted tablet
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='30')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 30
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 高血壓用藥
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted tablet
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='30')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 50
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 1,500
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 失眠
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted tablet
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='30')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 3
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 90
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 皮膚養
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted tablet
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='30')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 1.50
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted 45
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 其他(便秘….等)
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted tablet
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付單價/點數
+                                        span.text-muted 1.50
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 健保給付金額
+                                        span.text-muted -
+                                div.col-lg-12.mb-4
+                                    div.list-group-item.list-group-item-action.justify-content-between.text-success
+                                        | 健保給付金額總計
+                                        span.text-danger 39,956
+                        //材料成本
+                        div.col-lg-12.mb-4
+                            div.row
+                                div.col-lg-12.mb-3
+                                    h6
+                                        span.icon.icon-leaf
+                                        | 材料成本
+                                //追蹤處置費
+                                div.col-lg-12.mb-1
+                                    span.icon.icon-shopping-bag.text-danger 追蹤處置費
+                                div.col-lg-12.mb-1
+                                   .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span 924
+                                div.col-lg-12.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between.text-success
+                                        span 特殊材料費
+                                        span 149
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 腹膜透析輸液管 
+                                            br
+                                            small.text-muted 每半年換一次
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 0.17
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='768')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 128
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 更換準備包(On-Off Tray) 
+                                            br
+                                            small.text-muted 每半年換一次
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 0.17
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='126')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 21
+                                div.col-lg-12.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between.text-success
+                                        span 醫材耗品費
+                                        span 308
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 紗
+                                            br
+                                            small.text-muted 4塊/包
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 30
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='2.5')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 75
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 棉棒/棉籤
+                                            br
+                                            small.text-muted 10支/包
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 30
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='5')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 150
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 紙膠
+                                            br
+                                            small.text-muted 9.1m/卷
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 2
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='14')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 28
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 酒精
+                                            br
+                                            small.text-muted c.c.
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 200
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='0.10')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 20
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 碘酒
+                                            br
+                                            small.text-muted c.c.
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 200
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='0.10')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 20
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 生理食鹽水
+                                            br
+                                            small.text-muted c.c.
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 500
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='0.03')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 15
+                                div.col-lg-12.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between.text-success
+                                        span 檢查費
+                                        span 467
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 血液檢查 
+                                            br
+                                            small.text-muted 每月檢查
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='350')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 350
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 腹膜透析功能測
+                                            br
+                                            small.text-muted 年度檢查
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 0.08
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='800')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 67
+                                div.col-lg-3.mb-4
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span X-Ray
+                                            br
+                                            small.text-muted 年度檢查
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 0.08
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='600')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 50
+                                //腹膜透析液等(incl. Cassette, 租金)
+                                div.col-lg-12.mb-1
+                                    span.icon.icon-shopping-bag.text-danger 腹膜透析液等(incl. Cassette, 租金)
+                                div.col-lg-12.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span 22,166
+                                div.col-lg-3.mb-3
+                                    .list-group-item.list-group-item-action.justify-content-between.text-success
+                                        span 透析液 / Cassette
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 折扣
+                                        input.col-md-5.form-control.text-right(type='text', placeholder='14.0%')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span 19,597
+                                div.col-lg-3.mb-3
+                                    .list-group-item.list-group-item-action.justify-content-between.text-success
+                                        span APD租金
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 折扣
+                                        input.col-md-5.form-control.text-right(type='text', placeholder='0.0%')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span 653
+                                div.col-lg-3.mb-4
+                                    .list-group-item.list-group-item-action.justify-content-between.text-success
+                                        span Extraneal
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 折扣
+                                        input.col-md-5.form-control.text-right(type='text', placeholder='14.0%')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span 1,916
+                                //藥品
+                                div.col-lg-12.mb-1
+                                    span.icon.icon-shopping-bag.text-danger 藥品
+                                div.col-lg-12.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        input.col-md-4.form-control.text-right(type='text', placeholder='3,224')
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 紅血球生成素(EPO)
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted 2000 iu / vial
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 8
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-5.form-control.text-right(type='text', placeholder='250')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 2,000
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 活性維生素
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted tablet
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 30
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-5.form-control.text-right(type='text', placeholder='11')                                        
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 330
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 磷結合劑
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted tablet
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 60
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-5.form-control.text-right(type='text', placeholder='0.5')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 30
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 水溶性維生素B
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted tablet
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 30
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-5.form-control.text-right(type='text', placeholder='0.5')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 15
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 水溶性維生素C
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted tablet
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 30
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-5.form-control.text-right(type='text', placeholder='0.5')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 15
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 葉酸Folic acid
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted tablet
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 30
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-5.form-control.text-right(type='text', placeholder='0.5')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 15
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 高血壓用藥
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted tablet
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 30
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-5.form-control.text-right(type='text', placeholder='25')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 750
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 失眠
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted tablet
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 30
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-5.form-control.text-right(type='text', placeholder='1.5')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 45
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 皮膚養
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted tablet
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted 30
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-5.form-control.text-right(type='text', placeholder='0.8')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted 24
+                                div.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 其他(便秘….等)
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span.text-muted tablet
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 數量(每月)
+                                        span.text-muted -
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 單位成本
+                                        input.col-md-5.form-control.text-right(type='text', placeholder='0.8')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 進貨成本
+                                        span.text-muted -
+                                div.col-lg-12.mb-4
+                                    div.list-group-item.list-group-item-action.justify-content-between.text-success
+                                        | 材料成本總計
+                                        span.text-danger 26,314
+                                    div.list-group-item.list-group-item-action.justify-content-between.text-success
+                                        | 毛利潤
+                                        span.text-danger 13,642
+                        //營運費用
+                        div.col-lg-12.mb-4
+                            div.row
+                                div.col-lg-12.mb-3
+                                    h6
+                                        span.icon.icon-credit
+                                        | 營運費用
+                                //醫師
+                                div.col-lg-4.mb-3
+                                    div.list-group-item.list-group-item-action.justify-content-between
+                                        small.delta-indicator.text-success 醫師
+                                    div.list-group-item.list-group-item-action.justify-content-between
+                                        ul.list-group.w-100.mb-3.mt-3
+                                            li.list-group-header.justify-content-between Time allocation to PD
+                                            li.list-group-item.justify-content-between 照顧PD病人數/每護理人員
+                                                span.text-muted 13.0%
+                                        ul.list-group.w-100.mb-3.mt-3
+                                            li.list-group-header.justify-content-between 醫師固定薪資allocated to PD(月)
+                                            li.list-group-item.justify-content-between.text-muted
+                                                | 照顧PD病人數/每護理人員
+                                                span.text-muted 38,997
+                                            li.list-group-item.justify-content-between.text-muted
+                                                | 費用支出
+                                                span.text-muted.statcard-desc (每病人/每月)
+                                                span.text-muted 1,114
+                                        ul.list-group.w-100.mb-3.mt-3
+                                            li.list-group-header.justify-content-between 醫師績效獎金(PPF)/每月每病人
+                                            li.list-group-item.justify-content-between.text-muted
+                                                | 照顧PD病人數/每護理人員
+                                                input.col-md-4.form-control(type='text', placeholder='1,309')
+                                            li.list-group-item.justify-content-between.text-muted
+                                                | 費用支出
+                                                span.text-muted.statcard-desc (每病人/每月)
+                                                span.text-muted 1,309
+                                div.col-lg-4.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between.text-success
+                                        span 護理人員
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 照護PD病人數/每護理人員
+                                        input.col-md-12.form-control.text-right(type='text', placeholder='35')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 年薪/人(含相關福利)
+                                        input.col-md-12.form-control.text-right(type='text', placeholder='800,000')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 費用支出(每病人/每月)
+                                        span.text-muted 1,905
+                                div.col-lg-4.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between.text-success
+                                        span 行政管理費用
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 照護PD病人數/每護理人員
+                                        input.col-md-4.form-control(type='text', placeholder='5.0%')
+                                        | 佔營收比例
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 年薪/人(含相關福利)
+                                        input.col-md-12.form-control.text-right(type='text', placeholder='800,000')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 費用支出(每病人/每月)
+                                        span.text-muted 1,998
+                                div.col-lg-12.mb-3
+                                    div.list-group-item.list-group-item-action.justify-content-between.text-success
+                                        | 營運成本總計
+                                        span.text-danger 6,326
+                                    div.list-group-item.list-group-item-action.justify-content-between.text-success
+                                        | 稅前利潤
+                                        span.text-danger 7,317
+                        
+                                
+                    // 按鈕
+                    a(href='#docsModal', data-toggle='modal')
+                        button#step01_finish.btn.btn-primary.col-md-12(type='button')
+                            span.icon.icon-calculator
+                            |  下一步，PD試算
+                // seciton01_3
+                #seciton01_3.tab-pane(role='tabpanel', aria-expanded='false')
+                    | 33
+            footer
+                .dashhead-subtitle.text-center ® 版權所有 百特醫療產品股份有限公司 - Baxter Taiwan Version 1.0
+block bottomScripts
+    script.
+        $('#step01_finish').click(function() {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 600);
+        });
+        $('.step01_finish').click(function() {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 600);
+        })
+

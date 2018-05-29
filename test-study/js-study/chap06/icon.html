@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery UI</title>
+<link rel="stylesheet"
+  href="http://code.jquery.com/ui/1.10.4/themes/redmond/jquery-ui.min.css" />
+</head>
+<body>
+<button id="home">首頁</button>
+<button id="next">下一頁</button>
+<button id="info">最新消息</button>
+<button id="mail">聯絡我們</button>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script>
+$(function() {
+  //在按鈕左側植入圖示
+  $('#home').button({
+    icons: {
+      primary: 'ui-icon-home'
+    }
+  });
+  //在按鈕右側植入圖示
+  $('#next').button({
+    icons: {
+      secondary: 'ui-icon-circle-arrow-e'
+    }
+  });
+  //在按鈕兩側植入圖示
+  $('#info').button({
+    icons: {
+      primary: 'ui-icon-info',
+      secondary: 'ui-icon-triangle-1-e'
+    }
+  });
+  //只有圖示的按鈕
+  $('#mail').button({
+    icons: {
+      primary: 'ui-icon-mail-closed'
+    },
+    text: false
+  });
+});
+</script>
+</body>
+</html>

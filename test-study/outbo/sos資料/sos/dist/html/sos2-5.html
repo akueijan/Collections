@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Baxter SOS系統 | HD vs. PD投資損益比較</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <head>
+        <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+        <link href="assets/css/akaiDev.css" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
+        <link href="assets/css/toolkit-inverse.css" rel="stylesheet">
+        <link href="assets/css/application.css" rel="stylesheet">
+        <link href="assets/css/akaiDev.css" rel="stylesheet">
+        <link href="assets/css/custom.css" rel="stylesheet">
+        <!--CDN link -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+        <style>
+            /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+            /* this chunk of css is not part of the toolkit :) */
+
+            body {
+                width: 1px;
+                min-width: 100%;
+                *width: 100%;
+            }
+        </style>
+    </head>
+    <title>Baxter SOS系統 | HD vs. PD投資損益比較</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+</head>
+
+<body>
+    <nav class="iconav"><a class="iconav-brand" href="index.html"><span class="icon icon-cloud iconav-brand-icon"></span></a>
+        <div class="iconav-slider">
+            <ul class="nav nav-pills iconav-nav flex-md-column">
+                <li class="nav-item"><a class="nav-link active" href="index.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="返回首頁"><span class="icon icon-home"></span><small class="iconav-nav-label hidden-md-up">返回首頁</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section01.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="利潤試算"><span class="icon icon-calculator"></span><small class="iconav-nav-label hidden-md-up">HD/PD利潤試算</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section02.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="投資損益"><span class="icon icon-globe"></span><small class="iconav-nav-label hidden-md-up">HD/PD投資損益</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section03.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="投資回收試算"><span class="icon icon-area-graph"></span><small class="iconav-nav-label hidden-md-up">HD/PD投資回收試算</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section04.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="病患留院率"><span class="icon icon-list"></span><small class="iconav-nav-label hidden-md-up">HD/PD病患留院率</small></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <div class="dashhead mb-1">
+                    <div class="dashhead-titles">
+                        <h6 class="dashhead-subtitle"> </h6>
+                        <h2 class="dashhead-title"> HD 投資損益</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="table-responsive col-12">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-active">
+                        <tr>
+                            <th class="w-25"> </th>
+                            <th></th>
+                            <th>第一年</th>
+                            <th>第二年</th>
+                            <th>第三年</th>
+                            <th>第四年</th>
+                            <th>第五年</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>目前每月病人次</td>
+                            <td>937</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>淨成長病人數</td>
+                            <td>女</td>
+                            <td>15</td>
+                            <td>15</td>
+                            <td>15</td>
+                            <td>15</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td>累計成長病人數</td>
+                            <td><span class="text-muted"></span></td>
+                            <td>15</td>
+                            <td>30</td>
+                            <td>45</td>
+                            <td>60</td>
+                            <td>75</td>
+                        </tr>
+                        <tr>
+                            <td>健保給付點數/病人次</td>
+                            <td><span class="text-muted"></span></td>
+                            <td>3,912</td>
+                            <td>3,912</td>
+                            <td>3,912</td>
+                            <td>3,912</td>
+                            <td>3,912</td>
+                        </tr>
+                        <tr>
+                            <td>預估點值</td>
+                            <td><span class="text-muted"></span></td>
+                            <td>0.8167</td>
+                            <td>0.8167</td>
+                            <td>0.8167</td>
+                            <td>0.8167</td>
+                            <td>0.8167</td>
+                        </tr>
+                        <tr>
+                            <td>病人次/年</td>
+                            <td>150</td>
+                            <td>1,125</td>
+                            <td>3,375</td>
+                            <td>5,625</td>
+                            <td>7,875</td>
+                            <td>10,125</td>
+                        </tr>
+                        <tr>
+                            <td>健保給付點數/年</td>
+                            <td><span class="text-muted"></span></td>
+                            <td>4,401,000</td>
+                            <td>13,203,000</td>
+                            <td>22,005,000</td>
+                            <td>30,807,000</td>
+                            <td>39,609,000</td>
+                        </tr>
+                        <tr>
+                            <td>健保給付金額/年</td>
+                            <td><span class="text-muted"></span></td>
+                            <td>3,594,297</td>
+                            <td>10,782,890</td>
+                            <td>17,971,484</td>
+                            <td>25,160,077</td>
+                            <td>32,348,670</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-12">
+                <p class="text-success">材料成本</p>
+            </div>
+            <div class="table-responsive col-12">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-active">
+                        <tr>
+                            <th class="w-25"> </th>
+                            <th></th>
+                            <th>第一年</th>
+                            <th>第二年</th>
+                            <th>第三年</th>
+                            <th>第四年</th>
+                            <th>第五年</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>衛材類</td>
+                            <td><span class="text-muted">533.6</span></td>
+                            <td>600,345</td>
+                            <td>1,801,035</td>
+                            <td>3,001,725</td>
+                            <td>4,202,415</td>
+                            <td>5,403,105</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-12">
+                <p class="text-success">費用</p>
+            </div>
+            <div class="table-responsive col-12">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-active"></thead>
+                    <tbody>
+                        <tr>
+                            <td class="w-25">硬體設備折舊攤提</td>
+                            <td><span class="text-muted">1,140,000</span></td>
+                            <td>1,140,000</td>
+                            <td>1,140,000</td>
+                            <td>1,140,000</td>
+                            <td>1,140,000</td>
+                            <td>1,140,000</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right" colspan="7">5,700,000</td>
+                        </tr>
+                        <tr>
+                            <td>人事薪資</td>
+                            <td><span class="text-muted"></span></td>
+                            <td>5,080,500</td>
+                            <td>7,105,500</td>
+                            <td>9,130,500</td>
+                            <td>11,155,500</td>
+                            <td>13,180,500</td>
+                        </tr>
+                        <tr>
+                            <td>固定薪資</td>
+                            <td><span class="text-muted"></span></td>
+                            <td>4,799,250</td>
+                            <td>6,261,750</td>
+                            <td>7,724,250</td>
+                            <td>9,186,750</td>
+                            <td>10,649,250</td>
+                        </tr>
+                        <tr>
+                            <td>變動薪資(獎金)</td>
+                            <td><span class="text-muted"></span></td>
+                            <td>281,250</td>
+                            <td>843,750</td>
+                            <td>1,406,250</td>
+                            <td>1,968,750</td>
+                            <td>2,531,250</td>
+                        </tr>
+                        <tr>
+                            <td>醫師</td>
+                            <td><span class="text-muted">250</span></td>
+                            <td>281,250</td>
+                            <td>843,750</td>
+                            <td>1,406,250</td>
+                            <td>1,968,750</td>
+                            <td>2,531,250</td>
+                        </tr>
+                        <tr>
+                            <td>醫護人員/其他</td>
+                            <td><span class="text-muted"></span></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>房屋租金</td>
+                            <td><span class="text-muted">1,848,000</span></td>
+                            <td>1,848,000</td>
+                            <td>1,848,000</td>
+                            <td>1,848,000</td>
+                            <td>1,848,000</td>
+                            <td>1,848,000</td>
+                        </tr>
+                        <tr>
+                            <td>營運費用(水,電)</td>
+                            <td><span class="text-muted">480,000</span></td>
+                            <td>480,000</td>
+                            <td>480,000</td>
+                            <td>480,000</td>
+                            <td>480,000</td>
+                            <td>480,000</td>
+                        </tr>
+                        <tr>
+                            <td>行政管理費用</td>
+                            <td><span class="text-muted">50</span></td>
+                            <td>56,250</td>
+                            <td>168,750</td>
+                            <td>281,250</td>
+                            <td>393,750</td>
+                            <td>506,250</td>
+                        </tr>
+                        <tr>
+                            <td>利息支出</td>
+                            <td><span class="text-muted"></span></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="text-success">費用總計</p>
+                            </td>
+                            <td><span class="text-muted"></span></td>
+                            <td>
+                                <p class="text-success text-right">8,604,750<br>239%</p>
+                            </td>
+                            <td>
+                                <p class="text-success text-right">10,742,250<br>100%</p>
+                            </td>
+                            <td>
+                                <p class="text-success text-right">12,879,750<br>72%</p>
+                            </td>
+                            <td>
+                                <p class="text-success text-right">15,017,250<br>60%</p>
+                            </td>
+                            <td>
+                                <p class="text-success text-right">17,154,750<br>53%</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="text-info">利潤</p>
+                            </td>
+                            <td><span class="text-muted"></span></td>
+                            <td>
+                                <p class="text-info text-right"> <span class="text-danger">(5,831,298)</span><br>-162.2%</p>
+                            </td>
+                            <td>
+                                <p class="text-info text-right"> <span class="text-danger">(2,421,895)</span><br>-22.5%</p>
+                            </td>
+                            <td>
+                                <p class="text-info text-right">987,509<br>5.5%</p>
+                            </td>
+                            <td>
+                                <p class="text-info text-right">4,396,912<br>17.5%</p>
+                            </td>
+                            <td>
+                                <p class="text-info text-right">7,806,315<br>24.1%</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-right" colspan="7">4,937,543</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="text-info">累積利潤</p>
+                            </td>
+                            <td><span class="text-muted"></span></td>
+                            <td>
+                                <p class="text-info text-right"> <span class="text-danger">(5,831,298)</span></p>
+                            </td>
+                            <td>
+                                <p class="text-info text-right"> <span class="text-danger">(8,253,193)</span></p>
+                            </td>
+                            <td>
+                                <p class="text-info text-right"><span class="text-danger">(7,265,685)</span></p>
+                            </td>
+                            <td>
+                                <p class="text-info text-right"><span class="text-danger">(2,868,773)</span></p>
+                            </td>
+                            <td>
+                                <p class="text-info text-right">4,937,543</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>投資回收年</td>
+                            <td><span class="text-muted"></span></td>
+                            <td>NIL</td>
+                            <td>NIL</td>
+                            <td>NIL</td>
+                            <td>NIL</td>
+                            <td>NIL</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="text-info">投資回收利潤</p>
+                            </td>
+                            <td><span class="text-muted"></span></td>
+                            <td>
+                                <p class="text-info">NIL</p>
+                            </td>
+                            <td>
+                                <p class="text-info">NIL</p>
+                            </td>
+                            <td>
+                                <p class="text-info">NIL</p>
+                            </td>
+                            <td>
+                                <p class="text-info">NIL</p>
+                            </td>
+                            <td>
+                                <input class="col-md-12 form-control" type="text" placeholder="NIL">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>資金投入</td>
+                            <td><span class="text-muted"></span></td>
+                            <td colspan="5">5,700,000</td>
+                        </tr>
+                        <tr>
+                            <td>投資回收利潤</td>
+                            <td>HD</td>
+                            <td>
+                                <p class="text-danger">(10,391,298)</p>
+                            </td>
+                            <td>
+                                <p class="text-danger">(1,281,895)</p>
+                            </td>
+                            <td>2,127,509</td>
+                            <td>5,536,912</td>
+                            <td>8,946,315</td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td>PD</td>
+                            <td>472,999</td>
+                            <td>1,155,534</td>
+                            <td>2,353,199</td>
+                            <td>2,755,467</td>
+                            <td>3,961,979</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="text-info">IRR</p>
+                            </td>
+                            <td colspan="6">
+                                <p class="text-info">11%</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="text-info">NPV</p>
+                            </td>
+                            <td colspan="6">
+                                <p class="text-danger">-$740,811</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="docsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">下一步「<span class="icon icon-calculator"> PD試算」</span></h4>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>點選「<span class="icon icon-calculator">PD試算」並輸入資料<br><span class="text-success">系統將繼續試算利潤比例</span></span>
+                    </p>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-link modal-action text-danger step01_finish" type="button" data-dismiss="modal"><span class="icon icon-trash"></span> 重新填寫</button>
+                    <button class="btn-link modal-action text-success step01_finish" type="button" data-dismiss="modal"><span class="icon icon-check"></span> 繼續試算</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/tether.min.js"></script>
+    <script src="assets/js/chart.js"></script>
+    <script src="assets/js/tablesorter.min.js"></script>
+    <script src="assets/js/toolkit.js"></script>
+    <script src="assets/js/application.js">
+    </script>
+</body>
+
+</html>

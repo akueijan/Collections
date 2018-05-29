@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>jQuery Mobile</title>
+<link rel="stylesheet"
+  href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js">
+</script>
+<script>
+$(document).on('updatelayout', '#acc', function(e) {
+  var t = $(e.target); //觸發事件的來源（內容區塊）
+  //aria-hidden屬性為false（=內容區塊是顯示的）
+  if (t.is('[aria-hidden = "false"]')) {
+    //在頁面顯示開啟的面板的標題
+    //之所以在空白之前就設定，為的是移除按鈕文字
+    $('#page_title').text(t.prev().text().split(' ')[0]);
+  }
+});
+</script>
+</head>
+<body>
+<div data-role="page" data-title="jQuery Mobile">
+  <div data-role="header">
+    <h1 id="page_title">jQuery Mobile</h1>
+  </div>
+  <div role="main" class="ui-content">
+    <div id="acc" data-role="collapsible-set">
+      <div data-role="collapsible" data-collapsed="false">
+        <h4>藍眼睛的人偶</h4>
+        <p>藍眼睛的人偶是美國的賽璐珞材質所製</p>
+      </div>
+      <div data-role="collapsible">
+        <h4>狗狗巡邏警察</h4>
+        <p>迷路的小貓啊，你家在哪兒？</p>
+      </div>
+      <div data-role="collapsible">
+        <h4>浦島太郎</h4>
+        <p>很久很久以前，浦島太郎被自己所救的烏龜帶到龍宮</p>
+      </div>
+    </div>
+  </div>
+  <div data-role="footer">
+    Copyright 1998-2014, YAMADA.Yoshihiro
+  </div>
+</div>
+</body>
+</html>

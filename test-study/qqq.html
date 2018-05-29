@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<title>Script-based animation using requestAnimationFrame</title>
+<style>
+#ccc { position: absolute; left: 100px; top: 100px;}
+</style>
+
+<canvas id="ccc" width="500" height="500"></canvas>
+<button onclick="start()">Click me to start!</button>
+<button onclick="stop()">Click me to stop!</button>
+
+<script>
+var canvas = document.getElementById("ccc");
+var context = canvas.getContext("2d");
+var imageObj = new Image();
+var r = -90;
+var rectCenterPoint = {x: sourceWidth/2, y: sourceHeight/2};
+var sourceX = 0; //座標X
+var sourceY = 0; //座標Y
+var sourceWidth = 500;
+var sourceHeight = 500;
+var destWidth = sourceWidth;
+var destHeight = sourceHeight;
+var destX = canvas.width / 2 - destWidth / 2;
+var destY = canvas.height / 2 - destHeight / 2;
+
+imageObj.src = "http://data.whicdn.com/images/159997508/large.jpg";
+imageObj.onload = function() {
+  // draw cropped image
+	draw();
+};
+
+function draw() {
+	r = r+1>360? r-360 :r+1;
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	context.save();
+
+	// context.translate(rectCenterPoint.x, rectCenterPoint.y); //中心定位設定
+	context.translate(canvas.width/2, canvas.height/2);
+	context.rotate(r*(Math.PI/180)); //設定旋轉角度
+	context.translate(-canvas.width/2, -canvas.height/2);
+	context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+	
+	context.restore(sourceWidth/2,);
+	window.requestAnimationFrame(draw);
+}
+
+
+
+
+//var start = null;
+var requestId = 0;
+// function animate(time) {
+//   // canvas.style.left =
+//   //   (time - animationStartTime) % 1000 / 4 + "px";
+// 	r = r+1>360? r-360 :r+1;
+// 	context.save();
+// 	context.translate(rectCenterPoint.x, rectCenterPoint.y); //中心定位設定
+// 	context.rotate(r*(Math.PI/180)); //設定旋轉角度
+// 	context.translate(-rectCenterPoint.x, -rectCenterPoint.y); //中心定位設定
+// 	context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+//   	window.requestAnimationFrame(animate);
+// }
+
+// function start() {
+//   animationStartTime = window.performance.now();
+//   requestId = window.requestAnimationFrame(draw);
+// }
+
+function stop() {
+  if (draw)
+    window.cancelAnimationFrame(draw);
+  draw = 0;
+}
+//requestAnimationFrame(step);
+
+// var x=0;
+// function draw(){
+//     if(x<10) {
+//         x++;
+//         console.log(x);
+//         draw();
+//     } else {
+
+//     }
+// }
+
+// draw();
+
+</script>
+
+

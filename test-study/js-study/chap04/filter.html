@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+<div id="trav">
+<div>波平<br />
+  舟<br />
+    <div>海螺
+      <div>鱈男
+        <div id="fav">小玉</div>
+      </div>
+    </div>
+    <div class="student">鰹男</div>
+    <div class="student">裙帶菜</div>
+  </div>
+</div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  $('div')
+    .css('color', 'Red')
+    .filter('#fav, .student')
+    .css('font-size', 'x-large');
+ });
+</script>
+</body>
+</html>

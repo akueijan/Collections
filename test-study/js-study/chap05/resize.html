@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery UI</title>
+<link rel="stylesheet"
+  href="http://code.jquery.com/ui/1.10.4/themes/redmond/jquery-ui.min.css" />
+</head>
+<body>
+  <img src="photo/ham1.jpg" class="pic" />
+  <img src="photo/ham2.jpg" class="pic" />
+  <img src="photo/ham3.jpg" class="pic" />
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script>
+$(function() {
+  $('.pic').resizable({
+    minHeight: 50,  //最小的高度
+    minWidth: 70,   //最小的寬度
+    autoHide: true,  //控制點自動隱藏
+    ghost: true         //顯示殘影
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery UI</title>
+<link rel="stylesheet"
+  href="http://code.jquery.com/ui/1.10.4/themes/redmond/jquery-ui.min.css" />
+<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+<div id="main">
+  <div id="dragbox1" class="dragbox">小黃瓜</div>
+  <div id="dragbox2" class="dragbox">高麗菜</div>
+  <div id="dragbox3" class="dragbox">萵苣</div>
+  <hr />
+  <div class="dropbox"></div>
+</div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script>
+$(function() {
+  $('.dragbox').draggable({
+    revert: true
+  });
+  $('.dropbox').droppable({
+    //#dragbox1、#dragbox2之外的元素皆不可拖曳
+    accept: '#dragbox1, #dragbox2',
+    drop: function(e, ui) {
+      $(this).html($(this).html() +
+        ui.draggable.text() + '進入了。<br />');
+    }
+  });
+});
+</script>
+</body>
+</html>

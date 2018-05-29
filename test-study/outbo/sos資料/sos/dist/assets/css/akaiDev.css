@@ -1,0 +1,187 @@
+.container {
+    padding-left: 85px;
+}
+div.row{
+    /* margin-left: -7px; */
+}
+@media (max-width: 640px) {
+    .container {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+.add_icon {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 30px;
+    bottom: 30px;
+    z-index: 9999;
+    border-radius: 100px;
+    font-size: 50px;
+    line-height: 31px;
+    padding-left: 15px;
+    box-shadow: 0px 0px 10px #1d1f26;
+    background-color: #E64759;
+}
+
+.add_icon:hover {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 30px;
+    bottom: 30px;
+    z-index: 9999;
+    border-radius: 100px;
+    font-size: 50px;
+    line-height: 31px;
+    padding-left: 15px;
+    box-shadow: 0px 0px 10px #1d1f26;
+    background-color: #d14151;
+    cursor: pointer;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.edit_icon {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 30px;
+    bottom: 30px;
+    z-index: 9999;
+    border-radius: 100px;
+    font-size: 50px;
+    line-height: 35px;
+    padding-left: 13px;
+    box-shadow: 0px 0px 10px #1d1f26;
+    background-color: #E64759;
+}
+
+.edit_icon:hover {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 30px;
+    bottom: 30px;
+    z-index: 9999;
+    border-radius: 100px;
+    font-size: 50px;
+    line-height: 35px;
+    padding-left: 13px;
+    box-shadow: 0px 0px 10px #1d1f26;
+    background-color: #d14151;
+    cursor: pointer;
+}
+
+.akaiDev-icon {
+    font-size: 45%;
+    padding-top: -5px;
+    color: white;
+}
+
+.tableTitle {
+    color: #51586a;
+}
+
+textarea.form-control {
+    height: 120px;
+}
+
+.akaiDev-info-title {
+    font-size: 28px;
+}
+
+.akaiDev-info-serial_num1 {
+    font-size: 20px;
+    width: 10%;
+    margin-right: 0px;
+    float: left;
+    text-align: center;
+}
+
+.akaiDev-info-serial_num2 {
+    font-size: 20px;
+    width: 10%;
+    float: left;
+    text-align: center;
+}
+
+.akaiDev-mi {
+    float: left;
+    font-size: 40px;
+    width: 10%;
+    line-height: 35px;
+    text-align: center;
+}
+
+.akaiDev-info-serial_num3 {
+    font-size: 20px;
+    width: 70%;
+}
+
+
+/*    
+    @media (min-width: 480px) {
+        .akaiDev-info-serial_num3 {
+            width: 430px;
+        }
+    }*/
+
+.akaiDev-div {
+    height: 40px;
+}
+
+.btn {
+    margin-bottom: 10px;
+}
+
+.akaiDev_delete_btn {
+    position: absolute;
+    right: 15px;
+    top: 22px;
+    cursor: pointer;
+}
+
+@media (max-width: 640px) {
+    .akaiDev_delete_btn {
+        position: absolute;
+        right: 15px;
+        top: 22px;
+        display: none;
+    }
+}
+
+.nav-item {
+    cursor: pointer;
+}
+
+.loginLogo {
+    color: #6f7890;
+}
+
+.akaiDev_login_text {
+    font-size: 13px;
+    padding-top: 15px;
+}
+
+.akaiDev_logo {
+    margin-top: 30%;
+    font-size: 200%;
+    color: #6f7890;
+}
+
+footer {
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.checkbox {
+    font-size: 12px;
+}

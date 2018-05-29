@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery UI</title>
+<link rel="stylesheet"
+  href="http://code.jquery.com/ui/1.10.4/themes/redmond/jquery-ui.min.css" />
+<link rel="stylesheet" href="select.css" />
+<body>
+<ul id="list">
+  <li>英語會話 </li>
+  <li>樂器 </li>
+  <li>游泳 </li>
+  <li>書法 </li>
+  <li>算盤 </li>
+  <li>足球 </li>
+  <li>電腦 </li>
+  <li>空手道 </li>
+</ul>
+<div id="result"><div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script>
+$(function() {
+  //將列表設定為可選取
+  $('#list').selectable({
+    //將選取結果套用至頁面
+    stop: function() {
+      $('#result').text($('.ui-selected').text() + '被選取了。');
+    }
+  });
+});
+</script>
+</body>
+</html>

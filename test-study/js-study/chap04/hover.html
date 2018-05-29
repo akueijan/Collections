@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+</head>
+<body>
+<img id="pic1" src="images/webdeli_logo.gif" />
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  //滑鼠游標移入圖片時
+  $('#pic1').hover(
+    function(e) {
+      $(this).attr('src', 'images/webdeli.gif');
+    },
+    //滑鼠游標移出圖片時
+    function(e) {
+      $(this).attr('src', 'images/webdeli_logo.gif');
+    }
+  );
+});
+</script>
+
+</body>
+</html>

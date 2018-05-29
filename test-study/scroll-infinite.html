@@ -1,0 +1,42 @@
+﻿<div id="content">
+	
+<div class="box1" style="background-color: rgb(196, 102, 57);"></div><div class="box1" style="background-color: rgb(124, 194, 101);"></div><div class="box1" style="background-color: rgb(190, 242, 183);"></div><div class="box1" style="background-color: rgb(209, 237, 54);"></div><div class="box1" style="background-color: rgb(54, 57, 189);"></div><div class="box1" style="background-color: rgb(128, 29, 212);"></div><div class="box1" style="background-color: rgb(199, 183, 238);"></div><div class="box1" style="background-color: rgb(130, 235, 45);"></div><div class="box1" style="background-color: rgb(241, 245, 218);"></div><div class="box1" style="background-color: rgb(224, 7, 186);"></div><div class="box1" style="background-color: rgb(200, 207, 124);"></div><div class="box1" style="background-color: rgb(207, 110, 166);"></div><div class="box1" style="background-color: rgb(224, 228, 114);"></div><div class="box1" style="background-color: rgb(242, 215, 218);"></div><div class="box1" style="background-color: rgb(217, 67, 47);"></div><div class="box1" style="background-color: rgb(101, 157, 56);"></div><div class="box1" style="background-color: rgb(77, 91, 200);"></div><div class="box1" style="background-color: rgb(198, 176, 179);"></div></div>
+<div id="loader" class="active">
+	<img src="../../img/example_loading.gif">
+	LOADING...
+</div>
+<script>
+	// init controller
+	var controller = new ScrollMagic.Controller();
+
+	// build scene
+	var scene = new ScrollMagic.Scene({triggerElement: ".dynamicContent #loader", triggerHook: "onEnter"})
+					.addTo(controller)
+					.on("enter", function (e) {
+						if (!$("#loader").hasClass("active")) {
+							$("#loader").addClass("active");
+							if (console){
+								console.log("loading new items");
+							}
+							// simulate ajax call to add content using the function below
+							setTimeout(addBoxes, 1000, 9);
+						}
+					});
+
+	// pseudo function to add new content. In real life it would be done through an ajax request.
+	function addBoxes (amount) {
+		for (i=1; i<=amount; i++) {
+			var randomColor = '#'+('00000'+(Math.random()*0xFFFFFF<<0).toString(16)).slice(-6);
+			$("<div></div>")
+				.addClass("box1")
+				.css("background-color", randomColor)
+				.appendTo(".dynamicContent #content");
+		}
+		// "loading" done -> revert to normal state
+		scene.update(); // make sure the scene gets the new start position
+		$("#loader").removeClass("active");
+	}
+
+	// add some boxes to start with.
+	addBoxes(18);
+</script>

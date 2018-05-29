@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+</head>
+<body>
+<form>
+  <label for="zip">郵遞區號：</label>
+  <input id="zip" type="text" size="10" />
+  <input id="search" type="button" value="搜尋" />
+</form>
+<div id="result"></div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  //點選「搜尋」開始搜尋地址
+  $('#search').click(function() {
+    //對proxy.php傳遞佇列資訊「?zip=～」格式的郵遞區號
+    $.get('proxy.php', { zip: $('#zip').val() })
+      .done(function(data) {
+        //搜尋成功後，將搜尋結果反映至頁面
+        $('#result').text(
+          $('value[state]', data).attr('state')
+            + $('value[city]', data).attr('city')
+            + $('value[address]', data).attr('address')
+        );
+      })
+      .fail(function(data) {
+        window.alert('傳輸過程中發生錯誤。');
+      });
+  });
+});
+</script>
+
+</body>
+</html>

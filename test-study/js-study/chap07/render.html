@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>外掛程式</title>
+</head>
+<body>
+<div id="result"></div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/jsrender.js"></script>
+<script>
+$(function() {
+  //準備範本引擎使用的資料
+  var books = [
+    {
+      isbn: '978-4-7981-3332-4',
+      title: '10日學會jQuery教室 第2版',
+      price: 3024,
+      publish: '翔泳社',
+      published: new Date('2013/10/07'),
+      authors: [
+        {
+          name: '山田祥寛',
+          role: '著'
+        },
+        {
+          name: '鈴木花子',
+          role: '監修'
+        }
+      ]
+    },
+    {
+      isbn: '978-4-7741-6296-6',
+      title: 'Windowws 8開發袖珍指南',
+      price: 3110,
+      publish: '技術評論社',
+      published: new Date('2014/02/19'),
+      authors: [
+        {
+          name: 'WINGS Project',
+          role: '著'
+        },
+        {
+          name: '山田祥寛',
+          role: '監修'
+        }
+      ]
+    },
+    {
+      isbn: '978-4-7741-6410-6',
+      title: 'Rails 4應用程式設計',
+      price: 3780,
+      publish: '技術評論社',
+      published: new Date('2014/04/11'),
+      authors: [
+        {
+          name: '山田祥寛',
+          role: '著'
+        }
+      ]
+    },
+  ];
+
+  //應用範本
+  $('#result').append($('#book').render(books));
+});
+</script>
+<script id="book" type="text/x-jsrender">
+<h3>{{:title}}</h3>
+<img src="http://www.wings.msn.to/books/{{>isbn}}/{{>isbn}}_logo.jpg"
+  align="right"/>{{>isbn}}<br />
+{{>price}}元<br />
+{{>publish}}<br />
+{{>published}}發行
+<hr />
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery UI</title>
+<link rel="stylesheet"
+  href="http://code.jquery.com/ui/1.10.4/themes/redmond/jquery-ui.min.css" />
+</head>
+<body>
+<form>
+  <label for="keywd">關鍵字</label>：
+  <input id="keywd" type="search" size="20" maxlengh="40" />
+</form>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script>
+$(function() {
+  //候補列表的原始資料
+  var data = [
+    { label: 'accelerando', details: '漸快' },
+    { label: 'accent', details: '強烈' },
+    { label: 'adagio', details: '柔緩' },
+    { label: 'andante', details: '快板' },
+    { label: 'agitato', details: '急板' },
+    { label: 'allegro', details: '輕快' },
+    { label: 'brillante', details: '閃耀' },
+    { label: 'calando', details: '消失' },
+    { label: 'cantabile', details: '如歌唱般' },
+    { label: 'capriccioso', details: '隨興' },
+    { label: 'crescendo', details: '漸強' },
+    { label: 'decrescendo', details: '漸弱' },
+    { label: 'diminuendo', details: '漸弱' },
+    { label: 'dolce', details: '令人憐愛的' },
+    { label: 'elegante', details: '優美的' },
+    { label: 'espressivo', details: '投射感情的' },
+    { label: 'fermata', details: '恰到好處的展開' },
+    { label: 'forte', details: '變強' }
+  ];
+
+  //啟用自動完成
+  $('#keywd').autocomplete({
+    source: data, //原始資料
+    delay: 1000, //延遲時間
+    minLength: 2 //最小字數
+  });
+});
+</script>
+</body>
+</html>

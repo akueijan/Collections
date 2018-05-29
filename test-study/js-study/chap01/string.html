@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>基本語法</title>
+</head>
+<body>
+<div id="result"></div>
+<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+<script>
+var str1 = '你好，字串！';
+var str2 = "你好，字串！";
+
+//顯示對話框
+window.alert(str1);
+//於控制台(開發人員工具)顯示字串
+console.log(str2);
+//於頁面(id="result")顯示元素
+$('#result').text(str2)
+//於頁面輸出字串
+document.write(str1);
+</script>
+</body>
+</html>

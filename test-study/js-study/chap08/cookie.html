@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>外掛程式</title>
+</head>
+<body>
+<form>
+  <label for="mail">電子信箱：</label>
+  <input id="mail" type="text" size="50" />
+  <input id="send" type="button" value="送出" />
+</form>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script>
+$(function(){
+  //當Cookie有儲存mail時，將該值反映至文字方塊
+  if($.cookie('mail')) {
+    $('#mail').val($.cookie('mail'));
+  }
+
+  //按下「送出」儲存Cookie
+  $('#send').click(function() {
+    $.cookie('mail', $('#mail').val(), { expires: 30 });
+  });
+});
+</script>
+</body>
+</html>

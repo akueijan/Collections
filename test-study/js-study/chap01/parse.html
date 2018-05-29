@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>基本語法</title>
+</head>
+<body>
+<script>
+var data1 = '888abc';
+console.log(parseInt(data1)); ←結果：888
+console.log(parseFloat(data1)); ←結果：888
+console.log(Number(data1)); ←結果：NaN
+
+var data2 = '0x10';
+console.log(parseInt(data2)); ←結果：16
+console.log(parseFloat(data2)); ←結果：0
+console.log(Number(data2)); ←結果：16
+
+var data3 = '1.414E3';
+console.log(parseInt(data3)); ←結果：1
+console.log(parseFloat(data3)); ←結果：1414
+console.log(Number(data3)); ←結果：1414
+
+var data4 = new Date();
+console.log(parseInt(data4)); ←結果：NaN
+console.log(parseFloat(data4)); ←結果：NaN
+console.log(Number(data4)); ←結果：1396507882587（每次執行的結果都不同）
+</script>
+</body>
+</html>

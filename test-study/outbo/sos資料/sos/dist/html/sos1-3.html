@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Baxter SOS系統 | HD/PD利潤試算</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <head>
+        <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+        <link href="assets/css/akaiDev.css" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
+        <link href="assets/css/toolkit-inverse.css" rel="stylesheet">
+        <link href="assets/css/application.css" rel="stylesheet">
+        <link href="assets/css/akaiDev.css" rel="stylesheet">
+        <link href="assets/css/custom.css" rel="stylesheet">
+        <!--CDN link -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+        <style>
+            /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+            /* this chunk of css is not part of the toolkit :) */
+
+            body {
+                width: 1px;
+                min-width: 100%;
+                *width: 100%;
+            }
+        </style>
+    </head>
+    <title>Baxter SOS系統 | HD/PD利潤試算</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+</head>
+
+<body>
+    <nav class="iconav"><a class="iconav-brand" href="index.html"><span class="icon icon-cloud iconav-brand-icon"></span></a>
+        <div class="iconav-slider">
+            <ul class="nav nav-pills iconav-nav flex-md-column">
+                <li class="nav-item"><a class="nav-link active" href="index.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="返回首頁"><span class="icon icon-home"></span><small class="iconav-nav-label hidden-md-up">返回首頁</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section01.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="利潤試算"><span class="icon icon-calculator"></span><small class="iconav-nav-label hidden-md-up">HD/PD利潤試算</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section02.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="投資損益"><span class="icon icon-globe"></span><small class="iconav-nav-label hidden-md-up">HD/PD投資損益</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section03.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="投資回收試算"><span class="icon icon-area-graph"></span><small class="iconav-nav-label hidden-md-up">HD/PD投資回收試算</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section04.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="病患留院率"><span class="icon icon-list"></span><small class="iconav-nav-label hidden-md-up">HD/PD病患留院率</small></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="col-md-12">
+            <div class="dashhead mb-1">
+                <div class="dashhead-titles">
+                    <h6 class="dashhead-subtitle">HD/PD 利潤試算</h6>
+                    <h2 class="dashhead-title"> HD/PD Profit spreadsheet</h2>
+                </div>
+            </div>
+            <!-- 標籤功能-->
+            <!--
+        <div class="hr-divider mb-4">
+        <ul class="nav nav-pills hr-divider-content hr-divider-nav">
+        <li class="nav-item">
+        <a class="nav-link active" href="#"><span class="icon icon-calculator"></span> HD試算</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#"><span class="icon icon-calculator"></span> PD試算</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#"><span class="icon icon-time-slot"></span> HD/PD 試算比較</a>
+        </li>
+        </ul>
+        </div>
+        -->
+            <!-- 標籤-->
+            <ul class="nav nav-bordered mt-4 mt-md-2 mb-0 clearfix" role="tablist">
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#seciton01_1" role="tab" data-toggle="tab" aria-controls="hd" aria-expanded="true"><span class="icon icon-calculator"></span> HD試算</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#seciton01_2" role="tab" data-toggle="tab" aria-controls="pd" aria-expanded="false"><span class="icon icon-calculator"></span> PD試算</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="#seciton01_3" role="tab" data-toggle="tab" aria-controls="hdvspd" aria-expanded="false"><span class="icon icon-time-slot"></span> HD/PD 試算比較</a></li>
+            </ul>
+            <hr class="mt-0 mb-4">
+            <!-- 麵包屑-->
+            <!--
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html"><span class="icon icon-calculator"></span> HD試算</a></li>
+        <li class="breadcrumb-item active">開始試算</li>
+        </ol>
+        -->
+            <div class="tab-content">
+                <!-- seciton01_1-->
+                <div class="tab-pane" id="seciton01_1" role="tabpanel" aria-expanded="true">
+                    <div class="row">
+                        <div class="col-lg-12 mb-4">
+                            <div class="row">
+                                <div class="list-group col-lg-12 mb-3">
+                                    <h6><span class="icon icon-leaf"></span> 健保給付</h6>
+                                </div>
+                                <div class="list-group col-lg-6 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between">平均每月血液透析人次 (Tx / mon.)
+                                        <input class="col-md-4 form-control" type="text" placeholder="937">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">平均健保給付點數 (每次)<span class="text-muted">3,921</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">健保給付點值 (元)_預估
+                                        <input class="col-md-4 form-control" type="text" placeholder="0.8167">
+                                    </div>
+                                </div>
+                                <div class="list-group col-lg-6 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between">床數
+                                        <input class="col-md-4 form-control" type="text" placeholder="15">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">班數 / 床 / 星期
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="5">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">每月每病人平均血液透析次數(Tx/p't/mon.)<span class="text-muted">12.5</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">Max.每月血液透析人次 (Tx / mon.)<span>938</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">病床使用率<span>99.95%</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mb-5">
+                            <div class="row">
+                                <div class="list-group col-lg-12 mb-3 justify-content-between">
+                                    <h6><span class="icon icon-price-tag"></span> 成本</h6><span class="text-danger statcard-desc"> 材料成本：1,068（每病人次）</span>
+                                </div>
+                                <div class="list-group col-lg-6 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">
+                        <!-- <span class="icon icon-drop"></span>--><span class="icon icon-shopping-bag"></span> 衛教類</small><small class="delta-indicator text-danger">材料成本：534（每病人次）</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>人工腎臟－REUSE</span>
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>人工腎臟－一般</span>
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>血液迴路管</span>
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>穿刺針</span>
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>A液藥水</span>
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>B液藥水</span>
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>保護罩</span>
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>消毒水－AK</span>
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>生理食鹽水</span>
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>其他衛耗材</span>
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0">
+                                    </div>
+                                </div>
+                                <div class="list-group col-lg-6 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success"><span class="icon icon-lab-flask"> 藥品類</span></small><small class="delta-indicator text-danger">材料成本：534（每病人次）</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>銷貨成本－一般藥品</span>
+                                        <input class="col-md-4 form-control" type="text" placeholder="15">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>IV Vitamin D</span>
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="5">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>IV Iron</span>
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="5">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>銷貨成本－EPO</span>
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="5">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mb-5">
+                            <div class="row">
+                                <div class="list-group col-lg-12 mb-3">
+                                    <h6><span class="icon icon-credit"></span> 費用</h6>
+                                </div>
+                                <div class="list-group col-lg-3 mb-5">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">硬體設備折舊/維修費用</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">硬體折舊費用 (月)
+                                        <input class="col-md-4 form-control" type="text" placeholder="15">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">硬體折舊費用 (年)<span class="text-muted">12.5</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">硬體維護費用 (月)
+                                        <input class="col-md-4 form-control" type="text" placeholder="15">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">硬體維護費用 (年)<span class="text-muted">12.5</span></div>
+                                </div>
+                                <div class="list-group col-lg-3 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">房屋租金</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">現有總坪數
+                                        <input class="col-md-4 form-control" type="text" placeholder="15">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">每坪租金 (月)
+                                        <input class="col-md-4 form-control" type="text" placeholder="15">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">每月租金
+                                        <input class="col-md-4 form-control" type="text" placeholder="15">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">每年租金<span class="text-muted">12.5</span></div>
+                                </div>
+                                <div class="list-group col-lg-3 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">營運費用(水,電,燃料,垃圾處理,交際,差旅等)</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">營運費用 (月)<span class="text-muted statcard-desc">約佔營收額(健保點數)之百分比</span>
+                                        <input class="col-md-6 form-control" type="text" placeholder="15">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">營運費用 (年)<span class="text-muted">12.5</span></div>
+                                </div>
+                                <div class="list-group col-lg-3 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">行政管理費用(文具,印刷影印,電話,郵資快遞等)</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">行政管理費用(月)<span class="text-muted statcard-desc">約佔營收額(健保點數)之百分比</span>
+                                        <input class="col-md-6 form-control" type="text" placeholder="15">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">行政管理費用 (年)<span class="text-muted">12.5</span></div>
+                                </div>
+                                <div class="list-group col-lg-12 mb-3">
+                                    <h6><span class="icon icon-users"></span> 人事薪資</h6>
+                                    <!--
+                    <div class="list-group-item list-group-item-action justify-content-between">
+                    <small class="text-muted col-md-2 text-left">項目</small>
+                    <small class="text-muted col-md-2 text-left">醫生</small>
+                    <small class="text-muted col-md-2 text-left">護理人員</small>
+                    <small class="text-muted col-md-2 text-left">醫工</small>
+                    <small class="text-muted col-md-2 text-left">行政人員</small>
+                    </div>
+                    <div class="list-group-item list-group-item-action justify-content-between">
+                    <small class="text-muted col-md-2 text-left">人數</small>
+                    <input type="text" class="col-md-2 form-control" placeholder="0">
+                    <input type="text" class="col-md-2 form-control" placeholder="0">
+                    <input type="text" class="col-md-2 form-control" placeholder="0">
+                    <input type="text" class="col-md-2 form-control" placeholder="0">
+                    </div>
+                    -->
+                                </div>
+                                <!-- 醫生-->
+                                <div class="list-group col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>醫生</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">固定人事薪資</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">人數</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">平均固定月薪 / 人</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">年度固定薪資給付月數 (月/年)</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">平均年薪 / 每人</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">Max.照護之病床數 / 機器數</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">年節獎金, 退休金, 勞健保, 福利金 (佔年薪之百分比)</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">總薪資支出 (年)</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">總薪資支出 (月)</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">Time Allocation to HD</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">變動人事薪資 (PPF)</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">醫師 (每病人次)</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">護理人員 (每病人次)</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">總PPF支出 (月)</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">總PPF支出 (年)</small>
+                                        <div class="text-muted">2,811,000</div>
+                                    </div>
+                                </div>
+                                <!-- 醫護人員-->
+                                <div class="list-group col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>醫護人員</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">固定人事薪資</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">人數</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">平均固定月薪 / 人</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">年度固定薪資給付月數 (月/年)</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">平均年薪 / 每人</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">Max.照護之病床數 / 機器數</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">年節獎金, 退休金, 勞健保, 福利金 (佔年薪之百分比)</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">總薪資支出 (年)</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">總薪資支出 (月)</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">變動人事薪資 (PPF)</small>
+                                        <div class="text-muted">2,811,000</div>
+                                    </div>
+                                </div>
+                                <!-- 醫工-->
+                                <div class="list-group col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>醫工</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">固定人事薪資</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">人數</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">平均固定月薪 / 人</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">年度固定薪資給付月數 (月/年)</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">平均年薪 / 每人</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <!--
+                    <div class="list-group-item list-group-item-action justify-content-between">
+                    <small class="text-muted">Max.照護之病床數 / 機器數</small>
+                    <input type="text" class="col-md-12 form-control" placeholder="0">
+                    </div>
+                    -->
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">年節獎金, 退休金, 勞健保, 福利金 (佔年薪之百分比)</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">總薪資支出 (年)</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">總薪資支出 (月)</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <!--
+                    <div class="list-group-item list-group-item-action justify-content-between">
+                    <small class="text-muted">Time Allocation to HD</small>
+                    <input type="text" class="col-md-12 form-control" placeholder="0">
+                    </div>
+                    -->
+                                </div>
+                                <!-- 行政人員/其他-->
+                                <div class="list-group col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>行政人員/其他</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">固定人事薪資</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">人數</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">平均固定月薪 / 人</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">年度固定薪資給付月數 (月/年)</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">平均年薪 / 每人</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <!--
+                    <div class="list-group-item list-group-item-action justify-content-between">
+                    <small class="text-muted">Max.照護之病床數 / 機器數</small>
+                    <input type="text" class="col-md-12 form-control" placeholder="0">
+                    </div>
+                    -->
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">年節獎金, 退休金, 勞健保, 福利金 (佔年薪之百分比)</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">總薪資支出 (年)</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">總薪資支出 (月)</small>
+                                        <input class="col-md-12 form-control" type="text" placeholder="0">
+                                    </div>
+                                    <!--
+                    <div class="list-group-item list-group-item-action justify-content-between">
+                    <small class="text-muted">Time Allocation to HD</small>
+                    <input type="text" class="col-md-12 form-control" placeholder="0">
+                    </div>
+                    -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 按鈕--><a href="#docsModal" data-toggle="modal">
+              <button class="btn btn-primary col-md-12" id="step01_finish" type="button"><span class="icon icon-calculator"></span> 下一步，PD試算</button></a>
+                </div>
+                <!-- seciton01_2-->
+                <div class="tab-pane active" id="seciton01_2" role="tabpanel" aria-expanded="false">
+                    <div class="row">
+                        <!--健保給付-->
+                        <div class="col-lg-12 mb-4">
+                            <div class="row">
+                                <div class="col-lg-12 mb-3">
+                                    <h6><span class="icon icon-leaf"></span>健保給付</h6>
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success"><span class="icon icon-shopping-bag"></span>追蹤處置費</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">醫護人員費<span class="text-muted">-</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">特殊材料費<span class="text-muted">-</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-left">醫材耗品費</span><span class="text-muted">00000000000000000000000000000</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">檢查費<span class="text-muted">999</span></div>
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">
+                        <!-- <span class="icon icon-drop"></span>--><span class="icon icon-shopping-bag"></span>腹膜透析液(incl. Cassette, 租金)</small><small class="delta-indicator text-danger">使用比例</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>人工腎臟－REUSE</span>
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0"><span>1.5L</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success"><span class="icon icon-shopping-bag"></span>藥品</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">活性維生素<span class="text-muted"> </span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">活性維生素<span class="text-muted"> </span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">活性維生素<span class="text-muted"></span></div>
+                                </div>
+                                <div class="col-lg-12 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success">健保給付金額總計<span class="text-danger">39,956</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--材料成本-->
+                        <div class="col-lg-12 mb-4">
+                            <div class="row">
+                                <div class="col-lg-12 mb-3">
+                                    <h6><span class="icon icon-leaf"></span>材料成本</h6>
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success"><span class="icon icon-shopping-bag"></span>追蹤處置費</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">
+                                        <ul class="list-group w-100 mb-3">
+                                            <li class="list-group-header justify-content-between">醫護人員費</li>
+                                            <li class="list-group-item justify-content-between">酒精<span class="text-muted">1.5L</span></li>
+                                            <li class="list-group-item justify-content-between">碘酒<span class="text-muted">1.5L</span></li>
+                                        </ul>
+                                        <ul class="list-group w-100 mb-3">
+                                            <li class="list-group-header justify-content-between">醫護人員費</li>
+                                            <li class="list-group-item justify-content-between">酒精<span class="text-muted">1.5L</span></li>
+                                            <li class="list-group-item justify-content-between">碘酒<span class="text-muted">1.5L</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">
+                        <!-- <span class="icon icon-drop"></span>--><span class="icon icon-shopping-bag"></span>腹膜透析液(incl. Cassette, 租金)</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>人工腎臟－REUSE</span></div>
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success"><span class="icon icon-shopping-bag"></span>藥品</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">活性維生素<span class="text-muted">1顆</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">活性維生素<span class="text-muted">1顆 </span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">活性維生素<span class="text-muted">1顆</span></div>
+                                </div>
+                                <div class="col-lg-12 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success">健保給付金額總計<span class="text-danger">39,956</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success">毛利潤<span class="text-danger">39,956</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--營運費用-->
+                        <div class="col-lg-12 mb-5">
+                            <div class="row">
+                                <div class="col-lg-12 mb-3">
+                                    <h6><span class="icon icon-credit"></span>營運費用</h6>
+                                </div>
+                                <!--醫師-->
+                                <div class="col-lg-4 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">醫師</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">
+                                        <ul class="list-group w-100 mb-3 mt-3">
+                                            <li class="list-group-header justify-content-between">Time allocation to PD</li>
+                                            <li class="list-group-item justify-content-between">照顧PD病人數/每護理人員
+                                                <input class="col-md-4 form-control" type="text" placeholder="15">
+                                            </li>
+                                            <li class="list-group-item justify-content-between">費用支出<span class="text-muted statcard-desc">(每病人/每月)</span>
+                                                <input class="col-md-4 form-control" type="text" placeholder="15">
+                                            </li>
+                                        </ul>
+                                        <ul class="list-group w-100 mb-3 mt-3">
+                                            <li class="list-group-header justify-content-between">醫師固定薪資allocated to PD(月)</li>
+                                            <li class="list-group-item justify-content-between">照顧PD病人數/每護理人員
+                                                <input class="col-md-4 form-control" type="text" placeholder="15">
+                                            </li>
+                                            <li class="list-group-item justify-content-between">費用支出<span class="text-muted statcard-desc">(每病人/每月)</span>
+                                                <input class="col-md-4 form-control" type="text" placeholder="15">
+                                            </li>
+                                        </ul>
+                                        <ul class="list-group w-100 mb-3 mt-3">
+                                            <li class="list-group-header justify-content-between">醫師績效獎金(PPF)/每月每病人</li>
+                                            <li class="list-group-item justify-content-between">照顧PD病人數/每護理人員
+                                                <input class="col-md-4 form-control" type="text" placeholder="15">
+                                            </li>
+                                            <li class="list-group-item justify-content-between">費用支出<span class="text-muted statcard-desc">(每病人/每月)</span>
+                                                <input class="col-md-4 form-control" type="text" placeholder="15">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!--護理人員-->
+                                <div class="col-lg-4 mb-5">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">護理人員</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">照顧PD病人數/每護理人員
+                                        <input class="col-md-4 form-control" type="text" placeholder="15">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">年薪/人<span class="text-muted statcard-desc">(含相關福利)</span>
+                                        <input class="col-md-4 form-control" type="text" placeholder="80000">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">費用支出<span class="text-muted statcard-desc">(每病人/每月)</span>
+                                        <input class="col-md-4 form-control" type="text" placeholder="1905">
+                                    </div>
+                                </div>
+                                <!--行政管理費用-->
+                                <div class="col-lg-4 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">行政管理費用</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">照顧PD病人數/每護理人員
+                                        <input class="col-md-4 form-control" type="text" placeholder="15"><span class="text-muted statcard-desc">(佔營收比例)</span>
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">費用支出<span class="text-muted statcard-desc">(每病人/每月)</span>
+                                        <input class="col-md-4 form-control" type="text" placeholder="1905">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success">營運成本總計<span class="text-danger">39,956</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success">稅前利潤<span class="text-danger">39,956</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 按鈕--><a href="#docsModal" data-toggle="modal">
+              <button class="btn btn-primary col-md-12" id="step01_finish" type="button"><span class="icon icon-calculator"></span> 下一步，PD試算</button></a>
+                </div>
+                <!-- seciton01_3-->
+                <div class="tab-pane active" id="seciton01_3" role="tabpanel" aria-expanded="false">
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="list-group col-lg-12 mb-3">
+                                <h6><span class="icon icon-calculator"></span>HD</h6>
+                            </div>
+                            <div class="list-group-item list-group-item-action justify-content-between"><span class="text-success">預估透析點值</span>
+                                <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                            </div>
+                            <div class="list-group-item list-group-item-action justify-content-between"><span class="icon icon-credit"><span class="text-success">平均健保給付金額/每人/每月</span></span><span class="text-muted">39,999</span><span class="text-muted">100.0%</span>
+                                <ul class="list-group w-100 mb-3">
+                                    <li class="list-group-item justify-content-between">酒精
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                    <li class="list-group-item justify-content-between">碘酒
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                    <li class="list-group-item justify-content-between">碘酒
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list-group-item list-group-item-action justify-content-between"><span class="icon icon-credit"><span class="text-success">成本</span></span><span class="text-muted">9,322</span><span class="text-muted">23.5%</span>
+                                <ul class="list-group w-100 mb-3">
+                                    <li class="list-group-item justify-content-between">酒精
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                    <li class="list-group-item justify-content-between">碘酒
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list-group-item list-group-item-action justify-content-between"><span class="icon icon-credit"><span class="text-success">費用</span></span><span class="text-muted">17,555</span><span class="text-muted">42.8%</span>
+                                <ul class="list-group w-100 mb-3">
+                                    <li class="list-group-item justify-content-between">酒精
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                    <li class="list-group-item justify-content-between">碘酒
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                    <li class="list-group-item justify-content-between">酒精
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                    <li class="list-group-item justify-content-between">碘酒
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                    <li class="list-group-item justify-content-between">酒精
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                    <li class="list-group-item justify-content-between">碘酒
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list-group-item list-group-item-action justify-content-between"><span class="icon icon-credit"><span class="text-success">利潤</span></span><span class="text-danger">39,956</span><span class="text-danger">33.7%</span></div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="list-group col-lg-12 mb-3">
+                                <h6><span class="icon icon-calculator"></span>PD</h6>
+                            </div>
+                            <div class="list-group-item list-group-item-action justify-content-between"><span class="text-success">預估透析點值</span>
+                                <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                            </div>
+                            <div class="list-group-item list-group-item-action justify-content-between"><span class="icon icon-credit"><span class="text-success">平均健保給付金額/每人/每月</span></span><span class="text-muted">39,999</span><span class="text-muted">100.0%</span>
+                                <ul class="list-group w-100 mb-3">
+                                    <li class="list-group-item justify-content-between">酒精
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                    <li class="list-group-item justify-content-between">碘酒
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                    <li class="list-group-item justify-content-between">碘酒
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list-group-item list-group-item-action justify-content-between"><span class="icon icon-credit"><span class="text-success">成本</span></span><span class="text-muted">9,322</span><span class="text-muted">23.5%</span>
+                                <ul class="list-group w-100 mb-3">
+                                    <li class="list-group-item justify-content-between">酒精
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                    <li class="list-group-item justify-content-between">碘酒
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list-group-item list-group-item-action justify-content-between"><span class="icon icon-credit"><span class="text-success">費用</span></span><span class="text-muted">17,555</span><span class="text-muted">42.8%</span>
+                                <ul class="list-group w-100 mb-3">
+                                    <li class="list-group-item justify-content-between">酒精
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                    <li class="list-group-item justify-content-between">碘酒
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                    <li class="list-group-item justify-content-between">酒精
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                    <li class="list-group-item justify-content-between">碘酒
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                    <li class="list-group-item justify-content-between">酒精
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                    <li class="list-group-item justify-content-between">碘酒
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="0.8888">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list-group-item list-group-item-action justify-content-between"><span class="icon icon-credit"><span class="text-success">利潤</span></span><span class="text-danger">39,956</span><span class="text-danger">33.7%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="dashhead-subtitle text-center">® 版權所有 百特醫療產品股份有限公司 - Baxter Taiwan Version 1.0</div>
+            </footer>
+        </div>
+    </div>
+    <div class="modal fade" id="docsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">下一步「<span class="icon icon-calculator"> PD試算」</span></h4>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>點選「<span class="icon icon-calculator">PD試算」並輸入資料<br><span class="text-success">系統將繼續試算利潤比例</span></span>
+                    </p>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-link modal-action text-danger step01_finish" type="button" data-dismiss="modal"><span class="icon icon-trash"></span> 重新填寫</button>
+                    <button class="btn-link modal-action text-success step01_finish" type="button" data-dismiss="modal"><span class="icon icon-check"></span> 繼續試算</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/tether.min.js"></script>
+    <script src="assets/js/chart.js"></script>
+    <script src="assets/js/tablesorter.min.js"></script>
+    <script src="assets/js/toolkit.js"></script>
+    <script src="assets/js/application.js">
+    </script>
+    <script>
+        $('#step01_finish').click(function() {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 600);
+        });
+        $('.step01_finish').click(function() {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 600);
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>函數／物件導向</title>
+</head>
+<body>
+<script>
+function benchmark(proc) {
+  var start = new Date(); //開始時間
+  proc();
+  var end = new Date(); //結束時間
+  return end.getTime() -  start.getTime(); //測量所得時間
+}
+
+//測量匿名函數完成處理的時間
+console.log(
+  benchmark(function() {
+    var x = 15;
+    for (var i = 0; i < 10000000; i++) {
+      x *= i;
+    }
+  })
+);
+</script>
+</body>
+</html>

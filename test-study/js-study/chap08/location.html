@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>HTML5</title>
+</head>
+<body>
+<ul>
+  <li>經度：<span id="latitude"></span></li>
+  <li>緯度：<span id="longitude"></span></li>
+</ul>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  //確認是否能存取Geolocation API
+  if (navigator.geolocation) {
+    //取得定位資訊
+    navigator.geolocation.getCurrentPosition(
+      function(pos) {
+        $('#latitude').html(pos.coords.latitude);       //緯度
+        $('#longitude').html(pos.coords.longitude); //經度
+      }
+    );
+  } else {
+    window.alert('請使用支援Geolocation API的瀏覽器存取。');
+  }
+});
+</script>
+</body>
+</html>

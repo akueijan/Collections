@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery UI</title>
+<link rel="stylesheet"
+  href="http://code.jquery.com/ui/1.10.4/themes/redmond/jquery-ui.min.css" />
+<style>
+span[title] {
+  text-decoration: underline;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div id="desc">
+<p>本書除了介紹jQuery的功能，<span title="擴充功能的程式庫">還介紹外掛程式</span>的使用方法，同時介紹事件的撰寫與自訂。</p>
+<p>尤其要介紹一些網頁製作時常用的選擇器與方法。讓大家學會各種簡單又好用的<span title="使用者介面">UI</span>的製作方法。</p>
+<p>除了提供下載<span title="可從支援網站下載">範例檔</span>也讓大家能一邊輸入程式碼，一邊有效率地學習。</p>
+</div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script>
+$(function() {
+  $(document).tooltip();
+});
+</script>
+</body>
+</html>

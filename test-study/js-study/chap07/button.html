@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery UI</title>
+<link rel="stylesheet"
+  href="http://code.jquery.com/ui/1.10.4/themes/redmond/jquery-ui.min.css" />
+</head>
+<body>
+  <!--單一按鈕或連結-->
+  <div>
+    <button>按鈕（Element）</button>
+    <a href="http://www.wings.msn.to">錨點</a>
+    <input type="button" value="按鈕（Input）" />
+    <input type="submit" value="送出" />
+    <input id="cb0" type="checkbox" class="one" />
+    <label for="cb0">核取方塊</label>
+  </div>
+  <hr />
+  <!—單組的多個按鈕-->
+  <div class="set">
+    <input id="cb1" type="checkbox" name="c" /><label for="cb1">核取方塊1</label>
+    <input id="cb2" type="checkbox" name="c" /><label for="cb2">核取方塊2</label>
+    <input id="cb3" type="checkbox" name="c" /><label for="cb3">核取方塊3</label>
+  </div>
+  <hr />
+  <div class="set">
+    <input id="r1" type="radio" name="r" /><label for="r1">選取按鈕1</label>
+    <input id="r2" type="radio" name="r" /><label for="r2">選取按鈕2</label>
+    <input id="r3" type="radio" name="r" /><label for="r3">選取按鈕3</label>
+  </div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script>
+$(function() {
+  $('button').button();
+  $('a').button();
+  $('input[type="button"]').button();
+  $('input[type="submit"]').button();
+  $('input.one').button();
+  $('.set').buttonset();
+});
+</script>
+</body>
+</html>

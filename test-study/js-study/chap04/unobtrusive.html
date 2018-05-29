@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+</head>
+<body>
+<form method="POST" action="post.php">
+  <input type="submit" value="送出"
+    data-confirm="確定送出表單嗎？" />
+</form>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+//點選「送出」按鈕時顯示確認對話框
+$('input[data-confirm]').click(function() {
+  if (!confirm($(this).data('confirm'))) {
+    return false;
+  }
+});
+</script>
+</body>
+</html>

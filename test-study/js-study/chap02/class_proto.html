@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>函數／物件導向</title>
+</head>
+<body>
+<script>
+var Animal = function(name) {
+  this.name = name;
+};
+
+Animal.prototype.toString = function() {
+  return 'Animal:' + this.name;
+};
+
+var ani = new Animal('德次郎');
+console.log(ani.name);
+console.log(ani.toString());
+</script>
+</body>
+</html>

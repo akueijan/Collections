@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>物件</title>
+</head>
+<body>
+<script>
+var ex = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;
+var str = '範例檔請從http://www.wings.msn.to/下載';
+str += '有問題請至HTTP://WWW.wings.msn.to/index.php/-/B-14/發問';
+
+var result = str.match(ex);
+for (var i = 0, len = result.length; i < len; i++) {
+  console.log(result[i]);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+
+	<style type="text/css">
+		body {
+  background-color: #ededed;
+  overflow: hidden;
+}
+.fa {
+  color: #ea8289;
+  position: absolute;
+  overflow: hidde;
+}
+
+.scene {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  filter: blur(1px);
+  height: 600px;
+}
+
+.sakura {
+  width:20px;
+  height:20px;
+  background: red;
+  position: absolute;
+}
+
+.hana {
+    position: absolute;
+    height: 0;
+    width: 0;
+    border: 10px solid pink;
+    border-radius: 15px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.hana::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -7px;
+    left: -7px;
+    height: 0;
+    width: 0;
+    border: 10px solid pink;
+    border-radius: 15px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+}
+	</style>
+</head>
+<body>
+<div class="scene"></div>
+
+<script type="text/javascript">
+		var fa = false;
+  
+//more layers and css blur will cause performance drop
+var layer2 = new Layer(16, 6);
+setInterval(layer2.addIcon, 400);
+
+var layer1 = new Layer(32, 4);
+setInterval(layer1.addIcon, 800);
+
+function Layer(str, speed){
+    this.addIcon = function(){
+        var random_icon = icons[Math.floor(Math.random()*icons.length)];
+        $random_x = Math.floor((Math.random() * 600) + 1);
+    
+    var str= '<div class=hana></div>'
+        var $icon = $(str).appendTo(".scene");
+
+        //initial position
+        TweenLite.to($icon, 0, {x: $random_x, color: "#2222ff", y: -80});
+
+        //main animation
+        TweenLite.to($icon, speed, {color: "#ff00ff", y: 600, x: $random_x + (Math.random() * 400), opacity: 0, ease:Linear.easeNone, onComplete: deleteIcon, onCompleteParams: ["{self}"]});
+
+        //rotate animation
+        var rotation_speed = (Math.random() + 10);
+        TweenMax.to($icon, rotation_speed, {rotation: 390, ease:Linear.easeNone, repeat: -1});
+    };
+
+    deleteIcon = function(obj){
+        obj.target.remove();
+        obj.remove;
+    };
+
+    var icons = [];
+  }
+
+</script>
+</body>
+</html>

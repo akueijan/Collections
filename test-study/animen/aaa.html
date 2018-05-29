@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <link rel="stylesheet" type="text/css" href="aaa.css">
+<script src="aaa.js"></script> -->
+<style>
+	/*.box{
+		width: 100px;
+		height: 100px;
+		display: inline-block;
+		border-radius: 50%;
+	}*/
+	body{
+		min-height: 1600px;
+	}
+	.sss{
+		border-radius: 0;
+	}
+	#green{
+		background: green;
+	}
+	#blue{
+		background: blue;
+	}
+	#orange{
+		background: orange;
+	}
+	.box {
+	  background-color: #88ce02;
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  width: 100px;
+	  height: 100px;
+	  -webkit-transform: translate(-155%, -50%);
+	          transform: translate(-155%, -50%);
+	  overflow: hidden;
+	}
+
+	#box2 {
+	  -webkit-transform: translate(-50%, -50%);
+	          transform: translate(-50%, -50%);
+	}
+
+	#box3 {
+	  -webkit-transform: translate(55%, -50%);
+	          transform: translate(55%, -50%);
+	}
+
+	.boxSmall {
+	  position: absolute;
+	  width: 50px;
+	  height: 50px;
+	  background-color: rgba(0, 0, 0, 0.3);
+	  z-index: 1;
+	  top: 50%;
+	  left: 50%;
+	  -webkit-transform: translate(-50%, -50%);
+	          transform: translate(-50%, -50%);
+	}
+	.result{
+		position: fixed;
+		right: 50px;
+		bottom: 50px;
+	}
+	#jsScrollTop{
+		bottom: 25px;
+	}
+
+</style>
+</head>
+<body>
+	<div class="wrap">
+		<!-- <div class="box" id="green"></div>
+		<div class="box" id="blue"></div>
+		<div class="box" id="orange"></div>
+		<button class="start" onclick="tl.play()">start</button>
+		<button class="start" onclick="tl.pause()">pause</button>
+		<button class="start" onclick="tl.resume()">resume</button>
+		<button class="start" onclick="tl.timeScale(2)">timeScale</button> -->
+		<div id="box" class="box">
+			<div class="boxSmall"></div>
+		</div>
+		<div id="box2" class="box">
+			<div class="boxSmall"></div>
+		</div>
+		<div id="box3" class="box">
+			<div class="boxSmall"></div>
+		</div>
+		<img class="pic" src="file:///D:/%E5%80%8B%E4%BA%BA%E6%B8%AC%E8%A9%A6/animen/safe_image.png">
+		<button class="result" onclick="getScrollTop()">getscroll</button>
+		<b id="jsScrollTop" class="result"></b>
+		<span class="qScrollTop result"></span>
+		<div id="aaa">3345678</div>
+	</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+<script type="text/javascript">
+	// var tl = new TimelineMax({repeat:-1, repeatDelay:1, yoyo:true, paused:true });
+	// tl.to("#green", 1, {opacity:0} )
+ 	// .to("#blue", 1, {opacity:0}, '+=0.5')
+ 	// .to("#orange", 1, {opacity:0}, '+=0.5');
+  	//tl.play();
+	//tl.resume();
+	//tl.seek(1.5);
+	//tl.reverse();
+	var $box = $('.box'),
+    mainTl = new TimelineMax({repeat: -1, repeatDelay: 1});
+
+$box.each(function(index, element){
+
+	var $boxSmall = $(this).find('.boxSmall'),
+      $box = $(this),
+      delay = getRandom(1, 1.7),
+      boxTl = new TimelineMax({delay: delay});
+
+	// Add tweens to the box timeline
+	boxTl
+    .from($box, 0.6, {autoAlpha: 0, y: '-=80', ease:Bounce.easeOut})
+	.fromTo($boxSmall, 1, {y:'-=80'}, {y: '0', ease:Bounce.easeOut})
+    .to($box, 1, {rotation: '45',ease:Power4.easeInOut})
+    .to($boxSmall, 1, {x: '0', ease:Bounce.easeOut}, '-=0.6')
+    .to($box, 1, {rotation: '-45',ease:Power4.easeInOut})
+    .to($boxSmall, 1, {x: '-100%', ease:Bounce.easeOut}, '-=0.6')
+    .to($boxSmall, 0.3, {scale: 2, transformOrigin: 'bottom left', autoAlpha: 0.5, ease:Power0.easeNone})
+    .to($box, 0.5, {rotation: 720, autoAlpha: 0, scale: 0.3,ease:Power4.easeIn}, '+=0.2');
+
+    mainTl.add(boxTl, '0');
+
+});
+
+function getRandom(min, max) {
+  return min + Math.random() * (max - min);
+}
+
+TweenMax.to(".pic", 2, { ease: "circ".easeInOut, x: 700 });
+
+var tl = new TimelineMax({
+ onStart: myFunc, // Run myFunc() when timeline starts
+ onStartScope: Object, // What 'this' refers to inside of myFunc
+ onStartParams: ['{self}', 'param2'] // {self} is timeline itself
+});
+
+
+//=====抓取scroll高度值=====//
+function getScrollTop(){
+  var bodyTop = 0;
+  if (typeof window.pageYOffset != "undefined") {
+    bodyTop = window.pageYOffset;
+
+  } else if (typeof document.compatMode != "undefined"
+             && document.compatMode != "BackCompat") {
+    bodyTop = document.documentElement.scrollTop;
+
+  } else if (typeof document.body != "undefined") {
+    bodyTop = document.body.scrollTop;
+  } 
+  /*顯示出捲動後的高度值*/
+  document.getElementById("jsScrollTop").innerHTML = bodyTop;
+}
+
+
+$(document).ready(function(){
+  $(window).scroll(function() {
+    if ($(document).scrollTop() > 50) {
+      $("p").addClass("test");
+    } else {
+      $("p").removeClass("test");
+    }
+  });
+});
+
+$('#aaa').animate({
+	opacity: 'hide',
+	height: 'hide'
+}, 'slow');
+
+</script>
+</body>
+</html>

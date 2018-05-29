@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>外掛程式</title>
+<link rel="stylesheet" href="wizard.css" />
+</head>
+<body>
+<form id="fm">
+<fieldset>
+  <legend>入會者資訊</legend>
+  <label for="name">姓名</label>
+  <input id="name" type="text" size="30" />
+  <label for="email">電子信箱</label>
+  <input id="email" type="text" />
+  <label for="cource">入會課程</label>
+  <input id="cource" type="text" />
+</fieldset>
+<fieldset>
+  <legend>課程介紹</legend>
+  <label for="purpose">入會目的</label>
+  <input type="radio" name="purpose" value="study" />學習
+  <input type="radio" name="purpose" value="hobby" />興趣
+  <input type="radio" name="purpose" value="other" />其他
+  <label for="time">課程時間</label>
+  <input type="radio" name="time" value="long" />長
+  <input type="radio" name="time" value="-" />普通
+  <input type="radio" name="time" value="short" />短
+  <label for="difficulty">難易度</label>
+  <input type="radio" name="difficulty" value="easy" />簡單
+  <input type="radio" name="difficulty" value="-" />普通
+  <input type="radio" name="difficulty" value="difficult" />困難
+</fieldset>
+<fieldset>
+  <legend>自我評價</legend>
+  <label for="score">達成度（0-100％）</label>
+  <input id="score" type="text" size="3" />％
+  <label for="memo">您的意見與需求</label>
+  <textarea name="memo" cols="50" rows="8"></textarea>
+</fieldset>
+<p>
+  <input id="btnSend" type="button" value="送出" />
+</p>
+</form>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/formToWizard.js">
+</script>
+<script>
+$(function () {
+  $('#fm').formToWizard({ submitButton: 'btnSend' });
+});
+</script>
+</body>
+</html>

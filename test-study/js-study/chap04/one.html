@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+<h2>今日運勢</h2>
+<input type="button" id="btn" value="占卜" />
+<p>今日的綜合分數為<span id="result">－</span>分喔。</p>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  $('#btn').one(
+    'click',
+    function() {
+      $('#result').text(Math.round(Math.random() * 100));
+    }
+  );
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>pageTitle</title>
+    <meta name="description" content="#{pageDesc}">
+    <meta name="viewport" content="width=640">
+    <meta itemprop="name" content="#{pageTitle}">
+    <meta itemprop="description" content="#{pageDesc}">
+    <meta itemprop="image" content="指定顯示圖片">
+    <meta property="og:title" content="#{pageTitle}">
+    <meta property="og:description" content="#{pageDesc}">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="指定顯示圖片">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <!--CDN link -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <script src="js/vendor.js"></script>
+    <script src="js/lib.js"></script>
+</head>
+<!--html body-->
+
+<body>
+    <div class="l-wrap">
+        <nav class="nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <div class="l-container">
+                <div class="nav-bd">
+                    <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO">LOGO</a></h1>
+                    <div class="nav-btn">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                    <div class="nav-menu" role="navigation">
+                        <ul class="clearfix">
+                            <li class="nav-item nav-item--iscurrent"><a href="index.html" alt="項目" itemprop="url" title="項目"><span>項目</span></a></li>
+                            <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>項目</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- render nav view-->
+        <div class="l-fb">
+            <div class="l-container">
+                <div class="fb-box">
+                    <div class="fb-like" data-href="#" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="l-main">
+            <section class="sample" id="el">
+                <div class="sample__hd"></div>
+                <div class="sample__bd"></div>
+                <div class="sample__ft"></div>
+                <section>
+                    <div class="l-container">
+                        <h2>{{initText}}</h2>
+                        <div class="vue">
+                            <form v-on:submit.prevent="signup">
+                                <select v-model="selectOpt">
+                    <option v-for="obj in selectLists" :disabled="obj.value == ''" v-bind:value="obj.value">{{obj.text}}</option>
+                  </select>
+                                <p>select Val : {{selectOpt}}</p>
+                                <button type="submit">submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="sample__content">
+                        <div class="l-container">
+                            <div class="l-vm">
+                                <div class="l-vm__content">
+                                    <h2>demo verticle</h2>
+                                    <p>灰色區塊內垂直置中</p>
+                                    <div class="sprite__demo"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="l-container">
+                        <div class="mdDemo">
+                            <h2>#jade scss example</h2>
+                            <div>
+                                <h3>##<span>Interpolation</span>by jade</h3>
+                            </div>
+                            <div>
+                                <h3>##jade loop</h3>
+                                <div class="row1">
+                                    <p>row+1</p>
+                                </div>
+                                <div class="row2">
+                                    <p>row+2</p>
+                                </div>
+                                <div class="row3">
+                                    <p>row+3</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <!--render main view-->
+        </div>
+    </div>
+    <div class="l-footer footer">
+        <div class="l-container">
+            <p>footer</p>
+        </div>
+    </div>
+    <div class="fb-root"></div>
+    <script src="js/app.js"></script>
+</body>
+<script type="text/javascript">
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.4&appId=262477160615577";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+</html>

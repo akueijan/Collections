@@ -1,0 +1,63 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    title Baxter SOS系統 | sos3-3HD利潤分析(每月每病人)
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='keywords', content='')
+    meta(name='author', content='')
+block page_main
+    div.container
+        div.col-md-12.mb-3
+            div.dashhead.mb-1
+                div.dashhead-titles
+                    h6.dashhead-subtitle 
+                    h2.dashhead-title  HD利潤分析(每月每病人)
+        div.table-responsive.col-12
+            table.table.table-bordered
+                thead.table-active
+                    tr
+                        th 放同一張table比較整齊也可以拆出去
+                        th 現制
+                        th 
+                tbody
+                    tr
+                        th(scope='row') 點值
+                        td 0.8167
+                        td
+                    tr
+                        th(scope='row') 點數/每病次
+                        td 3,912
+                        td
+                    tr
+                        th(scope='row') 健保給付點數
+                        td 48,900
+                        td
+                    tr
+                        th(scope='row') 健保給付金額
+                        td 39,937
+                        td 100%
+                    tr
+                        th(scope='row') 成本
+                        td 34,855
+                        td 87%
+                    tr.text-success
+                        th(scope='row') 利潤
+                        td 5,081
+                        td 13%
+        div.col-md-12
+            ul.list-group
+                li.list-group-item.justify-content-between 
+                    span 平均每月新增淨病人數
+                    input.col-md-2.form-control.text-right(type='text', placeholder='0')
+                li.list-group-item.justify-content-between.text-danger
+                    span 投資回收所需期間(月)
+                        span.text-muted (僅計投入成本)
+                    span.col-md-2.text-right 37
+
+                li.list-group-item.justify-content-between
+                    span 投資回收所需期間(年)
+                    span.col-md-2.text-right 3.1
+block bottomScripts
+

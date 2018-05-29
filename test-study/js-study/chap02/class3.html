@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>函數／物件導向</title>
+</head>
+<body>
+<script>
+var Animal = function(name) {
+  if(!(this instanceof Animal)) {
+    return new Animal(name);
+  }
+  this.name = name;
+};
+
+var ani = Animal('德次郎');
+console.log(ani);
+console.log(ani.name);
+</script>
+</body>
+</html>

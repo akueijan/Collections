@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>HTML5</title>
+<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+<canvas id="cv" width="400" height="250">
+  您的作業環境不支援Canvas功能。
+</canvas>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  if (HTMLCanvasElement) {
+    var cv = $('#cv').get(0);
+    var c = cv.getContext('2d');
+    c.strokeStyle = '#000';              //繪圖色
+    c.fillStyle = '#0f0';                    //填色
+    c.font = 'italic bold 40px serif'; //字型
+    c.textAlign = 'right';                  //水平方向的位置
+    c.fillText('WINGS專案', 330, 100);
+    c.strokeText('WINGS專案', 380, 170);
+  }
+});
+</script>
+</body>
+</html>

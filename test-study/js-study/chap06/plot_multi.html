@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>外掛程式</title>
+<link rel=stylesheet href="css/jquery.jqplot.min.css" />
+</head>
+<body>
+<div id="graph" style="width:400px; height:300px;"></div>
+<!--[if lt IE 9]>
+<script src="js/excanvas.min.js"></script>
+<![endif]-->
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/jquery.jqplot.min.js"></script>
+<script src="js/jqplot.barRenderer.min.js"></script>
+<script src="js/jqplot.categoryAxisRenderer.min.js"></script>
+<script>
+$(function(){
+  //建立原始資料
+  var data = [
+    [
+      ['1月', 113], ['2月', 120], ['3月', 112],
+      ['4月', 121], ['5月', 126], ['6月', 127]
+    ], //銷售數量
+    [
+      ['1月', 201], ['2月', 411], ['3月', 146],
+      ['4月', 464], ['5月', 349], ['6月', 194]
+    ], //來客數
+  ];
+
+  //繪製圖表
+  $.jqplot( 'graph', data, {
+    series: [{
+      label: '銷售數量', //長條圖的標籤
+      yaxis: 'yaxis',    //使用的Y軸（左）
+
+      renderer: $.jqplot.BarRenderer //長條圖的算圖器
+    },
+    {
+      label: '來客數', //折線圖的標籤
+      yaxis: 'y2axis'  //使用的Y軸（右）
+    }],
+    legend: {show: true}, //圖例
+    title: '2014年上半年銷售數量＆來客數', //圖表標題
+    axes: {
+      xaxis: { renderer: $.jqplot.CategoryAxisRenderer }, //X軸的算圖器
+      yaxis: { //Y軸（左）的設定
+        label: '銷售數量', //座標軸標籤
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer, //標籤的算圖器
+        tickOptions : { formatString : '%d台' }, //刻度的格式
+        max: 150, //刻度的最大值
+        min: 110  //刻度的最小值
+      },
+      y2axis: { //Y軸（右）的設定
+        label: '來客數', //座標軸標籤
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer, //標籤的算圖器
+        tickOptions : {
+          formatString : '%d人', //刻度的格式
+          showGridline: true   //是否顯示格式
+        },
+        max: 500, //刻度的最大值
+        min: 100  //刻度的最小值
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Baxter SOS系統 | sos4-4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <head>
+        <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+        <link href="assets/css/akaiDev.css" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
+        <link href="assets/css/toolkit-inverse.css" rel="stylesheet">
+        <link href="assets/css/application.css" rel="stylesheet">
+        <link href="assets/css/akaiDev.css" rel="stylesheet">
+        <link href="assets/css/custom.css" rel="stylesheet">
+        <!--CDN link -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+        <style>
+            /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+            /* this chunk of css is not part of the toolkit :) */
+
+            body {
+                width: 1px;
+                min-width: 100%;
+                *width: 100%;
+            }
+        </style>
+    </head>
+    <title>Baxter SOS系統 | sos4-4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+</head>
+
+<body>
+    <nav class="iconav"><a class="iconav-brand" href="index.html"><span class="icon icon-cloud iconav-brand-icon"></span></a>
+        <div class="iconav-slider">
+            <ul class="nav nav-pills iconav-nav flex-md-column">
+                <li class="nav-item"><a class="nav-link active" href="index.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="返回首頁"><span class="icon icon-home"></span><small class="iconav-nav-label hidden-md-up">返回首頁</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section01.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="利潤試算"><span class="icon icon-calculator"></span><small class="iconav-nav-label hidden-md-up">HD/PD利潤試算</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section02.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="投資損益"><span class="icon icon-globe"></span><small class="iconav-nav-label hidden-md-up">HD/PD投資損益</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section03.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="投資回收試算"><span class="icon icon-area-graph"></span><small class="iconav-nav-label hidden-md-up">HD/PD投資回收試算</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section04.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="病患留院率"><span class="icon icon-list"></span><small class="iconav-nav-label hidden-md-up">HD/PD病患留院率</small></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="col-md-12 mb-3">
+            <ul class="list-group">
+                <li class="list-group-item justify-content-between"><span class="col-md-4">每年新ESRD病人預估量</span>
+                    <input class="col-md-2 form-control" type="text" placeholder="96%"><span class="col-md-1 text-danger">-9%</span>
+                </li>
+                <li class="list-group-item justify-content-between"><span class="col-md-4">每年新進入本院透析病人數</span>
+                    <input class="col-md-2 form-control" type="text" placeholder="85%"><span class="col-md-1 text-danger">-13%</span>
+                </li>
+                <li class="list-group-item justify-content-between"><span class="col-md-4">每年新ESRD病人預估量</span><span class="col-md-2">11%</span><span class="col-md-1"></span></li>
+            </ul>
+        </div>
+        <div class="col-md-12 mb-3">
+            <ul class="list-group">
+                <li class="list-group-header justify-content-between">第一年留院率</li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">PD</span>
+                    <input class="col-md-2 form-control" type="text" placeholder="96%"><span class="col-md-1 text-danger">-9%</span>
+                </li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">HD</span>
+                    <input class="col-md-2 form-control" type="text" placeholder="85%"><span class="col-md-1 text-danger">-13%</span>
+                </li>
+                <li class="list-group-item justify-content-between"><span class="col-md-4"> </span><span class="col-md-2">11%</span><span class="col-md-1"></span></li>
+                <li class="list-group-header justify-content-between">第二年留院率</li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">PD</span>
+                    <input class="col-md-2 form-control" type="text" placeholder="96%"><span class="col-md-1 text-danger">-9%</span>
+                </li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">HD</span>
+                    <input class="col-md-2 form-control" type="text" placeholder="85%"><span class="col-md-1 text-danger">-13%</span>
+                </li>
+                <li class="list-group-item justify-content-between"><span class="col-md-4"> </span><span class="col-md-2">11%</span><span class="col-md-1"></span></li>
+                <li class="list-group-header justify-content-between">第三年留院率</li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">PD</span>
+                    <input class="col-md-2 form-control" type="text" placeholder="96%"><span class="col-md-1 text-danger">-9%</span>
+                </li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">HD</span>
+                    <input class="col-md-2 form-control" type="text" placeholder="85%"><span class="col-md-1 text-danger">-13%</span>
+                </li>
+                <li class="list-group-item justify-content-between"><span class="col-md-4"> </span><span class="col-md-2">11%</span><span class="col-md-1"></span></li>
+                <li class="list-group-header justify-content-between">第四年留院率</li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">PD</span>
+                    <input class="col-md-2 form-control" type="text" placeholder="96%"><span class="col-md-1 text-danger">-9%</span>
+                </li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">HD</span>
+                    <input class="col-md-2 form-control" type="text" placeholder="85%"><span class="col-md-1 text-danger">-13%</span>
+                </li>
+                <li class="list-group-item justify-content-between"><span class="col-md-4"> </span><span class="col-md-2">11%</span><span class="col-md-1"></span></li>
+                <li class="list-group-header justify-content-between">第五年留院率</li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">PD</span>
+                    <input class="col-md-2 form-control" type="text" placeholder="96%"><span class="col-md-1 text-danger">-9%</span>
+                </li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">HD</span>
+                    <input class="col-md-2 form-control" type="text" placeholder="85%"><span class="col-md-1 text-danger">-13%</span>
+                </li>
+                <li class="list-group-item justify-content-between"><span class="col-md-4"> </span><span class="col-md-2">11%</span><span class="col-md-1"></span></li>
+            </ul>
+        </div>
+        <div class="col-md-12 mb-3">
+            <ul class="list-group">
+                <li class="list-group-header justify-content-between">第一年病人留院數</li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">PD</span><span class="col-md-2">29</span><span class="col-md-1 text-danger"></span></li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">HD</span><span class="col-md-2">102</span><span class="col-md-1 text-danger"></span></li>
+                <li class="list-group-header justify-content-between">第二年病人留院數</li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">PD</span><span class="col-md-2">29</span><span class="col-md-1 text-danger"></span></li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">HD</span><span class="col-md-2">102</span><span class="col-md-1 text-danger"></span></li>
+                <li class="list-group-header justify-content-between">第三年病人留院數</li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">PD</span><span class="col-md-2">29</span><span class="col-md-1 text-danger"></span></li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">HD</span><span class="col-md-2">102</span><span class="col-md-1 text-danger"></span></li>
+                <li class="list-group-header justify-content-between">第四年病人留院數</li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">PD</span><span class="col-md-2">29</span><span class="col-md-1 text-danger"></span></li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">HD</span><span class="col-md-2">102</span><span class="col-md-1 text-danger"></span></li>
+                <li class="list-group-header justify-content-between">第五年病人留院數</li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">PD</span><span class="col-md-2">29</span><span class="col-md-1 text-danger"></span></li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">HD</span><span class="col-md-2">102</span><span class="col-md-1 text-danger"></span></li>
+            </ul>
+        </div>
+        <div class="col-md-12 mb-3">
+            <ul class="list-group">
+                <li class="list-group-header justify-content-between">第一年透析利潤</li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">PD</span><span class="col-md-2">$2,546,283.07</span><span class="col-md-1 text-danger"></span></li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">HD</span><span class="col-md-2">$6,219,478.40</span><span class="col-md-1 text-danger"></span></li>
+                <li class="list-group-header justify-content-between">第二年透析利潤</li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">PD</span><span class="col-md-2">$2,546,283.07</span><span class="col-md-1 text-danger"></span></li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">HD</span><span class="col-md-2">$6,219,478.40</span><span class="col-md-1 text-danger"></span></li>
+                <li class="list-group-header justify-content-between">第三年透析利潤</li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">PD</span><span class="col-md-2">$2,546,283.07</span><span class="col-md-1 text-danger"></span></li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">HD</span><span class="col-md-2">$6,219,478.40</span><span class="col-md-1 text-danger"></span></li>
+                <li class="list-group-header justify-content-between">第四年透析利潤</li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">PD</span><span class="col-md-2">$2,546,283.07</span><span class="col-md-1 text-danger"></span></li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">HD</span><span class="col-md-2">$6,219,478.40</span><span class="col-md-1 text-danger"></span></li>
+                <li class="list-group-header justify-content-between">第五年透析利潤</li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">PD</span><span class="col-md-2">$2,546,283.07</span><span class="col-md-1 text-danger"></span></li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">HD</span><span class="col-md-2">$6,219,478.40</span><span class="col-md-1 text-danger"></span></li>
+            </ul>
+        </div>
+        <div class="col-md-12 mb-3">
+            <ul class="list-group">
+                <li class="list-group-header justify-content-between">五年總利潤</li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">PD</span><span class="col-md-2 text-danger">$2,546,283.07</span><span class="col-md-1 text-danger"> </span></li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">HD</span><span class="col-md-2 text-danger">$6,219,478.40</span><span class="col-md-1 text-danger"></span></li>
+            </ul>
+        </div>
+        <div class="col-md-12 mb-3">
+            <ul class="list-group">
+                <li class="list-group-header justify-content-between">五年總利潤/病人</li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">PD</span><span class="col-md-2 text-danger">$2,546,283.07</span><span class="col-md-1 text-danger"></span></li>
+                <li class="list-group-item justify-content-between"> <span class="col-md-4 text-success">HD</span><span class="col-md-2 text-danger">$6,219,478.40</span><span class="col-md-1 text-danger"></span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal fade" id="docsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">下一步「<span class="icon icon-calculator"> PD試算」</span></h4>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>點選「<span class="icon icon-calculator">PD試算」並輸入資料<br><span class="text-success">系統將繼續試算利潤比例</span></span>
+                    </p>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-link modal-action text-danger step01_finish" type="button" data-dismiss="modal"><span class="icon icon-trash"></span> 重新填寫</button>
+                    <button class="btn-link modal-action text-success step01_finish" type="button" data-dismiss="modal"><span class="icon icon-check"></span> 繼續試算</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/tether.min.js"></script>
+    <script src="assets/js/chart.js"></script>
+    <script src="assets/js/tablesorter.min.js"></script>
+    <script src="assets/js/toolkit.js"></script>
+    <script src="assets/js/application.js">
+    </script>
+</body>
+
+</html>

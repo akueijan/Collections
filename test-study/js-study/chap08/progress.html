@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+<link rel="stylesheet" href="site.css" />
+<style>
+#prog { display: none; }
+</style>
+</head>
+<body>
+<form>
+  <label for="zip">郵遞區號：</label>
+  <input id="zip" type="text" size="10" />
+  <input id="search" type="button" value="搜尋" />
+</form>
+<div id="prog"><img src="image/loader.gif" /></div>
+<div id="result"></div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  //Ajax傳輸開始時顯示進度狀態列，結束後隱藏
+  $(document)
+    .ajaxStart(function() {
+      $('#prog').show();
+    })
+    .ajaxStop(function() {
+      $('#prog').hide();
+    });
+
+  //點選「搜尋」按鈕就搜尋地址
+  $('#search').click(function() {
+    $.get('proxy.php', { zip: $('#zip').val() })
+      .done(function(data) {
+        $('#result').text(
+          $('value[state]', data).attr('state')
+            + $('value[city]', data).attr('city')
+            + $('value[address]', data).attr('address')
+        );
+      })
+      .fail(function(data) {
+        window.alert('傳輸時發生錯誤。');
+      });
+  });
+});
+</script>
+</body>
+</html>

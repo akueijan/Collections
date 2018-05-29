@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html manifest="my.appcache">
+<head>
+<meta charset="UTF-8" />
+<title>HTML5</title>
+</head>
+<body>
+<div id="result"></div>
+<img src="./image/seal.jpg" />
+<br><a href="online.html">顯示說明</a>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  if(navigator.onLine){
+    $('#result').html('連線中');
+  } else {
+    $('#result').html('斷線中');
+  }
+});
+</script>
+</body>
+</html>

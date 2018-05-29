@@ -1,0 +1,21 @@
+﻿<html> <body>
+<form>
+<input type=button value="再 玩 " onClick="play( )" >
+</form>
+
+<script>
+function play()
+{  x=Math.round(Math.random()*100 )
+   y=Math.round(Math.random()*100 )
+entry=prompt("What is the sum of " + x + " and " + y +" ?" ,"") 
+if(entry==null || entry=="" )
+         {  alert("You do no calculation! ") }
+
+  else	{ if ( entry == (x + y) )
+              { alert("Good, your answer is correct." )  }
+        else  { alert("Sorry, your answer is wrong.")    }
+    }
+}
+play()
+</script>
+</body> </html>

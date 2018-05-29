@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery UI</title>
+<link rel="stylesheet"
+  href="http://code.jquery.com/ui/1.10.4/themes/redmond/jquery-ui.min.css" />
+</head>
+<body>
+<button id="dl">下載</button>
+<div id="dialog" title="書籍範例的下載">
+  <p>在此可下載書中介紹之範例檔。<br />
+    點選下列的按鈕，下載將自動開始。
+  </p>
+  <p>此外，希望您能提供寶貴的意見，<br />
+    作為日後執筆的參考（尚未閱讀本書或尚未使用本書範例的讀者，可跳過部分題目，回答能回答的部分即可）。
+  </p>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script>
+$(function() {
+  $('#dialog').dialog({
+    width: 500,
+    height: 400,
+    autoOpen: false,
+    modal: false,
+    show: { effect: "slide", duration: 800 },
+    hide: 1000,
+    buttons: {
+      '下載開始': function() {
+        location.href = 'http://www.wings.msn.to/index.php/-/B-11/';
+      },
+      '關閉': function() { $(this).dialog('close'); }
+    },
+  });
+
+  $('#dl').click(function() {
+    $('#dialog').dialog('open');
+  });
+});
+</script>
+</body>
+</html>

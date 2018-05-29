@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Baxter SOS系統 | PD利潤試算</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <head>
+        <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+        <link href="assets/css/akaiDev.css" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
+        <link href="assets/css/toolkit-inverse.css" rel="stylesheet">
+        <link href="assets/css/application.css" rel="stylesheet">
+        <link href="assets/css/akaiDev.css" rel="stylesheet">
+        <link href="assets/css/custom.css" rel="stylesheet">
+        <!--CDN link -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+        <style>
+            /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+            /* this chunk of css is not part of the toolkit :) */
+
+            body {
+                width: 1px;
+                min-width: 100%;
+                *width: 100%;
+            }
+        </style>
+    </head>
+    <title>Baxter SOS系統 | PD利潤試算</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+</head>
+
+<body>
+    <nav class="iconav"><a class="iconav-brand" href="index.html"><span class="icon icon-cloud iconav-brand-icon"></span></a>
+        <div class="iconav-slider">
+            <ul class="nav nav-pills iconav-nav flex-md-column">
+                <li class="nav-item"><a class="nav-link active" href="index.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="返回首頁"><span class="icon icon-home"></span><small class="iconav-nav-label hidden-md-up">返回首頁</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section01.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="利潤試算"><span class="icon icon-calculator"></span><small class="iconav-nav-label hidden-md-up">HD/PD利潤試算</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section02.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="投資損益"><span class="icon icon-globe"></span><small class="iconav-nav-label hidden-md-up">HD/PD投資損益</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section03.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="投資回收試算"><span class="icon icon-area-graph"></span><small class="iconav-nav-label hidden-md-up">HD/PD投資回收試算</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section04.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="病患留院率"><span class="icon icon-list"></span><small class="iconav-nav-label hidden-md-up">HD/PD病患留院率</small></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="col-md-12">
+            <div class="dashhead mb-1">
+                <div class="dashhead-titles">
+                    <h6 class="dashhead-subtitle">PD 利潤試算</h6>
+                    <h2 class="dashhead-title"> HD/PD Profit spreadsheet</h2>
+                </div>
+            </div>
+            <!-- 標籤功能-->
+            <!--
+        <div class="hr-divider mb-4">
+        <ul class="nav nav-pills hr-divider-content hr-divider-nav">
+        <li class="nav-item">
+        <a class="nav-link active" href="#"><span class="icon icon-calculator"></span> HD試算</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#"><span class="icon icon-calculator"></span> PD試算</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#"><span class="icon icon-time-slot"></span> HD/PD 試算比較</a>
+        </li>
+        </ul>
+        </div>
+        -->
+            <!-- 標籤-->
+            <ul class="nav nav-bordered mt-4 mt-md-2 mb-0 clearfix" role="tablist">
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#seciton01_1" role="tab" data-toggle="tab" aria-controls="hd" aria-expanded="true"><span class="icon icon-calculator"></span> HD試算</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="#seciton01_2" role="tab" data-toggle="tab" aria-controls="pd" aria-expanded="false"><span class="icon icon-calculator"></span> PD試算</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#seciton01_3" role="tab" data-toggle="tab" aria-controls="hdvspd" aria-expanded="false"><span class="icon icon-time-slot"></span> HD/PD 試算比較</a></li>
+            </ul>
+            <hr class="mt-0 mb-4">
+            <!-- 麵包屑-->
+            <!--
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html"><span class="icon icon-calculator"></span> HD試算</a></li>
+        <li class="breadcrumb-item active">開始試算</li>
+        </ol>
+        -->
+            <div class="tab-content">
+                <!-- seciton01_1-->
+                <div class="tab-pane active" id="seciton01_1" role="tabpanel" aria-expanded="true"></div>
+                <!-- seciton01_2-->
+                <div class="tab-pane active" id="seciton01_2" role="tabpanel" aria-expanded="false">
+                    <div class="row">
+                        <!--健保給付-->
+                        <div class="col-lg-12 mb-4">
+                            <div class="row">
+                                <div class="col-lg-12 mb-3">
+                                    <h6><span class="icon icon-leaf"></span>健保給付</h6>
+                                </div>
+                                <!--追蹤處置費-->
+                                <div class="col-lg-12 mb-1"><span class="icon icon-shopping-bag text-danger">追蹤處置費</span></div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>醫護人員費</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">1</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">5,235</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">5,235</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>特殊材料費</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">1</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">440</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">440</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>醫材耗品費</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">1</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">1,500</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">1,500</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>檢查費</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">1</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">1,500</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-mutesd">1,500</span></div>
+                                </div>
+                                <div class="col-lg-12 mb-4">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success">健保給付金額<span class="text-danger">8,675</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>保障點值</span>
+                                        <input class="col-md-4 form-control text-left" type="text" placeholder="1.00"><span>每月追縱處置費</span>
+                                    </div>
+                                </div>
+                                <!--腹膜透析液-->
+                                <div class="col-lg-12 mb-1"><span class="icon icon-shopping-bag text-danger">腹膜透析液</span></div>
+                                <div class="col-lg-12 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success"><small class="delta-indicator text-success">腹膜透析液等(incl. Cassette, 租金)</small><span class="text-danger">藥品一點一元給付</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">26,308</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">25,668</span></div>
+                                </div>
+                                <div class="col-lg-12 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success"><span>CAPD</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">使用比例</small><span class="text-muted">60%</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">21,120</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">1.5L/2.0L / 2.5L</small><span class="text-muted"> </span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small>
+                                        <input class="col-md-6 form-control text-right" type="text" placeholder="120">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">176</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">21,120</span></div>
+                                </div>
+                                <div class="col-lg-12 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success"><span>APD</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">使用比例</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="40%">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">26,922</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">透析點值</small><span class="text-muted">0.8167</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">5L</small><span class="text-muted"> </span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small>
+                                        <input class="col-md-6 form-control text-right" type="text" placeholder="60">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">286</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">17,160</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">2L (加洗一袋比例)</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="50%">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">15</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">176</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">2,640</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">Cassette</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">30</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">224</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">5,488</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">HomeChoice租金</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">1</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">2,000</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">1,633</span></div>
+                                </div>
+                                <div class="col-lg-12 mb-4">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success"><span>Extraneal</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">使用Extraneal佔所有PD病人比例</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="47%">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">30</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">與Dianeal給付差額</small><span class="text-muted">158</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">4,740</span></div>
+                                </div>
+                                <!--藥品-->
+                                <div class="col-lg-12 mb-1"><span class="icon icon-shopping-bag text-danger">藥品</span></div>
+                                <div class="col-lg-12 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success"><small class="delta-indicator text-success">藥品</small><span class="text-danger">藥品一點一元給付</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="5,613">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>紅血球生成素(EPO)</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">2000 iu / vial</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="8">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">396</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">3,168</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>活性維生素</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">tablet</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="30">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">22</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">660</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>磷結合劑</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">tablet</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="60">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">1</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">60</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>水溶性維生素B</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">tablet</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="30">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">1</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">30</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>水溶性維生素C</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">tablet</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="30">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">1</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">30</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>葉酸Folic acid</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">tablet</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="30">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">1</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">30</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>高血壓用藥</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">tablet</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="30">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">50</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">1,500</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>失眠</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">tablet</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="30">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">3</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">90</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>皮膚養</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">tablet</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="30">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">1.50</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">45</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>其他(便秘….等)</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">tablet</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付單價/點數</small><span class="text-muted">1.50</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">健保給付金額</small><span class="text-muted">-</span></div>
+                                </div>
+                                <div class="col-lg-12 mb-4">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success">健保給付金額總計<span class="text-danger">39,956</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--材料成本-->
+                        <div class="col-lg-12 mb-4">
+                            <div class="row">
+                                <div class="col-lg-12 mb-3">
+                                    <h6><span class="icon icon-leaf"></span>材料成本</h6>
+                                </div>
+                                <!--追蹤處置費-->
+                                <div class="col-lg-12 mb-1"><span class="icon icon-shopping-bag text-danger">追蹤處置費</span></div>
+                                <div class="col-lg-12 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span>924</span></div>
+                                </div>
+                                <div class="col-lg-12 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success"><span>特殊材料費</span><span>149</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>腹膜透析輸液管 <br><small class="text-muted">每半年換一次</small></span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">0.17</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="768">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">128</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>更換準備包(On-Off Tray) <br><small class="text-muted">每半年換一次</small></span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">0.17</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="126">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">21</span></div>
+                                </div>
+                                <div class="col-lg-12 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success"><span>醫材耗品費</span><span>308</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>紗<br><small class="text-muted">4塊/包</small></span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">30</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="2.5">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">75</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>棉棒/棉籤<br><small class="text-muted">10支/包</small></span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">30</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="5">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">150</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>紙膠<br><small class="text-muted">9.1m/卷</small></span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">2</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="14">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">28</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>酒精<br><small class="text-muted">c.c.</small></span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">200</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="0.10">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">20</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>碘酒<br><small class="text-muted">c.c.</small></span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">200</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="0.10">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">20</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>生理食鹽水<br><small class="text-muted">c.c.</small></span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">500</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="0.03">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">15</span></div>
+                                </div>
+                                <div class="col-lg-12 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success"><span>檢查費</span><span>467</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>血液檢查 <br><small class="text-muted">每月檢查</small></span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">1</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="350">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">350</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>腹膜透析功能測<br><small class="text-muted">年度檢查</small></span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">0.08</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="800">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">67</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>X-Ray<br><small class="text-muted">年度檢查</small></span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">0.08</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="600">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">50</span></div>
+                                </div>
+                                <!--腹膜透析液等(incl. Cassette, 租金)-->
+                                <div class="col-lg-12 mb-1"><span class="icon icon-shopping-bag text-danger">腹膜透析液等(incl. Cassette, 租金)</span></div>
+                                <div class="col-lg-12 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span>22,166</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success"><span>透析液 / Cassette</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">折扣</small>
+                                        <input class="col-md-5 form-control text-right" type="text" placeholder="14.0%">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span>19,597</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success"><span>APD租金</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">折扣</small>
+                                        <input class="col-md-5 form-control text-right" type="text" placeholder="0.0%">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span>653</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success"><span>Extraneal</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">折扣</small>
+                                        <input class="col-md-5 form-control text-right" type="text" placeholder="14.0%">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span>1,916</span></div>
+                                </div>
+                                <!--藥品-->
+                                <div class="col-lg-12 mb-1"><span class="icon icon-shopping-bag text-danger">藥品</span></div>
+                                <div class="col-lg-12 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small>
+                                        <input class="col-md-4 form-control text-right" type="text" placeholder="3,224">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>紅血球生成素(EPO)</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">2000 iu / vial</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">8</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-5 form-control text-right" type="text" placeholder="250">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">2,000</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>活性維生素</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">tablet</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">30</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-5 form-control text-right" type="text" placeholder="11">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">330</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>磷結合劑</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">tablet</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">60</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-5 form-control text-right" type="text" placeholder="0.5">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">30</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>水溶性維生素B</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">tablet</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">30</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-5 form-control text-right" type="text" placeholder="0.5">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">15</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>水溶性維生素C</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">tablet</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">30</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-5 form-control text-right" type="text" placeholder="0.5">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">15</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>葉酸Folic acid</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">tablet</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">30</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-5 form-control text-right" type="text" placeholder="0.5">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">15</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>高血壓用藥</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">tablet</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">30</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-5 form-control text-right" type="text" placeholder="25">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">750</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>失眠</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">tablet</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">30</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-5 form-control text-right" type="text" placeholder="1.5">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">45</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>皮膚養</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">tablet</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">30</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-5 form-control text-right" type="text" placeholder="0.8">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">24</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>其他(便秘….等)</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span class="text-muted">tablet</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">數量(每月)</small><span class="text-muted">-</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">單位成本</small>
+                                        <input class="col-md-5 form-control text-right" type="text" placeholder="0.8">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">進貨成本</small><span class="text-muted">-</span></div>
+                                </div>
+                                <div class="col-lg-12 mb-4">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success">材料成本總計<span class="text-danger">26,314</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success">毛利潤<span class="text-danger">13,642</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--營運費用-->
+                        <div class="col-lg-12 mb-4">
+                            <div class="row">
+                                <div class="col-lg-12 mb-3">
+                                    <h6><span class="icon icon-credit"></span>營運費用</h6>
+                                </div>
+                                <!--醫師-->
+                                <div class="col-lg-4 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">醫師</small></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between">
+                                        <ul class="list-group w-100 mb-3 mt-3">
+                                            <li class="list-group-header justify-content-between">Time allocation to PD</li>
+                                            <li class="list-group-item justify-content-between">照顧PD病人數/每護理人員<span class="text-muted">13.0%</span></li>
+                                        </ul>
+                                        <ul class="list-group w-100 mb-3 mt-3">
+                                            <li class="list-group-header justify-content-between">醫師固定薪資allocated to PD(月)</li>
+                                            <li class="list-group-item justify-content-between text-muted">照顧PD病人數/每護理人員<span class="text-muted">38,997</span></li>
+                                            <li class="list-group-item justify-content-between text-muted">費用支出<span class="text-muted statcard-desc">(每病人/每月)</span><span class="text-muted">1,114</span></li>
+                                        </ul>
+                                        <ul class="list-group w-100 mb-3 mt-3">
+                                            <li class="list-group-header justify-content-between">醫師績效獎金(PPF)/每月每病人</li>
+                                            <li class="list-group-item justify-content-between text-muted">照顧PD病人數/每護理人員
+                                                <input class="col-md-4 form-control" type="text" placeholder="1,309">
+                                            </li>
+                                            <li class="list-group-item justify-content-between text-muted">費用支出<span class="text-muted statcard-desc">(每病人/每月)</span><span class="text-muted">1,309</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success"><span>護理人員</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">照護PD病人數/每護理人員</small>
+                                        <input class="col-md-12 form-control text-right" type="text" placeholder="35">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">年薪/人(含相關福利)</small>
+                                        <input class="col-md-12 form-control text-right" type="text" placeholder="800,000">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">費用支出(每病人/每月)</small><span class="text-muted">1,905</span></div>
+                                </div>
+                                <div class="col-lg-4 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success"><span>行政管理費用</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">照護PD病人數/每護理人員</small>
+                                        <input class="col-md-4 form-control" type="text" placeholder="5.0%">佔營收比例
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">年薪/人(含相關福利)</small>
+                                        <input class="col-md-12 form-control text-right" type="text" placeholder="800,000">
+                                    </div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">費用支出(每病人/每月)</small><span class="text-muted">1,998</span></div>
+                                </div>
+                                <div class="col-lg-12 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success">營運成本總計<span class="text-danger">6,326</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success">稅前利潤<span class="text-danger">7,317</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 按鈕--><a href="#docsModal" data-toggle="modal">
+              <button class="btn btn-primary col-md-12" id="step01_finish" type="button"><span class="icon icon-calculator"></span> 下一步，PD試算</button></a>
+                </div>
+                <!-- seciton01_3-->
+                <div class="tab-pane" id="seciton01_3" role="tabpanel" aria-expanded="false">33</div>
+            </div>
+            <footer>
+                <div class="dashhead-subtitle text-center">® 版權所有 百特醫療產品股份有限公司 - Baxter Taiwan Version 1.0</div>
+            </footer>
+        </div>
+    </div>
+    <div class="modal fade" id="docsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">下一步「<span class="icon icon-calculator"> PD試算」</span></h4>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>點選「<span class="icon icon-calculator">PD試算」並輸入資料<br><span class="text-success">系統將繼續試算利潤比例</span></span>
+                    </p>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-link modal-action text-danger step01_finish" type="button" data-dismiss="modal"><span class="icon icon-trash"></span> 重新填寫</button>
+                    <button class="btn-link modal-action text-success step01_finish" type="button" data-dismiss="modal"><span class="icon icon-check"></span> 繼續試算</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/tether.min.js"></script>
+    <script src="assets/js/chart.js"></script>
+    <script src="assets/js/tablesorter.min.js"></script>
+    <script src="assets/js/toolkit.js"></script>
+    <script src="assets/js/application.js">
+    </script>
+    <script>
+        $('#step01_finish').click(function() {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 600);
+        });
+        $('.step01_finish').click(function() {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 600);
+        })
+    </script>
+</body>
+
+</html>

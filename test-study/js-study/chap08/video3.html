@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>HTML5</title>
+</head>
+<body>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+if (HTMLVideoElement) {
+    //建立<video>元素
+    var vd = document.createElement('video');
+    //判斷是否可播放
+    var result = vd.canPlayType('video/mp4');
+    if (result.match(/^(probably|maybe)$/)) {
+      vd.setAttribute('src', './video/baby.mp4'); //動畫
+      vd.setAttribute('controls', '');    //啟用播放器
+      vd.setAttribute('width', '320');   //寬度
+      vd.setAttribute('height', '180');   //高度
+      document.body.appendChild(vd); //讓視訊反映於頁面中
+      vd.play(); //開始播放
+    }
+  }
+});
+</script>
+</body>
+</html>

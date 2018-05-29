@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>基本語法</title>
+</head>
+<body>
+<script>
+var data = [
+  ['綠茶', '咖啡'],
+  ['御飯糰', '三明治'],
+  ['馬鈴薯燉肉', '炸雞'],
+  ['包子', '蛋糕']
+]
+
+nest:
+for (var i = 0, ilen = data.length; i < ilen; i++) {
+  var tmp = data[i];
+  for (var j = 0, jlen = tmp.length; j < jlen; j++) {
+    if (tmp[j] === '炸雞') { break nest; }
+    console.log(tmp[j]);
+  }
+  console.log('---------------------');
+}
+</script>
+</body>
+</html>

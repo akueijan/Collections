@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+</head>
+<body>
+<form>
+  <label for="url">URL：</label>
+  <input id="url" type="text" size="100" value="http://" />
+  <input id="search" type="button" value="搜尋" />
+</form>
+<div id="count">－</div>
+<ul id="comment"></ul>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  //點選「搜尋」按鈕開始搜尋
+  $('#search').click(function() {
+    $.getJSON('http://b.hatena.ne.jp/entry/jsonlite/?callback=?',
+      { url: $('#url').val() })
+      //成功時的處理
+      .done(function(data) {
+        //在頁面中顯示取得的資料
+        $('#count').text(data.count + '件');
+        $.each(data.bookmarks, function(index, value) {
+          var c = value.comment;
+          if (c !== '') {
+            $('<li>' + c + '</li>').appendTo('#comment');
+          }
+        });
+      })
+      //失敗時的處理
+      .fail(function(data) {
+        window.alert('傳輸過程中發生錯誤。');
+      });
+  });
+});
+</script>
+</body>
+</html>

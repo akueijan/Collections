@@ -1,0 +1,1321 @@
+﻿<!--<html> 
+<head>
+</head>
+<body bgcolor=lightcyan text=red> <p> </br>
+
+    <form name=fm>
+    <input type="text" name="displayBox" value="0" size=4 >
+    </form>
+
+    <script>
+    x = 0
+    function countSecond( )
+    {　x = x+1; 
+    　 document.fm.displayBox.value=x
+    　 setTimeout("countSecond( )", 1000)
+    }
+    countSecond()
+    document.fm.displayBox.size=50
+    </script>
+
+</body>
+</html>-->
+
+<html> 
+<head>
+    <style>
+        .submit-btn{
+            width: 100px;
+            height: 40px;
+            background: #000;
+            color: #fff;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<!--<body bgcolor=lightcyan text=red> <p> </br>
+
+<table> <tr valign=top> <td> 你在本網頁的連線時間是: </td>
+
+<td> <form name=displayMin>
+<input type="text" name="displayBox" value="0" size=4 >
+</form> </td>
+<td> 分 </td>
+
+<td> <form name=displaySec> </td>
+<td> <input type="text" name="displayBox" value="0" size=4 >
+</form> </td>
+<td> 秒。</td> </tr> </table>
+
+<div data-offset="0" data-target="#nav" data-spy="scroll" style="height: 200px; overflow: auto; position: relative;padding: 0 10px;">（事件：偏移量 监听滚动事件 跳转到那个）
+    <h4 id="html5">HTML5</h4>
+  <p ></p>
+  <h4 id="Bootstrap">Bootstrap</h4>
+  <p ></p>
+  <h4 id="JavaScript">JavaScript</h4>
+  <p ></p>
+
+<script>
+x=0
+y=-1
+
+function countMin( )
+{　y=y+1
+　 document.displayMin.displayBox.value=y
+　 setTimeout("countMin( )",60000)
+}
+
+function countSec( )
+{　x = x + 1
+　 z =x % 60
+　 document.displaySec.displayBox.value=z
+　 setTimeout("countSec( )", 1000)
+}
+
+countMin( )
+countSec( )
+</script>-->
+
+<!--<form>
+<input type=button value="Change background color" 
+　　　onClick="document.bgColor='yellow' ;
+alert('The bgcolor has been changed to yellow.' ) ;
+document.bgColor='cyan' ;
+alert('The bgcolor changes to cyan now.') ">
+</form>-->
+
+<!--<form name=fm >
+<input type=text name=tx >
+</form>
+<script>
+document.fm.tx.focus( )
+</script>-->
+
+<!--<form name=fm >
+<input type=text name=tx value="Your name here.">
+</form>
+
+<script>
+document.fm.tx.focus( )
+document.fm.tx.select( )
+</script>-->
+
+<!--onFocus 應用-->
+<!--<form name=fm>
+    提示操作<input type="text" name="tx" size="30">
+    <p>
+        這處請輸入你的姓名:<input type="text" name="" size="20" onfocus="document.fm.tx.value='input your namv'"><br>
+        這處請輸入你的生日:<input type="text" name="" size="20" onfocus="document.fm.tx.value='請用正確格式'">
+    </p>
+</form>-->
+
+<!--onBlur 應用-->
+<!--<form name="fm">
+    <p>please input your birthday:<input type="text" name="tx" size="20" onblur="checkdata()"></p>
+</form>
+<script>
+    function checkdata(){
+        if (document.fm.tx.value=="")
+            {alert("no data")}
+        else
+            {alert("it`s right")}
+    }
+</script>-->
+
+<!--onLoad事件-->
+<!--<body bgColor="lightblue" text="black" onLoad="showAdwin()">
+    <h1>5554464</h1>
+<script>
+    function showAdwin(){
+        adwin=window.open('aaa.html','win2','width=600','height=400');
+        adwin.moveTo(100,100);
+        setTimeout('adwin.close()',3000);
+    }
+</script>-->
+
+<!--onmouseover事件-->
+<!--<body>
+    <img src="" name="pic" border="1" width="300" height="300">
+<a href="javascript:" onmouseover="document.pic.src='pic-1.jpg'">
+    <img src="" border="0" name="pic-1" width="100" height="100">
+</a>
+<a href="javascript:" onmouseover="document.pic.src='pic-2.jpg'">
+    <img src="" border="0" width="100" height="100" background-color="red">-->
+
+<!--onselect事件-->
+<!--<body>
+    <textarea rows="5" cols="20" onselect="alert('QQQOOOQQQ')">
+        this is a book
+    </textarea>-->
+
+<!--<body>
+    <form name="fm" method="post" action="mailto:xxxx@xxxxx.com" enctype="text/plain" onsubmit="return checkit()">
+        please input your name
+        <input type="text" name="tx" value="" size="30"><br>
+        <input type="submit" value="go data">
+    </form>
+    <script>
+        function checkit(){
+            if(document.fm.tx.value==""){
+                alert("no data");
+                document.fm.tx.focus();
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+    </script>
+-->
+    <!--<button type="button" class="submit-btn">submit-->
+<body>
+
+<script>
+/*===============================================
+<!--登入判斷-->
+var msg = prompt('input your name?', '');
+if(msg == 'admin'){
+	var pass = prompt('Password is ?', ''); 
+	if(pass == 'themaster'){
+		alert('hello master');
+	}
+	else if(pass == null || pass == ''){
+		alert('canceled.');
+	}
+	else{
+		alert('wrong');
+	}
+}
+else if(msg == null || msg == ''){
+	alert('canceled.');
+}
+else{
+	alert('who are you?');
+}
+==============================================*/
+/*outer: for (let i = 0; i < 3; i++) {
+
+  for (let j = 0; j < 3; j++) {
+
+    let input = prompt(`Value at coords (${i},${j})`, '');
+
+    // if an empty string or canceled, then break out of both loops
+    if (!input) break outer; // (*)
+
+    // do something with the value...
+  }
+}
+alert('Done!');*/
+/*for (i = 2; i <= 10; ++i) {
+	if ( i % 2 == 0){         
+		alert(i);
+	}
+}*/
+/*let arg = prompt("Enter a value?")
+switch (arg) {
+  case '0':
+  case '1':
+    alert( 'One or zero' );
+    break;
+
+  case '2':
+    alert( 'Two' );
+    break;
+
+  case '3':
+    alert( 'Never executes!' );
+    break;
+
+  default:
+    alert( 'An unknown value' )
+}*/
+
+/*if (browser == 'Edge'){
+	alert("you have got the Edge");
+}
+else if(browser == 'Chrome' || 'Firefox' || 'Safari' || 'Opera'){
+	alert("ok very good");
+	break;
+}
+else{
+	alert("no good");
+}*/
+
+/*var a = +prompt('a?', '');
+switch (a){
+	case 0:
+		alert(0);
+		break;
+	case 1:
+		alert(1);
+		break;
+	case 2:
+	case 3:
+		alert('2,3');
+		break;
+	default:
+		alert('no good');
+		break;
+}*/
+
+/*function msg(x,y){
+	alert(x + ':' + y);
+	return x + y;
+}
+
+alert(msg(2,3));*/
+
+/*function checkage(age){
+	if (age >= 18){
+		return true;
+	}
+	else{
+		return confirm('over 18 years old?');
+	}
+}
+
+
+var age = prompt('how old are you?', 18);
+if (checkage(age)) {
+	alert('ok');
+}
+else {
+	alert('get out');
+}*/
+
+/*function checkage(age){
+	return (age > 18) ; ? true : confirm('did parents allow you?');
+}*/
+
+/*function checkage(age){
+	return (age > 18) ; || confirm('did parents allow you?');
+}*/
+
+
+/*function showPrimes(n) {
+
+  for (let i = 2; i < n; i++) {
+    if (!isPrime(i)) continue;
+
+    alert(i);  // a prime
+  }
+}
+
+
+function isPrime(n) {
+  for (let i = 2; i < n; i++) {
+    if ( n % i == 0) return false;
+  }
+  return true;
+}*/
+
+
+/*var a = prompt('a?', '');
+var b = prompt('b?', '');
+
+function min(a, b) {
+  if (a < b) {
+    return a;
+  } else {
+    return b;
+  }
+}
+alert(min(a, b));*/
+
+/*function pow(x, n) {
+	var result = x;
+
+	for (i = 1; i < n; i++) {
+		result *= x;
+	}
+	return result;
+}
+
+var x = prompt("x?", '');
+var n = prompt("n?", '');
+
+if (n <= 1) {
+	alert(`Power ${n} is not supported`);
+}
+else{
+	alert(pow(x, n));
+}*/
+
+/*function ask(que, yes, no) {
+	if (confirm(que)) yes()
+	else no();
+}
+
+ask(
+	"do you agreed?", 
+	function(){alert("you agreed.");},
+	function(){alert("you no agreed.");}
+);*/
+
+/*var age = prompt("what is your age?", 18);
+var welcome;
+
+if(age < 18) {
+	welcome = function(){
+		alert("hello!");
+	};
+}
+else{
+	welcome = function(){
+		alert("greet");
+	};
+}
+
+welcome();
+*/
+
+/*var age = prompt("what is your age?",'');
+var welcome = (age < 18)?
+	function(){alert("hello");} :
+	function(){alert("greet");};
+welcome();
+*/
+
+/*function showprimes(n){
+	for (i = 2; i < n; i++) {
+		if (!isprimes(i)) continue;
+
+		alert(i);
+	}
+}
+
+function isprimes(n) {
+	for (i = 2; i < n; i++){
+		if (n % i == 0) return false;
+	}
+	return true;
+}
+*/
+/*let salaries = {
+  John: 100,
+  Ann: 160,
+  Pete: 130
+}
+
+let sum = 0;
+for(let key in salaries) {
+  sum += salaries[key];
+}
+
+alert(sum); // 390*/
+
+/*let id = Symbol("id");
+let user = {
+  name: "John",
+  age: 30,
+  [id]: 123
+};
+
+for( key in user) alert(key); // name, age (no symbols)
+
+// the direct access by the symbol works
+alert( "Direct: " + user.age + " " + user[id] );*/
+
+/*var user = { name: "John" };
+var admin = { name: "admin" };
+
+function sayhi() {
+    alert( this.name );
+}
+
+user.f = sayhi;
+admin.f = sayhi;
+
+user.f();
+admin.f();
+
+admin['f']();*/
+
+/*var user = {
+    name: "john",
+    hi() { alert(this.name); },
+    bye() { alert("bye"); }
+};
+user.hi();*/
+
+/*function makeuser() {
+    return {
+        name: "john",
+        ref() {
+            return this;
+        }
+    };
+};
+
+var user = makeuser();
+
+alert( user.ref().name );
+console.log( user.ref().name );*/
+
+/*var calculator = {
+    sum() {
+        return this.a + this.b;
+    },
+
+    mul() {
+        return this.a * this.b;
+    },
+
+    read() {
+        this.a = +prompt('a?',0);
+        this.b = +prompt('b?',0);
+    }
+};
+
+calculator.read();
+alert( calculator.sum() );
+alert( calculator.mul() );*/
+
+/*var user = {
+    name: "john",
+    money: 1000,
+
+    [Symbol.toPrimitive](hint) {
+        alert('hint: ${hint}');
+        return hint == "string" ? '{name: "${this.name}"}' : this.money;
+    }
+    toString() {
+        return this.name;
+    },
+    valueOf() {
+        return this.money;
+    }
+};
+
+alert(user);
+alert(+user);
+alert(user + 500);*/
+
+/*function user(name){
+    if (!new.target) {
+        return new user(name);
+    }
+    this.name = name;
+}
+
+var john = user("john");
+alert(john.name);*/
+
+/*function biguser() {
+    this.name = "john";
+    return {
+        name: "gogogo"
+    };
+}
+
+alert( new biguser().name );*/
+
+/*function User(name) {
+  this.name = name;
+
+  this.sayHi = function() {
+    alert( "My name is: " + this.name );
+  };
+}
+
+let john = new User(+prompt('your name?',' '));
+
+john.sayHi(); // My name is: John*/
+
+/*var num = Number("123");
+alert( typeof num );*/
+// alert( parseInt(Math.random() * 100) );
+
+/*var a = prompt('the first num?',' ');
+var b = prompt('the second nu?',' ');
+alert( a + b ); 
+
+var c = +prompt('the first num?',' ');
+var d = +prompt('the second nu?',' ');
+alert( c + d );*/
+
+/*function readNum() {
+    var num;
+
+    do {
+        num = prompt("input a number please?" , 0);
+    }
+    while ( !isFinite(num) );
+
+    if (num === null || num === '') return null;
+
+    return +num;
+}
+
+alert(`Read: ${readNum()}`);*/
+
+/*function random(min, max) {
+    return min + Math.random() * (max - min);
+}
+
+alert( random(1, 2) );*/
+/*for(var char of "lllee") {
+    alert(char);
+}*/
+
+/*let str = 'As sly as a fox, as strong as an ox';
+
+let target = 'as'; // let's look for it
+
+let pos = 0;
+while (true) {
+  let foundPos = str.indexOf(target, pos);
+  if (foundPos == -1) break;
+
+  alert( `Found at ${foundPos}` );
+  pos = foundPos + 1; // continue the search from the next position
+}*/
+
+/*var a =["jazz","blues"];
+a[1] = "bues";
+a.push("rock-n-roll");
+alert(a);
+a[1] = "classics";
+alert(a);
+a.shift();
+alert(a);
+a.unshift("rap","reggie");
+alert(a);
+alert(a.length);*/
+
+/*var a = ["a" , "b"];
+a.push(function(){
+    alert("this");
+})
+alert( a );
+a[2]();*/
+
+/*function suminput() {
+    var nums = [];
+    while (true) {
+        var value = prompt('a number is ?', 0);
+        if (value === "" || value === null || !isFinite(value)) break;
+        nums.push(+value);
+    }
+    var sum = 0;
+    for (var num of nums) {
+        sum += num;
+    }
+}
+
+alert( suminput() );
+console.log(suminput().value);*/
+
+/*function getMaxSubSum(arr) {
+  let maxSum = 0;
+  let partialSum = 0;
+
+  for (let item of arr; i++) { // for each item of arr
+    partialSum += item; // add it to partialSum
+    maxSum = Math.max(maxSum, partialSum); // remember the maximum
+    if (partialSum < 0) partialSum = 0; // zero if negative
+  }
+
+  return maxSum;
+}
+
+alert( getMaxSubSum([-1, 2, 3, -9]) ); // 5
+alert( getMaxSubSum([-1, 2, 3, -9, 11]) ); // 11
+alert( getMaxSubSum([-2, -1, 1, 2]) ); // 3
+alert( getMaxSubSum([100, -9, 2, -3, 5]) ); // 100
+alert( getMaxSubSum([1, 2, 3]) ); // 6
+alert( getMaxSubSum([-1, -2, -3]) ); // 0*/
+
+//============splice============//
+/*var arr = ["111" , "222", "333"];
+arr.splice(0, 3, "aaa", "bbb", "ccc"); //從0開始移除3個，之後加入3個物件
+alert(arr);
+var removed = arr.splice(0,2);
+alert(arr);
+alert(removed);
+arr.splice(1,0,"ddd","eee","sss");
+alert(arr);
+
+var arr2 = ["1", "3", "5"];
+arr2.splice(-1, 0, "4", "2"); //負數為從後數回來
+alert(arr2);
+alert(arr2.slice(-1) );*/
+
+
+/*var arr = [1, 2];
+var arraylike = {
+    0: "something",
+    1: "else",
+    [Symbol.isConcatSpreadable]: true,
+    length: 2
+};
+
+alert( arr.concat(arraylike) );
+alert( arr.indexOf(2));
+alert( arr.indexOf(1));
+alert( arr.includes(2));*/
+
+/*var users = [
+  {id: 1, name: "John"},
+  {id: 2, name: "Pete"},
+  {id: 3, name: "Mary"},
+];
+
+var user = users.find(item => item.id == 1);
+alert(user.name); // John
+
+var someuser = users.filter(item => item.id < 3);
+alert(someuser.length);*/
+
+/*var lengths = ["bill", "suuu", "qzzz"].map(item => item.length);
+alert(lengths);*/
+
+/*var arr = [ 1, 2, 15];
+//arr.sort((a, b) => a + b);
+//arr.sort(function(a, b){return a - b});
+//alert(arr);
+
+alert( arr.reverse() );*/
+
+/*var names = 'aaa, bbb, ccc';
+var arr = names.split(', ');
+for(var name of arr) {
+    alert(`A msg to ${name}.` );
+}*/
+
+/*var arr = 'aaa, bbb, ccc, ddd'.split(', ', 3);
+alert(arr);
+
+var str = "abcde" ;
+alert( str.split('') );
+
+var arr2 = ['zzz', 'yyy', 'xxx'];
+var str2 = arr2.join('OAOA');
+alert( str2 );
+
+var value = arr.reduce(function(previousValeu, item, index, arr){
+
+}, initial);
+
+var arr = [1, 2, 3, 4, 5]
+var result = arr.reduce((sum, current) => sum + current, 0);
+alert( result );
+
+var user = {
+    age: 33,
+    younger(otherUser) {
+        return otherUser.age < this.age;
+    }
+};
+
+var users = [
+    {age: 12},
+    {age: 24},
+    {age: 36}
+];
+
+var youngerUsers = users.filter(user.younger, user);
+alert(youngerUsers.length);
+*/
+
+/*function camelize(str) {
+	return str
+		.split('-')
+		.map(
+			(word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1)
+		)
+		.join('');
+}
+alert(camelize("background-color"));
+console.log(camelize("ssss-dddd-wwww"));*/
+
+/*var arr = [5, 3, 8, 1];
+var filtered = filterRange(arr, 1, 4);
+function filterRange(arr, a, b){
+		return arr.filter(item => (a <= item && item <= b));
+}
+alert( filtered );
+alert( arr );*/
+
+/*var arr = [5, 3, 8, 1];
+filterRangeInPlace(arr, 1, 4);
+function filterRangeInPlace(arr, a, b) {
+	for (let i = 0; i < arr.length; i++) {
+		var val = arr[i];
+
+		if (val < a || val > b) {
+			arr.splice(i, 1);
+			i--;
+		}
+	}
+}
+alert( arr );*/
+
+/*var arr = [5, 2, 3, -111, 888];
+arr.sort((a,b) => b - a);
+alert(arr);*/
+
+/*var arr = ["html", "java", "css"];
+var sorter = copySorter(arr);
+function copySorter(){
+	return arr.slice().sort();
+}
+alert( sorter );
+alert( arr );
+*/
+
+/*var john = { name: "john", age: 25};
+var peter = { name: "peter", age: 30};
+var sue = { name: "sue", age: 28};
+var user = [john, peter, sue];
+var names = user.map(item => item.name);
+alert(names);*/
+
+/*let john = { name: "John", surname: "Smith", id: 1 };
+let pete = { name: "Pete", surname: "Hunt", id: 2 };
+let mary = { name: "Mary", surname: "Key", id: 3 };
+let users = [john, pete, mary];
+let usersMapped = users.map(user => ({
+	fullName: `${user.name} ${user.surname}`,
+	id: user.id
+}));
+
+
+alert( usersMapped[0].id )
+alert( usersMapped[0].fullName )*/
+
+/*var john = { name: "john", age: 25}
+var pete = { name: "pete", age: 30}
+var mary = { name: "mary", age: 28}
+var arr = [ john, pete, mary];
+function sortByName(arr){
+	arr.sort((a,b) => a.name > b.name);
+} 
+sortByName(arr);
+alert(arr[1].name)*/
+
+/*var john = { name: "john", age: 25 }
+var pete = { name: "pete", age: 30 }
+var mary = { name: "mary", age: 29 }
+var arr = [ john, pete, mary ];
+function getAverageAge(users) {
+	return arr.reduce((prev, user) => prev + user.age, 0) / arr.length;
+}
+alert( getAverageAge(arr) );*/
+
+/*function unique(arr) {
+	var result = [];
+	for (var str of arr) {
+		if (!result.includes(str) {
+			result.push(str);
+		})
+	}
+	return result;
+}
+var strings = ["sss", "bbb", "ccc", "sss", "ddd", "bbb", "sss"];
+alert( uniaue(strings) );*/
+/*let range = {
+  from: 1,
+  to: 5,
+
+  [Symbol.iterator]() {
+    this.current = this.from;
+    return this;
+  },
+
+  next() {
+    if (this.current <= this.to) {
+      return { done: false, value: this.current++ };
+    } 
+    else {
+      return { done: true };
+    }
+  }
+};
+
+for (let num of range) {
+  alert(num); // 1, then 2, 3, 4, 5
+}*/
+
+/*for (let char of "test") {
+	alert(char);
+}*/
+
+/*let map = new Map();
+map.set('1', 'aaa')
+	.set(1, 333)
+	.set(true, 'ccc');
+alert( map.get(1) );
+alert( map.get(true) );*/
+
+/*var recmap = new Map([
+	['aaa', 500],
+	['bbb', 200],
+	['ccc', "john"]
+]);
+
+for(let vars of recmap.keys()) {  //顯示key的內容
+	alert(vars);
+}
+
+for(let vars of recmap.values()) {  //顯示value的內容
+	alert(vars);
+}
+
+for(let vars of recmap.entries()) {  //顯示物件裡的內容
+	alert(vars);
+}
+
+recmap.forEach( (value, key, map) => {
+	alert(`${key}: ${value}`);
+});*/
+
+/*var set = new Set();
+
+var john = { name: "john" };
+var pete = { name: "pete" };
+var mary = { name: "mary" };
+
+set.add(john);
+set.add(pete);
+set.add(mary);
+set.add(john);
+set.add(mary);
+
+alert( set.size );
+
+for(let user of set) {
+	alert(user.name);
+}*/
+
+/*var set = new Set(["ooo", "aaa", "bbb"]);
+// for (var value of set)
+// 	alert( value );
+
+set.forEach((value, set) => {
+	alert( value );
+});*/
+
+/*var john = { name: "john"};
+var map = new Map();
+map.set(john, "...");
+john = null;
+alert(john);*/
+
+/*function unique(arr) {
+	return Array.from(new Set(arr));
+}
+
+var values = ["hare", "kris", "hare", "vvvv", "kris"];
+alert( unique(values) );*/
+
+/*function aclean(arr) {
+	var obj = {};
+	for (var i = 0; i < arr.length; i++) {
+		var sorted = arr[i].toLowerCase().split("").sort().join("");
+		obj[sorted] = arr[i];
+	}
+	return Array.from(Object.values(obj));
+}
+
+var arr = ["nap", "teachers", "cheaters", "ear", "rae", "hectares"];
+alert( aclean(arr) );*/
+
+/*var map = new Map();
+map.set("name", "john");
+var keys = Array.from(map.keys());
+keys.push("more");
+alert(keys);*/
+
+/*var msg = [
+	{text: "hello", from:"john"},
+	{text: "how goes", from:"john"},
+	{text: "see you son", from:"alice"},
+];
+
+var readMsg = new WeakSet();
+
+readMsg.add(msg[0]);
+readMsg.add(msg[1]);
+readMsg.add(msg[0]);
+alert("Read msg 0:" + readMsg.has(msg[0]));
+msg.shift();*/
+
+/*var msgs = [
+	{text: "hello", from: "john"},
+	{text: "how goes?", from: "john"},
+	{text: "see you soon", from: "alice"}
+];
+
+var readMap = new WeakMap();
+readMap.set(msgs[0], new Date(2017, 1, 1));
+*/
+
+/*var salaries = {
+	"John": 100,
+  	"Pete": 300,
+  	"Mary": 250
+};
+
+function sumSalaries(salaries) {
+	var sum = 0;
+	for (var salary of Object.values(salaries)) {
+		sum += salary;
+	}
+	return sum;
+}
+
+alert( sumSalaries(salaries) );*/
+
+/*var user = {
+	name: 'john',
+	age: 30
+};
+
+function count(obj) {
+	return Object.keys(obj).length;
+}
+
+alert( count(user) );*/
+
+/*var user = {
+	name: "john",
+	age: 30
+};
+
+for(var [key, value] of Object.entries(user)) {
+	alert(`${key}:${value}`);
+}*/
+
+/*var [name1, name2, ...rest] = ["jjj", "ssss", "cccc", "dd ssoodd sss"];
+alert(name1);
+alert(name2);
+
+alert(rest[0]);
+alert(rest[1]);
+alert(rest.length);*/
+
+/*var opt = {
+
+};
+var {title = prompt("title?", "open"), width = prompt("width?")} = opt;
+
+alert(title);
+alert(width);
+*/
+
+/*var opts = {
+  size: {
+    width: 100,
+    height: 200
+  },
+  items: ["cake", "donut"],
+  extra: true
+};
+
+var {
+  size: {
+    width,
+    height,
+  },
+  items: [item1, item2],
+  title = "menu"
+} = opts;
+
+alert(title);
+alert(width);
+alert(height);
+alert(item1);
+alert(item2);*/
+
+/*var opts = {
+  title: "my menu",
+  items: ["item1", "item2"]
+};
+
+function showmenu({
+  title = "untitled",
+  width:w = 100,
+  height:h = 200,
+  items: [item1, item2]
+}) {
+  alert( title + ' ' + w + ' ' + h );
+  alert( item1 );
+  alert( item2 );
+}
+
+showmenu(opts);*/
+
+/*var user = {
+  name: "john",
+  years: 30,
+}
+
+var {name, years: age, isAdmin = false} = user;
+
+alert(name);
+alert(age);
+alert(isAdmin);*/
+
+/*var salaries = {
+  "john": 100,
+  "pete": 300,
+  "mary": 250
+};
+
+function topsalary(salaries) {
+  var max = 0;
+  var maxName = null;
+  for (var [name, salary] of Object.entries(salaries)) {
+    if (max < salary) {
+      max = salary;
+      maxName = name;
+    }
+  }
+  return maxName;
+}
+
+alert(topsalary(salaries));*/
+
+
+//alert( new Date().getTimezoneOffset() );
+//var today = new Date();
+//alert(+today);
+
+
+// var start = Date.now();
+// for (var i = 0; i < 100000; i++) {
+//   var something  = i * i * i;
+// }
+// var end = Date.now();
+// alert( `the loop took ${end - start} ms` );
+
+// function diffsubstract(date1, date2) {
+//   return date2 - date1;
+// }
+// function diffGetTime(date1, date2) {
+//   return date2.getTime() - date1.getTime();
+// }
+
+// function bench(f) {
+//   var date1 = new Date(0);
+//   var date2 = new Date();
+//   var start = Date.now();
+//   for (var i = 0; i < 100000; i++) f(date1, date2);
+//     return Date.now() - start;
+// }
+// alert('time of diffsubstract: ' + bench(diffsubstract) + 'ms' );
+// alert('time of diffGetTime: ' + bench(diffGetTime) + 'ms' );
+
+
+// function diffSub(date1, date2) {
+//   return date2 - date1;
+// }
+// function diffGet(date1, date2) {
+//   return date2.getTime() - date1.getTime();
+// }
+// function bench(f) {
+//   var date1 = new Date(0);
+//   var date2 = new Date();
+//   var start  = Date.now();
+//   for (var i = 0; i < 100000; i++) f(date1, date2);
+//     return Date.now() - start;
+// }
+// var time1 = 0;
+// var time2 = 0;
+// for (var i = 0; i < 10; i++) {
+//   time1 += bench(diffSub);
+//   time2 += bench(diffGet);
+// }
+// alert( 'total time for diffSub: ' + time1 );
+// alert( 'total time for diffGet: ' + time2 );
+
+
+// var today = new Date(2012, 1, 20, 3, 12);
+// alert(today);
+
+
+// var date = new Date(2017, 4, 9);
+// function getweekday(date) {
+//   var days = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
+//   return days[date.getDay()];
+// }
+// alert( getweekday(date) );
+
+
+// function getLocalDay(date) {
+//   var day = date.getDay();
+//   if (day == 0) {
+//     day = 7;
+//   }
+//   return day;
+// }
+// alert( getLocalDay(new Date(2017, 4, 9)) );
+
+
+// function getDateAgo(date, days) {
+//   var dateCopy = new Date(date);
+//   date.setDate(date.getDate() + days);
+//   return date.getDate();
+// }
+// var date = new Date(2017, 4, 9);
+// alert( getDateAgo(date, 1) );
+// alert( getDateAgo(date, 2) );
+// alert( getDateAgo(date, 365) );
+
+
+// function getlastdayofmonth(year, month) {
+//   var date = new Date(year, month + 1, 0);
+//   return date.getDate();
+// }
+// alert( getlastdayofmonth(2017, 4) );
+
+
+//===今天已過去多少秒===//
+// function getsectoday() {
+//   // var now = new Date();
+//   // var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+//   // var diff = now - today;
+//   // return Math.round(diff / 1000);
+//   var d = new Date();
+//   return d.getHours() * 3600 + d.getMinutes() * 60 + d.getSeconds();
+// }
+// alert( getsectoday() );
+
+
+//===距離明天剩下多少秒===//
+// function gettomorrowsec(){
+//   var now = new Date();
+//   var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() +1 );
+//   var diff = tomorrow - now;
+//   return Math.round(diff / 1000);
+// }
+// alert( gettomorrowsec() );
+
+
+// function formatDate(date) {
+//   var diff = new Date() - date;
+//   if (diff < 1000) {
+//     return 'right now';
+//   }
+//   var sec = Math.floor(diff / 1000);
+//   if (sec < 60) {
+//     return sec + 'sec.ago';
+//   }
+//   var min = Math.floor(diff / 60000);
+//   if (min < 60) {
+//     return min + 'min.ago';
+//   }
+//   var d = date;
+//   d = [
+//     '0' + d.getDate(),
+//     '0' + (d.getMonth() + 1),
+//     '' + d.getFullYear(),
+//     '0' + d.getHours(),
+//     '0' + d.getMinutes()
+//   ].map(component => component.slice(-2));
+//   return d.slice(0, 3).join('.') + ' ' + d.slice(3).join(':');
+// }
+// alert( formatDate(new Date(new Date - 1)) );
+// alert( formatDate(new Date(new Date - 30 * 1000)) );
+// alert( formatDate(new Date(new Date - 5 * 60 * 1000)) );
+// alert( formatDate(new Date(new Date - 86400 * 1000)) );
+
+//===json to json===//
+// var user = {
+//   name: 'john',
+//   age: 30,
+//   toString(){
+//     return `{name: "${this.name}", age: ${this.age}}`;
+//   }
+// };
+// alert(user);
+
+
+// var student = {
+//   name: 'john',
+//   age: 30,
+//   isAdmin: false,
+//   courses: ['html', 'css', 'js'],
+//   wife: null
+// };
+// var json = JSON.stringify(student);
+// alert(typeof json);
+// alert(json);
+
+
+// var meetup = {
+//   title: "conference",
+//   room: {
+//     number: 123,
+//     participants: ["john", "ann"]
+//   }
+// };
+// alert( JSON.stringify(meetup) );
+
+
+// var room = {
+//   number: 123
+// };
+// var meetup = {
+//   title: "conference",
+//   participants: [{name: "john"}, {name: "alice"}],
+//   place: room
+// };
+// room.occupiedBy = meetup;
+// alert( JSON.stringify(meetup, ['title', 'participants']) );
+
+
+// var room = {
+//   number: 23
+// };
+
+// var meetup = {
+//   title: "conference",
+//   participants: [{name: "john"}, {name: "alice"}],
+//   place: room
+// };
+
+// alert( JSON.stringify(meetup, function replacer(key, value) {
+//   alert(`${key}: ${value}`);
+//   return (key == 'occupiedBy') ? undefined : value;
+// }));
+
+
+// var user = {
+//   name: "john",
+//   age: 25,
+//   roles: {
+//     isAdmin: false,
+//     isEditor: true
+//   }
+// };
+// alert(JSON.stringify(user, null, 2) );
+
+
+// var room = {
+//   number: 23,
+//   toJSON() {
+//     return this.number;
+//   }
+// };
+// var meetup = {
+//   title: "conference",
+//   room
+// };
+// alert( JSON.stringify(meetup, null, 5) );
+// alert( JSON.stringify(room) );
+
+
+var user = {
+  name: "john smith",
+  age: 35
+};
+alert(JSON.parse(JSON.stringify(user)) );
+
+</script>
+</body> 
+
+</html>
+

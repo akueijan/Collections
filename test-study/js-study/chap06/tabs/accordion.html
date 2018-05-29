@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery UI</title>
+<link rel="stylesheet"
+  href="http://code.jquery.com/ui/1.10.4/themes/redmond/jquery-ui.min.css" />
+</head>
+<body>
+<div id="ac">
+  <h3>折疊式面板</h3>
+  <div id="accordion">
+  <p>所謂折疊式面板是指點選標題後展開內容的面板。</p>
+  <p>當某項內容展開，另一項內容就會自行折疊，而這種舉動很像蛇腹的構造，所以又被稱為蛇腹式面板。</p>
+  <p>要以jQuery UI建立折疊式面板可使用Accordion小工具。</p>
+  </div>
+  <h3>對話框</h3>
+  <div id="dialog">
+  <p>要安裝常見的對話框可使用Dialog小工具，這個小工具同時支援對話框的縮放與移動。</p>
+  <p>對話框不僅能植入字串，也能植入輸入元素或按鈕這類的元素，所以不單單具備顯示輔助資訊的功能，也能當成副選單或選項使用。</p>
+  </div>
+  <h3>工具提示</h3>
+  <div id="tooltip">
+  <p>要安裝工具提示可使用Tooltip小工具。</p>
+  <p>工具提示的文字可利用title屬性設定。任何元素都可安裝工具提示。此外，這次的範例為了讓工具提示更為顯眼，特地透過樣式表套用底線樣式。
+  之後只要對頁面呼叫tooltip方法，擁有title屬性的元素就會顯示工具提示的訊息。</p>
+  </div>
+</div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script>
+$(function() {
+  $('#ac').accordion({
+    	    heightStyle: 'content'	    
+  });
+});
+$(function() {
+  $('#ac').accordion({
+    	    active: 0	    
+  });
+});
+</script>
+</body>
+</html>

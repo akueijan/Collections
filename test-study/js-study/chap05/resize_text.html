@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery UI</title>
+<link rel="stylesheet"
+  href="http://code.jquery.com/ui/1.10.4/themes/redmond/jquery-ui.min.css" />
+</head>
+<body>
+<div id="resizable" style="overflow: hidden;" class="ui-widget-content">
+  <p>這個參數可以指定元素縮放時的長寬比，例如指定為「aspectRatio：2/3」，代表元素在縮放時，必須維持2:3 的長寬比，這個參數尤其在縮放圖片時特別有用，可以維持圖片的長寬比避免圖片變形。</p>
+
+  <p>啟用ghost參數可以在縮放元素時顯示半透明的影像，方便使用者想像元素縮放之後的大小，尤其適用於圖片的縮放(縮放結果請參考resize.html的▼結果)。</p>
+  <p>helper參數則可以在縮放時指定代替元素(=helper)的樣式類別，例如下列就是在縮放元素時顯示淡灰色矩形的範例。</p>
+  </p>
+</div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script>
+$(function() {
+  $('#resizable').resizable({
+  });
+});
+</script>
+</body>
+</html>

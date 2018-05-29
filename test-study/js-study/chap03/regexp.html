@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>物件</title>
+</head>
+<body>
+<script>
+var ex1 = new RegExp('http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&=]*)?','gi');
+var ex2 = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;
+var str = '範例檔請從http://www.wings.msn.to/下載';
+str += '有問題請至HTTP://WWW.wings.msn.to/index.php/-/B-14/發問';
+
+console.log('建構式建立物件的結果');
+var result1 = str.match(ex1);
+for(var i = 0; i < result1.length; i++){
+  console.log(result1[i]);
+}
+console.log('以語法建立物件的結果');
+var result2 = str.match(ex2);
+for(var i = 0; i < result2.length; i++){
+  console.log(result2[i]);
+}
+</script>
+</body>
+</html>

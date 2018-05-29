@@ -1,0 +1,86 @@
+﻿<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+  <head>
+    <style>
+        *:before, *:after {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+.top {
+ padding-right: 20px;
+ background: #261F41;
+ text-align: right;
+ }
+
+p1 {
+ margin: 0 0 20px;
+ line-height: 1.5;
+}
+
+.tabbox {
+ margin: 0 auto;
+ min-width: 320px;
+ max-width: 800px;
+ text-align: center;
+}
+
+.content > div {
+ display: none;
+ padding: 20px 25px 5px;
+}
+
+input {
+ display: none;
+}
+
+.tp {
+ display: inline-block;
+ padding: 5px 10px;
+ font-weight: 600;
+ text-align: center;
+ font-family: Meiryo
+}
+
+.tp:hover {
+ color: #fff;
+ cursor: pointer;
+}
+
+input:checked + .tp {
+ background: #FFA500;
+ color: #fff;
+}
+
+#tab1:checked ~ .content #content1,
+#tab2:checked ~ .content #content2,
+#tab3:checked ~ .content #content3,
+#tab4:checked ~ .content #content4,
+#tab5:checked ~ .content #content5 {
+ display: block;
+ text-align: left;
+}
+
+@media screen and (max-width: 400px) { label {padding: 15px 10px;} }
+    </style>
+  </head>
+  <body>
+    <div class="tabbox">
+<input checked="" id="tab1" name="tabs" type="radio" />
+<label class="tp" for="tab1">頁籤一</label>
+ 
+<input id="tab2" name="tabs" type="radio" />
+<label class="tp" for="tab2">頁籤二</label>
+
+
+
+<div class="content" style="background-color: white;">
+    <div id="content1">
+        <p1>ONE、我是第一個頁籤的內容</p1>
+    </div>
+    <div id="content2">
+        <p1>TWO、我是第二個頁籤的內容</p1>
+    </div>
+</div>
+</body>
+</html>

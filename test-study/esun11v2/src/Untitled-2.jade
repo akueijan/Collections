@@ -1,0 +1,146 @@
+﻿doctype
+html
+  head
+    meta(charset='utf-8')
+    style body{font-size: 20px;} a{margin: 10px; line-height: 40px;} div, section{border: 1px solid #666; padding: 5px; margin: 10px;} span{font-size:24px; color:#f60;} button, .button{padding: 6px 10px; border-radius: 10px; background: linear-gradient(#666,#eee);}
+  body
+    span Attributes
+    br
+    a(href='google.com') Google</a> a(href='google.com') ==> &lt;a href="google.com"&gt;&lt;/a&gt;
+    br
+    br
+    a(class='button' href='google.com') Google</a> a(class='button' href='google.com') ==> &lt;a class="button" href="google.com"&gt;&lt;/a&gt;
+    br
+    br
+    a(class='button', href='google.com') Google</a> a(class='button', href='google.com') ==> &lt;a class="button" href="google.com"&gt;&lt;/a&gt;
+    br
+    br
+    hr
+    span Multiline Attributes
+    br
+    input(
+      type='checkbox'
+      name='agreement'
+      checked
+    ) 
+    </input> <br>input(<br>type='checkbox'<br>name='agreement'<br>checked<br>) ==> <br>&lt;input type="checkbox" name="agreement" checked&gt;
+    br
+    br
+    input( type="checkbox" name="agreement" checked)
+    </input> <br>input( type="checkbox" name="agreement" checked) ==> <br>&lt;input type="checkbox" name="agreement" checked&gt;
+    //- div(class="div" v-on:click='play()')
+    br
+    br
+    input(data-json=`
+      {
+        "very-long": "piece of ",
+        "data": true
+      }
+    `)
+    </input> <br>input(data-json='<br>{<br>"very-long": "piece of ",<br>"data": true<br>}<br>') ==> <br>&lt;input data-json="<br>{<br>&quot;very-long&quot;: &quot;piece of &quot;,<br>&quot;data&quot;: true<br>}<br>"&gt;
+    br
+    br
+    hr
+    span Quoted Attributes
+    br
+    p div(class='div-class', (click)='play()') ==> &lt;div class="div-class" (click)="play()"&gt;&lt;/div&gt;
+    p div(class='div-class' '(click)'='play()') ==> &lt;div class="div-class" (click)="play()"&gt;&lt;/div&gt;
+    br
+    hr
+    span Attribute Interpolation
+    br
+    - var url = 'pug-test.html';
+    a(href='/' + url) Link
+    p - var url = 'pug-test.html';<br>a(href='/' + url) Link ==> <br> &lt;a href="/pub-test.html"&gt; Link &lt;/a&gt;
+    br
+    - url = 'https://example.com/'
+    a(href=url) Another link
+    p - url = 'https://example.com/'<br>a(href=url) Another link ==> <br> &lt;a href="https://example.com/"&gt; Another link &lt;/a&gt;
+    br
+    
+    - var btnType = 'info'
+    - var btnSize = 'lg'
+    p - var btnType = 'info'<br>- var btnSize = 'lg'
+    button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize)
+    br
+    p button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize) ==> &lt;button type="button" class="btn btn-info btn-lg"&gt;&lt;/button&gt;
+    button(type='button' class=`btn btn-${btnType} btn-${btnSize}`)
+    p button(type='button' class=`btn btn-${btnType} btn-${btnSize}`) ==>  &lt;button type="button" class="btn btn-info btn-lg"&gt;&lt;/button&gt;
+    br
+    hr
+    span Unescaped Attributes
+    br
+    div(escaped="<code>")
+    div(unescaped!="<code>")
+    p div(escaped="&lt;code&gt;") ==> &lt;div escaped="&lt;code&gt;"&gt;&lt;/div&gt;
+    p div(unescaped!="&lt;code&gt;") ==> &lt;div escaped="&lt;code&gt;"&gt;&lt;/div&gt; *不建議使用
+    br
+    hr
+    span Boolean Attributes 
+    br
+    input(type='checkbox' checked)
+    p input(type='checkbox' checked) ==> &lt;input type="checkbox" checked="checked" /&gt;
+    input(type='checkbox' checked=true)
+    p input(type='checkbox' checked=true) ==> &lt;input type="checkbox" checked="checked" /&gt;
+    input(type='checkbox' checked=false)
+    p input(type='checkbox' checked=false) ==> &lt;input type="checkbox" /&gt;
+    input(type='checkbox' checked=true.toString())
+    p input(type='checkbox' checked=true.toString()) ==> &lt;input type="checkbox" checked="true" /&gt;
+    br
+    hr
+    span Style Attributes
+    br
+    a(style={color: '#fff', background: 'green', padding:'6px 10px'}) sss</a> 可以直接在jade裡把css加入
+    p a(style={color: '#fff', background: 'green', padding:'6px 10px'}) sss ==> &lt;a style="color:#fff;background:green;padding:6px 10px"&gt;sss&lt;/a&gt;
+    br
+    hr
+    span Class Attributes
+    br
+    - var classes = ['foo', 'bar', 'baz']
+    <p>- var classes = ['foo', 'bar', 'baz']</p>
+    a(class=classes) aaa a(class=classes) a的class的屬性=變數classes,所以foo bar baz會被加入 ==> &lt;a class="foo bar baz"&gt;aaa&lt;/a&gt;
+    br
+    //- the class attribute may also be repeated to merge arrays
+    a.bang(class=classes class=['bing']) aaa a.bang(class=classes class=['bing']) a一開始就有一個bang的class,class=變數classes,又有一個class=bing,最後a的class就會有bang foo bar baz bing這5個 ==> &lt;a class="bang foo bar baz bing"&gt;aaa&lt;/a&gt;
+    br
+    br
+    - var currentUrl = '/about' 
+    <p> - var currentUrl = '/about'</p>
+    a(class={active: currentUrl === '/'} href='/') Home</a> a(class={active: currentUrl === '/'} href='/') Home 由於變數currentUrl不等於/about 所以a的class屬性就被刪掉 ==> &lt;a href="/"&gt;Home&lt;/a&gt;
+    br
+    a(class={active: currentUrl === '/about'} href='/about') About</a> a(class={active: currentUrl === '/about'} href='/about') About 由於變數currentUrl等於/about 所以a的class屬性就被加上去 ==> &lt;a class="active" href="/about"&gt;About&lt;/a&gt;
+    br
+    br
+    hr
+    span Class Literal 
+    br
+    br
+    a.button a.button
+    p a.button ==> &lt;a class="button"&gt;&lt;/a&gt;
+    br
+    .content div.content
+    p .content ==> &lt;div class="content"&gt;&lt;/div&gt;
+    br
+    hr
+    span ID Literal
+    br
+    a#main-link(style={border: '1px solid #666', width: '100px', height: '15px',}) a#main-link
+    p a#main-link ==> &lt;a id="main-link"&gt;&lt;/a&gt;
+    br
+    #content div#content
+    p #content ==> &lt;div id="content"&gt;&lt;/a&gt;
+    br
+    hr
+    h1 Example
+    div.index div.index ==> &lt;div class="index"&gt;&lt;/div&gt;
+        section#anchor1.kv section#anchor1.kv ==> &lt;section id="anchor1" class="kv"&gt;&lt;/section&gt;
+            div.kv__hd div.kv__hd ==> &lt;div class="kv__hd"&gt;&lt;/div&gt;
+                div.l-container div.l-container ==> &lt;div class="l-container"&gt;&lt;/div&gt;
+                    h2.kv__hd-title(style={border: '1px solid #666', color:'red',}) h2.kv__hd-title ==> &lt;h2 class="kv__hd-title"&gt;&lt;/h2&gt;
+                    div.card.card1 div.card.card1 ==> &lt;div class="card card1"&gt;&lt;/div&gt;
+                        div.card__body div.card__body ==> &lt;div class="card__body"&gt;&lt;/div&gt;
+                        div.shadow div.shadow ==> &lt;div class="shadow"&gt;&lt;/div&gt;
+                        div.light__area div.light__area ==> &lt;div class="light__area"&gt;&lt;/div&gt;
+                            div.light__mask div.light__mask ==> &lt;div class="light__mask"&gt;&lt;/div&gt;
+                                div.light__pos div.light__pos ==> &lt;div class="light__pos"&gt;&lt;/div&gt;
+                                    div.light div.light ==> &lt;div class="light"&gt;&lt;/div&gt;

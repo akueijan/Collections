@@ -1,0 +1,47 @@
+﻿doctype
+html( lang="zh_TW")
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        block pageInfo
+            title 首頁
+            meta(name='viewport', content='width=device-width, initial-scale=1')
+            meta(name='description', content='')
+            meta(name='keywords', content='')
+            meta(name='author', content='')
+        include _head.pug
+        block pageInfo
+    body
+        include _nav.pug
+        block page_main
+            //render main view
+        div#docsModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+            .modal-dialog.modal-sm
+                .modal-content
+                    .modal-header
+                        h4.modal-title
+                            | 下一步「
+                            span.icon.icon-calculator  PD試算」
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                            span(aria-hidden='true') ×
+                    .modal-body
+                        p
+                            | 點選「
+                            span.icon.icon-calculator
+                                | PD試算」並輸入資料
+                                br
+                                span.text-success 系統將繼續試算利潤比例
+                    .modal-actions
+                        button.btn-link.modal-action.text-danger.step01_finish(type='button', data-dismiss='modal')
+                            span.icon.icon-trash
+                            |  重新填寫
+                        button.btn-link.modal-action.text-success.step01_finish(type='button', data-dismiss='modal')
+                            span.icon.icon-check
+                            |  繼續試算
+        script(src='assets/js/jquery.min.js')
+        script(src='assets/js/tether.min.js')
+        script(src='assets/js/chart.js')
+        script(src='assets/js/tablesorter.min.js')
+        script(src='assets/js/toolkit.js')
+        script(src='assets/js/application.js')          
+        block bottomScripts

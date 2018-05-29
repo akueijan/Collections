@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>物件</title>
+</head>
+<body>
+<button id="start">計時器啟動</button>
+<button id="stop">計時器停止</button>
+<div id="result"></div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  var timer;
+
+  //按下「計時器啟動」按鈕後，每隔一秒更新一次目前時間
+  $('#start').click(function() {
+    timer = setInterval(function() {
+      $('#result').html(new Date());
+    }, 1000);
+  });
+  //按下「計時器停止」按鈕便停止更新
+
+  $('#stop').click(function() {
+    clearInterval(timer);
+  });
+});
+</script>
+</body>
+</html>

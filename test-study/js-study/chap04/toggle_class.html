@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+<link rel="stylesheet" href="site.css" />
+<link rel="stylesheet" href="toggle_class.css" />
+</head>
+<body>
+<ul>
+  <li id="spring">春天的小河嘩啦嘩啦地流去了</li>
+  <li id="summer">竹葉飄飄然地逝去了</li>
+  <li id="autumn">小狐狸咚咚在山中</li>
+  <li id="winter">與靄靄的白雪嬉戲著</li>
+  <li id="spring2">不知不覺，春天的腳步就近了</li>
+</ul>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  $('li').hover(function() {
+    $(this).toggleClass('highlighted');
+  });
+});
+</script>
+</body>
+</html>

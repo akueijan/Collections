@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>HTML5</title>
+</head>
+<body>
+<form>
+  <label for="file">檔案：</label>
+  <input id="file" name="file" type="file" />
+</form>
+<hr />
+<div id="result"></div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  //選取檔案後顯示內容
+  $('#file').change(function(e) {
+    if (window.File) {
+      //只辨識開頭的檔案
+      var input = $('#file').get(0).files[0];
+      var reader = new FileReader();
+      $(reader).on({
+        //載入時，於頁面顯示匯入結果
+        'load': function(e) {
+          $('#result').html(this.result.replace(/(\n|\r)/g, '<br />'));
+        },
+        //匯入失敗時顯示錯誤訊息
+        'error': function(e) {
+          var errors = [
+            '',
+            '找不到指定的檔案。',
+            '不允許匯入此檔案。',
+            '檔案的匯入中斷。',
+            '匯入檔案時發生錯誤。',
+            '檔案過大，無法匯入。'
+          ];
+          $('#result').html(errors[reader.error.code]);
+        }
+      });
+      //以BIG5編碼匯入檔案
+      reader.readAsText(input, 'BIG5');
+    }
+  });
+});
+</script>
+</body>
+</html>

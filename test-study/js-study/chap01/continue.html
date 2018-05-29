@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>基本語法</title>
+</head>
+<body>
+<script>
+var data = ['測量', '揉捏', '整圓', '', '擠出空氣', '塑形', '', '烘烤'];
+
+for(var i = 0, len = data.length; i < len; i++) {
+  if (data[i] === '') { continue; }
+  console.log(data[i]);
+}
+</script>
+</body>
+</html>

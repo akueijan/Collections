@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+<div id="outer">
+  外側（outer）
+  <p id="inner">
+    內側（innner）
+  </p>
+</div>
+<div id="result"></div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  $('#outer')
+    //當滑鼠游標進入指定範圍
+    .mouseenter(function(e) {
+      $('#result').html($('#result').html()
+        + 'mouseenter:' + e.target.id + '<br />');
+    })
+    //當滑鼠游標離開指定範圍
+    .mouseleave(function(e) {
+      $('#result').html($('#result').html()
+        + 'mouseleave:' + e.target.id + '<br />');
+  });
+
+  /* mouseover／mouseout的情況
+  $('#outer')
+    //當滑鼠游標進入指定範圍
+    .mouseover(function(e) {
+      $('#result').html($('#result').html()
+        + 'mouseover:' + e.target.id + '<br />');
+    })
+    //當滑鼠游標離開指定範圍
+    .mouseout(function(e) {
+      $('#result').html($('#result').html()
+        + 'mouseout:' + e.target.id + '<br />');
+  });
+*/
+});
+</script>
+</body>
+</html>

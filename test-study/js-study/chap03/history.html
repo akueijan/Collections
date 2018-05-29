@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>物件</title>
+</head>
+<body>
+<input id="btn" type="button" value="新增歷程" />
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  var state = 1;
+
+  //每點選一次按鈕就新增一次歷程
+  $('#btn').click(function() {
+    history.pushState('state' + state, 'State' + state);
+    state++;
+  });
+
+  //按下瀏覽器的「回上一頁」按鈕，將在歷程記錄中顯示當下的狀態
+  $(window).on('popstate', function(e) {
+    console.log(e.originalEvent.state);
+  });
+});
+
+</body>
+</html>

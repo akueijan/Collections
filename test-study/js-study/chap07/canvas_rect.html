@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>HTML5</title>
+<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+<canvas id="cv" width="400" height="250">
+  您的作業環境不支援Canvas功能。
+</canvas>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  //確認是否能使用Canvas API
+  if (HTMLCanvasElement) {
+    //取得<canvas>元素（不是jQuery物件，而是元素物件）
+    var cv = $('#cv').get(0);
+    //建立內容物件
+    var c = cv.getContext('2d');
+    //繪製矩形
+    c.strokeRect(50, 20, 200, 200);
+    c.fillRect(180, 80, 100, 100);
+  }
+});
+</script>
+</body>
+</html>

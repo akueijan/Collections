@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>物件</title>
+</head>
+<body>
+<script>
+var ex = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi; 
+var str = '範例檔請從http://www.wings.msn.to/下載';
+str += '有問題請至HTTP://WWW.wings.msn.to/index.php/-/B-14/發問';
+//在搜尋結果為null之前不斷執行處理
+while((result = ex.exec(str)) != null) {
+  console.log(ex.lastIndex + '：' + result[0]); //開始搜尋的位置：結果字串
+  console.log('$1：' + RegExp.$1); //次要匹配字串（第1個）
+  console.log('$2：' + RegExp.$2); //次要匹配字串（第2個）
+  console.log('$3：' + RegExp.$3); //次要匹配字串（第3個。最多為$9）
+  console.log('leftContext：' + RegExp.leftContext); //匹配字串的前方字串
+  console.log('rightContext：' + RegExp.rightContext); //匹配字串的後方字串
+  console.log('lastMatch：' + RegExp.lastMatch); //最後匹配的字串
+  console.log('lastParen：' + RegExp.lastParen); //最後局部匹配的字串
+  console.log('\n');
+}
+
+</script>
+</body>
+</html>

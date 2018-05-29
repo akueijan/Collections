@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>外掛程式</title>
+<link rel="stylesheet" href="css/contextMenu.css" />
+</head>
+<body>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/contextMenu.min.js"></script>
+<script>
+$(function() {
+  //定義內容選單的選項
+  $(document).contextMenu([
+    {
+      name: '首頁',
+      img: 'image/wings.jpg',
+      title: '首頁',
+      fun: function () { window.alert('［前往首頁］'); }
+    },
+    {
+      name: '工具集',
+      img: 'image/tool.gif',
+      title: '工具下載',
+      fun: function () { window.alert('［工具集］'); }
+    },
+    {
+      name: '教育訓練',
+      img: 'image/tutorial.gif',
+      title: '教育訓練單元',
+      subMenu: [
+        {
+          name: '入門單元',
+          title: '初學者單元',
+          img:'image/start.gif',
+          fun: function () { window.alert('［前往入門單元］'); }
+        },
+        {
+          name: '工具活用基礎知識',
+          title: '打下基礎單元',
+          img:'image/check.gif',
+          fun: function () { window.alert('［前往工具用基礎知識］'); }
+        },
+        {
+          name: '升級單元',
+          title: '應用技巧單元',
+          img:'image/advance.gif',
+          fun: function () { window.alert('［前往升級單元］'); }
+        }
+      ]
+    }
+  ], { triggerOn: 'contextmenu' });
+});
+</script>
+</body>
+</html>

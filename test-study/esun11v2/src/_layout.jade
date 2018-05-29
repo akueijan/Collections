@@ -1,0 +1,22 @@
+﻿doctype
+html(itemscope,itemtype="http://schema.org/Article")
+    include _seoConfig
+    include _head.jade
+    body
+        div.l-wrap#app
+            include _nav.jade
+            div.l-main
+                block page_main
+        div.l-footer.footer
+            div.warningText
+            div.l-container
+                div.footer-menu
+                    ul.clearfix
+                        li 
+                            a(href="https://www.esunbank.com.tw/bank/about/services/customer" target="_blank" title="玉山e客服") 玉山e客服
+                        li
+                            a(href="https://www.esunbank.com.tw/bank/about/faq/personal/credit-card" target="_blank" title="常見問題") 常見問題
+                        li
+                            a(a href="https://www.esunbank.com.tw/bank/about/announcement/privacy/privacy-statement" target="_blank" title="個資法定告知事項") 個資法定告知事項
+                        li © E.SUN BANK
+        <script src="js/app.js"></script>

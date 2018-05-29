@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+</head>
+<body>
+<form>
+  <input type="button" id="btn" value="現在時刻" />
+  <p id="result"></p>
+</form>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  //點選按鈕將取得current.php的結果
+  $('#btn').click(function(e) {
+    $('#result').load('current.php');
+  });
+});
+</script>
+</body>
+</html>

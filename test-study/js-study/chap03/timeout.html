@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>物件</title>
+</head>
+<body>
+<button id="start">計時器啟動</button>
+<button id="stop">計時器停止</button>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  var timer;
+/*
+  $('#start').click(function() {
+    timer = setTimeout('window.alert(new Date());', 10000);
+  });
+*/
+  $('#start').click(function() {
+    timer = setTimeout(function() {
+      window.alert(new Date());
+    }, 10000);
+  });
+  $('#stop').click(function() {
+    clearTimeout(timer);
+  });
+});
+</script>
+</body>
+</html>

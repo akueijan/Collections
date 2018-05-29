@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>物件</title>
+</head>
+<body>
+<script>
+var ex = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;
+var str1 = '範例檔請從http://www.wings.msn.to/下載';
+var str2 = '有問題請至「留言板」詢問！';
+console.log(str1.search(ex));
+console.log(str2.search(ex));
+</script>
+</body>
+</html>

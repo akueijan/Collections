@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>外掛程式</title>
+</head>
+<style>
+.valid-err { color: Red;}
+</style>
+<body>
+<form id="fm">
+<label>姓名：
+  <input type="text" id="name" name="name" size="30" />
+</label><br/>
+<label>電子信箱：
+  <input type="text" id="email" name="email" size="30" />
+</label><br/>
+<label>密碼：
+  <input type="text" id="password" name="password" size="20" />
+</label><br/>
+<label>密碼（確認）：
+  <input type="text" id="confirm_password" name="confirm_password" size="20" />
+</label><br/>
+<label>生日：
+  <input type="text" id="birthday" name="birthday" size="15" />
+</label><br/>
+<label>電話號碼：
+  <input type="text" id="tel" name="tel" size="20" />
+</label><br/>
+<label for="know">入會目的</label>
+<select name="purpose">
+  <option value="study">學習</option>
+  <option value="hobby">興趣</option>
+  <option value="other">其他</option>
+  <!--<option value="bad">不當目的</option> -->
+</select><br/>
+</div><input type="submit" value="註冊" />
+</form>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script>
+//定義inArray驗證
+$(function() {
+  $.validator.addMethod('inarray',
+    function(value, element, param) {
+      //若輸入值不為指定陣列的元素之，就回傳錯誤
+      return $.inArray(value, param) !== -1;
+    },
+    '輸入值與任何候補值皆不一致。'
+  );
+
+
+  $('#fm').validate({
+    errorClass: 'valid-err',
+    rules: {
+      'name':{
+        required: true,
+        maxlength: 20
+      },
+      'email': {
+        required: true,
+        email: true
+      },
+      'password': {
+        required: true,
+        minlength: 5
+      },
+      'confirm_password': {
+        required: true,
+        equalTo: '#password'
+      },
+      'tel': { 
+        required: true
+      },
+      'birthday': { dateISO: true },
+      //套用inArray驗證
+      'purpose': { inarray: ['study','hobby','other'] }
+    },
+    messages: {
+      'name': {
+        required: '請輸入姓名。',
+        maxlength: '姓名的長度請限制在20個字以內。'
+      },
+      password: {
+        required: '請輸入密碼。',
+        minlength: $.validator.format('密碼請輸入{0}個字以上。')
+      },
+      confirm_password: {
+        required: '請輸入密碼（確認）。',
+        equalTo: '與前一次輸入的密碼不一致。'
+      },
+      'email': {
+        required: '請輸入電子信箱。',
+        email: '電子信箱的格式有誤。'
+      },
+      'birthday': {
+        dateISO: '生日請以日期格式輸入。'
+      },
+      'tel': { 
+        required: '請輸入電話號碼。'
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

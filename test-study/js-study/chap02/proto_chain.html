@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>函數／物件導向</title>
+</head>
+<body>
+<script>
+var Person = function() {};
+
+//Person父類別
+Person.prototype = {
+  eat : function() { console.log('嚼嚼、嚼嚼'); }
+};
+
+var BusinessPerson = function() {};
+BusinessPerson.prototype = new Person();
+
+BusinessPerson.prototype.work = function() { console.log('呼哧、呼哧'); }
+
+//BussinessPerson類別繼承自Person類別
+var bp = new BusinessPerson();
+bp.eat();
+bp.work();
+</script>
+</body>
+</html>

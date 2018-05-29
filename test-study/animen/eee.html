@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=640">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+
+<style>
+	body{
+		margin: 0;
+		padding: 0;
+	}
+	.wrap{
+		width: 640px;
+		height: 100vh;
+		margin: 0 auto;
+		background: #ccc;
+		overflow: hidden;
+		position: relative;
+	}
+	.aaa{
+		width: 640px;
+		height: 100vh;
+		margin: 0 auto;
+		background: #000;
+		position: fixed;
+	}
+	.bbb{
+		width: 400px;
+		height: 150px;
+		background: red;
+		position: absolute;
+		top: 50px;
+		left: -500px;
+	}
+	.ccc{
+		width: 100%;
+		height: auto;
+		/*background: #000;*/
+		position: absolute;
+		top: 500px;
+		/*left: 70px;*/
+		opacity: 0;
+	}
+	.mySlick{
+		height: 200px;
+		margin: 20px auto;
+	}
+	.color{
+		width: 100%;
+		height: 200px;
+		background-color: #fff;
+		color: #000;
+		font-size: 24px;
+		text-align: center;
+		line-height: 200px;
+	}
+</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="aaa"></div>
+		<div class="bbb"></div>
+		<div class="ccc">
+			<div class="mySlick" data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'>
+				<div data-depth="0.40"><h3 class="color">1</h3></div>
+				<div><h3 class="color">2</h3></div>
+				<div><h3 class="color">3</h3></div>
+				<div><h3 class="color">4</h3></div>
+				<div><h3 class="color">5</h3></div>
+				<div><h3 class="color">6</h3></div>
+				<div><h3 class="color">7</h3></div>
+				<div><h3 class="color">8</h3></div>
+			</div>
+			<div class="mySlick" data-slick='{"slidesToShow": 2, "slidesToScroll": 2}'>
+				<div><h3 class="color">1</h3></div>
+				<div><h3 class="color">2</h3></div>
+				<div><h3 class="color">3</h3></div>
+				<div><h3 class="color">4</h3></div>
+				<div><h3 class="color">5</h3></div>
+				<div><h3 class="color">6</h3></div>
+				<div><h3 class="color">7</h3></div>
+				<div><h3 class="color">8</h3></div>
+			</div>
+			<div id="#scene">
+				<div data-depth="0.40"><h3 class="color">1</h3></div>
+				<div data-depth="0.20"><h3 class="color">2</h3></div>
+			</div>
+		</div>
+	</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.1/jquery.js"></script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+<script src="js/TweenMax.js"></script>
+<script src="js/Draggable.js"></script>
+<script src="parallax.js"></script>
+<script type="text/javascript">
+	//var overlapThreshold = "0"; 
+
+	var drag1 = Draggable.create(".aaa", {
+	    type:"y",
+	    //type:"rotation",//旋轉物件
+	    edgeResistance: 1,//設為0-1時,可以把物件拖出綁定的容器,但會自動回到綁定範圍內。
+	                      //設為1時,移動範圍就只能在綁定的容器內。
+	                      //設為1以上時,移動的物件會有反彈的效果,但移動範圍只能在綁定範圍內。
+	                      //可以設為負數
+	    dragResistance: 0,//拖曳阻力
+	    //bounds:".wrap", //移動的物件被綁在哪一個容器上
+	    lockAxis:true, //true時,只能拉動直線方向
+	    throwProps:true,
+	    zindexBoost:true,
+	    //trigger:".box2,.box1,", //設定的element會出現可以移動的標示,但需為頁面裡有的element,最上面的element會蓋住其它的
+	    //cursor:"rotation",//更改游標的圖示
+	    autoScroll:1,
+	    //liveSnap:function(endValue) { return Math.round(endValue / 50) * 50; },//設定拖移時的距離
+	    //liveSnap:{x:[5,20,80,400], y:[10,60,80,500]},
+	    //liveSnap:{top:function(endValue) { return Math.round(endValue / 50) * 50; }, left:function(endValue) { return Math.round(endValue / 100) * 100; }},
+	    dragClickables:true,//對像為create()裡的element,true為可拖動,false則不能
+	    //throwProps:true,
+	    //throwProps:{top:{min:0, max:1000, end:[0,200,400,600]}},
+	    minimumMovement:1,//number,設定拖動時的最小單位,數字越大,位移越多才能開始移動element
+	    force3D:false,//Boolean,當有支援3D時會開啟或關閉
+	    allowNativeTouchScrolling:false,
+	    onClick:function() {
+	        console.log("clicked");
+	    },
+	    onDrag:function() {
+	        
+	    },
+
+	    //drag動作結束時才開始的效果
+	    onDragEnd:function() {
+	        //alert("end");
+	        var tl = new TimelineMax();
+	        tl.to(".aaa", 0.5,{ ease: Power1.easeOut, y: "-110%" });
+	        //$('.wrap').disable();
+	        secAnimate();
+
+	        //輪播開始
+	        $(".mySlick").slick({
+				autoplay: true,
+				arrows: false,
+				initialSlide: 1,
+				lazyLoad: "ondemand",
+			});
+	    },
+	    onRelease:function() {
+	    	
+	    }
+	});
+
+	var secAnimate = function secAnimate(){
+		var tl = new TimelineMax({delay:1});
+		tl.to(".bbb", 0.5, {ease: Power1.easeOut, x: 600})
+		  .to(".ccc", 0.5, {ease: Power1.easeOut, opacity:1, y: -200}, '+=0.5');
+	};
+
+
+	var scene = $('#scene');
+	var parallax = new Parallax(scene);
+
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>外掛程式</title>
+</head>
+<style>
+.valid-err { color: Red;}
+</style>
+<body>
+<form id="fm">
+<label>姓名：
+  <input type="text" id="name" name="name" size="30" />
+</label><br/>
+<label>電子信箱：
+  <input type="text" id="email" name="email" size="30" />
+</label><br/>
+<label>密碼：
+  <input type="text" id="password" name="password" size="20" />
+</label><br/>
+<label>密碼（確認）：
+  <input type="text" id="confirm_password" name="confirm_password" size="20" />
+</label><br/>
+<label>生日：
+  <input type="text" id="birthday" name="birthday" size="15" />
+</label><br/>
+<label>電話號碼：
+  <input type="text" id="tel" name="tel" size="20" />
+</label><br/>
+<input type="submit" value="註冊" />
+</form>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/messages_zh-TW.js"></script>
+<script>
+$(function() {
+  $('#fm').validate({
+    errorClass: 'valid-err',
+    rules: {
+      'name':{
+        required: true,
+        maxlength: 20
+      },
+      'email': {
+        required: true,
+        email: true
+      },
+      'password': {
+        required: true,
+        minlength: 5
+      },
+      'confirm_password': {
+        required: true,
+        equalTo: '#password'
+      },
+      'tel': { 
+        required: true
+      },
+      'birthday': { dateISO: true }
+    },
+   
+  });
+});
+</script>
+</body>
+</html>

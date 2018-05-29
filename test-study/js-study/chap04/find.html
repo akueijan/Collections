@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+<div id="trav">
+  波平
+  <div class="fav">鱒男</div>
+  <div>海螺</div>
+  <div id="myself">鰹男
+    <div>鰹男Jr.
+      <div class="fav">小玉</div>
+    </div>
+  </div>
+  <div>裙帶菜</div>
+</div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  $('#myself')
+    .css('border', 'solid 1px')
+    .find('.fav')
+    .css('font-weight', 'bold');
+});
+</script>
+</body>
+</html>

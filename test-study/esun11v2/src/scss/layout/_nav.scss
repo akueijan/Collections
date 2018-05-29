@@ -1,0 +1,162 @@
+// @import "utils/_mixins.scss";
+$nav_height: 40px;
+$nav_height_mb: 80px;
+.nav {
+    $nav:nav;
+    text-align: center;
+    height: $nav_height;
+    background: #fff;
+    &-logo {
+        display: inline-block;
+        float: left;
+        a {
+            display: block;
+            height: $nav_height;
+            line-height: $nav_height;
+            vertical-align: middle;
+            overflow: hidden;
+            text-indent: 100%;
+            white-space: nowrap;
+        }
+    }
+    &-btn {
+        display: block;
+        z-index: 5;
+    }
+    &-menu {
+        float: right;
+        position: relative;
+        left: 160px;
+        @include respond-to(medium) {
+            left: 0;
+        }
+        ul {
+            li {            
+                float: left;
+                transition: 0.3s;
+                a {
+                    color: #929194;
+                    height: $nav_height;
+                    line-height: $nav_height;
+                    vertical-align: middle;
+                    display: block;
+                    padding: 0 30px;
+                    @include ft(15);
+
+                }
+                &.is-current {
+                    @include respond-to(small-up) {
+                        a {
+                            background: #009e96;
+                            color: #ffffff;
+                        }
+                    }
+                }
+                &:hover{
+                    a{
+                        background: #009e96;
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+    &-active {
+        &-btn {
+            display: block;
+        }
+    }
+    @include respond-to(small) {
+        height: $nav_height_mb;
+        z-index: 10;
+        position: relative;
+        .l-container {
+            position: static;
+        }
+        &-logo {
+            height: $nav_height_mb;
+            line-height: $nav_height_mb;
+        }
+        //MOBILE NAV MENU
+        &-menu {
+            background: $brandColor1;
+            width: 100%;
+            left: auto;
+            top: -100vh;
+            position: absolute;
+            height: auto;
+            transition: all 0.3s ease-out;
+            z-index: 1;
+            text-align: left;
+            float: none;
+            padding: 25px 0;
+            ul {
+                li {
+                    width: 100%;
+                    a {
+                        color: #ffffff;
+                        @include ft(30);
+                        width: 100%;
+                        height: 80px;
+                        line-height: 80px;
+                        padding: 0;
+                        text-indent: 70px;
+                    }
+                    &:hover {
+                        a {
+                            background: none;
+                        }
+                    }
+
+                }
+            }
+        }
+        &--active {
+            .nav-menu {
+                top: 80px;
+            }
+        }
+        //MOBILE NAV MenuBtn
+        &-btn {
+            border-radius: 10px;
+            display: block;
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            cursor: pointer;
+            right: 10px;
+            top: 0px;
+            z-index: 5;
+            >.one,
+            >.two,
+            >.three {
+                border-radius: 10px;
+                width: 60px;
+                height: 8px;
+                background: $brandColor1;
+                margin: 10px auto;
+                backface-visibility: hidden;
+                transition-duration: 0.3s;
+            }
+            >.one {
+                margin: 20px auto 8px;
+            }
+        }
+        &--active {
+            .nav-btn {
+                background: transparent;
+                >.one {
+                    transform: (rotate(45deg) translate(13px, 13px));
+                }
+                >.two {
+                    opacity: 0;
+                }
+                >.three {
+                    transform: (rotate(-45deg) translate(13px, -12px));
+                }
+            }
+        }
+        //NAV z-index 按鈕>選單>LOGO&NAV背景
+    }
+}
+

@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>函數／物件導向</title>
+</head>
+<body>
+<script>
+var scope = '全域'; //Global
+
+function hoge() {
+  var scope = '區域'; //Local
+
+  var literalFnc = function () { return scope; };
+  console.log(literalFnc());
+
+  var conFnc = new Function('return scope;');
+  console.log(conFnc());
+}
+
+hoge();
+</script>
+</body>
+</html>

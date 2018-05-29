@@ -1,0 +1,404 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    title Baxter SOS系統 | HD/PD利潤試算
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='keywords', content='')
+    meta(name='author', content='')
+block page_main
+    .container
+        .col-md-12
+            .dashhead.mb-1
+                .dashhead-titles
+                    h6.dashhead-subtitle HD/PD 利潤試算
+                    h2.dashhead-title  HD/PD Profit spreadsheet
+            // 標籤功能
+            //
+                <div class="hr-divider mb-4">
+                <ul class="nav nav-pills hr-divider-content hr-divider-nav">
+                <li class="nav-item">
+                <a class="nav-link active" href="#"><span class="icon icon-calculator"></span> HD試算</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#"><span class="icon icon-calculator"></span> PD試算</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#"><span class="icon icon-time-slot"></span> HD/PD 試算比較</a>
+                </li>
+                </ul>
+                </div>
+            // 標籤
+            ul.nav.nav-bordered.mt-4.mt-md-2.mb-0.clearfix(role='tablist')
+                li.nav-item(role='presentation')
+                    a.nav-link.active(href='#seciton01_1', role='tab', data-toggle='tab', aria-controls='hd', aria-expanded='true')
+                        span.icon.icon-calculator
+                        |  HD試算
+                li.nav-item(role='presentation')
+                    a.nav-link(href='#seciton01_2', role='tab', data-toggle='tab', aria-controls='pd', aria-expanded='false')
+                        span.icon.icon-calculator
+                        |  PD試算
+                li.nav-item(role='presentation')
+                    a.nav-link(href='#seciton01_3', role='tab', data-toggle='tab', aria-controls='hdvspd', aria-expanded='false')
+                        span.icon.icon-time-slot
+                        |  HD/PD 試算比較
+            hr.mt-0.mb-4
+            // 麵包屑
+            //
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html"><span class="icon icon-calculator"></span> HD試算</a></li>
+                <li class="breadcrumb-item active">開始試算</li>
+                </ol>
+            .tab-content
+                // seciton01_1
+                #seciton01_1.tab-pane.active(role='tabpanel', aria-expanded='true')
+                    .row
+                        .col-lg-12.mb-4
+                            .row
+                                .list-group.col-lg-12.mb-3
+                                    h6
+                                        span.icon.icon-leaf
+                                        |  健保給付
+                                .list-group.col-lg-6.mb-3
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | 平均每月血液透析人次 (Tx / mon.)
+                                        input.col-md-4.form-control(type='text', placeholder='937')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | 平均健保給付點數 (每次)
+                                        span.text-muted 3,921
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | 健保給付點值 (元)_預估
+                                        input.col-md-4.form-control(type='text', placeholder='0.8167')
+                                .list-group.col-lg-6.mb-3
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | 床數
+                                        input.col-md-4.form-control(type='text', placeholder='15')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | 班數 / 床 / 星期
+                                        input.col-md-4.form-control.text-left(type='text', placeholder='5')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | 每月每病人平均血液透析次數(Tx/p't/mon.)
+                                        span.text-muted 12.5
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | Max.每月血液透析人次 (Tx / mon.)
+                                        span 938
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | 病床使用率
+                                        span 99.95%
+                        .col-lg-12.mb-5
+                            .row
+                                .list-group.col-lg-12.mb-3.justify-content-between
+                                    h6
+                                        span.icon.icon-price-tag
+                                        |  成本
+                                    span.text-danger.statcard-desc  材料成本：1,068（每病人次）
+                                .list-group.col-lg-6.mb-3
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.delta-indicator.text-success
+                                            // <span class="icon icon-drop"></span>
+                                            span.icon.icon-shopping-bag
+                                            |  衛教類
+                                        small.delta-indicator.text-danger 材料成本：534（每病人次）
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 人工腎臟－REUSE
+                                        input.col-md-4.form-control.text-left(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 人工腎臟－一般
+                                        input.col-md-4.form-control.text-left(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 血液迴路管
+                                        input.col-md-4.form-control.text-left(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 穿刺針
+                                        input.col-md-4.form-control.text-left(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span A液藥水
+                                        input.col-md-4.form-control.text-left(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span B液藥水
+                                        input.col-md-4.form-control.text-left(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 保護罩
+                                        input.col-md-4.form-control.text-left(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 消毒水－AK
+                                        input.col-md-4.form-control.text-left(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 生理食鹽水
+                                        input.col-md-4.form-control.text-left(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 其他衛耗材
+                                        input.col-md-4.form-control.text-left(type='text', placeholder='0')
+                                .list-group.col-lg-6.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.delta-indicator.text-success
+                                            span.icon.icon-lab-flask  藥品類
+                                        small.delta-indicator.text-danger 材料成本：534（每病人次）
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 銷貨成本－一般藥品
+                                        input.col-md-4.form-control(type='text', placeholder='15')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span IV Vitamin D
+                                        input.col-md-4.form-control.text-left(type='text', placeholder='5')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span IV Iron
+                                        input.col-md-4.form-control.text-left(type='text', placeholder='5')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 銷貨成本－EPO
+                                        input.col-md-4.form-control.text-left(type='text', placeholder='5')
+                        .col-lg-12.mb-5
+                            .row
+                                .list-group.col-lg-12.mb-3
+                                    h6
+                                        span.icon.icon-credit
+                                        |  費用
+                                .list-group.col-lg-3.mb-5
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.delta-indicator.text-success 硬體設備折舊/維修費用
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | 硬體折舊費用 (月)
+                                        input.col-md-4.form-control(type='text', placeholder='15')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | 硬體折舊費用 (年)
+                                        span.text-muted 12.5
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | 硬體維護費用 (月)
+                                        input.col-md-4.form-control(type='text', placeholder='15')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | 硬體維護費用 (年)
+                                        span.text-muted 12.5
+                                .list-group.col-lg-3.mb-3
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.delta-indicator.text-success 房屋租金
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | 現有總坪數
+                                        input.col-md-4.form-control(type='text', placeholder='15')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | 每坪租金 (月)
+                                        input.col-md-4.form-control(type='text', placeholder='15')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | 每月租金
+                                        input.col-md-4.form-control(type='text', placeholder='15')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | 每年租金
+                                        span.text-muted 12.5
+                                .list-group.col-lg-3.mb-3
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.delta-indicator.text-success 營運費用(水,電,燃料,垃圾處理,交際,差旅等)
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | 營運費用 (月)
+                                        span.text-muted.statcard-desc 約佔營收額(健保點數)之百分比
+                                        input.col-md-6.form-control(type='text', placeholder='15')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | 營運費用 (年)
+                                        span.text-muted 12.5
+                                .list-group.col-lg-3.mb-3
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.delta-indicator.text-success 行政管理費用(文具,印刷影印,電話,郵資快遞等)
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | 行政管理費用(月)
+                                        span.text-muted.statcard-desc 約佔營收額(健保點數)之百分比
+                                        input.col-md-6.form-control(type='text', placeholder='15')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        | 行政管理費用 (年)
+                                        span.text-muted 12.5
+                                .list-group.col-lg-12.mb-3
+                                    h6
+                                        span.icon.icon-users
+                                        |  人事薪資
+                                    //
+                                        <div class="list-group-item list-group-item-action justify-content-between">
+                                        <small class="text-muted col-md-2 text-left">項目</small>
+                                        <small class="text-muted col-md-2 text-left">醫生</small>
+                                        <small class="text-muted col-md-2 text-left">護理人員</small>
+                                        <small class="text-muted col-md-2 text-left">醫工</small>
+                                        <small class="text-muted col-md-2 text-left">行政人員</small>
+                                        </div>
+                                        <div class="list-group-item list-group-item-action justify-content-between">
+                                        <small class="text-muted col-md-2 text-left">人數</small>
+                                        <input type="text" class="col-md-2 form-control" placeholder="0">
+                                        <input type="text" class="col-md-2 form-control" placeholder="0">
+                                        <input type="text" class="col-md-2 form-control" placeholder="0">
+                                        <input type="text" class="col-md-2 form-control" placeholder="0">
+                                        </div>
+                                // 醫生
+                                .list-group.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 醫生
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.delta-indicator.text-success 固定人事薪資
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 人數
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 平均固定月薪 / 人
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 年度固定薪資給付月數 (月/年)
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 平均年薪 / 每人
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted Max.照護之病床數 / 機器數
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 年節獎金, 退休金, 勞健保, 福利金 (佔年薪之百分比)
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 總薪資支出 (年)
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 總薪資支出 (月)
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted Time Allocation to HD
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.delta-indicator.text-success 變動人事薪資 (PPF)
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 醫師 (每病人次)
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 護理人員 (每病人次)
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 總PPF支出 (月)
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 總PPF支出 (年)
+                                        .text-muted 2,811,000
+                                // 醫護人員
+                                .list-group.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 醫護人員
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.delta-indicator.text-success 固定人事薪資
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 人數
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 平均固定月薪 / 人
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 年度固定薪資給付月數 (月/年)
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 平均年薪 / 每人
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted Max.照護之病床數 / 機器數
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 年節獎金, 退休金, 勞健保, 福利金 (佔年薪之百分比)
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 總薪資支出 (年)
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 總薪資支出 (月)
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 變動人事薪資 (PPF)
+                                        .text-muted 2,811,000
+                                // 醫工
+                                .list-group.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 醫工
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.delta-indicator.text-success 固定人事薪資
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 人數
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 平均固定月薪 / 人
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 年度固定薪資給付月數 (月/年)
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 平均年薪 / 每人
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    //
+                                        <div class="list-group-item list-group-item-action justify-content-between">
+                                        <small class="text-muted">Max.照護之病床數 / 機器數</small>
+                                        <input type="text" class="col-md-12 form-control" placeholder="0">
+                                        </div>
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 年節獎金, 退休金, 勞健保, 福利金 (佔年薪之百分比)
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 總薪資支出 (年)
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 總薪資支出 (月)
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    //
+                                        <div class="list-group-item list-group-item-action justify-content-between">
+                                        <small class="text-muted">Time Allocation to HD</small>
+                                        <input type="text" class="col-md-12 form-control" placeholder="0">
+                                        </div>
+                                // 行政人員/其他
+                                .list-group.col-lg-3.mb-1
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        span 行政人員/其他
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.delta-indicator.text-success 固定人事薪資
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 人數
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 平均固定月薪 / 人
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 年度固定薪資給付月數 (月/年)
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 平均年薪 / 每人
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    //
+                                        <div class="list-group-item list-group-item-action justify-content-between">
+                                        <small class="text-muted">Max.照護之病床數 / 機器數</small>
+                                        <input type="text" class="col-md-12 form-control" placeholder="0">
+                                        </div>
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 年節獎金, 退休金, 勞健保, 福利金 (佔年薪之百分比)
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 總薪資支出 (年)
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    .list-group-item.list-group-item-action.justify-content-between
+                                        small.text-muted 總薪資支出 (月)
+                                        input.col-md-12.form-control(type='text', placeholder='0')
+                                    //
+                                        <div class="list-group-item list-group-item-action justify-content-between">
+                                        <small class="text-muted">Time Allocation to HD</small>
+                                        <input type="text" class="col-md-12 form-control" placeholder="0">
+                                        </div>
+                    // 按鈕
+                    a(href='#docsModal', data-toggle='modal')
+                        button#step01_finish.btn.btn-primary.col-md-12(type='button')
+                            span.icon.icon-calculator
+                            |  下一步，PD試算
+                // seciton01_2
+                #seciton01_2.tab-pane(role='tabpanel', aria-expanded='false')
+                    | 22
+                // seciton01_3
+                #seciton01_3.tab-pane(role='tabpanel', aria-expanded='false')
+                    | 33
+            footer
+                .dashhead-subtitle.text-center ® 版權所有 百特醫療產品股份有限公司 - Baxter Taiwan Version 1.0
+block bottomScripts
+    script.
+        $('#step01_finish').click(function() {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 600);
+        });
+        $('.step01_finish').click(function() {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 600);
+        })
+

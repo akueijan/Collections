@@ -1,0 +1,57 @@
+﻿//- page laytout name
+extends _layout.pug
+//- page html
+block page_main
+    transition(name="fade")
+        section.index(v-show="index" v-cloak)
+            div.l-container
+                div.btnarea
+                    a(href="javascript:" v-on:click="fu1();").btn 進入頁面
+    transition(name="fade")
+        section.step1(v-show="step1" v-cloak)
+            div.l-container
+                div.btnarea
+                    a(href="javascript:" v-on:click="fu2();").btn 下一步
+    transition(name="fade")
+        section.step2(v-show="step2" v-cloak)
+            div.l-container
+                form.form1(v-on:submit.prevent="submit()")
+                    div.inputlist
+                        label(for="name") 姓名 :
+                        input(type="text" v-model="userName")#name
+                    div.inputlist
+                        label 性別 :
+                        label(for="male") 男
+                        input(type="radio" value="male" id="male" v-model="picked")
+                        label(for="female") 女
+                        input(type="radio" value="female" id="female" v-model="picked")
+                    div.inputlist
+                        label(for="year") 出生日期 :
+                        select(v-model="selectedY")#year
+                            option(disabled) Please select one
+                            option 1999年
+                            option 1998年
+                            option 1997年
+                            option 1996年
+                        select(v-model="selectedM")#mounth
+                            option(disabled) Please select one
+                            option 1月
+                            option 2月
+                            option 3月
+                            option 4月
+                    div.inputlist
+                        label(for="phone") 行動電話(範例0912345678)
+                        input(type="phone" v-model="userPhone" maxlength="10")#phone
+                    input(type="submit" value="送出表單")
+                    input(type="reset" value="reset")
+    transition(name="fade")
+        section.success(v-show="success" v-cloak)
+            div.l-container
+                p 姓名 : {{ userName }}
+                p 性別 : {{ picked }}
+                p 出生日期 : {{ selectedY }} {{ selectedM }}
+                p 行動電話 : {{ userPhone }}
+    a.goTop(href="#app")
+block bottomScripts
+    
+

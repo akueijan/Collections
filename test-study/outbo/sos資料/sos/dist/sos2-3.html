@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Baxter SOS系統 | HD/PD利潤試算</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <head>
+      <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+      <link href="assets/css/akaiDev.css" rel="stylesheet">
+      <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
+      <link href="assets/css/toolkit-inverse.css" rel="stylesheet">
+      <link href="assets/css/application.css" rel="stylesheet">
+      <link href="assets/css/akaiDev.css" rel="stylesheet">
+      <link href="assets/css/custom.css" rel="stylesheet"><!--CDN link -->
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+      <style>
+        /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+        /* this chunk of css is not part of the toolkit :) */
+        body {
+            width: 1px;
+            min-width: 100%;
+            *width: 100%;
+        }
+      </style>
+    </head>
+    <title>Baxter SOS系統 | HD/PD利潤試算</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+  </head>
+  <body>
+    <nav class="iconav"><a class="iconav-brand" href="index.html"><span class="icon icon-cloud iconav-brand-icon"></span></a>
+      <div class="iconav-slider">
+        <ul class="nav nav-pills iconav-nav flex-md-column">
+          <li class="nav-item"><a class="nav-link active" href="index.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="返回首頁"><span class="icon icon-home"></span><small class="iconav-nav-label hidden-md-up">返回首頁</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="section01.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="利潤試算"><span class="icon icon-calculator"></span><small class="iconav-nav-label hidden-md-up">HD/PD利潤試算</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="section02.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="投資損益"><span class="icon icon-globe"></span><small class="iconav-nav-label hidden-md-up">HD/PD投資損益</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="section03.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="投資回收試算"><span class="icon icon-area-graph"></span><small class="iconav-nav-label hidden-md-up">HD/PD投資回收試算</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="section04.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="病患留院率"><span class="icon icon-list"></span><small class="iconav-nav-label hidden-md-up">HD/PD病患留院率</small></a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="col-md-12 mb-3">
+        <div class="dashhead">
+          <div class="dashhead-titles">
+            <h6 class="dashhead-subtitle">投資損益</h6>
+            <h2 class="dashhead-title"> 投資明細</h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12 mb-3">
+        <h6><span class="icon icon-calculator"></span> 投資明細</h6>
+      </div>
+      <div class="table-responsive col-lg-12 mb-5">
+        <table class="table table table-bordered table-hover">
+          <thead class="table-active">
+            <tr>
+              <th colspan="7"><span class="text-success">新透析病人淨成長預估</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="mw-xsmd-150"></td>
+              <td></td>
+              <td class="mw-xsmd-150">第一年</td>
+              <td class="mw-xsmd-150">第二年</td>
+              <td class="mw-xsmd-150">第三年</td>
+              <td class="mw-xsmd-150">第四年</td>
+              <td class="mw-xsmd-150">第五年</td>
+            </tr>
+            <tr>
+              <td>目前人數約</td>
+              <td>75</td>
+              <td>90</td>
+              <td>105</td>
+              <td>120</td>
+              <td>135</td>
+              <td>150</td>
+            </tr>
+            <tr>
+              <td>淨成長病人數/年</td>
+              <td> </td>
+              <td> 
+                <input class="form-control text-left" type="text" placeholder="11">
+              </td>
+              <td>
+                <input class="form-control text-left" type="text" placeholder="11">
+              </td>
+              <td>
+                <input class="form-control text-left" type="text" placeholder="11">
+              </td>
+              <td>
+                <input class="form-control text-left" type="text" placeholder="11">
+              </td>
+              <td>
+                <input class="form-control text-left" type="text" placeholder="11">
+              </td>
+            </tr>
+            <tr>
+              <td>累計淨成長病人數</td>
+              <td> </td>
+              <td>90</td>
+              <td>105</td>
+              <td>120</td>
+              <td>135</td>
+              <td>150</td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>check</td>
+              <td>OK</td>
+              <td>OK</td>
+              <td>OK</td>
+              <td>OK</td>
+              <td>OK</td>
+            </tr>
+            <tr>
+              <td>預估點值(HD)</td>
+              <td> </td>
+              <td> 
+                <input class="form-control text-left" type="text" placeholder="11">
+              </td>
+              <td>
+                <input class="form-control text-left" type="text" placeholder="11">
+              </td>
+              <td>
+                <input class="form-control text-left" type="text" placeholder="11">
+              </td>
+              <td>
+                <input class="form-control text-left" type="text" placeholder="11">
+              </td>
+              <td>
+                <input class="form-control text-left" type="text" placeholder="11">
+              </td>
+            </tr>
+            <tr>
+              <td>預估點值(PD)</td>
+              <td> </td>
+              <td> 
+                <input class="form-control text-left" type="text" placeholder="11">
+              </td>
+              <td>
+                <input class="form-control text-left" type="text" placeholder="11">
+              </td>
+              <td>
+                <input class="form-control text-left" type="text" placeholder="11">
+              </td>
+              <td>
+                <input class="form-control text-left" type="text" placeholder="11">
+              </td>
+              <td>
+                <input class="form-control text-left" type="text" placeholder="11">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--hd硬體設備-->
+      <div class="table-responsive col-12">
+        <h6><span class="icon icon-calculator"></span> HD</h6>
+        <table class="table table table-bordered table-hover">
+          <thead class="table-active">
+            <tr>
+              <th colspan="4"><span class="text-success">硬體設備</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="w-25"></td>
+              <td class="mw-xsmd-150">單價</td>
+              <td class="mw-xsmd-150">數量</td>
+              <td class="mw-xsmd-150">金額</td>
+            </tr>
+            <tr>
+              <td class="w-25">洗腎機</td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+            </tr>
+            <tr>
+              <td class="w-25">床</td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+            </tr>
+            <tr>
+              <td class="w-25">電視</td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+            </tr>
+            <tr>
+              <td class="w-25" colspan="2"></td>
+              <td>總計</td>
+              <td> 
+                <h4 class="text-danger">655563</h4>
+              </td>
+            </tr>
+            <tr>
+              <td class="w-25">折舊攤提</td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">年
+              </td>
+              <td> </td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">每年
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--hd費用增加(人力)-->
+      <div class="table-responsive col-12">
+        <table class="table table table-bordered table-hover">
+          <thead class="table-active">
+            <tr>
+              <th colspan="8"><span class="text-success">費用增加部份</span><span class="text-danger">(人力)</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="w-25" colspan="2"></td>
+              <td class="w-10">年薪/人</td>
+              <td colspan="5">預估增加數量</td>
+            </tr>
+            <tr>
+              <td class="w-25" colspan="2"></td>
+              <td class="mw-xsmd-150 w-10">(含相關福利)</td>
+              <td class="mw-xsmd-150"> 第一年</td>
+              <td class="mw-xsmd-150"> 第二年</td>
+              <td class="mw-xsmd-150"> 第三年</td>
+              <td class="mw-xsmd-150"> 第四年</td>
+              <td class="mw-xsmd-150"> 第五年</td>
+            </tr>
+            <tr>
+              <td colspan="8"><span class="text-danger">固定薪資</span></td>
+            </tr>
+            <tr>
+              <td class="mw-xsmd-100 w-25">醫師</td>
+              <td> </td>
+              <td>360000</td>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td class="w-25">護理人員</td>
+              <td>100</td>
+              <td>360000</td>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td class="w-25">醫工</td>
+              <td> </td>
+              <td>360000</td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+            </tr>
+            <tr>
+              <td class="w-25">行政人員</td>
+              <td> </td>
+              <td>360000</td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+            </tr>
+            <tr>
+              <td class="w-25">其他</td>
+              <td> </td>
+              <td> 
+                <input class="col-md-12 form-control text-left" type="text" placeholder="">
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="8"><span class="text-danger">變動薪資(獎金)</span></td>
+            </tr>
+            <tr>       
+              <td class="w-25" colspan="2">醫師</td>
+              <td>250</td>
+              <td colspan="5">/每病人次</td>
+            </tr>
+            <tr>       
+              <td class="w-25" colspan="2">護理人員/其他</td>
+              <td>-</td>
+              <td colspan="5">/每病人次</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--hd費用增加(金額)-->
+      <div class="table-responsive col-12">
+        <table class="table table table-bordered table-hover">
+          <thead class="table-active">
+            <tr>
+              <th colspan="6"><span class="text-success">費用增加部份</span><span class="text-danger">(金額)</span></th>
+            </tr>
+            <tr>
+              <td class="mw-xsmd-100 w-20"></td>
+              <td class="mw-xsmd-150"> 第一年</td>
+              <td class="mw-xsmd-150"> 第二年</td>
+              <td class="mw-xsmd-150"> 第三年</td>
+              <td class="mw-xsmd-150"> 第四年</td>
+              <td class="mw-xsmd-150"> 第五年</td>
+            </tr>
+            <tr>
+              <td class="w-20"> <span class="text-danger">固定薪資</span></td>
+              <td>222222666</td>
+              <td>222222666</td>
+              <td>222222666</td>
+              <td>222222666</td>
+              <td>222222666</td>
+            </tr>
+            <tr>
+              <td class="w-20">醫師</td>
+              <td>222222666</td>
+              <td>222222666</td>
+              <td>222222666</td>
+              <td>222222666</td>
+              <td>222222666</td>
+            </tr>
+            <tr>
+              <td class="w-20">醫護人員</td>
+              <td>222222666</td>
+              <td>222222666</td>
+              <td>222222666</td>
+              <td>222222666</td>
+              <td>222222666</td>
+            </tr>
+            <tr>
+              <td class="w-20"> <span class="text-danger">變動薪資(獎金)</span></td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td class="w-20">醫師</td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <!--成本-->
+      <div class="col-lg-12 mb-5">
+        <div class="row">
+          <div class="col-lg-3 mb-3">
+            <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">房屋租金</small></div>
+            <div class="list-group-item list-group-item-action justify-content-between">(月)<span class="text-muted">154,000</span></div>
+          </div>
+          <div class="col-lg-3 mb-3">
+            <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">營運費用(水,電)</small></div>
+            <div class="list-group-item list-group-item-action justify-content-between">(月)
+              <input class="col-md-4 form-control" type="text" placeholder="15">
+            </div>
+          </div>
+          <div class="col-lg-3 mb-3">
+            <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">行政管理費用</small></div>
+            <div class="list-group-item list-group-item-action justify-content-between">(每病人次)
+              <input class="col-md-4 form-control" type="text" placeholder="15">
+            </div>
+          </div>
+          <div class="col-lg-3 mb-3">
+            <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">材料成本</small></div>
+            <div class="list-group-item list-group-item-action justify-content-between">藥材類 (人)<span class="text-muted">534</span></div>
+            <div class="list-group-item list-group-item-action justify-content-between">藥品類 (人)<br>(EPO,一般藥品等) <span class="text-muted">196</span></div>
+            <div class="list-group-item list-group-item-action justify-content-between">總計<span class="text-muted">730</span></div>
+          </div>
+          <div class="col-lg-12 mb-3">
+            <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">利息支出</small></div>
+            <div class="list-group-item list-group-item-action justify-content-between">貸款金額
+              <input class="col-md-4 form-control" type="text" placeholder="15">
+            </div>
+            <div class="list-group-item list-group-item-action justify-content-between">年利率%
+              <input class="col-md-4 form-control" type="text" placeholder="15">
+            </div>
+            <div class="list-group-item list-group-item-action justify-content-between">利息支出(年)<span class="text-muted">-</span></div>
+          </div>
+          <!--人力預估要求-->
+          <div class="table-responsive col-12">
+            <table class="table table table-bordered table-hover">
+              <thead class="table-active">
+                <tr>
+                  <th class="w-20">人力需求預估參考</th>
+                  <th>現況</th>
+                  <th class="mw-xsmd-50">第一年</th>
+                  <th class="mw-xsmd-50">第二年</th>
+                  <th class="mw-xsmd-50">第三年</th>
+                  <th class="mw-xsmd-50">第四年</th>
+                  <th class="mw-xsmd-50">第五年</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="w-20">增加病人次(年)</td>
+                  <td>937</td>
+                  <td>1,125</td>
+                  <td>3,375</td>
+                  <td>5,625</td>
+                  <td>7,875</td>
+                  <td>10,125</td>
+                </tr>
+                <tr>
+                  <td class="w-20">病床需求數(預估)</td>
+                  <td>15</td>
+                  <td>18</td>
+                  <td>21</td>
+                  <td>24</td>
+                  <td>27</td>
+                  <td>30</td>
+                </tr>
+                <tr>
+                  <td class="w-20">醫師需求數(預估)</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>2</td>
+                  <td>2</td>
+                  <td>2</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td class="w-20">護理人員需求數增加(預估)-累計</td>
+                  <td>9</td>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>5</td>
+                  <td>7</td>
+                  <td>9</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12 mb-3">
+        <h6><span class="icon icon-calculator"></span> PD</h6>
+        <div class="row">
+          <div class="col-lg-12 mb-3">
+            <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator text-success">硬體設備</small></div>
+            <div class="list-group-item list-group-item-action justify-content-between">金額
+              <input class="col-md-4 form-control" type="text" placeholder="15">
+            </div>
+            <div class="list-group-item list-group-item-action justify-content-between">折舊攤提(年)
+              <input class="col-md-4 form-control" type="text" placeholder="15">
+            </div>
+            <div class="list-group-item list-group-item-action justify-content-between">平均每年
+              <h6 class="text-danger">1</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="table-responsive col-12">
+        <table class="table table table-bordered table-hover">
+          <thead class="table-active">
+            <tr>
+              <th colspan="8"><span class="text-success">費用增加部份</span><span class="text-danger">(人事費用)</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="w-25">醫師</td>
+              <td>現況</td>
+              <td>第一年</td>
+              <td>第二年</td>
+              <td>第三年</td>
+              <td>第四年</td>
+              <td>第五年</td>
+            </tr>
+            <tr>
+              <td class="w-25">Time allocation to PD(增加%)</td>
+              <td>13.0%</td>
+              <td>-3.4%</td>
+              <td>-0.8%</td>
+              <td>1.6%</td>
+              <td>3.9%</td>
+              <td>6.0%</td>
+            </tr>
+            <tr>
+              <td class="w-25">醫師固定薪資allocated to PD(月)</td>
+              <td> </td>
+              <td>10,000</td>
+              <td>10,000</td>
+              <td>10,000</td>
+              <td>10,000</td>
+              <td>10,000</td>
+            </tr>
+            <tr>
+              <td class="w-25">醫師績效獎金(PPF)/(月/人)</td>
+              <td>1000</td>
+              <td>
+                <input class="form-control" type="text" placeholder="15">
+              </td>
+              <td>10,000</td>
+              <td>10,000</td>
+              <td>10,000</td>
+              <td>10,000</td>
+            </tr>
+            <tr>
+              <td class="w-25">Time allocation to PD(增加%)</td>
+              <td>13.0%</td>
+              <td>-3.4%</td>
+              <td>-0.8%</td>
+              <td>1.6%</td>
+              <td>3.9%</td>
+              <td>6.0%</td>
+            </tr>
+            <tr>
+              <td class="w-25">Time allocation to PD(增加%)</td>
+              <td>13.0%</td>
+              <td>-3.4%</td>
+              <td>-0.8%</td>
+              <td>1.6%</td>
+              <td>3.9%</td>
+              <td>6.0%</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td colspan="7">護理人員</td>
+            </tr>
+            <tr>
+              <td class="w-25">PD病人數(Est.)</td>
+              <td>35</td>
+              <td>50</td>
+              <td>65</td>
+              <td>80</td>
+              <td>95</td>
+              <td>110</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="dashhead-subtitle text-center">® 版權所有 百特醫療產品股份有限公司 - Baxter Taiwan Version 1.0</div>
+      </div>
+    </div>
+    <div class="modal fade" id="docsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">下一步「<span class="icon icon-calculator"> PD試算」</span></h4>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          </div>
+          <div class="modal-body">
+            <p>點選「<span class="icon icon-calculator">PD試算」並輸入資料<br><span class="text-success">系統將繼續試算利潤比例</span></span></p>
+          </div>
+          <div class="modal-actions">
+            <button class="btn-link modal-action text-danger step01_finish" type="button" data-dismiss="modal"><span class="icon icon-trash"></span> 重新填寫</button>
+            <button class="btn-link modal-action text-success step01_finish" type="button" data-dismiss="modal"><span class="icon icon-check"></span> 繼續試算</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/tether.min.js"></script>
+    <script src="assets/js/chart.js"></script>
+    <script src="assets/js/tablesorter.min.js"></script>
+    <script src="assets/js/toolkit.js"></script>
+    <script src="assets/js/application.js">         </script>
+    <script>
+      $('#step01_finish').click(function() {
+          $("html, body").animate({
+              scrollTop: 0
+          }, 600);
+      });
+      $('.step01_finish').click(function() {
+          $("html, body").animate({
+              scrollTop: 0
+          }, 600);
+      })
+    </script>
+  </body>
+</html>

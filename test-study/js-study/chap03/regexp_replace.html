@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>物件</title>
+</head>
+<body>
+<script>
+var ex = /(http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?)/gi;
+var str = '範例檔請從http://www.wings.msn.to/下載';
+console.log(str.replace(ex, '<a href="$1">$1</a>'));
+</script>
+</body>
+</html>

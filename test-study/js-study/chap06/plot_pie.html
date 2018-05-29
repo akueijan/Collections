@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>外掛程式</title>
+<link rel=stylesheet href="css/jquery.jqplot.min.css" />
+</head>
+<body>
+<div id="graph" style="width:400px; height:300px;"></div>
+<!--[if lt IE 9]>
+<script src="js/excanvas.min.js"></script>
+<![endif]-->
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/jquery.jqplot.min.js"></script>
+<script src="js/jqplot.pieRenderer.min.js"></script>
+<script>
+$(function(){
+  //原始資料
+  var data = [[
+    ['台北', 51], ['高雄', 49], ['台中', 42], ['基隆', 28], ['彰化', 36], ['台南', 31]
+  ]];
+
+  //繪製圖表
+  $.jqplot( 'graph', data, {
+    seriesDefaults:{
+      renderer: $.jqplot.PieRenderer, //圓餅圖的算圖器
+      rendererOptions: {
+        showDataLabels: true, //是否顯示標籤
+        startAngle: -90 //繪製的起始角度
+      }
+    },
+    legend: {show: true}, //圖例
+    title: '各地區銷售數量' //圖表標題
+  });
+});
+</script>
+</body>
+</html>

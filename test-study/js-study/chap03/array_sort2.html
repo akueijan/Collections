@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>物件</title>
+</head>
+<body>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+//職務順序列表
+var key = [ '部長', '課長', '股長', '主任' ];
+//作為排序對象的成員列表
+var data = [
+  { name: '許郁文', position: '主任' },
+  { name: '張瑋礽', position: '部長' },
+  { name: '張銘仁', position: '課長' },
+  { name: '鄭羽晨', position: '課長' }
+];
+
+//依照職務（position）的陣列Key的位置的大小進行比較
+console.log(data.sort(
+  function(m, n) {
+    return $.inArray(m.position, key) - $.inArray(n.position, key);
+  }
+));
+</script>
+</body>
+</html>

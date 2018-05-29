@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+<h2>jQuery</h2>
+<div class="desc">
+<p>jQuery是由John Resig所開發的JavaScript程式庫，一共具有下列的幾項特徵。</p>
+<ul>
+  <li>以「Write Less, Do More(寫得少，做得多)」為座右銘。</li>
+  <li>可透過基本的DOM操作支援絕大部分JavaScript的網頁開發功能，例如動畫功能、事件處理、Ajax傳輸這類的功能。</li>
+  <li>支援Internet Explorer、Chrome、Firefox、Safari、Opera這類主流的瀏覽器。</li>
+  <li>檔案大小僅32KB左右，非常地精簡(在Minified版被壓縮成GZIP格式的情況)。</li>
+  <li>除了具備優異介面小工具的jQuery UI、支援智慧型手機程式的jQuery Mobile之外，還有許多以jQuery為雛型開發的外掛程式。</li>
+</ul>
+<p>希望大家了解的是，jQuery已成為開發用戶端JavaScript之際不可或缺的程式庫了。</p>
+</div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  var _p = $(window);
+  _p.scrollTop(80).scrollLeft(100);
+  window.alert(_p.scrollTop() + '×' + _p.scrollLeft());
+});
+</script>
+</body>
+</html>

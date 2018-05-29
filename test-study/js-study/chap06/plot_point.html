@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>外掛程式</title>
+<link rel=stylesheet href="css/jquery.jqplot.min.css" />
+</head>
+<body>
+<div id="graph" style="width:400px; height:300px;"></div>
+<!--[if lt IE 9]>
+<script src="js/excanvas.min.js"></script>
+<![endif]-->
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/jquery.jqplot.min.js"></script>
+<script src="js/jqplot.pointLabels.min.js"></script>
+<script>
+$(function() {
+  //建立原始資料
+
+  var data = [
+    [115.9, 20.6, '1年1班'],
+    [118.1, 21.2, '1年2班'],
+    [117.4, 22.7, '1年3班'],
+    [122.5, 24.2, '2年1班'],
+    [123.4, 25.1, '2年2班'],
+    [121.6, 23.5, '2年3班'],
+    [128.5, 26.5, '3年1班'],
+    [127.2, 25.7, '3年2班'],
+    [129.3, 27.5, '3年3班']
+  ];
+  //繪製圖表
+
+  $.jqplot( 'graph', [ data], {
+    seriesDefaults:{
+
+      showLine: false, //是否顯示線段
+
+      markerOptions: {size: 14}, //資料點的大小
+      pointLabels: {
+        show: true, //是否顯示標籤
+
+        location: 'nw' //標籤的顯示位置
+      }
+    },
+    title: '班級 身高／體重平均' //圖表標題
+  });
+});
+</script>
+</body>
+</html>

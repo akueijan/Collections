@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>函數／物件導向</title>
+</head>
+<body>
+<script>
+function getSquareArea(width, height) {
+//確認必要參數（參數未經定義時拋出例外）
+  if (width === undefined) {
+    throw { name: 'ArgsMissing', message: '無法指定寬度。' };
+  }
+  if (height === undefined) {
+    throw { name: 'ArgsMissing', message: '無法指定高度' };
+  }
+  return width * height;
+}
+
+//拋出例外時就顯示錯誤訊息
+try {
+  console.log(getSquareArea());
+} catch(e) {
+  console.log(e.message);
+}
+</script>
+</body>
+</html>

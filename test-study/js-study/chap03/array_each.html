@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>物件</title>
+</head>
+<body>
+<ul id="list">
+</ul>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  var animal = [
+    { name: '法國鬥牛犬',
+      type: '狗' },
+    { name: '約克夏',
+      type: '狗' },
+    { name: '臘腸狗',
+      type: '狗' },
+    { name: '蘇格蘭褶耳貓',
+      type: '貓' },
+    { name: '博美狗',
+      type: '狗' },
+  ];
+
+  $.each(
+    animal,
+    function(index, value) {
+      //搜尋到「貓」這個成員就停止輸出
+      if (value.type == '貓') { return false; }
+      $('<li></li>')
+        .append(value.name)
+        .appendTo('#list');
+    });
+});
+</script>
+</body>
+</html>

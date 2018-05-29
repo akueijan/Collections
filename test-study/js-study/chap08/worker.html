@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>HTML5</title>
+</head>
+<body>
+<form>
+  <input id="target" type="text" size="7" />之中
+  <input id="num" type="text" size="3" />倍數的數值共有
+  <span id="result">－</span>個
+  <input id="btn" type="button" value="啟動" />
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  //確認是否可以使用Web Workers
+  if (window.Worker) {
+    //建立Worker
+    var worker = new Worker('process.js');
+   //點選「啟動」按鈕之後啟動Worker
+    $('#btn').click(function() {
+      worker.postMessage({
+        'target': $('#target').val(),
+        'num': $('#num').val()
+      })
+      $('#result').html('（計算中...）');
+    });
+
+    $(worker).on({
+      //接收訊息後，在頁面反映結果
+      'message' : function(e) {
+        $('#result').html(e.originalEvent.data);
+      },
+      //發生錯誤時，在頁面顯示錯誤訊息
+      'error' : function(e) {
+        $('#result').html(e.originalEvent.message);
+      }
+    });
+  } else {
+    window.alert('請利用支援Web Workers功能的瀏覽器瀏覽。');
+  }
+});
+</script>
+</body>
+</html>

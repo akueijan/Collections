@@ -1,0 +1,48 @@
+﻿//- page laytout name
+extends _layout.pug
+
+//- page html
+block page_main
+    section#el.index
+        div.sss1
+            span.txt(v-cloak) {{ numStr }}
+        br
+        span(for="ca") 請輸入驗證碼:
+        span#loginCode(onload="loginCode()")
+        input#ca(v-model="userCa")
+        transition(name="fade")
+            div.popup
+                div.btn
+                    p(v-on:click="pushVal(1)") 1
+                div.btn
+                    p(v-on:click="pushVal(2)") 2
+                div.btn
+                    p(v-on:click="pushVal(3)") 3
+                div.btn
+                    p(v-on:click="pushVal(4)") 4
+                div.btn
+                    p(v-on:click="pushVal(5)") 5
+                div.btn
+                    p(v-on:click="pushVal(6)") 6
+                div.btn
+                    p(v-on:click="pushVal(7)") 7
+                div.btn
+                    p(v-on:click="pushVal(8)") 8
+                div.btn
+                    p(v-on:click="pushVal(9)") 9
+                div.btn
+                    p(v-on:click="pushVal(0)") 0
+                div.btn
+                    p(v-on:click="delStr()") X
+                div.btn
+                    p(v-on:click="submit()") GO
+                br
+                select.selA-Z(v-model="selectOpt" v-cloak)
+                    option(v-for="obj in selectLists" :disabled="obj.value == ''" v-bind:value="obj.value") {{obj.text}}
+                div.sss2
+                    p.txt(v-cloak)
+                        span {{ selectOpt }}
+                        | {{ numStr }}
+                div.g-recaptcha(data-sitekey="6LdmQj4UAAAAAM3ParcNWkA0QuQDoZ__sUGk2jvE")
+                a(href="javascript:void(0);" v-on:click="fbShare();return false;") FB分享
+

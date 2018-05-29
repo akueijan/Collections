@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+<form id="container">
+  <input type="button" class="add-btn" value="增加" />
+</form>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  $('#container').on(
+    'click', //事件
+    '.add-btn', //事件監聽器底下的元素
+    //每點選一次就新增一個按鈕
+    function() {
+      $('<input type="button" class="add-btn" value="增加" />')
+        .appendTo('#container');
+    }
+  );
+});
+</script>
+</body>
+</html>

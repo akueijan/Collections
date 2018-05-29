@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+<p id="hat">帽子</p>
+<ul id="coordinate">
+  <li>外套</li>
+  <li>襯衫</li>
+  <li>長褲</li>
+</ul>
+<p id="shoes">鞋子</p>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  $('#shoes').insertBefore('#coordinate');
+});
+</script>
+</body>
+</html>

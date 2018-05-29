@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery UI</title>
+<link rel="stylesheet"
+  href="http://code.jquery.com/ui/1.10.4/themes/redmond/jquery-ui.min.css" />
+</head>
+<body>
+<input class="open" data-path="dl" type="button" value="下載" />
+<input class="open" data-path="quest" type="button" value="問卷" />
+<input class="open" data-path="help" type="button" value="聯絡我們" />
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script>
+$(function() {
+  //按下按鈕時，動態建立對話框
+  $('.open').click(function() {
+    var target = $(this);
+    //透過data-path屬性取得對話框的內容
+    $.get('./dialog/' + target.data('path') + '.html')
+     .done(function(data) {
+       //建立對話框的<div>元素
+       $('<div></div>')
+         .attr('title', target.val())
+         .html(data)
+         .dialog({
+            width: 500,
+            height: 400,
+            modal: true
+          });
+    });
+  });
+});
+</script>
+</body>
+</html>

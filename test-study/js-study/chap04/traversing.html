@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+<div id="trav">
+  波平
+  <div>鱒男</div>
+  <div>海螺</div>
+  <div id="myself">鰹男
+    <div>鰹男Jr.
+      <div>小玉</div>
+    </div>
+  </div>
+  <div>裙帶菜</div>
+</div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  $('#myself') //基準點
+    .css('font-size', 'x-large')
+    .prev() //最接近的同輩元素（兄）
+    .css('border', 'dotted 5px')
+    .end()
+    .prevAll() //所有同輩元素（兄）
+    .css('color', 'Pink')
+    .end()
+    .next() //最接近的同輩元素（弟）
+    .css('background-color', 'Yellow')
+    .end()
+    .nextAll() //所有同輩元素（弟）
+    .css('border', 'solid 1px')
+    .end()
+    .siblings() //所有同輩（兄弟）元素
+    .css('font-style', 'italic')
+    .end()
+    .parent() //父元素
+    .css('border', 'groove 5px')
+    .end()
+    .children() //子元素
+    .css('font-size', 'small');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+<img id="pic1" src="images/webdeli_logo.gif" />
+<div id="detail"></div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<img id="pic1" src="images/webdeli_logo.gif" />
+<div id="detail"></div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$('#pic1').on({
+  //當滑鼠游標移入圖片
+  'mouseenter': function(e) {
+    $(this).attr('src', 'images/webdeli.gif');
+  },
+  //當滑鼠游標移出圖片
+  'mouseleave': function(e) {
+    $(this).attr('src', 'images/webdeli_logo.gif');
+  },
+  //當使用者點選圖片
+  'click': function(e) {
+    $('#detail').html('<a href="http://www.web-deli.com/">WebDeli</a>介紹了許多有助網頁開發的資訊與工具。');
+  }
+});
+</script>
+</body>
+</html>

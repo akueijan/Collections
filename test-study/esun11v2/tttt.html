@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html> 
+<body bgcolor=lightcyan text=red> 
+    <h1> <font color=blue> 示範網頁: </font> </h1> <p> </br>
+
+<!--    <form>
+        <input type="button" value=" 看作者相片 " onClick="confirmChoice( ) " >
+
+        <input type=button value="試驗 Prompt 對話盒 " onClick="checkOn()">
+
+        <input type="button" value="start" onClick="events()">
+    </form> 
+
+    <img src=blank.gif name=authorPic width=150 height=150>
+
+    <form name="display">請輸入圓形半徑 : 
+        <input type="text" name="inbox" value="" size=4>
+        <input type="button" value="圓形面積" onclick="document.display.outbox.value=calcArea(x.value)">
+        <p>圓形的面積是 : 
+        <input type="text" name="outbox" value="" size=10>
+    </form>
+<script>
+x=document.display.inbox
+function calcArea(radius){
+    return 3.1416 * radius * radius;
+}
+</script>-->
+
+
+
+<!--<form name="display">input 2 word:
+    <input type="text" name="box1" value="">
+    <input type="text" name="box2" value="">
+    <input type="button" value="兩數相乘" onClick=" z =calc(x.value, y.value); alert('結果是: ' + z)">
+</form>
+<script>
+        function calc(a,b){
+        return a*b
+    }
+    x=document.display.box1
+    y=document.display.box2
+</script>-->
+
+
+<script>
+/*confirm("請你選擇 [確定] 或 [取消] ")
+if (confirm("請選擇[確定]或[取消]"))
+    { alert("你按了 [確定], 代表選了 TRUE")}
+else
+    { alert("你按了 [取消], 代表選了 false")}
+
+function events(){
+    alert("event start");
+    if(confirm("plesae chiose yes or no"))
+        { alert("you put yes")
+          msgWin=window.open("","","width=300px, height=200px")
+          msgWin=document.write("Hello World")
+        }
+    else
+        { alert("you put no")
+          msgWin=window.open("","","width=300px, height=200px")
+          msgWin=document.write("I am sorry")
+        }
+}*/
+
+/*function confirmChoice(){
+    if (confirm("XXXXXXXXXX"))
+        { document.authorPic.src="https://cdn.css-tricks.com/wp-content/uploads/2009/10/spritecow.png"}
+    else
+        { alert("So~~sad~~")}
+}*/
+
+/*x=prompt("please input word add 100","")
+x=eval(x)
+alert("total="+(x+100))
+
+function circleArea(radius)
+{
+    return 3.1416 * radius * radius
+}
+document.write("5cm面積: "+ circleArea(5) +"cm"+"2".sup())
+
+x=document.display.inbox
+function calcArea(radius){
+    return 3.1416 * radius * radius;
+}*/
+
+/*// 廣域變數 區域變數的學習
+a="ssssll eeellssee llllll"
+function showtxt(){
+    var b = "this is a book";
+    alert(a+" thank you "+b);
+    document.write("thank you "+ a+" "+b);
+}
+showtxt();*/
+
+/*// 可用來判斷某個物件是否存在
+if (document.images[2]){
+    alert("good")
+}
+else{
+    alert("ng")
+}*/
+
+</script>
+
+<!--隨機兩數相加-->
+<!--<form>
+    <input type="button" value="play again" onClick="play()">
+</form>
+<script>
+    function play(){
+        x=Math.round(Math.random()*100)
+        y=Math.round(Math.random()*100)
+        entry=prompt("what is the sum of "+ x +" and "+ y +" ?","")
+        if(entry==null || entry==""){
+            alert("you do no calculation! ")
+        }
+        else{
+            if(entry == (x+y)){
+                alert("good, your answer is correct.")
+            }
+            else{
+                alert("sorry, your answer is wrong.")
+            }
+        }
+    }
+    play()
+</script>-->
+
+<!--while loop-->
+<!--<script>
+    cel = 0
+    fah = 0
+    document.write("<table><tr><td>攝氏</td><td>華氏</td></tr>")
+    while(cel <= 100){
+        fah = cel*9/5+32
+        document.write("<tr><td>",cel,"</td><td>",fah,"</td></tr>")
+        cel = cel+5
+    }
+    document.write("</table>")
+</script>-->
+<!--使用break中斷一個while loop-->
+<script>
+stopValue=prompt("預設是由US$1轉換到US$100\n" + "但你可選擇到哪一個幣值就停止。","100")
+US = 0
+HK = 0
+document.write("<table><tr><td>US$</td><td>HK$</td></tr>")
+
+while(US <= 100)
+{ HK = US*7.8
+document.write("<tr><td>",US,"</td> <td>",HK,"</td></tr>")
+US = US+1
+if (US > stopValue )
+break 
+}
+document.write("</table>")
+
+/*stopValue=prompt("預設是由 US$1 轉換到 US$100 \n "
++ "但你可選擇到哪一個幣值就停止。","100")
+
+US = 0
+HK = 0
+document.write("<table><tr><td> US$ </td><td> HK$ </td></tr>")
+
+while(US <= 100)
+{ HK = US * 7.8
+document.write("<tr><td>" , US , "</td> <td>" , HK , "</td></tr>")
+US = US + 1
+if ( US > stopValue ) // ← 這是 break statement 設定的條件
+break
+}
+document.write("</table>")*/
+
+</script>
+
+</body> 
+</html>

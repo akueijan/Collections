@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>HTML5</title>
+</head>
+<body>
+<form>
+  <label for="file">檔案：</label>
+  <input id="file" name="file" type="file" />
+</form>
+<hr />
+<img id="result" />
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  //選取檔案後顯示內容
+  $('#file').change(function(e) {
+    if (window.File) {
+      //只辨識開頭的檔案
+      var input = $('#file').get(0).files[0];
+      var reader = new FileReader();
+      //於頁面顯示載入後的結果
+      $(reader).on('load', function(e) {
+        $('#result').attr('src', this.result);
+      });
+      //以二進位格式（Data URL格式）匯入檔案
+      reader.readAsDataURL(input);
+    }
+  });
+});
+</script>
+</body>
+</html>

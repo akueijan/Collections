@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery UI</title>
+<link rel="stylesheet"
+  href="http://code.jquery.com/ui/1.10.4/themes/redmond/jquery-ui.min.css" />
+<style>
+.ui-menu { width: 180px; }
+</style>
+</head>
+<body>
+<!-- ①建立選單 -->
+<ul id="menu">
+  <li><a href="top.html">
+    <!-- ③建立圖示 -->
+    <span class="ui-icon ui-icon-home"></span>首頁</a>
+  </li>
+  <li><a href="medicine.html">藥品</a>
+    <!-- ②建立巢狀結構的副選單 -->
+    <ul>
+      <li><a href="common.html">常備藥</a>
+        <ul>
+          <li><a href="cold.html">感冒藥</a>
+            <ul>
+              <li><a href="fever.html">發燒</a></li>
+              <li><a href="gullet.html">喉嚨痛</a></li>
+              <li><a href="cough.html">咳嗽／發痰</a></li>
+            </ul>
+          </li>
+          <li><a href="stomach.html">胃腸藥</a>
+            <ul>
+              <li><a href="pain.html">胃痛</a></li>
+              <li><a href="heavy.html">胃垂</a></li>
+              <li><a href="loss.html">食慾不振</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="note.html">維他命</a>
+        <ul>
+          <li><a href="vitamin_b.html">維他命B</a></li>
+          <li><a href="vitamin_c.html">維他命C</a></li>
+          <li><a href="vitamin_e.html">維他命E</a></li>
+          <li><a href="calcium.html">鈣質</a></li>
+        </ul>
+      </li>
+      <li><a href="money.html">整腸藥</a></li>
+      <li><a href="office.html">溼疹／皮膚發炎</a>
+        <ul>
+          <li><a href="insect.html">蚊蟲咬傷</a></li>
+          <li><a href="eczema.html">溼疹</a></li>
+          <li><a href="burn.html">燙傷</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="health.html">保健食品</a>
+    <ul>
+      <li><a href="supplements.html">營養補充食品</a></li>
+      <li><a href="drink.html">營養補充飲料</a>
+        <ul>
+          <li><a href="nourishment.html">滋養強壯</a></li>
+          <li><a href="woman.html">女性用藥</a></li>
+          <li><a href="child.html">兒童用藥</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#">日常用品</a>
+      <ul>
+        <li><a href="tissue.html">面紙</a></li>
+        <li><a href="toilet.html">衛生紙</a></li>
+        <li><a href="diapers.html">尿布</a></li>
+      </ul>
+  </li>
+  <li><a href="#">聯絡我們</a>
+      <ul>
+        <li><a href="form.html">網頁表單</a></li>
+        <li><a href="tel.html">電話</a></li>
+        <li><a href="fax.html">傳真</a></li>
+      </ul>
+  </li>
+  <!-- ④停用選單 -->
+  <li class="ui-state-disabled">
+    <a href="map.html">分店地圖</a>
+  </li>
+</ul>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script>
+$(function() {
+  $('#menu').menu({
+  });
+});
+</script>
+</body>
+</html>

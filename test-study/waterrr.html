@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style>
+	body {
+	  text-align: center
+	}
+	.waterCanvasStyle {
+	  border-width: 1px;
+	  border-style: solid;
+	  border-color:#a1a1d0;
+	  border-radius: 8px;
+	  box-shadow: #c6c6d0 4px 4px 10px;
+	}
+</style>
+<body>
+	<canvas id="waterCanvas0" width="600" height="600" > </canvas>
+
+<!-- <script>
+	const canvas = document.getElementById('waterCanvas0'),
+	ctx = canvas.getContext('2d'),
+	width = canvas.width,
+	height = canvas.height,
+	halfWidth = width >> 1,
+	halfHeight = height >> 1
+
+	let size = width * (height + 2) * 2,
+	delay = 30,
+	oldIdx = width,
+	newIdx = width * (height + 3),
+	rippleRad = 3,
+
+	rippleMap = [],
+	lastMap = [],
+	texture,
+
+	stripeWidth = 25,
+	step = stripeWidth * 2,
+	count = height/stripeWidth
+
+	canvas.width = width
+	canvas.height = height
+
+	
+	  ctx.fillStyle = '#0a78df'
+	  ctx.fillRect(0, 0, width, height)
+	  ctx.fillStyle = '#045caf'
+	  ctx.save()
+	  
+	  
+	  for(let i = 0; i < count; i++){
+	  ctx.fillRect(-width, i * step, width * 3, stripeWidth)
+	  }
+	  ctx.restore()
+	
+
+	texture = ctx.getImageData(0, 0, width, height)
+	ripple = ctx.getImageData(0, 0, width, height)
+
+	for (let i = 0; i < size; i++){
+	  lastMap[i]   = 0;
+	  rippleMap[i] = 0;
+	}
+
+	//Main run loop
+	function run(){
+	  newframe()
+	  ctx.putImageData(ripple, 0, 0)
+	}
+
+	//Drop something in the water at location
+	function dropAt(dx, dy){
+	  dx <<= 0
+	  dy <<= 0
+	  
+	  for(let j = dy-rippleRad; j < dy + rippleRad; j++){
+	     for (let k = dx - rippleRad; k < dx + rippleRad; k++){
+	       rippleMap[oldIdx + (j * width) + k] += 512;
+	     }
+	  }
+	}
+	 function newframe()
+	        {
+	            let i;
+	            let a, b;
+	            let data, oldData;
+	            let curPixel, newPixel;
+	            
+	            i = oldIdx;
+	            oldIdx = newIdx;
+	            newIdx = i;
+	            
+	            // Initialize the looping values - each will be incremented
+	            i = 0;
+	            mapIdx = oldIdx;
+	            
+	            for (let y = 0; y < height; y++)
+	            {
+	                for (let x = 0; x < width; x++){
+	                    data = (
+	                            rippleMap[mapIdx - width] + 
+	                            rippleMap[mapIdx + width] + 
+	                            rippleMap[mapIdx - 1] + 
+	                            rippleMap[mapIdx + 1]) >> 1;
+	                    
+	                    data -= rippleMap[newIdx + i];
+	                    data -= data >> 5;
+	   
+	                    rippleMap[newIdx + i] = data;
+
+	                    data = 1024 - data;
+	        
+	                    oldData = lastMap[i];
+	                    lastMap[i] = data;
+	        
+	                    if (oldData != data)  // if no change no need to alter image
+	                    {
+	                        a = (((x - halfWidth) * data / 1024) << 0) + halfWidth;
+	                        b = (((y - halfHeight) * data / 1024) << 0) + halfHeight;
+	                        
+	                        // Don't go outside the image (i.e. boundary check)
+	                        if (a >= width) a = width - 1;
+	                        if (a < 0) a = 0;
+	                        if (b >= height) b = height - 1;
+	                        if (b < 0) b = 0;
+
+	                        // Set indexes
+	                        newPixel = (a + (b * width)) * 4;
+	                        curPixel = i * 4;
+	                        
+	                        // Apply values
+	                        ripple.data[curPixel]       = texture.data[newPixel];
+	                        ripple.data[curPixel + 1] = texture.data[newPixel + 1];
+	                        ripple.data[curPixel + 2] = texture.data[newPixel + 2];
+	                    }
+	                    mapIdx++;
+	                    i++;
+	                }
+	            }
+	        }
+
+	        function randomDrop(){
+	           if ( Math.random() > 0.3 )
+	           {
+	                dropAt(Math.random() * width, Math.random() * height);
+	           }
+	        }
+
+	        canvas.onmousemove = function(/* Event */ evt)
+	        {
+	            dropAt(evt.offsetX || evt.layerX, evt.offsetY || evt.layerY);
+	        }
+
+	        canvas.onclick = function(/* Event */ evt)
+	        {
+	            dropAt(evt.offsetX || evt.layerX, evt.offsetY || evt.layerY);
+	            console.log(evt);
+	        }
+
+	        setInterval(run, delay);
+	       
+	        setInterval(randomDrop, 1250);
+
+</script> -->
+
+<script>
+	var canvas = document.getElementById('waterCanvas0'),
+	    ctx = canvas.getContext('2d'),
+	    width = canvas.width,
+	    height = canvas.height,
+	    halfWidth = width >> 1,
+	    halfHeight = height >> 1;
+
+	var size = width * (height + 2) * 2,
+	    delay = 30,
+	    oldIdx = width,
+	    newIdx = width * (height + 3),
+	    rippleRad = 3,
+	    rippleMap = [],
+	    lastMap = [],
+	    texture = void 0,
+	    stripeWidth = 25,
+	    step = stripeWidth * 2,
+	    count = height / stripeWidth;
+
+	canvas.width = width;
+	canvas.height = height;
+
+	var imageObj = new Image();
+	// imageObj.onload = function() {
+		
+	// };
+	imageObj.src = "http://data.whicdn.com/images/159997508/large.jpg";
+
+	//背景顏色設定
+	ctx.fillStyle = '#000';
+	ctx.fillRect(0, 0, width, height);
+	ctx.fillStyle = '#fff';
+	
+	ctx.save();
+
+	for (var i = 0; i < count; i++) {
+		// 
+		ctx.fillRect(-width, i * step, width * 3, stripeWidth);
+	}
+	ctx.restore();
+
+
+	
+
+	texture = ctx.getImageData(0, 0, width, height);
+	ripple = ctx.getImageData(0, 0, width, height);
+
+	for (var _i = 0; _i < size; _i++) {
+		lastMap[_i] = 0;
+		rippleMap[_i] = 0;
+	}
+
+	//Main run loop
+	function run() {
+		newframe();
+		ctx.putImageData(ripple, 0, 0);
+		ctx.drawImage(imageObj, 0, 0);
+	}
+
+	//Drop something in the water at location
+	function dropAt(dx, dy) {
+		dx <<= 0;
+		dy <<= 0;
+
+		for (var j = dy - rippleRad; j < dy + rippleRad; j++) {
+			for (var k = dx - rippleRad; k < dx + rippleRad; k++) {
+				rippleMap[oldIdx + j * width + k] += 512;
+			}
+		}
+	}
+	function newframe() {
+		var i = void 0;
+		var a = void 0,
+		    b = void 0;
+		var data = void 0,
+		    oldData = void 0;
+		var curPixel = void 0,
+		    newPixel = void 0;
+
+		i = oldIdx;
+		oldIdx = newIdx;
+		newIdx = i;
+
+		// Initialize the looping values - each will be incremented
+		i = 0;
+		mapIdx = oldIdx;
+
+		for (var y = 0; y < height; y++) {
+			for (var x = 0; x < width; x++) {
+				data = rippleMap[mapIdx - width] + rippleMap[mapIdx + width] + rippleMap[mapIdx - 1] + rippleMap[mapIdx + 1] >> 1;
+
+				data -= rippleMap[newIdx + i];
+				data -= data >> 5;
+
+				rippleMap[newIdx + i] = data;
+
+				data = 1024 - data;
+
+				oldData = lastMap[i];
+				lastMap[i] = data;
+
+				if (oldData != data) // if no change no need to alter image
+					{
+						a = ((x - halfWidth) * data / 1024 << 0) + halfWidth;
+						b = ((y - halfHeight) * data / 1024 << 0) + halfHeight;
+
+						// Don't go outside the image (i.e. boundary check)
+						if (a >= width) a = width - 1;
+						if (a < 0) a = 0;
+						if (b >= height) b = height - 1;
+						if (b < 0) b = 0;
+
+						// Set indexes
+						newPixel = (a + b * width) * 4;
+						curPixel = i * 4;
+
+						// Apply values
+						ripple.data[curPixel] = texture.data[newPixel];
+						ripple.data[curPixel + 1] = texture.data[newPixel + 1];
+						ripple.data[curPixel + 2] = texture.data[newPixel + 2];
+					}
+				mapIdx++;
+				i++;
+			}
+		}
+	}
+
+	function randomDrop() {
+		if (Math.random() > 0.3) {
+			dropAt(Math.random() * width, Math.random() * height);
+		}
+	}
+
+	// canvas.onmousemove = function ( /* Event */evt) {
+	// 	dropAt(evt.offsetX || evt.layerX, evt.offsetY || evt.layerY);
+	// };
+
+	canvas.onclick = function ( /* Event */evt) {
+		dropAt(evt.offsetX || evt.layerX, evt.offsetY || evt.layerY);
+		console.log(evt);
+	};
+
+	setInterval(run, delay);
+	// setInterval(randomDrop, 1250);
+</script>
+</body>
+</html>

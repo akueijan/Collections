@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+  <!--page default Information-->
+  <!--html head-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>首頁</title>
+    <meta name="description" content="敘述">
+    <meta name="viewport" content="width=640">
+    <!-- Schema.org markup for Google+-->
+    <meta itemprop="name" content="首頁">
+    <meta itemprop="description" content="敘述">
+    <meta itemprop="image" content="指定顯示圖片">
+    <!-- og-->
+    <meta property="og:title" content="首頁">
+    <meta property="og:description" content="敘述">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="指定顯示圖片">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+    <link rel="stylesheet" href="css/main.css"><!--CDN link -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <!-- for loading-->
+    <script src="js/animatescroll.min.js"></script>
+    <script src="lib/vue.js"></script>
+  </head>
+  <!--html body-->
+  <body>
+    <div id="app" class="l-wrap">
+      <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="nav">
+        <div class="l-container">
+          <div class="nav-bd">
+            <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO">LOGO</a></h1>
+            <div class="nav-btn">
+              <div class="one"></div>
+              <div class="two"></div>
+              <div class="three"></div>
+            </div>
+            <div role="navigation" class="nav-menu">
+              <ul class="clearfix">
+                <li class="nav-item nav-item--iscurrent"><a href="index.html" alt="立即協助" itemprop="url" title="立即協助"><span>立即協助</span></a></li>
+                <li class="nav-item"><a href="page.html" alt="省水妙招排行榜" itemprop="url" title="省水妙招排行榜"><span>省水妙招排行榜</span></a></li>
+                <li class="nav-item"><a href="page.html" alt="省水妙招實況" itemprop="url" title="省水妙招實況"><span>省水妙招實況</span></a></li>
+                <li class="nav-item"><a href="page.html" alt="活動辦法" itemprop="url" title="活動辦法"><span>活動辦法</span></a></li>
+                <li class="nav-item"><a href="page.html" alt="3M邀你一起愛護台灣" itemprop="url" title="3M邀你一起愛護台灣"><span>3M邀你一起愛護台灣</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- render nav view-->
+      <div class="l-main">
+        <section class="step">
+          <div class="step__hd">
+            <div class="l-container">
+              <h2 class="titleStep">我有省水妙招</h2>
+              <h3 class="desc">你有超酷的省水妙招嗎？揪好友幫你衝人氣！獎好禮！</h3>
+            </div>
+          </div>
+          <div class="step__bd">
+            <div class="l-container">
+              <form id="">
+                <div class="upload">
+                  <div class="upload__bd">
+                    <div class="decoItem"></div>
+                    <div class="row clearfix">
+                      <div class="col col1">
+                        <p class="form__title"> 
+                          <label>暱稱</label>
+                        </p>
+                        <div class="form__box">
+                          <input type="text" placeholder="請輸入您的暱稱">
+                        </div>
+                      </div>
+                      <div class="col col2">
+                        <p class="form__title"> 
+                          <label for="topic">省水主題</label>
+                        </p>
+                        <div class="form__box">
+                          <input id="topic" type="text" placeholder="請填寫你的省水主題">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row clearfix">
+                      <div class="col col3">
+                        <p class="form__title"> 
+                          <label for="userPost">我的妙招</label>
+                        </p>
+                        <div class="form__box">
+                          <textarea id="userPost" rows="5" cols="50"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row clearfix">
+                      <div class="col col4">
+                        <p class="form__title">妙招示範</p>
+                        <div class="upload__tool clearfix">
+                          <div class="upload__box">
+                            <!--上傳後的圖片--><img alt="" class="upload__img">
+                            <!--上傳按鈕--><a href="javascript:" class="upload__btn">上傳妙招圖片</a>
+                            <div class="upload__widget"><a href="javascript" class="option up">上</a><a href="javascript" class="option right">右</a><a href="javascript" class="option down">下</a><a href="javascript" class="option left">左</a><a href="javascript" class="option rotate">選轉</a></div>
+                            <div class="upload__logo"></div>
+                          </div>
+                          <div class="upload__func clearfix"><a href="javascript:" class="upload__re">重新上傳</a>
+                            <div class="zoom"> <a href="javascript:" class="zoom__btn zoomIn"> </a><a href="javascript:" class="zoom__btn zoomOut"> </a></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="upload__ft">
+                    <p class="line1">投稿完成後，主辦單位將於3天內完成審核審核成功後將公開在[半桶水省水妙招票選]</p>
+                    <p class="line2">如有謾罵留言、不雅文字、垃圾訊息、張貼不雅照片等情事，投稿將列為審核失敗並刪除</p>
+                  </div>
+                  <div class="btn-area">
+                    <div class="btn-basic"><a href="javascript:">下一步</a></div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+        <section class="step step-data">
+          <div class="decoBottom"></div>
+          <!-- step__hd step__bd　填完資料後　更換完step end-->
+          <div class="step__hd">
+            <div class="l-container">
+              <h2 class="titleData">填寫抽獎資料</h2>
+            </div>
+          </div>
+          <div class="step__bd">
+            <div class="l-container">
+              <form id="">
+                <div class="data">
+                  <div class="data__hd">
+                    <div class="row clearfix">
+                      <div class="col col1">
+                        <p class="form__title"> 
+                          <label>收件人</label>
+                        </p>
+                        <div class="form__box">
+                          <input type="text" placeholder="請填寫獎品收件人姓名">
+                        </div>
+                      </div>
+                      <div class="col col2">
+                        <p class="form__title"> 
+                          <label>聯絡手機</label>
+                        </p>
+                        <div class="form__box">
+                          <input type="text" placeholder="請填寫你的省水主題請填寫你的省水主題主題">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row clearfix">
+                      <div class="col col3">
+                        <p class="form__title"> 
+                          <label>Email</label>
+                        </p>
+                        <div class="form__box">
+                          <input type="text" placeholder="請填寫獎品收件人網址">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row clearfix">
+                      <div class="col col4">
+                        <p class="form__title"> 
+                          <label>聯絡地址</label>
+                        </p>
+                        <div class="form__box">
+                          <input type="text" placeholder="請填寫聯絡地址">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row clearfix">
+                      <div class="col col5"><a href="javascript:" class="checkLaw"> 
+                          <input type="checkbox">我已閱讀並同意條款說明</a></div>
+                    </div>
+                  </div>
+                  <div class="data__bd">
+                    <dl class="data-law">
+                      <dt>個人資料保護事項:</dt>
+                      <dd>
+                        <ol>
+                          <li>依據個人資料保護法，參加本活動者視為瞭解及同意美商3M台灣子公司本於抽獎活動之需要進行蒐集、處理及利用其個人資料(包括電話、e-mail等資訊。具體項目詳如本活動參與頁面及活動辦法內所列事項。)  參加者如欲閱覽、變更、刪除個資或要求3M台灣停止蒐集、處理及利用個人資料，請通知美商3M台灣子公司要求辦理。</li>
+                          <li>蒐集個人資料公司：美商3M台灣子公司及受其委託從事郵寄、運送、活動舉辦、執行研究調查第之第三人。</li>
+                          <li>蒐集之目的：消費者抽獎活動及3M產品推廣宣傳、行銷、市場調查、研究等。</li>
+                          <li>個人資料之利用者: 本公司、本公司委託機關及執行本活動時之必要相關人員。</li>
+                          <li>相關資料保存期限為自活動參與日至活動結束後2個年（中獎開立扣繳憑單者，依稅法規定年限保存）。</li>
+                          <li>參加本活動者同意3M台灣將其個人資料(包括電話、e-mail等資訊。具體項目詳如本活動參與頁面及活動辦法內所列事項。)使用於與本抽獎活動相關之處理及利用。參加者不同意個資被使用時可通知3M台灣取消使用。</li>
+                          <li>您可以自由選擇是否提供您的個人資料，若您選擇不提供個人資料或提供不完全時，本公司將無法進行必要之處理作業，致無法讓您參加本活動，並將取消您的中獎資格。</li>
+                        </ol>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="btn-area">
+                    <div class="btn-basic"><a href="javascript:">完成</a></div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div style="display:none" class="step__end">
+            <p class="msg">協助完成！主辦單位將於3天內完成審核<br>審核成功後將公開在<span>半桶水省水妙招票選</span><br>感謝您的熱心參與！</p>
+            <p class="alert">*如有謾罵留言、不雅文字、垃圾訊息、張貼不雅照片等情事<br>本篇投稿將列為審核失敗並刪除</p>
+            <div class="btn-area">
+              <div class="btn-basic"><a href="javascript:">返回首頁</a></div>
+            </div>
+          </div>
+        </section>
+        <!--render main view-->
+      </div>
+      <!--投票-->
+      <transition name="fade">
+        <div v-show="confirmVotes" class="popup">
+          <div class="popup__mask"></div>
+          <div class="popup__content">
+            <div class="l-contanier">
+              <div class="confirm__box">
+                <p class="confirm__text">你今天還有 <span class="num">2</span><span class="unit">次</span>投票機會</p>
+                <div class="btn-area">
+                  <div class="btn-basic"><a href="javascript:" v-on:click="actionVote()">確定</a></div>
+                </div><a href="javascript:" v-on:click="actionVote()" class="btn-close"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+      <transition name="fade">
+        <div v-show="videoPopup" class="popup">
+          <div class="popup__mask"></div>
+          <div class="popup__content">
+            <div id="popup__movie">
+              <div class="popup__close">
+                <div class="video__wrapper">
+                  <div v-show="players[0]" class="inner">
+                    <div id="player1"></div>
+                  </div>
+                  <div v-show="players[1]" class="inner">
+                    <div id="player2"></div>
+                  </div><a href="javascript:" v-on:click="closeVideo" class="btn-close"> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+      <div id="loading"></div>
+    </div>
+    <div class="l-footer footer"></div>
+    <script src="js/app.js"></script>
+  </body>
+</html>

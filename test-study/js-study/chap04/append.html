@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+<ul id="coordinate">
+  <li>襯衫</li>
+</ul>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  $('<li>外套</li>').prependTo('#coordinate');
+  $('<li>長褲</li>').appendTo('#coordinate');
+  $('<p>帽子</p>').insertBefore('#coordinate');
+  $('<p>鞋子</p>').insertAfter('#coordinate'); 
+});
+
+</script>
+</body>
+</html>

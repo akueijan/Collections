@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery UI</title>
+<link rel="stylesheet"
+  href="http://code.jquery.com/ui/1.10.4/themes/redmond/jquery-ui.min.css" />
+</head>
+<body>
+<ul id="list">
+  <li><a href="#" data-photo="ham1">爬上爬下的天竺鼠</a></li>
+  <li><a href="#" data-photo="ham2">你好，天竺鼠</a></li>
+  <li><a href="#" data-photo="ham3">爬出窩的天竺鼠</a></li>
+  <li><a href="#" data-photo="ham4">橫越柵欄的天竺鼠</a></li>
+</ul>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script>
+$(function() {
+  $('#list').tooltip({
+    items: '[data-photo]', //工具提示的對象
+    content: function(){
+      var photo = $(this).data('photo');
+      return '<img src="photo/' + photo + '.jpg" />';
+    } //產生內容的函數
+  });
+});
+</script>
+</body>
+</html>

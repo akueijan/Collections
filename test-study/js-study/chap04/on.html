@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+<form>
+  <input type="button" class="photo" value="精選圖片" data-path="best" />
+  <input type="button" class="photo" value="最新圖片" data-path="newest" />
+  <input type="button" class="photo" value="最常被瀏覽的圖片" data-path="fav" />
+</form>
+<img id="result" src="images/default.jpg" />
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  //點選按鈕時，顯示data-photo屬性指定的圖片
+  $('.photo').click(function() {
+    $('#result').attr('src', 'images/' + $(this).data('path') + '.jpg');
+  });
+
+  //找不到指定圖片時，顯示error.gif圖片
+  $('#result').on('error', function() {
+    $(this).attr('src', 'images/error.jpg');
+  });
+});
+</script>
+</body>
+</html>

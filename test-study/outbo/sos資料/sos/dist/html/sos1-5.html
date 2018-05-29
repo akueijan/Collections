@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Baxter SOS系統 | PD利潤試算</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <head>
+        <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+        <link href="assets/css/akaiDev.css" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
+        <link href="assets/css/toolkit-inverse.css" rel="stylesheet">
+        <link href="assets/css/application.css" rel="stylesheet">
+        <link href="assets/css/akaiDev.css" rel="stylesheet">
+        <link href="assets/css/custom.css" rel="stylesheet">
+        <!--CDN link -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/mobile-detect/0.4.3/mobile-detect.min.js"></script>
+        <style>
+            /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+            /* this chunk of css is not part of the toolkit :) */
+
+            body {
+                width: 1px;
+                min-width: 100%;
+                *width: 100%;
+            }
+        </style>
+    </head>
+    <title>Baxter SOS系統 | PD利潤試算</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+</head>
+
+<body>
+    <nav class="iconav"><a class="iconav-brand" href="index.html"><span class="icon icon-cloud iconav-brand-icon"></span></a>
+        <div class="iconav-slider">
+            <ul class="nav nav-pills iconav-nav flex-md-column">
+                <li class="nav-item"><a class="nav-link active" href="index.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="返回首頁"><span class="icon icon-home"></span><small class="iconav-nav-label hidden-md-up">返回首頁</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section01.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="利潤試算"><span class="icon icon-calculator"></span><small class="iconav-nav-label hidden-md-up">HD/PD利潤試算</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section02.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="投資損益"><span class="icon icon-globe"></span><small class="iconav-nav-label hidden-md-up">HD/PD投資損益</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section03.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="投資回收試算"><span class="icon icon-area-graph"></span><small class="iconav-nav-label hidden-md-up">HD/PD投資回收試算</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="section04.html" title="" data-toggle="tooltip" data-placement="right" data-container="body" data-original-title="病患留院率"><span class="icon icon-list"></span><small class="iconav-nav-label hidden-md-up">HD/PD病患留院率</small></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="col-md-12">
+            <div class="dashhead mb-1">
+                <div class="dashhead-titles">
+                    <h6 class="dashhead-subtitle">PD 利潤試算</h6>
+                    <h2 class="dashhead-title"> HD/PD Profit spreadsheet</h2>
+                </div>
+            </div>
+            <!-- 標籤功能-->
+            <!--
+        <div class="hr-divider mb-4">
+        <ul class="nav nav-pills hr-divider-content hr-divider-nav">
+        <li class="nav-item">
+        <a class="nav-link active" href="#"><span class="icon icon-calculator"></span> HD試算</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#"><span class="icon icon-calculator"></span> PD試算</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#"><span class="icon icon-time-slot"></span> HD/PD 試算比較</a>
+        </li>
+        </ul>
+        </div>
+        -->
+            <!-- 標籤-->
+            <ul class="nav nav-bordered mt-4 mt-md-2 mb-0 clearfix" role="tablist">
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#seciton01_1" role="tab" data-toggle="tab" aria-controls="hd" aria-expanded="true"><span class="icon icon-calculator"></span> HD試算</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="#seciton01_2" role="tab" data-toggle="tab" aria-controls="pd" aria-expanded="false"><span class="icon icon-calculator"></span> PD試算</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#seciton01_3" role="tab" data-toggle="tab" aria-controls="hdvspd" aria-expanded="false"><span class="icon icon-time-slot"></span> HD/PD 試算比較</a></li>
+            </ul>
+            <hr class="mt-0 mb-4">
+            <!-- 麵包屑-->
+            <!--
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html"><span class="icon icon-calculator"></span> HD試算</a></li>
+        <li class="breadcrumb-item active">開始試算</li>
+        </ol>
+        -->
+            <div class="tab-content">
+                <!-- seciton01_1-->
+                <div class="tab-pane active" id="seciton01_1" role="tabpanel" aria-expanded="true"></div>
+                <!-- seciton01_2-->
+                <div class="tab-pane active" id="seciton01_2" role="tabpanel" aria-expanded="false">
+                    <div class="row">
+                        <!--損益表-->
+                        <div class="col-lg-12 mb-4">
+                            <div class="row">
+                                <div class="col-lg-12 mb-3">
+                                    <h6><span class="icon icon-leaf"></span>損益表</h6>
+                                </div>
+                                <!--損益表-->
+                                <div class="col-lg-6 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>健保給付點</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">每月</small><span class="text-muted">3,665,544</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">每年</small><span class="text-muted">43,986,528</span></div>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>健保給付金額</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">每月</small><span class="text-muted">2,993,650</span><span class="text-muted">100%</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">每年</small><span class="text-muted">35,923,797</span></div>
+                                </div>
+                                <!--成本-->
+                                <div class="col-lg-12 mb-1"><span class="icon icon-shopping-bag text-danger">成本</span></div>
+                                <div class="col-lg-12 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator">每月</small><span class="text-muted">694,917</span><span class="text-muted">23%</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator">每年</small><span class="text-muted">8,339,000</span><span class="text-muted">23%</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>材料成本(含人工腎臟，藥品等)</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">每月</small><span class="text-muted">683,673</span><span class="text-muted">23%</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>醫務成本(檢驗費...等)</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">每月</small><span class="text-muted">11,244</span><span class="text-muted">0%</span></div>
+                                </div>
+                                <!--費用-->
+                                <div class="col-lg-12 mb-1"><span class="icon icon-shopping-bag text-danger">費用</span></div>
+                                <div class="col-lg-12 mb-1">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator">每月</small><span class="text-muted">1,917,841</span><span class="text-muted">64%</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="delta-indicator">每年</small><span class="text-muted">23,014,090</span><span class="text-muted">64%</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>硬體折舊</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">每月</small><span class="text-muted">50,000</span><span class="text-muted">2%</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>硬體維修費用</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">每年</small><span class="text-muted">-</span><span class="text-muted">0%</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>人事薪資</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">每月</small><span class="text-muted">1,171,253</span><span class="text-muted">39%</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>固定薪資</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">每年</small><span class="text-muted">937,003</span><span class="text-muted">31%</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>變動薪資(PPF),$/Tx</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">每月</small><span class="text-muted">234,250</span><span class="text-muted">8%</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>房屋租金</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">每年</small><span class="text-muted">440,000</span><span class="text-muted">15%</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>營運費用</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">每月</small><span class="text-muted">183,277</span><span class="text-muted">6%</span></div>
+                                </div>
+                                <div class="col-lg-3 mb-3">
+                                    <div class="list-group-item list-group-item-action justify-content-between"><span>行政管理費用</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between"><small class="text-muted">每年</small><span class="text-muted">73,311</span><span class="text-muted">2%</span></div>
+                                </div>
+                                <div class="col-lg-12 mb-4">
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success">稅前利潤(每月)<span class="text-danger">380,892</span><span class="text-danger">13%</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success">稅前利潤(每年)<span class="text-danger">4570,707</span><span class="text-danger">13%</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success">每人次利潤(每月)<span>407</span></div>
+                                    <div class="list-group-item list-group-item-action justify-content-between text-success">每人利潤(每月)<span>5,081</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="dashhead-subtitle text-center">® 版權所有 百特醫療產品股份有限公司 - Baxter Taiwan Version 1.0</div>
+            </footer>
+        </div>
+    </div>
+    <div class="modal fade" id="docsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">下一步「<span class="icon icon-calculator"> PD試算」</span></h4>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>點選「<span class="icon icon-calculator">PD試算」並輸入資料<br><span class="text-success">系統將繼續試算利潤比例</span></span>
+                    </p>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-link modal-action text-danger step01_finish" type="button" data-dismiss="modal"><span class="icon icon-trash"></span> 重新填寫</button>
+                    <button class="btn-link modal-action text-success step01_finish" type="button" data-dismiss="modal"><span class="icon icon-check"></span> 繼續試算</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/tether.min.js"></script>
+    <script src="assets/js/chart.js"></script>
+    <script src="assets/js/tablesorter.min.js"></script>
+    <script src="assets/js/toolkit.js"></script>
+    <script src="assets/js/application.js">
+    </script>
+    <script>
+        $('#step01_finish').click(function() {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 600);
+        });
+        $('.step01_finish').click(function() {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 600);
+        })
+    </script>
+</body>
+
+</html>

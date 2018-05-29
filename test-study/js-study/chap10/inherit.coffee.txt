@@ -1,0 +1,19 @@
+﻿class Person
+  status: '?'
+  
+  constructor: (@name) ->
+
+  toString: ->
+    "#{@name}#{@status}"
+
+class BusinessPerson extends Person
+  work: (type) ->
+    window.alert "#{@name}#{type}?"
+    return
+    
+  toString: ->
+    "SOHO#{super()}"
+
+bp = new BusinessPerson ''
+bp.work ''
+window.alert bp.toString()

@@ -1,0 +1,100 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    title Baxter SOS系統 | HD vs. PD投資損益比較
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='keywords', content='')
+    meta(name='author', content='')
+block page_main
+    div.container
+        div.row
+            div.col-md-12.mb-3
+                div.dashhead.mb-1
+                    div.dashhead-titles
+                        h6.dashhead-subtitle 
+                        h2.dashhead-title  HD vs. PD投資損益比較
+                        h2.dashhead-title  切兩組供選擇 
+        div.row
+            div.table-responsive.col-12
+                table.table.table-bordered.table-hover
+                    thead.table-active
+                        tr
+                            th.w-25
+                            th.w-25.text-success HD
+                            th.w-25.text-success PD
+                    tbody
+                        tr
+                            th 資金投入
+                            td 
+                                ul.list-group
+                                    li.list-group-item.justify-content-around 
+                                        span 大
+                                        span $5,700,000
+                            td  
+                                ul.list-group
+                                    li.list-group-item.justify-content-around 
+                                        span 小
+                                        span $500,000
+                        tr
+                            th.text-danger 五年增加之利潤
+                                br
+                                |(扣除投入資金後)
+                            td
+                                ul.list-group
+                                    li.list-group-item.justify-content-around 
+                                        span.text-danger NIL
+                            td
+                                ul.list-group
+                                    li.list-group-item.justify-content-around 
+                                        span.text-danger 10,199,179
+                        tr
+                            th 投資回收期
+                            td 
+                                ul.list-group
+                                    li.list-group-item.justify-content-around 
+                                        span 長
+                                        span 6
+                                    li.list-group-item.justify-content-around 
+                                        span 在總額預算下點值浮動，不確定性高，若點值下降幅度加劇，則投資回收期延長。
+                            td
+                                ul.list-group
+                                    li.list-group-item.justify-content-around 
+                                        span 短
+                                        span 1
+                                    li.list-group-item.justify-content-around 
+                                        span 目前每月追蹤處置費點值一點1元，藥水及藥品一點一元先扣除，影響小，PD可利用現有的人力、空間、設備、創造額外的利潤。
+        div.row
+            div.col-md-12
+                div.row
+                    div.col-md-6.mb-3
+                        p.text-success HD
+                        ul.list-group
+                            li.list-group-item.justify-content-between
+                                span 資金投入
+                                span 大
+                                span $5,700,000
+                            li.list-group-item.justify-content-between
+                                span.text-danger 五年增加之利潤(扣除投入資金後)
+                                span.text-danger NIL
+                            li.list-group-item.justify-content-between
+                                span 長
+                                span 6
+                            li.list-group-item.justify-content-between 在總額預算下點值浮動，不確定性高，若點值下降幅度加劇，則投資回收期延長。
+                    div.col-md-6.mb-3 
+                        p.text-success PD
+                        ul.list-group
+                            li.list-group-item.justify-content-between 
+                                span 資金投入
+                                span 小
+                                span $500,000
+                            li.list-group-item.justify-content-between
+                                span.text-danger 五年增加之利潤(扣除投入資金後)
+                                span.text-danger 10,199,179
+                            li.list-group-item.justify-content-between
+                                span 短
+                                span 1
+                            li.list-group-item.justify-content-between 目前每月追蹤處置費點值一點1元，藥水及藥品一點一元先扣除，影響小，PD可利用現有的人力、空間、設備、創造額外的利潤。
+block bottomScripts
+

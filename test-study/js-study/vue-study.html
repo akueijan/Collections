@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<template>
+	<div id="app">
+		<component :is="currentComponent">
+		<!-- component changes when this.currentComponent changes! -->
+		</component>
+		<p>
+			This is very useful...
+		</p>
+		<a href="#" @click="currentComponent = 'hello'">Show Hello</a>
+		<a href="#" @click="currentComponent = 'greet'">Show Greet</a>
+	</div>
+</template>
+
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+import Hello from './components/Hello'
+import Greet from './components/Greet'
+export default
+{
+components: {
+Hello,
+Greet
+},
+data () {
+return
+{
+currentComponent: 'hello'
+}
+}
+}
+</script
+>
+
+</body>
+</html>
+

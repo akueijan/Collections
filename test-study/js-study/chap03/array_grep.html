@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>物件</title>
+</head>
+<body>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+var animal = [
+  '法國鬥牛犬',
+  '約克夏',
+  '臘腸狗',
+  '博美狗',
+  '柯基狗'
+];
+
+//只留下長度不足5字元的字串
+var short = $.grep(
+  animal,
+  function(value, index) {
+    return (value.length < 5);
+  },
+  false);
+
+console.log(short);
+</script>
+</body>
+</html>

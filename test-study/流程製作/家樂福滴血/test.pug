@@ -1,0 +1,86 @@
+﻿//- page laytout name
+extends _layout.pug
+
+//- page html
+block page_main
+    .l-container
+        transition(name="fade")
+            div.step1(v-show="step1" v-cloak)
+                h2 欸~別急著叫阿母，我還不知道你是哪位捏?
+                p 請填寫電話號碼驗證會員身份
+                input(type="radio" name="tel" id="mobile" checked) 
+                label(for="mobile") 手機號碼
+                input(type="radio" name="tel" id="homeNum") 
+                label(for="homeNum") 市內電話
+                div.sss1
+                    span.txt(v-cloak) {{ numStr }}
+                br
+                div.telarea#foo
+                    div.btn(v-on:click="pushVal(1)")
+                        p 1
+                        div.div1
+                    div.btn(v-on:click="pushVal(2)")
+                        p 2
+                        div.div1
+                    div.btn(v-on:click="pushVal(3)")
+                        p 3
+                        div.div1
+                    div.btn(v-on:click="pushVal(4)")
+                        p 4
+                        div.div1
+                    div.btn(v-on:click="pushVal(5)")
+                        p 5
+                        div.div1
+                    div.btn(v-on:click="pushVal(6)")
+                        p 6
+                        div.div1
+                    div.btn(v-on:click="pushVal(7)")
+                        p 7
+                        div.div1
+                    div.btn(v-on:click="pushVal(8)")
+                        p 8
+                        div.div1
+                    div.btn(v-on:click="pushVal(9)")
+                        p 9
+                        div.div1
+                    div.btn(v-on:click="pushVal(0)")
+                        p 0
+                        div.div1
+                    div.btn(v-on:click="delStr()")
+                        p X
+                        div.div1
+                div.btn(v-on:click="control_1();")
+                    p GO
+                //- span(for="ca") 請輸入驗證碼:
+                //- span#loginCode(onload="loginCode()")
+                //- input#ca(v-model="userCa")
+        transition(name="fade")
+            div.step2(v-show="step2" v-cloak)
+                h2 阿唷！突然覺得你蠻面熟的但還差一點點就能想起你...
+                p 為確保您的權益請填寫身分證字號或居留證號(非本國籍)進行完整驗證
+                input(type="radio" name="id" id="perid" checked) 
+                label(for="perid") 身份證字號
+                input(type="radio" name="id" id="arc") 
+                label(for="arc") 居留證號 Alien resident certificate ( ARC )
+                br
+                input(v-model="perId")
+                br
+                input(type="checkbox" id="agree") 
+                label(for="agree") 我已了解活動辦法並同意提供個人資料作為會員身份驗證與活動參加使用
+                //- div.popup
+                //-     div.sss2
+                //-         p.txt(v-cloak)
+                //-             span {{ selectOpt }}
+                //-             | {{ numStr }}
+                br
+                vue-grecaptcha(v-model="captchaResponse" ref="recaptcha")
+                button(v-on:click="resetRecaptcha") Reset ReCAPTCHA
+                a(href="javascript:void(0);" v-on:click="fbShare();return false;") FB分享
+                //- select.selA-Z(v-model="selectOpt" v-cloak)
+                //-     option(v-for="obj in selectLists" :disabled="obj.value == ''" v-bind:value="obj.value") {{obj.text}}
+        transition(name="fade")
+            div.step3(v-show="step3" v-cloak)
+        transition(name="fade")
+            div.step4(v-show="step4" v-cloak)
+        transition(name="fade")
+            div.step5(v-show="step5" v-cloak)

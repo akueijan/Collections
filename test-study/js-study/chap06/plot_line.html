@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>外掛程式</title>
+<link rel=stylesheet href="css/jquery.jqplot.min.css" />
+</head>
+<body>
+<!--建立圖表的繪製區域-->
+<div id="graph" style="width:400px; height:300px;"></div>
+<!--[if lt IE 9]>
+<script src="js/excanvas.min.js"></script>
+<![endif]-->
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/jquery.jqplot.min.js"></script>
+<script>
+$(function(){
+  //建立原始資料
+  var data = [
+    [[1, 113], [2, 120], [3, 112], [4, 121], [5, 126], [6, 127]],
+    [[1, 99], [2, 102], [3, 98], [4, 101], [5, 106], [6, 97]],
+  ];
+  //繪製圖表
+  $.jqplot( 'graph', data, {
+    series: [{label: 'A店'}, {label: 'B店'}], //圖例標籤
+    legend: {show: true}, //圖例
+    title: '2014年上半年銷售數量' //標題
+  });
+});
+</script>
+</body>
+</html>

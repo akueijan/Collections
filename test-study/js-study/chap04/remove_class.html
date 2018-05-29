@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+<link rel="stylesheet" href="site.css" />
+<link rel="stylesheet" href="remove_class.css" />
+</head>
+<body>
+<ul>
+  <li id="spring">春天的小河嘩啦嘩啦地流去了</li>
+  <li id="summer">竹葉飄飄然地逝去了</li>
+  <li id="autumn">小狐狸咚咚在山中</li>
+  <li id="winter">與靄靄的白雪嬉戲著</li>
+  </ul>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  $('#autumn').addClass('highlighted bold');
+  window.alert('移除反白色');
+  $('#autumn').removeClass('highlighted');
+});
+</script>
+</body>
+</html>

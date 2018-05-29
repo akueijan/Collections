@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>HTML5</title>
+<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+<canvas id="cv" width="400" height="250">
+  您的作業環境不支援Canvas功能。
+</canvas>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  if (HTMLCanvasElement) {
+    var cv = $('#cv').get(0);
+    var c = cv.getContext('2d');
+    //儲存3個初始狀態的畫布
+    for (var i = 0; i < 3; i++) { c.save(); }
+
+    $('<img>')
+      .attr('src', './image/webdeli.gif')
+      .on('load', function() {
+        //讓圖片旋轉60度
+        c.rotate(60 * Math.PI / 180);
+        c.drawImage(this, 0, 0);
+
+        c.restore();
+        //讓圖片縮小成45%
+        c.scale(0.45, 0.45);
+        c.drawImage(this, 80, 50);
+
+        c.restore();
+        //位移(180,20)之後再繪製圖片
+        c.translate(180, 20);
+        c.drawImage(this, 0, 0);
+
+        c.restore();
+        //以變形矩陣轉換後再繪製圖片
+        c.transform(1, 1, 1, -1, 0, 0);
+        c.drawImage(this, 150, 10);
+    });
+  }
+});
+</script>
+</body>
+</html>

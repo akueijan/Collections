@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>jQuery Mobile</title>
+<link rel="stylesheet"
+  href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js">
+</script>
+<script>
+$(document).on('pagebeforechange', function(e, d){
+  console.log('頁面移動之前pagebeforechange');
+});
+
+$(document).on('pagecontainerbeforeload', function(e, d){
+  console.log('匯入頁面之前pagecontainerbeforeload');
+});
+
+$(document).on('pagebeforecreate', function(e){
+  console.log('初始化處理之前pagebeforecreate');
+});
+
+$(document).on('pagecreate', function(e){
+  console.log('初始化處理之後pagecreate');
+});
+
+$(document).on('pagecontainerload', function(e){
+  console.log('匯入頁面之後pagecontainerload');
+});
+
+$(document).on('pagecontainerbeforehide', function(e){
+  console.log('隱藏舊頁面之前pagecontainerbeforehide');
+});
+
+$(document).on('pagecontainerbeforeshow', function(e){
+  console.log('顯示新頁面之前pagecontainerbeforeshow');
+});
+
+$(document).on('pageremove', function(e){
+  console.log('從文件結構移除舊頁面之後pageremove');
+});
+
+$(document).on('pagecontainerhide', function(e){
+  console.log('舊頁面隱藏之後pagecontainerhide');
+});
+
+$(document).on('pagecontainershow', function(e){
+  console.log('新頁面顯示之後pagecontainershow');
+});
+
+$(document).on('pagechange', function(e){
+  console.log('頁面切換之後pagechange');
+});
+
+$(document).on('pagecontainerloadfailed', function(e, d){
+  console.log('取得頁面失敗時pagecontainerloadfailed');
+});
+
+$(document).on('pagecontainerchangefailed', function(e, d){
+  console.log('取得切換的頁面失敗時pagecontainerchangefailed');
+});
+</script>
+</head>
+<body>
+<div data-role="page" data-title="jQuery Mobile">
+  <div data-role="header">
+    <h1>jQuery Mobile</h1>
+  </div>
+    <div id="index" role="main" class="ui-content">
+      <a href="page.html" class="ui-btn">前往另一頁</a>
+    </div>
+    <div id="result"></div>
+  <div data-role="footer">
+    Copyright 1998-2014, YAMADA.Yoshihiro
+  </div>
+</div>
+</body>
+</html>

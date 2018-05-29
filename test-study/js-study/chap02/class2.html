@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>函數／物件導向</title>
+</head>
+<body>
+<script>
+var Animal = function(name) {
+  this.name = name;
+  this.toString = function() {
+    return 'Animal:' + this.name;
+  };
+};
+
+//沒有new運算子的呼叫
+var ani = Animal('德次郎');
+
+console.log(ani);
+console.log(name);
+console.log(ani.name);
+</script>
+</body>
+</html>

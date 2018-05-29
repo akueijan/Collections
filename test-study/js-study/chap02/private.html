@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>函數／物件導向</title>
+</head>
+<body>
+<script>
+
+var Person = function(name, birth) {
+  //Private屬性
+  var _name = name;
+  var _birth = birth;
+
+  //可存取Private屬性的特權方法
+  this.getName = function() {
+    return _name;
+  };
+
+  this.getBirth = function() {
+    return _birth;
+  };
+}
+
+Person.prototype.toString = function() {
+  return 'Person: ' + this.getName() + ' ' + this.getBirth();
+};
+
+var p = new Person('許郁文', new Date(2007, 5, 25));
+console.log(p.getName());
+console.log(p.toString());
+console.log(p._name);
+</script>
+</body>
+</html>

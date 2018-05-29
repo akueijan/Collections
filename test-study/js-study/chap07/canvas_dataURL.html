@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>HTML5</title>
+<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+<canvas id="cv" width="400" height="250">
+  您的作業環境不支援Canvas功能。
+</canvas>
+<input id="copy" type="button" value="覆寫" />
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+  if (HTMLCanvasElement) {
+    var cv = $('#cv').get(0);
+    var c = cv.getContext('2d');
+    //繪製原始圖形
+    c.beginPath();
+    c.arc(230, 130, 90, 0, 2 * Math.PI, false);
+    c.stroke();
+    c.clip();
+    $('<img>')
+      .attr('src', './image/animal.jpg')
+      .on('load', function() {
+        c.drawImage(this, 0, 0, 400, 300);
+      });
+
+    //按下「覆寫」複製畫布內容
+    $('#copy').click(function(e) {
+      $('<img>')
+        //將Data URL格式的路徑指定給src屬性
+        .attr('src', cv.toDataURL())
+        .on('load', function() {
+          $(document.body).append(this);
+        });
+    });
+  }
+});
+</script>
+</body>
+</html>
