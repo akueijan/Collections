@@ -1,0 +1,50 @@
+$nav_height: 80px;
+$nav_height_mb: 135px;
+
+.nav {
+    $nav:nav;
+    text-align: center;
+    height: $nav_height;
+    background: $brandColor1;
+    &-logo {
+        display: inline-block;
+        float: left;
+        a {
+            display: block;
+            height: $nav_height;
+            line-height: $nav_height;
+            vertical-align: middle;
+        }
+    }
+
+    &-btn {
+        display: block;
+        z-index: 5;
+    }
+    &-menu {
+        ul {
+            li {            
+                float: left;
+                transition: 0.3s;
+                a {
+                    height: $nav_height;
+                    line-height: $nav_height;
+                    vertical-align: middle;
+                    display: block;
+                    font-size: 1.8rem;
+                    width: 122px;
+                }
+                &:hover{
+                    a{
+                    }
+                }
+            }
+        }
+    }
+    &-active {
+        &-btn {
+            display: block;
+        }
+    }
+}
+

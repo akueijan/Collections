@@ -1,0 +1,38 @@
+head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='edge,chrome=1')
+    title #{pageTitle}
+    meta(name='description', content=pageDesc)
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1')
+    //- meta(name='viewport', content='width=750')
+    //- Schema.org markup for Google+
+    meta(itemprop="name" content=pageTitle)
+    meta(itemprop="description" content=pageDesc)
+    meta(itemprop="image" content="指定顯示圖片")
+
+    //- og
+    meta(property="og:title" content=pageTitle)
+    meta(property="og:description" content=pageDesc)
+    meta(property="og:type" content="article")
+    meta(property="og:image" content="指定顯示圖片")
+
+    //- TODO : Place favicon.ico and apple-touch-icon.png in the root directory
+    link(rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico")
+    link(rel='stylesheet', href='css/main.css')
+    - if(dev_mode)
+        //- debug tool
+        //- script(src="//console.re/connector.js" data-channel="friendo" id="consolerescript")
+    - else
+        //- log tools
+        script(type="text/javascript" src="//cloudfront.loggly.com/js/loggly.tracker-latest.min.js" async)
+        script.
+            var _LTracker = _LTracker || [];
+                _LTracker.push({'logglyKey': '8016ea6d-fa64-4c93-bddb-461c5e78fd99',
+                'sendConsoleErrors' : true,
+                'tag' : 'familyTree'  });
+    script.
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': 
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], 
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); 
+        })(window,document,'script','dataLayer','GTM-KTS8XH2');
