@@ -1,0 +1,43 @@
+﻿transition(name="fade" mode="out-in")
+    .popup(v-show="popup=='open'")
+        .popup__content
+            .popup__close(@click="popupClose()")
+            .popup__box
+                .eventnote(v-show="popupPage=='note'")
+                    h2 活動注意事項
+                    .line
+                    ul
+                        li 用戶於本活動輸入之個資，僅使用於活動抽獎、派獎使用，不用於其他用途。
+                        li 活動期間內，單人登錄兩次以上個資僅計算乙次抽獎機會，且每人僅限乙次中獎機會。
+                        li 本活動之中獎資格，均以NISSAN TAIWAN.之電腦系統記錄與認定為準，不得異議。
+                        li 贈品不得轉售或是折換現金，贈品以實物為準，圖片僅供參考。
+                        li 主辦單位一概以本活動參加者所提供之個人資料寄送得獎贈品，中獎者請務必提供真實、完整之領獎資料，以便進行領獎作業。如因資料錯誤或不正確，導致無法通知中獎訊息、確認中獎者或獎品寄送後遭退回，皆將視為棄權。
+                        li 本活動概以網路舉行，惟若肇因於不可抗拒之天災人禍、電腦系統故障或參加本活動者之伺服器故障、損壞、延誤或資料有訛誤或其他不可歸責於主辦單位之事由所造成的損失，主辦單位恕不負責，亦無須負擔任何賠償或補償責任。
+                        li 對於透過任何不當程式進行大量封包發送，或任何意圖破壞本次活動之不正常網路傳輸行為；及利用不當方式，影響本活動之公平性者，主辦單位得取消其參加資格的權利，並就其造成之損害向其請求損害賠償，參加者應自負一切民刑事法律責任。
+                        li NISSAN TAIWAN.非活動獎品之製造者，且與該獎品之提供廠商並無任何代理或合夥或保證關係；中獎人如因使用該獎品發生任何爭議或相關限制，請逕洽該獎品之實際製造或提供廠商處理。
+                        li NISSAN TAIWAN.保留審核參加活動及解釋、變更或終止本活動的權利。
+                        li 本網站受reCAPTCHA保護，適用Google
+                            a(href="https://policies.google.com/privacy" target="_blank") 隱私政策
+                            | 和
+                            a(href="https://policies.google.com/terms" target="_blank") 服務條款
+                            | 。
+                .alertbox(v-show="popupPage=='alert'")
+                    .kv
+                        img(src="images/pop-icon-1.png" v-show="popupTxt=='agree'")
+                        img(src="images/pop-icon-1.png" v-show="popupTxt=='error'")
+                        img(src="images/pop-icon-1.png" v-show="popupTxt=='share'")
+                        img(src="images/pop-icon-2.png" v-show="popupTxt=='success'")
+                    .content
+                        p(v-show="popupTxt=='agree'") 請同意照片使用規範始可參加本活動
+                        p(v-show="popupTxt=='error'") 請使用正面清晰的臉部照片
+                            span 檔案種類:JPEG/PNG
+                            span 檔案尺寸:1Kb - 6Mb
+                        p(v-show="popupTxt=='success'") 恭喜您已獲得抽獎資格
+                        .sharebox(v-show="popupTxt=='share'") 
+                            p 完成分享，即可留填資料並參加抽獎喔！
+                            .iconarea
+                                ul
+                                    li.icon(@click="sendFbshare()")
+                                        img(src="images/fb-icon.png")
+                                    li.icon
+                                        img(src="images/line-icon.png")

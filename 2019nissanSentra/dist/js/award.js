@@ -1,0 +1,2 @@
+"use strict";var award_view=new Vue({el:"#app"});
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImF3YXJkLmpzIl0sIm5hbWVzIjpbImF3YXJkX3ZpZXciLCJWdWUiLCJlbCJdLCJtYXBwaW5ncyI6ImFBQUEsSUFBSUEsV0FBYSxJQUFJQyxJQUFJLENBQ3JCQyxHQUFJIiwiZmlsZSI6ImF3YXJkLmpzIiwic291cmNlc0NvbnRlbnQiOlsidmFyIGF3YXJkX3ZpZXcgPSBuZXcgVnVlKHtcclxuICAgIGVsOiBcIiNhcHBcIixcclxufSkiXX0=

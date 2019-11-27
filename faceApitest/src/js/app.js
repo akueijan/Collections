@@ -184,13 +184,13 @@ Vue.mixin({
     mounted: function () {
         var vm = this;
         // fix-body-space
-        var navHeight = $('.window-top').height();
-        vm.navHeight = navHeight - 30;
-        $('body').css('margin-top', vm.navHeight);
+        // var navHeight = $('.window-top').height();
+        // vm.navHeight = navHeight - 30;
+        // $('body').css('margin-top', vm.navHeight);
         $(".nav-lock").click(function(){
             $("body").removeClass("_freeze");
         })
-        alert('a')
+        // alert('a')
     }
 })
 

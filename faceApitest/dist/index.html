@@ -71,7 +71,25 @@
         </div>
         <div class="l-main">
             <section class="index">
-                <h1>startupKit</h1>
+                <div class="step1">
+                    <label for="userpic">
+              <h2>選擇圖片</h2>
+            </label>
+                    <input id="userpic" type="file" accept=".jpg, .jpeg, .png">
+                    <div class="preview"></div>
+                    <button>Submit</button>
+                </div>
+                <div class="step2">
+                    <h2>加載到canvas</h2>
+                    <button @click="processImage();loadcanvas()">Analyze face</button>
+                    <div id="jsonOutput">
+                        <textarea class="UIInput" id="responseTextArea"></textarea>
+                    </div>
+                    <canvas id="loadcanvas" width="500" height="500"></canvas>
+                    <button @click="drawline()">畫線</button>
+                    <h2>截圖至另一canvas </h2>
+                    <canvas id="showcanvas" width="400" height="400"></canvas>
+                </div>
             </section>
             <!--render main view-->
         </div>
@@ -119,8 +137,8 @@
     </script>
     <script type="text/javascript" src="js/vendor.js"></script>
     <script type="text/javascript" src="js/lib.js"></script>
-    <script type="text/javascript" id="appjs" src="js/app.js?v=1553668371514" data-mode="true" data-site="https://carrefour2019cny.azurewebsites.net/"></script>
-    <script src="js/index.js?v=1553668371514"></script>
+    <script type="text/javascript" id="appjs" src="js/app.js?v=1554279325522" data-mode="true" data-site="https://carrefour2019cny.azurewebsites.net/"></script>
+    <script src="js/index.js?v=1554279325522"></script>
     <script type="text/javascript"></script>
 </body>
 

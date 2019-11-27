@@ -1,0 +1,129 @@
+﻿.award
+    max-width: 750px
+    margin: 0 auto
+    padding: mvw(100) 0
+    font-family: 'Noto Sans TC'
+    .content
+        margin: mvw(85) auto 0
+        width: mvw(656)
+        background: rgba(255,255,255,0.8)
+        border: solid 3px #fff
+        border-top-right-radius: mvw(40)
+        border-bottom-left-radius: mvw(40)
+        padding: mvw(70) mvw(50) mvw(95)
+        text-align: center
+        position: relative
+        &:before
+            content: ""
+            width: mvw(81)
+            height: mvw(32)
+            background: url(../images/deco-box.png) top center no-repeat / 100% 100%
+            position: absolute
+            top: mvw(-4)
+            right: mvw(-5)
+        &:after
+            content: ""
+            width: mvw(81)
+            height: mvw(32)
+            background: url(../images/deco-box.png) top center no-repeat / 100% 100%
+            position: absolute
+            bottom: mvw(-4)
+            left: mvw(-5)
+            transform: rotate(180deg)
+        h2
+            font-size: mvw(36)
+            // text-align: left
+            line-height: mvw(53)
+            word-break: break-all
+            font-weight: 600
+        .kv
+            width: mvw(411)
+            margin: mvw(42) auto 0
+        .readme
+            width: mvw(224)
+            margin: mvw(39) auto 0
+            p
+                font-size: mvw(36)
+                font-weight: bold
+                color: #39708d
+            &:after
+                content: ""
+                width: 100%
+                height: 2px
+                background: #39708d
+                display: block
+                margin: mvw(10) auto 0
+        .award-title
+            margin: mvw(63) auto 0
+            font-size: mvw(60)
+            font-weight: bold
+            color: #3f4142
+            span
+                &:before, &:after
+                    content: " "
+                    width: mvw(40)
+                    height: mvw(53)
+                    background: url(../images/deco-title.png) top center no-repeat / 100% 100%
+                    display: inline-block
+                &:before
+                    margin: 0 mvw(10) 0 0
+                &:after
+                    margin: 0 0 0 mvw(10)
+                    transform: rotate(180deg)
+            &:after
+                content: ""
+                width: 80%
+                height: 2px
+                background: #e6e6e6
+                display: block
+                margin: mvw(36) auto 0
+        .block
+            margin: mvw(60) auto 0
+            .titlearea
+                display: flex
+                align-items: center
+                justify-content: center
+                .txt
+                    h2
+                        font-size: mvw(36)
+                        font-weight: bold
+                        &:after
+                            content: ""
+                            height: mvw(4)
+                            background: #217290
+                            display: block
+                            margin: mvw(20) auto
+                    p
+                        font-size: mvw(36)
+                        font-weight: bold
+                        span
+                            font-size: mvw(75)
+                .imgarea
+                    margin: 0 mvw(20)
+                .airpods
+                    width: mvw(95)
+                .ticket
+                    width: mvw(247)
+                .bag
+                    width: mvw(139)
+            table
+                width: mvw(536)
+                margin: mvw(20) auto 0
+                td,th
+                    border: 2px solid #8ba9ba
+                    height: mvw(48)
+                    text-align: center
+                    vertical-align: middle
+                    color: #3f4142
+                    font-size: mvw(30)
+                    padding: mvw(15) 0
+                th
+                    background: #217290
+                    color: #fff
+            .listarea
+                width: mvw(536)
+                height: mvw(255)
+                line-height: mvw(255)
+                border: solid 2px #8ba9ba
+                background: #fff
+                margin: mvw(15) auto 0

@@ -4,10 +4,25 @@ extends _layout.pug
 block pageInfo
     - var pageTitle = "index"
     - var pageDesc = "pageDesc"
-    - var pageJs = "index.js";
+    - var pageJs = "index.js"
 //- page html
 block page_main
     section.index
-        h1 startupKit
-        
+        .step1
+            label(for="userpic")
+                h2 選擇圖片
+            input#userpic(type="file" accept=".jpg, .jpeg, .png")
+            .preview
+                //- img#blah(src="#")
+            button Submit
+        .step2
+            h2 加載到canvas
+            button(@click="processImage();loadcanvas()") Analyze face
+            #jsonOutput
+                textarea#responseTextArea.UIInput
+            canvas#loadcanvas(width="500" height="500")
+            button(@click="drawline()") 畫線
+            h2 截圖至另一canvas  
+            canvas#showcanvas(width="400" height="400")
+
 

@@ -1,0 +1,53 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "product"
+    - var pageDesc = "pageDesc"
+    - var pageJs = "product.js"
+//- page html
+block page_main
+    section.product
+        .kvarea
+            h2
+                img(src="images/product-title.png")
+            .kvcar
+                img(src="images/product-car.png")
+        .content
+            .block
+                h2
+                    img(src="images/product-list-1.png")
+                p 所謂江湖在走，責任要有，身為男人最重要的責任就是保護好自己心愛的人。有了
+                    span.blue.bold 仙草SENTRA的#AVM360°環景影像監控系統
+                    | 幫助你在行車時可對周遭任何動靜一目瞭然，並附加360°全時錄影功能，讓行車狀況更安心，就如同你對家人的全方位零死角的保護一樣！
+                .imgarea
+                    img(src="images/product-pdinfo-1.png")
+            .block
+                h2
+                    img(src="images/product-list-2.png")
+                p 一個帥氣的男人，週遭免不了會出現許多誘惑，然而真正有魅力的男人，就要能夠在面對諸多誘惑時還能臨風不亂！就像
+                    span.blue.bold 仙草SENTRA
+                    | 的
+                    span.blue.bold #Premium精選空力套件
+                    | 它的前後保桿下方擾流板、側裙及尾翼，讓你能在高速及過彎時，提高行車的穩定性！
+                .imgarea
+                    img(src="images/product-pdinfo-2.png")
+            .block
+                h2
+                    img(src="images/product-list-3.png")
+                p 如果愛美是女人的天性，那讓女人美得精明就成了男人的義務。現在
+                    span.blue.bold 只需66.5萬
+                    | (含舊換新)，就能入手一台帥到冒泡的
+                    span.blue.bold #SENTRA豪華版
+                    | ，坐在這炫車裡頭，還有哪個女人能不愛上你呢？
+                .imgarea
+                    img(src="images/product-pdinfo-3.png")
+        .btnarea
+            a(href="https://service.nissan.com.tw/testdrive/?modelId=SENTRA" target="_blank").btnbg
+                .scanef
+                .btntxt
+                    img(src="images/btn-apply.png")
+            a(href="http://event.nissan.com.tw/sentra19my/feature.html" target="_blank").btnbg
+                .scanef
+                .btntxt
+                    img(src="images/btn-know.png")

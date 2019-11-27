@@ -1,0 +1,251 @@
+.index
+    max-width: 750px
+    margin: 0 auto
+    padding: mvw(100) 0 0 0
+    font-family: 'Noto Sans TC'
+    .kv
+        position: relative
+        // height: mvw(1230)
+        // min-height: 100vh
+        width: 100%
+        .face
+            position: absolute
+            top: mvw(60)
+            // left: mvw(100)
+            left: 50%
+            transform: translateX(-50%)
+            width: mvw(536)
+        .outline
+            position: absolute
+            top: mvw(93)
+            // left: mvw(175)
+            left: 50%
+            transform: translateX(-50%)
+            width: mvw(400)
+        .car
+            position: absolute
+            top: mvw(590)
+            left: 50%
+            width: mvw(321)
+        .note-inclusive
+            position: absolute
+            top: mvw(235)
+            left: mvw(77)
+            width: mvw(251)
+        .note-observed
+            position: absolute
+            top: mvw(73)
+            right: mvw(50)
+            width: mvw(233)
+        .note-feeling
+            position: absolute
+            top: mvw(297)
+            right: mvw(50)
+            width: mvw(264)
+        .content
+            padding: mvw(695) 0 0 0
+            text-align: center
+            h3
+                width: mvw(228)
+                margin: 0 0 0 mvw(103)
+            h2
+                width: mvw(545)
+                margin: mvw(7) auto 0
+            .txt
+                width: mvw(580)
+                margin: mvw(20) auto 0
+    .readme
+        position: relative
+        // height: mvw(1230)
+        // min-height: 100vh
+        width: 100%
+        h2
+            margin: mvw(78) auto 0
+            width: mvw(595)
+        ul
+            margin: mvw(50) auto 0
+            width: mvw(616)
+            li
+                display: flex
+                align-items: center
+                background: url(../images/list-bg.png) top center no-repeat / 100% 100%
+                padding: mvw(20) mvw(65)
+                margin: 0 0 mvw(40) 0
+                width: mvw(616)
+                height: mvw(170)
+                &:nth-last-of-type(1)
+                    margin: 0
+                .icon
+                    width: mvw(120)
+                .icon-1
+                    img
+                        width: mvw(100)
+                .icon-2
+                    img
+                        width: mvw(110)
+                .icon-3
+                    img
+                        width: mvw(115)
+                .content
+                    width: mvw(350)
+                    margin: 0 0 0 mvw(20)
+                    p
+                        margin: mvw(10) 0 0 0
+                        font-size: mvw(30)
+                        line-height: mvw(35)
+    .step1
+        position: relative
+        // height: mvw(1230)
+        min-height: 100vh
+        width: 100%
+        text-align: center
+        .fileup
+            position: relative
+            z-index: 2
+            margin: mvw(85) auto 0
+            width: mvw(650)
+            height: mvw(650)
+            border: 3px solid #fff
+            overflow: hidden
+        .preview
+            width: 100%
+            // height: mvw(580)
+            position: absolute
+            top: 0
+            left: 0
+            display: none
+            // overflow: hidden
+            img
+                width: 100%
+                height: auto
+        .garybg
+            width: 100%
+            height: 100%
+            position: absolute
+            background: #ddd
+            opacity: 0.8
+            top: 0
+            left: 0
+            z-index: 1
+        #userpic
+            display: none
+        .content
+            width: mvw(656)
+            margin: mvw(20) auto 0
+            text-align: left
+            padding: 0 mvw(20)
+            position: relative
+            input
+                width: mvw(30)
+                height: mvw(30)
+            label
+                width: mvw(560)
+                margin: 0 0 0 mvw(10)
+                font-size: mvw(24)
+                line-height: mvw(36)
+                vertical-align: top
+    .step2
+        position: relative
+        // height: mvw(1230)
+        // min-height: 100vh
+        width: 100%
+        text-align: center
+        .canvasarea
+            margin: mvw(85) auto 0
+            width: mvw(650)
+            height: mvw(650)
+            border: 3px solid #fff
+            overflow: hidden
+            canvas
+                width: 100%
+                height: 100%
+            #loadcanvas
+                display: none
+            #showcanvas2
+                opacity: 0
+            #showcanvas3
+                opacity: 0
+        .content
+            width: mvw(650)
+            height: mvw(90)
+            line-height: mvw(90)
+            background: #fff
+            text-align: center
+            margin: 0 auto
+            p
+                font-size: mvw(36)
+                font-weight: 500
+                letter-spacing: mvw(3.6)
+                color: #39708d
+        .cararea
+            margin: mvw(68) auto 0
+            height: mvw(231)
+            text-align: center
+            position: relative
+            .aniring
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%)
+                width: mvw(231)
+                height: mvw(231)
+            .car
+                width: mvw(342)
+                margin: 0 auto
+                padding: mvw(42) 0 0 0
+    .step3
+        position: relative
+        // height: mvw(1230)
+        // min-height: 100vh
+        width: 100%
+        text-align: center
+        .canvasarea
+            margin: mvw(85) auto 0
+            width: mvw(650)
+            height: mvw(650)
+            border: 3px solid #fff
+            overflow: hidden
+            canvas
+                width: 100%
+                height: 100%
+    .canvasarea
+        position: relative
+        width: 500px
+        height: 500px
+        > canvas
+            position: absolute
+            top: 0
+            left: 0
+
+.btnarea 
+    position: relative
+    width: mvw(554)
+    margin: 0 auto
+    .btnbg
+        width: mvw(554)
+        height: mvw(128)
+        background: url(../images/btn-bg.png) top center no-repeat / 100% 100%
+        margin: mvw(60) auto 0
+        box-shadow: 12px 10px 8px rgba(0,0,0,0.3)
+        cursor: pointer
+        .btntxt
+            width: 100%
+            height: 100%
+            img
+                max-width: 100%
+    .btnnote
+        position: absolute
+        top: 0
+        right: 0
+        transform: translateY(-50%)
+        width: mvw(411)
+    .btnbg-notxt
+        background: url(../images/btn-bg-notxt.png) top center no-repeat / 100% 100%
+    a
+        display: block
+.blue
+    color: #39708d
+.bold
+    font-weight: bold
+.grecaptcha-badge 
+    visibility: hidden

@@ -1,0 +1,104 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "result"
+    - var pageDesc = "pageDesc"
+    - var pageJs = "result.js"
+//- page html
+block page_main
+    section.result
+        .resultarea(v-show="stepPage=='result'")
+            .resultkv
+                .kv
+                    img(:src="faceUrl")
+                .content
+                    h3
+                        img(src="images/result-sys.png")
+                    h2 
+                        img(:src="resulth2")
+                    .txt
+                        img.sentrasub(src="images/result-sub.png")
+                        span.blue.bold {{faceScore}}
+                        | /5
+                    .stararea
+                        .starbg
+                            img(src="images/rating_gd.png")
+                        .car
+                            img(src="images/rating_cover.png")
+                    img(src="images/sep.png")
+                    p(v-html="answer.title")
+            .result-content
+                ul
+                    li
+                        .title
+                            span 觀察力
+                            span
+                                img(:src="answer.eyesimg")
+                        p(v-html="answer.eyes")
+                    li
+                        .title
+                            span 包容力
+                            span
+                                img(:src="answer.noseimg")
+                        p(v-html="answer.nose")
+                    li
+                        .title
+                            span 感情觀
+                            span
+                                img(:src="answer.lipimg")
+                        p(v-html="answer.lip")
+                .shareblock(v-show="fbLink=='user'")
+                    .btnarea
+                        .btnbg(@click="sharebox()")
+                            .scanef
+                            .btntxt
+                                img(src="images/btn-share.png")
+                        a.btnbg(href="index.html")
+                            .scanef
+                            .btntxt
+                                img(src="images/btn-again.png")
+                .other(v-show="fbLink==''")
+                    .btnarea
+                        a(href="index.html").btnbg.btnbg-notxt
+                            .scanef
+                            .btntxt
+                                img(src="images/btn-playnow.png")
+                            .btnnote
+                                img(src="images/btn-note.png")
+                    //- button(@click="fbcanvas()") fbshar
+                    //- button(@click="sendFbshare()") sendFbshare
+                .fbcanvas
+                    img#fbBg(:src="fbcanBg")
+                    //- img#fbImg(:src="faceUrl")
+                    canvas#fbcanvas(width="1200" height="628")
+        transition(name="fade" mode="out-in")
+            .perform(v-show="stepPage=='perform'")
+                .content
+                    h2 立即留填資料
+                    p 就有機會抽
+                        span.blue.bold Airpods、威秀電影票、仙草驚喜小禮
+                        | 等多項大獎！
+                    .perimg
+                        img(src="images/prize.png")
+                    .line
+                    form
+                        ul
+                            li
+                                label(for="pername") 姓　　名
+                                input#pername(type="text" maxlength="6" v-model="perinfo.name")
+                            li
+                                label(for="permobile") 手機號碼
+                                input#permobile(type="text" maxlength="10" v-model="perinfo.mobile")
+                            li
+                                label(for="peraddress") 寄送地址
+                                input#peraddress(type="text" maxlength="40" v-model="perinfo.address")
+                        .agreearea
+                            input#peragree(type="checkbox" v-model="perinfo.agree")
+                            label(for="peragree") 我同意並已經詳閱
+                                span.blue.bold(@click="eventnoteOpen()") 活動辦法
+                .btnarea
+                    .btnbg(@click="sendperInfo()")
+                        .scanef
+                        .btntxt
+                            img(src="images/btn-send.png")

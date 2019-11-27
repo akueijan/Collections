@@ -71,8 +71,10 @@
         <h1>Detect Faces:</h1>
         Enter the URL to an image that includes a face or faces, then click
         the <strong>Analyze face</strong> button.<br><br>
-        Image to analyze: <input type="text" name="inputImage" id="inputImage"
-            value="http://data.whicdn.com/images/159997508/large.jpg" />
+        Image to analyze: 
+        <!-- <input type="text" name="inputImage" id="inputImage"
+            value="http://data.whicdn.com/images/159997508/large.jpg" /> -->
+            <input type="file" name="inputImage" id="inputImage" />
         <button onclick="processImage()">Analyze face</button><br><br>
         <div id="wrapper" style="width:1020px; display:table;">
             <div id="jsonOutput" style="width:600px; display:table-cell;">

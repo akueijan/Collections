@@ -26,6 +26,7 @@ html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
         include _comingsoon.pug
         script(type="text/javascript" src=jsFolder+"vendor.js")
         script(type="text/javascript" src=jsFolder+"lib.js")
+        //- script(src=jsFolder+"exif.js")
         if more_js
             script(type="text/javascript" src= jsFolder + more_js)
         script(type="text/javascript" id="appjs" src= jsFolder + "app.js?v="+timestamp data-mode=`${dev_mode}` data-site=`${apiUrl}`)

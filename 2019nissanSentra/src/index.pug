@@ -1,0 +1,108 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "index"
+    - var pageDesc = "pageDesc"
+    - var pageJs = "index.js"
+//- page html
+block page_main
+    section.index
+        .kv(v-show="stepPage=='kv'")
+            .face
+                img(src="images/kv-face.png")
+            .outline
+                img(src="images/outline.png")
+            .car
+                img(src="images/kv-car.png")
+            .note-inclusive
+                img(src="images/note-inclusive.png")
+            .note-observed
+                img(src="images/note-observed.png")
+            .note-feeling
+                img(src="images/note-feeling.png")
+            .content
+                h3
+                    img(src="images/kv-h3.png")
+                h2
+                    img(src="images/kv-h2.png")
+                .txt
+                    img(src="images/kv-content.png")
+            .btnarea
+                .btnbg.btnbg-notxt(@click="stepPage='readme'")
+                    .scanef
+                    .btntxt
+                        img(src="images/btn-start.png")
+                .btnnote
+                    img(src="images/btn-note.png")
+        transition(name="fade" mode="out-in")
+            .readme(v-show="stepPage=='readme'")
+                h2.title
+                    img(src="images/readme-title.png")
+                ul
+                    li
+                        .icon.icon-1
+                            img(src="images/icon-step1.png")
+                        .content
+                            h3
+                                img(src="images/title-step1.png")
+                            p 拍攝或上傳你的帥照
+                    li
+                        .icon.icon-2
+                            img(src="images/icon-step2.png")
+                        .content
+                            h3
+                                img(src="images/title-step2.png")
+                            p 分析你的仙草（好男人）指數
+                    li
+                        .icon.icon-3
+                            img(src="images/icon-step3.png")
+                        .content
+                            h3
+                                img(src="images/title-step3.png")
+                            p 完成分享並留下資料然後祈禱中獎
+                .btnarea
+                    .btnbg(@click="stepPage='step1'")
+                        .scanef
+                        .btntxt
+                            img(src="images/btn-scan.png")
+        transition(name="fade" mode="out-in")
+            .step1(v-show="stepPage=='step1'")
+                .fileup
+                    label(for="userpic").inputlab
+                        img(src="images/step1-up.png")
+                    input#userpic(type="file" accept=".jpg, .jpeg, .png")
+                    .preview
+                        img#blah(src="#")
+                .garybg
+                .content
+                    input#step_agree(type="checkbox" v-model="picAgree")
+                    label(for="step_agree") 本人同意上傳之照片委由活動代理商用於本網站活動，且於活動結束後由系統自動刪除，不作其他用途
+                    .btnarea
+                        .btnbg(@click="sendImg()")
+                            .scanef
+                            .btntxt
+                                img(src="images/btn-confirm.png")
+                        .btnbg
+                            .scanef
+                            label(for="userpic").btntxt
+                                img(src="images/btn-cancel.png")
+        transition(name="fade" mode="out-in")
+            .step2(v-show="stepPage=='step2'")
+                .canvasarea
+                    canvas#showcanvas(width="360" height="360")
+                    canvas#anicanvas(width="360" height="360")
+                    canvas#showcanvas2(width="360" height="360")
+                    //- canvas#showcanvas3(width="360" height="360")
+                    canvas#loadcanvas(width="2000" height="2000")
+                .content
+                    p 多久沒認真看看自己的帥臉了...
+                .cararea
+                    .aniring
+                    .car
+                        img(src="images/load-car.png")
+                //- button(@click="scanstep()") 刷刷刷
+                //- button(@click="loadcanvas()") 畫線
+                //- button(@click="cutImg()") 剪圖
+
+

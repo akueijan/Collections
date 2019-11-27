@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>pageTitle</title>
+    <meta name="description" content="pageDesc">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
+    <meta itemprop="name" content="pageTitle">
+    <meta itemprop="description" content="pageDesc">
+    <meta itemprop="image" content="指定顯示圖片">
+    <meta property="og:title" content="pageTitle">
+    <meta property="og:description" content="pageDesc">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="指定顯示圖片">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="//console.re/connector.js" data-channel="friendo" id="consolerescript"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcRbZ4UAAAAAPogVKoUTG5Zc16lL5tWP3Jjl8Tj"></script>
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-Code');
+    </script>
+</head>
+<!--html body-->
+
+<body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5W6ZPBT" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <div class="l-wrap" id="app" v-cloak>
+        <nav class="nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <div class="l-container">
+                <div class="nav-bd">
+                    <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO"><img src="images/logo.png"></a></h1>
+                    <div class="nav-btn">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                    <div class="nav-menu" role="navigation">
+                        <ul class="clearfix">
+                            <li class="nav-item nav-item--iscurrent"><a href="index.html" alt="首頁" itemprop="url" title="首頁"><span>首頁</span></a></li>
+                            <li class="nav-item"><a href="product.html" alt="仙草魅力再升級" itemprop="url" title="仙草魅力再升級"><span>仙草魅力再升級</span></a></li>
+                            <li class="nav-item"><a href="http://new.nissan.com.tw/nissan/cars/SENTRA" alt="完整車款資訊" itemprop="url" title="完整車款資訊" target="_blank"><span>完整車款資訊</span></a></li>
+                            <li class="nav-item"><a href="https://service.nissan.com.tw/testdrive/?modelId=SENTRA" alt="立即預約賞車" itemprop="url" title="立即預約賞車" target="_blank"><span>立即預約賞車</span></a></li>
+                            <li class="nav-item"><a href="award.html" alt="中獎名單" itemprop="url" title="中獎名單"><span>中獎名單</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- render nav view-->
+        <div class="l-fb">
+            <div class="l-container">
+                <div class="fb-box">
+                    <div class="fb-like" data-href="#" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="l-main">
+            <section class="sample" id="el">
+                <div class="sample__hd"></div>
+                <div class="sample__bd"></div>
+                <div class="sample__ft"></div>
+                <section>
+                    <div class="l-container">
+                        <h2>{{initText}}</h2>
+                        <div class="vue">
+                            <form v-on:submit.prevent="signup">
+                                <select v-model="selectOpt">
+                    <option v-for="obj in selectLists" :disabled="obj.value == ''" v-bind:value="obj.value">{{obj.text}}</option>
+                  </select>
+                                <p>select Val : {{selectOpt}}</p>
+                                <button type="submit">submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="sample__content">
+                        <div class="l-container">
+                            <div class="l-vm">
+                                <div class="l-vm__content">
+                                    <h2>demo verticle</h2>
+                                    <p>灰色區塊內垂直置中</p>
+                                    <div class="sprite__demo"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="l-container">
+                        <div class="mdDemo">
+                            <h2>#jade scss example</h2>
+                            <div>
+                                <h3>##<span>Interpolation</span>by jade</h3>
+                            </div>
+                            <div>
+                                <h3>##jade loop</h3>
+                                <div class="row1">
+                                    <p>row+1</p>
+                                </div>
+                                <div class="row2">
+                                    <p>row+2</p>
+                                </div>
+                                <div class="row3">
+                                    <p>row+3</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <!--render main view-->
+        </div>
+        <div class="l-footer footer">
+            <div class="l-container">
+                <p>footer</p>
+            </div>
+        </div>
+        <transition name="fade" mode="out-in">
+            <div class="popup" v-show="popup=='open'">
+                <div class="popup__content">
+                    <div class="popup__close" @click="popupClose()"></div>
+                    <div class="popup__box">
+                        <div class="eventnote" v-show="popupPage=='note'">
+                            <h2>活動注意事項</h2>
+                            <div class="line"></div>
+                            <ul>
+                                <li>用戶於本活動輸入之個資，僅使用於活動抽獎、派獎使用，不用於其他用途。</li>
+                                <li>活動期間內，單人登錄兩次以上個資僅計算乙次抽獎機會，且每人僅限乙次中獎機會。</li>
+                                <li>本活動之中獎資格，均以NISSAN TAIWAN.之電腦系統記錄與認定為準，不得異議。</li>
+                                <li>贈品不得轉售或是折換現金，贈品以實物為準，圖片僅供參考。</li>
+                                <li>主辦單位一概以本活動參加者所提供之個人資料寄送得獎贈品，中獎者請務必提供真實、完整之領獎資料，以便進行領獎作業。如因資料錯誤或不正確，導致無法通知中獎訊息、確認中獎者或獎品寄送後遭退回，皆將視為棄權。</li>
+                                <li>本活動概以網路舉行，惟若肇因於不可抗拒之天災人禍、電腦系統故障或參加本活動者之伺服器故障、損壞、延誤或資料有訛誤或其他不可歸責於主辦單位之事由所造成的損失，主辦單位恕不負責，亦無須負擔任何賠償或補償責任。</li>
+                                <li>對於透過任何不當程式進行大量封包發送，或任何意圖破壞本次活動之不正常網路傳輸行為；及利用不當方式，影響本活動之公平性者，主辦單位得取消其參加資格的權利，並就其造成之損害向其請求損害賠償，參加者應自負一切民刑事法律責任。</li>
+                                <li>NISSAN TAIWAN.非活動獎品之製造者，且與該獎品之提供廠商並無任何代理或合夥或保證關係；中獎人如因使用該獎品發生任何爭議或相關限制，請逕洽該獎品之實際製造或提供廠商處理。</li>
+                                <li>NISSAN TAIWAN.保留審核參加活動及解釋、變更或終止本活動的權利。</li>
+                                <li>本網站受reCAPTCHA保護，適用Google<a href="https://policies.google.com/privacy" target="_blank">隱私政策</a>和<a href="https://policies.google.com/terms" target="_blank">服務條款</a>。</li>
+                            </ul>
+                        </div>
+                        <div class="alertbox" v-show="popupPage=='alert'">
+                            <div class="kv"><img src="images/pop-icon-1.png" v-show="popupTxt=='agree'"><img src="images/pop-icon-1.png" v-show="popupTxt=='error'"><img src="images/pop-icon-1.png" v-show="popupTxt=='share'"><img src="images/pop-icon-2.png" v-show="popupTxt=='success'"></div>
+                            <div class="content">
+                                <p v-show="popupTxt=='agree'">請同意照片使用規範始可參加本活動</p>
+                                <p v-show="popupTxt=='error'">請使用正面清晰的臉部照片<span>檔案種類:JPEG/PNG</span><span>檔案尺寸:1Kb - 6Mb</span></p>
+                                <p v-show="popupTxt=='success'">恭喜您已獲得抽獎資格</p>
+                                <div class="sharebox" v-show="popupTxt=='share'">
+                                    <p>完成分享，即可留填資料並參加抽獎喔！</p>
+                                    <div class="iconarea">
+                                        <ul>
+                                            <li class="icon" @click="sendFbshare()"><img src="images/fb-icon.png"></li>
+                                            <li class="icon"><img src="images/line-icon.png"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </div>
+    <script type="text/x-template" id="comingsoon">
+        <transition name="fade">
+            <div class="comingsoon-main" v-if="comingsoon" key="comingsoon">
+                <div class="comingsoon">
+                    <div class="comingsoon__box">
+                        <div class="comingsoon__hd">
+                            <h2 class="comingsoon__title"> <img src="images/title.png" alt=""></h2>
+                        </div>
+                        <div class="comingsoon__bd">
+                            <div class="counter">
+                                <div class="days">
+                                    <div class="value">{{date.days || '00'}}</div><span>日</span>
+                                </div>
+                                <div class="hours">
+                                    <div class="value">{{date.hours || '00'}}</div><span>時</span>
+                                </div>
+                                <div class="minutes">
+                                    <div class="value">{{date.minutes || '00'}}</div><span>分</span>
+                                </div>
+                                <div class="seconds">
+                                    <div class="value">{{date.seconds || '00'}}</div><span>秒</span>
+                                </div>
+                            </div>
+                            <p class="coming-text">coming soon</p>
+                        </div>
+                        <div class="comingsoon__fd">
+                            <div class="content">
+                                <p class="info-title">第一次普渡就上手</p>
+                                <p class="info-sub">還有萬元提貨券等你抽！</p><img class="pic" src="images/table.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </script>
+    <script type="text/javascript" src="js/vendor.js"></script>
+    <script type="text/javascript" src="js/lib.js"></script>
+    <script type="text/javascript" id="appjs" src="js/app.js?v=1555641094752" data-mode="true" data-site="https://event-nissan.azurewebsites.net"></script>
+    <script src="js/sample.js?v=1555641094752"></script>
+    <script type="text/javascript"></script>
+</body>
+
+</html>

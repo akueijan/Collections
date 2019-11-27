@@ -1,0 +1,21 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "index"
+    - var pageDesc = "pageDesc"
+    - var pageJs = "index.js";
+//- page html
+block page_main
+    section.index
+        .canvasarea
+            canvas#loadcan(width="800" height="600")
+        .uparea
+            label(for="canvasbg") 選擇背景
+            input#canvasbg(type="color")
+            label(for="cantext") 輸入文字
+            input#cantext(type="text")
+            label(for="canImg") 上傳圖片
+            input#canImg(type="file" accept="image/*")
+
+

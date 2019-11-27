@@ -1,0 +1,194 @@
+$header-lg-height: vw(100)
+$header-mobile-height: mvw(100)
+
+header
+    width: 100vw
+    padding: 20px 50px
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+.nav
+    background: #fff
+    height: $header-lg-height
+    line-height: $header-lg-height
+    width: 100%
+    position: fixed
+    left: 0
+    top: 0
+    border-bottom: 4px solid #bf281b
+    // display: none
+    +zindex("header")
+    +rwd($desktop)
+        height: $header-mobile-height
+        line-height: $header-mobile-height
+    &.active
+        position: absolute
+    &.upissue
+        z-index: 11
+    a 
+        cursor: pointer
+    p
+        display: inline-block
+        margin-right: 10px  
+    &>*:last-child p
+        margin-right: 0
+    & .l-container
+        height: 100%
+    &-bd 
+        height: 100%
+        // padding: 0 vw(28)
+        // display: flex
+        // align-items: center
+        // justify-content: space-between
+        +rwd($desktop)
+            padding: 0 mvw(23)
+    &-logo 
+        // display: inline-block
+        width: mvw(110)
+        line-height: 0
+        vertical-align: middle
+        position: absolute
+        top: 0
+        left: mvw(40)
+        a
+            display: inline-block
+        img
+            width: 100%
+            height: auto
+    &-btn
+        width: mvw(60)
+        height: mvw(42)
+        cursor: pointer
+        // background: #fff
+        display: inline-flex
+        align-items: center
+        flex-flow: column wrap
+        justify-content: space-between
+        position: absolute
+        top: mvw(30)
+        right: mvw(20)
+        >.one,
+        >.two,
+        >.three 
+            width: 100%
+            height: 3px
+            background: #3f4142
+            backface-visibility: hidden
+            transition-duration: 0.3s
+    &-menu
+        width: mvw(750)
+        background: url(../images/bg.jpg) top center no-repeat / 100% 100%
+        height: 100vh
+        left: 0
+        top: 0
+        position: fixed
+        transition: all 0.2s ease-out
+        z-index: 9
+        transform: translateY(-100%)
+        ul
+            width: 100%
+            height: 100%
+            margin: 0
+            text-align: center
+            padding: mvw(280) 0 0 0
+            li 
+                width: mvw(400)
+                height: mvw(105)
+                line-height: mvw(105)
+                background: url(../images/nav-btn-bg.png) top center no-repeat / 100% 100%
+                margin: 0 auto mvw(60)
+                &:nth-last-of-type(1)
+                    margin: 0 auto
+                a
+                    display: inline-block
+                    width: 100%
+                    height: 100%
+                    span
+                        font-size: mvw(40)
+                        font-weight: 500
+                        color: #3f4142
+                        transform: scaleX(0.9)
+                        display: inline-block
+    &--active 
+        .nav-menu 
+            overflow: auto
+            transform: translateY(0)
+        .nav-btn
+            z-index: 99
+            >.one 
+                position: absolute
+                top: 50%
+                transform: (rotate(45deg) translateX(-5%))
+            >.two 
+                opacity: 0
+            >.three 
+                position: absolute
+                top: 50%
+                transform: (rotate(-45deg) translateY(-50%))
+.window
+    position: fixed
+    width: 100%
+    top: 0
+    left: 0
+    +zindex("window")
+    &.active
+        position: absolute
+    img 
+        width: 100%
+        height: auto
+    .inner-area
+        position: relative
+    &-top 
+        position: absolute
+        top: 0
+        z-index: 7
+        height: vw(131)
+        width: 100%
+    &-middle-left,&-middle-right
+        width: vw(491)
+        position: absolute
+        top: 0
+        z-index: 6
+    &-middle-left
+        left: 0
+    &-middle-right
+        right: 0
+        img
+            transform: scaleX(-1)
+    &-bottom-left,&-bottom-right
+        position: absolute
+        top: 0
+        z-index: 5
+        width: vw(276)
+        height: 97vh
+        img
+            height: 100%
+            width: auto
+    &-bottom-left
+        left: 0
+    &-bottom-right
+        right: 0
+        img
+            transform: scaleX(-1)
+    &-loading-left,&-loading-right
+        position: absolute
+        top: vw(34)
+        width: vw(1177)
+        transition-duration: 1.5s
+        z-index: 4
+        height: 97vh
+        img
+            height: 100%
+            width: 100%
+    &-loading-left
+        left: -9%
+        &.active
+            left: -47.5%
+    &-loading-right
+        right: -9%
+        &.active
+            right: -47.5%
+        img
+            transform: scaleX(-1)
+

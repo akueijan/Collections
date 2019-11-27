@@ -1,0 +1,64 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "award"
+    - var pageDesc = "pageDesc"
+    - var pageJs = "award.js"
+//- page html
+block page_main
+    section.award
+        .content
+            h2 立即參加活動就有機會抽
+                span.blue Airpods、威秀電影票、仙草驚喜小禮
+                | 等多項大獎！
+            .kv
+                img(src="images/prize.png")
+            .readme
+                p(@click="eventnoteOpen()") 詳細兌獎辦法
+            .award-title
+                span 中獎名單
+            .block
+                .titlearea
+                    .txt
+                        h2 Apple Airpods
+                        p 共
+                            span.blue.bold 6
+                            | 名
+                    .imgarea
+                        img.airpods(src="images/award-airpods.png")
+                table
+                    tr
+                        th 姓 名
+                        th 手機號碼
+                    tr
+                        td 王X寶
+                        td 0922-xxx-133
+                    tr
+                        td 王X寶
+                        td 0922-xxx-133
+                    tr
+                        td 王X寶
+                        td 0922-xxx-133
+            .block
+                .titlearea
+                    .txt
+                        h2 威秀電影票2張
+                        p 共
+                            span.blue.bold 50
+                            | 名
+                    .imgarea
+                        img.ticket(src="images/awawd-ticket.png")
+                .listarea
+                    p 將於2019/06/17公布，敬請期待
+            .block
+                .titlearea
+                    .txt
+                        h2 仙草驚喜小禮
+                        p 共
+                            span.blue.bold 100
+                            | 名
+                    .imgarea
+                        img.bag(src="images/award-bag.png")
+                .listarea
+                    p 將於2019/06/17公布，敬請期待
