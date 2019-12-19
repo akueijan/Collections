@@ -23,8 +23,10 @@
 
 		切版環境: node.js gulp
 
+		版本控制: git
+
 ## 自主學習:
-		Python爬蟲
+		Python爬蟲、Canvas、PixiJs
 		
 ## 作品demo: 
 | 作品名稱             | 負責項目            |
