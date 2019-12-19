@@ -1,0 +1,498 @@
+html, body 
+    position: relative
+    margin: 0 auto
+    min-height: 100vh
+    font-family: 'Noto Sans TC',Arial,'Noto Sans TC','Microsoft JhengHei',Verdana,Arial,Helvetica,sans-serif,'Microsoft Yahei', 'Microsoft JhengHei','新細明體'
+    background: #11034c
+    height: 100%
+    // overflow-x: hidden
+a
+    cursor: pointer
+    
+.fb-root 
+    height: 0
+    overflow: hidden
+
+._freeze 
+    overflow: hidden
+    position: fixed
+    width: 100%
+    height: 100%
+
+.l-container 
+    margin: 0 auto
+    position: relative
+    height: 100%
+
+*[v-cloak]
+    display: none !important
+
+.l-wrap 
+    width: 100%
+    position: relative
+    overflow: hidden
+.l-main
+    // padding-bottom: $ft_height
+    min-height: 100vh
+
+.l-footer 
+    position: relative
+    text-align: center
+    background: #030030
+    height: 55px
+    .l-container
+        display: flex
+        align-items: center
+        justify-content: center
+        padding: 0 10px
+    p
+        color: #fff
+        font-size: 14px
+        letter-spacing: 2px
+        line-height: 1.5
+
+.container-area
+    width: 100%
+    max-width: vw(1440)
+    margin: 0 auto
+.hidden
+    display: none
+.hide-text 
+    overflow: hidden
+    padding: 0
+    text-indent: 101%
+    white-space: nowrap
+
+//=====fixedbtn=====//
+.fixedbtn
+    position: fixed
+    right: 50px
+    bottom: 100px
+    cursor: pointer
+    transform: translateX(150%)
+    transition: 0.3s
+    +zindex("alert")
+    +rwd($desktop-w)
+        width: 160px
+        right: 10px
+    +rwd($pad)
+        display: none
+    &-active
+        transform: translateX(0)
+        transition: 0.3s
+
+//=====popup=====//
+.popupbg
+    position: fixed
+    width: 100%
+    height: 100vh
+    background: rgba(#160265,0.9)
+    top: 0
+    left: 0
+    +zindex(popup)
+    .popup-content
+        min-width: 450px
+        min-height: 300px
+        padding: 15px
+        border-radius: 20px
+        background-color: #ffffff
+        position: absolute
+        top: 50%
+        left: 50%
+        border: 4px solid #f6c12e
+        transform: translate(-50%,-50%)
+        text-align: center
+        +rwd($mobile)
+            width: 90%
+            height: auto
+            min-width: auto
+        h2
+            font-size: 24px
+            font-weight: 900
+            letter-spacing: 1.9px
+            color: #d30e60
+            position: relative
+            text-align: center
+            +rwd($mobile)
+                font-size: 18px
+                letter-spacing: 0
+            &:before,&:after
+                content: "●"
+                vertical-align: middle
+                font-size: 12px
+                // +rwd($mobile)
+                //     display: none
+                display: inline-block
+            &:before
+                margin: -4px 0 0 -15px
+            &:after
+                margin: -4px -10px 0 0
+        p
+            font-size: 18px
+            font-weight: bold
+            padding: 15px 0 0 0
+        .close
+            width: 60px
+            height: 60px
+            border-radius: 50%
+            border: 4px solid #f6c12e
+            background: #09004a
+            box-shadow: 3px 3px 8px rgba(#000,0.2)
+            cursor: pointer
+            position: absolute
+            top: 0
+            right: 0
+            transform: translate(50%,-50%)
+            +rwd($mobile)
+                width: 35px
+                height: 35px
+            &:before,&:after
+                content: ""
+                width: 30px
+                height: 3px
+                background: #ffffff
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%)
+                +rwd($mobile)
+                    width: 20px
+                    height: 2px
+            &:before
+                transform: translate(-50%,-50%) rotate(45deg)
+            &:after
+                transform: translate(-50%,-50%) rotate(135deg)
+        .birthday
+            padding: 25px 0 20px
+            .selarea
+                padding: 15px 0 0 0
+                display: inline-flex
+                align-items: center
+                justify-content: space-between
+                select
+                    width: 90px
+                    height: 40px
+                    border: 2px solid #f6c12e
+                    background: #fff
+                    padding: 0 10px
+                    font-size: 16px
+                    +rwd($mobile)
+                        width: 63px
+                        padding: 0
+                    &[name="date_[year]"]
+                        +rwd($mobile)
+                            width: 82px
+                label
+                    font-size: 18px
+                    color: #11034c
+                    margin-right: 10px
+                    &[for="day"]
+                        margin-right: 0
+                    +rwd($mobile)
+                        font-size: 15px
+            p 
+                color: #11034c
+            .btnarea
+                padding: 30px 0 0 0
+                border: 0
+                background: transparent
+                display: block
+                margin: 0 auto
+        .ticsample
+            img
+                padding: 30px 0 0 0
+        .commingsoon
+            padding: 25px 0 20px
+            .btnarea
+                padding: 30px 0 0 0
+        .awardlist
+            padding: 25px 20px 20px
+            max-height: 80vh
+            overflow-y: scroll
+            +rwd($mobile)
+                padding: 25px 10px 20px
+            .tab
+                border-top: 4px solid #ebb82d
+                margin: 15px 0 0 0
+            li
+                display: flex
+                align-items: center
+                justify-content: center
+                color: #11034c
+                border-bottom: 2px solid #ebb82d
+                font-size: 20px
+                line-height: 2.5
+                +rwd($mobile)
+                    font-size: 16px
+                    line-height: 2
+                > div
+                    text-align: center
+                &:nth-last-child(1)
+                    border: 0
+            .title
+                font-weight: bold
+            .name
+                flex: 2
+            .code
+                flex: 4
+            .mobile
+                flex: 4
+
+
+
+
+//=====共用區=====//
+.yel
+    color: #f6c12e
+.dot
+   position: relative
+   &:before
+       content: "●"
+       position: absolute
+       left: 50%
+       transform: translate(-50%,-70%)
+       font-size: 16px
+       +rwd($pad)
+        font-size: 12px
+.linearea
+    position: absolute
+    width: calc(100% - 20px)
+    height: calc(100% - 30px)
+    top: 50%
+    left: 0
+    transform: translate(10px,-50%)
+    +zindex("page")
+    .deco-topline,.deco-botline
+        width: calc(100% - 48px)
+        border: 2px solid #e30167
+        position: absolute
+        left: 0%
+        transform: translateX(24px)
+    .deco-topline
+        top: 0
+    .deco-botline
+        bottom: 0
+    .deco-leftline,.deco-rightline
+        height: calc(100% - 48px)
+        border: 2px solid #e30167
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+    .deco-leftline
+        left: 0
+    .deco-rightline
+        right: 0
+    .deco-lt
+        position: absolute
+        top: 0
+        left: 0
+        transform: rotate(90deg)
+    .deco-rt
+        position: absolute
+        top: -1px
+        right: 0
+        transform: rotate(180deg)
+    .deco-lb
+        position: absolute
+        bottom: -1px
+        left: 0
+    .deco-rb
+        position: absolute
+        bottom: 0
+        right: 0
+        transform: rotate(270deg)
+.l-bling
+    position: absolute
+    left: 30px
+    top: 30px
+    +rwd($pad)
+        display: none
+.r-bling
+    position: absolute
+    right: 0px
+    transform: translateX(-30px)
+    top: 30px
+    +rwd($pad)
+        display: none
+.cloudarea
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+    +rwd($pad)
+        display: none
+    .randomcloud
+        position: absolute
+        top: 30%
+        left: 50%
+        transition: 1.2s
+        opacity: 0
+    .cloud0
+        top: 10%
+        left: 10%
+        transition: 1.2s
+        opacity: 1
+    .cloud1
+        top: 50%
+        left: 3%
+        transition: 1.2s
+        opacity: 1
+    .cloud2
+        top: 75%
+        left: 20%
+        transition: 1.2s
+        opacity: 1
+    .cloud3
+        top: 60%
+        left: 85%
+        transition: 1.2s
+        opacity: 1
+        +rwd($desktop-w)
+            left: 80%
+    .cloud4
+        top: 20%
+        left: 75%
+        transition: 1.2s
+        opacity: 1
+        +rwd($desktop-w)
+            left: 70%
+.light
+    width: 100%
+    height: 1023px
+    position: absolute
+    top: 50%
+    left: 0%
+    transform: translate(0%,-50%) 
+    // +rwd($pad)
+    //     display: none
+    img 
+        width: 100%
+.linearea,.cloudarea,.l-bling,.r-bling
+    +rwd($mobile)
+        display: none
+.l-content
+    max-width: 1200px
+    width: 100%
+    height: 100%
+    margin: 0 auto
+    position: relative
+    padding: 100px 0
+    +zindex("content")
+    +rwd($pad)
+        padding: 30px 0
+    .block
+        position: relative
+        text-align: center
+        
+        .title
+            position: absolute
+            top: -55px
+            left: 50%
+            transform: translate(-50%)
+            +zindex(page)
+        .bg
+            width: 660px
+            // min-height: 894px
+            border: 8px solid #f6c12e
+            border-radius: 10px
+            background: #11034c
+            margin: 0 auto
+            padding: 9px
+            +rwd($pad)
+                width: percentage(650/750)
+                min-height: 700px
+                border: 4px solid #f6c12e
+        .bg2
+            width: 626px
+            // min-height: 876px
+            border: 1px solid #f6c12e
+            border-radius: 10px
+            background: #11034c
+            margin: 0 auto
+            padding: 9px
+            +rwd($pad)
+                width: 100%
+                min-height: initial
+                border: 0
+                padding: 0
+        .bg3
+            width: 608px
+            // min-height: 858px
+            border: 1px solid #f6c12e
+            border-radius: 10px
+            background: #11034c
+            margin: 0 auto
+            padding: 75px 50px 64px
+            text-align: center
+            position: relative
+            +rwd($pad)
+                width: 100%
+                min-height: initial
+                border: 0
+                padding: 0
+
+.pc-only
+    display: inline-block
+    +rwd($pad)
+        display: none
+.mb-only
+    display: none
+    +rwd($pad)
+        display: inline-block
+p
+    word-wrap: break-word
+    word-break: break-all
+
+.repscale
+    animation: repscale 3s infinite reverse
+@keyframes repscale
+    0,100%
+        opacity: 0.5
+    50%
+        opacity: 0
+    75%
+        opacity: 0.8
+
+.reprote
+    img
+        animation: reprote 2s steps(4) infinite reverse
+@keyframes reprote
+    0
+        transform: rotateY(0)
+    49%
+        transform: rotateY(0)
+    50%
+        transform: rotateY(-180deg)
+    100%
+        transform: rotateY(-180deg)
+@keyframes powerbg
+    0
+        transform: translateX(-100%)
+    50%,100%
+        transform: translateX(50%)
+@keyframes powerbg2
+    0
+        transform: translateX(100%) rotateY(180deg)
+    50%,100%
+        transform: translateX(-50%) rotateY(180deg)
+
+.signshake
+    animation: signshake 2s infinite
+@keyframes signshake
+    0,100%
+        transform: translateX(-50%) rotate(5deg)
+    50%
+        transform: translateX(-50%) rotate(-5deg)
+
+@keyframes lkvrotead
+    0,100%
+        transform: translate(-50%, -50%) rotate(0deg)
+    50%
+        transform: translate(-50%, -50%) rotate(90deg)
+
+@keyframes rkvrotead
+    0,100%
+        transform: translate(-50%, -50%) rotate(0deg)
+    50%
+        transform: translate(-50%, -50%) rotate(-90deg)

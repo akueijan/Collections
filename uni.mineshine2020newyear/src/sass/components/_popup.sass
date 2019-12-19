@@ -1,0 +1,237 @@
+.popup 
+    display: block
+    background: rgba(#000000,0.8)
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    // +zindex("popup")
+    z-index: 99
+    .popbd
+        width: 554px
+        height: 348px
+        background: url(../images/popup-bg.png) top center no-repeat
+        background-size: cover
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+        +rwd($pad)
+            width: percentage(554/750)
+            background-size: 100% 100%
+            height: auto
+            min-width: 310px
+            min-height: 200px
+            padding: 0 0 30px 0
+        .popclose
+            position: absolute
+            top: 0
+            right: 0
+            cursor: pointer
+            +rwd($pad)
+                top: -5px
+                right: -5px
+        .popcontent
+            text-align: center
+            margin: 80px auto 0
+            width: 80%
+            +rwd($pad)
+                margin: 40px auto 0
+                padding: 0 10px
+            h2
+                font-size: 28px
+                font-weight: bold
+                color: #d11c7d
+                +rwd($pad)
+                    font-size: 20px
+            p
+                margin: 10px auto 0
+                font-size: 20px
+                font-weight: 600
+                line-height: 1.5
+                letter-spacing: 1.2px
+                padding: 0 15px
+                +rwd($pad)
+                    font-size: 16px
+            .btn
+                margin: 10px auto 0
+                cursor: pointer
+                +rwd($pad)
+                    margin: 0px auto 0
+                    transform: scale(0.7)
+            a
+                display: inline-block
+    .oops
+        background: url(../images/oops-bg.png) top center no-repeat
+        background-size: 100% 100%
+        width: 90%
+        height: auto
+        padding: 0 0 70px 0
+        // position: relative
+        .popclose
+            +rwd($pad)
+                top: -25px
+                right: -10px
+        img
+            padding: 15px 0 0 0
+        .popcontent
+            .btn
+                position: absolute
+                bottom: -10px
+                left: 50%
+                transform: translateX(-50%)
+                +rwd($pad)
+                    transform: translateX(-50%)
+    .eventbd
+        width: 956px
+        height: 686px
+        background: url(../images/event-bg.png) top center no-repeat
+        background-size: 100% auto
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+        +rwd($desktop-hd)
+            width: 700px
+            height: 503px
+        +rwd($pad)
+            width: 320px
+            height: 500px
+            // height: percentage(1100/1375)
+            background: url(../images/mb-event-bg.png) top center no-repeat
+            background-size: 100% 100%
+            transform: translate(-50%,-55%)
+        .popclose
+            position: absolute
+            top: 45px
+            right: 0
+            cursor: pointer
+            +rwd($pad)
+                top: 25px
+                right: -10px
+                width: 35px
+        .etcontent
+            width: 80%
+            height: 60%
+            margin: 160px auto 0
+            overflow-y: auto
+            +rwd($desktop-hd)
+                height: 50%
+                margin: 130px auto 0
+            +rwd($pad)
+                height: 70%
+                margin: 90px auto 0
+        h3
+            font-size: 22px
+            font-weight: bold
+            color: #000000
+            margin: 30px auto 5px
+            line-height: 1.2
+            +rwd($pad)
+                font-size: 16px
+                line-height: 1.5
+            &:nth-child(1)
+                margin: 0 auto 5px
+        p
+            font-size: 20px
+            font-weight: 600
+            line-height: 1.5
+            margin: 0 0 15px 0
+            +rwd($pad)
+                font-size: 16px
+        li
+            font-size: 20px
+            font-weight: 600
+            line-height: 1.5
+            list-style-type: decimal
+            margin: 0 0 15px 1.5em
+            +rwd($pad)
+                font-size: 16px
+                margin: 0 0 10px 1.5em
+        .btn
+            position: absolute
+            left: 50%
+            transform: translateX(-50%)
+            bottom: 0
+            cursor: pointer
+            width: 250px
+            +rwd($pad)
+                bottom: -10px
+                width: 150px
+        .pink
+            color: #d11c7d
+        .ultwo
+            li
+                list-style-type: lower-alpha
+    .poploading
+        width: 100%
+        height: 100vh
+        background: #20519c
+        position: fixed
+        .content
+            width: 400px
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%,-50%)
+            text-align: center
+            +rwd($pad)
+                width: 100%
+            .loadhd
+                transform-origin: bottom center
+                transform: rotate(-10deg)
+                animation-name: headrotate
+                animation-duration: 2s
+                animation-iteration-count: infinite
+                +rwd($pad)
+                    width: 60%
+            .loadcar
+                +rwd($pad)
+                    width: 50%
+            .progressBar
+                max-width: 414px
+                width: percentage(414/750)
+                height: 10px
+                overflow: hidden
+                border: 3px solid #000000
+                border-radius: 5px
+                margin: 20px auto
+                background: url(../images/bg-progressBar.png) top left no-repeat
+                background-size: 100% 100%
+                // background: #484848
+                #progress
+                    width: 100%
+                    height: 10px
+                    background: #484848
+                    transition-property: all
+                    transition: 0.1s
+                    transform: translateX(0%)
+            p
+                font-size: 30px
+                font-weight: bold
+                color: #f9da3e
+                margin: 20px auto 0
+                +rwd($pad)
+                    font-size: 20px
+            .big
+                font-size: 36px
+                +rwd($pad)
+                    font-size: 24px
+            .js-count
+                font-size: 40px
+                color: #ffffff
+                +rwd($pad)
+                    font-size: 24px
+    .resload
+        background: rgba(#000000,0.3)
+        img
+            width: 100px
+    .purple
+        color: #582281
+
+    @keyframes headrotate
+        0,100%
+            transform: rotate(-10deg)
+        50%
+            transform: rotate(10deg)

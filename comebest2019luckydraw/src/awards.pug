@@ -1,0 +1,192 @@
+//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "得獎名單｜金豬報喜 能量運勢求籤筒"
+    - var pageJs = "awards.js"
+    - var isVue = true
+//- page html
+block page_main
+    div.awards
+        div.bg
+            div.linearea
+                div.deco-topline
+                div.deco-botline
+                div.deco-leftline
+                div.deco-rightline
+                div.deco-lt
+                    img(src="images/corner_r.png")
+                div.deco-rt
+                    img(src="images/corner_r.png")
+                div.deco-lb
+                    img(src="images/corner_r.png")
+                div.deco-rb
+                    img(src="images/corner_r.png")
+            div.cloudarea
+                .randomcloud.randomcloud1
+                    img(src="images/cloud-2.png")
+                .randomcloud.randomcloud2
+                    img(src="images/cloud-3.png")
+                .randomcloud.randomcloud3
+                    img(src="images/cloud-4.png")
+                .randomcloud.randomcloud4
+                    img(src="images/cloud-5.png")
+                .randomcloud.randomcloud5
+                    img(src="images/cloud-2.png")
+            div.l-bling
+                img(src="images/l-bling.png")
+            div.r-bling
+                img(src="images/r-bling.png")
+        .l-content
+            .light
+                img(src="images/kv-light.png")
+            .block
+                .title
+                    img(src="images/title-awards.png")
+                .bg
+                    .bg2
+                        .bg3
+                            .awardblock
+                                h2.award-title 
+                                    span 首獎
+                                .titlearea
+                                    .titleline
+                                    .awardimg
+                                        img(src="images/money.png")
+                                    .awardtxt
+                                        p.txt-title 財運能量爆棚獎
+                                            br
+                                            | 
+                                            span.yel NT$88,888元
+                                        p 共
+                                            span.yel.sp 1
+                                            | 名
+                                p.note 於2019年4月22日(一)公布得獎名單
+                                .list-table(v-if="awardList.firstAward[0]")
+                                    .downloadform
+                                        a(href="images/金豬報喜-能量運勢求籤筒-財運報棚獎-機會中獎回覆函.doc" download title="回函下載")
+                                            img(src="images/icon-downloadform.png", alt="回函下載")
+                                    table.tab
+                                        tr
+                                            th 姓名
+                                            th 發票號碼
+                                            th 手機號碼
+                                        tr(v-for="item in awardList.firstAward[0].list")
+                                            td {{item.name}}
+                                            td {{item.invNum}}
+                                            td {{item.phone}}
+                            .awardblock
+                                h2.award-title 
+                                    span 好運加碼週週抽
+                                .titlearea
+                                    .titleline
+                                    .awardimg
+                                        img(src="images/award-2.png")
+                                    .awardtxt
+                                        p.txt-title 台北-沖繩
+                                            br
+                                            | 
+                                            span.yel 來回機票一張
+                                        p 
+                                            span.small 每週1名
+                                            | 共
+                                            span.yel.sp 8
+                                            | 名
+                                p.note 於每週一公告當週幸運得主，最後一週將於4/17抽出
+                                .list-table(v-if="awardList.planeAward[0]")
+                                    .downloadform
+                                        a(href="images/金豬報喜-能量運勢求籤筒-旅遊運能量獎-機會中獎回覆函.doc" download title="回函下載")
+                                            img(src="images/icon-downloadform.png", alt="回函下載")
+                                    ul.awardlist
+                                        li(v-for="item in 8" :class="awardList.planeAward[item-1] ? 'awardover' : '' " @click="awardPop(awardList.planeAward[item-1],1)")
+                                            p 
+                                                span 第{{item}}週
+                                                | 得獎名單
+                            .awardblock
+                                .titlearea
+                                    .titleline
+                                    .awardimg
+                                        img(src="images/100-money.png")
+                                    .awardtxt
+                                        p.txt-title 現金
+                                            br
+                                            | 
+                                            span.yel NT$888元
+                                        p 
+                                            span.small 每週16名
+                                            | 共
+                                            span.yel.sp 128
+                                            | 名
+                                p.note 於每週一公告當週幸運得主，最後一週將於4/17抽出
+                                .list-table(v-if="awardList.cashAward[0]")
+                                    ul.awardlist
+                                        li(v-for="item in 8" :class="awardList.cashAward[item-1] ? 'awardover' : '' " @click="awardPop(awardList.cashAward[item-1],2)")
+                                            p 
+                                                span 第{{item}}週
+                                                | 得獎名單
+                            .awardblock
+                                .titlearea
+                                    .titleline
+                                    .awardimg
+                                        img(src="images/award-3.png")
+                                    .awardtxt
+                                        p.txt-title 雙人
+                                            br
+                                            | 
+                                            span.yel 威秀電影票
+                                        p 
+                                            span.small 每週21名
+                                            | 共
+                                            span.yel.sp 168
+                                            | 名
+                                p.note 於每週一公告當週幸運得主，最後一週將於4/17抽出
+                                .list-table(v-if="awardList.movieAward[0]")
+                                    ul.awardlist
+                                        li(v-for="item in 8" :class="awardList.movieAward[item-1] ? 'awardover' : '' " @click="awardPop(awardList.movieAward[item-1],3)")
+                                            p 
+                                                span 第{{item}}週
+                                                | 得獎名單
+                            .awardblock
+                                .titlearea
+                                    .titleline
+                                    .awardimg
+                                        img(src="images/award-4.png")
+                                    .awardtxt
+                                        p.txt-title Haagen-Dazs 
+                                            br
+                                            | 
+                                            span.yel 105元冰品購物金
+                                        p 
+                                            span.small 每週55名
+                                            | 共
+                                            span.yel.sp 440
+                                            | 名
+                                p.note 於每週一公告當週幸運得主，最後一週將於4/17抽出
+                                .list-table(v-if="awardList.creamAward[0]")
+                                    ul.awardlist
+                                        li(v-for="item in 8" :class="awardList.creamAward[item-1] ? 'awardover' : '' " @click="awardPop(awardList.creamAward[item-1],4)")
+                                            p 
+                                                span 第{{item}}週
+                                                | 得獎名單
+                            .awardblock
+                                .titlearea
+                                    .titleline
+                                    .awardimg
+                                        img(src="images/award-5.png")
+                                    .awardtxt
+                                        p.txt-title 誠品生活 
+                                            br
+                                            | 
+                                            span.yel 50元即享券
+                                        p 
+                                            span.small 每週25名
+                                            | 共
+                                            span.yel.sp 200
+                                            | 名
+                                p.note 於每週一公告當週幸運得主，最後一週將於4/17抽出
+                                .list-table(v-if="awardList.bookAward[0]")
+                                    ul.awardlist
+                                        li(v-for="item in 8" :class="awardList.bookAward[item-1] ? 'awardover' : '' " @click="awardPop(awardList.bookAward[item-1],5)")
+                                            p 
+                                                span 第{{item}}週
+                                                | 得獎名單

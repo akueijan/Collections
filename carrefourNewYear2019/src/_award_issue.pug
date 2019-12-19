@@ -1,0 +1,132 @@
+.role-partial
+    .role-title.pc
+        img.no-black(src="./images/award-title-mb.png", alt="得獎名單")
+        img.black(src="./images/award-title-b.png", alt="得獎名單")
+    .role-title.mb
+        img(src="./images/award-title-mb.png", alt="得獎名單")
+    .role-part
+        .role-info-block
+            .cf-bg
+                .flower-area
+                .cloud-area
+            h3 家樂福賀歲大戲院
+            .role-reward-block-group
+                .role-reward-block
+                    .role-reward-item
+                        img(src="./images/role-item1.png", alt="威秀影城電影票一年份")
+                    h4 威秀影城電影票一年份
+                        br
+                        small (以每月2張計算，共24張電影票，價值 $5,760)
+                        br
+                        | 3名
+                    .award-list-block.style1
+                        table
+                            tr(v-for="item in awardList.movie")
+                                td {{ item.name }}
+                                td {{ item.phone }}
+        .role-info-block
+            h3 影迷朝聖找彩蛋
+            .role-reward-block-group
+                .role-reward-block
+                    .role-reward-item
+                        img(src="./images/role-item2.png", alt="SHARP UHD顯示器")
+                    h4 SHARP UHD顯示器
+                        br
+                        small (50吋4k電視，價值 $18,888)
+                        br
+                        | 1名
+                    .award-list-block.style2
+                        table
+                            tr(v-for="item in awardList.sharp")
+                                td {{ item.name }}
+                                td {{ item.phone }}
+                .role-reward-block
+                    .role-reward-item
+                        img(src="./images/role-item3.png", alt="NS Switch主機單機")
+                    h4 NS Switch主機單機
+                        br
+                        small (價值 $9,780)
+                        br
+                        | 1名
+                    .award-list-block.style2
+                        table
+                            tr(v-for="item in awardList.switch")
+                                td {{ item.name }}
+                                td {{ item.phone }}
+                .role-reward-block
+                    .role-reward-item
+                        img(src="./images/role-item4.png", alt="Honeywell 空氣清淨機")
+                    h4 Honeywell 空氣清淨機 
+                        br
+                        small (價值 $9,211)
+                        br
+                        | 1名
+                    .award-list-block.style2
+                        table
+                            tr(v-for="item in awardList.honeywell")
+                                td {{ item.name }}
+                                td {{ item.phone }}
+                .role-reward-block.break
+                    .role-reward-item
+                        img(src="./images/role-item5.png", alt="家樂福即享券")
+                    h4 家樂福 $1,000即享券 50名
+                    .award-list-block.style3
+                        .inner-block
+                            table
+                                tr(v-for="(item,index) in awardList.ticket1")
+                                    td(v-if="index < 17") {{ item.name }}
+                                    td(v-if="index < 17") {{ item.phone }}
+                            table
+                                tr(v-for="(item,index) in awardList.ticket1")
+                                    td(v-if="index < 34 && index > 16") {{ item.name }}
+                                    td(v-if="index < 34 && index > 16") {{ item.phone }}
+                            table
+                                tr(v-for="(item,index) in awardList.ticket1")
+                                    td(v-if="index < 50 && index > 33") {{ item.name }}
+                                    td(v-if="index < 50 && index > 33") {{ item.phone }}
+                    
+                .role-reward-block.break
+                    .role-reward-item
+                        img(src="./images/role-item5.png", alt="家樂福即享券")
+                    h4 家樂福 $500即享券 100名
+                    .award-list-block.style3
+                        .inner-block
+                            table
+                                tr(v-for="(item,index) in awardList.ticket2")
+                                    td.name(v-if="index < 25") {{ item.name }}
+                                    td(v-if="index < 25") {{ item.phone }}
+                            table
+                                tr(v-for="(item,index) in awardList.ticket2")
+                                    td.name(v-if="index < 50 && index > 24") {{ item.name }}
+                                    td(v-if="index < 50 && index > 24") {{ item.phone }}
+                            table
+                                tr(v-for="(item,index) in awardList.ticket2")
+                                    td.name(v-if="index < 75 && index > 49") {{ item.name }}
+                                    td(v-if="index < 75 && index > 49") {{ item.phone }}
+                            table
+                                tr(v-for="(item,index) in awardList.ticket2")
+                                    td.name(v-if="index < 100 && index > 74") {{ item.name }}
+                                    td(v-if="index < 100 && index > 74") {{ item.phone }}
+                        
+                .role-reward-block.break
+                    .role-reward-item
+                        img(src="./images/role-item5.png", alt="家樂福即享券")
+                    h4 家樂福 $100即享券 500名
+                    .award-list-block.style3
+                        .inner-block
+                            table
+                                tr(v-for="(item,index) in awardList.ticket3")
+                                    td(v-if="index < 125") {{ item.name }}
+                                    td(v-if="index < 125") {{ item.phone }}
+                            table
+                                tr(v-for="(item,index) in awardList.ticket3")
+                                    td(v-if="index < 250 && index > 124") {{ item.name }}
+                                    td(v-if="index < 250 && index > 124") {{ item.phone }}
+                            table
+                                tr(v-for="(item,index) in awardList.ticket3")
+                                    td(v-if="index < 375 && index > 249") {{ item.name }}
+                                    td(v-if="index < 375 && index > 249") {{ item.phone }}
+                            table
+                                tr(v-for="(item,index) in awardList.ticket3")
+                                    td(v-if="index < 500 && index > 374") {{ item.name }}
+                                    td(v-if="index < 500 && index > 374") {{ item.phone }}

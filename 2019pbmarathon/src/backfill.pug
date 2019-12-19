@@ -1,0 +1,93 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "PowerBOMB人生不斷電馬拉松｜Power出你的能量"
+    - var pageDesc = "登錄指定商品發票抽現金99,999、Switch遊戲機！挑戰PowerBOMB人生不斷電馬拉松還有機會抽中PS4等多項好禮！"
+    - var pageJs = "backfill.js"
+    - var isVue = true
+//- page html
+block page_main
+    section.backfill(v-cloak)
+        .content
+            h2
+                img.pc-only(src="images/pc-backfill-title.png")
+                img.mb-only(src="images/mb-backfill-title.png")
+            form.form(@submit.prevent = "postback()")
+                ul
+                    li.head
+                        .mobile
+                            p
+                                span 手機號碼 :
+                                | {{mobile}}
+                        .ticket(v-if="type=='Invoice'")
+                            p
+                                span 發票號碼 :
+                                | {{inv_num}}
+                        .fb(v-if="type=='FB'")
+                            transition(name="fade")
+                                .fblogin(@click="fbLogin()" v-if="!fblogin") 登入FB
+                                p(v-if="fblogin")
+                                    i
+                                        img(:src="fbData.fbPic" v-if="fblogin")
+                                    | {{fbData.fbName}}
+                    li
+                        p
+                            span 獎品名稱 :
+                            | {{awarditem}}
+                    li
+                        label(for="name") 收件人
+                        input#name(type="text" placeholder="請輸入收件人姓名" maxlength="50" v-model="name")
+                    li
+                        label(for="address") 地　址
+                        input#address(type="text" placeholder="請輸入收件人收址" maxlength="50" v-model="address")
+                    li
+                        a(href="images/《能量不斷電終極大獎 現金99,999》中獎回覆函.doc" download v-if="awarditem=='現金 NT.99,999'") 
+                            i 
+                                img(src="images/icon-download.png")
+                            | 《能量不斷電終極大獎 現金99,999》中獎回覆函下載
+                        a(href="images/《補充能量獎週週抽 Nintendo Switch》中獎回覆函.doc" download v-if="awarditem=='Nintendo Switch'")
+                            i 
+                                img(src="images/icon-download.png")
+                            | 《補充能量獎週週抽 Nintendo Switch》中獎回覆函下載
+                        a(href="images/《百大鐵人排名獎 SONY PS4》中獎回覆函.doc" download v-if="awarditem=='SONY PS4'")
+                            i 
+                                img(src="images/icon-download.png") 
+                            | 《百大鐵人排名獎 SONY PS4》中獎回覆函下載
+                    li(v-if="type=='Invoice'")
+                        h3 電子檔照片上傳
+                        ul.pictures
+                            //- li
+                            //-     label(for="front") 
+                            //-     .preview#frontpre
+                            //-         p 身份證正面
+                            //-         img(:src="IdcardFrontShow" v-if="IdcardFrontShow!=''")
+                            //-     input#front(type="file" accept="image/*" @change="readpoto")
+                            //- li
+                            //-     label(for="back") 
+                            //-     .preview#backpre
+                            //-         p 身份證反面
+                            //-         img(:src="IdcardBackShow" v-if="IdcardBackShow!=''")
+                            //-     input#back(type="file" accept="image/*" @change="readpoto")
+                            //- li
+                            //-     label(for="bank") 
+                            //-     .preview#bankpre
+                            //-         p 存摺影本
+                            //-         img(:src="BankbookShow" v-if="BankbookShow!=''")
+                            //-     input#bank(type="file" accept="image/*" @change="readpoto")
+                            li
+                                label(for="certificate") 
+                                .preview#certificatepre
+                                    p 發票正本
+                                    img(:src="CertificatePhotoShow" v-if="CertificatePhotoShow!=''")
+                                input#certificate(type="file" accept="image/*" @change="readpoto")
+                    li.agree
+                        input#agree(type="checkbox" v-model="agree")
+                        label(for="agree") 我已詳閱《PowerBOMB人生不斷電馬拉松》活動辦法和個資法相關聲明。
+                .btnarea
+                    .btnsend
+                        button(type="submit" v-if="!loading" gtm-data="發票登錄_送出")
+                            img.pc-only(src="images/btn-send.png")
+                            img.mb-only(src="images/mb-btn-send.png")
+                        .loading(v-if="loading")
+                            img(src="images/loading.gif", alt="")

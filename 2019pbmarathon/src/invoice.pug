@@ -1,0 +1,43 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "PowerBOMB人生不斷電馬拉松｜Power出你的能量"
+    - var pageDesc = "登錄指定商品發票抽現金99,999、Switch遊戲機！挑戰PowerBOMB人生不斷電馬拉松還有機會抽中PS4等多項好禮！"
+    - var pageJs = "invoice.js"
+    - var isVue = true
+//- page html
+block page_main
+    section.invoice(v-cloak)
+        .content
+            h2
+                img(src="images/invoice-title.png")
+            form.form(@submit.prevent = "saveInvo()")
+                ul
+                    li
+                        label(for="period") 發票期別
+                        select#period(v-model="inv_date")
+                            option(disabled value="") 請選擇期別
+                            option(value="2019-10-01") 108年 9月-10月
+                            option(value="2019-12-01") 108年 11月-12月
+                    li.flex
+                        .ticnum
+                            label(for="number") 發票號碼
+                            input#number(type="text" placeholder="格式：AB12345678" maxlength="10" v-model="inv_num")
+                        .ticran
+                            label(for="random") 隨機碼
+                            input#random(type="text" maxlength="4" v-model="inv_random")
+                    li
+                        label(for="mobile") 手機號碼
+                        input#mobile(type="mobile" placeholder="格式：09XXXXXXXX" maxlength="10" v-model="mobile")
+                    li.agree
+                        input#agree(type="checkbox" v-model="agree")
+                        label(for="agree") 我已詳閱《PowerBOMB人生不斷電馬拉松》活動辦法和個資法相關聲明。
+                .btnarea
+                    .btn-sample(@click="sampleOpen()" gtm-data="登錄發票頁_電子發票範例")
+                    .btnsend
+                        button(type="submit" v-if="!loading" gtm-data="登錄發票頁_送出")
+                            img.pc-only(src="images/btn-send.png" gtm-data="登錄發票頁_送出")
+                            img.mb-only(src="images/mb-btn-send.png" gtm-data="登錄發票頁_送出")
+                        .loading(v-if="loading")
+                            img(src="images/loading.gif", alt="")

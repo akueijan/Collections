@@ -1,0 +1,40 @@
+﻿doctype
+html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
+    //page default Information
+    block pageInfo
+        - var pageTitle = "首頁"
+    //html head
+    include _head.pug
+    //html body
+    body
+        noscript
+            iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-PDQBGG3" height="0" width="0" style="display:none;visibility:hidden")
+        div.l-wrap#app(v-cloak=isVue)
+            include _nav.pug
+            include _popup.pug
+            // render nav view
+        
+            div.l-main
+                block page_main
+                //render main view
+            div.fixedbtn(gtm-data="首頁_登錄發票添好運")
+                a(@click="vAlert" gtm-data="首頁_登錄發票添好運")
+                    img(src="images/btn.png" gtm-data="首頁_登錄發票添好運")
+            div.l-footer.footer
+                div.l-container
+                    p Copyright © 2019 葡萄王生技股份有限公司 All Rights Reserved.
+        include _comingsoon.pug
+        script(type="text/javascript" src=jsFolder+"vendor.js?v="+timestamp)
+        script(type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.js")
+        script(type="text/javascript" src=jsFolder+"lib.js?v="+timestamp)
+        script(type="text/javascript" src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js")
+        //- script(type="text/javascript" src=jsFolder+"jquery.scrolling-parallax.js")
+        if more_js
+            each js in more_js
+                script(type="text/javascript" src= jsFolder + js + "?v=" + timestamp)
+        if (is_invoive)
+            script(src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit' async defer)
+        script(type="text/javascript" id="appjs" src= jsFolder + "app.js?v="+timestamp data-mode=`${dev_mode}` data-site=`${apiUrl}`)
+        if pageJs
+            script(src= jsFolder + pageJs+"?v="+timestamp)
+        script(type='text/javascript')

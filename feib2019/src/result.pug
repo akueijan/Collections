@@ -1,0 +1,76 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "完成制夢 | 遠東商銀"
+    - var pageDesc = "立即挑戰7大夢想指標!完成任務送好禮~"
+    - var pageJs = "result.js"
+    - var more_js = "game.js"
+    - var isVue = true
+//- page html
+block page_main
+    section.result
+        .answerblock
+            .gamearea
+                .bgarea
+                    img.deco1(src="images/cloud-copy.png")
+                    img.deco2(src="images/cloud-copy.png")
+                    img.deco3(src="images/cloud-copy.png")
+                    img.deco4(src="images/cloud-copy.png")
+                    img.balloon1(src="images/balloon-blue.png")
+                    img.balloon2(src="images/balloon-yellow.png")
+                    img.balloon3(src="images/balloon-red.png")
+                    img.balloon4(src="images/balloon-red.png")
+                #pixiarea
+                    .readme
+                        img(src='images/readmelist.png')
+                    .piximark
+                .l-container
+                    //- button(v-on:click="saveImg") saveImg
+                    .sharearea
+                        p 現在加入
+                            span.linelink 
+                                a(href="https://line.me/ti/p/@feibtpe" gtm-data="LINE@" target="_blank") 遠銀財富管理LINE@
+                            | 回覆【
+                            span.pink 夢想雲圖
+                            | 】，並至分行完成填寫理財問卷，即可獲得當月專屬圓夢好友禮乙份。
+                            span.small (數量有限送完為止)
+                        .btnarea
+                            a.btn-getgift(href="https://line.me/ti/p/@feibtpe" gtm-data="LINE@2" target="_blank")
+                                img(src="images/btn-gift.gif" gtm-data="LINE@2")
+                            a.btn-fbshare(href="javascript:void(0)" @click="fbshare" gtm-data="FB_Share")
+                                img(src="images/btn-fbshare.png" gtm-data="FB_Share")
+            .content
+                .l-container
+                    .bg
+                        h2
+                            img(v-bind:src="answer.anstitle")
+                        .resultarea
+                            a(href="https://www.feib.com.tw/upload/IndividualBank/marketing/20181206%20/index.html" title="立即試算" target="_blank" gtm-data="fund").leftbox
+                                h3
+                                    img.pconly(v-bind:src="answer.ansleft")
+                                    img.mbonly(v-bind:src="answer.ansleftmb")
+                                p.pconly {{answer.lefttxt}}
+                                p.mbonly {{answer.mbltxt1}}
+                                    br
+                                    | {{answer.mbltxt2}}
+                                .link
+                                    img(src="images/btn-try.png" gtm-data="fund")
+                            .circle
+                                img(v-bind:src="answer.roundpic")
+                            a(href="https://www.feib.com.tw/upload/IndividualBank/campaign/20190314/index.html" title="立即GO" target="_blank" gtm-data="deposit").rightbox
+                                h3
+                                    img.pconly(v-bind:src="answer.ansright")
+                                    img.mbonly(v-bind:src="answer.ansrightmb")
+                                p.pconly {{answer.righttxt}}
+                                p.mbonly {{answer.mbrtxt1}}
+                                    br
+                                    | {{answer.mbrtxt2}}
+                                .link
+                                    img(src="images/btn-go.png" gtm-data="deposit")
+                        p.txt {{answer.content}}
+                            a(href="https://www.youtube.com/watch?v=tJ7fZaDJRW4&feature=youtu.be" title="人生勝利組" target="_blank" gtm-data="result_video").underline 人生勝利組
+                            | ！
+                        .btnarea
+                            a(href="https://www.feib.com.tw/" title="登入網銀" target="_blank" gtm-data="result_Onlinebanking").btn-login
+                            a(href="https://mbank.feib.com.tw/APPMBK/sbs" title="我要預約服務" target="_blank" gtm-data="result_reservation").btn-service

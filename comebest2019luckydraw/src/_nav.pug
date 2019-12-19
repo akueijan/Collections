@@ -1,0 +1,23 @@
+nav.nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+    div.l-container
+        div.nav-bd
+            h1.nav-logo
+            //-     a(href="index.html" alt="LOGO" title="LOGO") LOGO
+            div.nav-btn
+                div.one
+                div.two
+                div.three
+            div.nav-menu(role="navigation")
+                ul.clearfix
+                    li.nav-item.nav-item--iscurrent(gtm-data="menu_回首頁")
+                        a(href="./index.html" alt="回首頁" itemprop="url" title="回首頁" gtm-data="menu_回首頁"): span(gtm-data="menu_回首頁") 回首頁
+                    li.nav-item(gtm-data="menu_發票登錄")
+                        a(@click="vAlert" alt="發票登錄" itemprop="url" title="發票登錄" gtm-data="menu_發票登錄"): span(gtm-data="menu_發票登錄") 發票登錄
+                    li.nav-item(gtm-data="menu_好運大獎")
+                        a(href="./index.html#awards" alt="好運大獎" itemprop="url" title="好運大獎" gtm-data="menu_好運大獎"): span(gtm-data="menu_好運大獎") 好運大獎
+                    li.nav-item(gtm-data="menu_活動辦法")
+                        a(href="./index.html#events" alt="活動辦法" itemprop="url" title="活動辦法" gtm-data="menu_活動辦法"): span(gtm-data="menu_活動辦法") 活動辦法
+                    li.nav-item(gtm-data="menu_開運能量")
+                        a(href="./products.html" alt="開運能量" itemprop="url" title="開運能量" gtm-data="menu_開運能量"): span(gtm-data="menu_開運能量") 開運能量
+                    li.nav-item(gtm-data="menu_得獎名單")
+                        a(href="./awards.html" alt="得獎名單" itemprop="url" title="得獎名單" gtm-data="menu_得獎名單"): span(gtm-data="menu_得獎名單") 得獎名單

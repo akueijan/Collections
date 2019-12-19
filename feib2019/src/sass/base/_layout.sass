@@ -1,0 +1,106 @@
+html, body 
+    position: relative
+    margin: 0 auto
+    height: 100%
+    font-family: 'Noto Sans TC',Arial,'Microsoft JhengHei',Verdana,Arial,Helvetica,sans-serif,'Microsoft Yahei', 'Microsoft JhengHei','新細明體'
+    background: #78d8ed
+    width: 100%
+body
+    opacity: 0
+a 
+    cursor: pointer
+    
+.fb-root 
+    height: 0
+    overflow: hidden
+
+._freeze 
+    // overflow: hidden
+    position: fixed
+    width: 100%
+    height: 100%
+
+.l-container 
+    margin: 0 auto
+    position: relative
+
+
+.l-wrap 
+    width: 100%
+    position: relative
+    margin: 0 auto
+    overflow: hidden
+    
+.l-main
+    // padding-bottom: $ft_height
+    min-height: 100vh
+
+.l-footer 
+    position: relative
+    text-align: center
+    // background-image: url(../images/footer-bg.png)
+    background: #ed301c
+    // height: vw(42)
+    line-height: vw(42)
+    padding: 5px 0
+    +zindex("page2")
+    overflow: hidden
+    &.fix
+        position: fixed
+        left: 0
+        bottom: 0
+    +rwd($desktop,max)
+        height: 20px
+        line-height: 20px
+        padding: 0
+    +rwd($pad)
+        height: mvw(120)
+        line-height: 1
+    p
+        font-size: 16px
+        // font-family: "Montserrat","微軟正黑體"
+        color: #fff
+        +rwd($desktop)
+            font-size: 12px
+            width: 170%
+            transform: scale(0.65) translateX(-31%)
+    .l-container
+        display: flex
+        align-items: center
+        justify-content: space-between
+        width: 1000px
+        +rwd($pad)
+            width: 100%
+            display: block
+            padding: mvw(10) 0 0 0
+        .txt
+            width: 100%
+            color: #ffffff
+            text-align: center
+            font-size: 16px
+            font-weight: bold
+            line-height: 1.5
+            // height: mvw(50)
+            a
+                color: #ffffff
+
+.container-area
+    width: 100%
+    max-width: vw(1440)
+    margin: 0 auto
+.hidden
+    display: none
+.hide-text 
+    overflow: hidden
+    padding: 0
+    text-indent: 101%
+    white-space: nowrap
+.pconly
+    display: inline-block
+    +rwd($pad)
+        display: none
+.mbonly
+    display: none
+    +rwd($pad)
+        display: inline-block
+

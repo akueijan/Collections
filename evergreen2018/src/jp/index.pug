@@ -1,0 +1,344 @@
+﻿//- page laytout name
+extends ../_layout.pug
+
+block pageInfo
+    - var pageTitle = "天空のスマイル — エバー航空新型機ボーイング787就航 | EVA Air"
+    - var pageDesc = "ボーイング787型機は、最先端の空気動力テクノロジー、より軽量な複合材料及び最新コンピュータシステムを用いて、お客様一人一人に最も快適な空の旅を提供します。"
+    - var isVue = true
+    - var pageJs = "index.js"
+    - var enfont = "jpcss"
+//- page html
+block page_main
+    section.index
+        div.kv#kv(data-anchor="kv")
+            div.kv_pic
+                img(src="../images/kv-pic.jpg")
+                ul
+                    li
+                        img.kv_sun(:src="$t('index.kv_tw_sun')")
+                    li
+                        img.kv_air(:src="$t('index.kv_tw_air')")
+                    li
+                        img.kv_water(:src="$t('index.kv_tw_water')")
+            div.kv_plane
+                img(src="../images/plane.png")
+            div.kv_slogn
+                img(:src="$t('index.kvslogn_tw')")
+            div.kv_more
+                div.container
+                    img.scroll_more(src="../images/scroll-down.png")
+        div.abouteva#abouteva(data-anchor="abouteva")
+            //- div.about_top
+            //-     div.container
+            //-         span {{ $t("index.about.title1") }}
+            div.about_show
+                h3.mb-only About EVA Air 787
+                h2.mb-only.title {{ $t("index.about.title2") }}
+                div.show_360
+                    img.bg(src="../images/360plane-bg.jpg")
+                    div.show_box
+                        img.reel(src="../images/eva787-1.png" data-frames="60" data-indicator="10" data-images="../images/eva787-#.png|1..60" data-responsive="true")
+                    
+            div.about_content
+                h3.pc-only About EVA Air 787
+                h2.title.pc-only {{ $t("index.about.title2") }}
+                //- div.btnarea
+                //-     ul
+                //-         li.btn.btn--active
+                //-             span {{ $t("index.about.btn1") }}
+                //-         li.btn 
+                //-             span {{ $t("index.about.btn2") }}
+                p.txt {{ $t("index.about.txt") }}
+                ul.list_area
+                    li(@click="gaEvent2('About','微笑曲線機翼')")
+                        p.list_title {{ $t("index.about.list_title1") }}
+                        p.list_box {{ $t("index.about.list_txt1") }}
+                    li(@click="gaEvent2('About','強化飛行穩定性')")
+                        p.list_title {{ $t("index.about.list_title2") }}
+                        p.list_box {{ $t("index.about.list_txt2") }}
+                    li(@click="gaEvent2('About','降低噪音的蛋殼造型發動機')")
+                        p.list_title {{ $t("index.about.list_title3") }}
+                        p.list_box {{ $t("index.about.list_txt3") }}
+                    li(@click="gaEvent2('About','節能減碳')")
+                        p.list_title {{ $t("index.about.list_title4") }}
+                        p.list_box {{ $t("index.about.list_txt4") }}
+            
+        div.feature#feature
+            h3(data-anchor="feature") Feature
+            h2.title {{ $t("index.feature.title1") }}
+            div.featurearea
+                div.listarea
+                    ul
+                        li.list-1
+                            div.front
+                                div.pic
+                                    img(:src="$t('index.feature.front_title1')")
+                                div.content
+                                    p {{ $t("index.feature.front_txt1") }}
+                            //-     div.bottom
+                            //-         span READ MORE
+                            //- div.back
+                            //-     div.block
+                            //-         h3 {{ $t("index.feature.back_title1") }}
+                            //-         p {{ $t("index.feature.back_txt1") }}
+                            //-     div.block
+                            //-         h3 {{ $t("index.feature.back_title2") }}
+                            //-         p {{ $t("index.feature.back_txt2") }}
+                            //-     div.bottom
+                            //-         span BACK
+                        li.list-2
+                            div.front
+                                div.pic
+                                    img(:src="$t('index.feature.front_title2')")
+                                div.content
+                                    p {{ $t("index.feature.front_txt2") }}
+                                //- div.bottom
+                                //-     span READ MORE
+                            //- div.back
+                            //-     div.block
+                            //-         h3 {{ $t("index.feature.back_title3") }}
+                            //-         p {{ $t("index.feature.back_txt3") }}
+                            //-     div.bottom
+                            //-         span BACK
+                        li.list-3
+                            div.front
+                                div.pic
+                                    img(:src="$t('index.feature.front_title3')")
+                                div.content
+                                    p {{ $t("index.feature.front_txt3") }}
+                            //-     div.bottom
+                            //-         span READ MORE
+                            //- div.back
+                            //-     div.block
+                            //-         h3 {{ $t("index.feature.back_title4") }}
+                            //-         p {{ $t("index.feature.back_txt4") }}
+                            //-     div.bottom
+                            //-         span BACK
+        div.classinfo
+            //- img(src="../images/class-bg.png")
+            div.titlearea#classinfo(data-anchor="classinfo")
+                h3 Class introduction
+                h2.title {{ $t("index.classinfo.title1") }}
+            div.container
+                div.class_content
+                    div.btnarea
+                        ul
+                            li.btn.btn1.btn--active(@click="areaDefault_Open()")
+                                span {{ $t("index.classinfo.btn1") }}
+                            li.btn.btn2(@click="areaB2_Open()")
+                                span {{ $t("index.classinfo.btn2") }}
+                    transition(name="fade" mode="out-in")
+                        div.class_default(v-if="area_default=='0'" key="area1")
+                            div.class_picshow
+                                img.block1_list1(src="../images/pic-plane-show-0.jpg")
+                            ul.list_area
+                                li
+                                    p.list_title エバー航空とBMWデザインワークスが手を組み、
+                                        br
+                                        | {{ $t("index.classinfo.block1_title1") }}
+                                    //- p.list_box {{ $t("index.classinfo.block1_txt1") }}
+                                li
+                                    p.list_title {{ $t("index.classinfo.block1_title2") }}
+                                    p.list_box {{ $t("index.classinfo.block1_txt2") }}
+                                li
+                                    p.list_title {{ $t("index.classinfo.block1_title3") }}
+                                    p.list_box {{ $t("index.classinfo.block1_txt3") }}
+                        div.class_default(v-if="area_default=='1'" key="area2")
+                            div.class_picshow
+                                img.block1_list1(src="../images/pic-plane-b2-show-0.jpg")
+                        div.class_block1_content(v-if="area_block1" key="area1")
+                            div.class_picshow
+                                transition(name="fade" mode="out-in")
+                                    img.block1_list1(v-if="block1_pic=='0'" key="bp1_1" src="../images/pic-plane-show-1.jpg")
+                                    img.block1_list2(v-if="block1_pic=='1'" key="bp1_2" src="../images/pic-plane-show-2.jpg")
+                                    img.block1_list3(v-if="block1_pic=='2'" key="bp1_3" src="../images/pic-plane-show-3.jpg")
+                                    img.block1_list4(v-if="block1_pic=='3'" key="bp1_4" src="../images/pic-plane-show-4.jpg")
+                                    img.block1_list5(v-if="block1_pic=='4'" key="bp1_5" src="../images/pic-plane-show-5.jpg")
+                                    img.block1_list6(v-if="block1_pic=='5'" key="bp1_6" src="../images/pic-plane-show-6.jpg")
+                                    img.block1_list7(v-if="block1_pic=='6'" key="bp1_7" src="../images/pic-plane-show-7.jpg")
+                                    img.block1_list8(v-if="block1_pic=='7'" key="bp1_8" src="../images/pic-plane-show-8.jpg")
+                                    img.block1_list9(v-if="block1_pic=='8'" key="bp1_9" src="../images/pic-plane-show-9.jpg")
+                                    img.block1_list10(v-if="block1_pic=='9'" key="bp1_10" src="../images/pic-plane-show-10.jpg")
+                                    img.block1_list11(v-if="block1_pic=='10'" key="bp1_11" src="../images/pic-plane-show-11.jpg")
+                            ul.list_area
+                                transition(name="fade" mode="out-in")
+                                    li.block1-list1(v-if="block1List=='0'" key="bl1")
+                                        p.list_title {{ $t("index.classinfo.block1_list1") }}
+                                        p.list_box {{ $t("index.classinfo.block1_list1_txt") }}
+                                    li.block1-list2(v-if="block1List=='1'" key="bl2")
+                                        p.list_title {{ $t("index.classinfo.block1_list2") }}
+                                        p.list_box {{ $t("index.classinfo.block1_list2_txt") }}
+                                    li.block1-list3(v-if="block1List=='2'" key="bl3")
+                                        p.list_title {{ $t("index.classinfo.block1_list3") }}
+                                        p.list_box {{ $t("index.classinfo.block1_list3_txt") }}
+                                    li.block1-list4(v-if="block1List=='3'" key="bl4")
+                                        p.list_title {{ $t("index.classinfo.block1_list4") }}
+                                        p.list_box {{ $t("index.classinfo.block1_list4_txt") }}
+                                    li.block1-list5(v-if="block1List=='4'" key="bl5")
+                                        p.list_title {{ $t("index.classinfo.block1_list5") }}
+                                        p.list_box {{ $t("index.classinfo.block1_list5_txt") }}
+                                    li.block1-list6(v-if="block1List=='5'" key="bl6")
+                                        p.list_title {{ $t("index.classinfo.block1_list6") }}
+                                        p.list_box {{ $t("index.classinfo.block1_list6_txt") }}
+                                    li.block1-list7(v-if="block1List=='6'" key="bl7")
+                                        p.list_title {{ $t("index.classinfo.block1_list7") }}
+                                        p.list_box {{ $t("index.classinfo.block1_list7_txt") }}
+                                    li.block1-list8(v-if="block1List=='7'" key="bl8")
+                                        p.list_title {{ $t("index.classinfo.block1_list8") }}
+                                        p.list_box {{ $t("index.classinfo.block1_list8_txt") }}
+                                    li.block1-list9(v-if="block1List=='8'" key="bl9")
+                                        p.list_title {{ $t("index.classinfo.block1_list9") }}
+                                        p.list_box {{ $t("index.classinfo.block1_list9_txt") }}
+                                    li.block1-list10(v-if="block1List=='9'" key="bl10")
+                                        p.list_title {{ $t("index.classinfo.block1_list10") }}
+                                        p.list_box {{ $t("index.classinfo.block1_list10_txt") }}
+                                    li.block1-list11(v-if="block1List=='10'" key="bl11")
+                                        p.list_title {{ $t("index.classinfo.block1_list11") }}
+                                        p.list_box {{ $t("index.classinfo.block1_list11_txt") }}
+                            div.btn-close(@click="area_block1=false") 
+                                p 閉じる
+                        div.class_block2_content(v-if="area_block2" key="area2")
+                            div.class_picshow
+                                transition(name="fade" mode="out-in")
+                                    img.block2_list1(v-if="block2_pic=='0'" key="bp2_1" src="../images/pic-plane-b2-show-1.jpg")
+                                    img.block2_list2(v-if="block2_pic=='1'" key="bp2_2" src="../images/pic-plane-b2-show-2.jpg")
+                                    img.block2_list3(v-if="block2_pic=='2'" key="bp2_3" src="../images/pic-plane-b2-show-3.jpg")
+                                    img.block2_list4(v-if="block2_pic=='3'" key="bp2_4" src="../images/pic-plane-b2-show-4.jpg")
+                                    img.block2_list5(v-if="block2_pic=='4'" key="bp2_5" src="../images/pic-plane-b2-show-5.jpg")
+                            ul.list_area
+                                transition(name="fade" mode="out-in")
+                                    li.block2-list1(v-if="block2List=='0'" key="bl2_1")
+                                        p.list_title {{ $t("index.classinfo.block2_list1") }}
+                                        p.list_box {{ $t("index.classinfo.block2_list1_txt") }}
+                                    li.block2-list2(v-if="block2List=='1'" key="bl2_2")
+                                        p.list_title {{ $t("index.classinfo.block2_list2") }}
+                                        p.list_box {{ $t("index.classinfo.block2_list2_txt") }}
+                                    li.block2-list3(v-if="block2List=='2'" key="bl2_3")
+                                        p.list_title {{ $t("index.classinfo.block2_list3") }}
+                                        p.list_box {{ $t("index.classinfo.block2_list3_txt") }}
+                                    li.block2-list4(v-if="block2List=='3'" key="bl2_4")
+                                        p.list_title {{ $t("index.classinfo.block2_list4") }}
+                                        p.list_box {{ $t("index.classinfo.block2_list4_txt") }}
+                                    li.block2-list5(v-if="block2List=='4'" key="bl2_5")
+                                        p.list_title {{ $t("index.classinfo.block2_list5") }}
+                                        p.list_box {{ $t("index.classinfo.block2_list5_txt") }}
+                            div.btn-close(@click="area_block2=false") 
+                                p 閉じる
+                div.class_show
+                    div.class_listarea
+                        ul.block1(v-if="list_block1")
+                            li.list-sp(@click="bl_click('0', $event); gaEvent2('皇璽桂冠艙','01_全平躺正向交錯式排列座椅')")
+                                p
+                                    span.list 01
+                                    | {{ $t("index.classinfo.block1_list1") }}
+                                div.readmore
+                                    img(src="../images/icon-class-list-1.png")
+                                    span READ MORE
+                            li(@click="bl_click('1', $event); gaEvent2('皇璽桂冠艙','02_個人置物空間')")
+                                p
+                                    span.list 02
+                                    | {{ $t("index.classinfo.block1_list2") }}
+                                div.readmore
+                                    img(src="../images/icon-class-list-2.png")
+                                    span READ MORE
+                            li(@click="bl_click('2', $event); gaEvent2('皇璽桂冠艙','03_大尺寸單片式餐桌')")
+                                p
+                                    span.list 03
+                                    | {{ $t("index.classinfo.block1_list3") }}
+                                div.readmore
+                                    img(src="../images/icon-class-list-3.png")
+                                    span READ MORE
+                            li(@click="bl_click('3', $event); gaEvent2('皇璽桂冠艙','04_18吋FULL HD螢幕')")
+                                p
+                                    span.list 04
+                                    | {{ $t("index.classinfo.block1_list4") }}
+                                div.readmore
+                                    img(src="../images/icon-class-list-4.png")
+                                    span READ MORE
+                            li(@click="bl_click('4', $event); gaEvent2('皇璽桂冠艙','05_座椅控制面板')")
+                                p
+                                    span.list 05
+                                    | {{ $t("index.classinfo.block1_list5") }}
+                                div.readmore
+                                    img(src="../images/icon-class-list-5.png")
+                                    span READ MORE
+                            li(@click="bl_click('5', $event); gaEvent2('皇璽桂冠艙','06_輔助座椅控制面板')")
+                                p
+                                    span.list 06
+                                    | {{ $t("index.classinfo.block1_list6") }}
+                                div.readmore
+                                    img(src="../images/icon-class-list-6.png")
+                                    span READ MORE
+                            li(@click="bl_click('6', $event); gaEvent2('皇璽桂冠艙','07_座椅閱讀燈')")
+                                p
+                                    span.list 07
+                                    | {{ $t("index.classinfo.block1_list7") }}
+                                div.readmore
+                                    img(src="../images/icon-class-list-7.png")
+                                    span READ MORE
+                            li(@click="bl_click('7', $event); gaEvent2('皇璽桂冠艙','08_可收納隔板')")
+                                p
+                                    span.list 08
+                                    | {{ $t("index.classinfo.block1_list8") }}
+                                div.readmore
+                                    img(src="../images/icon-class-list-8.png")
+                                    span READ MORE
+                            li(@click="bl_click('8', $event); gaEvent2('皇璽桂冠艙','09_情境燈光系統')")
+                                p
+                                    span.list 09
+                                    | {{ $t("index.classinfo.block1_list9") }}
+                                div.readmore
+                                    img(src="../images/icon-class-list-9.png")
+                                    span READ MORE
+                            li(@click="bl_click('9', $event); gaEvent2('皇璽桂冠艙','10_走道指示燈')")
+                                p
+                                    span.list 10
+                                    | {{ $t("index.classinfo.block1_list10") }}
+                                div.readmore
+                                    img(src="../images/icon-class-list-10.png")
+                                    span READ MORE
+                            li(@click="bl_click('10', $event); gaEvent2('皇璽桂冠艙','11_星空情境燈光')")
+                                p
+                                    span.list 11
+                                    | {{ $t("index.classinfo.block1_list11") }}
+                                div.readmore
+                                    img(src="../images/icon-class-list-11.png")
+                                    span READ MORE
+                        ul.block2(v-if="list_block2")
+                            li(@click="bl2_click('0', $event); gaEvent2('經濟艙','01_可調式頭頸支撐')")
+                                p
+                                    span.list 01
+                                    | {{ $t("index.classinfo.block2_list1") }}
+                                div.readmore
+                                    img(src="../images/icon-class-list-1.png")
+                                    span READ MORE
+                            li(@click="bl2_click('1', $event); gaEvent2('經濟艙','02_12吋 FULL HD螢幕')")
+                                p
+                                    span.list 02
+                                    | {{ $t("index.classinfo.block2_list2") }}
+                                div.readmore
+                                    img(src="../images/icon-class-list-2.png")
+                                    span READ MORE
+                            li(@click="bl2_click('2', $event); gaEvent2('經濟艙','03_電源插座')")
+                                p
+                                    span.list 03
+                                    | {{ $t("index.classinfo.block2_list3") }}
+                                div.readmore
+                                    img(src="../images/icon-class-list-3.png")
+                                    span READ MORE
+                            li(@click="bl2_click('3', $event); gaEvent2('經濟艙','04_寬敞座位空間')")
+                                p
+                                    span.list 04
+                                    | {{ $t("index.classinfo.block2_list4") }}
+                                div.readmore
+                                    img(src="../images/icon-class-list-4.png")
+                                    span READ MORE
+                            li(@click="bl2_click('4', $event); gaEvent2('經濟艙','05_情境式設計客艙燈光')")
+                                p
+                                    span.list 05
+                                    | {{ $t("index.classinfo.block2_list5") }}
+                                div.readmore
+                                    img(src="../images/icon-class-list-5.png")
+                                    span READ MORE
+                div.deco-plane
+                    img(src="../images/class-deco-plane.png")

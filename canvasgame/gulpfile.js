@@ -1,37 +1,44 @@
-﻿var gulp = require('gulp'),// 載入後可使用gulp功能 ex.gulp.task、gulp.watch
-    watch = require('gulp-watch'),//gulp watcher
-    connect = require('gulp-connect'),//Gulp plugin to run a webserver (with LiveReload)
+﻿var gulp = require('gulp'), // 載入後可使用gulp功能 ex.gulp.task、gulp.watch
+    watch = require('gulp-watch'), //gulp watcher
+    connect = require('gulp-connect'), //Gulp plugin to run a webserver (with LiveReload)
     sourcemaps = require('gulp-sourcemaps'),
-    plumber = require('gulp-plumber'),//Prevent pipe breaking caused by errors from gulp 
+    plumber = require('gulp-plumber'), //Prevent pipe breaking caused by errors from gulp 
     runsequence = require('gulp-run-sequence'),
     gulpif = require('gulp-if'),
     changed = require('gulp-changed'),
     babel = require('gulp-babel'),
     gutil = require("gulp-util"),
     parentName = require('parent-folder'),
-    concat = require('gulp-concat');
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify');
 
+var version = 'v0.9.5';
 
 var isDev, destPath,
     projectName = parentName(),
-    port = 2001,
-    pordApi =  "https://asgardian.azurewebsites.net/",
-    devApi = "https://carrefour2019cny.azurewebsites.net/",
+    port = 3001,
+    // pordApi = "https://cmpnapi.friendo.com.tw/api/",
+    pordApi = "",
+    devApi = "",
     jsFolder = "js/",
-    buildPath = `./../../online/${projectName}/`,
-    devPath = `./dist/`,
-    ftpConfig = {
-        host: "",
-        user: "",
-        password: "",
-        port: 21,
-        parallel: 5,
-        log: gutil.log
-    };
+    buildPath = `../../deploy/${projectName}/`,
+    devPath = `./dist/`;
 
 const checkPath = function () {
     destPath = isDev ? devPath : buildPath;
 }
+
+
+/*
+ 
+ ████████╗     █████╗     ███████╗    ██╗  ██╗    ███████╗    
+ ╚══██╔══╝    ██╔══██╗    ██╔════╝    ██║ ██╔╝    ██╔════╝    
+    ██║       ███████║    ███████╗    █████╔╝     ███████╗    
+    ██║       ██╔══██║    ╚════██║    ██╔═██╗     ╚════██║    
+    ██║       ██║  ██║    ███████║    ██║  ██╗    ███████║    
+    ╚═╝       ╚═╝  ╚═╝    ╚══════╝    ╚═╝  ╚═╝    ╚══════╝    
+    
+*/
 
 gulp.task('html', ['pug'], function () {
     console.log('start BEAUTIFY-HTML')
@@ -67,31 +74,34 @@ gulp.task('pug', function () {
 gulp.task('sass', function () {
     var sass = require('gulp-sass'),
         autoprefixer = require('gulp-autoprefixer')
-    
+
     gulp.src(['src/sass/**/*.s{a,c}ss'])
         .pipe(plumber())
-        .pipe(sourcemaps.init({ loadMaps: true }))
+        .pipe(sourcemaps.init({
+            loadMaps: true
+        }))
         .pipe(sass({
-            outputStyle:(isDev) ?'expanded': 'compressed', // compressed, expanded
+            outputStyle: (isDev) ? 'expanded' : 'compressed', // compressed, expanded
             errLogToConsole: true
         }).on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: ["last 4 versions", "Firefox >= 27", "Blackberry >= 7", "IE 8", "IE 9"],
             cascade: false
         }))
-        .pipe(gulpif(isDev,sourcemaps.write()))
-        .pipe(gulp.dest(destPath +'css'))
+        .pipe(gulpif(isDev, sourcemaps.write()))
+        .pipe(gulp.dest(destPath + 'css'))
         .pipe(connect.reload());
 });
 
 gulp.task('js', ['static', 'vendor-script', 'library-script'], function () {
-    var uglify = require('gulp-uglify');
-    gulp.src('src/js/*.js')
+
+    gulp.src('src/js/**/*.js')
         .pipe(plumber())
-        .pipe(sourcemaps.init({ loadMaps: true }))
+        .pipe(sourcemaps.init({
+            loadMaps: true
+        }))
         .pipe(babel({
-            "presets": ["es2015"],
-            "plugins": ["transform-object-assign"]
+            presets: ['@babel/preset-env']
         }))
         .pipe(uglify()) // uglify js
         .pipe(gulpif(isDev, sourcemaps.write()))
@@ -100,27 +110,23 @@ gulp.task('js', ['static', 'vendor-script', 'library-script'], function () {
 });
 
 gulp.task('vendor-script', function () {
-    if (isDev) {
-        var docSrc = ['src/vendor/*.js', 'src/vendor/develop/*.js'];
-    } else {
-        var docSrc = ['src/vendor/*.js', 'src/vendor/production/*.js'];
-    }
-    gulp.src(docSrc)
+    gulp.src('src/vendor/*.js')
         .pipe(gulpif(isDev, sourcemaps.init()))
         .pipe(concat('vendor.js'))
+        .pipe(gulpif(!isDev, uglify()))
         .pipe(gulpif(isDev, sourcemaps.write()))
         .pipe(gulp.dest(destPath + jsFolder))
         .pipe(connect.reload());
 });
 
 gulp.task('library-script', function () {
-    gulp.src('src/lib/*.js')
+    gulp.src(['src/lib/*.js', '!src/lib/_*.js'])
         .pipe(gulpif(isDev, sourcemaps.init()))
         .pipe(concat('lib.js'))
         .pipe(babel({
-            "presets": ["es2015"],
-            "plugins": ["transform-object-assign"]
+            presets: ['@babel/preset-env']
         }))
+        .pipe(gulpif(!isDev, uglify()))
         .pipe(gulpif(isDev, sourcemaps.write()))
         .pipe(gulp.dest(destPath + jsFolder))
         .pipe(connect.reload());
@@ -128,6 +134,7 @@ gulp.task('library-script', function () {
 //Sever
 gulp.task('connectDist', function () {
     connect.server({
+        host: "0.0.0.0",
         root: devPath,
         port: port,
         livereload: true
@@ -135,8 +142,10 @@ gulp.task('connectDist', function () {
 });
 
 gulp.task('copyImg', function () {
+    var imagemin = require('gulp-image');
     gulp.src(['src/images/**', '!src/images/sprite'])
         .pipe(changed(destPath + 'images'))
+        // .pipe(gulpif(!isDev, imagemin()))
         .pipe(gulp.dest(destPath + 'images'))
         .pipe(connect.reload());
 });
@@ -149,10 +158,10 @@ gulp.task('static', function () {
 
 //Open
 gulp.task('open', function () {
-    var open = require('gulp-open');//Open files and URLs with gulp
+    var open = require('gulp-open'); //Open files and URLs with gulp
     gulp.src(__filename)
         .pipe(open({
-            uri: (port != "") ? 'http://localhost:' + port :'http://localhost',
+            uri: (port != "") ? 'http://localhost:' + port : 'http://localhost',
             app: 'chrome'
         }));
 });
@@ -169,15 +178,22 @@ gulp.task('watch', function () {
 gulp.task('build', function (cd) {
     isDev = false;
     checkPath();
-    runsequence('clean', ['html', 'sass', 'js','copyImg'], cd);
+    runsequence('clean', ['html', 'sass', 'js', 'copyImg'], cd);
+});
+
+//Showcase
+gulp.task('showcase', function (cd) {
+    isDev = false;
+    checkShowcase();
+    runsequence('clean', ['html', 'sass', 'js', 'copyImg'], cd);
 });
 
 //Group Dev
 gulp.task('dev', function (cd) {
     isDev = true;
     checkPath();
-    runsequence('clean', ['html', 'sass', 'js', 'copyImg','connectDist'],'watch' ,cd);
- });
+    runsequence('clean', ['html', 'sass', 'js', 'copyImg', 'connectDist'], 'watch', cd);
+});
 
 //Default  Task
 gulp.task('default', ['dev'], function () {
@@ -186,13 +202,15 @@ gulp.task('default', ['dev'], function () {
 
 gulp.task('clean', function (cd) {
     var clean = require('gulp-clean'); //Removes files and folders.
-    if (!isDev) {
-        gulp.src([devPath])
-            .pipe(clean({
-                force: true
-            }));
-    }
-    return gulp.src([destPath])
+    var delArr = [devPath, destPath];
+    //     delArr.push
+    // if (!isDev) {
+    //     gulp.src([devPath])
+    //         .pipe(clean({    
+    //             force: true
+    //         }));
+    // }
+    return gulp.src(delArr)
         .pipe(clean({
             force: true
         }));
@@ -212,3 +230,18 @@ gulp.task('ftpDeploy', function (cd) {
     .pipe(ftpConn.dest('/site/wwwroot/' + projectName)) //
     .pipe(ftpConn.newerOrDifferentSize('/site/wwwroot/' + projectName)) //conn.dest( '/dst' )
 })
+gulp.task('writeVersion', function () { 
+    require('fs').writeFileSync(destPath + 'version.txt', `version: ${version}\r\n`);
+})
+
+gulp.task('testing', function (cd) {
+    isDev = true;
+    destPath = buildPath
+    runsequence('clean', ['html', 'sass', 'js', 'copyImg'], 'writeVersion', cd);
+});
+
+gulp.task('production', function (cd) {
+    isDev = false;
+    destPath = buildPath
+    runsequence('clean', ['html', 'sass', 'js', 'copyImg'], 'writeVersion', cd);
+});

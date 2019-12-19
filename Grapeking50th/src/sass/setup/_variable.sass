@@ -1,0 +1,37 @@
+$zindex_arr: ("page","page2","video","pordpop","alert","window","header","kvideo","fixedicon","popup1","popup2","popup3","main",'sppop')
+$pd-top: 40px 
+$pd-ledt: 50px
+$ft_height: 50px
+
+%project_size
+    margin-left: auto
+    margin-right: auto
+    +rwd($mobile) 
+        max-width: 660px
+        padding: 20px 0px
+        
+    +rwd($desktop) 
+        max-width: 960px
+    
+    +rwd($desktop-w) 
+        max-width: 1280px
+    
+    +rwd($desktop-fullhd) 
+        max-width: 1600px
+
+%main-size
+    width: 100%
+    padding-left: mvw(30)
+    padding-right: mvw(30)
+    +rwd($desktop) 
+        max-width: 1280px
+        margin: 0 auto
+
+    +rwd($desktop-w) 
+        max-width: 1440px
+        
+    +rwd($desktop-hd) 
+        max-width: 1540px
+        
+    +rwd($desktop-fullhd) 
+        max-width: 1642px

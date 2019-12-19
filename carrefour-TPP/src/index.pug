@@ -1,0 +1,271 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "一年一DO 平安普渡 | 2019中元家樂福"
+    - var pageDesc = "水逆加上農曆鬼月，讓你諸事不順？現在就試試家樂福「星座普渡」幫你改好運！無論你信奉東方傳統或者西方星象，讓祈求平安的信仰，成為兩代最好的傳承，就是最好的中元普渡方式！"
+    - var isVue = true
+    - var pageJs = "index.js"
+    //- - var more_js = "starbg.js"
+//- page html
+block page_main
+    section.index
+        .kvarea#kv
+            .kvline
+                .topline
+                    img.pc-only(src="images/kv-line-top.png")
+                    img.mb-only(src="images/mb-kv-line-top.png")
+                .rightline
+                    img.pc-only(src="images/kv-line-right.png")
+                    img.mb-only(src="images/mb-kv-line-right.png")
+                .bottomline
+                    img.pc-only(src="images/kv-line-bottom.png")
+                    img.mb-only(src="images/mb-kv-line-bottom.png")
+                .leftline
+                    img.pc-only(src="images/kv-line-left.png")
+                    img.mb-only(src="images/mb-kv-line-left.png")
+            .kvcontent
+                .kvdeco1
+                    img(src="images/kv-gossip.png")
+                .kvdeco2
+                    img(src="images/kv-compass.png")
+                .kvslogn
+                    img(src="images/kv-slogn.png" alt="一年一DO 星座普渡")
+                .kvtxt
+                    img(src="images/kv-txt.png" alt="一年一DO 星座普渡")
+                .kvbtn(@click="scrollTo('#startest')" gtm-data="首頁-立即測中元運勢")
+                    a(href="javascript:void(0)" title="立即測中元運勢" gtm-data="首頁-立即測中元運勢")
+                        img(src="images/kv-btn.png" alt="立即測中元運勢" gtm-data="首頁-立即測中元運勢")
+                .kvpeople.pc-only
+                    img(src="images/kv-people.png" alt="一年一DO 星座普渡")
+                .mbkvpeople.mb-only
+                    img(src="images/mb-kv-people.png" alt="一年一DO 星座普渡")
+            .kvbottom
+                img.pc-only(src="images/pc-kvinfo-bottom.png", alt="會員專屬優惠")
+        img.kvinfo-bottom.mb-only(src="images/mb-kvinfo-bottom.png", alt="會員專屬優惠")
+        .videoarea#video
+            video(src="images/video-bg.mp4" autoplay loop muted)
+            .videobg
+                img(src="images/video-bg.png")
+            .content
+                h2
+                    img(src="images/video-title.png" alt="一年一DO 星座普渡")
+                p 即使是屋簷下的同一家人，也都有各自的信仰
+                    br
+                    | 在【一年．一渡】的日子，讓我們和解吧！
+                    br
+                    | 一起在中元節祈求平安
+                    br
+                    | 讓兩代的信仰取得共識！
+                p.sp #平安就是福 #中元家樂福
+                .videobtn(@click="popOpen('video','')" gtm-data="首頁-影片播放")
+                    img(src="images/video-btn.png" gtm-data="首頁-影片播放")
+        .startest#startest
+            .deco
+            h2
+                img.pc-only(src="images/startest-title.png" alt="一年一DO 星座普渡")
+                img.mb-only(src="images/mb-startest-title.png" alt="一年一DO 星座普渡")
+            .content
+                //- .deco-angus
+                //-     img(src="images/angus.png")
+                ul
+                    li.selstarbg
+                        .selstartitle
+                            .icon
+                                img(src="images/star-title-fire.png")
+                            p 幸運色
+                                br
+                                span.sp 淺紫
+                        ul
+                            li.selstar(@click="startest" value="zodiac-Aries" gtm-data="首頁-星象測驗-牡羊座")
+                                .titlebox
+                                    h3 牡羊
+                                    p 3.21~4.20
+                                div
+                                    img(src="images/star-ram.png" gtm-data="首頁-星象測驗-牡羊座")
+                            li.selstar(@click="startest" value="zodiac-Leo" gtm-data="首頁-星象測驗-獅子座")
+                                .titlebox
+                                    h3 獅子
+                                    p 7.22~8.22
+                                div
+                                    img(src="images/star-lion.png" gtm-data="首頁-星象測驗-獅子座")
+                            li.selstar(@click="startest" value="zodiac-Sagittarius" gtm-data="首頁-星象測驗-射手座")
+                                .titlebox
+                                    h3 射手
+                                    p 11.23~12.21
+                                div
+                                    img(src="images/star-archer.png" gtm-data="首頁-星象測驗-射手座")
+                    li.selstarbg
+                        .selstartitle
+                            .icon
+                                img(src="images/star-title-earth.png")
+                            p 幸運色
+                                br
+                                span.sp 淺綠
+                        ul
+                            li.selstar(@click="startest" value="zodiac-Taurus" gtm-data="首頁-星象測驗-金牛座")
+                                .titlebox
+                                    h3 金牛
+                                    p 4.21~5.20
+                                div
+                                    img(src="images/star-bull.png" gtm-data="首頁-星象測驗-金牛座")
+                            li.selstar(@click="startest" value="zodiac-Virgo" gtm-data="首頁-星象測驗-處女座")
+                                .titlebox
+                                    h3 處女
+                                    p 8.23~9.22
+                                div
+                                    img(src="images/star-virgin.png" gtm-data="首頁-星象測驗-處女座")
+                            li.selstar(@click="startest" value="zodiac-Capricorn" gtm-data="首頁-星象測驗-魔羯座")
+                                .titlebox
+                                    h3 魔羯
+                                    p 12.22~1.19
+                                div
+                                    img(src="images/star-goat.png" gtm-data="首頁-星象測驗-魔羯座")
+                    li.selstarbg
+                        .selstartitle
+                            .icon
+                                img(src="images/star-title-wind.png")
+                            p 幸運色
+                                br
+                                span.sp 淺黃
+                        ul
+                            li.selstar(@click="startest" value="zodiac-Gemini" gtm-data="首頁-星象測驗-雙子座")
+                                .titlebox
+                                    h3 雙子
+                                    p 5.21~6.20
+                                div
+                                    img(src="images/star-twins.png" gtm-data="首頁-星象測驗-雙子座")
+                            li.selstar(@click="startest" value="zodiac-Libra" gtm-data="首頁-星象測驗-天秤座")
+                                .titlebox
+                                    h3 天秤
+                                    p 9.23~10.22
+                                div
+                                    img(src="images/star-scales.png" gtm-data="首頁-星象測驗-天秤座")
+                            li.selstar(@click="startest" value="zodiac-Aquarius" gtm-data="首頁-星象測驗-水瓶座")
+                                .titlebox
+                                    h3 水瓶
+                                    p 1.20~2.18
+                                div
+                                    img(src="images/star-carrier.png" gtm-data="首頁-星象測驗-水瓶座")
+                    li.selstarbg
+                        .selstartitle
+                            .icon
+                                img(src="images/star-title-water.png")
+                            p 幸運色
+                                br
+                                span.sp 淺粉
+                        ul
+                            li.selstar(@click="startest" value="zodiac-Cancer" gtm-data="首頁-星象測驗-巨蟹座")
+                                .titlebox
+                                    h3 巨蟹
+                                    p 6.21~7.21
+                                div
+                                    img(src="images/star-crab.png" gtm-data="首頁-星象測驗-巨蟹座")
+                            li.selstar(@click="startest" value="zodiac-Scorpio" gtm-data="首頁-星象測驗-天蠍座")
+                                .titlebox
+                                    h3 天蠍
+                                    p 10.23~11.22
+                                div
+                                    img(src="images/star-scorpion.png" gtm-data="首頁-星象測驗-天蠍座")
+                            li.selstar(@click="startest" value="zodiac-Pisces" gtm-data="首頁-星象測驗-雙魚座")
+                                .titlebox
+                                    h3 雙魚
+                                    p 2.19~3.20
+                                div
+                                    img(src="images/star-fishes.png" gtm-data="首頁-星象測驗-雙魚座")
+                p.ps *各星座歸屬日期為星星教授安格斯老師所提供，僅提供參考。
+        .knowledge#knowledge
+            //- .deco
+            //-     img(src="images/knowledge-deco.png")
+            .content
+                h2
+                    img.pc-only(src="images/knowledge-title.png" alt="一年一DO 星座普渡")
+                    img.mb-only(src="images/mb-knowledge-title.png" alt="一年一DO 星座普渡")
+                .listarea
+                    ul
+                        li(@click="popOpen('knowledge','orientation')" gtm-data="首頁-普渡指南-方位/地點")
+                            a(href="javascript:void(0)" alt="方位/地點" gtm-data="首頁-普渡指南-方位/地點")
+                        li(@click="popOpen('knowledge','time')" gtm-data="首頁-普渡指南-祭拜時辰")
+                            a(href="javascript:void(0)" alt="祭拜時辰" gtm-data="首頁-普渡指南-祭拜時辰")
+                        li(@click="popOpen('knowledge','item')" gtm-data="首頁-普渡指南-供桌選品")
+                            a(href="javascript:void(0)" alt="供桌選品" gtm-data="首頁-普渡指南-供桌選品")
+                        li(@click="popOpen('knowledge','appliance')" gtm-data="首頁-普渡指南-器具")
+                            a(href="javascript:void(0)" alt="器具" gtm-data="首頁-普渡指南-器具")
+                        li(@click="popOpen('knowledge','note')" gtm-data="首頁-普渡指南-祭拜叮寧")
+                            a(href="javascript:void(0)" alt="祭拜叮寧" gtm-data="首頁-普渡指南-祭拜叮寧")
+        .buybox#buybox
+            h2
+                img(src="images/buybox-title.png" alt="一年一DO 星座普渡")
+            .hashtag
+                ul
+                    li #直購價69元
+                    li #賣場限定
+                    li #送禮自用兩相宜
+                p (全台限量6000個，紙箱不含內容物，售完為止)
+            .content
+                .slickarea
+                    .box
+                         a(href="https://online.carrefour.com.tw/Events-old/constellation_201907/index.html?utm_source=campaign.carrefour-taiwan.com.tw&utm_medium=referral&utm_campaign=tpp" gtm-data="首頁-平安箱-中式" target="_blank")
+                            img(src="images/box-list-1.png")
+                            .txt
+                                h3 【 中式風水 保你平安 】
+                                p 附上普渡教學，用這箱金澎派！
+                    .box
+                        a(href="https://online.carrefour.com.tw/Events-old/constellation_201907/index.html?utm_source=campaign.carrefour-taiwan.com.tw&utm_medium=referral&utm_campaign=tpp" gtm-data="首頁-平安箱-土象" target="_blank")
+                            img(src="images/box-list-2.png")
+                            .txt
+                                h3 【 一箱抵你好幾箱 】
+                                p 用最好的，一咖抵過千百箱
+                    .box
+                        a(href="https://online.carrefour.com.tw/Events-old/constellation_201907/index.html?utm_source=campaign.carrefour-taiwan.com.tw&utm_medium=referral&utm_campaign=tpp" gtm-data="首頁-平安箱-風象" target="_blank")
+                            img(src="images/box-list-3.png")
+                            .txt
+                                h3 【 傳統×新潮 流行你帶！ 】
+                                p 這樣拜誰敢擺你旁邊？
+                    .box
+                        a(href="https://online.carrefour.com.tw/Events-old/constellation_201907/index.html?utm_source=campaign.carrefour-taiwan.com.tw&utm_medium=referral&utm_campaign=tpp" gtm-data="首頁-平安箱-火象" target="_blank")
+                            img(src="images/box-list-4.png")
+                            .txt
+                                h3 【 傳拜拜就是你的風格展現 】
+                                p 用這箱拜，最得老闆愛！
+                    .box
+                        a(href="https://online.carrefour.com.tw/Events-old/constellation_201907/index.html?utm_source=campaign.carrefour-taiwan.com.tw&utm_medium=referral&utm_campaign=tpp" gtm-data="首頁-平安箱-水象" target="_blank")
+                            img(src="images/box-list-5.png")
+                            .txt
+                                h3 【 好設計 更有心意 】
+                                p 中元普渡就你最有誠意！
+                .boxbtn
+                    a(href="https://online.carrefour.com.tw/Events-old/constellation_201907/index.html?utm_source=campaign.carrefour-taiwan.com.tw&utm_medium=referral&utm_campaign=tpp" gtm-data="首頁-平安箱-必BUY選品推薦" target="_blank")
+                        img(src="images/buybox-btn.png")
+        .memberarea#memberarea
+            .memberbox
+                .title
+                    h2
+                        img(src="images/member-title.png" alt="一年一DO 星座普渡")
+                    p 7/17-8/20 依步驟完成綁定家樂福會員，好康雙重送！
+                        span.red.sp (*限活動期間內綁定者)
+                        br
+                        span.red 好康一：
+                        | 綁定LINE會員，現拿
+                        span.red 10元家樂福即享券！
+                        br
+                        span.red 好康二：
+                        | 再抽
+                        span.red 1,688元家樂福即享券！
+                        span.sp (共10名)
+                a(:href="linefriend" title="立即綁定" gtm-data="首頁-LINE綁定-家樂福LINE" target="_blank").carrefourline
+                a(:href="linefriend" title="立即加好友" target="_blank" gtm-data="首頁-LINE綁定-福媽LINE").fuma
+            .notearea
+                .btn(@click="popNote=!popNote" gtm-data="首頁-活動注意事項")
+                    p 活動注意事項
+                transition(name="fade" mode="out-in")
+                    .content(v-show="popNote")
+                        ul
+                            li 活動小組將於2019年08月30日以電話的方式與中獎者聯繫，請中獎人務必確認及提供個人的收件資料，以利獎品寄出。
+                            li LINE綁定活動"10元家樂福即享券"及"1,688元家樂福即享券"僅限「活動期間內2019/07/17-2019/08/20」綁定，且過去未曾綁定家樂福LINE官方帳號之會員可獲得参加資格。
+                            li 前述資料倘涉及偽造、變造或有任何不實，造成其他消費者權益受損，家樂福及協辦單位除逕行取消其中獎資格外，並得依法行使相關權利與追訴不法。
+                            li 依稅法規定，獎品價值若為新台幣 $1,000以上，獎項所得將列入個人年度綜合所得稅申報；獎項金額超過新台幣 $20,000，本國籍人士需負擔10%之稅額；非  中華民國境內居住之個人，不論獎項金額，需負擔20%之稅額，中獎人獎品價值若為新台幣$20,000以上依法律規定須提供中獎稅之稅款證明（郵政匯票正本）。中獎人需繳交身分證正反面影本供核對及相關資料方可領獎；若不願意配合，則視為自動棄權將不具得獎資格。中獎人若為未成年人，須檢附戶籍謄本並提出法定代理人同意書，方可領獎。
+                            li 參加本活動所提供之個人資料，視為依個人資料保護法授權並同意可做為主辦單位及主辦單位之協力廠商與第三方物流提供本活動之服務通聯資訊與本活動之得獎資料核對、領獎聯絡通知、獎品兌領等使用，無法提供正確資料的參加者或中獎人視為放棄中獎權利。 
+                            li 家福股份有限公司保有解釋、變更及終止本活動之權利，如遇活動辦法修改，將於本網站公告，不另通知。
+                            li 若有任何疑問，可與本公司客服中心(0809-001-365)聯絡洽詢。
+    include _popup.pug

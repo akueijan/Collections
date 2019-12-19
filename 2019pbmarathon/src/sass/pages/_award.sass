@@ -1,0 +1,255 @@
+﻿.award
+    position: relative
+    margin: vw(75) 0 0 0
+    padding: vw(120) 0 vw(75)
+    +rwd($pad)
+        margin: mvw(110) 0 0 0
+        padding: mvw(84) 0 mvw(50)
+    h2
+        width: vw(1025)
+        margin: 0 auto
+        +rwd($pad)
+            width: mvw(650)
+    h3
+        font-size: vw(15)
+        color: #ffe69f
+        text-align: left
+        +rwd($pad)
+            font-size: mvw(15)
+    p
+        font-size: vw(22)
+        color: #adf3f7
+        +rwd($pad)
+            font-size: mvw(24)
+    .block
+        width: vw(1001)
+        margin: 0 auto vw(70)
+        position: relative
+        +rwd($pad)
+            width: mvw(650)
+            margin: 0 auto mvw(40)
+    .award-list
+        padding: vw(20) vw(20) vw(20) vw(50)
+        width: vw(800)
+        height: vw(460)
+        // background: #ffffff
+        overflow-y: auto
+        +rwd($pad)
+            padding: mvw(10) mvw(20) mvw(20) mvw(10)
+            width: mvw(520)
+            height: mvw(460)
+        &::-webkit-scrollbar-thumb
+            height: vw(160)
+            box-shadow: 0 0 vw(3) 0 #62feff
+            background-color: #9fedff
+            border-radius: vw(20)
+            +rwd($pad)
+                height: mvw(160)
+                box-shadow: 0 0 mvw(3) 0 #62feff
+                border-radius: mvw(20)
+        &::-webkit-scrollbar
+            background-color: rgba(159, 237, 255, 0.5)
+            width: vw(5)
+            border-radius: vw(20)
+            +rwd($pad)
+                width: mvw(5)
+                border-radius: mvw(20)
+        li
+            border-bottom: 1px solid rgba(#ffffff,0.2)
+            margin: 0 0 vw(15) 0
+            display: flex
+            justify-content: space-around
+            align-items: center
+            font-size: vw(30)
+            height: vw(80)
+            padding: 0 0 0 vw(60)
+            +rwd($pad)
+                margin: 0 0 mvw(15) 0
+                font-size: mvw(30)
+                height: mvw(80)
+                padding: 0 0 0 mvw(20)
+            &:nth-last-child(1)
+                border: 0
+            .pic
+                width: vw(60)
+                height: vw(60)
+                background: #ffffff
+                +rwd($pad)
+                    width: mvw(60)
+                    height: mvw(60)
+            .name
+                color: #ffffff
+                margin: 0 0 0 vw(30)
+                flex: 3
+                +rwd($pad)
+                    margin: 0 0 0 mvw(30)
+            .mobile
+                flex: 4
+                color: #9fedff
+                letter-spacing: 1.1px
+    .big-award
+        height: vw(466)
+        background: url(../images/pc-bg-bigaward.png) top center no-repeat
+        background-size: cover
+        margin: vw(60) auto vw(70)
+        padding: vw(226) 0 0 0
+        +rwd($pad)
+            background: url(../images/mb-bg-bigaward.png) top center no-repeat
+            background-size: cover
+            height: mvw(471)
+            margin: mvw(60) auto mvw(70)
+            padding: mvw(230) 0 0 0
+        p
+            text-align: center
+        .txt
+            width: vw(836)
+            height: vw(100)
+            margin: vw(50) auto 0
+            display: flex
+            justify-content: space-around
+            align-items: center
+            +rwd($pad)
+                width: mvw(545)
+                height: mvw(100)
+                margin: mvw(50) auto 0
+        span
+            font-size: vw(30)
+            +rwd($pad)
+                font-size: mvw(30)
+        .mobile
+            color: #ffffff
+        .ticket
+            color: #9fedff
+    .energy-award
+        height: vw(867)
+        background: url(../images/pc-bg-energy.png) top center no-repeat
+        background-size: cover
+        padding: vw(150) vw(84) 0
+        text-align: center
+        +rwd($pad)
+            height: mvw(803)
+            background: url(../images/mb-bg-energy.png) top center no-repeat
+            background-size: cover
+            padding: mvw(146) mvw(45) 0
+        ul
+            width: 100%
+            margin: vw(40) 0 0 0
+            display: flex
+            justify-content: space-between
+            align-items: center
+            flex-wrap: wrap
+            +rwd($pad)
+                margin: mvw(20) 0 0 0
+            li
+                width: vw(390)
+                height: vw(106)
+                background: url(../images/award-listbg.png) top center no-repeat
+                background-size: cover
+                margin: 0 vw(50) vw(44) 0
+                padding: vw(19) 0 0 vw(78)
+                cursor: pointer
+                +rwd($pad)
+                    width: mvw(251)
+                    height: mvw(106)
+                    background-size: 100% 100%
+                    margin: 0 mvw(25) mvw(40) 0
+                    padding: mvw(19) 0 0 mvw(33)
+                &:nth-child(even)
+                    margin: 0 0 vw(44) 0
+                    +rwd($pad)
+                        margin: 0 0 mvw(40) 0
+            p
+                font-size: vw(33)
+                font-weight: bold
+                color: #ffffff
+                margin: vw(10) 0 0 0
+                text-align: left
+                text-shadow: 1px 1px 5px rgba(#000000,0.5)
+                letter-spacing: 1.1px
+                +rwd($pad)
+                    font-size: mvw(20)
+                    margin: mvw(10) 0 0 0
+    .leader-award
+        height: vw(1325)
+        background: url(../images/pc-bg-leader.png) top center no-repeat
+        background-size: cover
+        padding: 0 vw(84)
+        text-align: center
+        +rwd($pad)
+            height: mvw(1320)
+            background: url(../images/mb-bg-leader.png) top center no-repeat
+            background-size: cover
+            padding: 0 mvw(50)
+        .sonyps4
+            padding: vw(231) 0 0 0
+            +rwd($pad)
+                padding: mvw(231) 0 0 0
+            ul
+                margin: vw(45) auto 0
+                +rwd($pad)
+                    margin: mvw(45) auto 0
+                li
+                    display: flex
+                    justify-content: space-around
+                    align-items: center
+                    font-size: vw(30)
+                    height: vw(100)
+                    padding: 0 0 0 vw(60)
+                    +rwd($pad)
+                        font-size: mvw(30)
+                        height: mvw(100)
+                        padding: 0 0 0 mvw(60)
+                    .pic
+                        width: vw(60)
+                        height: vw(60)
+                        background: #ffffff
+                        +rwd($pad)
+                            width: mvw(60)
+                            height: mvw(60)
+                    .name
+                        color: #ffffff
+                        margin: 0 0 0 vw(30)
+                        +rwd($pad)
+                            margin: 0 0 0 mvw(30)
+                    .mobile
+                        flex: 4
+                        color: #9fedff
+                        letter-spacing: 1.1px
+                .nodata
+                    padding: 0
+        .sogo300
+            margin: vw(190) auto 0
+            +rwd($pad)
+                margin: mvw(180) auto 0
+            ul
+                margin: vw(150) auto 0
+                +rwd($pad)
+                    margin: mvw(150) auto 0
+    .default-award
+        height: vw(973)
+        background: url(../images/pc-bg-default.png) top center no-repeat
+        background-size: cover
+        padding: vw(240) vw(84) 0
+        text-align: center
+        +rwd($pad)
+            height: mvw(970)
+            background: url(../images/mb-bg-default.png) top center no-repeat
+            background-size: cover
+            padding: mvw(220) mvw(50) 0
+        ul
+            margin: vw(150) auto 0
+            +rwd($pad)
+                margin: mvw(150) auto 0
+    .nodata
+        color: #ffffff
+        font-size: vw(30)
+        padding: 0
+        +rwd($pad)
+            font-size: mvw(30)
+    ul
+        li.nodata
+            color: #ffffff
+            font-size: vw(30)
+            padding: 0
+            +rwd($pad)
+                font-size: mvw(30)

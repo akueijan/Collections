@@ -1,0 +1,102 @@
+﻿extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "感恩回饋 現金50倍 | 葡萄王50週年慶"
+    - var pageDesc = "即日起至12/24，登錄發票抽50倍現金大獎！測驗你的大腦年齡再抽多項好禮！"
+    - var pageJs = "backfill.js"
+    - var isVue = true
+//- page html
+block page_main
+    section.backfill(v-cloak)
+        .content
+            h2 回填表單
+            form.form(@submit.prevent = "postback()")
+                ul
+                    li.head
+                        .mobile
+                            p
+                                span 手機號碼 : 
+                                | {{mobile}}
+                        .ticket(v-if="type=='Invoice'")
+                            p
+                                span 發票號碼 : 
+                                | {{inv_num}}
+                        .fb(v-if="type=='FB'")
+                            transition(name="fade")
+                                .fblogin(@click="fbLogin()" v-if="!fblogin") 登入FB
+                                p(v-if="fblogin")
+                                    i
+                                        img(:src="fbData.fbPic" v-if="fblogin")
+                                    | {{fbData.fbName}}
+                    li
+                        p
+                            span 獎品名稱 : 
+                            | {{awarditem}}
+                    li
+                        label(for="name") 收件人
+                        input#name(type="text" placeholder="請輸入收件人姓名" maxlength="50" v-model="name")
+                    li
+                        label(for="address") 地　址
+                        input#address(type="text" placeholder="請輸入收件人收址" maxlength="50" v-model="address")
+                    li
+                        a(href="images/一夜好眠獎-領獎憑證.pdf" download v-if="awarditem=='【IRIS除蟎機】'")
+                            i 
+                                img(src="images/icon-download.png")
+                            | 一夜好眠獎 中獎回覆函下載
+                        a(href="images/平心靜氣獎-領獎憑證.pdf" download v-if="awarditem=='【PHILIPS渦輪氣旋健康氣炸鍋】'")
+                            i 
+                                img(src="images/icon-download.png")
+                            | 平心靜氣獎 中獎回覆函下載
+                        a(href="images/神采飛揚獎-領獎憑證.pdf" download v-if="awarditem=='【Panasonic奈米水離子吹風機】'")
+                            i 
+                                img(src="images/icon-download.png") 
+                            | 神采飛揚獎 中獎回覆函下載
+                        a(href="images/一指之力精彩無限-領獎憑證.pdf" download v-if="awarditem=='【Toffy三合一多功能食物調理機】'")
+                            i 
+                                img(src="images/icon-download.png") 
+                            | 一指之力精彩無限 中獎回覆函下載
+                        a(href="#" download v-if="awarditem=='【加倍奉還獎-最高現金20萬】'")
+                            i 
+                                img(src="images/icon-download.png") 
+                            | 最高現金20萬 中獎回覆函下載
+                        a(href="#" download v-if="awarditem=='【加倍奉還獎-最高現金4萬】'")
+                            i 
+                                img(src="images/icon-download.png") 
+                            | 最高現金4萬 中獎回覆函下載
+                    li(v-if="type=='Invoice'")
+                        p 電子檔照片上傳
+                        ul.pictures
+                            //- li
+                            //-     label(for="front") 
+                            //-     .preview#frontpre
+                            //-         p 身份證正面
+                            //-         img(:src="IdcardFrontShow")
+                            //-     input#front(type="file" accept="image/*" @change="readpoto")
+                            //- li
+                            //-     label(for="back") 
+                            //-     .preview#backpre
+                            //-         p 身份證反面
+                            //-         img(:src="IdcardBackShow")
+                            //-     input#back(type="file" accept="image/*" @change="readpoto")
+                            //- li
+                            //-     label(for="bank") 
+                            //-     .preview#bankpre
+                            //-         p 存摺影本
+                            //-         img(:src="BankbookShow")
+                            //-     input#bank(type="file" accept="image/*" @change="readpoto")
+                            li
+                                label(for="certificate") 
+                                .preview#certificatepre
+                                    p 發票正本
+                                    img(:src="CertificatePhotoShow")
+                                input#certificate(type="file" accept="image/*" @change="readpoto")
+                    li.agree
+                        input#agree(type="checkbox" v-model="agree")
+                        label(for="agree") 我已同意《葡萄王50週年慶感恩回饋現金50倍》活動辦法及相關規定
+                .btnarea
+                    .btnsend
+                        button(type="submit" v-if="!loading") 資料送出
+                        .loading(v-if="loading")
+                            img(src="images/loading.gif", alt="")
+        .loading(v-if="ploading")
+            img(src="images/loading.gif")

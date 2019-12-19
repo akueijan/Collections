@@ -12,41 +12,37 @@
 $ npm install gulp -g
 ```
 
-安裝切版環境(每個新專案都要執行)
+於最外層安裝切版環境(每個新專案都要執行)
 ```
 $ npm install 
 ```
-# 注意專案資料夾須取正式名稱(會影響上傳至FTP的結構)
+# 注意專案資料夾須取正式名稱
 ## 檔案結構
 - /src: 主要開發目錄
 - /src/vondor: 主要使用的framework，在打包時會合併為vendor.js
 - /src/lib: 擴充的plugin js放置位置，在打包時會合併為lib.js
-- /src/assets: 複製所有檔案至 dist 資料夾，(ex:若需要使用.json格式檔案，可放置於此
+- /src/static: 複製所有檔案至 dist 資料夾，(ex: sitemap.xml，或需要使用.json格式檔案，可放置於此
 - /dist: gulp生成的最終結果，為自動產生的檔案，切版人員可以無視。
 
 ## gulpfile 參數說明
 
 ```
-var isDev,
-    port = 3001,
-    prodApi =  "//carrefourautumn.azurewebsites.net/events/",
-    devApi = "/api/",
+var pordApi = "https://visaapitest.azurewebsites.net/api/",
+    devApi = "https://visaapitest.azurewebsites.net/api/";
+
+
+var isDev, destPath,
+    projectName = parentName(),
+    port = 2001,
     jsFolder = "js/",
-    ftpConfig = {
-        host: "waws-prod-dm1-079.ftp.azurewebsites.windows.net",
-        user: "campaignsuat\\$campaignsuat",
-        password: "WPrQZMdzukCSnThgNogBA8BolCnNbxbqGEuvv50XSxc1152keCSTwkZ7xqaE",
-        port: 21,
-        parallel: 5,
-        log: gutil.log
-    };
+    buildPath = `../../deploy/${projectName}/`,
+    devPath = `./dist/`;
 ```
+- ### prodApi: 正式模式下js所呼叫的API位置
+- ### devApi: 開發模式下js所呼要的API位置
 - isDev: 判定是否為開發中，無需特別設定會也gulp task 判定
 - port: 為gulp server 的網址poot
-- prodApi: 正式模式下js所呼叫的API位置
-- devApi: 開發模式下js所呼要的API位置
 - jsFolder: pug 產生的 html 所需要的JS路徑
-- ftpConfig: FTP 連線的config
 
 ## Gulp Task
 
@@ -60,14 +56,9 @@ $gulp
 $gulp build
 ```
 
-上傳FTP
-```
-gulp ftpDeploy
-```
-
-
 ## 注意事項 
-
+### 若在開發上有使用新的 package 請更新至最外層的 package.json
+### 使用[tinypng](https://tinypng.com/) 壓縮圖片再打包
 ### 使用sprites產生圖片及scss
 
 - 至少先執行`$ gulp defulat`一次

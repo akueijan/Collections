@@ -1,0 +1,53 @@
+nav.nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+        div.nav-bd
+            div.nav-logo
+                a(href="./index.html" alt="家樂福" title="家樂福") 
+                    img(src="./images/logo.png", alt="家樂福")
+            div.nav-btn
+                div.one
+                div.two
+                div.three
+            div.nav-menu(role="navigation")
+                ul.clearfix
+                    li.nav-item.nav-item--iscurrent
+                        a(href="index_mobile.html" alt="首頁" itemprop="url" title="首頁" v-on:click="scrollTo('#index');")
+                            img(src="./images/menu-1.png", alt="首頁")
+                    li.nav-item.nav-lock
+                        a(alt="家樂福賀歲大戲院" itemprop="url" title="家樂福賀歲大戲院" v-on:click="scrollTo('#kv-bottom');")
+                            img(src="./images/menu-2.png", alt="家樂福賀歲大戲院")
+                    li.nav-item.nav-lock
+                        a(alt="影迷朝聖找彩蛋" itemprop="url" title="影迷朝聖找彩蛋" gtm-data="menu_影迷朝聖找彩蛋" v-on:click="scrollTo('#easter-egg');")
+                            img(src="./images/menu-3.png", alt="影迷朝聖找彩蛋" gtm-data="menu_影迷朝聖找彩蛋")
+                    li.nav-item.nav-lock
+                        a(alt="同場加映" itemprop="url" title="同場加映" v-on:click="scrollTo('#add-show');")
+                            img(src="./images/menu-4.png", alt="同場加映")
+                    li.nav-item.nav-lock
+                        a(alt="賀歲再加碼" itemprop="url" title="賀歲再加碼" v-on:click="scrollTo('#reward-area');")
+                            img(src="./images/menu-5.png", alt="賀歲再加碼")
+                    li.nav-item.nav-lock
+                        a(alt="活動辦法" itemprop="url" title="活動辦法" gtm-data="menu_活動辦法" v-on:click="scrollTo('#activity-role');")
+                            img(src="./images/menu-6.png", alt="活動辦法" gtm-data="menu_活動辦法")
+                    li.nav-item
+                        a(alt="得獎名單" itemprop="url" title="得獎名單" gtm-data="menu_得獎名單" v-on:click="awardPop=true;popupOpen();")
+                            img(src="./images/menu-7.png", alt="得獎名單" gtm-data="menu_得獎名單")  
+                    li.nav-item
+                        a(href="https://www.facebook.com/carrefour.tw" alt="家樂福Facebook粉絲團" gtm-data="menu_fb粉絲團" itemprop="url" title="家樂福Facebook粉絲團" target="_blank")
+                            img(src="./images/menu-8.png", alt="家樂福Facebook粉絲團" gtm-data="menu_fb粉絲團")
+                    li.nav-item
+                        a(href="https://instagram.com/carrefourtaiwan?utm_source=ig_profile_share&igshid=gcnsexq938pv" alt="家樂福Instagram" gtm-data="menu_IG帳號" itemprop="url" title="家樂福Instagram" target="_blank")
+                            img(src="./images/menu-9.png", alt="家樂福Instagram" gtm-data="menu_IG帳號")
+                    li.nav-item
+                        a(href="http://line.naver.jp/ti/p/%40carrefourtw" alt="家樂福官方Line帳號" itemprop="url" gtm-data="menu_LINE官方帳號" title="家樂福官方Line帳號" target="_blank")
+                            img(src="./images/menu-10.png", alt="家樂福官方Line帳號" gtm-data="menu_LINE官方帳號")
+div.window(v-show="video_step <= 0")
+    div.inner-area
+        div.window-top  
+            img(src="./images/window-top-mobile.png", alt="")
+        div.window-middle-left
+            img(src="./images/window-top-left-mobile.png", alt="")
+        div.window-middle-right
+            img(src="./images/window-top-left-mobile.png", alt="")
+        div#window-loading-left.window-loading-left 
+            img(src="./images/window-open-left.png", alt="")
+        div#window-loading-right.window-loading-right
+            img(src="./images/window-open-left.png", alt="")

@@ -1,0 +1,42 @@
+nav.nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+        div.nav-bd
+            div.nav-logo
+                a(href="./index.html" alt="家樂福" title="家樂福") 
+                    img(src="./images/logo.png", alt="家樂福")
+            div.nav-btn
+                div.one
+                div.two
+                div.three
+            div.nav-menu(role="navigation")
+                ul.clearfix
+                    li.nav-item.nav-lock.nav-item--iscurrent
+                        a(alt="家樂福賀歲大戲院" itemprop="url" title="家樂福賀歲大戲院" gtm-data="menu_家樂福賀歲大戲院" v-on:click="scrollTo('#kv-top');"): span(gtm-data="menu_家樂福賀歲大戲院") 家樂福賀歲大戲院
+                    li.nav-item.nav-lock.nav-item--iscurrent
+                        a(alt="影迷朝聖找彩蛋" itemprop="url" title="影迷朝聖找彩蛋" gtm-data="menu_影迷朝聖找彩蛋" v-on:click="scrollTo('#easter-egg-title');"): span(gtm-data="menu_影迷朝聖找彩蛋") 影迷朝聖找彩蛋
+                    li.nav-item.nav-lock
+                        a(alt="活動辦法" itemprop="url" title="活動辦法" gtm-data="menu_活動辦法" v-on:click="scrollTo('#activity-role');"): span(gtm-data="menu_活動辦法") 活動辦法
+                    li.nav-item
+                        a(alt="得獎名單" gtm-data="menu_得獎名單" itemprop="url" title="得獎名單" v-on:click="awardPop=true;popupOpen();"): span(gtm-data="menu_得獎名單") 得獎名單
+                    li.nav-item
+                        a(href="https://www.facebook.com/carrefour.tw" alt="家樂福Facebook粉絲團" itemprop="url" gtm-data="menu_fb粉絲團" title="家樂福Facebook粉絲團" target="_blank"): span(gtm-data="menu_fb粉絲團").fb 
+                    li.nav-item
+                        a(href="https://instagram.com/carrefourtaiwan?utm_source=ig_profile_share&igshid=gcnsexq938pv" alt="家樂福Instagram" itemprop="url" gtm-data="menu_IG帳號" title="家樂福Instagram" target="_blank"): span(gtm-data="menu_IG帳號").ig 
+                    li.nav-item
+                        a(href="http://line.naver.jp/ti/p/%40carrefourtw" alt="家樂福官方Line帳號" itemprop="url" gtm-data="menu_LINE官方帳號" title="家樂福官方Line帳號" target="_blank"): span(gtm-data="menu_LINE官方帳號").line 
+
+div.window 
+    div.inner-area
+        div.window-top  
+            img(src="./images/window-top.png", alt="")
+        div.window-middle-left
+            img(src="./images/window-top-left.png", alt="")
+        div.window-middle-right
+            img(src="./images/window-top-left.png", alt="")
+        div.window-bottom-left
+            img(src="./images/window-bottom-left.png", alt="")
+        div.window-bottom-right
+            img(src="./images/window-bottom-left.png", alt="")
+        div#window-loading-left.window-loading-left 
+            img(src="./images/window-open-left.png", alt="")
+        div#window-loading-right.window-loading-right
+            img(src="./images/window-open-left.png", alt="")

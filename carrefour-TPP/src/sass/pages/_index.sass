@@ -1,0 +1,900 @@
+.index
+    position: relative
+    // max-width: 1920px
+    overflow: hidden
+    .index-active
+        opacity: 1 !important
+        transition: 0.3s
+    > div
+        position: relative
+    .kvarea
+        padding: vw(87) 0 0 0
+        // border-bottom: 6px solid #e0b780
+        height: 100vh
+        overflow: hidden
+        min-height: 100vh
+        +rwd($pad)
+            padding: mvw(100) 0 0 0
+        .kvline
+            height: calc(100% - 200px)
+            width: 100%
+            position: absolute
+            top: vw(67)
+            +rwd($pad)
+                height: 100%
+                // top: mvw(100)
+            > div
+                position: absolute
+            .topline
+                width: percentage(1281/1920)
+                top: vw(10)
+                left: 50%
+                transform: translateX(-50%)
+                +rwd($pad)
+                    width: mvw(440)
+                    top: mvw(100)
+            .rightline
+                // height: 100%
+                height: percentage(780/850)
+                top: 50%
+                right: vw(20)
+                transform: translateY(-50%)
+                img
+                    max-width: auto
+                    max-height: 100%
+                +rwd($pad)
+                    height: mvw(1117)
+                    right: mvw(0)
+                    top: mvw(140)
+                    transform: inherit
+            .bottomline
+                width: percentage(1493/1920)
+                bottom: vw(10)
+                left: 50%
+                transform: translateX(-50%)
+                +rwd($pad)
+                    width: mvw(511)
+                    bottom: mvw(40)
+            .leftline
+                height: percentage(780/850)
+                top: 50%
+                left: vw(20)
+                transform: translateY(-50%)
+                img
+                    max-width: auto
+                    max-height: 100%
+                +rwd($pad)
+                    height: mvw(1117)
+                    right: mvw(0)
+                    top: mvw(140)
+                    transform: inherit
+        .kvcontent
+            width: vw(1580)
+            margin: vw(100) auto 0
+            position: relative
+            // height: calc(100% - 87px)
+            height: 100%
+            > div
+                position: absolute
+            +rwd($pad)
+                width: 100%
+                margin: mvw(125) auto 0
+            .kvdeco1
+                width: percentage(280/1580)
+                top: vw(10)
+                right: vw(55)
+                img
+                    animation: sround infinite 60s linear 
+                    // animation-timing-function: step-start
+                +rwd($pad)
+                    width: mvw(300)
+                    top: mvw(385)
+                    right: mvw(-40)
+            .kvdeco2
+                width: vw(440)
+                height: vw(245)
+                left: vw(320)
+                bottom: vw(160)
+                opacity: 0.8
+                overflow: hidden
+                img
+                    width: 100%
+                    animation: sround infinite linear 60s
+                +rwd($pad)
+                    width: mvw(391)
+                    height: mvw(225)
+                    top: mvw(550)
+                    left: mvw(-40)
+            .kvslogn
+                width: percentage(758/1580)
+                top: vw(0)
+                left: vw(80)
+                +rwd($pad)
+                    width: mvw(542)
+                    top: mvw(20)
+                    left: 50%
+                    transform: translateX(-50%)
+                &:before, &:after
+                    content: ""
+                    position: absolute
+                    width: vw(78)
+                    height: vw(80)
+                    background: url(../images/slogn-deco.png) top center no-repeat
+                    background-size: cover
+                    +rwd($pad)
+                        width: mvw(56)
+                        height: mvw(57)
+                        background-size: cover
+                &:before
+                    top: vw(105)
+                    left: vw(-30)
+                    animation: opac 3s 2s linear infinite
+                    +rwd($pad)
+                        top: mvw(75)
+                        left: mvw(-20)
+                &:after
+                    top: vw(-30)
+                    right: vw(185)
+                    animation: opac 3s 3s linear infinite
+                    +rwd($pad)
+                        top: mvw(-20)
+                        right: mvw(130)
+            .kvtxt
+                width: percentage(547/1580)
+                top: vw(215)
+                left: vw(180)
+                +rwd($pad)
+                    width: mvw(553)
+                    top: mvw(185)
+                    left: 50%
+                    transform: translateX(-50%)
+            .kvbtn
+                width: percentage(395/1580)
+                top: vw(400)
+                left: vw(250)
+                cursor: pointer
+                +rwd($pad)
+                    width: mvw(381)
+                    top: mvw(370)
+                    left: 50%
+                    transform: translateX(-50%)
+                a
+                    display: inline-block
+                &:before
+                    content: ""
+                    width: 100%
+                    height: 100%
+                    position: absolute
+                    // top: 50%
+                    // left: 50%
+                    // transform: translate(-50%, -50%)
+                    // background: #ffffff
+                    box-shadow: 0 0 vw(30) rgba(255,255,255,0.5)
+                    border-radius: vw(60)
+                    // z-index: -1
+                    opacity: 0
+                    transition: 0.3s
+                    +rwd($pad)
+                        box-shadow: 0 0 mvw(30) rgba(255,255,255,0.5)
+                        border-radius: mvw(60)
+                &:hover
+                     &:before
+                        opacity: 1
+                        transition: 0.3s
+                &:after
+                    content: ""
+                    background: url(../images/btn-deco.png) top center no-repeat
+                    background-size: cover
+                    width: vw(137)
+                    height: vw(137)
+                    position: absolute
+                    top: vw(-65)
+                    left: vw(-40)
+                    animation: scan 6s 3s linear infinite
+                    +rwd($pad)
+                        background-size: cover
+                        width: mvw(137)
+                        height: mvw(137)
+                        top: mvw(-65)
+                        left: mvw(-40)
+                        animation: mbscan 6s 3s linear infinite
+            .kvpeople
+                width: percentage(800/1580)
+                bottom: vw(120)
+                right: vw(40)
+            .mbkvpeople
+                width: mvw(705)
+                bottom: mvw(0)
+                right: 50%
+                transform: translateX(50%)
+        .kvbottom
+            position: absolute
+            bottom: -1px
+            left: 0
+            width: 100%
+    .videoarea
+        min-height: 100vh
+        border-top: vw(6) solid #e0b780
+        position: relative
+        overflow: hidden
+        display: flex
+        justify-content: center
+        align-items: center
+        opacity: 0
+        transition: 0.3s
+        +rwd($pad)
+            min-height: auto
+            height: mvw(1067)
+            border-top: mvw(6) solid #e0b780
+        video
+            min-width: 100%
+            min-height: 100%
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%,-50%)
+            z-index: -1
+        .videobg
+            position: absolute
+            top: 0
+            left: 0
+            z-index: 1
+            +rwd($pad)
+                height: 100%
+                width: auto
+                img
+                    max-width: inherit
+                    height: 100%
+                    width: auto
+        .content
+            width: vw(940)
+            position: relative
+            // margin: 0 auto
+            text-align: center
+            z-index: 2
+            +rwd($pad)
+                width: mvw(600)
+        h2
+            margin: 0 0 vw(40) 0
+            +rwd($pad)
+                margin: 0 0 mvw(40) 0
+        .videobtn
+            cursor: pointer
+            margin: vw(60) auto 0
+            width: vw(122)
+            +rwd($pad)
+                margin: mvw(60) auto 0
+                width: mvw(122)
+        p
+            font-size: vw(18)
+            font-weight: 300
+            line-height: vw(36)
+            color: #fff
+            +rwd($pad)
+                font-size: mvw(26)
+                font-weight: 300
+                line-height: mvw(48)
+        .sp
+            color: #e0b780
+            margin: vw(30) 0 0 0
+    .startest
+        opacity: 0
+        // background: linear-gradient(135deg, rgba(23,20,51,0) 0%,rgba(23,20,51,1) 72%,rgba(23,20,51,1) 88%,rgba(23,20,51,1) 100%)
+        background: url(../images/startest-bg.jpg) top center no-repeat
+        background-size: auto 100%
+        border-top: vw(6) solid #e0b780
+        text-align: center
+        padding: 0 0 vw(140) 0
+        position: relative
+        overflow: hidden
+        +rwd($pad)
+            border-top: mvw(6) solid #e0b780
+            padding: 0 0 mvw(140) 0
+        .deco
+            position: absolute
+            left: 0
+            top: 0
+            z-index: 0
+            width: 100%
+            height: 100%
+            background: url(../images/startest-bg.png) top center no-repeat
+            background-size: cover
+            // opacity: 0.2
+            img
+                max-width: auto
+        h2
+            margin: vw(110) auto 0
+            position: relative
+            z-index: 1
+            width: vw(956)
+            +rwd($pad)
+                margin: mvw(50) auto 0
+                width: mvw(676)
+        .content
+            position: relative
+            width: vw(1600)
+            margin: vw(60) 0 0 vw(170)
+            +rwd($pad)
+                width: 100%
+                margin: mvw(30) auto 0
+                padding: 0 mvw(20)
+            > ul
+                width: vw(1220)
+                position: relative
+                display: flex
+                justify-content: center
+                z-index: 1
+                margin: 0 auto
+                +rwd($pad)
+                    flex-direction: column
+                    width: 100%
+                    align-items: center
+                .selstarbg
+                    margin: 0 vw(30) 0 0
+                    width: vw(280)
+                    height: vw(627)
+                    background: url(../images/selstarlist-bg.png) top center no-repeat
+                    background-size: 100% 100%
+                    +rwd($pad)
+                        margin: 0 auto mvw(12)
+                        width: mvw(627)
+                        height: mvw(304)
+                        background: url(../images/mb-selstarlist-bg.png) top center no-repeat
+                        background-size: 100% 100%
+                        display: flex
+                        justify-content: flex-start
+                    .selstartitle
+                        height: vw(186)
+                        text-align: center
+                        +rwd($pad)
+                            width: mvw(140)
+                            height: 100%
+                        .icon
+                            width: vw(121)
+                            margin: vw(2) auto 0
+                            +rwd($pad)
+                                width: mvw(121)
+                                margin: mvw(15) 0 0 mvw(17)
+                        p
+                            margin: vw(45) auto 0
+                            text-align: center
+                            font-family: kan48typos-std
+                            font-size: vw(18)
+                            color: #e0b780
+                            +rwd($pad)
+                                margin: mvw(80) auto 0
+                                font-size: mvw(24)
+                            .sp
+                                font-size: vw(22)
+                                line-height: vw(40)
+                                +rwd($pad)
+                                    font-size: mvw(30)
+                                    line-height: mvw(40)
+                    ul
+                        margin: 0
+                        height: vw(420)
+                        padding: vw(40) 0 0 0
+                        text-align: center
+                        +rwd($pad)
+                            width: 100%
+                            height: 100%
+                            padding: 0
+                            display: flex
+                            flex-direction: column
+                            width: 100%
+                            // align-items: center
+                            justify-content: center
+                        li
+                            margin: 0 auto vw(30)
+                            width: vw(206)
+                            height: vw(90)
+                            cursor: pointer
+                            &:nth-last-child(1)
+                                margin: 0 auto
+                            +rwd($pad)
+                                display: flex
+                                justify-content: space-around
+                                align-items: flex-end
+                                width: 100%
+                                height: mvw(60)
+                                padding: 0 mvw(60) 0 mvw(30)
+                                margin: 0 0 mvw(20) 0
+                            // > div
+                            //     +rwd($pad)
+                            //         width: mvw(250)
+                            .titlebox
+                                +rwd($pad)
+                                    width: auto
+                                    text-align: center
+                                    margin: 0 mvw(20) 0 0
+                                    width: mvw(200)
+                            h3
+                                color: #dab27e
+                                font-family: kan48typos-std
+                                font-size: vw(22)
+                                font-weight: 400
+                                // line-height: vw(40)
+                                display: inline-block
+                                // margin: 0 auto vw(20)
+                                +rwd($pad)
+                                    width: mvw(120)
+                                    font-size: mvw(28)
+                                    margin: 0 mvw(20) 0 0
+                                &:before, &:after
+                                    content: ""
+                                    width: vw(12)
+                                    height: vw(12)
+                                    background: url(../images/deco-star.png) top center no-repeat
+                                    background-size: cover
+                                    display: inline-block
+                                    vertical-align: middle
+                                    +rwd($pad)
+                                        width: mvw(12)
+                                        height: mvw(12)
+                                &:before
+                                    margin: vw(-6) vw(10) 0 0
+                                    +rwd($pad)
+                                        margin: mvw(-6) mvw(10) 0 0
+                                &:after
+                                    margin: vw(-6) 0 0 vw(10)
+                                    +rwd($pad)
+                                        margin: mvw(-6) 0 0 mvw(10)
+                            p
+                                font-size: vw(16)
+                                color: #ffe1b8
+                                display: block
+                                margin: vw(5) auto
+                                // display: none
+                                +rwd($pad)
+                                    font-size: mvw(16)
+                                    margin: mvw(5) 0
+                                    width: mvw(120)
+                            a
+                                display: inline-block
+                                +rwd($pad)
+                                    width: mvw(280)
+                                    // margin: 0 0 mvw(10) 0
+                            label
+                                display: block
+                                cursor: pointer
+                            input
+                                display: none
+            .ps
+                font-size: vw(18)
+                color: #e0b780
+                margin: vw(40) auto 0
+                +rwd($pad)
+                    font-size: mvw(22)
+                    margin: mvw(40) auto 0
+    .knowledge
+        opacity: 0
+        // min-height: 100vh
+        height: vw(925)
+        background: url(../images/knowledge-bg.jpg) top center no-repeat
+        background-size: 100% 100%
+        border-top: vw(2) solid #e0b780
+        text-align: center
+        position: relative
+        overflow: hidden
+        +rwd($pad)
+            height: mvw(1600)
+            border-top: mvw(2) solid #e0b780
+            background: url(../images/mb-knowledge-bg.jpg) top center no-repeat
+            background-size: 100% 100%
+        // .deco
+        //     position: absolute
+        //     top: vw(-400)
+        //     left: 0
+        //     width: vw(1017)
+        h2
+            width: vw(1428)
+            margin: vw(50) 0 0 vw(242)
+            +rwd($pad)
+                width: mvw(692)
+                margin: 0 auto
+        .listarea
+            background: url(../images/knowledge-content-bg.png) top center no-repeat
+            background-size: cover
+            width: vw(1114)
+            height: vw(467)
+            margin: 0 auto
+            +rwd($pad)
+                background: url(../images/mb-knowledge-content-bg.png) top center no-repeat
+                background-size: cover
+                width: mvw(623)
+                height: mvw(1044)
+            ul
+                font-size: 0
+                display: flex
+                justify-content: center
+                align-items: center
+                padding: vw(95) 0 0 0
+                +rwd($pad)
+                    flex-direction: column
+                    justify-content: space-around
+                    padding: mvw(170) 0 0 0
+                li
+                    width: vw(225)
+                    height: vw(339)
+                    +rwd($pad)
+                        width: 100%
+                        height: mvw(165)
+                        text-align: center
+                        padding: 0
+                    // text-align: center
+                    a
+                        width: 100%
+                        height: 100%
+                        display: inline-block
+                        // transition: 0.3s
+                    &:nth-child(1)
+                        a
+                            background: url(../images/knowledge-list-1.png) top center no-repeat
+                            background-size: cover
+                            +rwd($pad)
+                                background: url(../images/mb-knowledge-list-1.png) top center no-repeat
+                                background-size: 100% auto
+                            &:hover
+                                background: url(../images/knowledge-list-1-hover.png) top center no-repeat
+                                background-size: cover
+                                +rwd($pad)
+                                    background: url(../images/mb-knowledge-list-1.png) top center no-repeat
+                                    background-size: 100% auto
+                    &:nth-child(2)
+                        a
+                            background: url(../images/knowledge-list-2.png) top center no-repeat
+                            background-size: cover
+                            +rwd($pad)
+                                background: url(../images/mb-knowledge-list-2.png) top center no-repeat
+                                background-size: 100% auto
+                            &:hover
+                                background: url(../images/knowledge-list-2-hover.png) top center no-repeat
+                                background-size: cover
+                                +rwd($pad)
+                                    background: url(../images/mb-knowledge-list-2.png) top center no-repeat
+                                    background-size: 100% auto
+                    &:nth-child(3)
+                        a
+                            background: url(../images/knowledge-list-3.png) top center no-repeat
+                            background-size: cover
+                            +rwd($pad)
+                                background: url(../images/mb-knowledge-list-3.png) top center no-repeat
+                                background-size: 100% auto
+                            &:hover
+                                background: url(../images/knowledge-list-3-hover.png) top center no-repeat
+                                background-size: cover
+                                +rwd($pad)
+                                    background: url(../images/mb-knowledge-list-3.png) top center no-repeat
+                                    background-size: 100% auto
+                    &:nth-child(4)
+                        a
+                            background: url(../images/knowledge-list-4.png) top center no-repeat
+                            background-size: cover
+                            +rwd($pad)
+                                background: url(../images/mb-knowledge-list-4.png) top center no-repeat
+                                background-size: 100% auto
+                            &:hover
+                                background: url(../images/knowledge-list-4-hover.png) top center no-repeat
+                                background-size: cover
+                                +rwd($pad)
+                                    background: url(../images/mb-knowledge-list-4.png) top center no-repeat
+                                    background-size: 100% auto
+                    &:nth-child(5)
+                        a
+                            background: url(../images/knowledge-list-5.png) top center no-repeat
+                            background-size: cover
+                            +rwd($pad)
+                                background: url(../images/mb-knowledge-list-5.png) top center no-repeat
+                                background-size: 100% auto
+                            &:hover
+                                background: url(../images/knowledge-list-5-hover.png) top center no-repeat
+                                background-size: cover
+                                +rwd($pad)
+                                    background: url(../images/mb-knowledge-list-5.png) top center no-repeat
+                                    background-size: 100% auto
+    .buybox
+        opacity: 0
+        border-top: vw(2) solid #e0b780
+        // min-height: 100vh
+        padding: vw(120) 0
+        +rwd($pad)
+            border-top: mvw(2) solid #e0b780
+            padding: mvw(140) 0
+        h2
+            width: vw(779)
+            margin: 0 auto
+            text-align: center
+            +rwd($pad)
+                width: mvw(600)
+        .hashtag
+            margin: vw(20) auto 0
+            text-align: center
+            +rwd($pad)
+                margin: mvw(20) auto 0
+            ul
+                font-size: 0
+                +rwd($pad)
+                    width: 100%
+                    margin: 0 auto
+                li
+                    display: inline-block
+                    font-size: vw(21)
+                    letter-spacing: 1.1px
+                    line-height: 1
+                    color: #fff
+                    padding: vw(10) vw(20)
+                    border: 1px solid #dab27e
+                    border-radius: vw(40)
+                    background: rgba(#d6c09f, 0.2)
+                    margin: 0 vw(5)
+                    +rwd($pad)
+                        font-size: mvw(23)
+                        padding: mvw(10) mvw(20)
+                        border-radius: mvw(40)
+                        margin: 0 mvw(5) mvw(10)
+            p
+                font-size: vw(22)
+                color: #ffffff
+                margin: vw(20) 0 0 0
+                transform: skewX(-12deg)
+                +rwd($pad)
+                    font-size: mvw(24)
+                    margin: mvw(10) 0 0 0
+        .content
+            width: vw(1560)
+            margin: vw(70) auto 0
+            +rwd($pad)
+                width: mvw(600)
+                margin: mvw(40) auto 0
+            .notslick
+                display: none
+            .slickarea
+                +rwd($pad)
+                    margin: mvw(100) auto 0
+                .box
+                    text-align: center
+                    margin: 0 vw(5)
+                    padding: vw(10) 0 0 0
+                    width: vw(302)
+                    +rwd($pad)
+                        width: mvw(460)
+                        margin: 0 mvw(10) mvw(20)
+                        padding: 0
+                    .txt
+                        margin: vw(26) 0 0 0
+                        color: #f5d9b1
+                        +rwd($pad)
+                            margin: mvw(26) 0 0 0
+                        h3
+                            font-size: vw(22)
+                            +rwd($pad)
+                                font-size: mvw(26)
+                        p
+                            font-size: vw(18)
+                            line-height: vw(48)
+                            +rwd($pad)
+                                font-size: mvw(24)
+                                line-height: mvw(36)
+                    &:hover
+                        img
+                            transform: scale(1.05)
+                            transition: 0.3s
+                            +rwd($pad)
+                                transform: scale(1)
+            .boxbtn
+                width: vw(317)
+                margin: vw(60) auto 0
+                +rwd($pad)
+                    width: mvw(317)
+                    margin: mvw(100) auto 0
+    .memberarea
+        opacity: 0
+        min-height: 100vh
+        background: #100d26
+        // opacity: 0
+        // border-top: 2px solid #e0b780
+        text-align: center
+        position: relative
+        padding: vw(100) 0
+        // background: url(../images/section-bg.png) top center no-repeat
+        // background-size: auto 100%
+        +rwd($pad)
+            padding: mvw(50) 0
+        &:before
+            content: ""
+            width: vw(1900)
+            height: vw(3)
+            background: url(../images/hr.png) top center no-repeat
+            background-size: 100% 100%
+            position: absolute
+            top: 0
+            left: 50%
+            transform: translateX(-50%)
+            +rwd($pad)
+                width: mvw(750)
+                height: mvw(3)
+        .memberbox
+            width: vw(1525)
+            height: vw(807)
+            background: url(../images/member-bg.png) top center no-repeat
+            background-size: 100% 100%
+            margin: 0 auto
+            padding: vw(80) 0 0 0
+            position: relative
+            +rwd($pad)
+                width: mvw(630)
+                height: mvw(1474)
+                background: url(../images/mb-member-bg.png) top center no-repeat
+                background-size: 100% 100%
+                margin: 0 auto
+                padding: mvw(100) 0 0 0
+        .title
+            font-family: kan48typos-std
+            // font-style: italic
+            color: #ffffff
+            +rwd($pad)
+                padding: 0 mvw(30)
+            h2
+                font-size: vw(60)
+                line-height: 1.5
+                +rwd($pad)
+                    width: mvw(550)
+                    margin: 0 auto
+                    font-size: mvw(60)
+            p
+                font-size: vw(24)
+                line-height: vw(36)
+                transform: skewX(-12deg)
+                color: #060318
+                +rwd($pad)
+                    font-size: mvw(24)
+                    line-height: mvw(36)
+            .sp
+                font-size: vw(16)
+                +rwd($pad)
+                    font-size: mvw(16)
+        .fuma
+            width: vw(185)
+            height: vw(45)
+            display: inline-block
+            // background: #000000
+            position: absolute
+            bottom: vw(94)
+            right: vw(159)
+            +rwd($pad)
+                width: mvw(305)
+                height: mvw(70)
+                bottom: mvw(82)
+                right: mvw(66)
+        .carrefourline
+            width: vw(56)
+            height: vw(56)
+            display: inline-block
+            // background: #000000
+            position: absolute
+            bottom: vw(353)
+            left: vw(220)
+            +rwd($pad)
+                width: mvw(56)
+                height: mvw(56)
+                top: mvw(408)
+                left: mvw(121)
+                bottom: inherit
+                // right: mvw(66)
+        .notearea
+            margin: vw(60) auto 0
+            width: vw(1600)
+            text-align: center
+            +rwd($pad)
+                margin: mvw(60) auto 0
+                width: 100%
+            .btn
+                padding: vw(20) vw(40)
+                display: inline-block
+                border: 1px solid #e0b780
+                border-radius: vw(40)
+                cursor: pointer
+                +rwd($pad)
+                    padding: mvw(20) mvw(30)
+                    border-radius: mvw(40)
+                p
+                    font-family: kan48typos-std
+                    font-size: vw(30)
+                    color: #e0b780
+                    margin: vw(-4) 0 0 0
+                    +rwd($pad)
+                        font-size: mvw(30)
+                        margin: mvw(-4) 0 0 0
+                    &:after
+                        content: ""
+                        width: vw(30)
+                        height: vw(30)
+                        background: url(../images/btn-open.png) top center no-repeat
+                        background-size: cover
+                        display: inline-block
+                        margin: 0 0 vw(-3) vw(20)
+                        transition: 0.3s
+                        +rwd($pad)
+                            width: mvw(30)
+                            height: mvw(30)
+                            margin: 0 0 mvw(-4) mvw(30)
+                &-active
+                    p
+                        &:after
+                            background: url(../images/btn-close.png) top center no-repeat
+                            background-size: cover
+                            transition: 0.3s
+            ul
+                display: block
+                margin: vw(50) auto 0
+                +rwd($pad)
+                    margin: mvw(50) auto 0
+                    padding: 0 mvw(60)
+                li
+                    list-style-type: disc
+                    font-size: vw(18)
+                    line-height: vw(40)
+                    color: #e0b780
+                    text-align: left
+                    margin: 0 0 vw(20) 0
+                    +rwd($pad)
+                        font-size: mvw(22)
+                        line-height: mvw(36)
+                        margin: 0 0 mvw(20) 0
+
+.red
+    color: #e60012
+
+.pc-only
+    display: block
+    +rwd($pad)
+        display: none
+    
+.mb-only
+    display: none
+    +rwd($pad)
+        display: block
+
+@keyframes sround
+    from
+        transform: rotate(0deg)
+    to
+        transform: rotate(360deg)
+
+@keyframes sround2
+    0%
+        transform: rotate(0deg)
+    12.5%
+        transform: rotate(45deg)
+    25%
+        transform: rotate(90deg)
+    37.5%
+        transform: rotate(135deg)
+    50%
+        transform: rotate(180deg)
+    62.5%
+        transform: rotate(225deg)
+    75%
+        transform: rotate(270deg)
+    87.5%
+        transform: rotate(315deg)
+    100%
+        transform: rotate(360deg)
+
+@keyframes scan
+    0%
+        left: vw(-40)
+    50%
+        left: vw(280)
+
+@keyframes mbscan
+    0%
+        left: mvw(-40)
+    50%
+        left: mvw(280)
+
+@keyframes opac
+    0%
+        opacity: 1
+    50%
+        opacity: 0

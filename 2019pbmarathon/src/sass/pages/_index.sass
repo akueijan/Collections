@@ -1,0 +1,554 @@
+﻿.index
+    position: relative
+    .kv
+        background: url(../images/index-kv-bg.png) top center no-repeat
+        background-size: 100% auto
+        width: 100%
+        // min-height: vw(1055)
+        height: vw(1400)
+        position: relative
+        margin: vw(75) auto 0
+        +rwd($pad)
+            height: mvw(1378)
+            margin: 0 auto
+            background: url(../images/mb-kv-bg.png) top center no-repeat
+            background-size: 100% auto
+        .kvman
+            width: vw(831)
+            height: vw(1213)
+            background: url(../images/kv-man.png) top center no-repeat
+            background-size: cover
+            position: absolute
+            top: vw(103)
+            left: 0
+            +rwd($pad)
+                width: mvw(542)
+                height: mvw(873)
+                background: url(../images/mb-kv-man.png) top center no-repeat
+                background-size: cover
+                top: mvw(391)
+                left: 0
+        .kvmandeco
+            width: vw(1717)
+            height: vw(550)
+            background: url(../images/kv-man-deco.png) top center no-repeat
+            background-size: cover
+            position: absolute
+            top: vw(-75)
+            left: 0
+            +rwd($pad)
+                width: mvw(750)
+                height: mvw(726)
+                background: url(../images/mb-kv-man-deco.png) top center no-repeat
+                background-size: cover
+                top: 0
+                left: 0
+                // transform: scale(1.2)
+        .kvcontent
+            position: absolute
+            top: vw(150)
+            right: vw(350)
+            +rwd($pad)
+                top: 0
+                right: 0
+                width: 100%
+                height: 100%
+        .kvslogn
+            width: vw(736)
+            +rwd($pad)
+                width: mvw(660)
+                top: mvw(150)
+                left: 50%
+                position: absolute
+                transform: translateX(-50%)
+        .kvtxt
+            width: vw(627)
+            +rwd($pad)
+                display: none
+        .kvprods
+            width: vw(254)
+            display: inline-block
+            margin: vw(30) vw(20) 0 0
+            +rwd($pad)
+                width: mvw(246)
+                position: absolute
+                top: mvw(714)
+                right: mvw(89)
+        .kvbtns
+            display: inline-block
+            margin: vw(30) 0 0 0
+            +rwd($pad)
+                position: absolute
+                top: mvw(1021)
+                right: mvw(45)
+        .kvbtn-game
+            width: vw(371)
+            height: vw(142)
+            background: url(../images/pc-btn-game.gif) top center no-repeat
+            background-size: cover
+            display: block
+            +rwd($pad)
+                width: mvw(355)
+                height: mvw(114)
+                background: url(../images/mb-btn-game.gif) top center no-repeat
+                background-size: cover
+        .kvbtn-invo
+            width: vw(371)
+            height: vw(142)
+            background: url(../images/pc-btn-invoice.gif) top center no-repeat
+            background-size: cover
+            display: block
+            +rwd($pad)
+                width: mvw(355)
+                height: mvw(114)
+                background: url(../images/mb-btn-invoice.gif) top center no-repeat
+                background-size: cover
+    .invoice
+        position: relative
+        margin: vw(-350) 0 0 0
+        text-align: center
+        +rwd($pad)
+            margin: mvw(56) 0 0 0
+        h2
+            width: vw(1025)
+            margin: 0 auto
+            +rwd($pad)
+                width: mvw(650)
+        p
+            font-size: vw(25)
+            font-weight: 600
+            line-height: vw(43)
+            color: #00488c
+            margin: vw(10) 0 0 0
+            +rwd($pad)
+                font-size: mvw(30)
+                line-height: mvw(45)
+                text-align: left
+                margin: mvw(24) 0 0 0
+        .content
+            text-align: center
+            margin: vw(30) auto 0
+            padding: 0
+            width: vw(1230)
+            +rwd($pad)
+                width: mvw(678)
+                margin: mvw(30) auto 0
+            .itemspic
+                width: vw(1229)
+                height: vw(610)
+                background: url(../images/index-items.png) top center no-repeat
+                background-size: cover
+                +rwd($pad)
+                    width: mvw(678)
+                    height: mvw(1435)
+                    background: url(../images/mb-index-items.png) top center no-repeat
+                    background-size: cover
+            .sp
+                font-size: vw(22)
+                font-weight: 400
+                color: #6d6d6d
+                +rwd($pad)
+                    font-size: mvw(28)
+                    text-align: center
+    .products
+        position: relative
+        background: url(../images/index-prod-bg.png) top center no-repeat
+        background-size: 100% auto
+        margin: vw(40) auto 0
+        padding: vw(240) 0 0 0
+        +rwd($pad)
+            background: url(../images/mb-index-prod-bg.png) top center no-repeat
+            background-size: 100% auto
+            margin: mvw(40) auto 0
+            padding: mvw(150) 0 0 0
+        &:after
+            content: ""
+            width: 100%
+            height: vw(142)
+            background: url(../images/index-sec-bottom.png) top center no-repeat
+            background-size: cover
+            display: block
+            margin: vw(40) 0 0 0
+            +rwd($pad)
+                height: mvw(79)
+                background: url(../images/mb-index-sec-bottom.png) top center no-repeat
+                background-size: cover
+                margin: mvw(80) 0 0 0
+        h2
+            margin: 0 auto
+            width: vw(1025)
+            +rwd($pad)
+                width: mvw(650)
+        .content
+            margin: vw(60) auto 0
+            width: vw(1220)
+            text-align: center
+            +rwd($pad)
+                margin: mvw(60) auto 0
+                width: mvw(570)
+            .prodspic
+                width: vw(1221)
+                height: vw(406)
+                background: url(../images/index-prods.png) top center no-repeat
+                background-size: cover
+                +rwd($pad)
+                    width: mvw(572)
+                    height: mvw(832)
+                    background: url(../images/mb-index-prods.png) top center no-repeat
+                    background-size: cover
+            .btn-prod
+                width: vw(389)
+                height: vw(126)
+                margin: vw(60) auto 0
+                background: url(../images/btn-prods.png) top center no-repeat
+                background-size: cover
+                display: inline-block
+                +rwd($pad)
+                    width: mvw(562)
+                    height: mvw(111)
+                    background: url(../images/mb-btn-prods.png) top center no-repeat
+                    background-size: cover
+                    margin: mvw(60) auto 0
+    .gamenote
+        position: relative
+        margin: vw(60) auto 0
+        text-align: center
+        +rwd($pad)
+            margin: mvw(60) auto 0
+            padding: 0 mvw(50)
+        h2
+            margin: 0 auto
+            width: vw(1024)
+            +rwd($pad)
+                width: mvw(650)
+        p
+            font-size: vw(25)
+            font-weight: 600
+            line-height: vw(42)
+            text-align: center
+            margin: vw(20) auto 0
+            color: #00488c
+            +rwd($pad)
+                font-size: mvw(30)
+                line-height: mvw(45)
+                margin: mvw(20) auto 0
+                text-align: left
+        .ps
+            font-size: vw(22)
+            font-weight: 400
+            line-height: 1
+            color: #6d6d6d
+            margin: vw(10) auto 0
+            +rwd($pad)
+                font-size: mvw(28)
+                margin: mvw(30) auto 0
+                text-align: center
+        .content
+            margin: vw(25) auto 0
+            width: vw(1228)
+            +rwd($pad)
+                margin: mvw(40) auto 0
+                width: 100%
+            .awardspic
+                width: vw(1228)
+                height: vw(581)
+                background: url(../images/index-awards.png) top center no-repeat
+                background-size: cover
+                +rwd($pad)
+                    width: mvw(674)
+                    height: mvw(1077)
+                    background: url(../images/mb-index-awards.png) top center no-repeat
+                    background-size: cover
+            .sp
+                font-size: vw(22)
+                font-weight: 400
+                color: #6d6d6d
+                margin: 0
+                +rwd($pad)
+                    font-size: mvw(28)
+                    text-align: center
+    .leader
+        position: relative
+        background: url(../images/index-leader-bg.png) top center no-repeat
+        background-size: 100% auto
+        margin: vw(40) auto 0
+        padding: vw(210) 0 0 0
+        +rwd($pad)
+            height: mvw(946)
+            background: url(../images/mb-index-leader-bg.png) top center no-repeat
+            background-size: 100% auto
+            margin: mvw(40) auto 0
+            padding: mvw(150) 0 0 0
+        &:after
+            content: ""
+            width: 100%
+            height: vw(142)
+            background: url(../images/index-sec-bottom.png) top center no-repeat
+            background-size: cover
+            display: block
+            margin: vw(80) auto 0
+            +rwd($pad)
+                height: mvw(79)
+                background: url(../images/mb-index-sec-bottom.png) top center no-repeat
+                background-size: cover
+                margin: mvw(80) 0 0 0
+        h2
+            margin: 0 auto
+            width: vw(1025)
+            +rwd($pad)
+                width: mvw(650)
+        .content
+            margin: vw(70) auto 0
+            padding: vw(40)
+            width: vw(1100)
+            background: url(../images/index-leader-block-bg.png) top center no-repeat
+            background-size: cover
+            text-align: center
+            position: relative
+            +rwd($pad)
+                margin: mvw(60) auto 0
+                padding: mvw(20)
+                width: mvw(650)
+                background: url(../images/index-leader-block-bg.png) top center no-repeat
+                background-size: 100% 100%
+            h2
+                font-size: vw(36)
+                font-weight: 600
+                text-align: center
+                color: #ffffff
+                position: absolute
+                top: vw(20)
+                left: 50%
+                transform: translateX(-50%)
+                +rwd($pad)
+                    font-size: mvw(24)
+            ul
+                height: vw(540)
+                padding: 0 vw(10) 0 0
+                overflow-y: auto
+                +rwd($pad)
+                    height: mvw(520)
+                    padding: 0 mvw(10) 0 0
+                &::-webkit-scrollbar-thumb
+                    height: vw(160)
+                    box-shadow: 0 0 vw(3) 0 #62feff
+                    background-color: #9fedff
+                    border-radius: vw(20)
+                    +rwd($pad)
+                        height: mvw(160)
+                        box-shadow: 0 0 mvw(3) 0 #62feff
+                        border-radius: mvw(20)
+                &::-webkit-scrollbar
+                    background-color: rgba(159, 237, 255, 0.5)
+                    width: vw(5)
+                    border-radius: vw(20)
+                    +rwd($pad)
+                        width: mvw(5)
+                        border-radius: mvw(20)
+            li
+                border-bottom: 1px solid rgba(255,255,255,0.2)
+                // padding: 0 vw(10) 0 0
+                display: flex
+                justify-content: space-around
+                align-items: center
+                padding: vw(10) vw(20)
+                +rwd($pad)
+                    padding: mvw(10) mvw(20)
+                .id
+                    margin: 0 vw(170) 0 0
+                    width: vw(80)
+                    text-align: center
+                    +rwd($pad)
+                        margin: 0 mvw(60) 0 0
+                        width: mvw(80)
+                    i
+                        width: vw(65)
+                        height: vw(65)
+                        // border-radius: 50%
+                        background: url(../images/icon-bg.png) center / cover
+                        font-size: vw(30)
+                        font-weight: 600
+                        color: #62a2d3
+                        text-align: center
+                        line-height: vw(65)
+                        display: inline-block
+                        +rwd($pad)
+                            width: mvw(65)
+                            height: mvw(65)
+                            font-size: mvw(30)
+                            line-height: mvw(65)
+                    .first
+                        background: url(../images/icon-first.png) center / cover
+                        width: vw(80)
+                        height: vw(58)
+                        font-size: 0
+                        +rwd($pad)
+                            width: mvw(80)
+                            height: mvw(58)
+                    .second
+                        background: url(../images/icon-second.png) center / cover
+                        width: vw(72)
+                        height: vw(58)
+                        font-size: 0
+                        +rwd($pad)
+                            width: mvw(72)
+                            height: mvw(58)
+                    .third
+                        background: url(../images/icon-third.png) center / cover
+                        width: vw(62)
+                        height: vw(58)
+                        font-size: 0
+                        +rwd($pad)
+                            width: mvw(62)
+                            height: mvw(58)
+                .pic
+                    width: vw(65)
+                    height: vw(65)
+                    // margin: 0 vw(20) 0 0
+                    +rwd($pad)
+                        width: mvw(54)
+                        height: mvw(54)
+                .name
+                    font-size: vw(30)
+                    font-weight: 600
+                    color: #ffffff
+                    width: vw(200)
+                    text-align: left
+                    margin: 0 vw(70) 0 0
+                    +rwd($pad)
+                        font-size: mvw(28)
+                        width: mvw(160)
+                        margin: 0 mvw(50) 0 0
+                .score
+                    font-size: vw(30)
+                    font-weight: 400
+                    color: #62a2d3
+                    text-align: left
+                    width: vw(100)
+                    // width: 30%
+                    +rwd($pad)
+                        font-size: mvw(28)
+                        font-weight: bold
+                        width: mvw(120)
+    .readme
+        position: relative
+        margin: vw(90) auto 0
+        padding: 0 0 vw(45) 0
+        +rwd($pad)
+            margin: mvw(60) auto 0
+            padding: 0 0 mvw(45) 0
+        h2
+            margin: 0 auto
+            width: vw(1024)
+            height: vw(57)
+            background: url(../images/index-title-readme.png) top center no-repeat
+            background-size: cover
+            +rwd($pad)
+                width: mvw(650)
+                height: mvw(87)
+                background: url(../images/mb-readme-titme.png) top center no-repeat
+                background-size: cover
+        h3
+            font-size: vw(28)
+            font-weight: bold
+            color: #00488c
+            margin: 0 0 vw(10) 0
+            +rwd($pad)
+                font-size: mvw(36)
+                margin: 0 0 mvw(10) 0
+            &:before
+                content: ""
+                width: vw(2)
+                height: vw(28)
+                background: #dd9903
+                display: inline-block
+                margin: 0 vw(15) 0 0
+                +rwd($pad)
+                    width: mvw(4)
+                    height: mvw(28)
+                    margin: 0 mvw(15) 0 0
+        p
+            font-size: vw(18)
+            color: #000
+            // text-shadow: 1px 1px 1px rgba(0,0,0,0.1)
+            +rwd($pad)
+                font-size: mvw(30)
+                line-height: mvw(45)
+        .bold
+            font-weight: bold
+        .blue
+            color: #00488c
+        .final
+            margin: 10px 0 0 0
+            line-height: 1.5
+        .content
+            width: vw(1024)
+            margin: vw(40) auto 0
+            +rwd($pad)
+                width: mvw(650)
+                margin: mvw(40) auto 0
+            li
+                margin: 0 0 vw(40) 0
+                font-size: vw(18)
+                color: #000
+                // text-shadow: 1px 1px 1px rgba(0,0,0,0.1)
+                +rwd($pad)
+                    margin: 0 0 mvw(40) 0
+                    font-size: mvw(30)
+                &:nth-last-child(1)
+                    margin: 0
+            .two
+                margin: vw(15) 0 0 0
+                +rwd($pad)
+                    margin: mvw(20) 0 0 0
+                li
+                    list-style-type: square
+                    line-height: vw(30)
+                    margin: 0 0 vw(20) vw(20)
+                    +rwd($pad)
+                        line-height: mvw(45)
+                        margin: 0 0 mvw(20) mvw(40)
+                    &:nth-last-child(1)
+                        margin: 0 0 0 vw(20)
+                        +rwd($pad)
+                            margin: 0 0 0 mvw(40)
+            .three
+                margin: vw(15) 0 0 0
+                +rwd($pad)
+                    margin: mvw(15) 0 0 0
+                li[data-list] 
+                    list-style-type: none
+                    margin: 0 0 vw(20) vw(20)
+                    +rwd($pad)
+                        margin: 0 0 mvw(20) mvw(20)
+                    &:nth-last-child(1)
+                        margin: 0 0 0 vw(20)
+                        +rwd($pad)
+                            margin: 0 0 0 mvw(20)
+                    &::before
+                        content: "("attr(data-list)")"
+                        margin: 0 vw(10) 0 0
+                        +rwd($pad)
+                            margin: 0 mvw(10) 0 0
+            .four
+                margin: vw(15) 0 0 0
+                +rwd($pad)
+                    margin: mvw(15) 0 0 0
+                li
+                    list-style-type: none
+                    margin: 0 0 vw(20) 0
+                    +rwd($pad)
+                        margin: 0 0 mvw(20) 0
+                    &:nth-last-child(1)
+                        margin: 0
+                    .bold
+                        font-weight: bold
+
+.pc-only
+    display: inline-block
+    +rwd($pad)
+        display: none
+.mb-only
+    display: none
+    +rwd($pad)
+        display: inline-block

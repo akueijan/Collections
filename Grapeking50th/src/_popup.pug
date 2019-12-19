@@ -1,0 +1,151 @@
+﻿transition(name="fade")
+    .popup(v-if="popup")
+        .popgame(v-if="popPage=='gamePop'")
+            transition(name="fade")
+                .content(v-if="gameStep=='start'" key="1")
+                    img.startimg(src="images/game-start.png")
+                    .btnarea
+                        .btn.btn-start(@click="gameStart()" gtm-data="遊戲_Start") 登入FB開始遊戲
+                .content(v-if="gameStep=='result'" key="2")
+                    img(:src="resPic")
+                    .btnarea
+                        .btn.btn-lottery(@click="scLottery()" gtm-data="遊戲_參加抽獎")
+                            p(v-if="!loading" gtm-data="遊戲_參加抽獎") 參加抽獎
+                            .loading(v-if="loading")
+                                img(src="images/loading.gif", alt="")
+                        .btn.btn-again(@click="playAgain()" gtm-data="遊戲_再玩一次") 再玩一次
+                .content(v-if="gameStep=='lottery'" key="3")
+                    .formarea
+                        h2
+                            img(src="images/lottery-title.png")
+                        form(@submit.prevent = "scPhone")
+                            ul
+                                li
+                                    p.name
+                                        i.user
+                                            img(:src="fbData.fbPic")
+                                        | {{fbData.fbName}}
+                                li
+                                    label(for="phone") 手機號碼 :
+                                    input#phone(type="text" placeholder="請輸入10位數字" maxlength="10" v-model="user.phone")
+                                li.agree
+                                    input#agree(type="checkbox" v-model="agree")
+                                    label(for="agree") 我已同意《葡萄王50週年慶 感恩回饋 現金50倍》活動辦法及相關規定
+                            .btnarea
+                                .btn.btn-send
+                                    button(type="submit" v-if="!loading" gtm-data="填寫資料_參加抽獎") 參加抽獎
+                                    .loading(v-if="loading" style="width: 55px")
+                                        img(src="images/loading.gif", alt="")
+                .content(v-if="gameStep=='success'" key="4")
+                    .formarea.sendsuc
+                        h2
+                            img(src="images/success-title-2.png")
+                        p 敬請留意得獎訊息
+                        .btnarea
+                            a.btn-again(href="index.html" title="登錄發票抽大獎" gtm-data="送出成功_登錄發票抽大獎")
+                                p(gtm-data="送出成功_登錄發票抽大獎") 登錄發票抽大獎
+                            .btn-fbshare(@click="navfbshare()" gtm-data="送出成功_邀請好友一起玩")
+                                p(gtm-data="送出成功_邀請好友一起玩") 
+                                    i
+                                        img(src="images/icon-fb.png")
+                                    | 邀請好友一起玩
+                        a.btn-home(href="index.html" title="回首頁" gtm-data="送出成功_回首頁")
+                            img(src="images/tohome.png" gtm-data="送出成功_回首頁")
+        .popaward(v-if="popPage=='sample'")
+            .poparea
+                .popclose(@click="popupClose()")
+                    img(src="images/popclose.png")
+                .content
+                    img(src="images/sample.png")
+        .popaward(v-if="popPage=='awardPop'")
+            .poparea
+                .popclose(@click="popupClose()")
+                    img(src="images/popclose.png")
+                .content(v-if="awardList=='philips'")
+                    h2 PHILIPS 健康氣炸鍋
+                    .bd(v-for="dates in awardData.philips")
+                        p {{ dates.date }}
+                        table.table
+                            tr
+                                th 發票號碼
+                                th 手機號碼
+                            tr(v-for="items in dates.Results")
+                                td {{ items.ReferenceInfo }}
+                                td {{ items.Mobile }}
+                .content(v-if="awardList=='panasonic'")
+                    h2 Panasonic 吹風機
+                    .bd(v-for="dates in awardData.panasonic")
+                        p {{ dates.date }}
+                        table.table
+                            tr
+                                th 發票號碼
+                                th 手機號碼
+                            tr(v-for="items in dates.Results")
+                                td {{ items.ReferenceInfo }}
+                                td {{ items.Mobile }}
+                .content(v-if="awardList=='iris'")
+                    h2 IRIS 除蟎機
+                    .bd(v-for="dates in awardData.iris")
+                        p {{ dates.date }}
+                        table.table
+                            tr
+                                th 發票號碼
+                                th 手機號碼
+                            tr(v-for="items in dates.Results")
+                                td {{ items.ReferenceInfo }}
+                                td {{ items.Mobile }}
+                .content(v-if="awardList=='wang'")
+                    h2 王品集團 500元即享券
+                    .bd(v-for="dates in awardData.wang")
+                        p {{ dates.date }}
+                        table.table
+                            tr
+                                th 發票號碼
+                                th 手機號碼
+                            tr(v-for="items in dates.Results")
+                                td {{ items.ReferenceInfo }}
+                                td {{ items.Mobile }}
+                .content(v-if="awardList=='burger'")
+                    h2 摩斯漢堡 早餐兌換券
+                    .bd(v-for="dates in awardData.burger")
+                        p {{ dates.date }}
+                        table.table
+                            tr
+                                th 發票號碼
+                                th 手機號碼
+                            tr(v-for="items in dates.Results")
+                                td {{ items.ReferenceInfo }}
+                                td {{ items.Mobile }}
+                .content(v-if="awardList=='cama'")
+                    h2 cama cafe 拿鐵兌換券
+                    .bd(v-for="dates in awardData.cama")
+                        p {{ dates.date }}
+                        table.table
+                            tr
+                                th 發票號碼
+                                th 手機號碼
+                            tr(v-for="items in dates.Results")
+                                td {{ items.ReferenceInfo }}
+                                td {{ items.Mobile }}
+                .content(v-if="awardList=='movieTic'")
+                    h2 雙人威秀電影票
+                    .bd(v-for="dates in awardData.movtic")
+                        p {{ dates.date }}
+                        table.table
+                            tr
+                                th Facebook名稱
+                                th 手機號碼
+                            tr(v-for="items in dates.Results")
+                                td {{ items.ReferenceInfo }}
+                                td {{ items.Mobile }}
+                .content(v-if="awardList=='SOGO'")
+                    h2 SOGO 100元禮券
+                    .bd(v-for="dates in awardData.sogo100")
+                        p {{ dates.date }}
+                        table.table
+                            tr
+                                th Facebook名稱
+                                th 手機號碼
+                            tr(v-for="items in dates.Results")
+                                td {{ items.ReferenceInfo }}
+                                td {{ items.Mobile }}

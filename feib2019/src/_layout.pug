@@ -1,0 +1,38 @@
+﻿doctype
+html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
+    //page default Information
+    block pageInfo
+        - var pageTitle = "【遠東商銀 夢想雲圖】"
+        - var pageDesc = "立即挑戰7大夢想指標!完成任務送好禮~"
+    //html head
+    include _head.pug
+    //html body
+    body
+        noscript
+            iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-NW8CCTN" height="0" width="0" style="display:none;visibility:hidden")
+        div.l-wrap#app(v-cloak=isVue)
+            include _nav.pug
+            include _popup.pug
+            include _load.pug
+            // render nav view
+            div.l-fb
+                div.l-container
+                    div.fb-box
+                        .fb-like(data-href='#', data-layout='button_count', data-action='like', data-show-faces='false', data-share='true') 
+            div.l-main
+                block page_main
+                //render main view
+            div.l-footer.footer
+                div.l-container
+                    .txt 理財生活網/ 
+                        a(href="https://www.feib.com.tw" target="_blank") www.feib.com.tw
+                    .txt 理財專線 0800-088-222 
+        include _comingsoon.pug
+        script(type="text/javascript" src=jsFolder+"vendor.js")
+        script(type="text/javascript" src=jsFolder+"lib.js")
+        if more_js
+            script(type="text/javascript" src= jsFolder + more_js)
+        script(type="text/javascript" id="appjs" src= jsFolder + "app.js?v="+timestamp data-mode=`${dev_mode}` data-site=`${apiUrl}`)
+        if pageJs
+            script(src= jsFolder + pageJs+"?v="+timestamp)
+        script(type='text/javascript')

@@ -1,0 +1,268 @@
+﻿.backfill
+    position: relative
+    padding: 100px 15px
+    +rwd($pad)
+        padding: 100px 15px 50px
+    .content
+        max-width: 1200px
+        width: 100%
+        margin: 0 auto
+        background: #dd4545
+        border: 8px solid #ffffff
+        border-radius: 56px
+        padding: 40px
+        text-align: center
+        margin: 0 auto
+        position: relative
+        box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3)
+        +rwd($pad)
+            border: 4px solid #ffffff
+            border-radius: 28px
+            padding: 20px 10px
+        h2
+            font-size: 36px
+            font-weight: bold
+            // text-shadow: 2px 2px 8px #666666
+            color: #ffffff
+            +rwd($pad)
+                font-size: 24px
+        p
+            font-size: 30px
+            font-weight: 600
+            color: #ffffff
+            +rwd($pad)
+                font-size: 20px
+        label
+            color: #ffffff
+        .form
+            margin: 0 auto
+            ul
+                width: 90%
+                margin: 0 auto
+                padding: 60px 0 0 0
+                +rwd($pad)
+                    padding: 30px 0 0 0
+                li
+                    margin: 0 0 30px 0
+                    text-align: left
+                    +rwd($pad)
+                        margin: 0 0 20px 0
+                    &:nth-last-child(1)
+                        margin: 0
+                    h3
+                        margin: 0 0 30px 0
+                        color: #ffffff
+                    a
+                        font-size: 24px
+                        text-shadow: 5px 5px 8px rgba(0,0,0,0.6)
+                        font-weight: bold
+                        color: #fff686
+                        line-height: 1.2
+                        display: inline-block
+                        &:after
+                            content: ""
+                            width: 105%
+                            height: 3px
+                            background: #fff686
+                            display: inline-block
+                            margin: 0 0 20px 0
+                        +rwd($pad)
+                            font-size: 20px
+                        i
+                            width: 50px
+                            display: inline-block
+                            padding: 0
+                            vertical-align: middle
+                            +rwd($pad)
+                                width: 40px
+                .head
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    +rwd($pad)
+                        display: block
+                    > div
+                        +rwd($pad)
+                            margin: 0 0 20px 0
+                    i
+                        width: 40px
+                        height: 40px
+                        display: inline-block
+                        margin: 0 15px 0 0
+                .fb
+                    text-align: center
+                    img
+                        vertical-align: middle
+                    p
+                        +rwd($pad)
+                            text-align: left
+                .fblogin
+                    font-size: 24px
+                    font-weight: bold
+                    color: #000
+                    padding: 20px 30px
+                    background: #ffc319
+                    border-radius: 30px
+                    box-shadow: 8px 8px 5px #b92121
+                    display: inline-block
+                    cursor: pointer
+            label
+                font-size: 30px
+                font-weight: 600
+                margin: 0 20px 0 0
+                vertical-align: baseline
+                +rwd($pad)
+                    font-size: 20px
+                    margin: 0 20px 0 0
+            input,select
+                width: 420px
+                height: 50px
+                background: #ffffff
+                border-radius: 20px
+                padding: 0 0 0 20px
+                border: 0
+                box-shadow: -5px -5px 0px #dbdbdb
+                font-size: 24px
+                font-weight: 600
+                +rwd($pad)
+                    width: 100%
+                    height: 30px
+                    border-radius: 10px
+                    padding: 0 0 0 10px
+                    font-size: 16px
+                    box-shadow: -3px -3px 0px #dbdbdb
+                &::placeholder 
+                    color: #cccccc
+            #cards
+                background: #ffffff
+                border: 0
+                font-size: 20px
+            #name
+                +rwd($pad)
+                    margin: 15px 0 0 0
+            #address
+                width: 100%
+                max-width: 800px
+                +rwd($pad)
+                    margin: 15px 0 0 0
+            .agree
+                input
+                    width: 24px
+                    height: 24px
+                    box-shadow: none
+                label
+                    font-size: 24px
+                    margin: 0 0 0 10px
+                    vertical-align: bottom
+                    +rwd($pad)
+                        font-size: 20px
+                        line-height: 1.2
+            ul.pictures
+                background: none
+                padding: 30px 0 0 0
+                margin: 0
+                display: flex
+                justify-content: space-around
+                align-items: center
+                flex-wrap: wrap
+                width: 100%
+                li
+                    background: #ffffff
+                    border: 1px dashed #dddddd
+                    width: 150px
+                    height: 150px
+                    margin: 0
+                    text-align: center
+                    // &:nth-last-child(1)
+                    //     margin: 0 0 vw(50) 0
+                    position: relative
+                    +rwd($pad)
+                        width: 120px
+                        height: 120px
+                        margin: 0 0 20px 0
+                    label
+                        width: 100%
+                        height: 100%
+                        line-height: 150px
+                        font-size: 24px
+                        margin: 0
+                        display: block
+                        cursor: pointer
+                        position: relative
+                        z-index: 2
+                    input
+                        opacity: 0
+                        display: none
+                    .preview
+                        width: 100%
+                        height: 100%
+                        text-align: center
+                        line-height: 150px
+                        position: absolute
+                        top: 0
+                        left: 0
+                        z-index: 1
+                        overflow: hidden
+                        +rwd($pad)
+                            line-height: 120px
+                        p
+                            font-size: 24px
+                            color: #666666
+                            +rwd($pad)
+                                font-size: 20px
+                        img
+                            max-width: 100%
+                            opacity: 0
+            .btnarea
+                width: 100%
+                margin: 60px auto 0
+                text-align: center
+                display: flex
+                justify-content: space-around
+                align-items: center
+                .btnsend
+                    width: 287px
+                    height: 77px
+                    background: #ffc319
+                    border-radius: 40px
+                    line-height: 77px
+                    margin: 0 auto
+                    cursor: pointer
+                    -webkit-box-shadow: 8px 8px 5px #b92121
+                    box-shadow: 8px 8px 5px #b92121
+                    position: relative
+                    +rwd($pad)
+                        width: 90%
+                        height: 60px
+                        line-height: 60px
+                    button
+                        background: none
+                        border: 0
+                        width: 100%
+                        height: 100%
+                        font-size: 30px
+                        font-weight: 600
+                        +rwd($pad)
+                            font-size: 24px
+                    .loading
+                        width: auto
+                        height: 60px
+                        position: absolute
+                        background: rgba(0,0,0,0)
+                        top: 0
+                        left: 50%
+                        transform: translateX(-50%)
+                        img
+                            height: 100%
+                            width: auto
+    .loading
+        width: 100%
+        height: 100%
+        position: fixed
+        top: 0
+        left: 0
+        background: rgba(0,0,0,0.9)
+        display: flex
+        justify-content: center
+        align-items: center
+        z-index: 9999

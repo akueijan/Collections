@@ -1,0 +1,163 @@
+$header-lg-height: 0
+$header-mobile-height: 0
+
+@mixin center
+    display: inline-flex
+    flex-flow: column wrap
+    align-items: center
+    justify-content: space-between
+
+header
+    width: 100vw
+    padding: 20px 50px
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+.nav
+    height: $header-lg-height
+    line-height: $header-lg-height
+    width: 100%
+    position: fixed
+    +zindex(main)
+    +rwd($desktop)
+        height: $header-mobile-height
+        line-height: $header-mobile-height
+    +rwd($pad)
+        height: 55px
+        background: rgba(26, 2, 85,0.8)
+    // display: none
+    &.active
+        position: absolute
+    &.upissue
+        z-index: 11
+    a 
+        cursor: pointer
+    p
+        display: inline-block
+        margin-right: 10px  
+    &>*:last-child p
+        margin-right: 0
+    &-bd 
+        height: 100%
+        padding: 0 vw(28)
+        display: flex
+        align-items: center
+        justify-content: space-between
+        +rwd($desktop)
+            padding: 0 mvw(23)
+    &-logo 
+        display: none
+        // display: inline-block
+        line-height: 0
+        vertical-align: middle
+        img
+            width: 100%
+            height: auto
+    &-btn
+        width: 36px
+        height: 26px
+        cursor: pointer
+        position: fixed
+        right: 55px
+        top: 36px
+        display: flex
+        flex-flow: column wrap
+        align-items: center
+        justify-content: space-between
+        z-index: 2
+        +rwd($pad)
+            right: 18px
+            top: 9px
+        +rwd($mobile)
+            width: 30px
+            height: 22px
+            top: 11px
+        >.one,
+        >.two,
+        >.three 
+            width: 36px
+            height: 3px
+            background: #fff
+            backface-visibility: hidden
+            transition-duration: 0.3s
+            // border-radius: mvw(3)
+            +rwd($mobile)
+                width: 30px
+        &:after
+            content: "MENU"
+            color: #ffffff
+            position: absolute
+            bottom: -10px
+            left: 50%
+            transform: translateX(-50%)
+
+    &-menu
+        width: 100%
+        height: 100vh
+        background: rgba(#160265, 0.9)
+        position: fixed
+        top: 0
+        left: 0
+        transform: translateY(-100%)
+        transition: 0.3s
+        ul
+            text-align: center
+            width: 100%
+            height: 100vh
+            +center
+            +rwd($mobile)
+                height: 84vh
+        li 
+            width: 100%
+            line-height: 42px
+            font-size: 26px
+            font-weight: bold
+            a 
+                cursor: pointer
+            span
+                color: #fff
+                position: relative
+                transition: 0.3s
+                &:after
+                    content: ""
+                    position: absolute
+                    bottom: -10px
+                    left: 50%
+                    transform: translateX(-50%)
+                    width: 50px
+                    height: 2px
+                    background: #fff
+                    transition: 0.3s
+                &:hover
+                    color: #f6c12e
+                    transition: 0.3s
+                    &:after
+                        width: 120px
+                        background: #f6c12e
+                        transition: 0.3s
+
+    &--active 
+        .nav-menu
+            transform: translateY(0)
+            transition: 0.3s
+        .nav-btn
+            z-index: 2
+            right: 55px
+            top: 36px
+            display: inline-block
+            +rwd($pad)
+                right: 18px
+                top: 12px
+            >.one 
+                position: absolute
+                top: 50%
+                transform: (rotate(45deg))
+            >.two 
+                opacity: 0
+            >.three 
+                position: absolute
+                top: 50%
+                transform: (rotate(-45deg))
+            &:after
+                content: "CLOSE"

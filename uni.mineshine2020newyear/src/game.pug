@@ -1,0 +1,59 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "#麥香曬友情｜跨年出麥朋友，拍你個頭"
+    - var pageDesc = "讓「麥香梗圖產生器」創造出超友梗圖，還有機會免費獲得「客製化麥friends禮盒」！快來出「麥」好友！"
+    - var pageJs = "game.js"
+    - var isVue = true
+//- page html
+block page_main
+    section.game
+        .step.step1
+            .hd
+                h2
+                    img.pconly(src="images/step1.png")
+                    img.mbonly(src="images/mb-step1.png")
+            .bd
+                h2
+                    img.pconly(src="images/step1-title.png")
+                    img.mbonly(src="images/mb-step1-title.png")
+                .canarea
+                    ul
+                        li.list1
+                            label(for="files1" gtm-data="上傳照片頁-點此上傳或拍照")
+                            canvas#canvas.canvas
+                            canvas#drawimg.drawimg
+                            input#files1(type="file" value="1" accept="image/*" name="files[]" @change="readpoto" gtm-data="上傳照片頁-點此上傳或拍照")
+                        li.list2
+                            label(for="files2" gtm-data="上傳照片頁-點此上傳或拍照")
+                            canvas#canvas2.canvas
+                            canvas#drawimg2.drawimg
+                            input#files2(type="file" value="2" accept="image/*" name="files[]" @change="readpoto" gtm-data="上傳照片頁-點此上傳或拍照")
+                        li.list3
+                            label(for="files3" gtm-data="上傳照片頁-點此上傳或拍照")
+                            canvas#canvas3.canvas
+                            canvas#drawimg3.drawimg
+                            input#files3(type="file" value="3" accept="image/*" name="files[]" @change="readpoto" gtm-data="上傳照片頁-點此上傳或拍照")
+                        li.list4
+                            img(src="images/game-deco-1.png")
+                    .agree
+                        input#agree(type="checkbox" v-model="agree" gtm-data="上傳照片頁-同意活動辦法")
+                        label(for="agree" @click="eventOpen" gtm-data="上傳照片頁-同意活動辦法") 本人已詳閱並同意活動辦法及個資保護條例
+                    // fbLogin()
+                    .btnstart(@click="drawLoop()" gtm-data="上傳照片頁-確定送出")
+                        img(src="images/btn-send.png" gtm-data="上傳照片頁-確定送出")
+                .overcan
+                    canvas#fcan
+                    ul
+                        li.list1
+                            canvas#cutcan1
+                            canvas#ucan1
+                        li.list2
+                            canvas#cutcan2
+                            canvas#ucan2
+                        li.list3
+                            canvas#cutcan3
+                            canvas#ucan3
+        script(src="static/clmtrackr.js")
+        script(src="static/exif.js")

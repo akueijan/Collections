@@ -1,0 +1,175 @@
+{
+	"frames": {
+		"gameover-1.png": {
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 785,
+				"h": 371
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 785,
+				"h": 371
+			},
+			"sourceSize": {
+				"w": 785,
+				"h": 371
+			}
+		},
+		"gameover-2.png": {
+			"frame": {
+				"x": 0,
+				"y": 371,
+				"w": 804,
+				"h": 371
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 804,
+				"h": 371
+			},
+			"sourceSize": {
+				"w": 804,
+				"h": 371
+			}
+		},
+		"gameover-3.png": {
+			"frame": {
+				"x": 0,
+				"y": 742,
+				"w": 805,
+				"h": 370
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 805,
+				"h": 370
+			},
+			"sourceSize": {
+				"w": 805,
+				"h": 370
+			}
+		},
+		"gameover-4.png": {
+			"frame": {
+				"x": 0,
+				"y": 1112,
+				"w": 785,
+				"h": 371
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 785,
+				"h": 371
+			},
+			"sourceSize": {
+				"w": 785,
+				"h": 371
+			}
+		},
+		"gameover-5.png": {
+			"frame": {
+				"x": 0,
+				"y": 1483,
+				"w": 781,
+				"h": 371
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 781,
+				"h": 371
+			},
+			"sourceSize": {
+				"w": 781,
+				"h": 371
+			}
+		},
+		"gameover-6.png": {
+			"frame": {
+				"x": 0,
+				"y": 1854,
+				"w": 785,
+				"h": 371
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 785,
+				"h": 371
+			},
+			"sourceSize": {
+				"w": 785,
+				"h": 371
+			}
+		},
+		"gameover-7.png": {
+			"frame": {
+				"x": 0,
+				"y": 2225,
+				"w": 805,
+				"h": 370
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 805,
+				"h": 370
+			},
+			"sourceSize": {
+				"w": 805,
+				"h": 370
+			}
+		},
+		"gameover-8.png": {
+			"frame": {
+				"x": 0,
+				"y": 2595,
+				"w": 785,
+				"h": 371
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 785,
+				"h": 371
+			},
+			"sourceSize": {
+				"w": 785,
+				"h": 371
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "gameover.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 805,
+			"h": 2966
+		},
+		"scale": "1"
+	}
+}

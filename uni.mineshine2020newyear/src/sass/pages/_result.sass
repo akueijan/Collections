@@ -1,0 +1,213 @@
+﻿.result
+    padding: 60px 0
+    // min-height: 100vh
+    background: url(../images/presbg.jpg) top center no-repeat
+    +rwd($pad)
+        padding: 50px 0
+    .step
+        position: relative
+        .hd
+            max-width: 960px
+            height: 100px
+            margin: 40px auto 0
+            text-align: center
+            +rwd($pad)
+                height: auto
+                width: 100%
+                padding: 0 15px
+        .bd
+            max-width: 960px
+            margin: 40px auto 0
+            text-align: center
+            +rwd($pad)
+                width: 100%
+                padding: 0 15px
+                margin: 20px auto 0
+        .canarea
+            position: relative
+            margin: 30px auto 0
+            text-align: center
+            .overcan
+                max-width: 900px
+                width: 100%
+                height: 477px
+                background: url(../images/overcanbg.jpg) top center no-repeat
+                background-size: 100% auto
+                margin: 0 auto
+                position: relative
+                +rwd($pad)
+                    width: mvw(670)
+                    height: mvw(360)
+                    background-size: 100% 100%
+                img
+                    width: 96%
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%,-50%)
+            ul
+                display: flex
+                justify-content: space-around
+                align-items: center
+                margin: 40px auto 0
+                +rwd($pad)
+                    flex-wrap: nowrap
+                li
+                    width: 216px
+                    height: 296px
+                    background: url(../images/list-bg.png) top center no-repeat
+                    background-size: cover
+                    position: relative
+                    +rwd($pad)
+                        width: mvw(205)
+                        height: mvw(285)
+                        background-size: 100% 100%
+                    label
+                        width: 100%
+                        height: 100%
+                        position: absolute
+                        top: 0
+                        left: 0
+                        z-index: 9
+                        cursor: pointer
+                    p
+                        font-size: 1.8rem
+                        font-weight: 600
+                        line-height: 1.5
+                        padding: 0 0 0 15px
+                        position: absolute
+                        bottom: 0
+                        left: 0
+                        transform: translateY(100%)
+                    img
+                        width: 190px
+                        height: 270px
+                        position: absolute
+                        top: 50%
+                        left: 50%
+                        transform: translate(-50%,-50%)
+                        +rwd($pad)
+                            width: mvw(180)
+                            height: mvw(260)
+                .list1
+                    transform: rotate(-5deg)
+                .list3
+                    transform: rotate(4deg)
+        .btnarea
+            max-width: 900px
+            width: 100%
+            margin: 30px auto 0
+            display: flex
+            justify-content: space-around
+            align-items: center
+            +rwd($pad)
+                flex-wrap: wrap
+            .again
+                +rwd($pad)
+                    width: 110px
+                    padding: 0
+            .fbshare
+                +rwd($pad)
+                    order: -1
+                    width: 100%
+                    margin: 0 0 20px 0
+                    img
+                        width: 240px
+            .download
+                +rwd($pad)
+                    width: 110px
+                    padding: 0
+        a
+            font-size: 24px
+            padding: 0
+            display: inline-block
+        .btn
+            padding: 0
+            cursor: pointer
+    .step3
+        .content
+            margin: -10px 0 0 0
+            display: flex
+            justify-content: space-between
+            align-items: flex-start
+            position: relative
+            padding: 0 0 80px 0
+            +rwd($pad)
+                display: block
+                padding: 0 0 60px 0
+            .img
+                +rwd($pad)
+                    width: percentage(510/750)
+                    margin: 0 auto
+            .form
+                text-align: left
+                margin: 90px 0 0 30px
+                +rwd($pad)
+                    padding: 0 percentage(60/750)
+                    margin: 40px 0 0 0
+                li
+                    margin: 0 0 30px 0
+                label
+                    font-size: 24px
+                    color: #ffffff
+                    display: block
+                    margin: 0 0 5px 0
+                    +rwd($pad)
+                        font-size: 16px
+                input
+                    width: 100%
+                    height: 40px
+                    line-height: 40px
+                    border: 2px solid #000000
+                    padding: 0 0 0 10px
+                    font-size: 20px
+                    +rwd($pad)
+                        font-size: 16px
+                .agree
+                    label
+                        display: inline-block
+                        font-size: 20px
+                        text-decoration: underline
+                        cursor: pointer
+                        +rwd($pad)
+                            width: 85%
+                            font-size: 14px
+                            line-height: 1.5
+                    input
+                        width: 20px
+                        height: 20px
+                        vertical-align: sub
+                        margin: 0 10px 0 0
+                        +rwd($pad)
+                            width: 16px
+                            height: 16px
+                            margin: 5px 5px 0 0
+                            vertical-align: top
+        .btnsend
+            width: 306px
+            height: 96px
+            background: url(../images/btnsendbg.png) top center no-repeat
+            background-size: cover
+            // margin: 30px auto 0
+            cursor: pointer
+            position: absolute
+            left: 50%
+            bottom: 0
+            transform: translate(-50%, 30%)
+            +rwd($pad)
+                width: 250px
+                height: 78px
+            button
+                background: none
+                border: 0
+    #giftbox
+        position: absolute
+        top: 0
+        left: 0
+        width: 0
+        height: 0
+        opacity: 0
+    .small
+        font-size: 1.6rem
+        +rwd($pad)
+            font-size: 1.4rem

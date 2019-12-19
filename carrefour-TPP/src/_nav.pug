@@ -1,0 +1,20 @@
+nav.nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+    div.l-container
+        div.nav-bd
+            h1.nav-logo
+                a(href="index.html" alt="家樂福" title="家樂福" gtm-data="Menu-Logo")
+                    img(src="images/logo.png")
+            div.nav-btn
+                div.one
+                div.two
+                div.three
+            div.nav-menu(role="navigation")
+                ul.clearfix
+                    li.nav-item.nav-video
+                        a(href="javascript:void(0)" alt="熱映影片" itemprop="url" title="熱映影片" @click="popOpen('video','')" gtm-data="Menu-熱映影片"): span 熱映影片
+                    li.nav-item.nav-startest
+                        a(href="javascript:void(0)" alt="平安星象測驗" itemprop="url" title="平安星象測驗" @click="scrollTo('#startest')" gtm-data="Menu-平安星象測驗"): span 平安星象測驗
+                    li.nav-item.nav-knowledge
+                        a(href="javascript:void(0)" alt="傳統普渡指南" itemprop="url" title="傳統普渡指南" @click="scrollTo('#knowledge')" gtm-data="Menu-傳統普渡指南"): span 傳統普渡指南
+                    li.nav-item.nav-buybox
+                        a(href="javascript:void(0)" alt="必BUY平安箱" itemprop="url" title="必BUY平安箱" @click="scrollTo('#buybox')" gtm-data="Menu-必BUY平安箱"): span 必BUY平安箱

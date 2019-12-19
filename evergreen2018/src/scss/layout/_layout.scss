@@ -1,0 +1,194 @@
+$ft_height: 100px;
+$ft_height_mb: 0;
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0 auto;
+    font-family: 'Noto Sans TC','EB Garamond','微軟正黑體',
+    'Microsoft JhengHei',
+    Arial,
+    Helvetica,
+    sans-serif,
+    'Microsoft Yahei',
+    'Microsoft JhengHei';
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    height: auto;
+    margin: 0 auto;
+    background: #82b9d7;
+    // overflow: hidden;
+}
+.fb-root {
+    height: 0;
+    overflow: hidden;
+}
+
+.l-container{ 
+    margin: 0 auto;
+    // width: 750px;
+    position: relative;
+} 
+
+.l-wrap {
+    // height: 100%;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    position: relative;
+    overflow: auto;
+}
+
+.l-main{
+    // padding-bottom: $ft_height;
+}
+
+.l-footer {
+    background:#6cc5e9;
+    position: relative;
+    overflow: hidden;
+    // margin-top: -$ft_height;
+    // height: $ft_height;
+    // line-height: $ft_height;
+    .l-container {
+        padding: 15px 35px;
+        text-align: center;
+        @include rwd($mobile){
+            padding: 15px;
+        }
+        .footer-logo {
+            height: 35px;
+            line-height: 35px;
+            img {
+                max-width: 228px;
+                vertical-align: middle;
+            }
+        }
+        p {
+            height: 35px;
+            line-height: 35px;
+            color: #ffffff;
+            @include rwd($mobile){
+                font-size: 14px;
+            }
+        }
+    }
+    .ft-nav {
+        height: 50px;
+        line-height: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #37add6;
+        padding: 0 35px;
+        @include rwd($pad){
+            display: block;
+            padding: 0;
+            text-align: center;
+        }
+        .ft-left {
+            @include rwd($pad){
+                display: none;
+            }
+            ul {
+                font-size: 0;
+            }
+            li {
+                display: inline-block;
+                font-size: 16px;
+                color: #ffffff;
+                &::after {
+                    content: "/";
+                    margin: 0 15px;
+                    @include rwd($desktop-w){
+                        margin: 0 5px;
+                    }
+                }
+                a {
+                    color: #ffffff;
+                }
+                &:nth-last-of-type(1) {
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+        .ft-right {
+            ul {
+                font-size: 0;
+                li {
+                    display: inline-block;
+                    font-size: 16px;
+                    color: #ffffff;
+                    a {
+                        // width: 20px;
+                        // height: 20px;
+                        // display: inline-block;
+                    }
+                    img {
+                        vertical-align: middle;
+                        padding: 5px;
+                    }
+                    &::after {
+                        content: "|";
+                        margin: 0 25px;
+                        display: inline-block;
+                        @include rwd($desktop-w){
+                            margin: 0 10px;
+                        }
+                        @include rwd($pad){
+                            margin: 0 25px;
+                        }
+                    }
+                    &:nth-last-of-type(1) {
+                        &::after {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.l-fb{
+    position: relative;
+    height: 0;
+    .fb-box{
+        background: transparent;
+        color: #ffffff;
+        height: 20px;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+
+.l-vm {
+    //使用的時後，請給l-vm層定義高度
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      width: 0;
+      vertical-align: middle;
+    }
+    &__content {
+        display: inline-block;
+        vertical-align: middle;
+        padding-left: -0.07em; 
+    }
+}

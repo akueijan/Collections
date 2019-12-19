@@ -1,0 +1,10 @@
+﻿transition(mode="in-out" name="fade")
+    .mdLoading(v-show="loading==true" key="load1")
+        .loadingBox
+            img.load-left(src="images/load-left.png")
+            img.load-right(src="images/load-right.png")
+transition(mode="in-out" name="fade")
+    .pageloading(v-show="pageload==true" key="load2")
+        .loadingBox
+            img.pageload-left(src="images/load-left.png")
+            img.pageload-right(src="images/load-right.png")

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>開運能量｜金豬報喜 能量運勢求籤筒</title>
+    <meta name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
+    <meta itemprop="name" content="開運能量｜金豬報喜 能量運勢求籤筒">
+    <meta itemprop="description" content="購買康貝特系列或PowerBOMB指定商品,登錄發票立即抽現金88,888! 加碼週週抽台北-沖繩來回機票、紅包888元...等多項好禮等你拿!">
+    <meta itemprop="image" content="images/fbshare.png">
+    <meta property="og:title" content="開運能量｜金豬報喜 能量運勢求籤筒">
+    <meta property="og:description" content="登錄康貝特指定商品發票,立即抽現金88,888! 加碼週週抽台北-沖繩來回機票、紅包888元...等多項好禮等你拿!">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="images/fbshare.png">
+    <link rel="Shortcut Icon" type="images/x-icon" href="images/fav.ico">
+    <link rel="stylesheet" href="css/main.css?v=1570091119028">
+    <script src="https://cdn.jsdelivr.net/npm/vconsole@3.2.0/dist/vconsole.min.js"></script>
+    <script>
+        dataLayer = [{}];
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PDQBGG3');
+    </script>
+</head>
+<!--html body-->
+
+<body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PDQBGG3" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <div class="l-wrap" id="app" v-cloak>
+        <nav class="nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <div class="l-container">
+                <div class="nav-bd">
+                    <h1 class="nav-logo"></h1>
+                    <div class="nav-btn">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                    <div class="nav-menu" role="navigation">
+                        <ul class="clearfix">
+                            <li class="nav-item nav-item--iscurrent" gtm-data="menu_回首頁"><a href="./index.html" alt="回首頁" itemprop="url" title="回首頁" gtm-data="menu_回首頁"><span gtm-data="menu_回首頁">回首頁</span></a></li>
+                            <li class="nav-item" gtm-data="menu_發票登錄"><a @click="vAlert" alt="發票登錄" itemprop="url" title="發票登錄" gtm-data="menu_發票登錄"><span gtm-data="menu_發票登錄">發票登錄</span></a></li>
+                            <li class="nav-item" gtm-data="menu_好運大獎"><a href="./index.html#awards" alt="好運大獎" itemprop="url" title="好運大獎" gtm-data="menu_好運大獎"><span gtm-data="menu_好運大獎">好運大獎</span></a></li>
+                            <li class="nav-item" gtm-data="menu_活動辦法"><a href="./index.html#events" alt="活動辦法" itemprop="url" title="活動辦法" gtm-data="menu_活動辦法"><span gtm-data="menu_活動辦法">活動辦法</span></a></li>
+                            <li class="nav-item" gtm-data="menu_開運能量"><a href="./products.html" alt="開運能量" itemprop="url" title="開運能量" gtm-data="menu_開運能量"><span gtm-data="menu_開運能量">開運能量</span></a></li>
+                            <li class="nav-item" gtm-data="menu_得獎名單"><a href="./awards.html" alt="得獎名單" itemprop="url" title="得獎名單" gtm-data="menu_得獎名單"><span gtm-data="menu_得獎名單">得獎名單</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <transition name="fade">
+            <div class="popupbg" v-show="popup==true">
+                <div class="popup-content">
+                    <div class="close" v-on:click="birthClose();popupClose();"></div>
+                    <div class="birthday" v-show="popuppage=='birthday'">
+                        <h2>2019運勢究竟會如何?!</h2>
+                        <p>立即輸入生日，Check it out！</p>
+                        <form class="form" id="birthdayForm" v-on:submit.prevent="sendBirthday()">
+                            <div class="selarea">
+                                <input id="birthday">
+                            </div>
+                            <button class="btnarea" type="submit" gtm-data="發票登錄_賜我好運"><img src="images/birthday-btn.png" gtm-data="發票登錄_賜我好運"></button>
+                        </form>
+                    </div>
+                    <div class="ticsample" v-if="popuppage=='sample'">
+                        <h2>電子發票範例</h2><img src="images/sample.png">
+                    </div>
+                    <div class="commingsoon" v-if="popuppage=='commingsoon'">
+                        <h2>金豬報喜 能量運勢求籤筒</h2>
+                        <p>2/13-4/13即將開運!</p>
+                        <div class="btnarea" v-on:click="popupClose"><a href="javascript:void(0)"><img src="images/sure.png" style="width:280px"></a></div>
+                    </div>
+                    <div class="awardlist" v-if="popuppage=='awardlist'">
+                        <h2>{{ awardTitle }}</h2>
+                        <ul class="tab">
+                            <li class="title">
+                                <div class="name">姓名</div>
+                                <div class="code">發票號碼</div>
+                                <div class="mobile">手機號碼</div>
+                            </li>
+                            <li v-for="item in awardPopList">
+                                <div class="name">{{item.name}}</div>
+                                <div class="code">{{item.invNum}}</div>
+                                <div class="mobile">{{item.phone}}</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </transition>
+        <!-- render nav view-->
+        <div class="l-main">
+            <div class="products">
+                <div class="bg">
+                    <div class="linearea">
+                        <div class="deco-topline"></div>
+                        <div class="deco-botline"></div>
+                        <div class="deco-leftline"></div>
+                        <div class="deco-rightline"></div>
+                        <div class="deco-lt"><img src="images/corner_r.png"></div>
+                        <div class="deco-rt"><img src="images/corner_r.png"></div>
+                        <div class="deco-lb"><img src="images/corner_r.png"></div>
+                        <div class="deco-rb"><img src="images/corner_r.png"></div>
+                    </div>
+                    <div class="cloudarea">
+                        <div class="randomcloud randomcloud1"><img src="images/cloud-2.png"></div>
+                        <div class="randomcloud randomcloud2"><img src="images/cloud-3.png"></div>
+                        <div class="randomcloud randomcloud3"><img src="images/cloud-4.png"></div>
+                        <div class="randomcloud randomcloud4"><img src="images/cloud-5.png"></div>
+                        <div class="randomcloud randomcloud5"><img src="images/cloud-2.png"></div>
+                    </div>
+                    <div class="l-bling"><img src="images/l-bling.png"></div>
+                    <div class="r-bling"><img src="images/r-bling.png"></div>
+                </div>
+                <div class="l-content">
+                    <div class="light"><img src="images/kv-light.png"></div>
+                    <div class="block">
+                        <div class="title"><img src="images/energysupply-title.png"></div>
+                        <div class="bg">
+                            <div class="bg2">
+                                <div class="bg3">
+                                    <h2>購買<span class="yel">康貝特系列</span>或<span class="yel">PowerBOMB</span>任一商品，<br> <span class="yel">登錄發票</span>即可<span class="yel">抽好運大獎！</span></h2>
+                                    <div class="content">
+                                        <ul>
+                                            <li><img src="images/pd-1.png"></li>
+                                            <li><img src="images/pd-2.png"></li>
+                                            <li><img src="images/pd-3.png"></li>
+                                            <li><img src="images/pd-4.png"></li>
+                                        </ul>
+                                    </div>
+                                    <div class="btnarea">
+                                        <div class="btnlogin"><a @click="vAlert" gtm-data="開運能量_立即登錄發票"><img src="images/btn-login.png" alt="立即登錄發票" gtm-data="開運能量_立即登錄發票"></a></div>
+                                        <div class="btnbuy"><a href="https://eshop.grapeking.com.tw/collections/comebest?utm_source=eventsite&amp;utm_medium=link&amp;utm_campaign=luckydraw" target="_blank" gtm-data="開運能量_即刻購買"><img src="images/btn-buy.png" alt="即刻購買" gtm-data="開運能量_即刻購買"></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--render main view-->
+        </div>
+        <div class="fixedbtn" gtm-data="首頁_登錄發票添好運"><a @click="vAlert" gtm-data="首頁_登錄發票添好運"><img src="images/btn.png" gtm-data="首頁_登錄發票添好運"></a></div>
+        <div class="l-footer footer">
+            <div class="l-container">
+                <p>Copyright © 2019 葡萄王生技股份有限公司 All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/x-template" id="comingsoon">
+        <transition name="fade">
+            <div class="comingsoon-main" v-if="comingsoon" key="comingsoon">
+                <div class="comingsoon">
+                    <div class="comingsoon__box">
+                        <div class="comingsoon__hd">
+                            <h2 class="comingsoon__title"> <img src="images/title.png" alt=""></h2>
+                        </div>
+                        <div class="comingsoon__bd">
+                            <div class="counter">
+                                <div class="days">
+                                    <div class="value">{{date.days || '00'}}</div><span>日</span>
+                                </div>
+                                <div class="hours">
+                                    <div class="value">{{date.hours || '00'}}</div><span>時</span>
+                                </div>
+                                <div class="minutes">
+                                    <div class="value">{{date.minutes || '00'}}</div><span>分</span>
+                                </div>
+                                <div class="seconds">
+                                    <div class="value">{{date.seconds || '00'}}</div><span>秒</span>
+                                </div>
+                            </div>
+                            <p class="coming-text">coming soon</p>
+                        </div>
+                        <div class="comingsoon__fd">
+                            <div class="content">
+                                <p class="info-title">第一次普渡就上手</p>
+                                <p class="info-sub">還有萬元提貨券等你抽！</p><img class="pic" src="images/table.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </script>
+    <script type="text/javascript" src="js/vendor.js?v=1570091119028"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+    <script type="text/javascript" src="js/lib.js?v=1570091119028"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+    <script type="text/javascript" id="appjs" src="js/app.js?v=1570091119028" data-mode="true" data-site="https://visaapitest.azurewebsites.net/api/"></script>
+    <script src="js/products.js?v=1570091119028"></script>
+    <script type="text/javascript"></script>
+</body>
+
+</html>

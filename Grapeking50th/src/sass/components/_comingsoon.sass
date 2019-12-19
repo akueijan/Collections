@@ -1,0 +1,138 @@
+.comingsoon-main 
+    width: 100%
+    height: 100vh
+    background: rgba(#000,0.8)
+    position: fixed
+    left: 0
+    top: 0
+    overflow: auto
+    z-index: 9999
+
+.comingsoon 
+    width: 100%
+    max-width: 750px
+    margin: 0 auto
+    padding: 250px 0 60px 0px
+    min-height: 100vh
+    // background: url("~/assets/images/bg.png")
+    +rwd($pad)
+        padding: 60px 0 0 0
+    &__box 
+        text-align: center
+    
+    &__title 
+        margin: 0 auto
+    
+    &__bd 
+        box-sizing: border-box
+        padding: 40px 0 0 0
+        .coming-text
+            margin-top: 20px
+            color: #ffffff
+            font-size: 40px
+            text-align: center
+            letter-spacing: -1px
+            font-weight: 400
+            text-transform: uppercase
+            +rwd($pad)
+                font-size: 36px
+            &:after
+                content: ""
+                display: block
+                width: 300px
+                height: 3px
+                background: #ffffff
+                margin: 30px auto
+                +rwd($pad)
+                    width: 280px
+        
+    
+    &__fd
+        position: relative
+        padding: 50px 35px 
+        margin-top: 55px
+        .info-title 
+            font-size: 48px
+            font-weight: 900
+            line-height: 1.13
+            color: #fff
+        
+        .info-sub 
+            margin-top: 5px
+            font-size: 33px
+            font-weight: 400
+            line-height: 1.64
+            text-align: center
+            color: #ffffff
+        
+        .pic
+            margin-top: 30px
+        
+        &:after
+            content: ""
+            width: 470px
+            height: 100%
+            position: absolute
+            top: -5px
+            left: 50%
+            transform: translateX(-50%)
+            border: 5px solid #fff
+        
+    
+.timeover
+    width: 100%
+    max-width: 750px
+    margin: 0 auto
+    padding: 60px 0px
+    min-height: 100vh
+    text-align: center
+    .btn
+        width: 100px
+        // height: 40px
+        border: 1px solid #eeeeee
+        border-radius: 20px
+        padding: 10px 20px
+        font-size: 20px
+        cursor: pointer
+        margin: 50px auto 0
+
+.comingsoon 
+    .counter 
+        display: inline-block
+        padding: 15px 15px 10px
+        background-color: rgba(#000,1)
+        border-radius: 8px
+        // border: solid 3px #f9cc92
+        font-size: 0
+        >div 
+            display: inline-block
+            padding: 0 15px
+        
+        .days,
+        .hours,
+        .minutes,
+        .seconds 
+            text-align: center
+            color: #ffffff
+            .value 
+                display: block
+                font-size: 28px
+                width: 100%
+                display: block
+                font-weight: 400
+            
+            span 
+                font-size: 16px
+                width: 100%
+                display: block
+                opacity: 1
+                padding: 10px 0
+            
+        
+    
+    .centerIt 
+        position: absolute
+        top: 40%
+        left: 50%
+        transform: translateX(-50%) translateY(-50%)
+    

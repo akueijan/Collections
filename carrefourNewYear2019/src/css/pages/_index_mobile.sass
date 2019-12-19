@@ -1,0 +1,1574 @@
+.loading-page
+    &.none
+        display: none
+.nav
+    &-btn 
+        width: mvw(60)
+        height: mvw(60)
+        cursor: pointer
+        background: #fff
+        border-radius: mvw(6)
+        position: relative
+        right: mvw(23)
+        display: inline-flex
+        align-items: center
+        flex-flow: column wrap
+        justify-content: space-between
+        padding: mvw(15) mvw(15)
+        // top: 50%
+        // // transform: translateY(-50%)
+        // // +rwd($pad)
+        // //    transform: scale(0.55)
+        >.one,
+        >.two,
+        >.three 
+            width: 100%
+            height: 2px
+            background: #bf0e29
+            backface-visibility: hidden
+            transition-duration: 0.3s
+            border-radius: mvw(3)
+        // @media (max-width: 400px) 
+        //     transform: scale(0.55) translate(33%, -90%)
+    &-menu 
+        width: mvw(375)
+        height: 100vh
+        right: -100%
+        top: mvw(100)
+        background-image: url(../images/red-bg2.png)
+        position: absolute
+        transition: all 0.2s ease-out
+        ul 
+            margin: 0
+            padding-top: mvw(20)
+            padding-left: mvw(22)
+            line-height: mvw(75)
+            li 
+                width: 100%
+                position: relative
+                &:nth-last-child(2)
+                    img 
+                        height: mvw(38)
+                img 
+                    height: mvw(33)
+                    width: auto
+                & + li:before 
+                    content: ''
+                    display: block
+                    width: mvw(209)
+                    height: 1px
+                    background-image: url(../images/line.png)
+                    background-size: 100%
+                    background-repeat: no-repeat
+                    position: absolute
+                    top: -50%
+    &--active 
+        .nav-menu 
+            right: 0
+            position: absolute
+            top: mvw(100)
+            overflow: auto
+        .nav-btn 
+            padding: 0
+            >.one 
+                position: absolute
+                top: 50%
+                transform: (rotate(45deg) translateY(-50%))
+            
+            >.two 
+                opacity: 0
+            
+            >.three 
+                position: absolute
+                top: 50%
+                transform: (rotate(-45deg) translateY(-50%))
+                
+.container-area
+    max-width: 100%
+    text-align: center
+.window
+    &-top 
+        height: mvw(151)
+    &-middle-left,&-middle-right
+        width: mvw(337)
+
+    &-loading-left,&-loading-right
+        width: mvw(1400)
+        top: mvw(95)
+        img 
+            width: 100%
+            height: auto
+    &-loading-left
+        left: -100%
+        &.active
+            left: -175%
+    &-loading-right
+        right: -100%
+        &.active
+            right: -175%
+.index
+    .kv
+        &-top 
+            background-color: #ede2cf
+            background-image: url(../images/kv-bg-mb.png)
+            background-size: cover
+            height: mvw(1014)
+            position: relative
+            overflow: hidden
+            img 
+                width: 100%
+                height: auto
+            .text-light-area 
+                .light-item
+                    position: absolute
+                    animation: light-down 1.8s ease-out
+                    animation-fill-mode: forwards
+                    animation-play-state: paused
+                    transform: translateY(-120%)
+                    &:first-child
+                        width: vw(152)
+                        top: -4%
+                        left: 24%
+                        animation-delay: 0.3s
+                    &:nth-child(2)
+                        width: vw(136)
+                        top: 1%
+                        left: 33%
+                        animation-duration: 1.6s
+                        animation-delay: 0.7s
+                    &:nth-child(3)
+                        width: vw(138)
+                        top: 1%
+                        right: 33%
+                        animation-duration: 1.6s
+                        animation-delay: 1s
+                    &:nth-child(4)
+                        width: vw(152)
+                        top: -4%
+                        right: 24%
+                        animation-delay: 1.2s
+        &-title
+            width: mvw(734)
+            position: absolute
+            left: 50%
+            top: mvw(200)
+            transform: translateX(-50%)
+            z-index: 1
+        &-issue
+            width: 100%
+            text-align: center
+            top: mvw(900)
+            left: 0
+            position: absolute
+            z-index: 2
+            a 
+                width: mvw(200)
+                display: inline-block
+                animation: scrolldown 3s infinite linear
+        &-title-area
+            &:before
+                content: ''
+                display: block
+                position: absolute
+                width: 180%
+                height: mvw(1064)
+                background-image: url(../images/circle-light.png)
+                background-size: cover
+                background-position: center 
+                top: -4%
+                left: -40%
+                transform: rotate(0deg) 
+                z-index: 0
+                animation: rotateTitle 20s infinite linear
+        &-bottom
+            background-image: url(../images/red-bg.png)
+            position: relative
+            height: mvw(1012)
+            padding-top: mvw(190)
+            img 
+                width: 100% 
+                height: auto
+            &:after
+                content: ''
+                display: block
+                width: 100%
+                height: vw(131)
+                position: absolute
+                bottom: 0
+                left: 0
+                transform: translateY(99%)
+                background-image: url(../images/kv-b-b.png)
+                // background-size: 100%
+                background-position: center bottom
+                background-repeat: no-repeat
+
+            & .video
+                
+                &-item 
+                    width: mvw(451)
+                    position: relative
+                    cursor: pointer
+                    display: inline-block
+                    vertical-align: middle
+                    & .title-item
+                        width: 100%
+                        position: absolute
+                        top: 0
+                    & .spot-light
+                        position: absolute
+                        width: 100%
+                        top: 0
+                        background-image: url(../images/spotlight.png)
+                        background-size: 100%
+                        background-repeat: no-repeat
+                        height: mvw(547)
+
+                    & .btn-play
+                        position: absolute
+                        display: inline-block
+                        width: mvw(81)
+                        height: mvw(81)
+                        top: 55%
+                        left: 50%
+                        transform: translate(-50%,-50%)
+                        background-image: url(../images/play.png)
+                        background-size: 100%
+                        background-repeat: no-repeat
+            .btn-online 
+                width: mvw(602)
+                margin: mvw(60) auto 0 auto
+                cursor: pointer
+                border: 0 
+                background: none
+                position: relative
+                &:after
+                    content: ''
+                    display: block
+                    position: absolute
+                    width: mvw(64)
+                    height: mvw(68)
+                    background: url(../images/finger.png) no-repeat
+                    background-size: 100%
+                    top: 30%
+                    right: mvw(55)
+                    animation: finger1 0.8s infinite alternate linear
+
+    .white-bg
+        background-image: url(../images/cream_bg.jpg)
+    .play--block
+        position: relative
+        width: 100%
+        display: flex
+        align-items: center
+        justify-content: center
+        &.left .yt--block
+            justify-content: flex-end
+        &.right .yt--block
+            justify-content: flex-start
+        .yt--block
+            position: absolute
+            left: 0
+            top: 0
+            width: 100%
+            height: 100%
+            background: #000
+            display: flex
+            align-items: center         
+            .media
+                display: inline-block
+                // width: 100%
+            .top,.bottom
+                img
+                    width: mvw(505)
+            .top
+                margin-bottom: mvw(20)
+            .bottom
+                margin-top: mvw(20)
+        .sort-div
+            margin-top: mvw(-50)
+            
+    .easter-egg
+        padding-top: mvw(140)
+        text-align: center
+        .easter-egg-title
+            width: mvw(647)
+            margin: 0 auto mvw(65) 
+        .btn-easter
+            border: 0
+            background: none
+            width: mvw(628)
+            display: inline-block
+            margin-top: mvw(55)
+            position: relative
+            &:after
+                content: ''
+                display: block
+                position: absolute
+                width: mvw(64)
+                height: mvw(68)
+                background: url(../images/finger.png) no-repeat
+                background-size: 100%
+                top: 30%
+                right: mvw(20)
+                animation: finger1 0.8s infinite alternate linear
+    .add
+        &-show 
+            padding-top: mvw(70)
+            padding-bottom: mvw(140)
+            position: relative
+            text-align: center   
+        &-title
+            width: mvw(366)
+            display: inline-block
+        &-title2
+            width: mvw(549)
+            display: inline-block
+            position: absolute
+            top: mvw(200)
+            left: 50%
+            transform: translateX(-50%)
+            +zindex("page2")
+        &-video
+            width: mvw(715)
+            height: mvw(523)
+            padding-top: mvw(20)
+            position: relative
+            margin: mvw(115) auto 0
+            display: flex
+            justify-content: center
+            align-items: flex-start
+            background: url(../images/add-movie-bg-mb.png) no-repeat
+            background-size: 100%
+            .btn-play
+                content: ''
+                position: absolute
+                display: inline-block
+                width: mvw(81)
+                height: mvw(81)
+                top: 40%
+                left: 50%
+                transform: translate(-50%,-50%)
+                background-image: url(../images/play.png)
+                background-size: 100%
+                background-repeat: no-repeat
+                cursor: pointer
+            .video-item 
+                width: mvw(674)
+                cursor: pointer
+    .igEvant
+        width: percentage(671/750)
+        position: relative
+        margin: 0 auto
+        padding-bottom: mvw(150)
+        &--block
+            font-size: 0
+        .title
+            font-size: 0
+            width: 100%
+        .content
+            width: 100%
+            background: url('../images/ig-line-left-mb.png') left / mvw(33) repeat-y,url('../images/ig-line-right-mb.png') right / mvw(39) repeat-y
+            margin-top: mvw(-1)
+            padding: 0 0 mvw(0) 0
+            .items
+                transform: translateY(5.5%)
+                text-align: center
+                padding-top: mvw(20)
+            .item
+                margin: mvw(50) auto 0
+                width: mvw(480)
+                &:first-of-type
+                    margin-top: 0
+                img
+                    display: inline-block
+                    width: mvw(200)
+                    margin: 0 mvw(5)
+                    vertical-align: middle
+                .info
+                    display: inline-block
+                    width: mvw(220)
+                    margin: 0 mvw(5)
+                    // margin-top: vw(25)
+        .bottom
+            width: 100%
+            height: mvw(51)
+            // background: url('../images/ig-bg-left-mb.png') left / auto mvw(51) no-repeat,url('../images/ig-bg-right-mb.png') right / auto mvw(51) no-repeat 
+            background: url(../images/ig-bottom-mb.png) 0 0 no-repeat
+            background-size: cover
+        .ig-btn
+            display: block
+            cursor: pointer
+            margin: 0 auto
+            width: mvw(488)
+            margin-top: mvw(80)
+    .reward
+        &-area 
+            text-align: center
+            padding-bottom: mvw(180)
+            background-image: url(../images/red-bg3.png)
+            position: relative
+            &:before
+                content: ''
+                display: block
+                width: 100%
+                height: mvw(52)
+                position: absolute
+                top: 0
+                left: 0
+                -webkit-transform: translateY(-99%)
+                -ms-transform: translateY(-99%)
+                transform: translateY(-99%)
+                background-image: url(../images/kv-t-mb.png)
+                background-position: center top
+                background-repeat: no-repeat
+        &-title
+            width: mvw(444)
+            display: inline-block
+            margin-top: mvw(70)
+        &-item 
+            width: mvw(655)
+            display: inline-block
+            vertical-align: top
+            margin-top: mvw(60)
+            &:before
+                content: ''
+                display: inline-block
+                width: mvw(455)
+                height: mvw(20)
+                background: url(../images/reward-line.png) no-repeat
+                background-size: 100%
+                margin-bottom: mvw(30)
+            .btn-issue1
+                width: mvw(378)
+                margin-top: mvw(28)
+                display: inline-block
+            .btn-issue2
+                width: mvw(319)
+                margin-top: mvw(28)
+                display: inline-block
+
+    .dark-bg
+        width: 100%
+        background: #000
+        padding: 0 mvw(10)
+        position: relative
+        &:before
+            content: ''
+            display: block
+            width: 100%
+            height: mvw(69)
+            position: absolute
+            background: url(../images/add-top-mb.png)  no-repeat
+            background-size: 100%
+            top: 0
+            left: 0
+            transform: translateY(-99%)
+            +zindex("page2")
+        &:after
+            content: ''
+            display: block
+            width: 100%
+            height: mvw(69)
+            position: absolute
+            background: url(../images/add-top2-mb.png) no-repeat
+            background-position: center 31%
+            top: 0
+            left: 0
+            transform: translateY(-99%)
+            +zindex("page")
+        &-inner
+            border-right: mvw(10) solid #dac389
+            border-left: mvw(10) solid #dac389
+            background-image: url(../images/add-bg.png)
+
+    .activity-role
+        text-align: center
+
+    .gamearea
+        width: 100%
+        height: mvw(483)
+        position: relative
+        background: url(../images/photo-bg.png) center no-repeat
+        background-size: 100% 
+        padding-top: mvw(28)
+        .block_1,.block_2,.block_3
+            width: mvw(563)
+            cursor: pointer
+            padding: 0 mvw(8)
+            overflow: hidden
+            border-radius: mvw(15)
+            position: relative
+            &:after
+                content: ""
+                width: mvw(169)
+                height: mvw(170)
+                position: absolute
+                bottom: 0
+                right: mvw(6)
+                background: url(../images/deco-magnifier.png) top center no-repeat
+                background-size: cover
+            > img
+                width: 100%
+    .video-room
+        text-align: center
+        top: 0
+        left: 0
+        position: fixed
+        +zindex("video")
+        // background: red
+        width: 100vw
+        height: 100%
+        background-color: #ede2cf
+        background-image: url(../images/kv-bg-mb.png)
+        background-size: cover
+        overflow: scroll
+        .video
+            min-height: calc(100vh + 20px)
+            padding: ($header-mobile-height) 0 20px
+            position: relative
+            display: flex
+            &.word
+                align-items: center
+            &.join,&.play
+                align-items: stretch
+        .light
+            position: absolute
+            width: 100%
+            height: 100%
+            top: 0
+            left: 0
+            z-index: -1
+            overflow: hidden
+            display: flex
+            justify-content: center
+            align-items: center
+            &:before
+                content: ''
+                display: block
+                position: absolute
+                width: 220vw
+                height: 220vw
+                background-image: url(../images/circle-light.png)
+                background-size: cover
+                background-position: center 
+                z-index: -1
+                animation: rotateTitle 20s infinite linear
+        #qrcode
+            width: mvw(238)
+            height: mvw(238)
+            position: absolute
+            top: 47.5%
+            left: 50%
+            transform: translate(-50%,-50%)
+        .video--block
+            position: relative
+            font-size: 0
+            &:before
+                content: ''
+                display: block
+                position: relative
+                width: 100%
+                height: 100%
+                padding-top: 100%
+            #player
+                border: 0
+                height: 100%
+                left: 0
+                position: absolute
+                top: 0
+                width: 100%
+                -webkit-user-select: none
+                -moz-user-select: none
+                -ms-user-select: none
+                user-select: none
+                width: 100%
+        img 
+            width: 100%
+            height: auto
+        .wording
+            text-align: center
+            &-title 
+                width: mvw(582)
+                display: inline-block
+                margin-bottom: mvw(50)
+            &-alert 
+                width: mvw(420)
+                display: inline-block
+                margin-bottom: mvw(30)
+            &-phone
+                width: mvw(500)
+                display: inline-block
+            &-title2
+                width: mvw(528)
+                display: inline-block
+        .btn-wording
+            width: mvw(457)
+            border: 0
+            background: none
+        .join
+            &-view
+                text-align: center
+                position: relative
+                display: flex
+                align-content: center
+                flex-flow: row wrap
+                justify-content: center
+            &-title 
+                display: inline-block
+                margin-top: mvw(-50)
+                width: mvw(548)
+            &-close
+                width: mvw(60)
+                height: mvw(60)
+                background: url("../images/video_close.png")
+                background-size: cover
+                position: absolute
+                top: mvw(70)
+                right: mvw(50)
+                cursor: pointer
+                border-radius: 50%
+                font-size: 0
+                // transform: rotate(45deg)
+                // &:after,&:before
+                //     font-size: 0
+                //     content: ""
+                //     width: 60%
+                //     height: 4px
+                //     background: #fff
+                //     position: absolute
+                //     left: 50%
+                //     top: 50%
+                // &:after                    
+                //     transform: translate(-50%, -50%) rotate(90deg)
+                // &:before                    
+                //     transform: translate(-50%, -50%) rotate(0deg)
+            &-qrcode
+                display: inline-block
+                width: mvw(400)
+                height: mvw(404)
+                background-image: url(../images/join-qrcode.png)
+                background-repeat: no-repeat
+                background-size: 100%
+                position: relative
+                // margin: mvw(10) 0 mvw(90) 0
+                .time-title
+                    position: absolute
+                    top: 76%
+                    left: 50%
+                    width: mvw(413)
+                    text-align: center
+                    transform: translateX(-50%)
+                    .timer
+                        display: inline-block
+                        width: mvw(115)
+                        height: mvw(115)
+                        border-radius: 50%
+                        background: #000
+                        padding: mvw(6)
+                        transform: translateY(-60%)
+                        p
+                            color: #bd302c
+                            font-weight: bold
+                            font-size: mvw(48)
+                            border-radius: 50%
+                            border: 1px solid #dac389
+                            background: #000
+                            width: 100%
+                            height: 100%
+                            line-height: mvw(100)
+                            text-align: center
+            &-title2 
+                display: inline-block
+                width: mvw(457)
+                margin-top: mvw(120)
+                position: relative
+            &-people
+                position: absolute
+                bottom: -2px
+                left: 0
+                width: 100%
+        .sort
+            &-div
+                .btn-start
+                    position: relative
+                    z-index: 1
+                    width: mvw(457)
+                    border: 0
+                    background: none
+                    display: inline-block
+            &-title 
+                width: mvw(592)
+                display: inline-block
+            &-text 
+                width: mvw(400)
+                display: inline-block
+                margin: mvw(40) 0 mvw(30)
+            &-people
+                position: fixed
+                bottom: 16px
+                left: 0
+                width: 100%
+            &-loading
+                position: relative
+                z-index: 1
+                width: mvw(160)
+                margin-top: mvw(-70)
+        .egg
+            &-get 
+                .btn-open
+                    width: mvw(457)
+                    display: inline-block
+                    border: 0
+                    background: none
+            &-title 
+                width: mvw(583)
+                display: inline-block
+            &-item 
+                width: mvw(531)
+                display: inline-block
+                transform-origin: 50% 100%
+                animation: shake-egg2 1.5s infinite alternate linear  
+        
+
+        .l-footer.footer
+            position: absolute
+            bottom: 0
+            left: 0
+        $sec: 1.5s;
+        .controll
+            position: absolute
+            width: 100%
+            height: 100%
+            top: 0 
+            left: 0
+            .timer-down
+                position: absolute
+                width: 100%
+                height: 100%
+                left: 0
+                top: 0
+                background: #7b776b
+                &:before
+                    content: ''
+                    position: absolute
+                    background: #000
+                    left: 0
+                    top: 50%
+                    width: 100%
+                    height: 1px
+                    transform: translate(0%,-50%)
+                &:after
+                    content: ''
+                    position: absolute
+                    background: #000
+                    left: 50%
+                    top: 0
+                    height: 100%
+                    width: 1px
+                    transform: translate(-50%,0%)
+                .halfclip
+                    width: 50%
+                    height: 100%
+                    right: 0
+                    position: absolute
+                    z-index: 2
+                    overflow: hidden
+                    transform-origin: left center
+                .halfcircle
+                    box-sizing: border-box
+                    height: 100%
+                    right: 0
+                    position: absolute
+                    border-color: transparent
+                    border-style: solid
+                    border-top-color: rgba(255,255,255,0.4)
+                    border-left-color: rgba(255,255,255,0.4)
+                    border-radius: 50%
+                    z-index: 2
+                    &.circle1
+                        width: 200%
+                        transform: rotate(-45deg)
+                    &.circle2
+                        position: relative
+                        z-index: 2
+                        width: 100%
+                        transform: rotate(135deg)
+                        opacity: 0
+                .mask
+                    position: absolute
+                    width: 100%
+                    height: 100%
+                    top: 0
+                    left: 0
+                    background: url("../images/shadows.png") 100% / cover no-repeat
+
+            &.start
+                .halfclip
+                    animation: cliprotate $sec steps(2) infinite
+                .halfcircle
+                    &.circle1
+                        animation: rotate $sec/2 linear infinite
+                    &.circle2
+                        animation: showfixed $sec steps(2) infinite
+            .mute
+                width: mvw(100)
+                position: absolute
+                bottom: mvw(10)
+                right: mvw(10)
+            .playblock
+                position: absolute
+                background: transparent
+                top: 50%
+                left: 50%
+                width: 50%
+                height: 50%
+                transform: translate(-50%,-50%);
+        .secStr
+            position: absolute
+            display: flex
+            align-items: center
+            text-align: center
+            justify-content: center
+            top: 50%
+            left: 50%
+            transform: translate(-50%,-50%)
+            font-size: mvw(400)
+            font-weight: 300
+            width: 75%
+            height: 75%
+            &:after
+                content: ''
+                left: 0
+                top: 0
+                position: absolute
+                width: 100%
+                height: 100%
+                border-radius: 50%
+                border: 1px solid #f9f2d5
+
+.role
+    &-partial
+        .pc
+            display: none
+        .mobile
+            display: block
+        .black
+            display: none
+    &-title
+        width: mvw(458)
+        display: inline-block
+        margin-top: mvw(70)
+    &-part 
+        color: #dac389
+        margin-top: mvw(60)
+        a 
+            color: #dac389
+            word-break: break-all
+        .role-s-title
+            margin: 0 auto
+            width: mvw(129)
+            &.ex
+                width: mvw(198)
+                margin-bottom: mvw(28)
+        h3 
+            display: inline-flex
+            justify-content: space-between
+            align-items: center
+            font-size: mvw(29)
+            font-weight: 600
+            margin: mvw(35) 0 mvw(15)
+            &:before,&:after 
+                content: ''
+                display: inline-block
+                width: mvw(21)
+                height: mvw(27)
+                background-size: 100%
+            &:before
+                background: url(../images/role-left-icon.png) no-repeat
+                margin-right: mvw(15)
+                background-size: 100%
+            &:after
+                background: url(../images/role-right-icon.png) no-repeat
+                margin-left: mvw(15)
+                background-size: 100%
+        p 
+            font-size: mvw(23)
+            line-height: 1.5
+            letter-spacing: 1px
+            width: 85%
+            margin: 0 auto
+        .info-text
+            margin-bottom: mvw(60)
+            small
+                line-height: 3
+                font-size: mvw(20)
+        ul 
+            margin: mvw(60) 0 mvw(58)
+            width: mvw(531)
+            padding-left: mvw(26)
+            display: inline-block
+            font-size: mvw(20)
+            text-align: left
+            line-height: 2
+            li
+                list-style-type: decimal
+        .second,.three
+            margin: 0
+            li 
+                list-style-type: upper-alpha
+        .three
+            li
+                list-style-type: disc
+    &-reward-block
+        display: inline-block
+        margin: 0 mvw(38) mvw(63)
+        h4 
+            font-size: mvw(23)
+            line-height: 1.5
+            font-weight: 600
+            letter-spacing: 1px
+            small
+                font-size: mvw(20) 
+        &.break
+            display: block
+    &-reward-item
+        width: mvw(436)
+        display: inline-block
+    &-info-block
+        h3 
+            margin-top: 0
+            letter-spacing: 1px
+            font-weight: 600
+    &-line
+        display: inline-block
+        width: mvw(459)
+        height: mvw(19)
+        background: url(../images/reward-line.png) no-repeat
+        background-size: 100%
+            
+    
+.finishPop
+    &-area
+        position: fixed
+        width: 100%
+        height: 100%
+        background: rgba(0,0,0,0.9)
+        top: 0%
+        left: 0%
+        +zindex("popup1")
+        text-align: center
+        img 
+            width: 100%
+            height: auto
+        .btn-open
+            width: mvw(457)
+            border: 0
+            background: none
+            display: inline-block
+        .share
+            &-area 
+                button,a
+                    border: 0
+                    background: initial
+                    width: mvw(67)
+                    display: inline-block
+                    vertical-align: middle
+                    padding: 0
+            &-text
+                width: mvw(125)
+                display: inline-block
+                vertical-align: middle
+                margin-right: mvw(20)
+        
+    &-content 
+        width: mvw(576)
+        height: mvw(456)
+        background: url(../images/alert-bg.png) no-repeat
+        background-size: 100%
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%,-50%)
+    &-title 
+        width: mvw(454)
+        display: inline-block
+        position: absolute
+        top: 0%
+        left: 50%
+        transform: translate(-50%,-40%)
+    &-text 
+        width: mvw(443)
+        display: inline-block
+        margin: mvw(88) 0 mvw(50)
+.joinedPop
+    &-area
+        position: fixed
+        width: 100%
+        height: 100%
+        background: rgba(0,0,0,0.9)
+        top: 0%
+        left: 0%
+        +zindex("popup1")
+        text-align: center
+        img 
+            width: 100%
+            height: auto
+        .btn-ok
+            width: mvw(457)
+            border: 0
+            background: none
+            display: inline-block
+    &-content 
+        width: mvw(576)
+        height: mvw(456)
+        background: url(../images/alert-bg.png) no-repeat
+        background-size: 100%
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%,-50%)
+    &-title 
+        width: mvw(454)
+        display: inline-block
+        position: absolute
+        top: 0%
+        left: 50%
+        transform: translate(-50%,-40%)
+    &-text 
+        width: mvw(443)
+        display: inline-block
+        margin: mvw(88) 0 mvw(20)
+
+.prodPop
+    &-area
+        position: fixed
+        width: 100%
+        height: 100%
+        background: rgba(0,0,0,0.9)
+        top: 0%
+        left: 0%
+        +zindex("popup2")
+        text-align: center
+        img 
+            width: 100%
+            height: auto
+    &-content 
+        width: mvw(574)
+        height: mvw(824)
+        background: url(../images/prod-bg.png) no-repeat
+        background-size: 100%
+        position: absolute
+        left: 50%
+        top: 53%
+        transform: translate(-50%,-50%)
+        padding: mvw(90) 5% mvw(10)
+        color: #ffffff
+        text-align: left
+        h2 
+            font-size: mvw(30)
+            margin: mvw(15) 0 mvw(8)
+            line-height: 1.4
+            text-shadow: 2px 1px 3px rgba(0,0,0,0.6)
+        ul 
+            font-size: mvw(22)
+            padding-left: mvw(30)
+            margin-bottom: mvw(20)
+            li 
+                line-height: 1.6
+                letter-spacing: 1px
+                position: relative
+                &:before
+                    content: ''
+                    display: inline-block
+                    width: mvw(22)
+                    height: mvw(22)
+                    background: url('../images/prod-icon2.png') no-repeat
+                    background-size: 100%
+                    position: absolute
+                    left: mvw(-32)
+                    top: mvw(10)
+                    // transform: translate(-134%,-50%)
+    &-info 
+        padding: 0 mvw(30)
+    &-price
+        span 
+            text-decoration: line-through
+    &-con
+        span 
+            font-size: mvw(30)
+            color: #dac389
+            font-weight: bold
+    &-title 
+        width: mvw(568)
+        display: inline-block
+        position: absolute
+        top: 0%
+        left: 50%
+        transform: translate(-50%,-30%)
+    &-link 
+        width: mvw(457)
+        border: 0
+        background: initial
+        position: absolute
+        left: 50%
+        bottom: mvw(25)
+        transform: translateX(-50%)
+    &-close 
+        width: mvw(43)
+        height: mvw(43)
+        background: url(../images/prod-close.png) no-repeat
+        background-size: cover
+        position: absolute
+        top: mvw(-100)
+        right: mvw(-50)
+        cursor: pointer
+
+.eggPop
+    &-area
+        position: fixed
+        width: 100%
+        height: 100%
+        background: rgba(0,0,0,0.9)
+        top: 0%
+        left: 0%
+        +zindex("popup3")
+        text-align: center
+        cursor: pointer
+        img 
+            width: 100%
+            height: auto
+        .btn-open
+            width: mvw(457)
+            border: 0
+            background: none
+            display: inline-block
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%,195%)
+    &-title 
+        width: mvw(574)
+        display: inline-block
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+    &-item 
+        &:before
+            content: ''
+            display: inline-block
+            width: mvw(481)
+            height: mvw(117)
+            background: url(../images/egg-shadow.png) no-repeat
+            background-size: 100%
+            position: absolute
+            top: 49%
+            left: 50%
+            transform: translate(-45%,130%)
+        &:after
+            content: ''
+            display: inline-block
+            width: mvw(574)
+            height: mvw(537)
+            background: url(../images/egg-light.png) no-repeat
+            background-size: 100%
+            position: absolute
+            top: 49%
+            left: 50.5%
+            transform: translate(-50%,-50%)
+        .egg
+            width: mvw(574)
+            position: absolute
+            top: 49%
+            left: 50.5%
+            transform: translate(-50%,-50%)
+        .egg img
+            animation: shake-egg 1.5s infinite alternate linear
+            transform-origin: 50% 100%
+.kvideo
+    &-area
+        position: fixed
+        width: 100%
+        height: 100%
+        background: rgba(0,0,0,0.9)
+        top: 0%
+        left: 0%
+        +zindex("kvideo")
+    &-content
+        width: 90%
+        height: mvw(500)
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%,-50%)
+    &_close 
+        width: mvw(43)
+        height: mvw(43)
+        background: url(../images/prod-close.png) no-repeat
+        background-size: cover
+        position: absolute
+        top: mvw(20)
+        right: mvw(20)
+        cursor: pointer
+
+.rolePop
+    &-area 
+        position: fixed
+        width: 100%
+        height: 100%
+        background: rgba(0,0,0,0.9)
+        top: 0%
+        left: 0%
+        +zindex("sppop")
+        text-align: center
+    &_close 
+        width: mvw(43)
+        height: mvw(43)
+        background: url(../images/prod-close.png) no-repeat
+        background-size: cover
+        position: fixed
+        top: mvw(20)
+        right: mvw(20)
+        cursor: pointer
+    &-title 
+        width: mvw(460)
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%,-325%)
+        +zindex("popup1")
+    &-content
+        width: mvw(650)
+        height: mvw(933)
+        margin: 0 auto
+        padding: mvw(150) mvw(15) mvw(30)
+        box-sizing: border-box
+        background: url('../images/prod-bg.png') no-repeat
+        background-size: 100%
+        background-position: center 
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+    &-info
+        height: 100%
+        overflow-y: scroll
+        .role-title
+            display: none
+        .role-part
+            margin-top: 0
+            margin-bottom: mvw(60)
+
+
+.gamePop_area
+    position: fixed
+    width: mvw(750)
+    height: 100vh
+    +zindex("popup1")
+    top: 0
+    left: 0
+    transition: 0.3s
+    // transform: translate(-50%, -50%)
+    .game_close
+        width: mvw(40)
+        height: mvw(40)
+        position: absolute
+        right: mvw(20)
+        top: mvw(20)
+        cursor: pointer
+        +zindex("popup2")
+        &:before, &:after
+            content: " "
+            width: mvw(46)
+            height: mvw(6)
+            background: #ffffff
+            position: absolute
+            top: mvw(10)
+            left: 0
+            cursor: pointer
+            box-shadow: mvw(3) mvw(3) mvw(5) rgba(#000,0.2)
+            // display: inline-block
+        &:before
+            transform: rotate(45deg)
+        &:after
+            transform: rotate(135deg)
+
+    #game_area
+        // width: 80%
+        // height: 80%
+        background: #75001b
+        position: absolute
+        top: mvw(140)
+        left: 0
+    .bottom,.top
+        width: mvw(750)
+        height: mvw(40)
+        background: url(../images/bg-game.png) center center
+        background-size: cover
+        position: absolute
+    .bottom
+        bottom: 0
+    .top
+        top: mvw(100)
+
+.perdataPop_area
+    position: fixed
+    width: 100%
+    height: 100%
+    background-color: #ede2cf
+    background-image: url(../images/kv-bg.png)
+    background-size: 100% 100%
+    // height: vw(850)
+    overflow-y: auto
+    // border-bottom: vw(28) solid #bf0029
+    top: 0
+    left: 50%
+    transform: translateX(-50%)
+    padding: mvw(150) 0 0 0
+    +zindex("pordpop")
+    .tree,.clouds
+        display: none
+    .bg
+        position: absolute
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        overflow: hidden
+        &:before
+            content: ''
+            display: block
+            position: absolute
+            width: 200vw
+            height: 200vw
+            background-image: url(../images/circle-light.png)
+            background-size: cover
+            background-position: center 
+            z-index: -1
+            animation: rotateTitle 20s infinite linear
+    .content
+        position: relative
+        width: 100%
+        padding: mvw(100) 0 mvw(100)
+        z-index: 5
+        text-align: center
+        .title
+            margin: 0 auto
+            width: mvw(750)
+            height: mvw(386)
+        .form
+            width: mvw(580)
+            margin: 0 auto
+            li
+                margin: 0 0 mvw(30) 0
+                text-align: left
+                display: flex
+                align-items: center
+                justify-content: space-around
+                label
+                    width: mvw(120)
+                    margin: 0 vw(10) 0 0
+                    display: inline-block
+                    img
+                        vertical-align: middle
+                        max-width: 100%
+                input
+                    width: mvw(420)
+                    height: mvw(57)
+                    border: 1px solid #b5b5b6
+                    border-radius: 4px
+                    font-size: mvw(36)
+                    padding: mvw(5) mvw(10)
+            .codearea
+                position: relative
+                justify-content: flex-start
+                padding: 0 0 0 mvw(10)
+                label
+                    width: mvw(150)
+                    margin: 0 mvw(15) 0 0
+                input
+                    width: mvw(150)
+                    margin: 0 mvw(15) 0 0
+                .codeimg
+                    width: mvw(120)
+                    height: mvw(45)
+                    background: #ffffff
+                    border: 1px solid #61605d
+                    img
+                        vertical-align: middle
+                        width: 100%
+                .codereset
+                    width: mvw(40)
+                    height: mvw(40)
+                    margin-left: mvw(10)
+                    cursor: pointer
+                    img
+                        max-width: 100%
+            .agreearea
+                display: block
+                position: relative
+                input
+                    display: inline-block
+                    width: mvw(32)
+                    height: mvw(32)
+                    margin: 0 vw(10) 0 0
+                    vertical-align: top
+                label
+                    display: inline-block
+                    cursor: pointer
+                    text-align: left
+                    width: initial
+                    &.a1
+                        display: flex
+                        left: mvw(40)
+                        margin-bottom: mvw(4)
+                        img
+                            height: mvw(28)
+                    .wish
+                        width: mvw(470)
+                    .pcwish
+                        display: none
+                .click
+                    width: mvw(420)
+                    position: absolute
+                    left: mvw(50)
+                    bottom: mvw(-1)
+                    cursor: pointer
+            .btnarea
+                margin: mvw(20) 0 0 0
+                .actionbtn
+                    width: mvw(462)
+                    height: mvw(109)
+                    border: 0
+                    background: url(../images/perdata-actionbtn.png) top center no-repeat
+                    background-size: cover
+                    position: relative
+                    img.load
+                        height: 100%
+                        margin-top: mvw(-10)
+                        max-width: none
+                    
+.close-bg
+    position: fixed
+    width: 100%
+    height: 100%
+    z-index: -1        
+.btnback
+    margin-top: mvw(30)
+    cursor: pointer
+    display: inline-block
+    img 
+        width: mvw(160)
+        height: auto
+.lonely
+    &--block
+        position: fixed
+        width: 100%
+        height: 100%
+        background: rgba(0,0,0,1)
+        top: 0%
+        left: 0%
+        +zindex("kvideo")
+    &-content
+        position: absolute
+        width: 100%
+        height: 40%
+        left: 50%
+        top: 50%
+        transform: translate(-50%,-50%)
+        +rwd-h(440)
+            height: 60%
+    &_close
+        width: mvw(60)
+        height: mvw(60)
+        background: url("../images/video_close.png")
+        background-size: cover
+        position: absolute
+        top: mvw(70)
+        right: mvw(50)
+        cursor: pointer
+        border-radius: 50%
+        font-size: 0
+        z-index: 1
+        +rwd-h(440)
+            width: mvw(30)
+            height: mvw(30)
+            top: mvw(30)
+@keyframes rotateTitle
+    0% 
+        transform: rotate(0deg) 
+    100% 
+        transform: rotate(360deg) 
+@keyframes shake-egg
+    0% 
+        transform: rotate(-10deg) 
+    25% 
+        transform: rotate(10deg) 
+    50% 
+        transform: rotate(-8deg) 
+    100% 
+        transform: rotate(8deg) 
+@keyframes shake-egg2
+    0% 
+        transform: rotate(-10deg) 
+    25% 
+        transform: rotate(10deg) 
+    50% 
+        transform: rotate(-8deg) 
+    100% 
+        transform: rotate(8deg) 
+@keyframes light-down
+    0% 
+        transform: translateY(-120%) scale(1, 1)
+    55% 
+        transform: translateY(-120%) scale(1, 1)
+    75%
+        transform: translateY(5%) scale(0.95, 1)
+    80% 
+        transform: translateY(-10%) scale(1.1,0.8)
+    90% 
+        transform: translateY(0%) scale(1,1)
+    100% 
+        transform: translateY(0%) scale(1,1)
+@keyframes scrolldown
+    0% 
+        transform: translateY(-100%) 
+    50% 
+        transform: translateY(0%)
+    100% 
+        transform: translateY(-100%)
+@keyframes clouds1
+    0% 
+        transform: translateY(-0%)
+    100% 
+        transform: translateY(-20%)
+
+
+@keyframes rotate
+    0% 
+        transform: rotate(-45deg)
+    100% 
+        transform: rotate(135deg)
+
+@keyframes showfixed
+    0%
+        opacity: 0
+    49.9%
+        opacity: 0
+    50%
+        opacity: 1
+    100%
+        opacity: 1
+@keyframes cliprotate
+    0% 
+        transform: rotate(0deg)
+    100% 
+        transform: rotate(360deg)
+@keyframes finger1
+    0% 
+        transform: translate(25%,25%)
+    100% 
+        transform: translate(0,-10%)

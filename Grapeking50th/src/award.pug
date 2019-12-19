@@ -1,0 +1,161 @@
+﻿extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "得獎公告 |感恩回饋 現金50倍| 葡萄王50週年慶"
+    - var pageDesc = "即日起至12/24，登錄發票抽最高20萬元大獎！測驗你的大腦年齡再抽多項好禮！"
+    - var isVue = true
+    - var pageJs = "award.js"
+
+block page_main
+    section.award
+        .hd
+            h2 得獎公告
+            //- .kv
+                //- img(src="images/award-kv.png")
+        .bd
+            .blocklist
+                //- .list(v-bind:class="{ list-active: listblock }")
+                .list(@click="listblock=true" v-bind:class="{ listActive: listblock}")
+                    h3 發票登錄抽大獎
+                .list(@click="listblock=false" v-bind:class="{ listActive: !listblock}")
+                    h3 一指之力 精彩無限
+                .line
+            transition(name="fade")
+                .content(v-if="listblock" key="1")
+                    .block.block-50
+                        .left
+                            h3 50倍加倍奉還獎
+                            p.ps 共1名
+                            img(src="images/award-item-50.png")
+                        .right
+                            table.table
+                                tr
+                                    th 發票號碼
+                                    th 手機號碼
+                                tr(v-if="!bigdata")
+                                    td(colspan="2") 敬請期待
+                                tr(v-if="bigdata" v-for="items in awardData.award50")
+                                    td(v-for="user in items.Results") {{user.ReferenceInfo}}
+                                    td(v-for="user in items.Results") {{user.Mobile}}
+                            p(v-if="!bigdata") 於2020年1月6日(一)公布幸運得主
+                                //- span
+                                //-     a.download(href="#") 中獎回函下載
+                    .block.block-10
+                        .left
+                            h3 10倍加倍奉還獎
+                            p.ps 共3名
+                            img(src="images/award-item-10.png")
+                        .right
+                            table.table
+                                tr
+                                    th 發票號碼
+                                    th 手機號碼
+                                tr(v-if="!bigdata")
+                                    td(colspan="2") 敬請期待
+                                tr(v-if="bigdata" v-for="items in awardData.award10")
+                                    td(v-for="user in items.Results") {{user.ReferenceInfo}}
+                                    td(v-for="user in items.Results") {{user.Mobile}}
+                            p(v-if="!bigdata") 於2020年1月6日(一)公布幸運得主
+                                //- span
+                                //-     a.download(href="#") 中獎回函下載
+                    .block
+                        h3 PHILIPS
+                        p.name HD9642渦輪氣旋健康氣炸鍋
+                        .img
+                            img(src="images/award-3.png")
+                            .quantity
+                                p x12
+                        p 於10/16起每週三公佈幸運得主
+                        .list-btn(@click="WawardOpen('philips')")
+                            p 得獎名單
+                    .block
+                        h3 Panasonic
+                        p.name EH-NA9A奈米水離子吹風機
+                        .img
+                            img(src="images/award-4.png")
+                            .quantity
+                                p x12
+                        p 於10/16起每週三公佈幸運得主
+                        .list-btn(@click="WawardOpen('panasonic')")
+                            p 得獎名單
+                    .block
+                        h3 IRIS
+                        p.name IC-FAC2 3.0除蟎機小全配組
+                        .img
+                            img(src="images/award-5.png")
+                            .quantity
+                                p x12
+                        p 於10/16起每週三公佈幸運得主
+                        .list-btn(@click="WawardOpen('iris')")
+                            p 得獎名單
+                    .block
+                        h3 王品集團
+                        p.name 500元即享券(特定品牌使用)
+                        .img
+                            img(src="images/award-6.png")
+                            .quantity
+                                p x120
+                        p 於10/16起每週三公佈幸運得主
+                        .list-btn(@click="WawardOpen('wang')")
+                            p 得獎名單
+                    .block
+                        h3 摩斯漢堡
+                        p.name 早餐兌換券(火腿歐姆蛋堡 / 蕃茄 吉士蛋堡 / 培根雞蛋堡三選一 +  冰紅茶(L)一份)
+                        .img
+                            img(src="images/award-7.png")
+                            .quantity
+                                p x300
+                        p 於10/16起每週三公佈幸運得主
+                        .list-btn(@click="WawardOpen('burger')")
+                            p 得獎名單
+                    .block
+                        h3 cama cafe
+                        p.name 中杯經典拿鐵兌換券
+                        .img
+                            img(src="images/award-8.png")
+                            .quantity
+                                p x480
+                        p 於10/16起每週三公佈幸運得主
+                        .list-btn(@click="WawardOpen('cama')")
+                            p 得獎名單
+                .content(v-if="!listblock" key="2")
+                    .block.block-50
+                        .left
+                            h3 Toffy
+                            p.ps K-FP1-PA 
+                                br
+                                | 三合一多功能食物調理機
+                            img(src="images/award-item-toffy.png")
+                        .right
+                            table.table
+                                tr
+                                    th Facebook名稱
+                                    th 手機號碼
+                                tr(v-if="!bigdata")
+                                    td(colspan="2") 敬請期待
+                                tr(v-if="bigdata" v-for="items in awardData.toffy")
+                                    td(v-for="user in items.Results") {{user.ReferenceInfo}}
+                                    td(v-for="user in items.Results") {{user.Mobile}}
+                            p(v-if="!bigdata").toffy 於2020年1月6日(一)公布幸運得主
+                                //- span
+                                //-     a.download(href="#") 中獎回函下載
+                    .block
+                        h3 威秀影城
+                        p.name 雙人威秀電影票
+                        .img
+                            img(src="images/award-10.png")
+                            .quantity
+                                p x48
+                        p 於每月6日公布幸運得主
+                        .list-btn(@click="MawardOpen('movieTic')")
+                            p 得獎名單
+                    .block
+                        h3 SOGO
+                        p.name 100元禮券
+                        .img
+                            img(src="images/award-11.png")
+                            .quantity
+                                p x96
+                        p 於每月6日公布幸運得主
+                        .list-btn(@click="MawardOpen('SOGO')")
+                            p 得獎名單

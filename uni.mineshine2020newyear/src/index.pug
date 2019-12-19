@@ -1,0 +1,54 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "#麥香曬友情｜跨年出麥朋友，拍你個頭"
+    - var pageDesc = "讓「麥香梗圖產生器」創造出超友梗圖，還有機會免費獲得「客製化麥friends禮盒」！快來出「麥」好友！"
+    - var pageJs = "index.js"
+    - var isVue = true
+//- page html
+block page_main
+    section.index
+        .hanabox
+            .hana.hana1
+                .fire
+                    img(src="images/hana-1.png")
+            .hana.hana2
+                .fire
+                    img(src="images/hana-2.png")
+            .hana.hana3
+                .fire
+                    img(src="images/hana-3.png")
+            .hana.hana4
+                .fire
+                    img(src="images/hana-4.png")
+            .hana.hana5
+                .fire
+                    img(src="images/hana-5.png")
+            .hana.hana6
+                .fire
+                    img(src="images/hana-6.png")
+            .hana.hana7
+                .fire
+                    img(src="images/hana-7.png")
+            .hana.hana8
+                .fire
+                    img(src="images/hana-8.png")
+            .hana.hana9
+                .fire
+                    img(src="images/hana-9.png")
+        .kv
+            .content
+                .peoarea
+                    //- .peo
+                    img.pconly(src="images/kv-peo.png")
+                    img.mbonly(src="images/mb-kv-peo.png")
+                .slognarea
+                    .slogn
+                        img.pconly(src="images/kv-slogn.png")
+                        img.mbonly(src="images/mb-kv-slogn.png")
+                    .slogntxt
+                        img.pconly(src="images/kv-txt.png")
+                        img.mbonly(src="images/mb-kv-txt.png")
+                    a.acbtn(href="javascript:void(0)" title="前往活動" @click="fbLogin()" gtm-data="首頁-開始出麥朋友")
+                        img(src="images/acbtn.gif" gtm-data="首頁-開始出麥朋友")

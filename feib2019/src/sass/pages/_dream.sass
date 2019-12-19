@@ -1,0 +1,595 @@
+﻿.dream,.result
+    position: relative
+    text-align: center
+    background: url(../images/bg-dream.png) center / cover no-repeat
+    min-height: 100vh
+    +rwd($pad)
+        background: url(../images/bg-dream.png) center / auto 100% no-repeat
+        // padding: 0 0 mvw(60) 0
+    .questionblock
+        width: 100%
+        height: 100%
+        position: relative
+        padding: 0 0 60px 0
+        +rwd($pad)
+            padding: 0 0 mvw(60) 0
+    .bgarea
+        width: 100%
+        height: 100%
+        position: absolute
+        top: 0
+        left: 0
+        +rwd($pad)
+            display: none
+        > img
+            position: absolute
+            opacity: 0.6
+        .deco1
+            top: -37px
+            left: -100px
+            transform: rotate(-20deg) scale(0.8)
+        .deco2
+            top: 259px
+            left: 154px
+            transform: rotate(-20deg) scale(0.2)
+        .deco3
+            top: 350px
+            left: -254px
+            transform: rotate(-20deg) scale(0.7)
+        .deco4
+            top: 700px
+            left: 124px
+            transform: rotate(-20deg) scale(0.4)
+        .deco5
+            top: -80px
+            right: 210px
+            transform: rotate(-20deg) scale(0.4)
+        .deco6
+            top: 250px
+            right: 0px
+            transform: rotate(-20deg) scale(0.3)
+        .deco7
+            top: 650px
+            right: 0px
+            transform: rotate(-20deg) scale(0.7)
+        .balloon1
+            top: 150px
+            right: 100px
+            opacity: 1
+        .balloon2
+            top: 550px
+            left: 300px
+        .balloon3
+            top: 670px
+            right: 300px
+            opacity: 0.8
+    .l-container
+        width: 1000px
+        margin: 0 auto
+        padding: 66px 0 0 0
+        +rwd($pad)
+            width: 100%
+            padding: mvw(120) mvw(60) 0
+        > div
+            padding: 43px 0 0 0
+            +rwd($pad)
+                padding: mvw(79) 0 0 0
+    .kv
+        margin: 60px auto 0
+        width: 360px
+        height: 260px
+        display: flex
+        justify-content: center
+        align-items: center
+        +rwd($pad)
+            width: mvw(360)
+            height: mvw(360)
+            // transform: scale(0.8)
+            margin: mvw(40) auto 0
+    .btnarea
+        margin: 40px auto 0
+        +rwd($pad)
+            margin: mvw(40) auto 0
+        .nextbtn
+            display: inline-block
+            width: 221px
+            height: 69px
+            background: url(../images/btn-next.png) top center / 100% no-repeat
+            +rwd($pad)
+                width: mvw(280)
+                height: mvw(86)
+            &:hover
+                background: url(../images/btn-next-hover.png) top center / 100% no-repeat
+        .sendbtn
+            display: inline-block
+            width: 332px
+            height: 72px
+            background: url(../images/btn-send.png) top center / 100% no-repeat
+            margin: 0 20px 0 0
+            +rwd($pad)
+                width: mvw(411)
+                height: mvw(90)
+                margin: 0 0 mvw(40) 0
+            &:hover
+                background: url(../images/btn-send-hover.png) top center / 100% no-repeat
+        .otherbtn
+            display: inline-block
+            width: 332px
+            height: 72px
+            background: url(../images/btn-other.png) top center / 100% no-repeat
+            margin: 0 0 0 20px
+            +rwd($pad)
+                width: mvw(411)
+                height: mvw(90)
+                margin: 0
+            &:hover
+                background: url(../images/btn-other-hover.png) top center / 100% no-repeat
+    .freeqe
+        .kv
+            width: 512px
+            height: 282px
+            // background: url(../images/freeqe-kv-1.png) top center / 100% no-repeat
+            margin: 0 auto
+            position: relative
+            +rwd($pad)
+                width: mvw(556)
+                height: mvw(306)
+            img
+                position: absolute
+                top: 0
+                left: 0
+                z-index: 0
+        .inputblock
+            position: relative
+            z-index: 1
+        label
+            font-size: 25px
+            font-weight: bold
+            display: block
+            padding: 95px 0 0 0
+            +rwd($pad)
+                font-size: mvw(32)
+                padding: mvw(95) 0 0 0
+        input
+            border: 0
+            border-left: 2px solid #000
+            font-size: 25px
+            font-weight: bold
+            margin: 25px 0 0 0
+            width: 175px
+            background: transparent
+            +rwd($pad)
+                margin: mvw(25) 0 0 0
+                width: mvw(220)
+                font-size: mvw(36)
+    .btnblock
+        ul
+            width: 100%
+            display: inline-flex
+            justify-content: space-around
+            align-items: center
+            flex-wrap: wrap
+            margin: 0px auto 0
+            +rwd($pad)
+                margin: 0 auto
+        .active
+            background: #10a3dd
+            color: #fff
+            transition: 0.3s
+        li
+            width: 430px
+            height: 60px
+            border-radius: 15px
+            background: #fff
+            box-shadow: 5px 5px 10px rgba(#000,0.3)
+            cursor: pointer
+            margin: 0 auto 30px
+            line-height: 60px
+            font-size: 25px
+            font-weight: bold
+            color: #0fa3dd
+            transition: 0.3s
+            +rwd($pad)
+                width: mvw(530)
+                height: mvw(85)
+                line-height: mvw(85)
+                border-radius: mvw(15)
+                font-size: mvw(36)
+                margin: 0 auto mvw(50)
+            &:hover
+                background: #10a3dd
+                color: #fff
+                transition: 0.3s
+            label
+                width: 100%
+                display: block
+                cursor: pointer
+            input
+                display: none
+        ul.btnblock2
+            li
+                width: 310px
+                +rwd($pad)
+                    width: mvw(530)
+    .answerblock
+        background: #8DDEF0
+        .bgarea
+            +rwd($pad)
+                display: none
+            .deco1
+                width: 167px
+                top: 339px
+                left: -70px
+                transform: rotate(0)
+            .deco2
+                width: 95px
+                top: 412px
+                left: 272px
+                transform: rotate(0)
+            .deco3
+                width: 270px
+                top: 6px
+                right: 0
+                left: initial
+                transform: rotate(0)
+            .deco4
+                width: 95px
+                top: 947px
+                right: 299px
+                left: initial
+                transform: rotate(0)
+            .balloon2
+                top: 174px
+            .balloon4
+                top: 645px
+                left: 79px
+        .l-container
+            width: 1000px
+            margin: 0 auto
+            padding: 66px 0 0 0
+            +rwd($pad)
+                width: 100%
+                padding: mvw(40) 0 0 0
+            > div
+                padding: 0
+        .gamearea
+            // min-height: 1358px
+            // background: url(../images/bg-dream.png) center 66px / 100% 100% no-repeat
+            padding: 0 0 60px 0
+        #pixifbshare
+            display: none
+        #pixiarea
+            position: relative
+            padding-top: 66px
+            // padding-top: 116px
+            height: 950px
+            overflow: hidden
+            +rwd($pad)
+                padding-top: mvw(120)
+                // padding-top: mvw(180)
+                height: mvw(800)
+            canvas
+                +rwd($pad)
+                    width: 100% !important
+                    height: auto !important
+            .readme
+                position: absolute
+                bottom: 40px
+                left: 50%
+                transform: translate(150%,0)
+                +rwd($pad)
+                    width: mvw(220)
+                    bottom: mvw(0)
+                    transform: translate(0,0)
+                    right: mvw(20)
+                    left: auto
+        .piximark
+            position: absolute
+            width: 100%
+            height: 100%
+            background: transparent
+            top: 66px
+            left: 0
+            z-index: 1
+            +rwd($pad)
+                height: 100%
+                top: mvw(120)
+        .dreamarea
+            width: vw(1000)
+            height: vw(1000)
+            max-width: 1000px
+            max-height: 1000px
+            margin: 0 auto
+            position: relative
+            h2
+                width: vw(840)
+                margin: 0 auto
+            h3
+                width: vw(750)
+                margin: 0 auto
+            .peoplecontent
+                margin: 0 auto
+                position: relative
+                > div
+                    position: absolute
+                .people
+                    width: vw(492)
+                    top: vw(439)
+                    left: vw(269)
+        .sharearea
+            margin: 0 auto
+            width: 100%
+            position: relative
+            +zindex("page")
+            +rwd($pad)
+                width: mvw(618)
+                margin: mvw(34) auto 0
+            p
+                font-size: 32px
+                font-weight: 500
+                line-height: 58px
+                text-align: center
+                color: #595757
+                +rwd($pad)
+                    font-size: mvw(36)
+                    line-height: mvw(62)
+                    text-align: left
+            .linelink
+                padding: 5px 15px
+                border-radius: 40px
+                color: #fff
+                background: #4bbf4b
+                margin: 0 5px
+                +rwd($pad)
+                    padding: mvw(5) mvw(15)
+                    border-radius: mvw(40)
+                    margin: 0 mvw(10)
+                a
+                    color: #fff
+            .small
+                font-size: 20px
+                +rwd($pad)
+                    font-size: mvw(28)
+            .btnarea
+                margin: 20px auto 0
+                text-align: center
+                +rwd($pad)
+                    margin: 0 auto
+            .btn-getgift
+                display: inline-block
+                width: 333px
+                // height: 70px
+                margin: 0 20px 0 0
+                vertical-align: top
+                +rwd($pad)
+                    display: block
+                    width: mvw(421)
+                    margin: 0 auto mvw(40)
+            .btn-fbshare
+                display: inline-block
+                width: 130px
+                // height: 70px
+                margin: 0 0 0 20px
+                +rwd($pad)
+                    display: block
+                    width: mvw(170)
+                    margin: 0 auto
+        .content
+            background: url(../images/bg-ansblock.png) center top / cover no-repeat
+            margin: -310px auto 0
+            padding: 310px 0 90px 0
+            +rwd($pad)
+                margin: mvw(-420) auto 0
+                padding: mvw(420) 0 mvw(90) 0
+            .l-container
+                +rwd($pad)
+                    padding: 0 mvw(60)
+            .bg
+                background: url(../images/ans-bg.png) center center / cover no-repeat
+                width: 100%
+                height: 616px
+                position: relative
+                padding: 0 50px 50px
+                +rwd($pad)
+                    background: none
+                    padding: 0
+                    height: auto
+                h2
+                    transform: translateY(-40%)
+                    +rwd($pad)
+                        width: mvw(327)
+                        margin: 0 auto
+            .resultarea
+                position: relative
+                margin: 20px auto 0
+                height: 277px
+                +rwd($pad)
+                    height: mvw(280)
+                .circle
+                    position: absolute
+                    top: 0
+                    left: 50%
+                    transform: translateX(-50%)
+                    +rwd($pad)
+                        width: mvw(202)
+                        top: 50%
+                        transform: translate(-50%,-50%)
+                .leftbox
+                    background: url(../images/ans-left.png) center top / 100% no-repeat
+                    width: 343px
+                    height: 183px
+                    position: absolute
+                    left: 0
+                    top: 23px
+                    +rwd($pad)
+                        background: url(../images/ans-left-mb.png) center top / 100% no-repeat
+                        width: mvw(178)
+                        height: mvw(280)
+                        top: 0
+                        padding: mvw(15) mvw(20) 0 mvw(20)
+                    &:after
+                        display: none
+                        +rwd($pad)
+                            display: inline-block
+                            content: " "
+                            width: mvw(50)
+                            height: mvw(4)
+                            background: #ff76ae
+                            position: absolute
+                            top: mvw(110)
+                            right: 0
+                            transform: translateX(90%)
+                    h3
+                        position: absolute
+                        top: 13px
+                        left: 0
+                        width: 270px
+                        +rwd($pad)
+                            position: relative
+                            top: inherit
+                            left: inherit
+                            width: 100%
+                    p
+                        position: absolute
+                        top: 93px
+                        left: 0
+                        font-size: 24px
+                        font-weight: 500
+                        color: #595959
+                        width: 270px
+                        +rwd($pad)
+                            position: relative
+                            top: inherit
+                            left: inherit
+                            transform: inherit
+                            font-size: mvw(30)
+                            line-height: 1.2
+                            margin: 0 0 mvw(10) 0
+                            width: 100%
+                    .link
+                        position: absolute
+                        bottom: 23px
+                        left: 61px
+                        +rwd($pad)
+                            position: relative
+                            bottom: inherit
+                            left: inherit
+                .rightbox
+                    background: url(../images/ans-right.png) center top / 100% no-repeat
+                    width: 322px
+                    height: 183px
+                    position: absolute
+                    right: 0
+                    top: 50px
+                    +rwd($pad)
+                        background: url(../images/ans-right-mb.png) center top / 100% no-repeat
+                        width: mvw(178)
+                        height: mvw(280)
+                        top: 0
+                        padding: mvw(15) mvw(20) 0 mvw(20)
+                    &:before
+                        display: none
+                        +rwd($pad)
+                            display: inline-block
+                            content: " "
+                            width: mvw(50)
+                            height: mvw(4)
+                            background: #17c6e2
+                            position: absolute
+                            top: mvw(110)
+                            left: 0
+                            transform: translateX(-90%)
+                    h3
+                        position: absolute
+                        top: 13px
+                        right: 0
+                        width: 270px
+                        +rwd($pad)
+                            position: relative
+                            top: inherit
+                            right: inherit
+                            width: 100%
+                    p
+                        position: absolute
+                        top: 93px
+                        right: 0
+                        font-size: 24px
+                        font-weight: 500
+                        color: #595959
+                        width: 270px
+                        text-align: center
+                        +rwd($pad)
+                            position: relative
+                            top: inherit
+                            right: inherit
+                            font-size: mvw(30)
+                            line-height: 1.2
+                            margin: 0 0 mvw(10) 0
+                            width: 100%
+                    .link
+                        position: absolute
+                        bottom: 23px
+                        right: 68px
+                        +rwd($pad)
+                            position: relative
+                            bottom: inherit
+                            right: inherit
+            .txt
+                margin: 35px auto 0
+                font-size: 24px
+                font-weight: 500
+                color: #595757
+                position: relative
+                +rwd($pad)
+                    font-size: mvw(32)
+                    line-height: mvw(58)
+                    text-align: left
+                    width: mvw(452)
+                    margin: mvw(36) 0 0 mvw(130)
+                &:before
+                    background: url(../images/icon-video.png) center top / 100% no-repeat
+                    content: " "
+                    width: 39px
+                    height: 30px
+                    display: inline-block
+                    margin: 0 10px 0 0
+                    vertical-align: sub
+                    +rwd($pad)
+                        width: mvw(61)
+                        height: mvw(44)
+                        position: absolute
+                        top: 0
+                        left: 0
+                        transform: translateX(-120%)
+                        margin: 0
+            .btnarea
+                margin: 65px auto 0
+                font-size: 0
+                +rwd($pad)
+                    margin: mvw(76) auto 0
+                .btn-login
+                    width: 333px
+                    height: 73px
+                    background: url(../images/btn-login.png) center top / 100% no-repeat
+                    display: inline-block
+                    margin: 0 20px 0 0
+                    +rwd($pad)
+                        width: mvw(410)
+                        height: mvw(88)
+                        display: block
+                        margin: 0 auto mvw(48)
+                    &:hover
+                        background: url(../images/btn-login-hover.png) center top / 100% no-repeat
+                .btn-service
+                    width: 333px
+                    height: 73px
+                    background: url(../images/btn-service.png) center top / 100% no-repeat
+                    display: inline-block
+                    margin: 0 0 0 20px
+                    +rwd($pad)
+                        width: mvw(410)
+                        height: mvw(88)
+                        display: block
+                        margin: 0 auto
+                    &:hover
+                        background: url(../images/btn-service-hover.png) center top / 100% no-repeat

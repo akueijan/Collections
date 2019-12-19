@@ -1,0 +1,525 @@
+.index
+    position: relative
+    width: 100%
+    overflow: hidden
+    img
+        max-width: 100%
+    .kv
+        position: relative
+        margin: $header-lg-height 0 0 0
+        width: 100%
+        min-height: 100vh
+        background: url("../images/green.png") center top / 100% auto no-repeat
+        padding-bottom: $kv-padding
+        box-sizing: content-box
+        +rwd($pad)
+            margin: $header-mobile-height 0 0 0
+            background: url("../images/green.png") center top / auto 100% no-repeat
+            padding-bottom: mvw(200)
+            min-height: 110vh
+        &-deco
+            position: absolute
+            width: 100%
+            height: 100%
+            transform: translate(-50%, -50%)
+            left: 50%
+            top: 50%
+        &-content
+            position: absolute
+            width: 100%
+            height: 100%
+            transform: translate(-50%, -50%)
+            left: 50%
+            top: 50%
+            max-width: #{$desktop-fullhd}px
+            +rwd($pad)
+                max-width: 750px
+        .kvbg
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+        img[class^="cloud"]
+            position: absolute
+        img[class^="balloon"]
+            position: absolute
+        .cloud-top
+            width: percentage(880 / $desktop-fullhd)
+            top: percentage( -480 / $kv-height-point)
+            left: 72px
+        .cloud-tr
+            width: percentage(1797 / $desktop-fullhd)
+            top: percentage( -650 / $kv-height-point)
+            right: -750px
+            transform: scale(0.5)
+            +rwd($pad)
+                top: mvw(-250)
+                right: mvw(-260)
+        .cloud-left
+            width: percentage(1096 / $desktop-fullhd)
+            top: percentage( 250 / $kv-height-point)
+            left: -600px
+            transform: scale(0.5)
+            +rwd($pad)
+                top: mvw(410)
+                left: mvw(-200)
+                transform: scale(0.6)
+        .cloud-center
+            width: percentage(92 / $desktop-fullhd)
+            top: percentage( 500 / $kv-height-point)
+            right: 280px
+            +rwd($pad)
+                width: mvw(65)
+                top: mvw(612)
+                right: mvw(79)
+        .cloud-br
+            width: percentage(483 / $desktop-fullhd)
+            top: percentage( 680 / $kv-height-point)
+            right: 45px
+        .bird1
+            position: absolute
+            width: percentage(71 / $desktop-fullhd)
+            top: percentage( 38 / $kv-height-point)
+            left: 354px
+            +rwd($pad)
+                top: mvw(506)
+                left: mvw(60)
+                width: mvw(62)
+        .bird2
+            position: absolute
+            width: percentage(136 / $desktop-fullhd)
+            top: percentage( 650 / $kv-height-point)
+            right: 290px
+            +rwd($pad)
+                display: none
+        .balloon-red
+            width: percentage(53 / $desktop-fullhd)
+            top: percentage( 535 / $kv-height-point)
+            left: 90px
+            +rwd($pad)
+                width: mvw(38)
+                top: mvw(790)
+                left: mvw(656)
+        .balloon-yellow
+            width: percentage(37 / $desktop-fullhd)
+            top: percentage( 815 / $kv-height-point)
+            right: 730px
+            +rwd($pad)
+                width: mvw(40)
+                top: mvw(1020)
+                right: mvw(646)
+        .person
+            $person-width: 728
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-84%, -54%)
+            width: percentage($person-width/$desktop-fullhd)
+            +rwd($pad)
+                width: mvw(633)
+                top: mvw(720)
+                transform: translate(-50%,0)
+            .floatAnim
+                animation: float 4s infinite both
+            @for $x from 1 through 4
+                .deco#{$x}
+                    animation-delay: #{(1 * $x)}s
+            .deco1
+                width: percentage(153/$person-width)
+                position: absolute
+                left: percentage(10/$person-width)
+                top: percentage(-96/565)
+            .deco2
+                width: percentage(89/$person-width)
+                position: absolute
+                left: percentage(192/$person-width)
+                top: percentage(-129/565)
+            .deco3
+                width: percentage(161/$person-width)
+                position: absolute
+                left: percentage(334/$person-width)
+                top: percentage(-76/565)
+            .deco4
+                width: percentage(164/$person-width)
+                position: absolute
+                left: percentage(126/$person-width)
+                top: percentage(344/565)
+        .txt-content
+            position: absolute
+            text-align: center
+            top: 50%
+            left: 50%
+            transform: translate(-12%, -100%)
+            width: percentage(601/$desktop-fullhd)
+            max-width: 601px
+            // height: percentage(460/$kv-height-point)
+            +rwd($pad)
+                width: mvw(572)
+                max-width: 572px
+                top: mvw(100)
+                transform: translate(-50%,0)
+            h2
+                text-align: left
+                display: inline-flex
+                align-items: center
+                justify-content: space-between
+                width: 100%
+                height: percentage(160/$kv-height-point)
+                min-height: 160px
+                // padding: 10px
+                // margin: 0 0 20px 0
+                +rwd($desktop-w)
+                     min-height: 120px
+                +rwd($desktop)
+                     min-height: 90px
+                +rwd($pad)
+                    padding: 0 0 0 mvw(20)
+                > img
+                    width: 25%
+                .t1
+                    transform: rotate(-4deg)
+                .t2
+                    transform: translate3d(-11%, -13%, 0) rotate(-1deg)
+                .t3
+                    transform: translate3d(-21%, -15%, 0) rotate(1deg)
+                .t4
+                    transform: translate3d(-31%, 0, 0) rotate(4deg)
+                @for $i from 1 through 4
+                    .t#{$i}
+                        animation: float3 3s infinite both #{(.2*$i)}s
+                    
+            p
+                font-size: 25px
+                font-weight: bold
+                line-height: 40px
+                color: #0880b5
+                margin: 20px 0 0 0
+                +rwd($desktop-w)
+                    font-size: 20px
+                    line-height: 1.5
+                +rwd($desktop)
+                    font-size: 18px
+                    line-height: 1.5
+                +rwd($pad)
+                    font-size: mvw(32)
+                    line-height: mvw(50)
+                    margin: mvw(10) 0 0 0
+            .actionbtn
+                cursor: pointer
+                display: inline-block
+                width: 262px
+                height: 90px
+                margin: 50px 0 0 0
+                +rwd($desktop)
+                    transform: scale(0.8)
+                    margin: 30px 0 0 0
+                +rwd($pad)
+                    width: mvw(344)
+                    height: mvw(120)
+                    margin: mvw(25) 0 0 0
+        .kv-more
+            position: absolute
+            left: 50%
+            top: percentage(780/$kv-height-point)
+            transform: translateX(-50%)
+            z-index: 5
+            animation: float4 4s infinite both
+    .events
+        position: relative
+        background: url(../images/tree.png) bottom center / 100% no-repeat 
+        // background-attachment: fixed
+        width: 100%
+        margin: -#{$kv-padding} auto 0
+        padding-bottom: $kv-padding - 10vh
+        padding-top: 10vh
+        overflow: hidden
+        +rwd($pad)
+            // margin: mvw(0) auto 0
+            padding-bottom: mvw(300)
+            padding-top: mvw(200)
+        .eventsbg
+            position: absolute
+            top: -20vh
+            left: 50%
+            transform: translateX(-50%)
+            max-width: none
+            height: 120%
+            // animation: float2 5s infinite both
+            &-active
+                animation: float2 5s infinite both
+            +rwd($desktop-w)
+                top: -35vh
+            +rwd($pad)
+                top: mvw(-750)
+        .l-container
+            width: 980px
+            margin: 0 auto
+            padding: 160px 0 0 0
+            text-align: center
+            +rwd($desktop)
+                width: 100%
+                padding: 0 mvw(60)
+        h2
+            font-size: 30px
+            font-weight: 500
+            line-height: 2
+            letter-spacing: -0.5px
+            color: #3e3a39
+            opacity: 0
+            transform: translateY(50%)
+            transition: all .5s ease-in-out
+            &.active
+                opacity: 1
+                transform: translateY(0%)
+            +rwd($pad)
+                font-size: mvw(36)
+            img
+                +rwd($pad)
+                    width: mvw(616)
+        .content
+            margin: 80px auto 0
+            opacity: 0
+            transform: translateY(100px)
+            transition: all .5s ease-in-out .2s
+            &.active
+                opacity: 1
+                transform: translateY(0%)
+            +rwd($pad)
+                margin: mvw(130) auto 0
+            h3
+                margin: 0 auto 30px
+                +rwd($pad)
+                    margin: 0 auto mvw(30)
+                img
+                    +rwd($pad)
+                        width: mvw(414)
+            p
+                font-size: 20px
+                font-weight: 600
+                line-height: 34px
+                color: #3e3a39
+                text-align: center
+                +rwd($pad)
+                    font-size: mvw(36)
+                    line-height: mvw(62)
+                    text-align: left
+                    margin: 0 0 mvw(56) 0
+            ul
+                display: inline-flex
+                align-items: center
+                justify-content: space-around
+                width: 100%
+                margin: 60px auto 0
+                +rwd($desktop)
+                    transform: scale(0.9)
+                +rwd($pad)
+                    display: block
+                    margin: 0 auto
+                    transform: scale(1)
+                li
+                    +rwd($pad)
+                        display: inline-flex
+                        justify-content: space-around
+                        align-items: center
+                        width: 100%
+                        margin: 0 0 mvw(20) 0
+                .awardname
+                    font-size: 22px
+                    font-weight: bold
+                    line-height: 34px
+                    margin: 10px auto 0
+                    +rwd($pad)
+                        font-size: mvw(40)
+                        line-height: mvw(68)
+                        text-align: center
+                    &:after
+                        display: none
+                        +rwd($pad)
+                            content: " "
+                            width: 100%
+                            height: 2px
+                            background: #ddd
+                            margin: mvw(10) 0
+                            display: block
+                .awardquantity
+                    font-size: 23px
+                    font-weight: bold
+                    line-height: 34px
+                    color: #19c6e2
+                    +rwd($pad)
+                        text-align: center
+                        font-size: mvw(36)
+                        line-height: mvw(68)
+            .step
+                font-size: 15px
+                line-height: 35px
+                padding: 5px 15px
+                background: #19c6e2
+                border-radius: 20px
+                color: #fff
+                margin: 0 10px 0 0
+                +rwd($pad)
+                    display: block
+                    width: mvw(128)
+                    height: mvw(50)
+                    font-size: mvw(28)
+                    line-height: mvw(50)
+                    padding: 0
+                    text-align: center
+            .eventbtn
+                margin: 50px auto 0
+            .linebtn
+                display: inline-block
+                width: 480px
+                height: 85px
+                +rwd($pad)
+                    width: mvw(557)
+                    height: mvw(99)
+            .dreamgifts
+                background: url(../images/34-2-x.png) top center / 100% no-repeat
+                width: 858px
+                height: 430px
+                display: inherit
+                position: relative
+                margin: 140px auto 0
+                +rwd($desktop)
+                    transform: scale(0.9)
+                +rwd($pad)
+                    background: url(../images/bg-gift-mb.png) top center / 100% 100% no-repeat
+                    width: 100%
+                    height: mvw(1170)
+                    transform: scale(1)
+                li
+                    position: absolute
+                    +rwd($pad)
+                        display: block
+                    .awardname
+                        +rwd($pad)
+                            font-size: mvw(32)
+                            margin: 0
+                        &:after
+                            display: none
+                .title
+                    top: 0
+                    left: 50%
+                    transform: translate(-50%,-50%)
+                    +rwd($pad)
+                        width: mvw(390)
+                .book
+                    top: 54px
+                    left: 60px
+                    +rwd($pad)
+                        width: mvw(253)
+                        top: mvw(844)
+                        left: mvw(316)
+                .mobile
+                    top: 245px
+                    left: 74px
+                    +rwd($pad)
+                        width: mvw(190)
+                        top: mvw(517)
+                        left: mvw(342)
+                .gifts
+                    top: 161px
+                    left: 263px
+                    +rwd($pad)
+                        width: mvw(332)
+                        top: mvw(239)
+                        left: mvw(56)
+                .umbrella
+                    top: 155px
+                    left: 520px
+                    +rwd($pad)
+                        width: mvw(191)
+                        top: mvw(620)
+                        left: mvw(90)
+                .note
+                    top: 54px
+                    left: 684px
+                    +rwd($pad)
+                        width: mvw(197)
+                        top: mvw(888)
+                        left: mvw(64)
+                .pen
+                    top: 245px
+                    left: 672px
+                    +rwd($pad)
+                        width: mvw(192)
+                        top: mvw(172)
+                        left: mvw(382)
+                a
+                    +rwd($pad)
+                        width: mvw(545)
+                        height: mvw(112)
+    .notes
+        position: relative
+        background: #e3fafc
+        // margin: -89px 0 0 0
+        +zindex(page)
+        .title
+            position: absolute
+            top: -89px
+            left: 50%
+            transform: translateX(-50%)
+            cursor: pointer
+            img
+                max-width: inherit
+            +rwd($pad)
+                height: mvw(178)
+        .content
+            width: 1000px
+            margin: 0 auto
+            padding: 40px
+            +rwd($desktop)
+                width: 100%
+                // padding: 20px
+        li
+            font-size: 16px
+            line-height: 26px
+            color: #434444
+            margin: 0 0 20px 0
+            +rwd($pad)
+                font-size: mvw(28)
+                line-height: mvw(50)
+            a
+                +rwd($pad)
+                    word-wrap: break-word
+                    word-break: break-all
+        .one
+            list-style: decimal
+            li
+                padding: 0 0 0 0.5em
+        .second
+            list-style: disc
+            margin: 0 0 0 2em
+            li
+                margin: 0 0 5px 0
+    .floatlink
+        display: none
+        +rwd($pad)
+            width: mvw(272)
+            display: block
+            position: fixed
+            bottom: mvw(200)
+            right: 0
+            z-index: 99
+            transform: translateX(100%)
+            overflow: hidden
+            transition: 0.3s
+        &-active
+            transform: translateX(0)
+            transition: 0.3s
+
+.pink
+    color: #ff76ae
+.blue
+    color: #00b3ea
+.underline
+    text-decoration: underline
+.small
+    font-size: 15px
+    line-height: 34px
+    +rwd($pad)
+        font-size: mvw(28)
+.bold
+    font-weight: bold

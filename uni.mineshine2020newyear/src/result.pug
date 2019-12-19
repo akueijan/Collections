@@ -1,0 +1,88 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "#麥香曬友情｜跨年出麥朋友，拍你個頭"
+    - var pageDesc = "讓「麥香梗圖產生器」創造出超友梗圖，還有機會免費獲得「客製化麥friends禮盒」！快來出「麥」好友！"
+    - var pageJs = "result.js"
+    - var isVue = true
+//- page html
+block page_main
+    section.result
+        transition(name="fade")
+            .step.step2(v-if="step=='2'" key="1")
+                .hd
+                    h2
+                        img.pconly(src="images/step2.png")
+                        img.mbonly(src="images/mb-step2.png")
+                .bd
+                    h2
+                        img.pconly(src="images/step2-title.png")
+                        img.mbonly(src="images/mb-step2-title.png")
+                    .canarea
+                        .overcan
+                            //- canvas#fcan
+                            //- a#dl4(v-bind:href="user.shareImg"  v-if="!user.shareImg==''" download="img4.jpg")
+                            a#dl4(v-bind:href="user.shareImg"  v-if="!user.shareImg==''")
+                            img(:src="user.shareImg" v-if="!user.shareImg==''")
+                        ul
+                            li.list1
+                                //- canvas#cutcan1
+                                //- a#dl1(v-bind:href="user.userImg1"  v-if="!user.userImg1==''" download="img1.jpg")
+                                a#dl1(v-bind:href="user.userImg1"  v-if="!user.userImg1==''")
+                                img(:src="user.userImg1" v-if="!user.userImg1==''")
+                            li.list2
+                                //- canvas#cutcan2
+                                //- a#dl2(v-bind:href="user.userImg2" v-if="!user.userImg2==''" download="img2.jpg")
+                                a#dl2(v-bind:href="user.userImg2" v-if="!user.userImg2==''")
+                                img(:src="user.userImg2" v-if="!user.userImg2==''")
+                            li.list3
+                                //- canvas#cutcan3
+                                //- a#dl3(v-bind:href="user.userImg3" v-if="!user.userImg3==''" download="img3.jpg")
+                                a#dl3(v-bind:href="user.userImg3" v-if="!user.userImg3==''")
+                                img(:src="user.userImg3" v-if="!user.userImg3==''")
+                    .btnarea
+                        .btn.again(gtm-data="分享臉書頁-再玩一次")
+                            a(href="game.html" gtm-data="分享臉書頁-再玩一次")
+                                img(src="images/btn-again.png" gtm-data="分享臉書頁-再玩一次")
+                        .btn.fbshare(v-if="!savedata" @click="toFb()" gtm-data="分享臉書頁-立即分享賺好禮")
+                            img(src="images/btn-share.png" gtm-data="分享臉書頁-立即分享賺好禮")
+                        .btn.download(@click="checkBrowser()" gtm-data="分享臉書頁-下載梗圖刷LINE去")
+                            img(src="images/btn-download.png" gtm-data="分享臉書頁-下載梗圖刷LINE去")
+            .step.step3(v-if="step=='3'" key="2")
+                .hd
+                    h2
+                        img.pconly(src="images/step3.png")
+                        img.mbonly(src="images/mb-step3.png")
+                .bd
+                    h2
+                        img.pconly(src="images/step3-title.png")
+                        img.mbonly(src="images/mb-step3-title.png")
+                    .content
+                        .img
+                            img.pconly(src="images/pic-box.png")
+                            img.mbonly(src="images/mb-pic-box.png")
+                        form.form(@submit.prevent = "giftput()")
+                            ul
+                                li
+                                    label(for="name") 姓名 :
+                                    input#name(type="text" placeholder="中獎人姓名" maxlength="20" v-model="name")
+                                li
+                                    label(for="phone") 手機號碼 :
+                                        span.small  (例：0912345678)
+                                    input#phone(type="text" placeholder="如果中獎要打哪個電話" maxlength="10" v-model="mobile")
+                                li
+                                    label(for="phone") 收件者姓名 :
+                                        span.small  (最多輸入10個字)
+                                    input#phone(type="text" placeholder="想送給哪一位好友" maxlength="10" v-model="friendName")
+                                li
+                                    label(for="cumtext") 客製化賀詞 :
+                                        span.small  (最多輸入10個字)
+                                    input#cumtext(type="text" placeholder="想對好友說的話" maxlength="10" v-model="text")
+                                li.agree
+                                    input#agree(type="checkbox" v-model="agree" gtm-data="資料填寫頁-同意活動辦法")
+                                    label(for="agree" @click="eventOpen" gtm-data="資料填寫頁-同意活動辦法") 本人已詳閱並同意活動辦法及個資保護條例
+                            .btnsend
+                                button(type="submit" gtm-data="資料填寫頁-確認送出")
+                                    img(src="images/btn-cta.png" gtm-data="資料填寫頁-確認送出")
+        canvas#giftbox

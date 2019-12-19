@@ -1,0 +1,291 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "登錄發票抽現金88,888!｜金豬報喜 能量運勢求籤筒"
+    - var pageJs = "index.js"
+    - var isVue = true //設定頁面為vue控制
+//- page html
+block page_main
+    div.index
+        section.kv
+            div.linearea
+                div.deco-topline
+                div.deco-botline
+                div.deco-leftline
+                div.deco-rightline
+                div.deco-lt
+                    img(src="images/corner_r.png")
+                div.deco-rt
+                    img(src="images/corner_r.png")
+                div.deco-lb
+                    img(src="images/corner_r.png")
+                div.deco-rb
+                    img(src="images/corner_r.png")
+            div.cloudarea
+                .randomcloud.randomcloud1
+                    img#ttt(src="images/cloud-2.png")
+                .randomcloud.randomcloud2
+                    img(src="images/cloud-3.png")
+                .randomcloud.randomcloud3
+                    img(src="images/cloud-4.png")
+                .randomcloud.randomcloud4
+                    img(src="images/cloud-5.png")
+                .randomcloud.randomcloud5
+                    img(src="images/cloud-2.png")
+                //- .randomcloud.cloud1
+                //-     img(src="images/cloud-2.png")
+                //- .randomcloud.cloud2
+                //-     img(src="images/cloud-3.png")
+                //- .randomcloud.cloud3
+                //-     img(src="images/cloud-4.png")
+                //- .randomcloud.cloud4
+                //-     img(src="images/cloud-5.png")
+                //- .randomcloud.cloud5
+                //-     img(src="images/cloud-2.png")
+            div.l-bling
+                img(src="images/l-bling.png")
+            div.r-bling
+                img(src="images/r-bling.png")
+            div.l-content
+                div.animatearea
+                    div.light
+                        img(src="images/kv-light.png")
+                    div.title
+                        img(src="images/kv-title.png")
+                    div.leftpd
+                        .topbg
+                            .gradual
+                        .botbg
+                            .gradual
+                        img(src="images/compass2-te.png")
+                        div.compass-pd
+                            img(src="images/compass_pd.png")
+                    div.rightpd
+                        .topbg
+                            .gradual
+                        .botbg
+                            .gradual
+                        img(src="images/compass-te.png")
+                        div.compass-pd
+                            img(src="images/compass_pd2.png")
+                    div.woman
+                        img(src="images/woman.png")
+                    div.man
+                        img(src="images/man.png")
+                    div.knot
+                        .knot-2
+                            .knot-3
+                                p 購買康貝特系列或PowerBOMB指定商品，
+                                    br
+                                    | 登錄發票即可抽NT$88,888發財金等多項大獎！
+                    a(@click="vAlert" title="發票登錄" gtm-data="首頁_發票登錄").actionbtn
+                        img(src="images/cta.gif" alt="發票登錄" gtm-data="首頁_發票登錄")
+                div.sign
+                    a(@click="vAlert" title="發票登錄" gtm-data="首頁_籤筒登錄發票")
+                        img(src="images/1.png" gtm-data="首頁_籤筒登錄發票")
+        section#events.events
+            div.linearea
+                div.deco-topline
+                div.deco-botline
+                div.deco-leftline
+                div.deco-rightline
+                div.deco-lt
+                    img(src="images/corner_y.png")
+                div.deco-rt
+                    img(src="images/corner_y.png")
+                div.deco-lb
+                    img(src="images/corner_y.png")
+                div.deco-rb
+                    img(src="images/corner_y.png")
+            div.l-bling
+                img(src="images/l-bling.png")
+            div.r-bling
+                img(src="images/r-bling.png")
+            div.l-content
+                div.block.block1
+                    div.title
+                        img(src="images/title.png")
+                    div.bg
+                        div.bg2
+                            div.bg3
+                                .steps-title 
+                                    p 立即
+                                        span.yel 登錄發票
+                                        | 給你
+                                        span.yel 滿滿正能量!
+                                ul.pordlist
+                                    li
+                                        .prodpic
+                                            img(src="images/pd.png")
+                                        .prodinfo
+                                            img(src="images/step-1.png")
+                                            p 即日起至2019/4/13，購買康貝特系列或PowerBOMB商品。
+                                                a(href="./products.html" gtm-data="活動辦法_指定商品")
+                                                    span(gtm-data="活動辦法_指定商品").yel 指定商品
+                                    li
+                                        .prodpic
+                                            img(src="images/invalid-name.png")
+                                        .prodinfo
+                                            img(src="images/step-2.png")
+                                            p 登錄發票即可抽財運爆棚獎
+                                                span.yel 現金88,888元
+                                                | 加碼
+                                                span.yel 週週抽機票
+                                                |、
+                                                span.yel 發財金
+                                                | 等多項好禮~讓你豬年行大運！
+                    div.btnarea
+                        a(@click="vAlert" title="發票登錄" gtm-data="首頁_首頁_好運大獎_登錄發票添好運").actionbtn.mb-only
+                            img(src="images/cta.png" alt="發票登錄" gtm-data="首頁_首頁_好運大獎_登錄發票添好運")
+                div#awards
+                div.block.block2
+                    div.title
+                        img(src="images/title_2.png")
+                    div.bg
+                        div.bg2
+                            div.bg3
+                                .luckyarea
+                                    h2.lucky-title
+                                        p 金豬好運爆棚獎
+                                    .lucky-red
+                                        .lucky-content
+                                            img(src="images/money.png")
+                                            .lucky-txt
+                                                p.best-item 
+                                                    span.yel 開工大紅包
+                                                    | 現金
+                                                    span.yel 88,888
+                                                    | 元
+                                                p 共
+                                                    span.yel 1
+                                                    | 名
+                                .luckyarea.lucky2
+                                    h2.lucky-title
+                                        p 好運能量週週抽
+                                    .lucky-content
+                                        ul.lucky-list
+                                            li
+                                                .itemimg
+                                                    img(src="images/100-money.png")
+                                                .itemcontent
+                                                    h3.itemtitle 偏財運能量
+                                                    p.itemtxt 現金NT888元
+                                                    p.itemnote 每週
+                                                        span.yel 16
+                                                        | 名共
+                                                        span.yel 128
+                                                        | 名
+                                            li
+                                                .itemimg
+                                                    img(src="images/award-2.png")
+                                                .itemcontent
+                                                    h3.itemtitle 旅遊運能量
+                                                    p.itemtxt 台北-沖繩
+                                                        br
+                                                        | 來回機票1張
+                                                    p.itemnote 每週
+                                                        span.yel 1
+                                                        | 名共
+                                                        span.yel 8
+                                                        | 名
+                                            li
+                                                .itemimg
+                                                    img(src="images/award-3.png")
+                                                .itemcontent
+                                                    h3.itemtitle 桃花運能量
+                                                    p.itemtxt 雙人威秀電影票
+                                                    p.itemnote 每週
+                                                        span.yel 21
+                                                        | 名共
+                                                        span.yel 168
+                                                        | 名
+                                            li
+                                                .itemimg
+                                                    img(src="images/award-4.png")
+                                                .itemcontent
+                                                    h3.itemtitle 好口福能量
+                                                    p.itemtxt Haagen-Dazs
+                                                        br
+                                                        | 105元冰品購物金
+                                                    p.itemnote 每週
+                                                        span.yel 55
+                                                        | 名共
+                                                        span.yel 440
+                                                        | 名
+                                            li
+                                                .itemimg
+                                                    img(src="images/award-5.png")
+                                                .itemcontent
+                                                    h3.itemtitle 工作運能量
+                                                    p.itemtxt 誠品生活
+                                                        br
+                                                        | 50元即享券
+                                                    p.itemnote 每週
+                                                        span.yel 25
+                                                        | 名共
+                                                        span.yel 200
+                                                        | 名
+                                    .deco-prize
+                                        img(src="images/prize-fortune.png")
+                    div.btnarea
+                        a(@click="vAlert" title="發票登錄" gtm-data="首頁_活動辦法_登錄發票添好運").actionbtn.mb-only
+                            img(src="images/cta-b.png" alt="發票登錄" gtm-data="首頁_活動辦法_登錄發票添好運")
+        section#events-note.events-note
+            h2.note-title(v-on:click="note_toggle" gtm-data="首頁_活動注意事項")
+                span(gtm-data="首頁_活動注意事項") 活動注意事項
+            div.note__area
+                transition(mode="out-in" name="fade")
+                    .note-content(v-show="notebox")
+                        .note1
+                            h3 抽獎注意事項
+                            ul
+                                li 《財運爆棚獎 現金88,888》
+                                    br
+                                    | 以電腦隨機方式抽獎，並於2019年4月22日(一)於活動網站公布得獎名單。
+                                li 《加碼週週抽》
+                                    br
+                                    | 台北-沖繩來回機票一張(單人)、現金888元、雙人威秀電影票、Häagen-Dazs 105元冰品購物金、誠品生活50元即享券，將以電腦隨機方式抽獎，並於2019/2/25、2019/3/4、2019/3/11、2019/3/18、2019/3/25、2019/4/1、2019/4/8、2019/4/17公布得獎名單於活動網站。
+                        .note2
+                            h3 其他注意事項
+                            ul
+                                li 活動資格：
+                                    ul.two
+                                        li(data-list="1") 活動時間自2019年2月13日00:00，至2019年4月13日23:59截止，發票登錄最遲應於2019年4月13日23:59前完成。
+                                        li(data-list="2") 本活動僅限登錄紙本電子發票，且消費日期應在本活動期間內。若電子發票存於載具，請務必於購買活動指定商品時告知店家印出紙本發票及明細。同一組有效發票號碼僅限登錄一次，並獲得《財運爆棚獎 現金88888》及《加碼週週抽》各一次抽獎與中獎機會。
+                                        li(data-list="3") 本次活動相關執行廠商公司之員工，不得參加本次活動。
+                                li 得獎注意事項：
+                                    ul.two
+                                        li(data-list="1") 財運爆棚獎 現金88,888元：得獎者應於2019/4/29前至得獎名單下載機會中獎回覆函填寫，包含收款帳號存摺影本，連同中獎發票影本(須於影本上註明與『發票正本相符』字樣並親簽)，於信封註明：金豬報喜活動小組－財運爆棚獎，掛號寄至臺北市中山區松江路207號10樓 春樹科技股份有限公司，以郵戳為憑，逾時即喪失資格。發票上若未記載購買品項明細，應另外附上購買明細，以做為領獎憑證。主辦單位確認對獎資格無誤後，將以匯款方式進行，同時匯款金額會扣除代扣稅額。
+                                        li(data-list="2") 旅遊運能量 台北-沖繩來回機票一張(單人)：得獎者須於得獎公告後7天內至得獎名單下載機會中獎回覆函填寫，連同中獎發票影本(須於影本上註明與『發票正本相符』字樣並親簽)，於信封註明：金豬報喜活動小組－旅遊運能量獎，掛號寄至臺北市中山區松江路207號10樓 春樹科技股份有限公司，以郵戳為憑，逾時即喪失資格，審核確認後得獎者將於簡訊中收到電子序號兌換券。
+                                        li(data-list="3") 偏財運能量 現金888元：得獎者須於得獎公告後7天內主動提供中獎人相關聯絡資訊(包含真實姓名、收款帳號存摺影本)，於E-mail主旨註明：金豬報喜活動小組－偏財運能量獎，E-mail至活動小組客服信箱app_service@friendo.com.tw。活動小組收到後將回覆E-mail，並安排後續獎金匯款事宜。
+                                        li(data-list="4") 桃花運能量 雙人威秀電影票得獎者於得獎公告後7天內主動提供中獎人相關聯絡資訊(包含真實姓名、聯絡信箱、聯絡地址)，於E-mail主旨註明：金豬報喜活動小組 －桃花運能量獎，E-mail至活動小組客服信箱app_service@friendo.com.tw。活動小組收到後將回覆E-mail，並於7天內寄出電影票券。
+                                        li(data-list="5") 好口福能量Haagen-Dazs 105元冰品購物金、工作運能量 誠品生活 50元即享券得獎者將於得獎公告後7天內收到電子序號兌換券簡訊，各購物金使用方式請詳見各獎項票券上使用說明。
+                                        li(data-list="6") 本活動獎品不得折換現金，本公司就活動獎項內容得依實際狀況斟酌調整，並保留隨時修改、變更、終止或暫停本活動及替換其他等值贈品之權利。
+                                        li(data-list="7") 春樹科技股份有限公司一概以本活動參加者所提供之個人資料寄送得獎贈品，中獎者請務必提供真實、完整之領獎資料，以便進行領獎作業。如因資料錯誤或不正確，導致無法通知得獎訊息、確認得獎者或獎品寄送後遭退回，皆將視為棄權。
+                                        li(data-list="8") 若中獎者因資格不符或自願放棄中獎資格者，不另行網路公告，未滿20歲之中獎者，應取得監護人之同意並由監護人代為領取，並請附上中獎者及其代領人關係證明影本，如中獎者遲未能補足資料之情形，將視為棄權，主辦單位亦不再另行通知。
+                                        li(data-list="9") 活動參加者有下列情形之一時，主辦單位得取消其得獎資格:
+                                            ul.three
+                                                li 違反本活動之活動辦法及相關注意事項之行為。
+                                                li 提供之資料為非真實或冒用第三人之資料。
+                                                li 提供之資料未填寫完整正確之中文姓名、聯絡電話及可收掛號信之郵寄地址。
+                                        li(data-list="10") 活動獎項將以包裹郵寄，在郵寄或運送過程中，非可歸責於春樹科技股份有限公司之事由所造成的毀壞、遲遞、錯遞或遺失，春樹科技股份有限公司及葡萄王股份公司不負賠償責任。
+                                        li(data-list="11") 中獎者未於郵局或宅配通知招領截止日期前領取獎品或通知信函者，視同放棄，其得獎資格將被取消。主辦方保留全權處理任何未頒發的活動獎項之權利。
+                                        li(data-list="12") 如因電腦病毒、駭客入侵、技術失誤、數據遺失、網路擠塞等網路技術的任何因素，以致遞交資料缺失或抽獎活動無法進行，春樹科技股份有限公司無需承擔任何責任。
+                                        li(data-list="13") 依中華民國稅法規定，獎項金額超過新台幣1,000元，中獎人須依規定填寫並繳交中獎收據，主辦單位將開立各類所得扣繳憑單給得獎者，並依稅法規定代扣機會中獎稅。中獎者若無法配合填寫並繳交中獎收據，視為中獎者自動棄權且不具得獎資格。另中獎獎品價值超過新台幣 20,010 元(含)以上者，應自行負擔機會中獎所得稅，依法應預先扣繳10%稅金。(詳細則請見機會中獎回覆函)
+                                        li(data-list="14") 本抽獎活動獎品寄送(宅配)地點限於台灣本島、澎湖馬公本島、金門本島與小金門本島。
+                                li 本活動辦法如有未盡事宜，主辦單位保留增訂、變更、刪除或終止活動內容獎項等活動內容之權利，修改訊息將於活動網站中公佈，不須另行通知或取得參賽得獎者同意。若參加者不接受本活動於任何時間對本活動內容條款修改或變更後的結果，參加者得放棄其參加資格。
+                                li 主辦方有權檢視各活動參與者之參與行為及中獎情形是否涉嫌不法或有違常理之異常狀況，例：人為操作蓄意偽造、短時間異常多筆參與行為、透過任何電腦程式參與活動、詐欺或以任何其他不正當的方式意圖以進行不實或虛偽活動參與行為、或登錄資料不實或不正確或盜用任何第三人之資料，或有違反活動規範之行為，活動參與者因上述情形所獲得之活動資格及獎品，主辦方及活動小組保有變更、終止其參加活動資格、取消中獎資格或暫停活動的權利，並保留法律追訴權。
+                                li 所有參加本活動者於提供或填寫個人資料後，視為同意主辦方得將其個人資料於本活動目地範圍內蒐集、處理暨使用之。主辦方僅使用參與者所提供之個人資料於此次活動用途，且遵守【個人資料保護法】相關規定，以維護參與者權益。得獎者授權主辦方公開公佈姓名。
+                                li 本活動由葡萄王生技股份有限公司舉辦，並委由春樹科技股份有限公司(粉多集點卡)製作執行，春樹科技股份有限公司保留審核參加及中獎資格，決定修正及變更活動內容之權利。消費者如有任何疑問，請於星期一至星期五10:00~18:00撥打活動專線02-77028887詢問。
+                                li 本活動如有未盡事宜，葡萄王生技股份有限公司擁有保留、修改、暫停及解釋活動內容之權利，修改訊息將於活動網站上公佈，不另行通知。
+                                li 蒐集利用個人資料告知事項：
+                                    ul.four
+                                        li 春樹科技股份有限公司舉辦上述活動，為進行蒐集、處理及利用個人資料，特依「個人資料保護法」第八條之規定，告知擬參加之消費者下列事項：
+                                        li 蒐集人：春樹科技股份有限公司。
+                                        li 目的：行銷、贈獎及其相關事項。
+                                        li 個資類別：C001辨識個人者。如姓名、住址、電話、行動電話等。C003政府資料中之辨識者：如身分證統一編號等。及C011個人描述：年齡、性別、出生年月日等。
+                                        li 由蒐集人一時在台灣地區就贈獎活動之相關事項使用個資。
+                                        li 參加人得以畫面或電子郵件查詢，或請求閱覽、製給複本、請求補充或更正、請求停止蒐集、處理或利用、請求刪除。如得獎者不願意或未提供正確之個人資料將被取消中獎資格。
+                                        li 春樹科技股份有限公司將尊重參加人之權益，絕不逾越上述特定目的之必要範圍，從事蒐集、處理及利用參加人個人資料，且非經同意，亦絕不任意竄改或洩漏或提供第三人使用。若有逾越上述特定目的之必要範圍之蒐集、處理及利用，春樹科技股份有限公司將事先以書面、電子郵件、傳真或其他適當方式通知並取得參加人書面之同意。
+                                        li 本人參與本活動即視為本人已瞭解活動主辦方貴公司以上告知事項，並已清楚瞭解貴公司蒐集、處理及利用本人個人資料之目的及用途，並同意貴公司於上述告知事項範圍內，得蒐集、處理、國際傳遞及利用本人資料。

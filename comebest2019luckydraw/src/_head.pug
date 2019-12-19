@@ -1,0 +1,42 @@
+head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='edge,chrome=1')
+    title #{pageTitle}
+    meta(name='description', content=pageDesc)
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1')
+    //- meta(name='viewport', content='width=750')
+    //- Schema.org markup for Google+
+    meta(itemprop="name" content=pageTitle)
+    meta(itemprop="description" content="購買康貝特系列或PowerBOMB指定商品,登錄發票立即抽現金88,888! 加碼週週抽台北-沖繩來回機票、紅包888元...等多項好禮等你拿!")
+    meta(itemprop="image" content="images/fbshare.png")
+
+    //- og
+    meta(property="og:title" content=pageTitle)
+    meta(property="og:description" content="登錄康貝特指定商品發票,立即抽現金88,888! 加碼週週抽台北-沖繩來回機票、紅包888元...等多項好禮等你拿!")
+    meta(property="og:type" content="article")
+    meta(property="og:image" content="images/fbshare.png")
+    - if(!dev_mode)
+        //- base(href="https://campaign.friendo.com.tw/comebest2019luckydraw/")
+    //- TODO : Place favicon.ico and apple-touch-icon.png in the root directory
+    link(rel="Shortcut Icon" type="images/x-icon" href="images/fav.ico")
+    link(rel='stylesheet', href=`css/main.css`+ "?v=" + timestamp)
+    //- script(src="https://code.createjs.com/easeljs-0.5.0.min.js")
+    //- script(src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.34.1/es6-shim.js")
+    - if(dev_mode)
+        //- debug tool
+        script(src="https://cdn.jsdelivr.net/npm/vconsole@3.2.0/dist/vconsole.min.js")
+    - else
+        //- log tools
+        script(type="text/javascript" src="//cloudfront.loggly.com/js/loggly.tracker-latest.min.js" async)
+        script.
+            var _LTracker = _LTracker || [];
+                _LTracker.push({'logglyKey': '8016ea6d-fa64-4c93-bddb-461c5e78fd99',
+                'sendConsoleErrors' : true,
+                'tag' : 'comebest2019CNY'  });
+    script.
+        dataLayer = [{}];
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': 
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], 
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); 
+        })(window,document,'script','dataLayer','GTM-PDQBGG3');

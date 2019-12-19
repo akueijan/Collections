@@ -1,0 +1,24 @@
+nav.nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+    div.l-container
+        div.nav-bd
+            h1.nav-logo
+                a(href="index.html" alt="LOGO" title="LOGO" gtm-data="menu_回首頁")
+                    img(src="images/invalid-name_10.png")
+            div.nav-btn
+                div.one
+                div.two
+                div.three
+            div.nav-menu(role="navigation")
+                ul.clearfix
+                    li.nav-item.nav-item--iscurrent
+                        a(href="./index.html" itemprop="url" title="回首頁" gtm-data="menu_回首頁"): span 回首頁
+                    li.nav-item
+                        a(href="javascript:void(0)" itemprop="url" title="開始制夢" gtm-data="menu_開始制夢" @click="alertTimeover()"): span 開始制夢
+                    li.nav-item
+                        a(href="./index.html#events" itemprop="url" title="活動辦法" gtm-data="menu_活動辦法"): span 活動辦法
+                    li.nav-item
+                        a(href="javascript:void(0)" itemprop="url" title="中獎名單" @click="popupOpen" gtm-data="menu_中獎名單"): span 中獎名單
+                    li.nav-item.line
+                        a(href="https://line.me/ti/p/@feibtpe" itemprop="url" title="line" target="_blank" gtm-data="menu_LINE")
+                            img.pconly(src="images/image-2.png" alt="line" gtm-data="menu_LINE")
+                            span(gtm-data="menu_LINE").mbonly 遠銀財富管理LINE@

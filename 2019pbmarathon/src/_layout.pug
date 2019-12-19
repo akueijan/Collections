@@ -1,0 +1,34 @@
+﻿doctype
+html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
+    //page default Information
+    block pageInfo
+        - var pageTitle = "PowerBOMB人生不斷電馬拉松｜Power出你的能量"
+        - var pageDesc = "登錄指定商品發票抽現金99,999、Switch遊戲機！挑戰PowerBOMB人生不斷電馬拉松還有機會抽中PS4等多項好禮！"
+    //html head
+    include _head.pug
+    //html body
+    body
+        noscript
+            iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-KN7KXML" height="0" width="0" style="display:none;visibility:hidden")
+        div.l-wrap#app(v-cloak=isVue)
+            include _nav.pug
+            // render nav view
+            div.l-main
+                block page_main
+                //render main view
+            include _popup.pug
+            //- comingsoon(@topArr="Arrup" @updata="uptoken"  :start_date="start_date" :mode_status="mode_status")
+            comingsoon(:start_date="start_date" :mode_status="mode_status")
+            //- comingsoon
+        include _comingsoon.pug
+        div.l-footer.footer
+            div.l-container
+                p Copyright © 2019 葡萄王生技股份有限公司 All Rights Reserved.
+        script(type="text/javascript" src=jsFolder+"vendor.js")
+        script(type="text/javascript" src=jsFolder+"lib.js")
+        if more_js
+            each js in more_js
+                script(type="text/javascript" src= jsFolder + js)
+        script(type="text/javascript" id="appjs" src= jsFolder + "app.js?v="+timestamp data-mode=`${dev_mode}` data-site=`${apiUrl}`)
+        if pageJs
+            script(src= jsFolder + pageJs+"?v="+timestamp)

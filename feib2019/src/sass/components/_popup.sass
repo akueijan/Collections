@@ -1,0 +1,89 @@
+.popup 
+    background: rgba(#000,0.6)
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    z-index: 99
+    overflow-y: auto
+    padding: 0 0 50px 0
+    +rwd($pad)
+        padding: 0
+    .popup-content
+        width: 605px
+        margin: 150px auto 0
+        background: #fff
+        border: 4px solid #ff76ae
+        border-radius: 20px
+        padding: 50px 130px
+        position: relative
+        +rwd($pad)
+            width: 100%
+            margin: 0
+            border: 0
+            border-radius: 0
+            padding: mvw(150) mvw(130) mvw(50)
+    .close
+        width: 42px
+        position: absolute
+        top: -3px
+        right: -3px
+        cursor: pointer
+        +rwd($pad)
+            background: #ff76ae
+            border-bottom-left-radius: 20px
+    h2
+        width: 276px
+        margin: 0 auto
+        +rwd($pad)
+            width: mvw(360)
+    .content
+        text-align: center
+        padding: 70px 0 0 0
+        .awardblock
+            padding: 0 0 100px 0
+            +rwd($pad)
+                padding: 0 0 mvw(90) 0
+            &:nth-last-of-type(1)
+                padding: 0
+        h3
+            width: 120px
+            margin: 0 auto
+            +rwd($pad)
+                width: mvw(160)
+        table
+            width: 100%
+            margin: 20px auto 0
+            +rwd($pad)
+                margin: mvw(20) auto 0
+            tr
+                &:nth-child(1)
+                    background: #e0e1e2
+                &:nth-last-of-type(1)
+                    td
+                        border-bottom: 0
+            th
+                background: #e0e1e2
+                font-size: 13px
+                padding: 10px 0
+                color: #fff
+                width: 50%
+                +rwd($pad)
+                    font-size: mvw(24)
+                &:nth-of-type(1)
+                    border-top-left-radius: 10px
+                    border-bottom-left-radius: 10px
+                &:nth-last-of-type(1)
+                    border-top-right-radius: 10px
+                    border-bottom-right-radius: 10px
+            td
+                font-size: 23px
+                color: #3e3a39
+                padding: 10px 0
+                border-bottom: 1px dashed  #dddddd
+                +rwd($pad)
+                    font-size: mvw(32)
+
+    // +zindex("popup")
+   

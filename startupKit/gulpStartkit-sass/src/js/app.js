@@ -71,10 +71,7 @@ Vue.mixin({
             error_msg: "",
             mode: production ? "Started" : "Testing",
             loading: false,
-            popuptop: "",
             navHeight: "",
-            rewardShake: true,
-            lineHref: '',
         }
     },
     computed: {
@@ -142,28 +139,9 @@ Vue.mixin({
         },
         scrollTo: function (e) {
             var vm = this;
-            vm.room = null;
-            vm.allPopupClose();
             $("html,body").animate({
                 scrollTop: $(e).offset().top - vm.navHeight
             }, 500);
-        },
-        popupOpen: function () {
-            var vm = this;
-            if (!vm.popuptop || vm.popuptop === 0) {
-                vm.popuptop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
-            }
-            $('body').addClass('_freeze');
-        },
-        popupClose: function () {
-            var vm = this;
-            $('body').removeClass('_freeze');
-            $('html, body').scrollTop(vm.popuptop);
-            vm.popuptop = 0;
-        },
-        afterEnter: function () {
-            var vm = this;
-            vm.popupOpen();
         },
         getToken: function() {
             var vm = this;
@@ -183,14 +161,7 @@ Vue.mixin({
     },
     mounted: function () {
         var vm = this;
-        // fix-body-space
-        var navHeight = $('.window-top').height();
-        vm.navHeight = navHeight - 30;
-        $('body').css('margin-top', vm.navHeight);
-        $(".nav-lock").click(function(){
-            $("body").removeClass("_freeze");
-        })
-        alert('a')
+    
     }
 })
 

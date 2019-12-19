@@ -1,0 +1,126 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "開始制夢 | 遠東商銀"
+    - var pageDesc = "立即挑戰7大夢想指標!完成任務送好禮~"
+    - var more_js = "game.js"
+    - var pageJs = "dream.js"
+    - var isVue = true
+//- page html
+block page_main
+    section.dream
+        .questionblock
+            .bgarea
+                img.deco1(src="images/81-2-x.png")
+                img.deco2(src="images/81-2-x.png")
+                img.deco3(src="images/81-2-x.png")
+                img.deco4(src="images/81-2-x.png")
+                img.deco5(src="images/81-2-x.png")
+                img.deco6(src="images/81-2-x.png")
+                img.deco7(src="images/81-2-x.png")
+                img.balloon1(src="images/balloon-blue.png")
+                img.balloon2(src="images/balloon-yellow.png")
+                img.balloon3(src="images/balloon-red.png")
+            .l-container
+                transition(mode="out-in" name="fade")
+                    .question1(v-if="question==1" key="q1")
+                        h2
+                            img.pconly(src="images/qutitle-1.png")
+                            img.mbonly(src="images/qutitle-1-mb.png")
+                        .kv
+                            img(v-bind:src="questionpic.q1pic")
+                    .question2(v-if="question==2" key="q2")
+                        h2
+                            img.pconly(src="images/qutitle-2.png")
+                            img.mbonly(src="images/qutitle-2-mb.png")
+                        .kv
+                            img(:src="questionpic.q2pic")
+                    .question3(v-if="question==3"  key="q3")
+                        h2
+                            img.pconly(src="images/qutitle-3.png")
+                            img.mbonly(src="images/qutitle-3-mb.png")
+                        .kv
+                            img(:src="questionpic.q3pic")
+                    .question4(v-if="question==4" key="q4")
+                        h2
+                            img.pconly(src="images/qutitle-4.png")
+                            img.mbonly(src="images/qutitle-4-mb.png")
+                        .kv
+                            img(:src="questionpic.q4pic")
+                    .question5(v-if="question==5" key="q5")
+                        h2
+                            img.pconly(src="images/qutitle-5.png")
+                            img.mbonly(src="images/qutitle-5-mb.png")
+                        .kv
+                            img(:src="questionpic.q5pic")
+                    .question6(v-if="question==6" key="q6")
+                        h2
+                            img.pconly(src="images/qutitle-6.png")
+                            img.mbonly(src="images/qutitle-6-mb.png")
+                        .kv
+                            img(:src="questionpic.q6pic")
+                    .question7(v-if="question==7" key="q7")
+                        h2
+                            img.pconly(src="images/qutitle-7.png")
+                            img.mbonly(src="images/qutitle-7-mb.png")
+                        .kv
+                            img(:src="questionpic.q7pic")
+                    .freeqe.freeqe1(v-if="question==8" key="q8")
+                        h2
+                            img.pconly(src="images/freeqe-title.png")
+                            img.mbonly(src="images/freeqe-title-mb.png")
+                        .kv
+                            img(:src="questionpic.q8pic")
+                            .inputblock
+                                label(for="freeinput-1") 請輸入其他夢想
+                                input#freeinput-1(type="text" maxlength="6" v-model="otherinput")
+                    .freeqe.freeqe2(v-if="question==9" key="q9")
+                        h2
+                            img(src="images/freeqe-title.png")
+                        .kv
+                            img(:src="questionpic.q9pic")
+                            .inputblock
+                                label(for="freeinput-2") 請輸入其他夢想
+                                input#freeinput-2(type="text" maxlength="6" v-model="otherinput")
+                    .freeqe.freeqe3(v-if="question==10" key="q10")
+                        h2
+                            img(src="images/freeqe-title.png")
+                        .kv
+                            img(:src="questionpic.q10pic")
+                            .inputblock
+                                label(for="freeinput-3") 請輸入其他夢想
+                                input#freeinput-3(type="text" maxlength="6" v-model="otherinput")
+                .btnblock
+                    transition(mode="out-in" name="fade")
+                        ul.btnblock1(v-show="btnsel==1")
+                            li 
+                                input(id="selbtn1" type="radio" name="111" value="0" v-model="selcun") 
+                                label(for="selbtn1") 這不是我的夢想
+                            li 
+                                input(id="selbtn2" type="radio" name="111" value="1" v-model="selcun") 
+                                label(for="selbtn2") 還沒開始行動
+                            li 
+                                input(id="selbtn3" type="radio" name="111" value="2" v-model="selcun") 
+                                label(for="selbtn3") 努力達成中
+                            li 
+                                input(id="selbtn4" type="radio" name="111" value="3" v-model="selcun") 
+                                label(for="selbtn4") 已經達成目標
+                    transition(mode="out-in" name="fade")
+                        ul.btnblock2(v-show="btnsel==2")
+                            li 
+                                input(id="otherbtn1" type="radio" name="xxx" value="1" v-model="selcun") 
+                                label(for="otherbtn1") 還沒開始行動
+                            li 
+                                input(id="otherbtn2" type="radio" name="xxx" value="2" v-model="selcun") 
+                                label(for="otherbtn2") 努力達成中
+                            li 
+                                input(id="otherbtn3" type="radio" name="xxx" value="3" v-model="selcun") 
+                                label(for="otherbtn3") 已經達成目標
+                    transition(mode="out-in" name="fade")
+                        .btnarea.btnarea1(v-if="btntype==1")
+                            a.nextbtn(href="javascript:void(0)" @click="stepCun")
+                    transition(mode="out-in" name="fade")
+                        .btnarea.btnarea2(v-if="btntype==2")
+                            a.sendbtn(href="javascript:void(0)" @click="sendans")
+                            a.otherbtn(href="javascript:void(0)" @click="stepCun")

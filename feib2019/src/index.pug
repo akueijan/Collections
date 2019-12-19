@@ -1,0 +1,177 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "【遠東商銀 夢想雲圖】"
+    - var pageDesc = "立即挑戰7大夢想指標!完成任務送好禮~"
+    - var pageJs = "index.js"
+    - var isVue = true
+//- page html
+block page_main
+    section.index
+        .kv
+            .kv-deco
+                img.cloud-left(src="images/cloud-copy.png")
+                img.cloud-top(src="images/82-2-x.png")
+                img.cloud-tr(src="images/16-2-x.png")
+                img.cloud-br(src="images/81-2-x.png")
+                img.cloud-center(src="images/cloud.png")
+                img.bird1(src="images/bird.png")
+                img.bird2(src="images/bird_2.png")
+                img.balloon-red(src="images/balloon-red.png")
+                img.balloon-yellow(src="images/balloon-yellow.png")
+            .kv-content
+                .person
+                    img.man(src="images/people.png")
+                    img.deco1.floatAnim(src="images/invalid-name_3.png")
+                    img.deco2.floatAnim(src="images/invalid-name_6.png")
+                    img.deco3.floatAnim(src="images/invalid-name_5.png")
+                    img.deco4.floatAnim(src="images/invalid-name_4.png")
+                .txt-content
+                    h2
+                        img.t1(src="images/title-1.png")
+                        img.t2(src="images/title-2.png")
+                        img.t3(src="images/title-3.png")
+                        img.t4(src="images/title-4.png")
+                    h3
+                        img(src="images/invalid-name_2.png")
+                    p 現在成為「遠銀財富管理LINE@」
+                        br
+                        | 好友即可獲得專屬好友禮！
+                    a.actionbtn(href="javascript:void(0)" gtm-data="首頁_開始制夢" @click="alertTimeover()")
+                        img(src="images/btn-dream.gif" gtm-data="首頁_開始制夢")
+            .kv-more
+                a(href="javascript:void(0)" @click="scrollTo('#events',400)")
+                    img(src="images/79-2-x.png")
+        .events#events
+            img.eventsbg(src="images/cloud_2.png")
+            .l-container
+                h2
+                    img(src="images/18-2-x.png")
+                    br
+                    | 活動時間 ： 2019/03/14 ~ 06/13
+                .content.content1
+                    h3 
+                        img(src="images/19-2-x.png")
+                    p 完成兩步驟即可獲得
+                        span.underline 當月專屬好友禮
+                        | 乙份! 
+                        span.small (數量有限送完為止)
+                    p
+                        span.step STEP1
+                        | 完成你的夢想雲圖，成為
+                        span.pink 遠銀財富管理LINE@好友
+                        | ，並回覆【
+                        span.pink 夢想雲圖
+                        | 】。
+                    p
+                        span.step STEP2
+                        | 至遠東商銀分行完成
+                        span.pink 填寫理財問卷
+                        | 。
+                    ul.friendgifts
+                        li
+                            .awardimg
+                                img(src="images/23-2-x.png")
+                            .awardtxt
+                                p.awardname 手機拭鏡貼
+                                p.awardquantity 2,000份
+                        li
+                            .awardimg
+                                img(src="images/24-2-x.png")
+                            .awardtxt
+                                p.awardname 手工金珠皂
+                                p.awardquantity 1,000份
+                        li
+                            .awardimg
+                                img(src="images/25-2-x.png")
+                            .awardtxt
+                                p.awardname 十樂便條紙
+                                p.awardquantity 2,000份
+                        li
+                            .awardimg
+                                img(src="images/26-2-x.png")
+                            .awardtxt
+                                p.awardname 環保吸管組
+                                p.awardquantity 2,000份
+                    .eventbtn
+                        a.linebtn(href="https://line.me/ti/p/@feibtpe" title="立即加入LINE@" target="_blank" gtm-data="首頁_立即加入LINE@")
+                            img(src="images/btn-line.gif" gtm-data="首頁_立即加入LINE@")
+                .content.content2
+                    h3 
+                        img(src="images/20-2-x.png")
+                    p 凡於活動期間至遠東商銀分行
+                        span.pink 預約理財諮詢
+                        | 並完成
+                        span.pink 填寫理財問卷
+                        | ，即可抽
+                        span.underline 十樂福袋
+                        | 乙份
+                        span.small (每月2名)
+                    ul.dreamgifts
+                        li.title
+                            .awardimg
+                                img(src="images/33-2-x.png")
+                        li.book
+                            .awardimg
+                                img(src="images/37-2-x.png")
+                            p.awardname 十樂筆記本
+                        li.mobile
+                            .awardimg
+                                img(src="images/40-2-x.png")
+                            p.awardname 手機拭鏡貼
+                        li.gifts
+                            .awardimg
+                                img(src="images/36-2-x.png")
+                            p.awardname 遠百商品券NT 5,000元
+                        li.umbrella
+                            .awardimg
+                                img(src="images/38-2-x.png")
+                            p.awardname 折疊雨傘
+                        li.note
+                            .awardimg
+                                img(src="images/39-2-x.png")
+                            p.awardname 十樂便條紙
+                        li.pen
+                            .awardimg
+                                img(src="images/35-2-x.png")
+                            p.awardname 原子筆
+                    .eventbtn
+                        a.linebtn(href="https://www.feib.com.tw/branch" title="哪裡有分行" target="_blank" gtm-data="首頁_哪裡有分行")
+                            img(src="images/22-2-x.png" gtm-data="首頁_哪裡有分行")
+        .notes
+            .title#notetxt(@click="note=!note")
+                img(src="images/invalid-name_9.png" alt="注意事項")
+                //- img.mbonly(src="images/invalid-name_9-mb.png" alt="注意事項")
+            transition(mode="out-in" name="fade")
+                .content(v-show="note")
+                    ul.one
+                        li 本活動由遠東商銀主辦，委託春樹科技股份有限公司製作相關網頁。
+                        li 活動時間：自2019年3月14日起至2019年6月13日止。
+                        li 活動對象：僅限居住於中華民國臺澎金馬地區之中華民國國籍居民。
+                        li 活動內容： 
+                            ul.second
+                                li 
+                                    span.bold 專屬好友禮：
+                                    | 活動期間加入遠銀財富管理LINE@，回覆「夢想雲圖」並至
+                                    a(href="https://www.feib.com.tw/branch" title="遠東商銀各分行" target="_blank")
+                                        span.blue.underline 遠東商銀各分行
+                                    | 出示LINE@優惠券畫面，完成填寫理財問卷，即可獲得當月專屬好友禮乙份。每月專屬好友禮：3月手機拭鏡貼(限量2,000份)，4月手工金珠皂(限量1,000份)，5月十樂便條紙(限量2,000份)，6月環保吸管組(限量2,000份)，獎品不選色，隨機贈送，每人限領乙份，送完為止。
+                                li 
+                                    span.bold 夢想加碼禮：
+                                    | 凡於活動期間至分行預約理財諮詢並完成填寫理財問卷，即可抽十樂福袋乙份(每月2名)。十樂福袋內含遠百商品券NT5,000元、折疊雨傘、原子筆、十樂便條紙、十樂筆記本、手機拭鏡貼，獎品不選色，隨機贈送。
+                        li 夢想加碼禮：得獎名單以官網公告為準，將於2019年度5/10、7/10公告；遠東商銀將主動以電話通知得獎人，得獎人須於2019/8/30前，提供得獎人真實姓名、身分證統一編號、地址、電話等個人資料，以完成相關領獎作業，若因不可歸責於遠東商銀之因素(包含但不限於逾期回覆、未回覆、填寫資料有誤或不完整、通訊訊號微弱及其他原因等)，以致得獎人無法接獲得獎通知，遠東商銀不遞補名額。
+                        li 本活動所提供之獎品內容，不得折換現金、兌換其他商品或優惠，亦不得將本活動得獎資格轉讓或轉售予他人；本活動獎品如遇缺貨或不可抗力之因素無法提供時，遠東商銀有權以其他等值商品替代。獎品之品質及售後服務等由產品製造商負責，概與遠東商銀無涉；獎品實際金額以遠東商銀購入之當時金額為準，獎品所衍生之費用皆由得獎人自行負擔。
+                        li 參加本活動者，視為同意遠東商銀得因本活動之需要，依個人資料保護法相關規定，於本活動期間內，以電子檔或紙本形式於我國境內蒐集、處理，及向活動廠商、稅捐機關等對象利用其個人資料(包含姓名、身分證統一編號、電話、電子郵件等)個人資料保護法第8條告知事項請參遠銀官網個人資料保護法告知事項「全行業務」之說明：
+                            br
+                            |
+                            a.blue(href="https://www.feib.com.tw/upload/WebSitePDF/general%20/325PersonalPrivacy.pdf" target="_blank") https://www.feib.com.tw/upload/WebSitePDF/general%20/325PersonalPrivacy.pdf
+                            br
+                            | 參加本活動者可自由選擇是否提供完整個人資訊，惟若不願提供或提供資訊不完整者，將無法參加本活動或喪失得獎資格。
+                        li 本活動如有任何因資料提供錯誤或不完整、電腦、網路、電話、技術或其他不可歸責於遠東商銀之事由，致系統發生無法傳送或誤送活動訊息或得獎通知，或使參加本活動者所寄出、填寫或登錄之資料有遺失、錯誤、無法辨識或毀損等情形，遠東商銀不負任何法律責任。
+                        li 遠東商銀有權檢視本活動是否有人為操作之行為，對於以偽造、詐欺、以其他不正當方式意圖兌領獎品、未遵循遠東商銀規劃活動內容與流程之得獎人與參加者，遠東商銀有權撤銷其得獎資格或拒絕其參與本活動。
+                        li 依稅法規定，得獎人若為中華民國境內居住之個人，且所得獎品價值超過新臺幣(以下同)NT1,000元時，遠東商銀將於翌年開立所得稅扣繳憑單予得獎者，如所得獎品價值為NT20,000元(含)以上者，得獎人須先繳交10%機會中獎稅金，始可領獎。若未能依法繳納應繳稅額，即視為喪失得獎資格。得獎人因參加本活動而須支付之任何稅捐皆為得獎人之義務，概與遠東商銀無關。前述稅捐法規如有更新或變動者，依修正後之規定辦理。
+                        li 本活動如因故無法舉行，遠東商銀有權取消、終止、延期、修改活動內容、更換獎品內容或暫停本活動進行等之相關決定，恕不另行通知。其他未盡事宜或有疑義時，悉由遠東商銀相關規定或解釋辦理。
+        a(href="dream.html" gtm-data="首頁_開始制夢").floatlink
+            img(src="images/floatdream.png" gtm-data="首頁_開始制夢")
+

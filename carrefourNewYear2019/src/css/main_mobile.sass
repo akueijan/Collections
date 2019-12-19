@@ -1,0 +1,59 @@
+@charset "UTF-8"
+
+@import "setup/_rwd.sass"
+@import "setup/_color.sass"
+@import "setup/_variable.sass"
+@import "setup/_functions.sass"
+@import "setup/_font-face.sass"
+@import "setup/_mixin.sass"
+@import "setup/_animation.sass"
+@import "setup/_normalize.sass"
+//A set of Sass mixins to write well-structured, maintainable, idiomatic BEM-style  source:
+@import "base/_typography.sass"
+@import "base/_layout.sass"
+
+@import "components/_header.sass"
+@import "components/_popup.sass"
+@import "pages/_index_mobile.sass"
+
+#star
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: -1
+
+[v-cloak] *
+    display: none
+
+.fade-enter-active, .fade-leave-active
+    transition: opacity .2s ease-in-out
+
+.fade-enter, .fade-leave-to
+    opacity: 0
+
+.page-enter-active,
+.page-leave-active 
+    transition: all .3s ease-in-out
+    
+.page-enter, .page-leave-to
+    transform: scale(0.95)
+    opacity: 0
+
+.head-title
+    font-size: mvw(24)
+    padding: mvw(14) 0 mvw(9)
+    text-align: center
+    color: #fff
+    background-image: $buttonColor
+.c-day-popover
+    text-align: center
+    .c-day
+        display: inline-flex
+        align-items: center
+
+.v-spinner
+    display: inline-block
+    font-size: 0
+    vertical-align: middle

@@ -1,0 +1,108 @@
+﻿doctype
+html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
+    //page default Information
+    block pageInfo
+        - var pageTitle = "首頁"
+        - var pageDesc = "敘述"
+    //html head
+    include _head.pug
+    //html body
+    body
+        noscript
+            iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-5M2B4Q2" height="0" width="0" style="display:none;visibility:hidden")
+        div.l-wrap#app(v-cloak=isVue class=enfont)
+            include _nav.pug
+            // render nav view
+            div.l-fb
+                div.l-container
+                    div.fb-box
+                        .fb-like(data-href='#', data-layout='button_count', data-action='like', data-show-faces='false', data-share='true') 
+            div.l-main
+                block page_main
+                //render main view
+            div.float-menu
+                ul.ctrol-nav
+                    li(data-nav="kv" @click="gaEvent2('Menu','天空的微笑')")
+                        a(href="javascript:void(0)" :title="$t('nav.title1')") {{$t('nav.title1')}}
+                    li(data-nav="abouteva" @click="gaEvent2('Menu','前瞻設計')")
+                        a(href="javascript:void(0)" :title="$t('nav.title2')") {{$t('nav.title2')}}
+                    li(data-nav="feature" @click="gaEvent2('Menu','全新體驗')")
+                        a(href="javascript:void(0)" :title="$t('nav.title3')") {{$t('nav.title3')}}
+                    li(data-nav="classinfo" @click="gaEvent2('Menu','艙等介紹')")
+                        a(href="javascript:void(0)" :title="$t('nav.title4')") {{$t('nav.title4')}}
+                    li(@click="popupVideo_open(),gaEvent2('Menu','介紹影片')")
+                        a(href="javascript:void(0)" :title="$t('nav.title5')") {{$t('nav.title5')}}
+                    //- li.link_game(@click="gaEvent2('Menu','抽獎活動')")
+                    //-     a(href="https://b787.evaair.com/game?utm_source=web_page&utm_campaign=b787" target="_blank")
+                    //-         img(src="../images/pc-fix-game.png")
+            //- div.mb-float-menu(@click="gaEvent2('Menu','抽獎活動')")
+            //-     a(href="https://b787.evaair.com/game?utm_source=web_page&utm_campaign=b787" target="_blank")
+            //-         img(src="../images/mb-fix-game.png")
+            div.l-footer.footer
+                div.ft-nav
+                    div.ft-left
+                        ul.ctrol-nav
+                            li(data-nav="kv" @click="gaEvent2('Menu','天空的微笑')")
+                                a(href="javascript:void(0)" :title="$t('nav.title1')") {{$t('nav.title1')}}
+                            li(data-nav="abouteva" @click="gaEvent2('Menu','前瞻設計')")
+                                a(href="javascript:void(0)" :title="$t('nav.title2')") {{$t('nav.title2')}}
+                            li(data-nav="feature" @click="gaEvent2('Menu','全新體驗')")
+                                a(href="javascript:void(0)" :title="$t('nav.title3')") {{$t('nav.title3')}}
+                            li(data-nav="classinfo" @click="gaEvent2('Menu','艙等介紹')")
+                                a(href="javascript:void(0)" :title="$t('nav.title4')") {{$t('nav.title4')}}
+                            li(@click="popupVideo_open(),gaEvent2('Menu','介紹影片')")
+                                a(href="javascript:void(0)" :title="$t('nav.title5')") {{$t('nav.title5')}}
+                            //- li.link_game(@click="gaEvent2('Menu','抽獎活動')")
+                            //-     a(href="https://b787.evaair.com/game?utm_source=web_page&utm_campaign=b787" :title="$t('nav.title6')" target="_blank") {{$t('nav.title6')}}
+                    div.ft-right
+                        ul
+                            li(@click="gaEvent2('Menu','Facebook')")
+                                a(href="https://www.facebook.com/evaairwayscorp.tw/" title="fb" target="_blank")
+                                    img(src="../images/icon-fb.png")
+                            li(@click="gaEvent2('Menu','Youtube')")
+                                a(href="https://www.youtube.com/user/EVAAIRVIDEO" title="youtube" target="_blank")
+                                    img(src="../images/icon-youtube.png")
+                            li(@click="gaEvent2('Menu','Line')")
+                                a(href="https://line.me/R/ti/p/%40evaair" title="line" target="_blank")
+                                    img(src="../images/icon-line.png")
+                            li(@click="gaEvent2('Menu','Instagram')")
+                                a(href="https://www.instagram.com/evaairways" title="ig" target="_blank")
+                                    img(src="../images/icon-ig.png")
+                div.l-container
+                    p Copyright © EVA Airways. All rights reserved.
+                    div.footer-logo
+                        img(src="../images/footer-logo.png")
+            transition(name="fade" mode="out-in")
+                div.popup_area(v-show="popupVideo")
+                    div.close(@click="popupVideo_close()")
+                    div.head
+                        div.logo
+                            img(src="../images/logo.png")
+                    div.body
+                        div.video
+                            div#player
+                    div.skip(@click="popupVideo_close()")
+                        img(src="../images/skip.png")
+                    div.footer
+                        p Copyright © EVA Airways. All rights reserved.
+        //- include _comingsoon.pug
+        script(type="text/javascript" src=jsFolder+"vendor.js")
+        //- script(type="text/javascript" src="https://cdn.jsdelivr.net/jquery.reel/1.3/jquery.reel.js")
+        script(type="text/javascript" src=jsFolder+"lib.js")
+        if more_js
+            script(type="text/javascript" src= jsFolder + more_js)
+        script(type="text/javascript" src= jsFolder + "lang.js")
+        script(type="text/javascript" id="appjs" src= jsFolder + "app.js?v="+timestamp data-mode=`${dev_mode}` data-site=`${apiUrl}`)
+        if pageJs
+            script(src= jsFolder + pageJs+"?v="+timestamp)
+        script(type='text/javascript').
+            /* <![CDATA[ */
+            var google_conversion_id = 882083140;
+            var google_custom_params = window.google_tag_params;
+            var google_remarketing_only = true;
+            /* ]]> */
+        script(type='text/javascript' src="//www.googleadservices.com/pagead/conversion.js")
+        noscript
+            <div style="display:inline;">
+                <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/882083140/?guid=ON&amp;script=0"/>
+            </div>

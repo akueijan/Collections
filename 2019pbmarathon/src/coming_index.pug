@@ -1,0 +1,13 @@
+﻿extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "PowerBOMB人生不斷電馬拉松｜Power出你的能量"
+    - var pageDesc = "登錄指定商品發票抽現金99,999、Switch遊戲機！挑戰PowerBOMB人生不斷電馬拉松還有機會抽中PS4等多項好禮！"
+    - var pageJs = "index.js"
+    - var isVue = true
+    //- - var more_js = ["game/Game.js","game/ScenesManager.class.js","game/Tools.class.js"]
+//- page html
+block page_main
+    section.index(v-cloak)
+        img.pc-only(src="images/pc-comkv.png")
+        img.mb-only(src="images/mb-comkv.png")

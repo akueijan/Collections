@@ -1,0 +1,72 @@
+﻿doctype
+html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
+    //page default Information
+    block pageInfo
+        - var pageTitle = "一年一DO 平安普渡 | 2019中元家樂福"
+        - var pageDesc = "水逆加上農曆鬼月，讓你諸事不順？現在就試試家樂福「星座普渡」幫你改好運！無論你信奉東方傳統或者西方星象，讓祈求平安的信仰，成為兩代最好的傳承，就是最好的中元普渡方式！"
+    //html head
+    include _head.pug
+    //html body
+    body
+        noscript
+            iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-WFGX5JK" height="0" width="0" style="display:none;visibility:hidden")
+        noscript
+            img(height="1" width="1" src="https://www.facebook.com/tr?id=2646445135370804&ev=PageView&noscript=1")
+        div.l-wrap#app(v-cloak=isVue)
+            #starBG
+                - var s = 200;
+                while s > 0
+                    div.s
+                    - s--;
+            //- canvas#canvas
+            include _nav.pug
+            // render nav view
+            div.l-fb
+                div.l-container
+                    div.fb-box
+                        .fb-like(data-href='#', data-layout='button_count', data-action='like', data-show-faces='false', data-share='true') 
+            div.l-main
+                block page_main
+                //render main view
+            div.float-btn(gtm-data="首頁-綁定會員抽LINE即享券btn" @click="scrollTo('#memberarea')")
+                img.pc-only(src="images/float-btn.png")
+                img.mb-only(src="images/mb-float-btn.png")
+            div.gotop(gtm-data="首頁-Top")
+                img(src="images/gotop.png" gtm-data="首頁-Top")
+            //- div.cover
+            div.l-footer.footer
+                div.l-container
+                    .footer-txt
+                        p Copyright©2019 CarrefourTaiwan. All Rights Reserved. 建議使用 IE10.0 以上瀏覽器
+                    .footer-nav
+                        ul
+                            li
+                                a(href="https://www.facebook.com/carrefour.tw/" target="_blank" gtm-data="Footer-Facebook")
+                                    img(src="images/icon-fb.png")
+                            li
+                                a(href="https://www.youtube.com/channel/UCk0luhBaSfPWo4Cmyt0EDew" target="_blank" gtm-data="Footer-Youtube")
+                                    img(src="images/icon-youtube.png")
+                            li
+                                a(:href="linefriend" target="_blank" gtm-data="Footer-LINE")
+                                    img(src="images/icon-line.png")
+                            li
+                                a(href="https://www.instagram.com/carrefourtaiwan/?hl=zh-tw" target="_blank" gtm-data="Footer-Instagram")
+                                    img(src="images/icon-ig.png")
+        include _comingsoon.pug
+        script(type="text/javascript" src=jsFolder+"vendor.js")
+        script(type="text/javascript" src=jsFolder+"lib.js")
+        //- script(type="text/javascript" src="js/polyfill.min.js")
+        if more_js
+            script(type="text/javascript" src= jsFolder + more_js)
+        script(type="text/javascript" id="appjs" src= jsFolder + "app.js?v="+timestamp data-mode=`${dev_mode}` data-site=`${apiUrl}`)
+        if pageJs
+            script(src= jsFolder + pageJs+"?v="+timestamp)
+        script(type='text/javascript').
+            (function(d) {
+                var config = {
+                kitId: 'ucz4dlw',
+                scriptTimeout: 3000,
+                async: true
+                },
+                h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+            })(document);

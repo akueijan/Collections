@@ -1,0 +1,39 @@
+﻿doctype
+html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
+    //page default Information
+    block pageInfo
+        - var pageTitle = "首頁"
+        - var pageDesc = "敘述"
+    //html head
+    include _head.pug
+    //html body
+    body
+        noscript
+            iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-5RWPPST" height="0" width="0" style="display:none;visibility:hidden")
+        .loading-page(style="background: #bf0029;position: fixed;width: 100%;height: 100%;left: 0;top: 0;z-index: 99")
+                img(src="./images/kv-title.png" style="width: 250px;height: auto;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-80%)")
+                img.load-icon(src="./images/loading.gif" style="width: 60px;height: auto;position: absolute;top: 56%;left: 50%;transform: translate(-50%,-0%)")
+        div.l-wrap#app(v-cloak=isVue)
+            block nav
+            // render nav view
+            div.l-main
+                block page_main
+                //render main view
+            include _popup.pug
+            
+        div.l-footer.footer
+            div.l-container
+                - if(isMobile)
+                    p Copyright@2019 CarrefourTaiwan. All Rights Reserved. 建議使用 iOS 10或Android 6以上版本
+                - else
+                    p Copyright@2019 CarrefourTaiwan. All Rights Reserved. 建議使用 IE10.0 以上瀏覽器
+        include _comingsoon.pug
+        script(type="text/javascript" src=jsFolder+"vendor.js?v="+timestamp)
+        script(type="text/javascript" src=jsFolder+"lib.js?v="+timestamp)
+        if more_js
+            each js in more_js
+                script(type="text/javascript" src= jsFolder + js + "?v=" + timestamp)
+        script(type="text/javascript" id="appjs" src= jsFolder + "app.js?v="+timestamp data-mode=`${dev_mode}` data-site=`${apiUrl}`)
+        if pageJs
+            script(src= jsFolder + pageJs+"?v="+timestamp)
+        script(type='text/javascript')

@@ -1,0 +1,242 @@
+$header-lg-height: vw(75)
+$header-mobile-height: mvw(110)
+
+header
+    width: 100%
+    padding: vw(20) vw(50)
+    display: flex
+    align-items: center
+    justify-content: space-between
+    +rwd($pad)
+        padding: mvw(20) mvw(50)
+
+.nav
+    background: url(../images/nav-bg.jpg) top center no-repeat
+    background-size: auto 100%
+    height: $header-lg-height
+    line-height: $header-lg-height
+    width: 100%
+    position: fixed
+    left: 0
+    top: 0
+    transition: 0.3s
+    +zindex("header")
+    +rwd($pad)
+        height: $header-mobile-height
+        line-height: $header-mobile-height
+        background: #0e205e
+    &.active
+        // position: absolute
+        .nav-menu
+            transform: translateY(0)
+            transition: 0.3s
+        .nav-btn
+            width: mvw(64)
+            height: mvw(76)
+            background: url(../images/nav-close.png) top center no-repeat
+            background-size: cover
+            transition: 0.3s
+    &.upissue
+        z-index: 11
+    a 
+        cursor: pointer
+    p
+        display: inline-block
+        margin-right: 10px  
+    &>*:last-child p
+        margin-right: 0
+    &-bd 
+        height: 100%
+        padding: 0 vw(28)
+        display: flex
+        align-items: center
+        justify-content: space-between
+        +rwd($desktop)
+            padding: 0 mvw(23)
+    &-logo 
+        display: inline-block
+        width: vw(213)
+        line-height: 0
+        vertical-align: middle
+        +rwd($desktop)
+            width: mvw(360)
+        img
+            width: 100%
+            height: auto
+    &-btn
+        display: none
+        +rwd($pad)
+            display: block
+            width: mvw(64)
+            height: mvw(76)
+            background: url(../images/nav-open.png) top center no-repeat
+            background-size: cover
+            position: absolute
+            top: mvw(20)
+            right: mvw(30)
+            // transform: translateY(-50%)
+
+    &-menu
+        float: right
+        +rwd($pad)
+            width: 100%
+            height: 100vh
+            text-align: center
+            position: absolute
+            top: mvw(110)
+            left: 0
+            transform: translateY(-150%)
+            background: url(../images/gradebg.jpg) top center no-repeat
+            background-size: cover
+            overflow: hidden
+            transition: 0.3s
+        ul
+            +rwd($pad)
+                width: 100%
+                height: 100%
+                padding: mvw(30) 0 0 0
+                // display: flex
+                // justify-content: space-around
+                // align-items: center
+                // flex-direction: column
+        li 
+            display: inline-block
+            line-height: 0
+            vertical-align: middle
+            margin-right: vw(30)
+            +rwd($pad)
+                display: block
+                margin-right: 0
+                line-height: inherit
+                margin: 0 0 mvw(30) 0
+                text-align: center
+            &:nth-last-child(2),&:nth-last-child(3)
+                margin-right: vw(15)
+                +rwd($pad)
+                    margin-right: 0
+            &:last-child
+                margin-right: 0
+            a
+                +rwd($pad)
+                    width: mvw(492)
+                    height: mvw(83)
+                    display: inline-block
+                img
+                    display: none
+                    +rwd($pad)
+                        display: inline-block
+            span
+                color: #fff
+                font-weight: bold
+                font-size: vw(18)
+                line-height: 1
+                +rwd($pad)
+                    font-size: 0
+                &:after
+                    content: "/"
+                    font-weight: 200
+                    color: #ffffff
+                    margin: 0 0 0 vw(30)
+                    +rwd($pad)
+                        display: none
+            &:nth-last-child(3)
+                span
+                    margin-right: vw(30)
+                    +rwd($pad)
+                        margin-right: 0
+                    &:after
+                        display: none
+            // .fb,.ig,.line
+            //     width: vw(37)
+            //     height: vw(37)
+            //     background-size: cover
+            //     background-position: center
+            //     display: inline-block
+            // .fb
+            //     background-image: url(../images/fb-icon.png)
+            // .ig
+            //     background-image: url(../images/ig-icon.png)
+            // .line
+            //     background-image: url(../images/line-icon.png)
+    .fb, .line
+        width: vw(38)
+        height: vw(38)
+        +rwd($pad)
+            width: mvw(90)
+            height: mvw(90)
+            display: inline-block
+            margin: 0 mvw(40) !important
+        a
+            +rwd($pad)
+                width: 100%
+                height: 100%
+                display: inline-block
+            img
+                display: inline-block
+
+.window
+    position: fixed
+    width: 100%
+    top: 0
+    left: 0
+    +zindex("window")
+    &.active
+        position: absolute
+    img 
+        width: 100%
+        height: auto
+    .inner-area
+        position: relative
+    &-top 
+        position: absolute
+        top: 0
+        z-index: 7
+        height: vw(131)
+        width: 100%
+    &-middle-left,&-middle-right
+        width: vw(491)
+        position: absolute
+        top: 0
+        z-index: 6
+    &-middle-left
+        left: 0
+    &-middle-right
+        right: 0
+        img
+            transform: scaleX(-1)
+    &-bottom-left,&-bottom-right
+        position: absolute
+        top: 0
+        z-index: 5
+        width: vw(276)
+        height: 97vh
+        img
+            height: 100%
+            width: auto
+    &-bottom-left
+        left: 0
+    &-bottom-right
+        right: 0
+        img
+            transform: scaleX(-1)
+    &-loading-left,&-loading-right
+        position: absolute
+        top: vw(34)
+        width: vw(1177)
+        transition-duration: 1.5s
+        z-index: 4
+        height: 97vh
+        img
+            height: 100%
+            width: 100%
+    &-loading-left
+        left: -9%
+        &.active
+            left: -47.5%
+    &-loading-right
+        right: -9%
+        &.active
+            right: -47.5%
+        img
+            transform: scaleX(-1)
+

@@ -1,0 +1,22 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "index"
+    - var pageDesc = "pageDesc"
+    - var pageJs = "index.js";
+//- page html
+block page_main
+    section.index
+        h1 startupKit
+        //- audio(src="images/Morning_Mandolin.mp3" controls)
+        //- audio#player(controls)
+        button#p(@click="startGame()") 遊戲開始
+        button#s 結束
+        button#test(@click="testStart()") 收音測試
+        #d
+        ul#recordingslist
+        br
+        p 收音平均數據: {{deScore}}
+        br
+        p 平均數據以下: {{sec}} 次

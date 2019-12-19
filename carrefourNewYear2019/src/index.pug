@@ -1,0 +1,131 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "家樂福賀歲片盛大開演 | 家樂福賀歲大戲院"
+    - var pageDesc = "揪團免費看電影再抽一年份電影票！劇中場景找彩蛋再抽驚喜家電和超過500張家樂福即享券！"
+    - var more_js = ["rooms.js","games.js"]
+    - var pageJs = "index.js"
+    - var css = "main.css"
+    - var isVue = true
+block nav
+    include _nav.pug
+//- page html
+block page_main
+    div.index
+        #fixed-icon.fixed-icon(v-if="!endDate()")
+            img(src="./images/fixed-icon.png", alt="揪團齊看，抽一年份電影票" gtm-data="首頁_QRcode")
+            #fixed-qrcode.fixed-qrcode
+        section#kv-top.kv-top 
+            //- h1 startupKit
+            //- #qrcode
+            //- button#test2 dfff
+            //- button#createRoom create room
+            //- button#test test
+            //- .video
+            //-     .before
+            //-     #player 
+            div.container-area
+                div.kv-title-area 
+                    div.text-light-area 
+                        div.light-item
+                            img(src="./images/light1.png", alt="家樂福-精彩好戲")
+                        div.light-item
+                            img(src="./images/light2.png", alt="家樂福-精彩好戲")
+                        div.light-item
+                            img(src="./images/light3.png", alt="家樂福-精彩好戲")
+                        div.light-item
+                            img(src="./images/light4.png", alt="家樂福-精彩好戲")
+                    div.kv-title 
+                        img(src="./images/kv-title-big2.png", alt="家樂福賀歲大戲院")
+                    div.kv-issue
+                        h3
+                            a(alt="scrolldown" itemprop="url" title="scrolldown" v-on:click="scrollTo('#kv-bottom');") 
+                                img(src="./images/scroll-down.png", alt="scrolldown")
+        section#kv-bottom.kv-bottom
+            div.clouds
+            div.container-area
+                div.video-group 
+                    div.video-item(v-on:click="videoPlay(1)" gtm-data="首頁_家有新禧事") 
+                        img(src="./images/vd1.png", alt="家有喜事" gtm-data="首頁_家有新禧事")
+                        div.title-item(gtm-data="首頁_家有新禧事")
+                            img(src="./images/vd1-title.png", alt="賀歲強檔" gtm-data="首頁_家有新禧事")
+                        div.spot-light(gtm-data="首頁_家有新禧事")
+                        div.btn-play(gtm-data="首頁_家有新禧事")
+                    div.video-item(v-on:click="videoPlay(2)" gtm-data="首頁_越來樂愛你們") 
+                        img(src="./images/vd2.png", alt="家有喜事" gtm-data="首頁_越來樂愛你們")
+                        div.title-item(gtm-data="首頁_越來樂愛你們") 
+                            img(src="./images/vd2-title.png", alt="新春獻映" gtm-data="首頁_越來樂愛你們")
+                        div.spot-light(gtm-data="首頁_越來樂愛你們") 
+                        div.btn-play(gtm-data="首頁_越來樂愛你們")
+                    div.video-item(v-on:click="videoPlay(3)" gtm-data="首頁_幸福來敲門") 
+                        img(src="./images/vd3.png", alt="家有喜事" gtm-data="首頁_幸福來敲門")
+                        div.title-item(gtm-data="首頁_幸福來敲門") 
+                            img(src="./images/vd3-title.png", alt="過年喜片" gtm-data="首頁_幸福來敲門")
+                        div.spot-light(gtm-data="首頁_幸福來敲門") 
+                        div.btn-play(gtm-data="首頁_幸福來敲門")
+                div.btn-online(v-on:click="videoPlay(4)" gtm-data="首頁_秘映劇場版")  
+                    img(src="./images/btn-online.png", alt="隱藏版線上看" gtm-data="首頁_秘映劇場版")
+                div.scroll-text
+                    img(src="./images/scroll-text.png", alt="往下朝聖電影場景，尋找神秘彩蛋")
+        .white-bg#easter-egg
+            section.easter-egg
+                div#easter-egg-title.easter-egg-title 
+                    img(src="./images/easter-egg-title.png", alt="影迷朝聖找彩蛋，點擊關鍵道具，找彩蛋抽驚喜家電和家樂福即享券")
+                div.gamearea
+                    div.block_1(v-on:click="gameOpen" gtm-data="首頁_展間家")
+                        img(src="images/game-block-1.png" gtm-data="首頁_展間家")
+                    div.block_2(v-on:click="gameOpen" gtm-data="首頁_展間樂")
+                        img(src="images/game-block-2.png"  gtm-data="首頁_展間樂")
+                    div.block_3(v-on:click="gameOpen" gtm-data="首頁_展間福")
+                        img(src="images/game-block-3.png" gtm-data="首頁_展間福")
+
+            section#add-show.add-show
+                .add-title
+                    img(src="./images/add-title.png", alt="同場加映")
+                .add-title2
+                    img(src="./images/add-title2.png", alt="團圓就是Food，新春家樂福")
+                .clouds
+                .add-video
+                    .video-item(v-on:click="videoPlay(5)") 
+                        img(src="./images/add-movie.png", alt="家樂福同場加映影片")
+                        .btn-play(gtm-data="首頁_團圓就是food")
+                .igEvant
+                    .igEvant--block
+                        .title
+                            img(src="./images/ig-title-pc.png", alt="")
+                        .content
+                            .items
+                                .item
+                                    img(src="./images/ig-item1.png", alt="")
+                                    .info
+                                        img(src="./images/ig-item1-pc.png", alt="")
+                                .item
+                                    img(src="./images/ig-item2.png", alt="")
+                                    a.info(href="https://pse.is/EFQN7" target="_blank" gtm-data="首頁_炫food")
+                                        img( gtm-data="首頁_C4IG" src="./images/ig-item2-pc.png", alt="")
+                                .item
+                                    img(src="./images/ig-item3.png", alt="")
+                                    .info
+                                        img(src="./images/ig-item3-pc.png", alt="")
+                            a.ig-btn(href="https://pse.is/F6BZM" target="_blank" gtm-data="首頁_炫food")
+                                img(gtm-data="首頁_炫food" src="./images/ig-btn.png", alt="")
+                        .bottom
+        section.reward-area
+            .reward-title
+                img(src="./images/reward-title.png", alt="賀歲再加碼")
+            .reward-group
+                .reward-item
+                    img(src="./images/reward-item1.png", alt="手機搖紅包，二十萬個紅包大放送")
+                    a.btn-issue1(v-if="!rewardShake")
+                        img(src="./images/btn-coming.png", alt="1/31起全面開搖" gtm-data="首頁_立即開搖")
+                    a.btn-issue2(v-if="rewardShake" href="https://lihi.cc/a8aSO" target="_blank")
+                        img(src="./images/btn-shakenow.png", alt="立即開搖" gtm-data="首頁_立即開搖")
+                .reward-item(gtm-data="首頁_報喜去")
+                    img(src="./images/reward-item2.png", alt="金豬來報喜，全壘打再抽萬元手機")
+                    a.btn-issue2(href="https://pse.is/E6PFU" target="_blank")
+                        img(src="./images/btn-happy.png", alt="報喜去"  gtm-data="首頁_報喜去")
+        .dark-bg
+            .dark-bg-inner
+                section#activity-role.activity-role
+                    include _role_issue.pug

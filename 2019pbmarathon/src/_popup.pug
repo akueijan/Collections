@@ -1,0 +1,311 @@
+﻿transition(name="fade")
+    .popup(v-show="popup")
+        .invsuccess(v-if="popPage=='invSuccess'")
+            h2
+                img(src="images/invsuccess-title.png")
+            p 繼續登錄發票
+                br
+                | 提高更多中獎機會吧！
+            a(href="javascript:void(0)" @click="again" gtm-data="登錄成功頁_繼續登錄").btn-continue
+                img(src="images/btn-continue.png")
+            a(href="./game.html" gtm-data="登錄成功頁_立即挑戰遊戲抽PS4").btn-play
+                img(src="images/btn-play.png")
+        .sample(v-if="popPage=='sample'")
+            .popupclose(@click="popClose")
+            img(src="images/sample.png")
+        .lotterySuc(v-if="popPage=='lotterySuc'")
+            h2
+                img(src="images/lotterySuc-title.png")
+            p 現在參加登錄發票活動
+                br
+                | 再抽現金 
+                span.white NT.99,999
+            //- a(href="./index.html#invoice" @click="again" gtm-data="填寫完成頁_瞭解活動詳情").btn-knowhow
+            a(href="./index.html#invoice" gtm-data="填寫完成頁_瞭解活動詳情").btn-knowhow
+                img(src="images/btn-knowhow.png")
+            a(href="./invoice.html" gtm-data="填寫完成頁_立即登錄發票").btn-gotoinv
+                img(src="images/btn-gotoinv.png")
+        .gameload(v-if="popPage=='gameload'")
+            .mdLoading
+                .loadingBox
+                    .anibg
+                    img.line2(src="images/loading-pic.gif")
+                    .progressBar
+                    .progress.js-bar(style="width:0")
+        .weekaward(v-if="popPage=='weekaward'")
+            .awardhd
+                .popupclose(@click="popClose")
+            .awardbd(v-if="popweek==1")
+                .awardblock.bigaward
+                    h2 Nintendo Switch
+                    .conbg(v-for="items in awardlist.awardweek[0].Switch")
+                        .mobile {{ items.Mobile }}
+                        .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 雙人威秀電影票
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[0].movTic")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 超商購物金200元
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[0].cash200")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2.haagen Haagen Dazs 105元冰品
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[0].Haagen")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 連鎖餐飲套餐券
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[0].coupon")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+            .awardbd(v-if="popweek==2")
+                .awardblock.bigaward
+                    h2 Nintendo Switch
+                    .conbg(v-for="items in awardlist.awardweek[1].Switch")
+                        .mobile {{ items.Mobile }}
+                        .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 雙人威秀電影票
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[1].movTic")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 超商購物金200元
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[1].cash200")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2.haagen Haagen Dazs 105元冰品
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[1].Haagen")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 連鎖餐飲套餐券
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[1].coupon")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+            .awardbd(v-if="popweek==3")
+                .awardblock.bigaward
+                    h2 Nintendo Switch
+                    .conbg(v-for="items in awardlist.awardweek[2].Switch")
+                        .mobile {{ items.Mobile }}
+                        .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 雙人威秀電影票
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[2].movTic")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 超商購物金200元
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[2].cash200")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2.haagen Haagen Dazs 105元冰品
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[2].Haagen")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 連鎖餐飲套餐券
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[2].coupon")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+            .awardbd(v-if="popweek==4")
+                .awardblock.bigaward
+                    h2 Nintendo Switch
+                    .conbg(v-for="items in awardlist.awardweek[3].Switch")
+                        .mobile {{ items.Mobile }}
+                        .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 雙人威秀電影票
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[3].movTic")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 超商購物金200元
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[3].cash200")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2.haagen Haagen Dazs 105元冰品
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[3].Haagen")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 連鎖餐飲套餐券
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[3].coupon")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+            .awardbd(v-if="popweek==5")
+                .awardblock.bigaward
+                    h2 Nintendo Switch
+                    .conbg(v-for="items in awardlist.awardweek[4].Switch")
+                        .mobile {{ items.Mobile }}
+                        .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 雙人威秀電影票
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[4].movTic")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 超商購物金200元
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[4].cash200")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2.haagen Haagen Dazs 105元冰品
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[4].Haagen")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 連鎖餐飲套餐券
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[4].coupon")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+            .awardbd(v-if="popweek==6")
+                .awardblock.bigaward
+                    h2 Nintendo Switch
+                    .conbg(v-for="items in awardlist.awardweek[5].Switch")
+                        .mobile {{ items.Mobile }}
+                        .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 雙人威秀電影票
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[5].movTic")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 超商購物金200元
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[5].cash200")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2.haagen Haagen Dazs 105元冰品
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[5].Haagen")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 連鎖餐飲套餐券
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[5].coupon")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+            .awardbd(v-if="popweek==7")
+                .awardblock.bigaward
+                    h2 Nintendo Switch
+                    .conbg(v-for="items in awardlist.awardweek[6].Switch")
+                        .mobile {{ items.Mobile }}
+                        .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 雙人威秀電影票
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[6].movTic")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 超商購物金200元
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[6].cash200")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2.haagen Haagen Dazs 105元冰品
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[6].Haagen")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 連鎖餐飲套餐券
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[6].coupon")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+            .awardbd(v-if="popweek==8")
+                .awardblock.bigaward
+                    h2 Nintendo Switch
+                    .conbg(v-for="items in awardlist.awardweek[7].Switch")
+                        .mobile {{ items.Mobile }}
+                        .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 雙人威秀電影票
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[7].movTic")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 超商購物金200元
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[7].cash200")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2.haagen Haagen Dazs 105元冰品
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[7].Haagen")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+                .awardblock
+                    h2 連鎖餐飲套餐券
+                    .content
+                        ul
+                            li(v-for="items in awardlist.awardweek[7].coupon")
+                                .mobile {{ items.Mobile }}
+                                .ticket {{ items.ReferenceInfo }}
+            .awardft
+

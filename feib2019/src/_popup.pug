@@ -1,0 +1,68 @@
+﻿transition(name="fade")
+    .popup(v-show="popup==true")
+        .popup-content
+            .close(@click="popupClose")
+                img(src="images/popup-close.png")
+            h2.title
+                img(src="images/title-award.png" alt="中獎名單")
+            .content
+                .awardblock.award1
+                    h3
+                        img(src="images/title-award-1.png" alt="3月份")
+                    table
+                        tr
+                            th 姓名
+                            th 手機號碼
+                        //- tr
+                        //-     td(colspan="2") 中獎名單將於5/10公佈
+                        tr
+                            td 陳O玲
+                            td 0922***972
+                        tr
+                            td 張O熙
+                            td 0933***789
+                .awardblock.award2
+                    h3
+                        img(src="images/title-award-2.png" alt="4月份")
+                    table
+                        tr
+                            th 姓名
+                            th 手機號碼
+                        //- tr
+                        //-     td(colspan="2") 中獎名單將於5/10公佈
+                        tr
+                            td 張O珠
+                            td 0933***756
+                        tr
+                            td 徐O俊
+                            td 0932***706
+                .awardblock.award3
+                    h3
+                        img(src="images/title-award-3.png" alt="5月份")
+                    table
+                        tr
+                            th 姓名
+                            th 手機號碼
+                        //- tr
+                        //-     td(colspan="2") 中獎名單將於7/10公佈
+                        tr
+                            td 謝O哲
+                            td 0989***126
+                        tr
+                            td 張O梅
+                            td 0936***528
+                .awardblock.award3
+                    h3
+                        img(src="images/title-award-4.png" alt="6月份")
+                    table
+                        tr
+                            th 姓名
+                            th 手機號碼
+                        //- tr
+                        //-     td(colspan="2") 中獎名單將於7/10公佈
+                        tr
+                            td 鄭O丰
+                            td 0906***856
+                        tr
+                            td 彭O音
+                            td 0932***156

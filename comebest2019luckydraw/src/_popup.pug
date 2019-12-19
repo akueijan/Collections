@@ -1,0 +1,33 @@
+transition(name="fade")
+    .popupbg(v-show="popup==true")
+        .popup-content
+            .close(v-on:click="birthClose();popupClose();")
+            .birthday(v-show="popuppage=='birthday'")
+                h2 2019運勢究竟會如何?!
+                p 立即輸入生日，Check it out！
+                form#birthdayForm.form(v-on:submit.prevent = "sendBirthday()")
+                    .selarea
+                        input#birthday
+                    button.btnarea(type="submit" gtm-data="發票登錄_賜我好運")
+                        img(src="images/birthday-btn.png" gtm-data="發票登錄_賜我好運")
+                
+            .ticsample(v-if="popuppage=='sample'")
+                h2 電子發票範例
+                img(src="images/sample.png")
+            .commingsoon(v-if="popuppage=='commingsoon'")
+                h2 金豬報喜 能量運勢求籤筒
+                p 2/13-4/13即將開運!
+                .btnarea(v-on:click="popupClose")
+                    a(href="javascript:void(0)")
+                        img(src="images/sure.png" style="width:280px")
+            .awardlist(v-if="popuppage=='awardlist'")
+                h2 {{ awardTitle }}
+                ul.tab
+                    li.title
+                        .name 姓名
+                        .code 發票號碼
+                        .mobile 手機號碼
+                    li(v-for="item in awardPopList")
+                        .name {{item.name}}
+                        .code {{item.invNum}}
+                        .mobile {{item.phone}}

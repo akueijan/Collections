@@ -1,0 +1,58 @@
+﻿extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "登錄發票 | 感恩回饋 現金50倍| 葡萄王50週年慶"
+    - var pageDesc = "即日起至12/24，登錄發票抽最高20萬元大獎！測驗你的大腦年齡再抽多項好禮！"
+    - var isVue = true
+    - var pageJs = "invoice.js"
+//- page html
+block page_main
+    section.invoice
+        .content(v-if="step=='invoice'")
+            h2
+                img(src="images/invo-title.png")
+            form.form(@submit.prevent = "saveInvo()")
+                ul
+                    li
+                        label(for="period") 發票期別 :
+                        select#period(v-model="inv_date")
+                            option(disabled value="") 請選擇期別
+                            option(value="2019-10-01") 108年 9月-10月
+                            option(value="2019-12-01") 108年 11月-12月
+                    li
+                        label(for="number") 發票號碼 :
+                        input#number(type="text" placeholder="請輸入2位英文+8位數字" maxlength="10" v-model="inv_num")
+                    li
+                        label.rantxt(for="random") 隨 機 碼 :
+                        input#random(type="text" placeholder="請輸入4位數字" maxlength="4" v-model="inv_random")
+                    li
+                        label(for="mobile") 手機號碼 :
+                        input#mobile(type="mobile" placeholder="請輸入10位數字" maxlength="10" v-model="mobile")
+                    li.sample(gtm-data="發票登錄_送出資料")
+                        p.btn-sample(@click="sampleOpen" gtm-data="發票登錄_送出資料") 發票範例
+                    li.agree
+                        input#agree(type="checkbox" v-model="agree")
+                        label(for="agree") 我已同意《葡萄王50週年慶感恩回饋現金50倍》活動辦法及相關規定
+                .btnarea
+                    .btnsend
+                        button(type="submit" v-if="!loading" gtm-data="發票登錄_送出資料") 送出資料
+                        .loading(v-if="loading")
+                            img(src="images/loading.gif", alt="")
+        transition(name="fade")
+            .content.success(v-if="step=='invSuccess'")
+                h2
+                    img(src="images/success-title.png")
+                p 敬請留意得獎訊息
+                .btnarea
+                    .btn-again(@click="invAgain()" gtm-data="登錄成功_登錄下一張發票")
+                        p(gtm-data="登錄成功_登錄下一張發票") 登錄下一張發票
+                    a.btn-togame(href="game.html" title="玩遊戲抽大獎" gtm-data="登錄成功_玩遊戲抽現金大獎")
+                        p(gtm-data="登錄成功_玩遊戲抽現金大獎") 玩遊戲抽大獎
+                a.btn-home(href="index.html" gtm-data="登錄成功_回首頁")
+                    img(src="images/tohome.png" gtm-data="登錄成功_回首頁")
+        .peodeco
+            img(src="images/kvpeo.png")
+        .leftball
+            img(src="images/left-balloon.png")
+        .rightball
+            img(src="images/right-balloon.png")

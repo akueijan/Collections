@@ -1,0 +1,152 @@
+transition(name="fade" v-on:after-enter="afterEnter")
+    div.kvideo-area(v-show="kvideoPop")
+        div.kvideo_close(v-on:click="videoClose")
+        div.close-bg(v-on:click="videoClose")
+        div.kvideo-content
+            #kvideo
+transition(name="fade" v-on:after-enter="afterEnter")
+    div.gamePop_area(v-show="gamePop==true")
+        div.top
+        div#game_area
+            div.game_close(v-on:click="gamePop=false; clickCun=0; popupClose(); navIssue();")
+        div.bottom
+transition(name="fade")
+    .prodPop-area(v-if="game.prodPop==true")
+        .close-bg(v-on:click="game.prodPop=false")
+        .prodPop-content
+            .prodPop-close(v-on:click="game.prodPop=false")
+            .prodPop-title
+                img(src="./images/prod-title.png", alt="找到了一個關鍵道具")
+            .prodPop-item
+                //- img(src="./images/prod-item.png" , alt="家樂福關鍵道具")
+                img(v-bind:src="game.product.pic" , alt="家樂福關鍵道具")
+            .prodPop-info
+                h2 {{game.product.h3}}
+                ul
+                    li {{game.product.txt}}
+                    li.prodPop-price 原價: $
+                        | 
+                        span {{game.product.price}}
+                    li.prodPop-con 促銷價: 
+                        |
+                        span ${{game.product.cupon}}
+                a.prodPop-link(v-bind:href="game.product.link" target="_blank")
+                    img(src="./images/btn-buy.png", alt="立即購買" v-on:click="gaEvant(game.product.link_gtm)")
+
+transition(name="fade")
+    .eggPop-area(v-if="game.eggPop==true" v-on:click="open_form()")
+        .close-bg
+        .eggPop-content
+            .eggPop-title
+                img(src="./images/egg-pop.png", alt="找到一顆隱藏彩蛋")
+            .eggPop-item
+                .egg
+                    img(src="./images/egg2.png", alt="家樂福彩蛋")
+            button.btn-open
+                img(src="./images/btn-open.png", alt="點擊開蛋" gtm-data="找彩蛋_點擊開蛋")
+transition(name="fade")
+    .finishPop-area(v-if="finishPop==true")
+        .close-bg(v-on:click="finish_done")
+        .finishPop-content
+            .finishPop-title
+                img(src="./images/alert2-title.png", alt="資料已送出")
+            .finishPop-text
+                img(src="./images/alert1-text.png", alt="參加抽獎成功")
+            button.btn-open
+                img(v-if="perdataPop=='game'" v-on:click="finish_done(); scrollTo('#kv-bottom')" src="./images/btn-findagain2.png", alt="尋找劇中彩蛋再抽驚喜家電" gtm-data="資料已送出_前往彩蛋")
+                img(v-if="perdataPop=='room'" v-on:click="finish_done(); scrollTo('#game-div')" src="./images/btn-easter-mb2.png", alt="尋找劇中彩蛋再抽驚喜家電" gtm-data="資料已送出_前往影片")
+            .share-area
+                .share-text
+                    img(src="./images/alert1-share.png", alt="分享活動")
+                a.share-fb(href="https://www.facebook.com/sharer/sharer.php?u=https://carrefour.friendo.com.tw/2019CNY/" target="_blank")
+                    img(src="./images/share-fb.png", alt="fb分享" gtm-data="資料已送出_fb分享")
+                a.share-line(:href="lineHref" target="_blank")
+                    img(src="./images/share-line.png", alt="line分享" gtm-data="資料已送出_LINE分享")
+
+                    
+transition(name="fade")
+    .joinedPop-area(v-show="joinedPop==true")
+        .close-bg(v-on:click="joinedPop=false")
+        .joinedPop-content
+            .joinedPop-title
+                img(src="./images/alert1-title.png", alt="已經參加過囉")
+            .joinedPop-text
+                img(src="./images/alert2-text.png", alt="此手機號碼已參加過本抽獎，快到電影場景找彩蛋，再抽驚喜好禮")
+            button.btn-ok(v-on:click="finish_done()")
+                img(src="./images/btn-ok.png", alt="確定" gtm-data="手機號碼重複_確定")
+transition(name="fade")
+    div.perdataPop_area(v-if="perdataPop")
+        div.bg
+        div.content
+            div.tree
+            div.clouds
+            h2.title
+                img(v-bind:src="'./images/perdata-title' + _self.awardItem+'.png'" alt="彩蛋裡面有張紙條" title="彩蛋裡面有張紙條")
+                //- img(src="./images/perdata-title.png" alt="彩蛋裡面有張紙條" title="彩蛋裡面有張紙條")
+            form.form(v-on:submit.prevent = "sendData()")
+                ul
+                    li
+                        label(for="name")
+                            img(src="./images/perdata-name.png")
+                        input#name(type="text" name="name" v-model="inputName")
+                    li
+                        label(for="mobile")
+                            img(src="./images/perdata-mobile.png")
+                        input#mobile(type="tel" name="mobile" maxlength="10" v-model="inputMobile")
+                    li
+                        label(for="email")
+                            img(src="./images/perdata-email.png")
+                        input#email(type="email" name="email" v-model="inputEmail")
+                    li.codearea
+                        label(for="code")
+                            img(src="./images/perdata-code.png")
+                        input#code(type="text" name="code" maxlength="10" v-model="inputCap")
+                        div.codeimg
+                            img(v-bind:src="base64Img")
+                        div.codereset(v-on:click="code_reset()")
+                            img(src="./images/cap-reset.png")
+                    li.agreearea
+                        input#agree(type="checkbox" v-model="checkagree")
+                        label.click.a1(for="agree")
+                            img(src="./images/agree-events-1.png" alt="我已同意本活動")
+                            img(v-on:click="rolePop=true;popupOpen();" src="./images/agree-events-2.png" alt="注意事項")
+                    li.agreearea
+                        input#wish(type="checkbox" v-model="checkwish")
+                        label(for="wish")
+                            img.wish(src="./images/perdata-wish.png" alt="我願意收到台灣家樂福活動相關資訊，即時掌握最新優惠訊息")
+                            img.pcwish(src="./images/perdata-pc-wish.png" alt="我願意收到台灣家樂福活動相關資訊，即時掌握最新優惠訊息")
+                div.btnarea
+                    button(type="submit" gtm-data="填寫資料_確認送出").actionbtn
+                        transition(name="fade" mode="out-in")
+                            img.load(v-if="loading" src="./images/loading-black.gif" key="load")
+                            img(v-if="!loading" src="./images/btn-txt.png" key="txt")
+
+                div.btnback(@click="perdataPop=null; popupClose(); clearData();")
+                    img(src="./images/cancel.png", alt="取消填寫")
+
+transition(name="fade")
+    div.rolePop-area(v-show="rolePop==true")
+        .close-bg(v-on:click="rolePop=false; popupClose();")
+        div.rolePop_close(v-on:click="rolePop=false; popupClose();")
+        div.rolePop-title 
+            img(src="./images/role-title-mb.png", alt="活動辦法")
+        div.rolePop-content
+            .rolePop-info
+                include _role_issue.pug
+
+transition(name="fade")
+    div.rolePop-area(v-show="awardPop==true")
+        .close-bg(v-on:click="awardPop=false; popupClose();")
+        div.rolePop_close(v-on:click="awardPop=false; popupClose();")
+        div.rolePop-title 
+            img(src="./images/award-title-mb.png", alt="活動辦法")
+        div.rolePop-content
+            .rolePop-info
+                include _award_issue.pug
+
+transition(name="fade")
+    .lonely--block(v-show="lonely")
+        div.lonely_close(@click="lonely_close")
+        div.lonely-bg
+        .lonely-content
+            #lonely--player

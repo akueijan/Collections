@@ -1,0 +1,507 @@
+﻿.events
+    width: 100%
+    background: url(../images/events-Bg.jpg) top center no-repeat
+    // background-size: 100% auto
+    +rwd($pad)
+        background: url(../images/mb-events-Bg.png) 50% 100px no-repeat
+        background-size: 100% auto
+    .hd
+        text-align: center
+        padding: 115px 0 0 0
+        +rwd($pad)
+            padding: 100px 0 0 0
+        h2
+            font-size: 50px
+            font-style: italic
+            display: inline-block
+            padding: 10px 30px
+            background: #dd4545
+            border-radius: 50px
+            color: #ffffff
+            +rwd($pad)
+                font-size: 30px
+        .kv
+            margin: 30px 0 0 -80px
+            +rwd($pad)
+                width: 90%
+                margin: 30px auto
+    .bd
+        width: 100%
+        background: url(../images/events-b1Bg.png) top center no-repeat
+        // background-size: 100% 100%
+        padding: 200px 0 0 0
+        margin: 0 auto
+        text-align: center
+        +rwd($pad)
+            background: none
+            padding: 0
+            margin: -30px auto 0
+        .block1
+            max-width: 1100px
+            width: 100%
+            margin: 0 auto
+            +rwd($desktop-w)
+                width: 96%
+            +rwd($pad)
+                width: 100%
+                padding: 100px 20px
+                background: url(../images/mb-events-b1Bg.png) top center no-repeat
+                background-size: 100% 100%
+            > p
+                padding: 0 0 20px 0
+        h2
+            margin: 0 0 30px 0
+            +rwd($pad)
+                margin: 0 0 15px 0
+        p
+            font-size: 20px
+            font-weight: 600
+            line-height: 1.2
+            color: #000000
+        .ps
+            font-size: 14px
+            font-weight: 400
+            color: #404040
+            margin: 15px 0 0 0
+        .content
+            margin: 30px auto 0
+            text-align: center
+            display: flex
+            justify-content: space-around
+            align-items: center
+            flex-flow: wrap
+            .award-long
+                width: 1070px
+                height: 285px
+                background: #fec72d
+                border: 5px solid #dd4545
+                border-radius: 25px
+                margin: 0 auto 90px
+                box-shadow: 3px 3px 3px rgba(#000000,0.3)
+                position: relative
+                +rwd($pad)
+                    width: 100%
+                    height: auto
+                    margin: 0 auto 45px
+            .title
+                width: 234px
+                height: 60px
+                background: linear-gradient(177deg, #DB4444 25%, #A03232 75%)
+                border-radius: 40px
+                text-align: center
+                line-height: 60px
+                margin: -30px auto 0
+                box-shadow: 8px 8px 10px rgba(#000000,0.2)
+                position: relative
+                z-index: 1
+                +rwd($pad)
+                    width: 40%
+                    height: 40px
+                    line-height: 40px
+                    margin: -20px auto 0
+                h2
+                    color: #ffffff
+                    font-size: 32px
+                    font-weight: bold
+                    font-style: italic
+                    +rwd($pad)
+                        font-size: 20px
+            ul
+                margin: -30px 0 0 0
+                height: 100%
+                display: flex
+                justify-content: space-around
+                align-items: center
+                overflow: hidden
+                +rwd($pad)
+                    flex-flow: wrap
+                    padding: 10px 0 0 0
+                    background: url(../images/mb-awarditem-deco.png) center 10px no-repeat
+                    background-size: auto 100%
+                    border-radius: 40px
+                li
+                    width: 100%
+                    // height: 100%
+                    background: url(../images/awarditem-deco.png) top center no-repeat
+                    padding: 30px 0 0 0
+                    +rwd($pad)
+                        background: none
+                        padding: 40px 0
+                h3
+                    font-size: 30px
+                    font-weight: 600
+                    color: #dd4545
+                    margin: 0 0 10px 0
+                    +rwd($pad)
+                        font-size: 24px
+                p
+                    font-size: 20px
+                    +rwd($pad)
+                        font-size: 16px
+                img
+                    margin: 10px 0 0 40px
+                    +rwd($pad)
+                        width: 60%
+                        margin: 10px 0 0 20px
+            .line
+                width: 2px
+                height: 200px
+                background: #dd4545
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%)
+                +rwd($pad)
+                    width: 80%
+                    height: 2px
+            .ps
+                position: absolute
+                bottom: 10px
+                left: 50%
+                transform: translateX(-50%)
+        .award
+            max-width: 510px
+            height: 214px
+            background-color: #fec72d
+            background-image: url(../images/awarditem-deco.png)
+            background-position: -100px center
+            border: 5px solid #dd4545
+            border-radius: 25px
+            margin: 0 auto 100px
+            box-shadow: 3px 3px 3px rgba(#000000,0.3)
+            position: relative
+            text-align: left
+            display: flex
+            flex-flow: column nowrap
+            // overflow: hidden
+            +rwd($desktop-w)
+                width: 49%
+                min-height: 240px
+            +rwd($pad)
+                width: 100%
+                height: 150px
+                margin: 0 auto 45px
+                min-height: auto
+            .flag
+                position: absolute
+                top: 0
+                left: 5px
+                +rwd($pad)
+                    width: 40px
+            .content
+                display: flex
+                margin: 0 auto
+                align-items: center
+                flex-wrap: nowrap
+                flex: 1
+                width: 100%
+                justify-content: center
+                .left
+                    // padding: 20px 0 0 20px
+                    padding: 0 20px
+                    +rwd($pad)
+                        // padding: 20px 0 0 10px
+                        padding: 0 8px
+                        width: 60%
+                .right
+                    // padding: 10px 30px 0 0
+                    +rwd($pad)
+                        padding: 0 0 0 10px
+                        width: 40%
+                    img
+                        +rwd($pad)
+                            width: 60%
+                            margin: 10px 0 0 0
+                h3
+                    font-size: 30px
+                    font-weight: 600
+                    color: #dd4545
+                    margin: 0 0 10px 0
+                    +rwd($pad)
+                        font-size: 20px
+                p
+                    font-size: 20px
+                    font-weight: 400
+                    color: #000000
+                    line-height: 1.5
+                    +rwd($pad)
+                        font-size: 14px
+            &:after
+                content: ""
+                width: 60px
+                height: 60px
+                background: #fff686
+                border: 6px solid #dd4545
+                border-radius: 50%
+                text-align: center
+                line-height: 60px
+                font-size: 25px
+                font-weight: 600
+                position: absolute
+                right: 20px
+                bottom: -20px
+                +rwd($pad)
+                    width: 40px
+                    height: 40px
+                    border: 4px solid #dd4545
+                    line-height: 40px
+                    font-size: 16px
+        .fryer
+            &:after
+                content: "x12"
+        .dryer
+            &:after
+                content: "x12"
+        .detachment
+            &:after
+                content: "x12"
+        .d500
+            .content
+                .right
+                    // padding: 30px 10px 0
+                    +rwd($pad)
+                        padding: 20px 10px 0 0
+                    img
+                        width: 100%
+                        +rwd($pad)
+                            margin: 10px 0 0 10px
+            &:after
+                content: "x120"
+        .burger
+            .content
+                .left
+                    +rwd($desktop-w)
+                        // padding: 20px 0 0 20px
+                    +rwd($pad)
+                        padding: 10px 0 0 20px
+                        width: 80%
+                p
+                    font-size: 16px
+                    text-align: left
+                    +rwd($pad)
+                        font-size: 12px
+                .right
+                    +rwd($pad)
+                        padding: 0 10px 0 0
+                    img
+                        width: 100%
+                        +rwd($pad)
+                            margin: 10px 0 0 0
+            &:after
+                content: "x300"
+        .cama
+            .content
+                .right
+                    +rwd($pad)
+                        padding: 0 10px 0 0
+                    img
+                        width: 100%
+                        +rwd($pad)
+                            width: 80%
+                            margin: 10px 0 0 30px
+            &:after
+                content: "x480"
+        .block2
+            margin: 100px auto 0
+            +rwd($pad)
+                width: 100%
+                margin: 0 auto
+                padding: 0 20px
+            > p
+                padding: 0 0 20px 0
+            .content
+                ul
+                    background: none
+                    li
+                        width: 320px
+                        height: 485px
+                        background: #ffffff
+                        border: 6px solid #dd4545
+                        border-radius: 40px
+                        box-shadow: 5px 5px 8px rgba(#000000,0.3)
+                        margin: 0 10px
+                        padding: 60px 0 0 0
+                        position: relative
+                        overflow: hidden
+                        +rwd($pad)
+                            width: 100%
+                            height: auto
+                            border: 4px solid #dd4545
+                            padding: 15px 5px
+                            display: flex
+                            justify-content: space-around
+                            align-items: center
+                            margin: 0 0 40px 0
+                            overflow: initial
+                            &:last-of-type
+                                margin: 0 auto 10px
+                        h3
+                            position: relative
+                            &:after
+                                content: ""
+                                width: 50px
+                                height: 2px
+                                background: #dd4545
+                                display: block
+                                margin: 20px auto 0
+                                +rwd($pad)
+                                    margin: 10px auto
+                        p
+                            font-size: 20px
+                            font-weight: 400
+                            line-height: 30px
+                            margin: 20px auto 0
+                            +rwd($pad)
+                                font-size: 16px
+                                line-height: 1.5
+                                margin: 0 auto
+                        .img
+                            width: 100%
+                            height: 200px
+                            position: absolute
+                            bottom: 30px
+                            left: 50%
+                            transform: translateX(-50%)
+                            +rwd($pad)
+                                width: 40%
+                                height: auto
+                                position: relative
+                                bottom: inherit
+                                left: inherit
+                                transform: inherit
+                                height: 100%
+                            img
+                                margin: 0
+                                +rwd($pad)
+                                    width: 80%
+                            .quantity
+                                width: 60px
+                                height: 60px
+                                background: #fff686
+                                border: 6px solid #dd4545
+                                border-radius: 50%
+                                box-shadow: 3px 5px 5px rgba(#000000,0.3)
+                                text-align: center
+                                line-height: 60px
+                                font-size: 25px
+                                font-weight: 600
+                                position: absolute
+                                bottom: 0
+                                right: 40px
+                                +rwd($pad)
+                                    bottom: -40px
+                                    right: 0
+                                p
+                                    margin: 0
+                                    line-height: 50px
+                                    font-weight: 600
+                        .flag
+                            position: absolute
+                            top: -1px
+                            left: 10px
+                            +rwd($pad)
+                                width: 70px
+                                left: auto
+                                right: 10px
+                            img
+                                margin: 0
+    .ft                 
+        background: #ffffff
+        border-top: 10px solid #c13c3c
+        margin: 120px auto 0
+        padding: 0px 0 30px 0
+        text-align: center
+        +rwd($pad)
+            margin: 60px auto 0
+            padding: 0px 0 30px 0
+        h2
+            cursor: pointer
+            display: inline-block
+            width: 234px
+            height: 60px
+            background: linear-gradient(177deg, #DB4444 25%, #A03232 75%)
+            border-radius: 40px
+            color: #ffffff
+            text-align: center
+            line-height: 60px
+            margin: -30px auto 0
+            box-shadow: 8px 8px 10px rgba(#000000,0.2)
+            position: relative
+            z-index: 1
+            transition: 0.3s
+            &:after
+                content: ""
+                width: 40px
+                height: 40px
+                background: url(../images/note-close.png) center center no-repeat
+                background-size: cover
+                display: inline-block
+                vertical-align: middle
+                margin: -7px 0 0 10px
+                transition: 0.3s
+        .active
+            color: #fff686
+            transition: 0.3s
+            &:after
+                content: ""
+                width: 40px
+                height: 40px
+                background: url(../images/note-open.png) center center no-repeat
+                background-size: cover
+                display: inline-block
+                vertical-align: middle
+                margin: -7px 0 0 10px
+                transition: 0.3s
+        .content
+            width: 1200px
+            margin: 0 auto
+            padding: 60px 0 0 0
+            text-align: left
+            +rwd($desktop-w)
+                width: 1000px
+            +rwd($pad)
+                width: 100%
+                padding: 30px 15px 0
+            ul
+                margin: 0 0 20px 0
+                li
+                    font-size: 18px
+                    line-height: 1.5
+                    margin: 0 0 15px 1em
+                    list-style-type: none
+                    +rwd($pad)
+                        font-size: 16px
+                .bold
+                    font-weight: bold
+                h3
+                    font-size: 20px
+                    font-weight: bold
+                    margin: 10px 0 20px 0
+                p
+                    font-size: 18px
+            .one
+                margin: 0 0 20px 0
+                li
+                    list-style-type: disc
+            .two
+                .bold
+                    font-size: 20px
+                li
+                    list-style-type: none
+                    margin: 20px 0 0 1em
+            .three
+                li[data-list] 
+                    list-style-type: none
+                    &::before
+                        content: "("attr(data-list)")"
+                        margin: 0 10px 0 0
+            .five
+                li
+                    list-style-type: none
+            .six
+                li
+                    list-style-type: decimal
+            .four
+                margin: 10px 0 20px 1em
+                li
+                    list-style-type: disc

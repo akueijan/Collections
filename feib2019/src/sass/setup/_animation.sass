@@ -1,0 +1,89 @@
+@keyframes fadeOutBubble
+    0% 
+        opacity: 1
+        max-width: 200px
+        visibility: visible
+    80% 
+        opacity: 0
+        max-width: 200px
+    100% 
+        opacity: 0
+        max-width: 0
+        visibility: hidden
+
+@keyframes fadeInBubble
+    0%
+        opacity: 0
+        max-width: 200px
+        visibility: hidden
+    80% 
+        opacity: 1
+        max-width: 200px
+        visibility: visible
+    100% 
+        opacity: 1
+        max-width: 200px
+        visibility: visible
+
+@keyframes jumper
+    0% 
+        opacity: 0
+        -webkit-transform: scale(0)
+        transform: scale(0)
+    5% 
+        opacity: 1
+    100% 
+        opacity: 0
+
+@keyframes fadeIn
+    from 
+        opacity: 0
+    to 
+        opacity: 1
+
+@keyframes zboing
+    0% 
+        transform: scale3d(1, 1, 1)
+    30% 
+        transform: scale3d(1.25, 0.75, 1)
+    40% 
+        transform: scale3d(0.75, 1.25, 1)
+    50% 
+        transform: scale3d(1.15, 0.85, 1)
+    65% 
+        transform: scale3d(0.95, 1.05, 1)
+    75% 
+        transform: scale3d(1.05, 0.95, 1)
+    100% 
+        transform: scale3d(1, 1, 1)
+
+@keyframes float
+    0% 
+        transform: translateZ(0)
+    50% 
+        transform: translate3d(0,10%,0)
+    to
+        transform: translateZ(0)
+
+@keyframes float2
+    0% 
+        transform: translate3d(-50%,0,0)
+    50% 
+        transform: translate3d(-50%,1.54%,0)
+    to
+        transform: translate3d(-50%,0,0)
+
+@keyframes float3
+    0% 
+        margin-top: 0
+    50% 
+        margin-top: -6%
+    to
+        margin-top: 0
+@keyframes float4
+    0% 
+        transform: translate(-50%,0)
+    50% 
+        transform: translate(-50%,50%)
+    to
+        transform: translate(-50%,0)

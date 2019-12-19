@@ -1,0 +1,75 @@
+//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "開運能量｜金豬報喜 能量運勢求籤筒"
+    - var pageJs = "products.js"
+    - var isVue = true
+//- page html
+block page_main
+    div.products
+        div.bg
+            div.linearea
+                div.deco-topline
+                div.deco-botline
+                div.deco-leftline
+                div.deco-rightline
+                div.deco-lt
+                    img(src="images/corner_r.png")
+                div.deco-rt
+                    img(src="images/corner_r.png")
+                div.deco-lb
+                    img(src="images/corner_r.png")
+                div.deco-rb
+                    img(src="images/corner_r.png")
+            div.cloudarea
+                .randomcloud.randomcloud1
+                    img(src="images/cloud-2.png")
+                .randomcloud.randomcloud2
+                    img(src="images/cloud-3.png")
+                .randomcloud.randomcloud3
+                    img(src="images/cloud-4.png")
+                .randomcloud.randomcloud4
+                    img(src="images/cloud-5.png")
+                .randomcloud.randomcloud5
+                    img(src="images/cloud-2.png")
+            div.l-bling
+                img(src="images/l-bling.png")
+            div.r-bling
+                img(src="images/r-bling.png")
+        .l-content
+            .light
+                img(src="images/kv-light.png")
+            .block
+                .title
+                    img(src="images/energysupply-title.png")
+                .bg
+                    .bg2
+                        .bg3
+                            h2 購買
+                                span.yel 康貝特系列
+                                | 或
+                                span.yel PowerBOMB
+                                | 任一商品，
+                                br
+                                | 
+                                span.yel 登錄發票
+                                | 即可
+                                span.yel 抽好運大獎！
+                            .content
+                                ul
+                                    li
+                                        img(src="images/pd-1.png")
+                                    li
+                                        img(src="images/pd-2.png")
+                                    li
+                                        img(src="images/pd-3.png")
+                                    li
+                                        img(src="images/pd-4.png")
+                            .btnarea
+                                .btnlogin
+                                    a(@click="vAlert" gtm-data="開運能量_立即登錄發票")
+                                        img(src="images/btn-login.png", alt="立即登錄發票" gtm-data="開運能量_立即登錄發票")
+                                .btnbuy
+                                    a(href="https://eshop.grapeking.com.tw/collections/comebest?utm_source=eventsite&utm_medium=link&utm_campaign=luckydraw" target="_blank" gtm-data="開運能量_即刻購買")
+                                        img(src="images/btn-buy.png", alt="即刻購買" gtm-data="開運能量_即刻購買")

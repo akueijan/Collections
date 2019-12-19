@@ -1,0 +1,218 @@
+.awards
+    position: relative
+    background-image: linear-gradient(to top, #850963, #160265)
+    overflow: hidden
+    +rwd($pad)
+        padding: 0px 0 40px
+    .l-content
+        +rwd($pad)
+            padding: 80px 0 0 0
+    .light
+        top: 0px
+        left: 50%
+        transform: translateX(-50%)
+    .block
+        .bg
+            min-height: 756px
+            +rwd($pad)
+                padding: 5px
+                min-height: auto
+        .bg2
+            min-height: 738px
+            +rwd($pad)
+                padding: 5px
+                width: 100%
+                min-height: auto
+        .bg3
+            padding: 60px 70px
+            +rwd($pad)
+                padding: 20px 10px 30px
+                width: 100%
+                min-height: auto
+        .title
+            min-width: 600px
+            +rwd($pad)
+                width: 300px
+                min-width: auto
+                top: -30px
+        h2
+            width: 430px
+            height: 60px
+            background: url(../images/award-title-bg.png) 0 0 no-repeat
+            background-size: cover
+            margin: 0 auto
+            color: #ebb82d
+            font-size: 24px
+            font-weight: bold
+            line-height: 60px
+            +rwd($mobile)
+                width: 220px
+                height: 31px
+                font-size: 16px
+                font-weight: bold
+                line-height: 31px
+            span
+                position: relative
+                &:before,&:after
+                    content: "●"
+                    position: absolute
+                    top: 50%
+                    transform: translateY(-50%) 
+                    color: #f6c12e
+                    font-size: 12px
+                    +rwd($pad)
+                        display: none
+                &:before
+                    margin: 0 0 0 -20px
+                &:after
+                    margin: 0 0 0 10px
+    .titlearea
+        width: 450px
+        height: 150px
+        border-radius: 10px
+        padding: 10px
+        background: #4542bc
+        margin: 20px auto
+        position: relative
+        display: inline-flex
+        justify-content: center
+        align-items: center
+        +rwd($mobile)
+            width: 100%
+            height: 90px
+        .titleline
+            width: 430px
+            height: 130px
+            border: 2px solid #11034c
+            border-radius: 10px
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%,-50%)
+            +zindex(page)
+            +rwd($mobile)
+                width: 96%
+                height: 80px
+        .awardimg
+            width: 160px
+            position: relative
+            +zindex(content)
+            +rwd($mobile)
+                width: 30%
+        .awardtxt
+            position: relative
+            padding: 0 0 0 20px
+            +zindex(content)
+            +rwd($mobile)
+                width: 70%
+                padding: 0 0 0 10px
+            p 
+                font-size: 20px
+                line-height: 1.36
+                color: #fff
+                +rwd($mobile)
+                    font-size: 14px
+                .yel
+                    font-weight: bold
+                    letter-spacing: 1.6px
+                    +rwd($mobile)
+                        letter-spacing: 0.8px
+                .sp
+                    font-size: 28px
+                    padding: 0 2px
+                    +rwd($mobile)
+                        font-size: 16px
+                .small
+                    font-size: 16px
+                    padding: 0 5px
+                    +rwd($mobile)
+                        font-size: 14px
+            .txt-title
+                position: relative
+                &:after
+                    content: ""
+                    width: 100%
+                    height: 3px
+                    background: #f6c12e
+                    display: block
+                    margin: 5px 0
+                    +rwd($mobile)
+                        height: 2px
+                        margin: 2px 0
+    .note
+        font-size: 18px
+        line-height: 1.33
+        letter-spacing: 0.7px
+        color: #f5f2ff
+        +rwd($mobile)
+            font-size: 16px
+    .downloadform
+        margin: 25px 0 0 0
+        text-align: right
+    .tab
+        margin: 20px auto 0
+        width: 450px
+        border: 5px solid #4542bc
+        +rwd($mobile)
+            width: 100%
+        th,td
+            width: 145px
+            border: 2px solid #4542bc
+            color: #ffffff
+            font-size: 18px
+            font-weight: 600
+            padding: 15px 10px
+            +rwd($mobile)
+                width: auto
+                padding: 10px 0px
+                font-size: 15px
+                font-weight: 500
+    .awardlist
+        width: 100%
+        margin: 20px 0 0 0
+        display: inline-flex
+        align-items: center
+        justify-content: space-between
+        flex-wrap: wrap
+        li
+            width: 214px
+            border: 2px solid #4542bc
+            border-radius: 10px
+            cursor: default
+            margin: 10px 0
+            +rwd($mobile)
+                width: 49%
+                padding: 8px 3px
+            p
+                color: #ffffff
+                line-height: 48px
+                font-size: 20px
+                +rwd($mobile)
+                    line-height: 1
+                    font-size: 14px
+                &:after
+                    content: ""
+                    display: inline-block
+                    border-top: 7px solid transparent
+                    border-bottom: 7px solid transparent
+                    border-left: 10px solid #fff
+                    vertical-align: middle
+                    line-height: 1
+                    font-size: 12px
+                    margin: -3px 0 0 10px
+                    +rwd($mobile)
+                        display: none
+
+            
+    .awardlist li.awardover
+        background: #4542bc
+        cursor: pointer
+        span
+            color: #f6c12e
+    .awardblock
+        margin: 0 0 60px 0
+        +rwd($mobile)
+            margin: 0 0 30px 0
+        &:nth-last-child(1)
+            margin: 0
+

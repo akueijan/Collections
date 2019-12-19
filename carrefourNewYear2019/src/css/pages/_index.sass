@@ -1,0 +1,1173 @@
+.loading-page
+    &.none
+        display: none
+.index
+    section
+        // height: 100vh
+        text-align: center
+        // padding-top: 30px
+    .fixed-icon
+        width: vw(374)
+        position: fixed
+        right: 0
+        bottom: vw(40)
+        transition: all 0.4s ease-out
+        transform: translateX(100%)
+        cursor: pointer
+        +zindex("fixedicon")
+        &.active
+            transform: translateX(60%)
+        &.activepop
+            transform: translateX(60%)
+        &.open
+            transform: translateX(0%)
+        .fixed-qrcode
+            width: vw(177)
+            height: vw(177)
+            position: absolute
+            background: #000
+            top: vw(88)
+            right: vw(19)
+            >img
+                width: 100%
+
+    .kv
+        &-top 
+            background-color: #ede2cf
+            background-image: url(../images/kv-bg.png)
+            background-size: cover
+            height: vw(850)
+            position: relative
+            overflow: hidden
+            border-bottom: vw(28) solid #bf0029
+            img 
+                width: 100%
+                height: auto
+            .text-light-area 
+                .light-item
+                    position: absolute
+                    animation: light-down 1.8s ease-out 
+                    animation-fill-mode: forwards
+                    animation-play-state: paused
+                    transform: translateY(-400px)
+                    &:first-child
+                        width: vw(152)
+                        top: -4%
+                        left: 24%
+                        animation-delay: 0.3s
+                    &:nth-child(2)
+                        width: vw(136)
+                        top: 1%
+                        left: 33%
+                        animation-duration: 1.6s
+                        animation-delay: 0.7s
+                    &:nth-child(3)
+                        width: vw(138)
+                        top: 1%
+                        right: 33%
+                        animation-duration: 1.6s
+                        animation-delay: 1s
+                    &:nth-child(4)
+                        width: vw(152)
+                        top: -4%
+                        right: 24%
+                        animation-delay: 1.2s
+
+        &-title
+            width: vw(724)
+            position: absolute
+            left: 50%
+            top: vw(140)
+            transform: translateX(-50%)
+            z-index: 1
+        &-issue
+            width: 100%
+            text-align: center
+            top: vw(740)
+            left: 0
+            position: absolute
+            z-index: 2
+            a 
+                width: vw(134)
+                display: inline-block
+                animation: scrolldown 3s infinite linear
+        &-title-area
+            &:before
+                content: ''
+                display: block
+                position: absolute
+                width: vw(1367)
+                padding-top: vw(1367)
+                background-image: url(../images/circle-light.png)
+                background-size: cover
+                background-position: center 
+                top: vw(-300)
+                left: vw(269)
+                transform: rotate(0deg) 
+                z-index: 0
+                animation: rotateTitle 20s infinite linear
+        &-bottom
+            background-image: url(../images/red-bg.png)
+            position: relative
+            height: vw(774)
+            padding-top: vw(75)
+            img 
+                width: 100% 
+                height: auto
+            &:after
+                content: ''
+                display: block
+                width: 100%
+                height: vw(131)
+                position: absolute
+                bottom: 0
+                left: 0
+                transform: translateY(99%)
+                background-image: url(../images/kv-b-b.png)
+                // background-size: 100%
+                background-position: center bottom
+                background-repeat: no-repeat
+            .clouds
+                &:before
+                    content: ''
+                    display: block
+                    position: absolute
+                    left: 0
+                    bottom: 0
+                    background-image: url(../images/cloud-left.png)
+                    background-size: 100%
+                    background-repeat: no-repeat
+                    width: vw(543)
+                    height: vw(213)
+                    animation: clouds1 3s infinite alternate linear
+                    
+                &:after
+                    content: ''
+                    display: block
+                    position: absolute
+                    right: 0
+                    top: vw(147)
+                    background-image: url(../images/cloud-right.png)
+                    background-size: 100%
+                    background-repeat: no-repeat
+                    width: vw(351)
+                    height: vw(282)
+                    animation: clouds1 5s infinite alternate-reverse linear
+            & .video
+                &-item 
+                    width: vw(451)
+                    position: relative
+                    cursor: pointer
+                    display: inline-block
+                    vertical-align: middle
+                    & .title-item
+                        width: 100%
+                        position: absolute
+                        top: 0
+                    & .spot-light
+                        position: absolute
+                        width: 100%
+                        top: 0
+                        visibility: hidden
+                        background-image: url(../images/spotlight.png)
+                        background-size: 100%
+                        background-repeat: no-repeat
+                        height: vw(547)
+                    &:hover .spot-light
+                        visibility: visible
+                    & .btn-play
+                        position: absolute
+                        display: inline-block
+                        width: vw(81)
+                        height: vw(81)
+                        top: 55%
+                        left: 50%
+                        transform: translate(-50%,-50%)
+                        background-image: url(../images/play.png)
+                        background-size: 100%
+                        background-repeat: no-repeat
+            .btn-online 
+                width: vw(488)
+                margin: vw(20) auto vw(20) auto
+                cursor: pointer
+                border: 0 
+                background: none
+                position: relative
+                &:after
+                    content: ''
+                    display: block
+                    position: absolute
+                    width: vw(59)
+                    height: vw(63)
+                    background: url(../images/finger.png) no-repeat
+                    background-size: 100%
+                    top: 40%
+                    right: vw(25)
+                    animation: finger1 0.8s infinite alternate linear
+            .scroll-text
+                width: vw(508)
+                position: absolute
+                z-index: 1
+                left: 50%
+                transform: translateX(-50%)
+                               
+    .white-bg
+        background-image: url(../images/cream_bg.jpg)
+    .easter-egg
+        padding-top: vw(181)
+        .easter-egg-title
+            width: vw(953)
+            margin: 0 auto vw(68) 
+    .add
+        &-show 
+            padding-top: vw(105)
+            padding-bottom: vw(251)
+            position: relative
+            text-align: center
+            .clouds
+                &:before
+                    content: ''
+                    display: block
+                    width: vw(442)
+                    height: vw(217)
+                    background: url(../images/deco-tree-left.png) no-repeat
+                    background-size: 100%
+                    position: absolute
+                    left: vw(125)
+                    top: vw(228)
+                &:after
+                    content: ''
+                    display: block
+                    background: url(../images/deco-tree-right.png) no-repeat
+                    width: vw(501)
+                    height: vw(241)
+                    background-size: 100%
+                    position: absolute
+                    right: vw(50)
+                    top: vw(220)
+        &-title
+            width: vw(482)
+            display: inline-block
+        &-title2
+            width: vw(549)
+            display: inline-block
+            position: absolute
+            left: 50%
+            top: vw(263)
+            transform: translateX(-50%)
+            +zindex("page2")
+        &-video
+            width: vw(1372)
+            position: relative
+            margin: vw(135) auto 0
+            padding: vw(50) 0
+            display: flex
+            justify-content: center
+            align-items: center
+            background: url(../images/add-movie-bg.png) no-repeat
+            background-size: 100%
+            .btn-play
+                content: ''
+                position: absolute
+                display: inline-block
+                width: vw(81)
+                height: vw(81)
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%)
+                background-image: url(../images/play.png)
+                background-size: 100%
+                background-repeat: no-repeat
+                cursor: pointer
+            .video-item 
+                width: vw(961)
+                cursor: pointer
+    .igEvant
+        width: vw(1335)
+        position: relative
+        margin: vw(135) auto 0
+        .title
+            font-size: 0
+        .content
+            width: 100%
+            background: url('../images/ig-line-left.png') left / vw(15) repeat-y,url('../images/ig-line-right.png') right / vw(15) repeat-y
+            padding-top: vw(50)
+            .items
+                display: flex
+                align-items: flex-start
+                justify-content: center
+            .item
+                width: vw(200)
+                margin: 0 vw(40)
+                .info
+                    display: block
+                    margin-top: vw(25)
+        .bottom
+            width: 100%
+            height: vw(35)
+            background: url('../images/ig-bg-left.png') left / auto vw(35) no-repeat,url('../images/ig-bg-right.png') right / auto vw(35) no-repeat 
+        .ig-btn
+            display: block
+            cursor: pointer
+            margin: 0 auto
+            width: vw(488)
+            margin-top: vw(-30)
+            transform: translateY(70%)
+    .dark-bg
+        width: 100%
+        background: #000
+        padding: 0 vw(12)
+        position: relative
+        &:before
+            content: ''
+            display: block
+            width: 100%
+            height: vw(154)
+            position: absolute
+            background: url(../images/add-top.png)  no-repeat
+            background-size: 100%
+            top: 0
+            left: 0
+            transform: translateY(-99%)
+            +zindex("page2")
+        &:after
+            content: ''
+            display: block
+            width: 100%
+            height: vw(154)
+            position: absolute
+            background: url(../images/add-top2.png) no-repeat
+            background-position: center 30%
+            top: 0
+            left: 0
+            transform: translateY(-99%)
+            +zindex("page")
+        &-inner
+            border-right: vw(17) solid #dac389
+            border-left: vw(17) solid #dac389
+            background-image: url(../images/add-bg.png)
+    .reward
+        &-area 
+            text-align: center
+            padding-bottom: vw(206)
+            background-image: url(../images/red-bg4.png)
+            position: relative
+            &:before
+                content: ''
+                display: block
+                width: 100%
+                height: vw(131)
+                position: absolute
+                top: 0
+                left: 0
+                -webkit-transform: translateY(-99%)
+                -ms-transform: translateY(-99%)
+                transform: translateY(-99%)
+                background-image: url(../images/kv-t.png)
+                background-position: center top
+                background-repeat: no-repeat
+        &-title
+            width: vw(608)
+            display: inline-block
+            margin-bottom: vw(84)
+        &-item 
+            width: vw(647)
+            display: inline-block
+            vertical-align: top
+            &:before
+                content: ''
+                display: inline-block
+                width: vw(454)
+                height: vw(19)
+                background: url(../images/reward-line.png) no-repeat
+                background-size: 100%
+                margin-bottom: vw(30)
+            .btn-issue1
+                width: vw(376)
+                margin-top: vw(28)
+                display: inline-block
+            .btn-issue2
+                width: vw(338)
+                margin-top: vw(28)
+                display: inline-block
+    .activity-role
+        text-align: center
+        
+    #qrcode
+        width: 100px
+        height: 100px
+    .video
+        position: relative
+        position: 100%
+        &:before
+            content: ''
+            display: block
+            position: relative
+            width: 100%
+            height: 100%
+            padding-top: 100%
+        #player
+            border: 0
+            height: 100%
+            left: 0
+            position: absolute
+            top: 0
+            width: 100%
+            -webkit-user-select: none
+            -moz-user-select: none
+            -ms-user-select: none
+            user-select: none
+            width: 100%
+    .gamearea
+        width: 100%
+        height: vw(396)
+        position: relative
+        background: url(../images/bg-gamearea.png) top center no-repeat
+        background-size: 100% vw(396)
+        .block_1,.block_2,.block_3
+            position: absolute
+            width: vw(459)
+            top: vw(18)
+            cursor: pointer
+            overflow: hidden
+            border-radius: vw(15)
+            &:after
+                content: ""
+                width: vw(139)
+                height: vw(139)
+                position: absolute
+                bottom: 0
+                right: 0
+                background: url(../images/deco-magnifier.png) top center no-repeat
+                background-size: cover
+            > img
+                max-width: 100%
+                transition: 0.6s
+                &:hover
+                    transform: scale(1.1)
+                    transition: 0.6s
+        .block_1
+            left: vw(237)
+        .block_2
+            left: vw(706)
+        .block_3
+            left: vw(1174)
+
+.role
+    &-partial
+        .pc
+            display: inline-block
+        .mb
+            display: none
+        .black
+            display: none
+        .no-black
+            display: inline-block
+    &-title
+        width: vw(1056)
+        display: inline-block
+    &-part 
+        color: #dac389
+        margin-top: vw(60)
+        a 
+            color: #dac389
+            word-break: break-all
+        .role-s-title
+            margin: 0 auto
+            width: vw(129)
+            &.ex
+                width: vw(198)
+                margin-bottom: vw(28)
+        h3 
+            display: inline-flex
+            justify-content: space-between
+            align-items: center
+            font-size: vw(29)
+            font-weight: 500
+            margin: vw(35) 0 vw(15)
+            &:before,&:after 
+                content: ''
+                display: inline-block
+                width: vw(21)
+                height: vw(27)
+                background-size: 100%
+            &:before
+                background: url(../images/role-left-icon.png) no-repeat
+                background-size: cover
+                margin-right: vw(15)
+            &:after
+                background: url(../images/role-right-icon.png) no-repeat
+                background-size: cover
+                margin-left: vw(15)
+        p 
+            font-size: vw(23)
+            line-height: 1.5
+            letter-spacing: 1px
+        .info-text
+            margin-bottom: vw(60)
+        ul 
+            margin: vw(60) 0 vw(58)
+            width: vw(1060)
+            display: inline-block
+            font-size: vw(18)
+            text-align: left
+            line-height: 2
+            li
+                list-style-type: decimal
+        .second,.three
+            margin: 0
+            padding: 0 0 0 2em
+            li 
+                list-style-type: upper-alpha
+        .three
+            li
+                list-style-type: disc
+
+    &-reward-block
+        display: inline-block
+        margin: 0 vw(38) vw(63)
+        h4 
+            font-size: vw(22)
+            line-height: 1.5
+            font-weight: 500
+            letter-spacing: 1px
+        &.break
+            display: block
+    &-reward-item
+        width: vw(297)
+        display: inline-block
+    &-info-block
+        h3 
+            margin-top: 0
+            letter-spacing: 1px
+    &-line
+        display: inline-block
+        width: vw(1056)
+        height: vw(19)
+        background: url(../images/reward-line-big.png) no-repeat
+        background-size: 100%
+
+.gamePop_area
+    position: fixed
+    width: 100%
+    height: 100vh
+    +zindex("popup1")
+    top: 0
+    left: 0
+    transition: 0.3s
+    // transform: translate(-50%, -50%)
+    .game_close
+        width: vw(40)
+        height: vw(40)
+        position: absolute
+        right: vw(40)
+        top: vw(40)
+        cursor: pointer
+        +zindex("popup2")
+        &:before, &:after
+            content: " "
+            width: vw(46)
+            height: vw(6)
+            background: #ffffff
+            position: absolute
+            top: vw(10)
+            left: 0
+            cursor: pointer
+            box-shadow: vw(3) vw(3) vw(5) rgba(#000,0.2)
+            // display: inline-block
+        &:before
+            transform: rotate(45deg)
+        &:after
+            transform: rotate(135deg)
+
+    #game_area
+        // width: 80%
+        // height: 80%
+        background: #75001b
+        position: absolute
+        top: 20px
+        left: 0
+
+    .bottom,.top
+        width: 100%
+        height: 20px
+        background: url(../images/pc-bg-game.png) center center repeat-x
+        background-size: auto vw(40)
+        position: absolute
+    .bottom
+        bottom: 0
+    .top
+        top: 0
+
+.rolePop
+    &-area 
+        position: fixed
+        width: 100%
+        height: 100%
+        background: #bf0029
+        padding: vw(20)
+        top: 0%
+        left: 0%
+        +zindex("popup1")
+        text-align: center
+    &_close 
+        width: vw(43)
+        height: vw(43)
+        background: url(../images/prod-close.png) no-repeat
+        background-size: cover
+        position: fixed
+        top: vw(30)
+        right: vw(30)
+        cursor: pointer
+    &-title 
+        display: none
+    &-content
+        width: 100%
+        height: 100%
+        box-sizing: border-box
+        background: url('../images/kv-bg.png') no-repeat
+        background-size: cover
+        background-position: center 
+    &-info
+        height: 100%
+        overflow-y: scroll
+        padding-top: vw(70)
+        .black
+            display: inline-block
+        .no-black
+            display: none
+        &::-webkit-scrollbar 
+            display: none
+        .role-part
+            color: #000
+            a 
+                color: #000
+                word-break: break-all
+            h3 
+                &:before
+                    background: url(../images/role-left-icon-b.png) no-repeat
+                    background-size: cover
+                &:after
+                    background: url(../images/role-right-icon-b.png) no-repeat
+                    background-size: cover
+        .role-line
+            background: url(../images/reward-line-big-b.png) no-repeat
+            background-size: 100%
+        
+.prodPop
+    &-area
+        position: fixed
+        width: 100%
+        height: 100%
+        background: rgba(0,0,0,0.9)
+        top: 0%
+        left: 0%
+        +zindex("popup2")
+        text-align: center
+        img 
+            width: 100%
+            height: auto
+    &-content 
+        width: vw(574)
+        height: vw(824)
+        background: url(../images/prod-bg.png) no-repeat
+        background-size: 100%
+        position: absolute
+        left: 50%
+        top: 53%
+        transform: translate(-50%,-50%)
+        padding: vw(90) 2% vw(10)
+        color: #ffffff
+        text-align: left
+        h2 
+            font-size: vw(30)
+            margin: vw(15) 0 vw(8)
+            line-height: 1.4
+            text-shadow: 2px 1px 3px rgba(0,0,0,0.6)
+        ul 
+            font-size: vw(22)
+            padding-left: vw(30)
+            margin-bottom: vw(20)
+            li 
+                line-height: 1.6
+                letter-spacing: 1px
+                position: relative
+                &:before
+                    content: ''
+                    display: inline-block
+                    width: vw(22)
+                    height: vw(22)
+                    background: url('../images/prod-icon2.png') no-repeat
+                    background-size: 100%
+                    position: absolute
+                    left: 0
+                    top: 50%
+                    transform: translate(-134%,-50%)
+    &-info 
+        padding: 0 vw(30)
+    &-price
+        span 
+            text-decoration: line-through
+    &-con
+        span 
+            font-size: vw(30)
+            color: #dac389
+            font-weight: bold
+    &-title 
+        width: vw(568)
+        display: inline-block
+        position: absolute
+        top: 0%
+        left: 50%
+        transform: translate(-50%,-30%)
+    &-link 
+        width: vw(457)
+        border: 0
+        background: initial
+        position: absolute
+        left: 50%
+        bottom: vw(25)
+        transform: translateX(-50%)
+    &-close 
+        width: vw(43)
+        height: vw(43)
+        background: url(../images/prod-close.png) no-repeat
+        background-size: cover
+        position: absolute
+        top: vw(20)
+        right: vw(-40)
+        cursor: pointer
+        
+
+
+.eggPop
+    &-area
+        position: fixed
+        width: 100%
+        height: 100%
+        background: rgba(0,0,0,0.9)
+        top: 0%
+        left: 0%
+        +zindex("popup3")
+        text-align: center
+        cursor: pointer
+        img 
+            width: 100%
+            height: auto
+        .btn-open
+            width: vw(457)
+            border: 0
+            background: none
+            display: inline-block
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%,195%)
+    &-title 
+        width: vw(574)
+        display: inline-block
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+    &-item 
+        &:before
+            content: ''
+            display: inline-block
+            width: vw(481)
+            height: vw(117)
+            background: url(../images/egg-shadow.png) no-repeat
+            background-size: 100%
+            position: absolute
+            top: 48%
+            left: 50%
+            transform: translate(-45%,130%)
+        &:after
+            content: ''
+            display: inline-block
+            width: vw(574)
+            height: vw(537)
+            background: url(../images/egg-light.png) no-repeat
+            background-size: 100%
+            position: absolute
+            top: 48%
+            left: 50.5%
+            transform: translate(-50%,-50%)
+        .egg
+            width: vw(574)
+            position: absolute
+            top: 48%
+            left: 50.5%
+            transform: translate(-50%,-50%) 
+        .egg img
+            animation: shake-egg 1.5s infinite alternate linear
+            transform-origin: 50% 100%
+
+.finishPop
+    &-area
+        position: fixed
+        width: 100%
+        height: 100%
+        background: rgba(0,0,0,0.9)
+        top: 0%
+        left: 0%
+        +zindex("popup1")
+        text-align: center
+        img 
+            width: 100%
+            height: auto
+        .btn-open
+            width: vw(457)
+            border: 0
+            background: none
+            display: inline-block
+        .share
+            &-area 
+                button,a
+                    border: 0
+                    background: initial
+                    width: vw(67)
+                    display: inline-block
+                    vertical-align: middle
+                    padding: 0
+            &-text
+                width: vw(125)
+                display: inline-block
+                vertical-align: middle
+                margin-right: vw(20) 
+    &-content 
+        width: vw(576)
+        height: vw(456)
+        background: url(../images/alert-bg.png) no-repeat
+        background-size: 100%
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%,-50%)
+    &-title 
+        width: vw(454)
+        display: inline-block
+        position: absolute
+        top: 0%
+        left: 50%
+        transform: translate(-50%,-40%)
+    &-text 
+        width: vw(443)
+        display: inline-block
+        margin: vw(88) 0 vw(50)
+.joinedPop
+    &-area
+        position: fixed
+        width: 100%
+        height: 100%
+        background: rgba(0,0,0,0.9)
+        top: 0%
+        left: 0%
+        +zindex("popup1")
+        text-align: center
+        img 
+            width: 100%
+            height: auto
+        .btn-ok
+            width: vw(457)
+            border: 0
+            background: none
+            display: inline-block
+    &-content 
+        width: vw(576)
+        height: vw(456)
+        background: url(../images/alert-bg.png) no-repeat
+        background-size: 100%
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%,-50%)
+    &-title 
+        width: vw(454)
+        display: inline-block
+        position: absolute
+        top: 0%
+        left: 50%
+        transform: translate(-50%,-40%)
+    &-text 
+        width: vw(443)
+        display: inline-block
+        margin: vw(88) 0 vw(20)
+.kvideo
+    &-area
+        position: fixed
+        width: 100%
+        height: 100%
+        background: rgba(0,0,0,0.9)
+        top: 0%
+        left: 0%
+        +zindex("kvideo")
+    &-content
+        width: 80%
+        height: 80vh
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%,-50%)
+    &_close 
+        width: vw(43)
+        height: vw(43)
+        background: url(../images/prod-close.png) no-repeat
+        background-size: cover
+        position: absolute
+        top: vw(20)
+        right: vw(20)
+        cursor: pointer
+
+.perdataPop_area
+    position: fixed
+    width: 100%
+    background-color: #ede2cf
+    background-image: url(../images/kv-bg.png)
+    background-size: 100% 100%
+    // height: vw(850)
+    overflow-y: hidden
+    // border-bottom: vw(28) solid #bf0029
+    top: vw(101)
+    left: 50%
+    transform: translateX(-50%)
+    +zindex("page2")
+    .bg
+        &:before
+            content: ''
+            display: block
+            position: absolute
+            width: vw(1367)
+            padding-top: vw(1367)
+            background-image: url(../images/circle-light.png)
+            background-size: cover
+            background-position: center 
+            top: vw(-300)
+            left: vw(269)
+            transform: rotate(0deg) 
+            z-index: 0
+            animation: rotateTitle 20s infinite linear
+    .content
+        position: relative
+        width: 100%
+        height: 100vh
+        padding: vw(100) 0 vw(80) 0
+        z-index: 5
+        text-align: center
+        overflow-y: auto
+        &:after
+            content: ""
+            background: #bf0029
+            width: 100%
+            height: vw(29)
+            display: block
+            margin: vw(50) 0 0 0
+        .tree
+            &:before
+                content: ''
+                position: absolute
+                width: vw(442)
+                height: vw(217)
+                background: url(../images/deco-tree-left.png) 0 0 no-repeat
+                background-size: cover
+                top: vw(250)
+                left: vw(170)
+            &:after
+                content: ''
+                position: absolute
+                width: vw(501)
+                height: vw(241)
+                background: url(../images/deco-tree-right.png) 0 0 no-repeat
+                background-size: cover
+                top: vw(200)
+                right: vw(120)
+        .clouds
+            &:before
+                content: ''
+                display: block
+                position: absolute
+                left: 0
+                bottom: 0
+                background-image: url(../images/cloud-left.png)
+                background-size: 100%
+                background-repeat: no-repeat
+                width: vw(543)
+                height: vw(213)
+                animation: clouds1 3s infinite alternate linear
+                
+            &:after
+                content: ''
+                display: block
+                position: absolute
+                right: 0
+                top: vw(600)
+                background-image: url(../images/cloud-right.png)
+                background-size: 100%
+                background-repeat: no-repeat
+                width: vw(351)
+                height: vw(282)
+                animation: clouds1 5s infinite alternate-reverse linear
+        .title
+            margin: 0 auto
+            width: vw(750)
+            height: vw(386)
+        .form
+            width: vw(540)
+            margin: 0 auto
+            li
+                margin: 0 0 vw(30) 0
+                text-align: left
+                display: flex
+                align-items: center
+                justify-content: flex-start
+                position: relative
+                &:before
+                    content: ""
+                    width: vw(15)
+                    height: vw(15)
+                    background: url(../images/data-icon.png) 0 0 no-repeat
+                    background-size: cover
+                    display: inline-block
+                    margin: vw(1) vw(10) 0 0
+                label
+                    width: vw(80)
+                    margin: 0 vw(10) 0 0
+                    display: inline-block
+                    img
+                        vertical-align: middle
+                        max-width: 100%
+                input
+                    width: vw(400)
+                    height: vw(36)
+                    border: 1px solid #b5b5b6
+                    border-radius: 4px
+                    font-size: vw(20)
+                    padding: vw(5) vw(10)
+            .codearea
+                position: relative
+                label
+                    width: vw(100)
+                input
+                    width: vw(244)
+                    margin: 0 vw(10) 0 0
+                .codeimg
+                    width: vw(97)
+                    height: vw(34)
+                    background: #ffffff
+                    border: 1px solid #61605d
+                    position: relative
+                    img
+                        vertical-align: middle
+                        width: 100%
+                .codereset
+                    width: vw(20)
+                    height: vw(20)
+                    margin-left: vw(10)
+                    cursor: pointer
+                    img
+                        max-width: 100%
+            .agreearea
+                display: block
+                position: relative
+                &:before
+                    display: none
+                input
+                    display: inline-block
+                    width: vw(20)
+                    height: vw(20)
+                    margin: 0 vw(10) 0 0
+                    vertical-align: top
+                label
+                    display: inline-block
+                    cursor: pointer
+                    text-align: left
+                    width: auto
+                    .wish
+                        display: none
+                    .pcwish
+                        width: vw(464)
+                        vertical-align: bottom
+                .click
+                    width: vw(300)
+                    vertical-align: bottom
+                    cursor: pointer
+                .a1
+                    flex: 1
+                    display: inline-flex
+                    margin-bottom: vw(2)
+                    img
+                        height: vw(18)
+            .btnarea
+                margin: vw(30) 0 0 0
+                .actionbtn
+                    width: vw(462)
+                    height: vw(109)
+                    border: 0
+                    background: url(../images/perdata-actionbtn.png) top center no-repeat
+                    background-size: cover
+                    position: relative
+                    img.load
+                        height: 100%
+                        max-width: none
+                        margin-top: vw(-10)
+
+.close-bg
+    position: fixed
+    width: 100%
+    height: 100%
+    z-index: -1
+.btnback
+    margin-top: vw(30)
+    cursor: pointer
+    display: inline-block
+    img 
+        width: vw(95)
+        height: auto
+
+
+@keyframes rotateTitle
+    0% 
+        transform: rotate(0deg) 
+    100% 
+        transform: rotate(360deg) 
+@keyframes shake-egg
+    0% 
+        transform: rotate(-6deg) 
+    25% 
+        transform: rotate(6deg) 
+    50% 
+        transform: rotate(-4deg) 
+    100% 
+        transform: rotate(4deg) 
+@keyframes light-down
+    0% 
+        transform: translateY(-400px) scale(1, 1)
+    55% 
+        transform: translateY(-400px) scale(1, 1)
+    75%
+        transform: translateY(5px) scale(0.95, 1)
+    80% 
+        transform: translateY(-10px) scale(1.1,0.8)
+    90% 
+        transform: translateY(0px) scale(1,1)
+    100% 
+        transform: translateY(0px) scale(1,1)
+@keyframes scrolldown
+    0% 
+        transform: translateY(-100%) 
+    50% 
+        transform: translateY(0%)
+    100% 
+        transform: translateY(-100%)
+@keyframes clouds1
+    0% 
+        transform: translateY(-0%)
+    100% 
+        transform: translateY(-20%)
+@keyframes finger1
+    0% 
+        transform: translate(25%,25%)
+    100% 
+        transform: translate(0,-10%)
+
+    

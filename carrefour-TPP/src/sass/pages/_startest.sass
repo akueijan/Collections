@@ -1,0 +1,630 @@
+﻿.startest
+    min-height: 100vh
+    .testarea
+        min-height: 100vh
+        padding: vw(67) 0
+        background: url(../images/test-bg.jpg) top center no-repeat
+        background-size: cover
+        +rwd($pad)
+            padding: mvw(100) 0
+        .head
+            margin: vw(110) auto 0
+            position: relative
+            text-align: center
+            +rwd($pad)
+                margin: mvw(50) auto 0
+                // margin: mvw(30) auto 0
+            &:before
+                content: ""
+                width: vw(100)
+                height: vw(100)
+                background: url(../images/deco-cards.png) top center no-repeat
+                background-size: cover
+                position: absolute
+                bottom: vw(40)
+                right: vw(580)
+                +rwd($pad)
+                    content: ""
+                    width: mvw(135)
+                    height: mvw(130)
+                    position: absolute
+                    bottom: mvw(70)
+                    right: mvw(70)
+            &:after
+                content: ""
+                width: vw(759)
+                height: vw(217)
+                background: url(../images/mb-deco-test-title.png) top center no-repeat
+                background-size: cover
+                position: absolute
+                bottom: vw(-60)
+                left: 50%
+                transform: translateX(-50%)
+                z-index: 0
+                +rwd($pad)
+                    width: mvw(643)
+                    height: mvw(190)
+                    bottom: mvw(-40)
+                    // bottom: mvw(-30)
+                    background: url(../images/mb-deco-test-title.png) top center no-repeat
+                    background-size: cover
+            h2
+                display: inline-block
+                font-size: vw(36)
+                font-weight: 400
+                color: #ffffff
+                letter-spacing: vw(2)
+                position: relative
+                z-index: 1
+                +rwd($pad)
+                    font-size: mvw(36)
+                &:before, &:after
+                    content: ""
+                    width: vw(22)
+                    height: vw(25)
+                    background: url(../images/deco-star.png) top center no-repeat
+                    background-size: cover
+                    display: inline-block
+                    position: relative
+                    +rwd($pad)
+                        width: mvw(22)
+                        height: mvw(25)
+                &:before
+                    margin: 0 vw(20) 0 0
+                    +rwd($pad)
+                        margin: 0 mvw(20) 0 0
+                &:after
+                    margin: 0 0 0 vw(20)
+                    +rwd($pad)
+                        margin: 0 mvw(20) 0 0
+                .star
+                    font-size: vw(48)
+                    +rwd($pad)
+                        font-size: mvw(48)
+            p
+                font-size: vw(24)
+                color: #ffffff
+                margin: vw(20) auto 0
+                line-height: vw(60)
+                position: relative
+                z-index: 1
+                +rwd($pad)
+                    font-size: mvw(30)
+                    margin: mvw(20) auto 0
+                    line-height: mvw(48)
+                    width: mvw(360)
+            h3
+                font-size: vw(22)
+                color: #e0b780
+                position: relative
+                z-index: 1
+                +rwd($pad)
+                    font-size: mvw(30)
+                    margin: mvw(10) auto 0
+            #timeup
+                font-size: vw(36)
+                font-weight: 400
+                color: #fff76f
+                padding: 0 vw(10) 0 0
+                +rwd($pad)
+                    font-size: mvw(80)
+                    padding: 0 mvw(10) 0 0
+            .yellow
+                color: #e0b780
+        .ps
+            text-align: center
+            margin: vw(100) auto 0
+            position: relative
+            z-index: 1
+            +rwd($pad)
+                width: mvw(700)
+                margin: mvw(100) auto 0
+                // margin: mvw(50) auto 0
+            p
+                color: #ffffff
+                font-size: vw(22)
+                line-height: vw(30)
+                +rwd($pad)
+                    font-size: mvw(26)
+                    line-height: mvw(45)
+        .content
+            margin: vw(70) auto 0
+            width: vw(1260)
+            +rwd($pad)
+                margin: mvw(70) auto 0
+                // margin: mvw(40) auto 0
+                width: 100%
+                padding: 0 mvw(80)
+            ul
+                display: flex
+                justify-content: space-around
+                align-items: center
+                +rwd($pad)
+                    justify-content: center
+                    flex-wrap: wrap
+                .selcard
+                    cursor: pointer
+                    width: vw(262)
+                    height: vw(455)
+                    +rwd($pad)
+                        width: mvw(240)
+                        height: mvw(400)
+                        // width: mvw(180)
+                        // height: mvw(300)
+                        margin: mvw(20) mvw(10)
+                    .cardarea
+                        transition: all 0.8s ease
+                        transform-style: preserve-3d
+                        transform-origin: center center
+                        position: relative
+                        > div
+                            width: 100%
+                            height: 100%
+                            position: absolute
+                            left: 0
+                            top: 0
+                            text-align: center
+                    .card-front
+                        backface-visibility: hidden
+                    .card-back
+                        backface-visibility: hidden
+                        transform: rotateY(180deg)
+                    &-active
+                        .cardarea
+                            transform: rotateY(180deg) translateZ(0)
+                    img
+                        cursor: pointer
+                input
+                    display: none
+            p
+                font-size: vw(18)
+                line-height: vw(30)
+                text-align: center
+                color: #ffffff
+                margin: vw(30) 0 0 0
+                +rwd($pad)
+                    font-size: mvw(24)
+                    line-height: mvw(40)
+                    margin: mvw(30) 0 0 0
+    .resultarea
+        margin: vw(67) auto 0
+        width: 100%
+        position: relative
+        +rwd($pad)
+            margin: mvw(100) auto 0
+        .bgarea
+            position: relative
+            margin: vw(80) auto 0
+            +rwd($pad)
+                margin: mvw(120) auto 0
+            .topline
+                width: vw(1864)
+                height: vw(563)
+                background: url(../images/bg-result-top.png) top center no-repeat
+                background-size: cover
+                margin: 0 auto
+                +rwd($pad)
+                    width: mvw(754)
+                    height: mvw(597)
+                    background: url(../images/mb-bg-result-top.png) top center no-repeat
+                    background-size: cover
+            .bottomline
+                width: vw(1816)
+                height: vw(220)
+                background: url(../images/bg-result-bottom.png) top center no-repeat
+                background-size: cover
+                margin: 0 auto vw(20)
+                +rwd($pad)
+                    width: mvw(718)
+                    height: mvw(134)
+                    background: url(../images/mb-bg-result-bottom.png) top center no-repeat
+                    background-size: cover
+                    margin: 0 auto mvw(20)
+            .kvdeco1
+                width: vw(302)
+                height: vw(302)
+                background: url(../images/kv-gossip.png) top center no-repeat
+                background-size: cover
+                position: absolute
+                top: vw(305)
+                right: vw(200)
+                +rwd($pad)
+                    display: none
+            .kvdeco2
+                width: vw(488)
+                height: vw(282)
+                background: url(../images/result-compass.png) top center no-repeat
+                background-size: cover
+                position: absolute
+                bottom: vw(50)
+                left: vw(400)
+                +rwd($pad)
+                    display: none
+            .bodyarea
+                position: relative
+                width: vw(1700)
+                margin: vw(20) auto
+                height: vw(1200)
+                background: url(../images/result-body-linebg.png) top center repeat-y
+                background-size: 100% auto
+                +rwd($pad)
+                    border-left: 1px solid #b39266
+                    border-right: 1px solid #b39266
+                    width: mvw(656)
+                    margin: mvw(20) auto
+                    height: mvw(2550)
+                    background: none
+                .bodybox
+                    position: absolute
+                    width: vw(1600)
+                    left: 50%
+                    top: vw(-600)
+                    transform: translateX(-50%)
+                    +rwd($pad)
+                        width: mvw(600)
+                        left: 50%
+                        top: mvw(-480)
+                        transform: translateX(-50%)
+        .title
+            width: vw(661)
+            padding: vw(160) 0 0 0
+            margin: 0 auto
+            +rwd($pad)
+                width: mvw(560)
+                padding: 0
+        .contentarea-deco
+            width: vw(1358)
+            height: vw(1626)
+            background: url(../images/result-body-bg-deco.png) top center no-repeat
+            background-size: cover
+            position: absolute
+            top: vw(320)
+            left: vw(120)
+            +rwd($pad)
+                background: url(../images/mb-result-body-bg-deco.png) top center no-repeat
+                background-size: cover
+                width: mvw(553)
+                height: mvw(2936)
+                top: mvw(130)
+                left: mvw(25)
+        .contentarea
+            width: vw(1324)
+            height: vw(1570)
+            background: url(../images/result-body-bg.png) top center no-repeat
+            background-size: cover
+            margin: vw(50) auto 0
+            position: relative
+            z-index: 1
+            padding: vw(120) vw(130) vw(70)
+            +rwd($pad)
+                background: url(../images/mb-result-body-bg.png) top center no-repeat
+                background-size: cover
+                width: mvw(539)
+                height: mvw(2912)
+                top: mvw(10)
+                left: mvw(0)
+                padding: mvw(30) mvw(20) mvw(0)
+            .astrology
+                text-align: center
+                h2
+                    color: #005298
+                    font-size: vw(35)
+                    font-weight: 400
+                    letter-spacing: vw(2)
+                    width: auto
+                    +rwd($pad)
+                        font-size: mvw(30)
+                        letter-spacing: mvw(1)
+                    .sp
+                        font-size: vw(40)
+                        +rwd($pad)
+                            font-size: mvw(40)
+                .luckcolor
+                    margin: vw(10) 0 0 0
+                    font-size: vw(24)
+                    color: #626262
+                    font-weight: 400
+                    +rwd($pad)
+                        margin: mvw(10) 0 0 0
+                        font-size: mvw(24)
+                .content
+                    margin: vw(26) auto 0
+                    width: vw(1064)
+                    height: vw(365)
+                    background: url(../images/result-head-bg.png) top center no-repeat
+                    background-size: cover
+                    position: relative
+                    +rwd($pad)
+                        margin: mvw(10) auto 0
+                        width: mvw(486)
+                        height: mvw(583)
+                        background: url(../images/mb-result-head-bg.png) top center no-repeat
+                        background-size: cover
+                    .selcard
+                        position: absolute
+                        top: 50%
+                        left: vw(10)
+                        transform: translateY(-50%)
+                        width: vw(320)
+                        height: vw(340)
+                        display: flex
+                        justify-content: center
+                        align-items: center
+                        +rwd($pad)
+                            width: mvw(470)
+                            height: mvw(232)
+                            top: mvw(10)
+                            left: 50%
+                            transform: translateX(-50%)
+                        img
+                            +rwd($pad)
+                                width: mvw(230)
+                                height: mvw(230)
+                    .keyword
+                        position: absolute
+                        top: vw(10)
+                        right: 0
+                        width: vw(720)
+                        height: vw(190)
+                        display: flex
+                        justify-content: center
+                        align-items: center
+                        +rwd($pad)
+                            top: mvw(245)
+                            right: mvw(10)
+                            width: mvw(410)
+                            height: mvw(160)
+                        p
+                            font-size: vw(48)
+                            font-weight: 500
+                            color: #dab27e
+                            +rwd($pad)
+                                font-size: mvw(48)
+                                font-weight: 500
+                    .txt
+                        position: absolute
+                        bottom: vw(10)
+                        right: 0
+                        width: vw(720)
+                        height: vw(160)
+                        display: flex
+                        justify-content: center
+                        align-items: center
+                        padding: 0 vw(20) 0 vw(60)
+                        +rwd($pad)
+                            bottom: mvw(10)
+                            right: mvw(10)
+                            width: mvw(410)
+                            height: mvw(160)
+                            padding: 0 mvw(20)
+                        p
+                            font-size: vw(24)
+                            font-weight: 400
+                            line-height: vw(40)
+                            color: #434343
+                            +rwd($pad)
+                                font-size: mvw(24)
+                                line-height: mvw(36)
+            .product
+                margin: vw(100) auto 0
+                text-align: center
+                +rwd($pad)
+                    margin: mvw(10) auto 0
+                h2
+                    font-size: vw(28)
+                    font-weight: 400
+                    color: #005298
+                    +rwd($pad)
+                        font-size: mvw(30)
+                        line-height: mvw(40)
+                    &:after
+                        content: ""
+                        width: vw(606)
+                        height: vw(11)
+                        background: url(../images/result-hr.png) top center no-repeat
+                        background-size: cover
+                        display: block
+                        margin: vw(5) auto 0
+                        +rwd($pad)
+                            width: mvw(350)
+                            height: mvw(10)
+                            margin: mvw(5) auto 0
+                            background-size: 100% 100%
+                .content
+                    margin: vw(25) auto 0
+                    display: flex
+                    justify-content: space-between
+                    align-items: flex-start
+                    +rwd($pad)
+                        margin: mvw(10) auto 0
+                        display: block
+                        justify-content: inherit
+                        align-items: inherit
+                    .bigprod
+                        width: vw(312)
+                        height: vw(509)
+                        background: url(../images/result-big-prd.png) top center no-repeat
+                        background-size: cover
+                        +rwd($pad)
+                            width: mvw(472)
+                            height: mvw(509)
+                            background: url(../images/mb-result-big-prd.png) top center no-repeat
+                            background-size: cover
+                            margin: 0 auto
+                            padding: mvw(120) 0 0 0
+                        .prodimg
+                            width: vw(300)
+                            height: vw(300)
+                            margin: vw(120) auto 0
+                            display: flex
+                            justify-content: center
+                            align-items: center
+                            +rwd($pad)
+                                width: mvw(300)
+                                height: mvw(300)
+                                margin: 0 auto
+                            img
+                                max-height: 100%
+                        p
+                            margin: vw(30) auto 0
+                            font-size: vw(24)
+                            font-weight: 400
+                            color: #565656
+                            +rwd($pad)
+                                margin: mvw(30) auto 0
+                                font-size: mvw(24)
+                    .prodbox
+                        width: vw(736)
+                        height: vw(509)
+                        background: url(../images/result-prd-bg.png) top center no-repeat
+                        background-size: cover
+                        +rwd($pad)
+                            width: mvw(476)
+                            height: mvw(1084)
+                            background: url(../images/mb-result-prd-bg.png) top center no-repeat
+                            background-size: cover
+                            margin: mvw(20) auto 0
+                        ul
+                            display: flex
+                            justify-content: flex-start
+                            align-items: flex-start
+                            flex-wrap: wrap
+                            padding: vw(30) vw(40)
+                            width: 100%
+                            +rwd($pad)
+                                padding: mvw(20) mvw(10)
+                            li
+                                width: vw(120)
+                                margin: 0 vw(5) vw(20)
+                                +rwd($pad)
+                                    width: mvw(200)
+                                    margin: 0 auto
+                                .prodimg
+                                    display: flex
+                                    justify-content: center
+                                    align-items: center
+                                    width: vw(120)
+                                    height: vw(150)
+                                    +rwd($pad)
+                                        width: mvw(130)
+                                        height: mvw(150)
+                                        margin: 0 auto
+                                    img
+                                        max-height: 100%
+                                p
+                                    text-align: center
+                                    font-size: vw(16)
+                                    font-weight: 400
+                                    line-height: vw(20)
+                                    color: #565656
+                                    +rwd($pad)
+                                        font-size: mvw(20)
+                                        line-height: mvw(28)
+                .footer
+                    margin: vw(95) auto 0
+                    display: flex
+                    justify-content: center
+                    align-items: flex-start
+                    +rwd($pad)
+                        margin: mvw(60) auto 0
+                        display: block
+                        justify-content: inherit
+                        align-items: inherit
+                    .leftbox
+                        text-align: center
+                        width: vw(400)
+                        +rwd($pad)
+                            width: 100%
+                            padding: 0 mvw(50)
+                        .outlink
+                            font-size: vw(40)
+                            font-family: kan48typos-std
+                            padding: vw(10) vw(40) vw(20)
+                            background: #dab27e
+                            border-radius: vw(50)
+                            color: #005298
+                            font-weight: 500
+                            display: inline-block
+                            +rwd($pad)
+                                font-size: mvw(40)
+                                padding: mvw(20) mvw(40) mvw(30)
+                                border-radius: mvw(50)
+                                display: block
+                            &:after
+                                content: ""
+                                width: vw(37)
+                                height: vw(37)
+                                background: url(../images/deco-arr-blue.png) top center no-repeat
+                                background-size: cover
+                                display: inline-block
+                                margin: 0 0 0 vw(10)
+                                +rwd($pad)
+                                    width: mvw(37)
+                                    height: mvw(37)
+                                    margin: 0 0 0 mvw(10)
+                        .again
+                            display: inline-block
+                            margin: vw(20) auto 0
+                            font-size: vw(20)
+                            font-weight: 400
+                            color: #005298
+                            position: relative
+                            +rwd($pad)
+                                margin: mvw(40) auto 0
+                                font-size: mvw(24)
+                            // text-decoration: underline
+                            &:after
+                                content: ""
+                                width: 130%
+                                height: vw(3)
+                                background: #005298
+                                display: block
+                                margin: vw(10) auto 0
+                                +rwd($pad)
+                                    height: mvw(3)
+                                    margin: mvw(10) auto 0
+                            &:before
+                                content: ""
+                                width: vw(20)
+                                height: vw(20)
+                                background: url(../images/deco-arr-blue.png) top center no-repeat
+                                background-size: cover
+                                position: absolute
+                                top: vw(3)
+                                right: vw(-25)
+                                +rwd($pad)
+                                    width: mvw(20)
+                                    height: mvw(20)
+                                    top: mvw(3)
+                                    right: mvw(-25)
+                    .rightbox
+                        width: vw(205)
+                        margin: 0 0 0 vw(10)
+                        +rwd($pad)
+                            width: 100%
+                            margin: mvw(40) auto 0
+                        &:after
+                            content: "立即分享解水逆!"
+                            font-size: vw(24)
+                            font-weight: 400
+                            display: block
+                            margin: vw(10) auto 0
+                            +rwd($pad)
+                                font-size: mvw(24)
+                                margin: mvw(20) auto 0
+                        .linkshare
+                            width: vw(92)
+                            height: vw(92)
+                            margin: 0 vw(15) 0 0
+                            display: inline-block
+                            +rwd($pad)
+                                width: mvw(110)
+                                height: mvw(110)
+                                margin: 0 mvw(30) 0 0
+                        .fbshare
+                            width: vw(92)
+                            height: vw(92)
+                            display: inline-block
+                            +rwd($pad)
+                                width: mvw(110)
+                                height: mvw(110)

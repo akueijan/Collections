@@ -1,0 +1,208 @@
+//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "登錄發票｜金豬報喜 能量運勢求籤筒"
+    - var pageJs = "invoice.js"
+    - var is_invoive = true
+    - var isVue = true
+//- page html
+block page_main
+    div.invoice
+        div.bg
+            div.linearea
+                div.deco-topline
+                div.deco-botline
+                div.deco-leftline
+                div.deco-rightline
+                div.deco-lt
+                    img(src="images/corner_r.png")
+                div.deco-rt
+                    img(src="images/corner_r.png")
+                div.deco-lb
+                    img(src="images/corner_r.png")
+                div.deco-rb
+                    img(src="images/corner_r.png")
+            div.cloudarea
+                .randomcloud.randomcloud1
+                    img(src="images/cloud-2.png")
+                .randomcloud.randomcloud2
+                    img(src="images/cloud-3.png")
+                .randomcloud.randomcloud3
+                    img(src="images/cloud-4.png")
+                .randomcloud.randomcloud4
+                    img(src="images/cloud-5.png")
+                .randomcloud.randomcloud5
+                    img(src="images/cloud-2.png")
+            div.l-bling
+                img(src="images/l-bling.png")
+            div.r-bling
+                img(src="images/r-bling.png")
+        .l-content
+            .light
+                img(src="images/kv-light.png")
+            .block.formarea(v-if="formstep=='form'")
+                .title
+                    img(src="images/receipt-title.png")
+                .bg
+                    .bg2
+                        .bg3
+                            h2 請輸入下列領獎資訊
+                                br
+                                | 中獎者須以此處輸入資訊為憑進行領獎
+                            form.form(v-on:submit.prevent = "sendInvoice()")
+                                ul
+                                    li
+                                        label(for="name") 聯絡人姓名
+                                        input#name(type="text" name="name" v-model="invForm.name" placeholder="請輸入姓名"  maxlength="20")
+                                    li
+                                        label(for="mobile") 手 機 號 碼
+                                        input#mobile(type="tel" name="mobile" maxlength="10" v-model="invForm.phone" placeholder="請輸入10位數字")
+                                    li
+                                        label(for="ticdate") 發 票 期 別
+                                        select#date(name="date" v-model="invForm.date")
+                                            option(value='10802') 108年 1-2月
+                                            option(value='10804') 108年 3-4月
+                                        //- input#ticdate()
+                                    li
+                                        label(for="number") 發 票 號 碼
+                                        input#number(type="text" name="number" v-model="invForm.num" placeholder="請輸入2位英文+8位數字" maxlength="10")
+                                    li
+                                        label(for="random") 發票隨機碼
+                                        input#random(type="text" name="random" v-model="invForm.randomNum" placeholder="請輸入4位數字" maxlength="4")
+                                .samplearea
+                                    .sample(@click="popup=true;popuppage='sample';popupOpen();" gtm-data="發票登錄_發票範例")
+                                        p(gtm-data="發票登錄_發票範例") 發票範例
+                                .agreearea
+                                    input#agree(type="checkbox" v-model="invForm.checkagree")
+                                    label(for="agree") 我已同意《金豬報喜-能量運勢求籤筒》活動辦法及相關規定。
+                                .note 
+                                    p 僅限登錄紙本電子發票，且消費日期應在本活動期間內。若電子發票存於載具，請務必於購買活動指定商品時告知店家印出紙本發票及明細。
+                                #recaptcha.g-recaptcha
+                                .btnarea
+                                    button(type="submit" v-if="!loading" gtm-data="發票登錄_送出").actionbtn
+                                    .loading(v-if="loading")
+                                        img(src="./images/loading.gif", alt="")
+            .block.form-over(v-if="formstep=='formover'")
+                .title
+                    img(src="images/receipt-2-title.png")
+                .bg
+                    .bg2
+                        .bg3
+                            .titlearea
+                                .titleline
+                                h2 恭喜獲得
+                                    span.yel 財運能量爆棚獎
+                                        br
+                                        | 88,888元
+                                    | 抽獎機會(乙次)!
+                                p 
+                                    span.yel 週週加碼抽
+                                    | 現金888、機票、
+                                    br
+                                    | 威秀電影票等多項好禮
+                                .awardimg
+                                    img(src="images/award.png")
+                                a.loginbtn(href="./invoice.html" gtm-data="發票登錄_繼續登錄")
+                                    img(src="images/logingo.png" gtm-data="發票登錄_繼續登錄")
+                            //- .content
+                            //-     .luckyarea
+                            //-         h2.lucky-title
+                            //-             p 好運能量．加碼週週抽
+                            //-         .lucky-content
+                            //-             ul.lucky-list
+                            //-                 li
+                            //-                     .itemimg
+                            //-                         img(src="images/invoe-award-1.png")
+                            //-                     .itemcontent
+                            //-                         h3.itemtitle 偏財運能量
+                            //-                         p.itemtxt 現金
+                            //-                             br
+                            //-                             | NT888元
+                            //-                 li
+                            //-                     .itemimg
+                            //-                         img(src="images/invoe-award-2.png")
+                            //-                     .itemcontent
+                            //-                         h3.itemtitle 旅遊運能量
+                            //-                         p.itemtxt 台北-沖繩
+                            //-                             br
+                            //-                             | 來回機票1張
+                            //-                 li
+                            //-                     .itemimg
+                            //-                         img(src="images/invoe-award-3.png")
+                            //-                     .itemcontent
+                            //-                         h3.itemtitle 桃花運能量
+                            //-                         p.itemtxt 雙人
+                            //-                             br
+                            //-                             | 威秀電影票
+                            //-                 li
+                            //-                     .itemimg
+                            //-                         img(src="images/invoe-award-4.png")
+                            //-                     .itemcontent
+                            //-                         h3.itemtitle 工作運能量
+                            //-                         p.itemtxt 誠品生活
+                            //-                             br
+                            //-                             | 50元即享券
+                            //-                 li
+                            //-                     .itemimg
+                            //-                         img(src="images/invoe-award-5.png")
+                            //-                     .itemcontent
+                            //-                         h3.itemtitle 好口福能量
+                            //-                         p.itemtxt Haagen-Dazs
+                            //-                             br
+                            //-                             | 105元冰品購物金
+                            .btnarea
+                                p 等等！ 肖年ㄟ先別急著離開～
+                                    br
+                                    | 
+                                    span.yel 神準！
+                                    | 2019年
+                                    span.yel 能量運勢等你抽！
+                                a(@click="birthPop" gtm-data="發票登錄_立即抽籤")
+                                    img(src="images/form-cta.gif" gtm-data="發票登錄_立即抽籤")
+                            .deco-prize
+                                img(src="images/invoe-txt.png")
+                                //- img(src="images/mb-invoe-txt.png")
+            .block.lottery(v-show="formstep=='lottery'")
+                .title
+                    img(src="images/oracle-title.png")
+                .bg
+                    .bg2
+                        .bg3
+                            p
+                                span.yel 
+                                    span.dot 誠
+                                    span.dot 心
+                                    span.dot 默
+                                    span.dot 念
+                                | 你的姓名並
+                                span(v-if="isGyro==false") 拖曳按鈕 左右搖晃籤筒
+                                span(v-if="isGyro==true") 搖晃手機 
+                                br
+                                | 求取
+                                span.yel 2019年能量運勢籤!
+                .content
+                    .fortune-area
+                        #shakePoint(gtm-data="發票登錄_點住按鈕")
+                            .gamebtn(gtm-data="發票登錄_點住按鈕")
+                                img(v-if="isGyro==false" src="images/game-cta.png" gtm-data="發票登錄_點住按鈕")
+                                img.mb(v-if="isGyro==true" src="images/mb-shake.png")
+                            .oracale(gtm-data="發票登錄_點住按鈕")
+                                img#oracale(src="images/game-oracale.png" gtm-data="發票登錄_點住按鈕")
+                            .oracalepod(gtm-data="發票登錄_點住按鈕")
+                                img(src="images/game-oracalepod.png" gtm-data="發票登錄_點住按鈕")
+            .block.lottery-over(v-show="formstep=='lottery_over'")
+                .title
+                    img(src="images/lottery-over-title.png")
+                .bg
+                    .bg2
+                        .bg3
+                            h2 2019年專屬你的能量運勢是…
+                            .content
+                                .lottery-img
+                                    img(:src="'images/ff'+ animals +'.png'")
+                                .btnarea
+                                    a.btn(href="./invoice.html" gtm-data="發票登錄_登錄發票")
+                                        img(src="images/lottery-login.png" gtm-data="發票登錄_登錄發票")
+                                    a.btn(:href="shareLink" target="_blank" gtm-data="發票登錄_分享好運")
+                                        img(src="images/lottery-share.png" gtm-data="發票登錄_分享好運")

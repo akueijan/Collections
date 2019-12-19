@@ -1,0 +1,210 @@
+//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "家樂福賀歲片盛大開演 | 家樂福賀歲大戲院"
+    - var pageDesc = "揪團免費看電影再抽一年份電影票！劇中場景找彩蛋再抽驚喜家電和超過500張家樂福即享券！"
+    - var more_js = ["rooms.js","games.js"]
+    //- - var more_js = "games.js"
+    - var pageJs = "index_mobile.js"
+    - var css = "main_mobile.css"
+    - var isVue = true
+    - var isMobile = true
+block nav
+    include _nav_mb.pug
+//- page html
+block page_main
+    //- script(src="https://cdnjs.cloudflare.com/ajax/libs/vConsole/3.2.1/vconsole.min.js")
+    div#index.index
+        section.video-room(v-if="room")
+            .light
+            .video(:class="videoClass")
+                .wording(v-if="video_step == 0")
+                    .wording-title
+                        img(src="./images/wording-title.png", alt="把三部賀歲片拼在一起播，就能看到秘映版劇場喔")
+                    .wording-phone
+                        img(src="./images/wording-phone.png", alt="家樂福")
+                    .wording-alert
+                        img(src="./images/video-alert.png", alt="請關閉省電模式才能正常觀看喔")
+                    .wording-title2
+                        img(src="./images/wording-title2.png", alt="觀影完畢再抽一年份電影票")
+                    button.btn-wording(@click="roomConnet") 
+                        img(src="./images/btn-wording.png", alt="揪好友包場看秘映版" gtm-data="M秘映版_揪好友包場看秘映版")
+                .join-view(v-if="video_step == 1")
+                    .join-close(@click="video_close")
+                    .join-title 
+                        img(:src=" room.keyman ? './images/join-title1.png' : './images/join-title2.png'", alt="歡迎進入家樂福影廳，邀請兩位好友掃描QRcode領票入場")
+                    .join-qrcode
+                        #qrcode
+                        .time-title(v-if="room.keyman")
+                            img(src="./images/join-time.png", alt="邀請時間")
+                            .timer(v-if="room.keyman")
+                                p  {{timer}}
+                    .join-title2(@click="lonely_play" v-if="room.user_count==1" gtm-data="M秘映版_單人版")
+                        img(src="./images/lonely-txt.png", alt="一個人嗎?" gtm-data="M秘映版_單人版")
+                    .join-people
+                        img(:src="'./images/join-people'+ room.user_count + '.png' ", alt="家樂福秘映版劇場等待人數")
+                            
+                .play--block(v-if="video_step >= 2 && video_step < 4" :class="sortClass")
+                    .yt--block(v-show="video_step==3")
+                        .media(:style='mediaStyle')
+                            .top
+                                transition(name="fade" mode = "out-in")
+                                    .cut(v-if="room.video_cut == 1" key="cut1")
+                                        img(:src="'./images/video-cut1-top' + room.sort + '.png'", alt="")
+                                    .cut(v-if="room.video_cut == 3" key="cut2")
+                                        img(:src="'./images/video-top' + room.sort + '.png' ")
+                            .video--block
+                                .before
+                                #player
+                                .controll
+                                    transition(name="fade" mode = "out-in")
+                                        .timer-down(v-if="room.video_cut ==1")
+                                            .halfclip
+                                                .halfcircle(:style="borderStyle").circle1
+                                            .halfcircle(:style="borderStyle").circle2
+                                            .secStr
+                                                span {{sec}}
+                                            .mask
+                                    .playblock(@click="video_play" v-if="room.player && room.video_cut==2")
+                                        
+                                    transition(name="fade" mode = "out-in")
+                                        .mute(@click="video_mute" v-if="room.player && room.sort == 0")
+                                            transition(name="fade" mode = "out-in")
+                                                img(src="./images/sound_off.png" v-if="mute" key="off" gtm-data="M秘映版_聲音開關")
+                                                img(src="./images/sound_on.png" v-if="!mute" key="on" gtm-data="M秘映版_聲音開關")
+                            .bottom
+                                transition(name="fade" mode = "out-in")
+                                    .cut(v-if="room.video_cut == 1" key="cut1")
+                                        img(:src="'./images/video-cut1-bottom' + room.sort + '.png'", alt="")
+                                    .cut(v-if="room.video_cut == 3" key="cut2")
+                                        img(:src="'./images/video-bottom' + room.sort + '.png' ")
+                    .sort-div(v-show="video_step == 2")
+                        .sort-title
+                            img(src="./images/sort-title.png", alt="電影即將開始，請依照家樂福順序排好手機")
+                        div   
+                            .sort-text
+                                img(:src="'./images/sort-text'+ room.sort + '.png'" alt="家樂福排字")
+
+                            button.btn-start(v-if="room.sort == 0 && room.status == 'video_ready'" @click="video_start")
+                                img(src="./images/btn-sort.png", alt="排好了!開演吧" gtm-data="M秘映版_排好了開演吧")
+                            div.loading(v-if="room.status == 'before_play'")
+                                img(class="sort-loading" src="./images/loading-red.gif")
+                            .sort-people
+                                img(src="./images/join-people3.png", alt="家樂福秘映版劇場等待人數")
+                //-恭喜獲得彩蛋
+                .egg-get(v-if="video_step == 4")
+                    .egg-title
+                        img(src="./images/egg-title.png", alt="恭喜獲得彩蛋")
+                    .egg-item(@click="open_video_form")  
+                        img(src="./images/egg.png", alt="家樂福彩蛋")
+                    button.btn-open(@click="perdataPop='room';room = null; saveCaptcha();")
+                        img(src="./images/btn-open.png", alt="點擊開蛋" gtm-data="M秘映版_點擊開蛋")
+                div.l-footer.footer
+                    div.l-container
+                        p Copyright@2019 CarrefourTaiwan. All Rights Reserved. 建議使用 iOS 10或Android 6以上版本
+        section.kv-top 
+            div.container-area
+                div.kv-title-area 
+                    div.kv-title 
+                        img(src="./images/kv-title-big2.png", alt="家樂福賀歲大戲院")
+                    div.kv-issue
+                        h3
+                            a(alt="scrolldown" itemprop="url" title="scrolldown" v-on:click="scrollTo('#kv-bottom');") 
+                                img(src="./images/scroll-down.png", alt="scrolldown")
+        section#kv-bottom.kv-bottom
+            div.container-area
+                div#video-group.video-group 
+                    div.slick-item(gtm-data="首頁_家有新禧事") 
+                        div.video-item(v-on:click="videoPlay(1)" gtm-data="首頁_家有新禧事")  
+                            img(src="./images/vd1-mb.png", alt="家有喜事" gtm-data="首頁_家有新禧事")
+                            div.title-item(gtm-data="首頁_家有新禧事") 
+                                img(src="./images/vd1-title.png", alt="賀歲強檔" gtm-data="首頁_家有新禧事")
+                            div.spot-light(gtm-data="首頁_家有新禧事") 
+                            div.btn-play(gtm-data="首頁_家有新禧事")
+                    div.slick-item(gtm-data="首頁_越來樂愛你們")
+                        div.video-item(v-on:click="videoPlay(2)" gtm-data="首頁_越來樂愛你們")  
+                            img(src="./images/vd2.png", alt="家有喜事" gtm-data="首頁_越來樂愛你們")
+                            div.title-item(gtm-data="首頁_越來樂愛你們") 
+                                img(src="./images/vd2-title.png", alt="新春獻映" gtm-data="首頁_越來樂愛你們")
+                            div.spot-light(gtm-data="首頁_越來樂愛你們") 
+                            div.btn-play(gtm-data="首頁_越來樂愛你們")
+                    div.slick-item(gtm-data="首頁_幸福來敲門")
+                        div.video-item(v-on:click="videoPlay(3)" gtm-data="首頁_幸福來敲門")  
+                            img(src="./images/vd3-mb.png", alt="家有喜事" gtm-data="首頁_幸福來敲門")
+                            div.title-item(gtm-data="首頁_幸福來敲門")
+                                img(src="./images/vd3-title.png", alt="過年喜片" gtm-data="首頁_幸福來敲門")
+                            div.spot-light(gtm-data="首頁_幸福來敲門")
+                            div.btn-play(gtm-data="首頁_幸福來敲門")
+                button.btn-online(@click="createRoom" gtm-data="M首頁_揪團秘映版")
+                    img(src="./images/btn-online-mb.png", alt="隱藏版線上看" gtm-data="M首頁_揪團秘映版")
+        .white-bg#game-div
+            section#easter-egg.easter-egg
+                div#easter-egg-title.easter-egg-title 
+                    img(src="./images/easter-egg-title-mb.png", alt="影迷朝聖找彩蛋，點擊關鍵道具，找彩蛋抽驚喜家電和家樂福即享券")
+                div.gamearea
+                    div#game-slick
+                        div.slick-item(gtm-data="首頁_展間家")
+                            div.block_1(v-on:click="gameOpen" gtm-data="首頁_展間家")
+                                img(src="images/game-block-1.png" gtm-data="首頁_展間家")
+                        div.slick-item(gtm-data="首頁_展間樂")
+                            div.block_2(v-on:click="gameOpen" gtm-data="首頁_展間樂")
+                                img(src="images/game-block-2.png" gtm-data="首頁_展間樂")
+                        div.slick-item(gtm-data="首頁_展間福")
+                            div.block_3(v-on:click="gameOpen" gtm-data="首頁_展間福")
+                                img(src="images/game-block-3.png" gtm-data="首頁_展間福")
+                button.btn-easter(v-on:click="gameOpen" gtm-data="M首頁_點擊關鍵道具發現驚喜彩蛋")
+                    img(src="./images/btn-easter-mb.png", alt="點擊關鍵道具，發現驚喜彩蛋" gtm-data="M首頁_點擊關鍵道具發現驚喜彩蛋")
+                
+
+            section#add-show.add-show
+                .add-title
+                    img(src="./images/add-title.png", alt="同場加映")
+                .add-title2
+                    img(src="./images/add-title2.png", alt="團圓就是Food，新春家樂福")
+                .add-video
+                    .video-item(v-on:click="videoPlay(5)") 
+                        img(src="./images/add-movie.png", alt="家樂福同場加映影片" gtm-data="首頁_團圓就是food")
+                        .btn-play(gtm-data="首頁_團圓就是food")
+            
+            .igEvant
+                .igEvant--block
+                    .title
+                        img(src="./images/ig-title-mb.png", alt="")
+                    .content
+                        .items
+                            .item
+                                img(src="./images/ig-item1-mb.png", alt="")
+                                .info
+                                    img(src="./images/ig-item1-t.png", alt="")
+                            .item
+                                img(src="./images/ig-item2-mb.png", alt="")
+                                a.info(href="https://pse.is/EFQN7" target="_blank" gtm-data="首頁_炫food")
+                                    img( gtm-data="首頁_C4IG" src="./images/ig-item2-t.png", alt="")
+                            .item
+                                img(src="./images/ig-item3-mb.png", alt="")
+                                .info
+                                    img(src="./images/ig-item3-t.png", alt="")
+                        a.ig-btn(href="https://pse.is/F6BZM" target="_blank" gtm-data="首頁_炫food")
+                            img(gtm-data="首頁_炫food" src="./images/ig-btn.png", alt="")
+                    .bottom
+                        //- img(src="./images/ig-bottom-mb.png", alt="")
+
+        section#reward-area.reward-area
+            .reward-title
+                img(src="./images/reward-title.png", alt="賀歲再加碼")
+            .reward-group
+                .reward-item
+                    img(src="./images/reward-item1.png", alt="手機搖紅包，二十萬個紅包大放送")
+                    a.btn-issue1(v-if="!rewardShake")
+                        img(src="./images/btn-coming.png", alt="1/31起全面開搖")
+                    a.btn-issue2(v-if="rewardShake" href="https://lihi.cc/a8aSO" target="_blank")
+                        img(src="./images/btn-shakenow.png", alt="立即開搖" gtm-data="首頁_立即開搖")
+                .reward-item
+                    img(src="./images/reward-item2.png", alt="金豬來報喜，全壘打再抽萬元手機")
+                    a.btn-issue2(href="https://carrefour-2019CNY.ad2iction.com/?utm_source=cnyevent&utm_medium=cpc&utm_campaign=carrefour-2019CNY" target="_blank")
+                        img(src="./images/btn-happy.png", alt="報喜去" gtm-data="首頁_報喜去")
+        .dark-bg
+            .dark-bg-inner
+                section#activity-role.activity-role
+                    include _role_issue.pug

@@ -1,0 +1,12 @@
+﻿doctype
+html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
+    //page default Information
+    block pageInfo
+        - var pageTitle = "登入中..."
+    //html head
+    include _head.pug
+    body
+        noscript
+            iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-5W6ZPBT" height="0" width="0" style="display:none;visibility:hidden")
+        script.
+            window.location = 'https://www.facebook.com/v3.3/dialog/oauth?client_id=2323885530957065&redirect_uri=https://ec85f43e.ngrok.io/index.html';

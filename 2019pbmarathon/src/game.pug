@@ -1,0 +1,73 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "PowerBOMB人生不斷電馬拉松｜Power出你的能量"
+    - var pageDesc = "登錄指定商品發票抽現金99,999、Switch遊戲機！挑戰PowerBOMB人生不斷電馬拉松還有機會抽中PS4等多項好禮！"
+    - var pageJs = "game.js"
+    - var more_js = ["game/Game.js","game/ScenesManager.class.js","game/Tools.class.js"]
+    - var isVue = true
+//- page html
+block page_main
+    section.game(v-cloak)
+        .fblogin(v-if="gamePage=='fblogin'")
+            .kvimg
+                img(src="images/kv-slogn.png")
+            .loginbtn(@click="fblogin" gtm-data="遊戲登入頁_登入FB開始遊戲")
+                img(src="images/fblogin.png" gtm-data="遊戲登入頁_登入FB開始遊戲")
+        transition(name="fade")
+            .gamestart(v-if="gamePage=='game'")
+                #game
+        transition(name="fade")
+            .grade(v-show="gamePage=='grade'")
+                .headtitle
+                    .score
+                        p {{ gcode }}
+                .leader
+                    .title
+                        img(src="images/leader-title.png")
+                    ul
+                        li(v-for="(item, key, index) in top100Arr")
+                            .id 
+                                i(:class="[{first: item.seq=='1'}, {second: item.seq=='2'}, {third: item.seq=='3'}]") {{ item.seq }}
+                            .pic 
+                                img(:src="item.pic_url")
+                            .name {{ item.fb_name }}
+                            .score {{ item.score }}
+                    p.ps *同分即同名次，僅顯示分數前5位高者。
+                .person
+                    .title
+                        img(src="images/person-title.png")
+                    .data
+                        .id
+                            i(v-if="person.id != '-1'" :class="[{first: person.id=='1'}, {second: person.id=='2'}, {third: person.id=='3'}]") {{ person.id }}
+                            i(v-else) 未能進榜
+                        .pic 
+                            img(:src="person.img")
+                        .name {{ person.name }}
+                        .score {{ person.score }}
+                .btn-again(@click="gameagain" gtm-data="遊戲結果頁_重新挑戰")
+                    img(src="images/btn-again.png" gtm-data="遊戲結果頁_重新挑戰")
+                .btn-fbshare(@click="fbLink" gtm-data="遊戲結果頁_分享成績")
+                    img(src="images/btn-fbshare.png" gtm-data="遊戲結果頁_分享成績")
+        transition(name="fade")
+            .lottery(v-show="gamePage=='lottery'")
+                h2
+                    img(src="images/title-lottery.png")
+                form.form(@submit.prevent = "lottery()")
+                    ul
+                        li.head
+                            .pic
+                                img(:src="person.img")
+                            .name {{ person.name }}
+                        li
+                            label(for="mobile") 手機號碼
+                            input#mobile(type="text" maxlength="10" placeholder="格式：0912345678" v-model="mobile")
+                        li.checkbox
+                            input#agree(type="checkbox" v-model="agree")
+                            label(for="agree") 我已詳閱《PowerBOMB人生不斷電馬拉松》活動辦法和個資法相關聲明。
+                    .btnsend
+                        button(type="submit" v-if="!loading" gtm-data="填寫抽獎資料_送出")
+                            img(src="images/btn-send.png" gtm-data="填寫抽獎資料_送出")
+                        .loading(v-if="loading")
+                            img(src="images/loading.gif", alt="")

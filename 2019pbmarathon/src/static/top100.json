@@ -1,0 +1,46 @@
+﻿{
+    "data":[
+        {
+            "fb_name": "Ian Su",
+            "idx": 1,
+            "pic_url": "https://graph.facebook.com/10206442414975559/picture?height=250&width=250",
+            "score": 495237,
+            "seq": 1
+        },
+        {
+            "fb_name": "吳倧億",
+            "idx": 2,
+            "pic_url": "https://graph.facebook.com/2630685483616824/picture?height=250&width=250",
+            "score": 482893,
+            "seq": 2
+        },
+        {
+            "fb_name": "張韶芸",
+            "idx": 3,
+            "pic_url": "https://graph.facebook.com/2460261807396665/picture?height=250&width=250",
+            "score": 216143,
+            "seq": 3
+        },
+        {
+            "fb_name": "A-kuei Jan",
+            "idx": 4,
+            "pic_url": "https://graph.facebook.com/2592131487464378/picture?height=250&width=250",
+            "score": 216063,
+            "seq": 4
+        },
+        {
+            "fb_name": "Sandy Luo",
+            "idx": 5,
+            "pic_url": "https://graph.facebook.com/2670867882931699/picture?height=250&width=250",
+            "score": 201566,
+            "seq": 5
+        },
+        {
+            "fb_name": "藍凱",
+            "idx": 6,
+            "pic_url": "https://graph.facebook.com/2399410256822076/picture?height=250&width=250",
+            "score": 180286,
+            "seq": 6
+        }
+    ]
+}

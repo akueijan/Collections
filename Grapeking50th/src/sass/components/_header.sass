@@ -1,0 +1,172 @@
+$header-lg-height: 120px
+$header-mobile-height: 60px
+
+header
+    width: 100vw
+    padding: 20px 50px
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+.nav
+    // background: #bf0e29
+    height: $header-lg-height
+    line-height: $header-lg-height
+    width: 100%
+    max-width: 1920px
+    position: fixed
+    left: 50%
+    top: 0
+    transform: translateX(-50%)
+    +zindex("header")
+    // display: none
+    +rwd($desktop)
+        height: $header-mobile-height
+        line-height: $header-mobile-height
+    &.active
+        position: absolute
+    &.upissue
+        z-index: 11
+    a 
+        cursor: pointer
+    p
+        display: inline-block
+        margin-right: 10px  
+    &>*:last-child p
+        margin-right: 0
+    & .l-container
+        height: 100%
+    &-bd 
+        height: 100%
+        padding: 0 37px
+        display: flex
+        align-items: center
+        justify-content: space-between
+        +rwd($desktop)
+            padding: 0 20px
+    &-logo 
+        display: inline-block
+        width: 192px
+        position: relative
+        z-index: 9
+        // line-height: 0
+        +rwd($desktop)
+            width: 140px
+        a
+            display: block
+        img
+            width: 100%
+            height: auto
+            vertical-align: super
+            +rwd($desktop)
+                vertical-align: inherit
+    &-btn
+        width: 90px
+        height: 90px
+        cursor: pointer
+        background: rgba(#ffffff,0.8)
+        border-radius: 50%
+        display: inline-flex
+        align-items: center
+        flex-flow: column wrap
+        justify-content: space-around
+        padding: 25px
+        z-index: 99
+        box-shadow: 5px 8px 6px rgba(#000000,0.2)
+        position: absolute
+        top: 10px
+        right: 20px
+        >.one,
+        >.two,
+        >.three 
+            width: 40px
+            height: 7px
+            background: #bf0e29
+            backface-visibility: hidden
+            transition-duration: 0.3s
+            border-radius: 3px
+        +rwd($desktop)
+            width: 45px
+            height: 45px
+            cursor: pointer
+            // background: #fff
+            border-radius: 50%
+            position: absolute
+            top: 10px
+            right: 10px
+            display: inline-flex
+            align-items: center
+            flex-flow: column wrap
+            justify-content: space-around
+            padding: 12px 10px
+            >.one,
+            >.two,
+            >.three 
+                width: 20px
+                height: 4px
+                background: #bf0e29
+                backface-visibility: hidden
+                transition-duration: 0.3s
+                border-radius: 5px
+    &-menu
+        width: 100%
+        background: rgba(#ffffff,0.9)
+        height: 100vh
+        right: 0
+        top: 0
+        transform: translateX(100%)
+        position: absolute
+        transition: all 0.3s ease-out
+        overflow: hidden
+        ul
+            height: 100%
+            display: flex
+            justify-content: space-around
+            align-items: center
+            flex-direction: column
+            padding: 10% 0
+        li 
+            // display: inline-block
+            line-height: 40px
+            vertical-align: middle
+            margin-right: vw(30)
+            &:after
+                content: ""
+                width: 110%
+                height: 2px
+                background: #c12f2f
+                display: block
+            span
+                color: #000
+                font-weight: bold
+                font-size: 30px
+                line-height: 1
+                +rwd($pad)
+                    font-size: 24px
+            .fb,.ig,.line
+                width: vw(37)
+                height: vw(37)
+                background-size: cover
+                background-position: center
+                display: inline-block
+            .fb
+                background-image: url(../images/fb-icon.png)
+            .ig
+                background-image: url(../images/ig-icon.png)
+            .line
+                background-image: url(../images/line-icon.png)
+    &--active 
+        .nav-menu 
+            transform: translateX(0)
+            // overflow: auto
+        .nav-btn 
+            >.one 
+                position: absolute
+                top: 44%
+                transform: (rotate(45deg) translateY(0))
+            >.two 
+                opacity: 0
+            >.three 
+                position: absolute
+                top: 44%
+                transform: (rotate(-45deg) translateY(-5%))

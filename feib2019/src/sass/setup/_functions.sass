@@ -1,0 +1,12 @@
+   
+@function vw($px)
+    $vw-context: ($desktop-fullhd * 0.01)
+    @return ( $px / $vw-context) * 1vw
+
+
+@function mvw($px)
+    $vw-context: (750 * 0.01);
+    @return ( $px / $vw-context) * 1vw
+
+@function wp($px)
+    @return percentage(($px/$desktop-fullhd))

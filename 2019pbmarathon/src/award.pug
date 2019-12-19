@@ -1,0 +1,80 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "PowerBOMB人生不斷電馬拉松｜Power出你的能量"
+    - var pageDesc = "登錄指定商品發票抽現金99,999、Switch遊戲機！挑戰PowerBOMB人生不斷電馬拉松還有機會抽中PS4等多項好禮！"
+    - var pageJs = "award.js"
+    - var isVue = true
+//- page html
+block page_main
+    section.award(v-cloak)
+        h2
+            img(src="images/award-title.png")
+        .block.big-award
+            p 於2019年11月28日(四)公布得獎名單
+            .txt.nodata(v-if="!bigaward") 尚未公布，敬請期待
+            //- .txt(v-for="(items, key, index) in awardlist.big")
+            //-     span.mobile {{ items.mobil }}
+            //-     span.ticket {{ items.ReferenceInfo }}
+            .txt(v-if="bigaward" v-for="items in awardlist.cash99999")
+                span.mobile {{ items.Mobile }}
+                span.ticket {{ items.ReferenceInfo }}
+        .block.energy-award
+            p 自2019/10/10起每週四公布得獎名單，共八週
+                br
+                br
+                | (遇連假延後至下一個工作日公布，詳見活動辦法)。
+            ul
+                li(@click="energyShow(1)" gtm-data="得獎名單頁_周周抽_第一週")
+                    h3(gtm-data="得獎名單頁_周周抽_第一週") 第一週得獎名單
+                    p(gtm-data="得獎名單頁_周周抽_第一週") 公布時間10/14
+                li(@click="energyShow(2)" gtm-data="得獎名單頁_周周抽_第二週")
+                    h3(gtm-data="得獎名單頁_周周抽_第二週") 第二週得獎名單
+                    p(gtm-data="得獎名單頁_周周抽_第二週") 公布時間10/17
+                li(@click="energyShow(3)" gtm-data="得獎名單頁_周周抽_第三週")
+                    h3(gtm-data="得獎名單頁_周周抽_第三週") 第三週得獎名單
+                    p(gtm-data="得獎名單頁_周周抽_第三週") 公布時間10/24
+                li(@click="energyShow(4)" gtm-data="得獎名單頁_周周抽_第四週")
+                    h3(gtm-data="得獎名單頁_周周抽_第四週") 第四週得獎名單
+                    p(gtm-data="得獎名單頁_周周抽_第四週") 公布時間10/31
+                li(@click="energyShow(5)" gtm-data="得獎名單頁_周周抽_第五週")
+                    h3(gtm-data="得獎名單頁_周周抽_第五週") 第五週得獎名單
+                    p(gtm-data="得獎名單頁_周周抽_第五週") 公布時間11/7
+                li(@click="energyShow(6)" gtm-data="得獎名單頁_周周抽_第六週")
+                    h3(gtm-data="得獎名單頁_周周抽_第六週") 第六週得獎名單
+                    p(gtm-data="得獎名單頁_周周抽_第六週") 公布時間11/14
+                li(@click="energyShow(7)" gtm-data="得獎名單頁_周周抽_第七週")
+                    h3(gtm-data="得獎名單頁_周周抽_第七週") 第七週得獎名單
+                    p(gtm-data="得獎名單頁_周周抽_第七週") 公布時間11/21
+                li(@click="energyShow(8)" gtm-data="得獎名單頁_周周抽_第八週")
+                    h3(gtm-data="得獎名單頁_周周抽_第八週") 第八週得獎名單
+                    p(gtm-data="得獎名單頁_周周抽_第八週") 公布時間11/28
+        .block.leader-award
+            .sonyps4
+                p 於2019年11月28日(四)公布得獎名單
+                ul
+                    li.nodata(v-if="!bigaward") 尚未公布，敬請期待
+                    li(v-if="bigaward" v-for="items in awardlist.PS4")
+                        .pic
+                            img(:src="(items.PhotoLink) ? items.PhotoLink : ' '")
+                        .name {{ items.ReferenceInfo }}
+                        .mobile {{ items.Mobile }}
+            .sogo300
+                p 於2019年11月28日(四)公布得獎名單
+                ul.award-list
+                    li.nodata(v-if="!bigaward") 尚未公布，敬請期待
+                    li(v-if="bigaward" v-for="items in awardlist.SOGO300")
+                        .pic
+                            img(:src="(items.PhotoLink) ? items.PhotoLink : ' '")
+                        .name {{ items.ReferenceInfo }}
+                        .mobile {{ items.Mobile }}
+        .block.default-award
+            p 於2019年11月28日(四)公布得獎名單
+            ul.award-list
+                p.nodata(v-if="!bigaward") 尚未公布，敬請期待
+                li(v-if="bigaward" v-for="items in awardlist.cash50")
+                    .pic
+                        img(:src="(items.PhotoLink) ? items.PhotoLink : ' '")
+                    .name {{ items.ReferenceInfo }}
+                    .mobile {{ items.Mobile }}

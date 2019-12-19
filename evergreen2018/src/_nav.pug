@@ -1,0 +1,30 @@
+nav.nav(itemscope itemtype="//schema.org/SiteNavigationElement")
+    div.l-container
+        div.nav-bd
+            h1.nav-logo
+                a(href="//b787.evaair.com" alt="EVAAIR" title="EVAAIR")
+                    img(src="../images/logo.png")
+            div.nav-btn(@click="gaEvent2('Menu','Icon')")
+                div.one
+                div.two
+                div.three
+            div.nav-menu(role="navigation")
+                ul.clearfix.ctrol-nav
+                    li.nav-item.nav-item--iscurrent(@click="gaEvent2('Menu','天空的微笑')")
+                        a(href="javascript:void(0)" data-nav="kv" :alt="$t('nav.title1')" itemprop="url" :title="$t('nav.title1')"): span {{$t('nav.title1')}}
+                    li.nav-item(@click="gaEvent2('Menu','前瞻設計')")
+                        a(href="javascript:void(0)" data-nav="abouteva" :alt="$t('nav.title2')" itemprop="url" :title="$t('nav.title2')"): span {{$t('nav.title2')}}
+                    li.nav-item(@click="gaEvent2('Menu','全新體驗')")
+                        a(href="javascript:void(0)" data-nav="feature" :alt="$t('nav.title3')" itemprop="url" :title="$t('nav.title3')"): span {{$t('nav.title3')}}
+                    li.nav-item(@click="gaEvent2('Menu','艙等介紹')")
+                        a(href="javascript:void(0)" data-nav="classinfo" :alt="$t('nav.title4')" itemprop="url" :title="$t('nav.title4')"): span {{$t('nav.title4')}}
+                    li.nav-item.link_video(@click="popupVideo_open(), gaEvent2('Menu','介紹影片')")
+                        a(href="javascript:void(0)" :alt="$t('nav.title5')" :title="$t('nav.title5')"): span {{$t('nav.title5')}}
+                    //- li.nav-item.link_game
+                    //-     a(href="https://b787.evaair.com/game?utm_source=web_page&utm_campaign=b787" target="_blank" :alt="$t('nav.title6')" :title="$t('nav.title6')"): span {{$t('nav.title6')}}
+                    li.lang-opt.sp-font
+                        a(href="../zh_tw/" alt="中" itemprop="url" title="中") 中
+                    li.lang-opt
+                        a(href="../en/" alt="EN" itemprop="url" title="EN") EN
+                    li.lang-opt
+                        a(href="../jp/" alt="JP" itemprop="url" title="JP") 日

@@ -1,0 +1,723 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+.index
+    height: 100%
+    .kv
+        position: relative
+        height: 100vh
+        background-image: linear-gradient(to top, #850963, #160265)
+        overflow: hidden
+        .l-content
+            max-width: 1200px
+            // width: 100%
+            width: percentage(1200/1920)
+            height: 100%
+            margin: 0 auto
+            position: relative
+            +rwd($mobile)
+                width: 100%
+            img
+                max-height: 100%
+                max-width: initial
+            .light
+                // width: 1166px
+                // height: 1023px
+                height: percentage(1023/1080)
+                position: absolute
+                top: 0
+                left: 50%
+                transform: translateX(-50%)
+                +rwd($pad)
+                    height: percentage(1073/1264)
+            .title
+                // width: 764px
+                // height: 783px
+                height: percentage(783/1080)
+                position: absolute
+                // top: 37px
+                top: percentage(37/1080)
+                left: 50%
+                transform: translateX(-50%)
+                +rwd($pad)
+                    height: percentage(700/1264)
+                    top: percentage(126/1264)
+            .leftpd
+                // width: 253px
+                // height: 253px
+                height: percentage(253/1080)
+                position: absolute
+                // top: 249px
+                // left: 127px
+                top: percentage(249/1080)
+                left: percentage(127/1200)
+                z-index: 1
+                overflow: hidden
+                +rwd($desktop)
+                    left: 0
+                +rwd($pad)
+                    height: percentage(152/1264)
+                    top: percentage(382/1264)
+                    left: percentage(32/750)
+                .compass-pd
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%,-50%)
+                    height: percentage(119/253)
+                    animation: lkvrotead 3s infinite
+                    animation-delay: 2s
+                    +rwd($pad)
+                        height: percentage(88/152)
+                // &-active
+                //     .compass-pd
+                //         animation: lkvrotead 3s infinite
+            .rightpd
+                // width: 253px
+                // height: 253px
+                height: percentage(253/1080)
+                position: absolute
+                // top: 249px
+                // right: 127px
+                top: percentage(249/1080)
+                right: percentage(127/1200)
+                +rwd($desktop)
+                    right: 0
+                +rwd($pad)
+                    height: percentage(152/1264)
+                    top: percentage(382/1264)
+                    right: percentage(32/750)
+                .compass-pd
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%,-50%)
+                    height: percentage(119/253)
+                    animation: rkvrotead 3s infinite
+                    animation-delay: 2s
+                    +rwd($pad)
+                        height: percentage(88/152)
+                // &-active
+                //     .compass-pd
+                //         animation: rkvrotead 3s infinite
+            .leftpd,.rightpd
+                .topbg,.botbg
+                    width: 80%
+                    height: 50%
+                    position: absolute
+                    z-index: -1
+                    left: 50%
+                    transform: translateX(-50%)
+                    border-radius: 50%
+                    overflow: hidden
+                    background: #11034c
+                    .gradual
+                        background: linear-gradient(to right, rgba(30,87,153,0) 0%,rgba(220,171,49,1) 40%,rgba(220,171,49,1) 60%,rgba(60,39,70,0) 100%)
+                        width: 200%
+                        height: 100%
+                        position: absolute
+                .topbg
+                    top: 10%
+                    .gradual
+                        left: 0
+                        transform: translateX(-100%)
+                        animation: powerbg 4s infinite
+                .botbg
+                    bottom: 10%
+                    .gradual
+                        right: 0
+                        transform: translateX(100%) rotateY(180deg)
+                        animation: powerbg2 4s infinite
+                        animation-delay: 1s
+            .rightpd
+                .topbg
+                    .gradual
+                        animation: powerbg 4s infinite 1s
+                .botbg
+                    .gradual
+                        animation: powerbg2 4s infinite
+                        animation-delay: 2s
+            .woman
+                position: absolute
+                // top: 159px
+                // left: 349px
+                top: percentage(159/1080)
+                left: percentage(349/1200)
+                height: percentage(448/1080)
+                +rwd($desktop)
+                    left: percentage(269/1200)
+                +rwd($pad)
+                    top: percentage(305/1264)
+                    left: percentage(156/750)
+                    height: percentage(393/1264)
+            .man
+                position: absolute
+                // top: 168px
+                // right: 346px
+                top: percentage(168/1080)
+                right: percentage(346/1200)
+                height: percentage(409/1080)
+                +rwd($desktop)
+                    right: percentage(269/1200)
+                +rwd($pad)
+                    top: percentage(311/1264)
+                    right: percentage(162/750)
+                    height: percentage(360/1264)
+                +rwd($mobile)
+                    top: percentage(311/1264)
+                    right: percentage(162/750)
+                    height: percentage(360/1264)
+            .knot
+                // width: 821px
+                // height: 112px
+                width: 657px
+                // height: percentage(112/1080)
+                background: #11034c
+                border: 3px solid #f6c12e
+                border-radius: 10px
+                padding: 3px
+                position: absolute
+                // top: 505px
+                top: percentage(505/1080)
+                left: 50%
+                transform: translateX(-50%)
+                +rwd($desktop)
+                    width: 90%
+                +rwd($pad)
+                    width: 86%
+                    top: percentage(600/1264)
+                .knot-2,.knot-3
+                    width: 100%
+                    height: 100%
+                    background: #11034c
+                    border: 1px solid #f6c12e
+                    border-radius: 10px
+                    padding: 3px
+                .knot-3
+                    padding: 30px
+                    +rwd($pad)
+                        padding: 20px
+                p
+                    width: 100%
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%,-50%)
+                    text-align: center
+                    color: #fff
+                    font-size: 18px
+                    line-height: 24px
+                    letter-spacing: 1.8px
+                    +rwd($pad)
+                        font-size: 14px
+                        line-height: 1.2
+                        letter-spacing: -0.5px
+                    +rwd($mobile)
+                        font-size: 12px
+            .actionbtn
+                display: inline-block
+                position: absolute
+                // top: 627px
+                top: percentage(627/1080)
+                left: 50%
+                transform: translateX(-50%)
+                // width: 316px
+                // height: 114px
+                height: percentage(114/1080)
+                +rwd($pad)
+                    top: percentage(750/1264)
+                    height: percentage(124/1264)
+            .sign
+                position: absolute
+                top: percentage(737/1080)
+                left: 50%
+                // width: 210px
+                // height: 539px
+                height: percentage(539/1080)
+                transform: translateX(-50%) rotate(5deg)
+                +rwd($pad)
+                    top: percentage(870/1264)
+                    height: percentage(647/1264)
+            .animatearea
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%)
+                width: 100%
+                height: 100%
+    .events
+        position: relative
+        // min-height: 100vh
+        background-image: linear-gradient(to top, #850963, #160265)
+        padding: 80px 0
+        +rwd($pad)
+            padding: 63px 0 0 0
+        +rwd($mobile)
+            padding: 50px 0 0 0
+        .linearea
+            .deco-topline,.deco-botline,.deco-leftline,.deco-rightline
+                border: 2px solid #f6c12e
+        .content
+            text-align: center
+        .block
+            position: relative
+            text-align: center
+            .actionbtn
+                width: 60%
+                margin: 20px auto 0
+            .title
+                position: absolute
+                top: -55px
+                left: 50%
+                transform: translate(-50%)
+                +zindex(page)
+                +rwd($pad)
+                    width: 300px
+                    top: -35px
+                +rwd($mobile)
+                    width: 300px
+                    top: -25px
+            .bg
+                width: 920px
+                min-height: 403px
+                border: 8px solid #f6c12e
+                border-radius: 10px
+                background: #11034c
+                margin: 0 auto
+                padding: 9px
+                +rwd($pad)
+                    border: 4px solid #f6c12e
+                    width: percentage(650/750)
+                    min-height: initial
+                    padding: 40px 4px 0
+            .bg2
+                width: 888px
+                min-height: 371px
+                border: 1px solid #f6c12e
+                border-radius: 10px
+                background: #11034c
+                margin: 0 auto
+                padding: 9px
+                +rwd($pad)
+                    width: 100%
+                    min-height: initial
+                    border: 0
+                    padding: 0
+            .bg3
+                width: 870px
+                min-height: 353px
+                border: 1px solid #f6c12e
+                border-radius: 10px
+                background: #11034c
+                margin: 0 auto
+                padding: 75px 20px 64px
+                text-align: center
+                position: relative
+                +rwd($pad)
+                    width: 100%
+                    min-height: initial
+                    border: 0
+                    padding: 0
+        .block2
+            margin: 133px 0 0 0
+            +rwd($pad)
+                margin: 73px 0 10px 0
+            .bg
+                border: 8px solid #d30e60
+                +rwd($pad)
+                    border: 4px solid #d30e60
+                    width: percentage(650/750)
+                    min-height: initial
+                    padding: 50px 4px 10px
+            .bg2
+                border: 1px solid #d30e60
+                +rwd($pad)
+                    width: 100%
+                    min-height: initial
+                    border: 0
+                    padding: 0
+            .bg3
+                border: 1px solid #d30e60
+                padding: 97px 50px 64px
+                +rwd($pad)
+                    width: 100%
+                    min-height: initial
+                    border: 0
+                    padding: 0
+        .steps-title
+            position: relative
+            &:after
+                content: ""
+                width: 623px
+                height: 2px
+                background: #fff
+                opacity: 0.2
+                display: block
+                margin: 24px auto
+                +rwd($pad)
+                    width: 98%
+                    margin: 20px auto
+            p
+                font-size: 24px
+                font-weight: bold
+                line-height: 1.36
+                letter-spacing: 2.4px
+                color: #fff
+                position: relative
+                +rwd($pad)
+                    font-size: 20px
+                +rwd($mobile)
+                    font-size: 16px
+                &:before,&:after
+                    content: "●"
+                    position: absolute
+                    top: 50%
+                    transform: translateY(-50%) 
+                    color: #f6c12e
+                    font-size: 12px
+                    +rwd($pad)
+                        display: none
+                &:before
+                    margin: 0 0 0 -40px
+                &:after
+                    margin: 0 0 0 30px
+        .pordlist
+            display: flex
+            align-items: center
+            justify-content: space-between
+            // margin: 24px 0 0 0
+            font-size: 0
+            +rwd($pad)
+                display: inline-block
+            li
+                display: inline-flex
+                align-items: flex-start
+                justify-content: space-between
+                flex: 5
+                +rwd($pad)
+                    margin: 0 0 25px 0
+            .prodpic
+                padding: 0 0 0 15px
+                +rwd($pad)
+                    width: 30%
+                    padding: 0 0 0 5px
+                    
+            .prodinfo
+                flex: 7
+                text-align: left
+                padding: 0 0 0 15px
+                vertical-align: top
+                img
+                    padding: 0 0 16px 0
+                    +rwd($pad)
+                        width: 50px
+                        padding: 0 0 5px 0
+                p 
+                    color: #fff
+                    font-size: 18px
+                    line-height: 24px
+                    letter-spacing: 1.8px
+                    +rwd($pad)
+                        font-size: 16px
+                        line-height: 1.2
+                        letter-spacing: 1px
+                a
+                    display: inline-block
+                    .yel
+                        text-decoration: underline
+        .luckyarea
+            width: 778px
+            border-radius: 10px
+            border: 2px solid #f6c12e
+            position: relative
+            text-align: center
+            // height: 238px
+            display: flex
+            align-items: center
+            justify-content: center
+            margin: 0 0 90px 0
+            padding: 0 15px
+            +rwd($pad)
+                width: 98%
+                margin: 0 auto 60px
+                min-height: initial
+            &:nth-last-of-type(1)
+                margin: 0
+                +rwd($pad)
+                    margin: 0 auto
+                    padding: 0 15px 200px
+                +rwd($mobile)
+                    padding: 0 15px 150px
+            .lucky-red
+                margin: 46px 0 
+                +rwd($mobile)
+                    margin: 0
+            .lucky-title
+                width: 445px
+                height: 65px
+                background: url(../images/award-title-bg.png) 0 0 no-repeat
+                position: absolute
+                top: 0
+                left: 50%
+                transform: translate(-50%,-50%)
+                display: inline-flex
+                align-items: center
+                justify-content: center
+                +rwd($pad)
+                    width: 260px
+                    height: 38px
+                    background-size: 100%
+                +rwd($mobile)
+                    width: 240px
+                    height: 36px
+                    background-size: 100%
+                p
+                    color: #f6c12e
+                    font-size: 24px
+                    font-weight: bold
+                    letter-spacing: 2.4px
+                    margin: -5px 0 0 0
+                    position: relative
+                    +rwd($pad)
+                        font-size: 16px
+                    // +rwd($mobile)
+                    //     font-size: 14px
+                    &:before,&:after
+                        content: "●"
+                        position: absolute
+                        top: 50%
+                        transform: translateY(-50%) 
+                        color: #f6c12e
+                        font-size: 12px
+                        +rwd($pad)
+                            display: none
+                    &:before
+                        left: -20px
+                    &:after
+                        right: -20px
+            .lucky-content
+                display: flex
+                align-items: center
+                justify-content: space-between
+                width: 100%
+                +rwd($pad)
+                    display: inline-block
+                    padding: 30px 0 20px
+                .lucky-txt
+                    margin: 0 0 0 15px
+                    +rwd($pad)
+                        margin: 20px auto 0
+                    p
+                        font-size: 24px
+                        font-weight: bold
+                        color: #fff
+                        +rwd($mobile)
+                            font-size: 16px
+                        .yel
+                            font-size: 32px
+                            +rwd($mobile)
+                                font-size: 24px
+                    .best-item
+                        position: relative
+                        &:after
+                            content: ""
+                            display: block
+                            height: 2px
+                            background: #f6c12e
+                            margin: 10px 0
+            .lucky-list
+                width: 100%
+                display: flex
+                align-items: center
+                justify-content: space-between
+                flex-wrap: wrap
+                margin: 46px 0 0 0
+                padding: 0 0 0 20px
+                +rwd($pad)
+                    display: inline-block
+                    margin: 0
+                    padding: 0
+                li
+                    text-align: center
+                    width: 50%
+                    display: inline-flex
+                    align-items: center
+                    justify-content: space-around
+                    margin: 0 0 36px 0
+                    position: relative
+                    +rwd($pad)
+                        margin: 0 0 50px 0
+                        width: 100%
+                    +rwd($mobile)
+                        margin: 0 0 40px 0
+                    &:nth-child(even)
+                        padding: 0 0 0 15px
+                        +rwd($pad)
+                            padding: 0
+                    &:nth-child(odd)
+                        &:after
+                            content: ""
+                            width: 2px
+                            height: 110px
+                            background: #fff
+                            position: absolute
+                            top: 50%
+                            transform: translateY(-50%)
+                            right: 0px
+                            opacity: 0.2
+                            +rwd($pad)
+                                display: none
+                    &:nth-last-of-type(1)
+                        &:after
+                            display: none
+                    .itemimg
+                        width: 200px
+                        flex: 1
+                        +rwd($pad)
+                            width: 100px
+                            margin: 0 0 0 15px
+                    .itemcontent
+                        flex: 1
+                        text-align: center
+                        +rwd($pad)
+                            width: 150px
+                        .itemtitle
+                            width: 121px
+                            height: 22px
+                            line-height: 22px
+                            text-align: center
+                            background: #d30e60
+                            border-radius: 20px
+                            font-size: 18px
+                            font-weight: 500
+                            margin: 0 auto 10px
+                            color: #11034c
+                            +rwd($pad)
+                                width: 90px
+                                font-size: 16px
+                        p
+                            font-size: 16px
+                            color: #ffffff
+                            font-weight: bold
+                            line-height: 24px
+                            +rwd($pad)
+                                font-size: 14px
+                                line-height: 1.2
+                            .yel
+                                font-size: 22px
+                                +rwd($pad)
+                                    font-size: 16px
+                        .itemtxt
+                            font-size: 20px
+                            color: #f6c12e
+                            +rwd($pad)
+                                font-size: 16px
+                            &:after
+                                content: ""
+                                width: 122px
+                                height: 2px
+                                display: inline-block
+                                margin: 15px 0
+                                background: #f6c12e
+                                +rwd($pad)
+                                    width: 100px
+                                    margin: 10px 0 0 0
+        .deco-prize
+                position: absolute
+                bottom: -67px
+                right: 45px
+                +rwd($pad)
+                    right: 50%
+                    transform: translateX(50%)
+                    bottom: 0
+                    width: 80%
+    .events-note
+        width: 100%
+        background: #11034c
+        padding: 80px 0 60px
+        text-align: center
+        +rwd($pad)
+            padding: 40px 0 30px
+        .note-title
+            width: 850px
+            height: 68px
+            background: #810963
+            border: 5px solid #d30e60
+            border-radius: 15px
+            line-height: 55px
+            text-align: center
+            margin: 0 auto
+            color: #ffffff
+            cursor: pointer
+            +rwd($pad)
+                width: 86%
+            span
+                font-size: 26px
+                font-weight: 500
+                position: relative
+                transition: all 0.5s ease-out
+                +rwd($pad)
+                    font-size: 24px
+                &:after
+                    content: "▼"
+                    font-size: 26px
+                    color: #ffffff
+                    position: absolute
+                    top: -10px
+                    right: -30px
+                    transition: all 0.5s ease-out
+                    +rwd($pad)
+                        font-size: 20px
+            &.active
+                background: #585da1
+                border: 5px solid #7981da
+                transition: all 0.5s ease-out
+                span:after
+                    transform: rotate(-180deg)
+                    transition: all 0.5s ease-out
+        .note-content
+            padding: 50px 0 0 0
+            width: 860px
+            margin: 0 auto
+            text-align: left
+            +rwd($pad)
+                width: 96%
+            h3
+                font-size: 24px
+                font-weight: bold
+                letter-spacing: 2.4px
+                color: #ecb933
+                margin: 0 0 40px 0
+            ul
+                li
+                    list-style: decimal
+                    color: #ffffff
+                    font-size: 18px
+                    line-height: 24px
+                    letter-spacing: 0.72px
+                    margin: 0 0 1em 2em
+                    word-wrap: break-word
+                    word-break: break-all
+                    &:nth-last-of-type(1)
+                        margin: 0 0 0 2em
+            .two
+                li[data-list] 
+                    list-style-type: none
+                    margin: 0 0 1em 2em
+                    position: relative
+                    &:before 
+                        content: "("attr(data-list)")"
+                        position: absolute
+                        left: -2em
+                        top: 0
+            .three
+                li
+                    list-style: disc
+            .four
+                li
+                    list-style: disc
+                    margin: 0 0 1em 1em
+                    &:nth-last-of-type(1)
+                        margin: 0 0 0 1em
+            .note2
+                padding: 49px 0 0 0

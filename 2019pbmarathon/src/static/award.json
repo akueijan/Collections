@@ -1,0 +1,111 @@
+﻿{
+    "data": {
+        "awardlist": {
+            "PS4": [
+                {
+                    "Mobile": "0973***418",
+                    "PhotoLink": "https://graph.facebook.com/2805570859467289/picture?height=250&width=250",
+                    "ReferenceInfo": "劉*萱"
+                }
+            ],
+            "SOGO300": [
+                {
+                    "Mobile": "0933***888",
+                    "PhotoLink": "https://graph.facebook.com/2592131487464378/picture?height=250&width=250",
+                    "ReferenceInfo": "A-***I JAN"
+                },
+                {
+                    "Mobile": "0900***000",
+                    "PhotoLink": "https://graph.facebook.com/2329573377096614/picture?height=250&width=250",
+                    "ReferenceInfo": "LA***NCE HU"
+                }
+            ],
+            "cash50": [
+                {
+                    "Mobile": "0933***888",
+                    "PhotoLink": "https://graph.facebook.com/2592131487464378/picture?height=250&width=250",
+                    "ReferenceInfo": "A-***I JAN"
+                },
+                {
+                    "Mobile": "0922***633",
+                    "PhotoLink": "https://graph.facebook.com/2329573377096614/picture?height=250&width=250",
+                    "ReferenceInfo": "LA***NCE HU"
+                }
+            ],
+            "cash99999": [
+                {
+                    "Mobile": "0933***888",
+                    "ReferenceInfo": "TX45166187"
+                }
+            ],
+            "awardweek": [
+                {
+                    "Haagen": [
+                        {
+                            "Mobile": "0906***257",
+                            "ReferenceInfo": "TX71262849"
+                        }
+                    ],
+                    "Switch": [
+                        {
+                            "Mobile": "0906***257",
+                            "ReferenceInfo": "TX71262849"
+                        }
+                    ],
+                    "cash200": [
+                        {
+                            "Mobile": "0906***257",
+                            "ReferenceInfo": "TX71262849"
+                        }
+                    ],
+                    "coupon": [
+                        {
+                            "Mobile": "0906***257",
+                            "ReferenceInfo": "TX71262849"
+                        }
+                    ],
+                    "movTic": [
+                        {
+                            "Mobile": "0906***257",
+                            "ReferenceInfo": "TX71262849"
+                        }
+                    ]
+                },
+                {
+                    "Haagen": [
+                        {
+                            "Mobile": "0906***257",
+                            "ReferenceInfo": "TX71262849"
+                        }
+                    ],
+                    "Switch": [
+                        {
+                            "Mobile": "0906***257",
+                            "ReferenceInfo": "TX71262849"
+                        }
+                    ],
+                    "cash200": [
+                        {
+                            "Mobile": "0906***257",
+                            "ReferenceInfo": "TX71262849"
+                        }
+                    ],
+                    "coupon": [
+                        {
+                            "Mobile": "0906***257",
+                            "ReferenceInfo": "TX71262849"
+                        }
+                    ],
+                    "movTic": [
+                        {
+                            "Mobile": "0906***257",
+                            "ReferenceInfo": "TX71262849"
+                        }
+                    ]
+                }
+            ],
+            "bigaward": true,
+            "weekaward": true
+        }
+    }
+}

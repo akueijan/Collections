@@ -1,0 +1,94 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "一年一DO 平安普渡 | 2019中元家樂福"
+    - var pageDesc = "水逆加上農曆鬼月，讓你諸事不順？現在就試試家樂福「星座普渡」幫你改好運！無論你信奉東方傳統或者西方星象，讓祈求平安的信仰，成為兩代最好的傳承，就是最好的中元普渡方式！"
+    - var isVue = true
+    - var pageJs = "startest.js"
+    //- - var more_js = "starbg.js"
+//- page html
+block page_main
+    section.startest
+        transition(name="fade" mode="out-in")
+            .testarea(v-show="Page=='test'")
+                .head
+                    h2
+                        span.yellow.star {{starData.Name}}
+                        | 的您
+                    p.pc-only 請默念你想問的問題，並於時限內選擇一張牌
+                    p.mb-only 請默念您想問的問題，
+                        br
+                        | 並於時限內選擇一張牌
+                    h3
+                        span#timeup 45
+                        | 秒
+                .ps
+                    p * 一天僅能一問一抽，且一週內不能對同一事情重複提問。
+                        br
+                        | * 本測驗由「星星教授安格斯」老師每日提供占卜結果。
+                .content
+                    ul
+                        li.selcard(v-for="(item, key, index) in showQ" :test="key" @click="startest")
+                            .cardarea
+                                .card-front
+                                    //- label(:for="item.id")
+                                    img(src="images/card-cover.png")
+                                    //- input(type="radio" :id="item.id" :value="key" v-model="selcard")
+                                .card-back
+                                    img(:src="item.img")
+        transition(name="fade" mode="out-in") 
+            .resultarea(v-show="Page=='result'")
+                .bgarea
+                    .kvdeco1
+                    .kvdeco2
+                    .topline
+                    .bodyarea
+                        //- .kvdeco1
+                        //-     img(src="images/kv-gossip.png")
+                        //- .kvdeco2
+                        //-     img(src="images/result-compass.png")
+                        .bodybox
+                            h2.title
+                                img(src="images/result-title.png" alt="一年一DO平安普渡list!")
+                            .contentarea-deco
+                            .contentarea
+                                .astrology
+                                    h2 
+                                        span.sp {{starData.Name}}
+                                        | 的您平安運勢解析是...
+                                    p.luckcolor 幸運色 : 
+                                        span(v-bind:style="{color:starData.Color}").color {{starData.Lucky}}
+                                    .content
+                                        .selcard
+                                            img(:src="ansLogo")
+                                        .keyword 
+                                            p {{showkeyword}} 
+                                        .txt 
+                                            p {{showAns}} 
+                                .product
+                                    h2.pc-only 透過星座能量占卜 最適合你的普渡商品
+                                    h2.mb-only 透過星座能量占卜
+                                        br
+                                        | 最適合你的普渡商品
+                                    .content
+                                        .bigprod
+                                            .prodimg
+                                                img(:src="starData.Bigpic")
+                                            p {{starData.Bigtxt}}
+                                        .prodbox
+                                            ul
+                                                li(v-for="prod in showData")
+                                                    .prodimg
+                                                        img(:src="prod.pic")
+                                                    p {{prod.txt}}
+                                    .footer
+                                        .leftbox
+                                            a(href="https://online.carrefour.com.tw/Events-old/constellation_201907/index.html?utm_source=campaign.carrefour-taiwan.com.tw&utm_medium=referral&utm_campaign=tpp" title="採購平安商品" target="_blank" gtm-data="結果頁-採購平安商品").outlink 採購平安商品
+                                            a(href="index.html" title="再次測驗" gtm-data="結果頁-再次測驗").again 再次測驗
+                                        .rightbox
+                                            a(href="javascript:void(0)" title="lineshare" @click="lineshare()" gtm-data="結果頁-LINE Share").linkshare
+                                                img(src="images/result-linebtn.png")
+                                            a(href="javascript:void(0)" title="fbshare" @click="fbshare()" gtm-data="結果頁-Facebook Share").fbshare
+                                                img(src="images/result-fbbtn.png")
+                    .bottomline

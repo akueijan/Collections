@@ -1,0 +1,39 @@
+﻿/* 
+_mixins
+*/
+/* 定義 media query 樣式名稱*/
+
+$mobile: 600px;
+$pad: 960px;
+$desktop: 1024px;
+$desktop-w: 1280px;
+$desktop-hd: 1440px;
+$desktop-fullhd: 1920px;
+// RWD
+@mixin rwd($width, $max_min:"max") {
+	@media only screen and (#{$max_min}-width: $width) {
+		@content
+	}
+};
+
+@mixin rwd-h($height, $max_min:"min") {
+	@media only screen and (#{$max_min}-height: $height) {
+		@content
+	}
+};
+
+@mixin hideText($w,$h){
+    width:$w;
+    height:$h;
+    overflow:hidden;
+    text-indent: 110%;
+    white-space: nowrap;
+}
+
+.hideText {
+	display: block;
+    overflow:hidden;
+    text-indent: 110%;
+    white-space: nowrap;	
+}
+

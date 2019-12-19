@@ -1,0 +1,159 @@
+﻿.invoice
+    position: relative
+    margin: vw(75) 0 0 0
+    +rwd($pad)
+        margin: mvw(110) 0 0 0
+    .content
+        padding: vw(80) 0 0 0
+        text-align: center
+        +rwd($pad)
+            padding: mvw(80) 0 0 0
+        h2
+            width: vw(1025)
+            margin: 0 auto
+            +rwd($pad)
+                width: mvw(650)
+        .form
+            margin: vw(40) auto 0
+            +rwd($pad)
+                margin: mvw(40) auto 0
+            ul
+                width: vw(1195)
+                height: vw(504)
+                background: url(../images/formbg.png) top center no-repeat
+                background-size: cover
+                padding: vw(60) vw(120)
+                margin: 0 auto
+                // height: 100%
+                +rwd($pad)
+                    width: mvw(650)
+                    height: mvw(640)
+                    background: url(../images/formbg.png) top center no-repeat
+                    background-size: 100% 100%
+                    padding: mvw(60) mvw(46)
+                li
+                    margin: 0 0 vw(50) 0
+                    text-align: left
+                    +rwd($pad)
+                        margin: 0 0 mvw(50) 0
+                    &:nth-last-child(1)
+                        margin: 0
+                .flex
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    +rwd($pad)
+                        display: block
+                .ticnum
+                    width: vw(570)
+                    +rwd($pad)
+                        width: mvw(650)
+                        margin: 0 0 mvw(50) 0
+                .ticran
+                    +rwd($pad)
+                        width: mvw(650)
+                    input
+                        width: vw(200)
+                        +rwd($pad)
+                            width: mvw(210)
+                            margin: 0 0 0 mvw(30)
+            label
+                font-size: vw(32)
+                font-weight: 600
+                margin: 0 vw(20) 0 0
+                color: #b8f5ff
+                vertical-align: baseline
+                +rwd($pad)
+                    font-size: mvw(32)
+                    margin: 0 mvw(20) 0 0
+            input,select
+                width: vw(420)
+                height: vw(66)
+                background: url(../images/inputbg.png) top center no-repeat
+                background-size: 100% 100%
+                color: #ffffff
+                font-size: vw(30)
+                font-weight: 400
+                padding: 0 0 0 vw(20)
+                +rwd($pad)
+                    width: mvw(400)
+                    height: mvw(66)
+                    font-size: mvw(30)
+                    padding: 0 0 0 mvw(20)
+                &::placeholder 
+                    color: #62a2d3
+            option
+                font-size: vw(30)
+                font-weight: 400
+                color: #000000
+                +rwd($pad)
+                    font-size: mvw(30)
+            .agree
+                input
+                    width: vw(24)
+                    height: vw(24)
+                    +rwd($pad)
+                        width: mvw(26)
+                        height: mvw(26)
+                label
+                    font-size: vw(24)
+                    color: #9fedff
+                    margin: 0 0 0 vw(10)
+                    vertical-align: bottom
+                    +rwd($pad)
+                        font-size: mvw(26)
+                        margin: 0 0 0 mvw(10)
+                        line-height: 1.2
+            .btnarea
+                width: vw(924)
+                margin: vw(64) auto 0
+                text-align: center
+                display: flex
+                justify-content: space-around
+                align-items: center
+                +rwd($pad)
+                    width: mvw(650)
+                    margin: mvw(60) auto 0
+                    display: block
+                    text-align: center
+                .btn-sample
+                    width: vw(444)
+                    height: vw(115)
+                    background: url(../images/btn-sample.png) top center no-repeat
+                    background-size: cover
+                    cursor: pointer
+                    +rwd($pad)
+                        width: mvw(550)
+                        height: mvw(101)
+                        background: url(../images/mb-btn-sample.png) top center no-repeat
+                        background-size: cover
+                        margin: 0 auto
+                .btnsend
+                    width: vw(389)
+                    height: vw(126)
+                    background: url(../images/btn-sendbg.png) top center no-repeat
+                    background-size: cover
+                    text-align: center
+                    position: relative
+                    +rwd($pad)
+                        width: mvw(562)
+                        height: mvw(112)
+                        background: url(../images/mb-btn-sendbg.png) top center no-repeat
+                        background-size: cover
+                        margin: mvw(40) auto 0
+                    button
+                        background: none
+                        border: 0
+                        width: 100%
+                        height: 100%
+                    .loading
+                        width: vw(100)
+                        height: vw(100)
+                        position: absolute
+                        top: 50%
+                        left: 50%
+                        transform: translate(-50%,-50%)
+                        +rwd($pad)
+                            width: mvw(100)
+                            height: mvw(100)
+

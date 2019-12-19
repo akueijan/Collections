@@ -1,0 +1,53 @@
+head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='edge,chrome=1')
+    title #{pageTitle}
+    meta(name='description', content=pageDesc)
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1')
+    //- meta(name='viewport', content='width=750')
+    //- Schema.org markup for Google+
+    meta(itemprop="name" content=pageTitle)
+    meta(itemprop="description" content=pageDesc)
+    meta(itemprop="image" content="images/fbshare.jpg")
+
+    //- og
+    meta(property="og:title" content=pageTitle)
+    meta(property="og:description" content=pageDesc)
+    meta(property="og:type" content="article")
+    meta(property="og:image" content="images/fbshare.jpg")
+
+    //- TODO : Place favicon.ico and apple-touch-icon.png in the root directory
+    link(rel="Shortcut Icon" type="images/x-icon" href="images/fav.ico")
+    link(rel='stylesheet', href='static/slick.css')
+    link(rel='stylesheet', href='static/slick-theme.css')
+    link(rel='stylesheet', href='css/main.css')
+    - if(dev_mode)
+        //- debug tool
+        script(src="//console.re/connector.js" data-channel="friendo" id="consolerescript")
+    - else
+        //- log tools
+        script(type="text/javascript" src="//cloudfront.loggly.com/js/loggly.tracker-latest.min.js" async)
+        script.
+            var _LTracker = _LTracker || [];
+                _LTracker.push({'logglyKey': '8016ea6d-fa64-4c93-bddb-461c5e78fd99',
+                'sendConsoleErrors' : true,
+                'tag' : 'project-name'  });
+    //- script(type="text/javascript" src="js/polyfill.min.js")
+    script.
+        dataLayer = [{}];
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': 
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], 
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); 
+        })(window,document,'script','dataLayer','GTM-WFGX5JK');
+    script.
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2646445135370804');
+        fbq('track', 'PageView');

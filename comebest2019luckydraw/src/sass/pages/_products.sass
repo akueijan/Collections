@@ -1,0 +1,76 @@
+.products
+    position: relative
+    background-image: linear-gradient(to top, #850963, #160265)
+    overflow: hidden
+    min-height: 1091px
+    +rwd($pad)
+        padding: 0px 0 40px
+    .l-content
+        +rwd($pad)
+            padding: 80px 0 0 0
+    .block
+        .bg
+            min-height: 756px
+            +rwd($pad)
+                padding: 5px
+                min-height: auto
+        .bg2
+            min-height: 738px
+            +rwd($pad)
+                padding: 5px
+                width: 100%
+                min-height: auto
+        .bg3
+            min-height: 720px
+            +rwd($pad)
+                padding: 20px 10px 30px
+                width: 100%
+                min-height: auto
+        h2
+            font-size: 24px
+            font-weight: bold
+            line-height: 36px
+            color: #fff
+            +rwd($mobile)
+                font-size: 20px
+                font-weight: 500
+                line-height: 1.2
+        .title
+            min-width: 600px
+            +rwd($pad)
+                width: 300px
+                min-width: auto
+                top: -30px
+    .content
+        padding: 30px 0 0 0
+    ul
+        display: inline-flex
+        align-items: center
+        justify-content: space-between
+        flex-wrap: wrap
+        width: 100%
+        +rwd($pad)
+            display: block
+        li
+            width: 50%
+            padding: 20px 0
+            +rwd($pad)
+                width: 100%
+            +rwd($mobile)
+                width: 90%
+                margin: 0 auto
+    .btnarea
+        padding: 30px 0 0 0
+        display: inline-flex
+        align-items: center
+        justify-content: space-between
+        flex-wrap: wrap
+        +rwd($pad)
+            display: block
+        > div
+            padding: 0 15px
+            +rwd($pad)
+                margin: 20px auto
+                padding: 0
+            +rwd($mobile)
+                width: 90%

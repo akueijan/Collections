@@ -1,0 +1,13 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "game"
+    - var pageDesc = "pageDesc"
+    - var pageJs = "game.js";
+//- page html
+block page_main
+    section.index
+        .canvasarea
+            canvas#loadcan
+        button#stop stop

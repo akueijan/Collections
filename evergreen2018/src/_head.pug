@@ -1,0 +1,75 @@
+head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='edge,chrome=1')
+    meta(http-equiv="Cache-Control" content="no-cache, no-store, max-age=0, must-revalidate")
+    meta(http-equiv="pragma" content="no-cache")
+    meta(http-equiv="expires" content="0")
+    title #{pageTitle}
+    meta(name='description', content=pageDesc)
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1')
+    //- meta(name='viewport', content='width=750')
+    //- Schema.org markup for Google+
+    meta(itemprop="name" content=pageTitle)
+    meta(itemprop="description" content=pageDesc)
+    meta(itemprop="image" content="https://release.azureedge.net/evergreen2018/images/share-img.jpg")
+
+    //- og
+    meta(property="og:title" content=pageTitle)
+    meta(property="og:description" content=pageDesc)
+    meta(property="og:type" content="article")
+    meta(property="og:image" content="https://release.azureedge.net/evergreen2018/images/share-img.jpg")
+
+    //- TODO : Place favicon.ico and apple-touch-icon.png in the root directory
+    link(rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico")
+    link(rel='stylesheet', href='../css/main.css')
+    - if(dev_mode)
+        //- debug tool
+        //- script(src="//console.re/connector.js" data-channel="friendo" id="consolerescript")
+    - else
+        //- log tools
+        script(type="text/javascript" src="//cloudfront.loggly.com/js/loggly.tracker-latest.min.js" async)
+        script.
+            var _LTracker = _LTracker || [];
+                _LTracker.push({'logglyKey': '8016ea6d-fa64-4c93-bddb-461c5e78fd99',
+                'sendConsoleErrors' : true,
+                'tag' : 'familyTree'  });
+    script.
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5M2B4Q2');
+    //- <!-- Global site tag (gtag.js) - Google Analytics -->
+    //- script(async src="https://www.googletagmanager.com/gtag/js?id=UA-34903007-44")
+    //- script.
+    //-     window.dataLayer = window.dataLayer || [];
+    //-     function gtag(){dataLayer.push(arguments);}
+    //-     gtag('js', new Date());
+    //-     gtag('config', 'UA-34903007-44');
+    script.
+        (function(d) {
+            var config = {
+            kitId: 'ucz4dlw',
+            scriptTimeout: 3000,
+            async: true
+            },
+            h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+    script.
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-34903007-44', 'auto', {'allowAnchor': false});
+        ga('send', 'pageview');
+    script.
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '463513187117319');
+        fbq('track', "PageView");
+    noscript.
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=463513187117319&ev=PageView&noscript=1"/>

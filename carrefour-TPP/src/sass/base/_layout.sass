@@ -1,0 +1,233 @@
+html, body 
+    position: relative
+    margin: 0 auto
+    height: 100%
+    font-family: Arial,'Noto Sans TC','Microsoft JhengHei',Verdana,Arial,Helvetica,sans-serif,'Microsoft Yahei', 'Microsoft JhengHei','新細明體'
+a 
+    cursor: pointer
+
+body
+    background: url(../images/bg.jpg) top center no-repeat
+    background-size: 100% 100%
+    background-attachment: fixed
+    // font-family: kan48typos-std, sans-serif
+    font-family: 'Noto Sans TC'
+    font-weight: 300
+
+canvas 
+    position: fixed
+    top: 0
+    left: 0
+    overflow: hidden
+    // opacity: 0.4
+    z-index: -1
+
+.fb-root 
+    height: 0
+    overflow: hidden
+
+._freeze 
+    // overflow: hidden
+    position: fixed
+    width: 100%
+    height: 100%
+
+.l-container 
+    margin: 0 auto
+    position: relative
+
+
+.l-wrap 
+    width: 100%
+    position: relative
+    // max-width: 1920px
+    margin: 0 auto
+    // overflow: hidden
+    
+.l-main
+    // padding-bottom: $ft_height
+    min-height: 100vh
+
+.l-footer 
+    position: relative
+    text-align: center
+    // background-image: url(../images/footer-bg.png)
+    background: #060318
+    border-top: 1px solid #dab27e
+    height: vw(124)
+    line-height: vw(124)
+    +zindex("page2")
+    overflow: hidden
+    color: #dab27e
+    &.fix
+        position: fixed
+        left: 0
+        bottom: 0
+    +rwd($pad,max)
+        height: auto
+        line-height: inherit
+        padding: 0
+    p
+        font-size: vw(14)
+        letter-spacing: 1.1px
+        display: inline-block
+        +rwd($pad)
+            font-size: mvw(18)
+            line-height: mvw(36)
+            // width: 170%
+            // transform: scale(0.65) translateX(-31%)
+    .l-container
+        width: vw(1200)
+        display: flex
+        justify-content: space-around
+        +rwd($pad)
+            width: 100%
+            padding: mvw(30)
+            flex-wrap: wrap-reverse
+    .footer-txt
+        position: relative
+        +rwd($pad)
+            width: mvw(600)
+        // width: vw(600)
+        &:after
+            content: " "
+            background: #dab27e 
+            // position: absolute
+            // right: vw(-60)
+            // top: 50%
+            // transform: translateY(-50%)
+            width: vw(1)
+            height: vw(30)
+            display: inline-block
+            vertical-align: middle
+            margin: 0 0 0 vw(80)
+            +rwd($pad)
+                display: none
+
+    .footer-nav
+        width: vw(300)
+        +rwd($pad)
+            width: 100%
+            margin: 0 0 mvw(20) 0
+        li
+            display: inline-block
+            margin: 0 vw(10)
+            +rwd($pad)
+                margin: 0 mvw(20)
+            a
+                img
+                    vertical-align: middle
+                    // width: vw(25)
+
+.container-area
+    width: 100%
+    max-width: vw(1440)
+    margin: 0 auto
+.hidden
+    display: none
+.hide-text 
+    overflow: hidden
+    padding: 0
+    text-indent: 101%
+    white-space: nowrap
+
+.gotop
+    opacity: 0
+    position: fixed
+    cursor: pointer
+    width: vw(60)
+    height: vw(60)
+    bottom: vw(40)
+    right: vw(20)
+    z-index: 9
+    transition: 0.3s
+    +rwd($pad)
+        width: mvw(60)
+        height: mvw(60)
+        bottom: mvw(60)
+        right: mvw(20)
+    &-active
+        opacity: 1
+        transition: 0.3s
+
+.float-btn
+    position: fixed
+    top: vw(240)
+    right: 0
+    z-index: 99
+    transform: translateX(60%)
+    transition: 0.6s
+    width: vw(224)
+    cursor: pointer
+    animation: floatinout 5s linear
+    &:hover
+        transform: translateX(0%)
+        transition: 0.6s
+    +rwd($pad)
+        width: mvw(250)
+        top: inherit
+        bottom: mvw(10)
+        &:hover
+            transform: translateX(60%)
+            transition: 0.6s
+    // &-active
+    //     transform: translateX(0%)
+    //     transition: 0.6s
+    a
+        display: block
+
+.cover
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    background: rgba(0,0,0,0.8)
+    z-index: 999
+
+@keyframes floatinout
+    0%
+        transform: translateX(0%)
+    80%
+        transform: translateX(0%)
+    100%
+        transform: translateX(60%)
+
+$total: 200; // total particles
+$orb-size: 1680px;
+$particle-size: 40px;
+$time: 2.8s; 
+
+.s 
+    position: absolute
+    border-radius: 50%
+    opacity: 0.3
+    background: url("../images/btn-deco.png") 100% / cover
+
+#starBG
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    overflow: hidden
+    @for $i from 1 through $total
+        $x: (random() * $orb-size); // random angle to rotateZ
+        $y: (random() * $orb-size); // random to rotateX
+        $size: (random() * $particle-size);
+        $rotate: (random(360) * 1deg);
+        .s:nth-child(#{$i}) // grab the nth particle
+            animation: orbit $time infinite
+            animation-delay: ($i * .01s)
+            // background-color: #fff
+            // box-shadow: 0 0 50px 21px rgba(0,0,0,0.1) inset
+            transform: translate($x, $y) rotate($rotate)
+            width: $size
+            height: $size
+
+@keyframes orbit
+    30% 
+      opacity: 0.3
+    80% 
+      opacity: 0.8
+           

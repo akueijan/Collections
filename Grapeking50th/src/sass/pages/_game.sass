@@ -1,0 +1,222 @@
+﻿.game
+    width: 100%
+    min-height: 100vh
+    position: relative
+    // margin: 70px 0 0 0
+    .logo
+        position: fixed
+        top: 25px
+        left: 20px
+    .coin
+        position: fixed
+        top: 25px
+        right: 35px
+        width: 261px
+        height: 78px
+        background: url(../images/coinBg.png) top center no-repeat
+        line-height: 78px
+        text-align: right
+        padding: 0 30px 0 0
+        +rwd($pad)
+            top: 15px
+            right: 10px
+            width: 100px
+            height: 30px
+            background-size: cover
+            line-height: 30px
+            padding: 0 10px 0 0
+        p
+            font-size: 30px
+            font-weight: 600
+            color: #ffffff
+            transform: skewX(-15deg)
+            +rwd($pad)
+                font-size: 16px
+    .time
+        position: fixed
+        top: 25px
+        right: 315px
+        width: 205px
+        height: 78px
+        background: url(../images/timeBg.png) top center no-repeat
+        line-height: 78px
+        text-align: center
+        padding: 0 0 0 65px
+        +rwd($pad)
+            top: 45px
+            right: 10px
+            width: 79px
+            height: 30px
+            background-size: cover
+            line-height: 30px
+            padding: 0 5px 0 0
+            text-align: right
+        p
+            font-size: 30px
+            font-weight: 600
+            color: #ffffff
+            transform: skewX(-15deg)
+            +rwd($pad)
+                font-size: 16px
+    .gamearea
+        width: 100%
+        // height: 100%
+        height: 100vh
+        text-align: center
+    .gameshow
+        width: 100%
+        height: 100%
+        margin: 0 auto
+        overflow: hidden
+        position: relative
+        background: url(../images/gameBg.jpg) top left no-repeat
+        background-size: cover
+        -moz-user-select: none
+        -webkit-user-select: none
+        +rwd($pad)
+            background-size: auto 100%
+        // border: 1px solid #ffffff
+    .gamebody
+        width: auto
+        height: 100%
+        position: absolute
+        top: 0
+        left: 0
+        transform: translateX(0)
+        // transition-timing-function: linear
+        transition: 27s
+        touch-action: manipulation
+        -moz-user-select: none
+        -webkit-user-select: none
+        // cursor: url(../images/mouse.png) 40 40, auto
+        > img
+            height: 100%
+            max-width: inherit
+    .point
+        // width: percentage(90/5975) !important
+        // height: percentage(150/1080) !important
+        // height: 60px
+        // background: #000000
+        position: absolute
+        // cursor: pointer
+        top: 0
+        left: 0
+        // cursor: url(../images/mouse.png),pointer
+        p
+            font-size: 14px
+            color: #dd4545
+            opacity: 0
+            transition: 0.1s
+            padding: 5px 8px
+            background: #ffffff
+            border-radius: 20px
+            position: absolute
+            top: 0
+            left: 50%
+            transform: translate(-50%,-120%)
+            width: 100px
+            line-height: 1.5
+        span
+            opacity: 0
+            transition: 0.1s
+        img
+            height: 100%
+        &:nth-of-type(1)
+            width: percentage(59*2.5/5975)
+            height: percentage(97/1080)
+            top: percentage(571/1080)
+            left: percentage(335/5975)
+        &:nth-of-type(2)
+            width: percentage(42*2.5/5975)
+            height: percentage(70/1080)
+            top: percentage(550/1080)
+            left: percentage(730/5975)
+        &:nth-of-type(3)
+            width: percentage(61*2.5/5975)
+            height: percentage(100/1080)
+            top: percentage(663/1080)
+            left: percentage(1006/5975)
+        &:nth-of-type(4)
+            width: percentage(94*2.5/5975)
+            height: percentage(68/1080)
+            top: percentage(652/1080)
+            left: percentage(1208/5975)
+        &:nth-of-type(5)
+            width: percentage(95*2.5/5975)
+            height: percentage(154/1080)
+            top: percentage(306/1080)
+            left: percentage(1257/5975)
+        &:nth-of-type(6)
+            width: percentage(47*2.5/5975)
+            height: percentage(75/1080)
+            top: percentage(298/1080)
+            left: percentage(1639/5975)
+        &:nth-of-type(7)
+            width: percentage(43*2.5/5975)
+            height: percentage(68/1080)
+            top: percentage(524/1080)
+            left: percentage(1811/5975)
+        &:nth-of-type(8)
+            width: percentage(41*2.5/5975)
+            height: percentage(64/1080)
+            top: percentage(782/1080)
+            left: percentage(1728/5975)
+        &:nth-of-type(9)
+            width: percentage(49*2.5/5975)
+            height: percentage(76/1080)
+            top: percentage(275/1080)
+            left: percentage(1761/5975)
+        &:nth-of-type(10)
+            width: percentage(49*2.5/5975)
+            height: percentage(76/1080)
+            top: percentage(265/1080)
+            left: percentage(1927/5975)
+        &:nth-of-type(11)
+            width: percentage(37*2.5/5975)
+            height: percentage(58/1080)
+            top: percentage(485/1080)
+            left: percentage(2666/5975)
+        &:nth-of-type(12)
+            width: percentage(43*2.5/5975)
+            height: percentage(68/1080)
+            top: percentage(636/1080)
+            left: percentage(3303/5975)
+        &:nth-of-type(13)
+            width: percentage(60*2.5/5975)
+            height: percentage(95/1080)
+            top: percentage(521/1080)
+            left: percentage(3763/5975)
+        &:nth-of-type(14)
+            width: percentage(48*2.5/5975)
+            height: percentage(75/1080)
+            top: percentage(645/1080)
+            left: percentage(4274/5975)
+        &:nth-of-type(15)
+            width: percentage(41*2.5/5975)
+            height: percentage(63/1080)
+            top: percentage(529/1080)
+            left: percentage(4750/5975)
+        &:nth-of-type(16)
+            width: percentage(94*2.5/5975)
+            height: percentage(68/1080)
+            top: percentage(461/1080)
+            left: percentage(4950/5975)
+        &:nth-of-type(17)
+            width: percentage(37*2.5/5975)
+            height: percentage(57/1080)
+            top: percentage(275/1080)
+            left: percentage(5010/5975)
+        &:nth-of-type(18)
+            width: percentage(47*2.5/5975)
+            height: percentage(72/1080)
+            top: percentage(301/1080)
+            left: percentage(5402/5975)
+    .poactive
+        opacity: 0
+        transition: 3s
+        p
+            opacity: 1
+            transition: 0.1s
+        span
+            opacity: 1
+            transition: 0.1s

@@ -1,0 +1,2 @@
+"use strict";var app=new Vue({el:"#app"});
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNhbXBsZS5qcyJdLCJuYW1lcyI6WyJhcHAiLCJWdWUiLCJlbCJdLCJtYXBwaW5ncyI6ImFBQUEsSUFBSUEsSUFBTSxJQUFJQyxJQUFJLENBQ2RDLEdBQUkiLCJmaWxlIjoic2FtcGxlLmpzIiwic291cmNlc0NvbnRlbnQiOlsidmFyIGFwcCA9IG5ldyBWdWUoe1xyXG4gICAgZWw6IFwiI2FwcFwiXHJcbn0pOyJdfQ==

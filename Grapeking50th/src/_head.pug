@@ -1,0 +1,220 @@
+head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='edge,chrome=1')
+    title #{pageTitle}
+    meta(name='description', content=pageDesc)
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1')
+    //- meta(name='viewport', content='width=750')
+    //- Schema.org markup for Google+
+    meta(itemprop="name" content=pageTitle)
+    meta(itemprop="description" content=pageDesc)
+    meta(itemprop="image" content="images/fb-share.jpg")
+
+    //- og
+    meta(property="og:title" content=pageTitle)
+    meta(property="og:description" content=pageDesc)
+    meta(property="og:type" content="article")
+    meta(property="og:image" content="images/fb-share.jpg")
+
+    //- TODO : Place favicon.ico and apple-touch-icon.png in the root directory
+    link(rel="Shortcut Icon" type="images/x-icon" href="images/fav.ico")
+    link(rel='stylesheet', href='css/main.css')
+    - if(dev_mode)
+        //- debug tool
+        script(src="//console.re/connector.js" data-channel="friendo" id="consolerescript")
+    - else
+        //- log tools
+        script(type="text/javascript" src="//cloudfront.loggly.com/js/loggly.tracker-latest.min.js" async)
+        script.
+            var _LTracker = _LTracker || [];
+                _LTracker.push({'logglyKey': '8016ea6d-fa64-4c93-bddb-461c5e78fd99',
+                'sendConsoleErrors' : true,
+                'tag' : 'Grapeking50th'  });
+    script(src="https://www.google.com/recaptcha/api.js?render=6Ld54LMUAAAAAKnhc5FkZICJ4ioSlF7t5ofMg0Ng")
+    script.
+        grecaptcha.ready(function() {
+            console.log('%ccaptcha readay','color:red;')
+        });
+    script.
+        dataLayer = [{}];
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': 
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], 
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); 
+        })(window,document,'script','dataLayer','GTM-PG25FTB');
+    script(async src='https://www.googletagmanager.com/gtag/js?id=AW-846311158')
+    script(async src="https://r.adgeek.net/track2.min.js?_prid=10010&_pxid=1098&_amobee=L21rdC82NTgvY2lkLzE3NDgwNzY5NjIvdC8y&_aaid=39")
+    script(type='text/javascript').
+        'use strict';
+        (function(window, document) {
+            (function() {
+                window.adq = window.adq || [];
+                window.atag = window.atag || function() { adq.push(arguments) };
+                window.atag('init', 'Floodlight', '8116559', 'allpa0', ['uid', 'host', 'pathname', 'ev', 'keyword', 'emailhash', 'qs', 'hash', 'ref']);
+                window.atag('init', 'TTD', '//insight.adsrvr.org/track/evnt/?adv=mg4o48t&ct=0:ihl2kzz&fmt=3', ['uid', 'host', 'pathname', 'ev', 'keyword', 'emailhash', 'qs', 'hash', 'ref']);
+                window.atag('trackCustom', 'PageView');
+            })();
+
+            (function() {
+                window.dataLayer = window.dataLayer || [];
+
+                function gtag() { dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'AW-846311158');
+                window.gtag = gtag;
+            })();
+
+            (function() {
+                ! function(f, b, e, v, n, t, s) {
+                    if (f.fbq) return;
+                    n = f.fbq = function() {
+                        n.callMethod ?
+                            n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    };
+                    if (!f._fbq) f._fbq = n;
+                    n.push = n;
+                    n.loaded = !0;
+                    n.version = '2.0';
+                    n.queue = [];
+                    t = b.createElement(e);
+                    t.async = !0;
+                    t.src = v;
+                    s = b.getElementsByTagName(e)[0];
+                    s.parentNode.insertBefore(t, s)
+                }(window, document, 'script',
+                    'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '181453099142158');
+                fbq('track', 'PageView');
+            })();
+
+            (function() {
+                (function(w, d, t, r, u) {
+                    w[u] = w[u] || [];
+                    w[u].push({
+                        projectId: "10000",
+                        properties: { pixelId: "10036194" }
+                    });
+                    var s = d.createElement(t);
+                    s.src = r;
+                    s.async = true;
+                    s.onload = s.onreadystatechange = function() {
+                        var y, rs = this.readyState,
+                            c = w[u];
+                        if (rs && rs != "complete" && rs != "loaded") { return }
+                        try {
+                            y = YAHOO.ywa.I13N.fireBeacon;
+                            w[u] = [];
+                            w[u].push = function(p) { y([p]) };
+                            y(c)
+                        } catch (e) {}
+                    };
+                    var scr = d.getElementsByTagName(t)[0],
+                        par = scr.parentNode;
+                    par.insertBefore(s, scr)
+                })(window, document, "script", "https://s.yimg.com/wi/ytc.js", "dotq");
+            })();
+
+            (function() {
+                (function(w, d, t, r, u) {
+                    w[u] = w[u] || [];
+                    w[u].push({
+                        projectId: "10000",
+                        properties: { pixelId: "10036840" }
+                    });
+                    var s = d.createElement(t);
+                    s.src = r;
+                    s.async = true;
+                    s.onload = s.onreadystatechange = function() {
+                        var y, rs = this.readyState,
+                            c = w[u];
+                        if (rs && rs != "complete" && rs != "loaded") { return }
+                        try {
+                            y = YAHOO.ywa.I13N.fireBeacon;
+                            w[u] = [];
+                            w[u].push = function(p) { y([p]) };
+                            y(c)
+                        } catch (e) {}
+                    };
+                    var scr = d.getElementsByTagName(t)[0],
+                        par = scr.parentNode;
+                    par.insertBefore(s, scr)
+                })(window, document, "script", "https://s.yimg.com/wi/ytc.js", "dotq");
+            })();
+
+            (function() {
+
+                (function(g, d, o) {
+                    g._ltq = g._ltq || [];
+                    g._lt = g._lt || function() { g._ltq.push(arguments) };
+                    var h = location.protocol === 'https:' ? 'https://d.line-scdn.net' : 'http://d.line-cdn.net';
+                    var s = d.createElement('script');
+                    s.async = 1;
+                    s.src = o || h + '/n/line_tag/public/release/v1/lt.js';
+                    var t = d.getElementsByTagName('script')[0];
+                    t.parentNode.insertBefore(s, t);
+                })(window, document);
+                _lt('init', {
+                    customerType: 'lap',
+                    tagId: 'cd7ea981-87c7-47e2-a73a-3f6de2c2803c'
+                });
+                _lt('send', 'pv', ['cd7ea981-87c7-47e2-a73a-3f6de2c2803c']);
+
+            })();
+
+            (function() {
+                (function(g, d, o) {
+                    g._ltq = g._ltq || [];
+                    g._lt = g._lt || function() { g._ltq.push(arguments) };
+                    var h = location.protocol === 'https:' ? 'https://d.line-scdn.net' : 'http://d.line-cdn.net';
+                    var s = d.createElement('script');
+                    s.async = 1;
+                    s.src = o || h + '/n/line_tag/public/release/v1/lt.js';
+                    var t = d.getElementsByTagName('script')[0];
+                    t.parentNode.insertBefore(s, t);
+                })(window, document);
+                _lt('init', {
+                    customerType: 'lap',
+                    tagId: '01a56142-c7a6-4f51-8cef-40a936cb37ba'
+                });
+                _lt('send', 'pv', ['01a56142-c7a6-4f51-8cef-40a936cb37ba']);
+            })();
+
+            (function() {
+                (function(g, d, o) {
+                    g._ltq = g._ltq || [];
+                    g._lt = g._lt || function() { g._ltq.push(arguments) };
+                    var h = location.protocol === 'https:' ? 'https://d.line-scdn.net' : 'http://d.line-cdn.net';
+                    var s = d.createElement('script');
+                    s.async = 1;
+                    s.src = o || h + '/n/line_tag/public/release/v1/lt.js';
+                    var t = d.getElementsByTagName('script')[0];
+                    t.parentNode.insertBefore(s, t);
+                })(window, document);
+                _lt('init', {
+                    customerType: 'lap',
+                    tagId: '0c0d8465-de8f-4dab-9a21-47cd42baa8ca'
+                });
+                _lt('send', 'pv', ['0c0d8465-de8f-4dab-9a21-47cd42baa8ca']);
+            })();
+
+            var pixels = [
+                    ['adGeek', 'https://r.adgeek.net/249/elixir/5331']
+                ],
+                count = 0;
+
+            var loadedCallback = function(e) {
+                var target = e.currentTarget;
+                var text = 'Fired ' + target.id + ', src: ' + target.src;
+                count++;
+                console.log(text, ' ' + count + '/' + pixels.length);
+            }
+
+            pixels.forEach(function(pixel) {
+                var img = new Image;
+                img.width = '1';
+                img.height = '1';
+                img.id = pixel[0];
+                img.onload = loadedCallback;
+                img.src = pixel[1];
+            })
+        })(window, document);

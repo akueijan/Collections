@@ -1,0 +1,626 @@
+.invoice
+    position: relative
+    background-image: linear-gradient(to top, #850963, #160265)
+    overflow: hidden
+    min-height: 100vh
+    +rwd($pad)
+        padding: 0px 0 40px
+    .grecaptcha-badge
+        z-index: 2
+    .light
+        top: 0
+        transform: translate(0%, -15%)
+    .l-content
+        +rwd($pad)
+            padding: 80px 0 0 0
+    .block
+        .title
+            min-width: 600px
+            +rwd($pad)
+                width: 300px
+                min-width: auto
+                top: -30px
+    .formarea
+        .bg
+            +rwd($pad)
+                padding: 5px
+        .bg2
+            +rwd($pad)
+                padding: 5px
+                width: 100%
+        .bg3
+            padding: 50px 80px
+            +rwd($pad)
+                padding: 20px 10px
+                width: 100%
+        h2
+            font-size: 26px
+            font-weight: 600
+            line-height: 36px
+            color: #f6c12e
+            +rwd($pad)
+                font-size: 20px
+                font-weight: 500
+                line-height: 1.2
+        .form
+            width: 100%
+            padding: 40px 0 0 0
+            li
+                margin: 0 0 20px 0
+                display: flex
+                align-items: center
+                justify-content: space-between
+                label
+                    width: 124px
+                    font-size: 24px
+                    font-weight: bold
+                    color: #ffffff
+                    +rwd($pad)
+                        width: 35%
+                        font-size: 16px
+                input,select
+                    width: 300px
+                    height: 40px
+                    border: 2px solid #f6c12e
+                    padding: 0 10px
+                    font-size: 20px
+                    background: #fff
+                    +rwd($pad)
+                        width: 65%
+                        height: 30px
+                        font-size: 16px
+            .samplearea
+                text-align: right
+                cursor: pointer
+                .sample
+                    width: 206px
+                    height: 48px
+                    border: 2px solid #ffffff
+                    padding: 10px 50px
+                    display: inline-block
+                    text-align: center
+                    +rwd($pad)
+                        width: 120px
+                        height: 32px
+                        padding: 5px 15px
+                    p
+                        font-size: 24px
+                        font-weight: bold
+                        color: #ffffff
+                        +rwd($pad)
+                            font-size: 18px
+            .agreearea
+                margin: 20px 0 0 0
+                width: 100%
+                text-align: left
+                position: relative
+                height: 60px
+                input
+                    width: 27px
+                    height: 27px
+                    background: #ffffff
+                    position: absolute
+                    top: 0
+                    left: 0
+                label
+                    width: 400px
+                    font-size: 18px
+                    line-height: 1.5
+                    letter-spacing: 0.7px
+                    text-align: left
+                    color: #ffffff
+                    position: absolute
+                    top: 0
+                    left: 35px
+                    cursor: pointer
+                    +rwd($pad)
+                        width: 90%
+                        font-size: 16px
+                        line-height: 1.2
+            .note
+                text-align: left
+                p
+                    width: 400px
+                    font-size: 14px
+                    line-height: 1.5
+                    letter-spacing: 0.5px
+                    text-align: left
+                    color: #ffffff
+                    display: inline-block
+                    margin: 10px 0 0 35px
+                    +rwd($pad)
+                         width: 90%
+            .btnarea
+                cursor: pointer
+                text-align: center
+                margin: 40px auto 0
+                width: 316px
+                height: 114px
+                background: url(../images/receipt-cta.png) 0 0 no-repeat
+                background-size: cover
+                +rwd($pad)
+                    width: 240px
+                    height: 87px
+                button
+                    border: 0
+                    width: 316px
+                    height: 114px
+                    background: url(../images/receipt-cta-txt.png) 0 0 no-repeat
+                    background-size: cover
+                    +rwd($pad)
+                        width: 240px
+                        height: 87px
+                .loading
+                    img 
+                        width: 72px
+                        +rwd($pad)
+                            width: 57px
+    .form-over
+        +rwd($pad)
+            margin: 30px 0 0 0
+        .bg
+            +rwd($pad)
+                padding: 5px
+                min-height: auto
+                // padding: 0 0 50px 0
+        .bg2
+            +rwd($pad)
+                padding: 5px
+                width: 100%
+                min-height: auto
+        .bg3
+            padding: 50px 40px 80px
+            overflow: hidden
+            +rwd($pad)
+                padding: 20px 10px 30px
+                width: 100%
+                min-height: auto
+            +rwd($mobile)
+                padding: 30px 10px 25px
+                overflow: inherit
+        .titlearea
+            width: 520px
+            // height: 100px
+            border-radius: 10px
+            padding: 0 40px
+            background: #4542bc
+            margin: 0 auto
+            position: relative
+            text-align: left
+            +rwd($mobile)
+                width: 100%
+                // height: 80px
+                padding: 0 15px
+            .titleline
+                width: 510px
+                height: calc(100% - 10px)
+                border: 1px solid #11034c
+                border-radius: 10px
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%)
+                +rwd($mobile)
+                    width: 96%
+                    // height: 70px
+            h2
+                font-size: 24px
+                font-weight: 600
+                line-height: 30px
+                letter-spacing: 4px
+                text-align: center
+                color: #fff
+                padding: 30px 0 0 0
+                position: relative
+                z-index: 1
+                +rwd($mobile)
+                    font-size: 16px
+                    line-height: 20px
+                    letter-spacing: 1px
+                    padding: 15px 0 0 0
+            p
+                // width: 260px
+                font-size: 18px
+                font-weight: 500
+                line-height: 24px
+                letter-spacing: 3px
+                text-align: center
+                color: #fff
+                padding: 10px 0 0 0
+                position: relative
+                z-index: 1
+                // position: absolute
+                // top: 50%
+                // transform: translateY(-50%)
+                // left: 40px
+                +rwd($mobile)
+                    font-size: 14px
+                    font-weight: 500
+                    line-height: 20px
+                    letter-spacing: 1.5px
+                    padding: 5px 0 0 0
+            .awardimg
+                // width: 170px
+                // height: 120px
+                // position: absolute
+                // top: -10px
+                // right: 30px
+                // +rwd($mobile)
+                //     width: 35%
+                //     top: 50%
+                //     transform: translateY(-50%)
+                //     right: -10px
+                margin: -10px auto 0
+                +rwd($mobile)
+                    margin: 0 auto
+            .loginbtn
+                display: inline-block
+                text-align: left
+                position: relative
+                z-index: 1
+                width: 244px
+                padding: 20px 0 40px
+                +rwd($mobile)
+                    width: 122px
+                    padding: 10px 0 20px
+        .content
+            padding: 30px 0 0 0
+            +rwd($mobile)
+                padding: 15px 0 0 0
+        .luckyarea
+            position: relative
+            text-align: center
+            min-height: 238px
+            margin: 0 0 90px 0
+            padding: 0 15px
+            +rwd($mobile)
+                padding: 0 5px
+                min-height: auto
+                margin: 0
+            &:nth-last-of-type(2)
+                margin: 0
+            .lucky-title
+                width: 413px
+                height: 59px
+                background: url(../images/award-title-bg.png) 0 0 no-repeat
+                background-size: cover
+                display: inline-flex
+                align-items: center
+                justify-content: center
+                +rwd($mobile)
+                    width: 250px
+                    height: 36px
+                p
+                    color: #f6c12e
+                    font-size: 24px
+                    font-weight: bold
+                    margin: -5px 0 0 0
+                    position: relative
+                    +rwd($mobile)
+                        font-size: 14px
+                        margin: -4px 0 0 0
+                        letter-spacing: -0.5px
+            .lucky-content
+                display: inline-flex
+                align-items: center
+                justify-content: space-between
+                padding: 20px 0 0 0
+                +rwd($mobile)
+                    padding-top: 10px
+                .lucky-txt
+                    margin: 0 0 0 15px
+                    p
+                        font-size: 24px
+                        font-weight: bold
+                        color: #fff
+                        .yel
+                            font-size: 32px
+                    .best-item
+                        position: relative
+                        &:after
+                            content: ""
+                            display: block
+                            height: 2px
+                            background: #f6c12e
+                            margin: 10px 0
+            .lucky-list
+                width: 100%
+                display: flex
+                align-items: center
+                justify-content: space-between
+                flex-wrap: wrap
+                padding: 0 0 30px 0
+                li
+                    text-align: center
+                    width: 50%
+                    display: inline-flex
+                    align-items: center
+                    justify-content: space-around
+                    margin: 0 0 36px 0
+                    position: relative
+                    padding: 0 5px
+                    &:nth-child(even)
+                        padding: 0 0 0 10px
+                    &:nth-child(odd)
+                        &:after
+                            content: ""
+                            width: 2px
+                            height: 110px
+                            background: #fff
+                            position: absolute
+                            top: 50%
+                            transform: translateY(-50%)
+                            right: -3px
+                            opacity: 0.2
+                            +rwd($pad)
+                                height: 60px
+                    &:nth-last-of-type(1)
+                        &:after
+                            display: none
+                    +rwd($mobile)
+                        margin-bottom: 10px
+                    .itemimg
+                        flex: 150px
+                        +rwd($pad)
+                            display: none
+                    .itemcontent
+                        text-align: center
+                        .itemtitle
+                            width: 101px
+                            height: 22px
+                            line-height: 22px
+                            text-align: center
+                            background: #d30e60
+                            border-radius: 20px
+                            font-size: 18px
+                            font-weight: 600
+                            margin: 0 auto 10px
+                            +rwd($mobile)
+                                height: 20px
+                                line-height: 20px
+                                font-size: 16px
+
+                        p
+                            font-size: 16px
+                            color: #ffffff
+                            font-weight: bold
+                            line-height: 24px
+                            .yel
+                                font-size: 22px
+                        .itemtxt
+                            font-size: 16px
+                            color: #f6c12e
+                            +rwd($mobile)
+                                font-size: 13px
+                                line-height: 14px
+        .btnarea
+            width: 319px
+            height: 116px
+            // position: absolute
+            // left: 40px
+            // bottom: 50px
+            cursor: pointer
+            margin: 20px 0 0 0
+            +rwd($mobile)
+                width: 180px
+                // height: 58px
+                left: 20px
+                bottom: 5px
+            p
+                font-size: 20px
+                color: #fff
+                line-height: 1.5
+                +rwd($mobile)
+                    font-size: 12px
+            a
+                margin: 10px 0 0 0
+                display: inline-block
+        .deco-prize
+            position: absolute
+            bottom: 0
+            right: 0
+            transform: translate(25%, 40%)
+            +rwd($pad)
+                // width: 400px
+                right: 0
+                transform: translate(50%,50%)
+            +rwd($mobile)
+                right: 0
+                // width: 256px
+                transform: translate(60%,35%) scale(0.6) rotate(-15deg)
+    .lottery
+        position: relative
+        min-height: 100vh
+        .bg
+            min-height: 202px
+            +rwd($pad)
+                min-height: auto
+                padding: 5px
+        .bg2
+            min-height: 184px
+            +rwd($pad)
+                width: 100%
+                min-height: auto
+                padding: 5px
+        .bg3
+            min-height: 166px
+            padding: 60px 60px 40px
+            +rwd($pad)
+                width: 100%
+                min-height: auto
+                padding: 30px 0px 20px
+            p
+                font-size: 24px
+                font-weight: 600
+                line-height: 1.5
+                letter-spacing: 0.96px
+                color: #fff
+                +rwd($pad)
+                    font-size: 20px
+                    letter-spacing: 0
+        .content
+            padding: 50px 0 0 0
+            text-align: center
+            position: relative
+            +rwd($desktop-hd)
+                padding: 35px 0 0 0
+            +rwd($mobile)
+                padding: 15px 0 0 0
+        .gamebtn
+            width: 454px
+            margin: 0 auto
+            cursor: pointer
+            +rwd($desktop-hd)
+                width: 320px
+            +rwd($mobile)
+                width: 240px
+            img.mb 
+                width: 40%
+        .oracale
+            width: 62px
+            position: absolute
+            top: 250px
+            left: 50%
+            transform: translateX(-50%)
+            z-index: 1
+            +rwd($desktop-hd)
+                width: 60px
+                top: 100px
+            +rwd($mobile)
+                width: 45px
+                top: 145px
+        .fortune-area
+            +rwd($pad)
+                position: relative
+                padding: 0 0 400px 0
+        .oracalepod
+            width: 261px
+            position: absolute
+            top: 250px
+            left: 50%
+            transform: translateX(-50%)
+            z-index: 2
+            cursor: pointer
+            +rwd($desktop-hd)
+                width: 220px
+                top: 100px
+            +rwd($pad)
+                top: auto
+                bottom: -450px
+                transform: translate(-50%,57%)
+            +rwd($mobile)
+                width: 200px
+                top: auto
+                bottom: -250px
+        .fortune-area.active
+            .oracale img
+                animation: ofadeOut 4s linear forwards
+                animation-play-state: running
+            .oracalepod img
+                animation: oShake 2s linear forwards
+                animation-play-state: running
+                transform-origin: 50% 100%
+                 
+    .lottery-over
+        .bg
+            +rwd($pad)
+                min-height: auto
+                padding: 5px
+        .bg2
+            +rwd($pad)
+                width: 100%
+                min-height: auto
+                padding: 5px
+        .bg3
+            padding: 50px 60px 40px
+            +rwd($pad)
+                width: 100%
+                min-height: auto
+                padding: 30px 0px 20px
+        h2
+            font-size: 24px
+            font-weight: bold
+            line-height: 1.15
+            letter-spacing: 2.4px
+            color: #ffffff
+            +rwd($pad)
+                font-size: 20px
+                letter-spacing: 1.4px
+            +rwd($mobile)
+                font-size: 16px
+                letter-spacing: 1.2px
+        .content
+            padding: 15px 0 0 0
+            +rwd($mobile)
+                padding: 10px 0 0 0
+        .lottery-img
+            margin: 0 0 0 -30px
+            +rwd($pad)
+                margin-top: 100px
+            +rwd($mobile)
+                margin-top: 54px
+            img 
+                width: 87%
+                +rwd($mobile)
+                    width: 80%
+
+        .btnarea
+            padding: 20px 0 0 0
+            display: flex
+            align-items: center
+            justify-content: space-around
+            width: 100%
+            +rwd($pad)
+                padding: 0px 0 0 0
+                position: absolute
+                top: 45px
+            .btn
+                width: 189px
+                display: inline-block
+                +rwd($pad)
+                    width: 35%
+                    display: inline-block
+                    margin: 30px 6px
+                +rwd($mobile)
+                    width: 45%
+                    margin: 15px 6px
+                img 
+                    width: 100%
+
+@keyframes oShake
+    0% 
+        transform: rotate(0deg) 
+    25% 
+        transform: rotate(-4deg) 
+    50% 
+        transform: rotate(4deg) 
+    75% 
+        transform: rotate(-4deg) 
+    100% 
+        transform: rotate(0deg) 
+        
+@keyframes ofadeOut
+    0% 
+        transform: rotate(0deg) 
+    12.5% 
+        transform: rotate(-12deg) 
+    25% 
+        transform: rotate(12deg) 
+    37.5% 
+        transform: rotate(-12deg) 
+    50% 
+        transform: rotate(0deg) 
+    60% 
+        transform: rotate(0deg) translateY(0px)
+    70%
+        opacity: 1
+    75%
+        transform: rotate(0deg) translateY(-270px)
+        opacity: 0
+    76%
+        transform: rotate(0deg) translateY(-270px)
+    100%
+        transform: rotate(0deg) translateY(-270px)
+        opacity: 0
+
+        

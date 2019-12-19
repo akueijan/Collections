@@ -1,0 +1,26 @@
+﻿extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "一指之力精彩無限 | 感恩回饋 現金50倍 | 葡萄王50週年慶"
+    - var pageDesc = "即日起至12/24，登錄發票抽最高20萬元大獎！測驗你的大腦年齡再抽多項好禮！"
+    - var isVue = true
+    - var pageJs = "game.js"
+//- page html
+block page_main
+    section.game
+        //- #game
+        .gamearea
+            .gameshow
+                .logo
+                    img(src="images/logo-game.png")
+                .coin 
+                    p {{total}}
+                .time
+                    p#time 20秒
+                .gamebody
+                    img(src="images/gameitem.png")
+                    .point(v-for="item in showQ" :value="item.score" :gtm-data="item.gtmData" @click="cunScore")
+                        img(:src="item.img" :gtm-data="item.gtmData")
+                        p {{item.name}}
+                            span +{{item.score}}
+                   

@@ -1,0 +1,19 @@
+/* 定義 media query 樣式名稱*/
+$mobile: 375
+$pad: 900
+$desktop: 1024
+$desktop-w: 1280
+$desktop-hd: 1440
+$desktop-fullhd: 1920
+
+// RWD
+@mixin rwd($width,$max_min:"max")   
+	@media only screen and (#{$max_min}-width: #{$width}px) 
+		@content
+	
+
+
+@mixin rwd-h($height,$max_min:"max") 
+	@media only screen and (#{$max_min}-height: #{$height}px) 
+		@content
+	
