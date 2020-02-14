@@ -1,0 +1,59 @@
+
+<script type="text/x-template" id="lotteryBackfill">
+  <div class="content">
+    <h2>樂透回填</h2>
+    <form class="form" @submit.prevent="postback">
+      <ul>
+        <li class="head">
+          <div class="mobile">
+            <p><span>手機號碼 :</span>{{mobile}}</p>
+          </div>
+          <div class="ticket" v-if="type=='Invoice'">
+            <p><span>發票號碼 :</span>{{invNumber}}</p>
+          </div>
+          <div class="fb" v-if="type=='FB'">
+            <transition name="fade">
+              <div class="fblogin" @click="fbLogin" v-if="!fblogin">登入FB</div>
+              <p v-if="fblogin"><i><img :src="fbData.fbPic" v-if="fblogin"/></i>{{fbData.fbName}}</p>
+            </transition>
+          </div>
+        </li>
+        <li>
+          <p><span>獎品名稱 :</span>{{awardItem}}</p>
+        </li>
+        <li>
+          <label for="name">收件人</label>
+          <input id="name" type="text" placeholder="請輸入收件人姓名" maxlength="50" v-model="name"/>
+        </li>
+        <li>
+          <label for="address">地　址</label>
+          <input id="address" type="text" placeholder="請輸入收件人收址" maxlength="50" v-model="address"/>
+        </li>
+        <li v-if="paper"><a :href="paper.path" download="download">
+            <p>{{paper.awardName}}</p></a></li>
+        <li>
+          <h3>電子檔照片上傳</h3>
+          <ul class="pictures">
+            <li v-if="type=='Invoice'">
+              <label for="certificate"> </label>
+              <div class="preview" id="certificatepre">
+                <p>發票正本</p><img :src="imageShow.CertificatePhoto" v-if="imageShow.CertificatePhoto"/>
+              </div>
+              <input id="certificate" type="file" accept="image/*" @change="readpoto"/>
+            </li>
+          </ul>
+        </li>
+        <li class="agree">
+          <input id="agree" type="checkbox" v-model="agree"/>
+          <label for="agree">我已詳閱活動辦法和個資法相關聲明。</label>
+        </li>
+      </ul>
+      <div class="btnarea">
+        <div class="btnsend">
+          <button type="submit" v-if="!loading" gtm-data="發票登錄_送出">資訊送出</button>
+          <div class="loading" v-if="loading"><img src="images/loading.gif" alt=""/></div>
+        </div>
+      </div>
+    </form>
+  </div>
+</script>
