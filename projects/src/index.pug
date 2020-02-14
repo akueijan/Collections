@@ -1,0 +1,214 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "index"
+    - var pageDesc = "pageDesc"
+    - var pageJs = "index.js"
+    //- - var moreJs = true
+    - var isVue = true
+//- page html
+block page_main
+    section.index
+        .kv
+            .show.hello
+                .slogn
+                    h2 Hello World
+                    h3 Enjoy today, everyday is the best day
+            .show.whois
+                .slogn
+                    h2 Web development?
+            #particles-js
+            .portfolio My portfolio
+            .more
+        .bd
+            .caseshow
+                h2 My Project
+                .casebox
+                    .case
+                        .front
+                            img(src="images/case-1.jpg")
+                            .txtarea
+                                p.name 家樂福
+                                p try供活動頁-carrefour2018events
+                        .back
+                            ul
+                                li
+                                    h3 負責項目
+                                li 版型切版 : html + sass
+                                li 動畫 : tweenMax + javascript
+                                //- li 後端資料串接 : jquery ajax
+                            a.link(href="https://showcase.friendo.com.tw/carrefour2018events/" title="try供活動頁-carrefour2018events" target="_blank") Link
+                    .text
+                        p.icon RWD
+                        h3 家樂福 - try供活動頁
+                        p 2018家樂福中元節活動campaign，為一活動形象網站。
+                .casebox
+                    .case
+                        .front
+                            img(src="images/case-2.jpg")
+                            .txtarea
+                                p.name 家樂福
+                                p 一年一DO 平安普渡
+                        .back
+                            ul
+                                li
+                                    h3 負責項目
+                                li 版型切版 : html + sass
+                                li 動畫 : tweenMax + javascript
+                                li 後端資料串接 : jquery ajax
+                                li vue框架
+                            a.link(href="https://showcase.friendo.com.tw/carrefour-TPP/" title="家樂福 一年一DO 平安普渡" target="_blank") Link
+                    .text
+                        p.icon RWD
+                        h3 家樂福 - 一年一DO 平安普渡
+                        p 2019家樂福中元節活動campaign，為一活動形象網站。
+                .casebox
+                    .case
+                        .front
+                            img(src="images/case-4.jpg")
+                            .txtarea
+                                p.name 家樂福
+                                p 滴血認親
+                        .back
+                            ul
+                                li
+                                    h3 負責項目
+                                li 版型切版 : html + sass
+                                li 動畫 : tweenMax + javascript
+                                li 後端資料串接 : jquery ajax
+                                li vue框架
+                            a.link(href="https://akueijan.github.io/Collections/carrefourBlood/dist/index.html" title="家樂福 滴血認親" target="_blank") Link
+                    .text
+                        p.icon.icon-y 窄版
+                        h3 家樂福 - 滴血認親
+                        p 2018家樂福會員認證活動campaign，主要是讓原有舊客戶更新個人資料，並於更新完成後，贈與各種優惠。
+                .casebox
+                    .case
+                        .front
+                            img(src="images/case-3.jpg")
+                            .txtarea
+                                p.name 家樂福
+                                p 族譜
+                        .back
+                            ul
+                                li
+                                    h3 負責項目
+                                li 版型切版 : html + sass
+                                li 動畫 : tweenMax + javascript
+                                li 後端資料串接 : jquery ajax
+                                li vue框架
+                            a.link(href="https://showcase.friendo.com.tw/carrefourFamilytree/" title="家樂福 族譜" target="_blank") Link
+                    .text
+                        p.icon.icon-y 窄版
+                        h3 家樂福 - 族譜
+                        p 2018家樂福第2波會員認證活動campaign，主要是讓原有舊客戶更新個人資料，並於更新完成後，贈與各種優惠。
+                .casebox
+                    .case
+                        .front
+                            img(src="images/case-5.jpg")
+                            .txtarea
+                                p.name 遠東商銀
+                                p 夢想雲圖
+                        .back
+                            ul
+                                li
+                                    h3 負責項目
+                                li 版型切版 : html + sass
+                                li 動畫 : tweenMax + javascript
+                                li 後端資料串接 : jquery ajax
+                                li vue框架
+                                li Canvas小遊戲
+                            a.link(href="https://showcase.friendo.com.tw/feib2019/" title="遠東商銀 夢想雲圖" target="_blank") Link
+                    .text
+                        p.icon RWD
+                        h3 遠東商銀 - 夢想雲圖
+                        p 遠東商銀2019年活動campaign，主要是讓非遠東商銀用戶透過這活動，加入遠銀及開戶，小遊戲內容為Canvas合成輸出成夢想中的人生，並給予適合的建議方案。
+                .casebox
+                    .case
+                        .front
+                            img(src="images/case-6.jpg")
+                            .txtarea
+                                p.name SENTRA
+                                p 仙草面相學
+                        .back
+                            ul
+                                li
+                                    h3 負責項目
+                                li 版型切版 : html + sass
+                                li 動畫 : tweenMax + javascript
+                                li 後端資料串接 : jquery ajax
+                                li vue框架
+                                li Canvas
+                                li 微軟人臉辨識
+                            a.link(href="https://showcase.friendo.com.tw/2019nissanSentra/index_pc.html" title="SENTRA 仙草面相學" target="_blank") Link
+                    .text
+                        p.icon RWD
+                        p.icon.icon-y 窄版
+                        h3 SENTRA - 仙草面相學
+                        p 2019年SENTRA活動campaign，使用微軟臉部辨識系統API，讓使用者上傳人臉照片，依據數據給予對應的結果。
+                .casebox
+                    .case
+                        .front
+                            img(src="images/case-7.jpg")
+                            .txtarea
+                                p.name 統一麥香
+                                p #麥香曬友情
+                        .back
+                            ul
+                                li
+                                    h3 負責項目
+                                li 版型切版 : html + sass
+                                li 動畫 : tweenMax + javascript
+                                li 後端資料串接 : jquery ajax
+                                li vue框架
+                                li Canvas
+                                li 人臉辨識
+                            a.link(href="https://showcase.friendo.com.tw/uni.mineshine2020newyear/" title="統一麥香 #麥香曬友情" target="_blank") Link
+                    .text
+                        p.icon RWD
+                        h3 統一麥香 - #麥香曬友情
+                        p 2019年麥香跨年活動campaign，使用臉部辨識系統API，讓使用者上傳照片，用Canvas合成為圖片並提供下載。
+                .casebox
+                    .case
+                        .front
+                            img(src="images/case-8.jpg")
+                            .txtarea
+                                p.name 康貝特
+                                p PowerBOMB人生不斷電馬拉松
+                        .back
+                            ul
+                                li
+                                    h3 負責項目
+                                li 版型切版 : html + sass
+                                li 動畫 : tweenMax + javascript
+                                li 後端資料串接 : jquery ajax
+                                li vue框架
+                                li Canvas遊戲
+                                li Pixi.js
+                            a.link(href="https://showcase.friendo.com.tw/2019pbmarathon/" title="康貝特 PowerBOMB人生不斷電馬拉松" target="_blank") Link
+                    .text
+                        p.icon RWD
+                        h3 康貝特 - PowerBOMB人生不斷電馬拉松
+                        p 2019年康貝特發票登錄活動campaign，使用pixi.js製作canvas遊戲。
+            p.casemore 更多案例請至我的
+                a(href="https://github.com/akueijan/Collections" target="_blank" title="akuei github") github
+                | 觀看
+            .work
+                button(@click="pushArr") 隨機圖
+                .randombox
+                    .item(v-for="items in randomArr")
+                        .name {{items.name}}
+                        .pic {{items.pic}}
+                
+                button#gameS(@click="gamePlay") Start
+                button#stopG Stop
+                .gamearea
+                    #game
+                button#gameS2(@click="gameCss") Start Css
+                .gamearea
+                    .gamebg
+                    #game2
+        
+
+

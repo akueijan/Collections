@@ -1,0 +1,71 @@
+
+script(type="text/x-template" id="lotteryBackfill")
+    .content
+        h2 樂透回填
+        form.form(@submit.prevent = "postback")
+            ul
+                li.head
+                    .mobile
+                        p
+                            span 手機號碼 :
+                            | {{mobile}}
+                    .ticket(v-if="type=='Invoice'")
+                        p
+                            span 發票號碼 :
+                            | {{invNumber}}
+                    .fb(v-if="type=='FB'")
+                        transition(name="fade")
+                            .fblogin(@click="fbLogin" v-if="!fblogin") 登入FB
+                            p(v-if="fblogin")
+                                i
+                                    img(:src="fbData.fbPic" v-if="fblogin")
+                                | {{fbData.fbName}}
+                li
+                    p
+                        span 獎品名稱 :
+                        | {{awardItem}}
+                li
+                    label(for="name") 收件人
+                    input#name(type="text" placeholder="請輸入收件人姓名" maxlength="50" v-model="name")
+                li
+                    label(for="address") 地　址
+                    input#address(type="text" placeholder="請輸入收件人收址" maxlength="50" v-model="address")
+                li(v-if="paper")
+                    a(:href="paper.path" download)
+                        p {{paper.awardName}}
+                li
+                    h3 電子檔照片上傳
+                    ul.pictures
+                        li(v-if="type=='Invoice'")
+                            label(for="certificate") 
+                            .preview#certificatepre
+                                p 發票正本
+                                img(:src="imageShow.CertificatePhoto" v-if="imageShow.CertificatePhoto")
+                            input#certificate(type="file" accept="image/*" @change="readpoto")
+                        //- li
+                        //-     label(for="front") 
+                        //-     .preview#frontpre
+                        //-         p 身份證正面
+                        //-         img(:src="imageShow.IdcardFront" v-if="imageShow.IdcardFront")
+                        //-     input#front(type="file" accept="image/*" @change="readpoto")
+                        //- li
+                        //-     label(for="back") 
+                        //-     .preview#backpre
+                        //-         p 身份證反面
+                        //-         img(:src="imageShow.IdcardBack" v-if="imageShow.IdcardBack")
+                        //-     input#back(type="file" accept="image/*" @change="readpoto")
+                        //- li
+                        //-     label(for="bank") 
+                        //-     .preview#bankpre
+                        //-         p 存摺影本
+                        //-         img(:src="imageShow.Bankbook" v-if="imageShow.Bankbook")
+                        //-     input#bank(type="file" accept="image/*" @change="readpoto")
+                li.agree
+                    input#agree(type="checkbox" v-model="agree")
+                    label(for="agree") 我已詳閱活動辦法和個資法相關聲明。
+            .btnarea
+                .btnsend
+                    button(type="submit" v-if="!loading" gtm-data="發票登錄_送出")
+                        | 資訊送出
+                    .loading(v-if="loading")
+                        img(src="images/loading.gif", alt="")
