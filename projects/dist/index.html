@@ -86,7 +86,71 @@
                     <div class="portfolio">My portfolio</div>
                     <div class="more"></div>
                 </div>
-                <div class="bd">
+                <div class="profile">
+                    <h2>About Me</h2>
+                    <div class="content">
+                        <div class="left">
+                            <div class="pic"><img src="images/akuei.jpg"></div>
+                            <div class="myfile">
+                                <ul>
+                                    <li>
+                                        <div class="title">Name : </div>
+                                        <div class="data">莊清貴</div>
+                                    </li>
+                                    <li>
+                                        <div class="title">生日 : </div>
+                                        <div class="data">1983/01/01</div>
+                                    </li>
+                                    <li>
+                                        <div class="title">學歷 : </div>
+                                        <div class="data">
+                                            <ul>
+                                                <li>台南高工 資訊科</li>
+                                                <li>崑山科技大學 公共關係暨廣告學系</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <ul>
+                                <li>
+                                    <div class="title">經歷 : </div>
+                                    <div class="data">
+                                        <ul>
+                                            <li>陽門行銷企劃公司 - 美編設計</li>
+                                            <li>飛資得股份有限公司 - 網頁設計+切版</li>
+                                            <li>春樹科技股份有限公司 - 前端工程師</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">技能 : </div>
+                                    <div class="data">
+                                        <ul>
+                                            <li>模版製作: Photoshop、Html5、Css3、Javascript、Pug、Scss、Sass</li>
+                                            <li>framework: jQuery、Vue、Bootstrap</li>
+                                            <li>切版環境: node.js gulp</li>
+                                            <li>版本控制: git</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">自主學習 : </div>
+                                    <div class="data">
+                                        <ul>
+                                            <li>Python爬蟲</li>
+                                            <li>Canvas</li>
+                                            <li>PixiJs</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="casearea">
                     <div class="caseshow">
                         <h2>My Project</h2>
                         <div class="casebox">
@@ -305,24 +369,24 @@
                         </div>
                     </div>
                     <p class="casemore">更多案例請至我的<a href="https://github.com/akueijan/Collections" target="_blank" title="akuei github">github</a>觀看</p>
-                    <div class="work">
-                        <button @click="pushArr">隨機圖</button>
-                        <div class="randombox">
-                            <div class="item" v-for="items in randomArr">
-                                <div class="name">{{items.name}}</div>
-                                <div class="pic">{{items.pic}}</div>
-                            </div>
+                </div>
+                <div class="work">
+                    <button @click="pushArr">隨機圖</button>
+                    <div class="randombox">
+                        <div class="item" v-for="items in randomArr">
+                            <div class="name">{{items.name}}</div>
+                            <div class="pic">{{items.pic}}</div>
                         </div>
-                        <button id="gameS" @click="gamePlay">Start</button>
-                        <button id="stopG">Stop</button>
-                        <div class="gamearea">
-                            <div id="game"></div>
-                        </div>
-                        <button id="gameS2" @click="gameCss">Start Css</button>
-                        <div class="gamearea">
-                            <div class="gamebg"></div>
-                            <div id="game2"></div>
-                        </div>
+                    </div>
+                    <button id="gameS" @click="gamePlay">Start</button>
+                    <button id="stopG">Stop</button>
+                    <div class="gamearea">
+                        <div id="game"></div>
+                    </div>
+                    <button id="gameS2" @click="gameCss">Start Css</button>
+                    <div class="gamearea">
+                        <div class="gamebg"></div>
+                        <div id="game2"></div>
                     </div>
                 </div>
             </section>
@@ -337,8 +401,8 @@
     <script type="text/javascript" src="js/vendor.js"></script>
     <script type="text/javascript" src="js/lib.js"></script>
     <script type="text/javascript" src="static/particles.min.js"></script>
-    <script type="text/javascript" id="appjs" src="js/app.js?v=1581662212297" data-mode="true" data-site="https://devapi.friendo.com.tw/api/"></script>
-    <script src="js/index.js?v=1581662212297"></script>
+    <script type="text/javascript" id="appjs" src="js/app.js?v=1582012917113" data-mode="true" data-site="https://devapi.friendo.com.tw/api/"></script>
+    <script src="js/index.js?v=1582012917113"></script>
     <script type="text/javascript"></script>
 </body>
 

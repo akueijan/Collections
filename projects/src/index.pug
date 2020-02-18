@@ -21,7 +21,51 @@ block page_main
             #particles-js
             .portfolio My portfolio
             .more
-        .bd
+        .profile
+            h2 About Me
+            .content
+                .left
+                    .pic
+                        img(src="images/akuei.jpg")
+                    .myfile
+                        ul
+                            li
+                                .title Name : 
+                                .data 莊清貴
+                            li
+                                .title 生日 : 
+                                .data 1983/01/01
+                            li
+                                .title 學歷 : 
+                                .data
+                                    ul
+                                        li 台南高工 資訊科
+                                        li 崑山科技大學 公共關係暨廣告學系
+                .right
+                    ul
+                        li
+                            .title 經歷 : 
+                            .data
+                                ul
+                                    li 陽門行銷企劃公司 - 美編設計
+                                    li 飛資得股份有限公司 - 網頁設計+切版
+                                    li 春樹科技股份有限公司 - 前端工程師
+                        li
+                            .title 技能 : 
+                            .data
+                                ul
+                                    li 模版製作: Photoshop、Html5、Css3、Javascript、Pug、Scss、Sass
+                                    li framework: jQuery、Vue、Bootstrap
+                                    li 切版環境: node.js gulp
+                                    li 版本控制: git
+                        li
+                            .title 自主學習 : 
+                            .data
+                                ul
+                                    li Python爬蟲
+                                    li Canvas
+                                    li PixiJs
+        .casearea
             .caseshow
                 h2 My Project
                 .casebox
@@ -194,21 +238,21 @@ block page_main
             p.casemore 更多案例請至我的
                 a(href="https://github.com/akueijan/Collections" target="_blank" title="akuei github") github
                 | 觀看
-            .work
-                button(@click="pushArr") 隨機圖
-                .randombox
-                    .item(v-for="items in randomArr")
-                        .name {{items.name}}
-                        .pic {{items.pic}}
-                
-                button#gameS(@click="gamePlay") Start
-                button#stopG Stop
-                .gamearea
-                    #game
-                button#gameS2(@click="gameCss") Start Css
-                .gamearea
-                    .gamebg
-                    #game2
+        .work
+            button(@click="pushArr") 隨機圖
+            .randombox
+                .item(v-for="items in randomArr")
+                    .name {{items.name}}
+                    .pic {{items.pic}}
+            
+            button#gameS(@click="gamePlay") Start
+            button#stopG Stop
+            .gamearea
+                #game
+            button#gameS2(@click="gameCss") Start Css
+            .gamearea
+                .gamebg
+                #game2
         
 
 
