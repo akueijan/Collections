@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>index</title>
+    <meta name="description" content="pageDesc">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
+    <meta itemprop="name" content="index">
+    <meta itemprop="description" content="pageDesc">
+    <meta itemprop="image" content="指定顯示圖片">
+    <meta property="og:title" content="index">
+    <meta property="og:description" content="pageDesc">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="指定顯示圖片">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-Code');
+    </script>
+</head>
+<!--html body-->
+
+<body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5W6ZPBT" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <div class="l-wrap" id="app">
+        <nav class="nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <div class="l-container">
+                <div class="nav-bd">
+                    <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO">LOGO</a></h1>
+                    <div class="nav-btn">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                    <div class="nav-menu" role="navigation">
+                        <ul class="clearfix">
+                            <li class="nav-item nav-item--iscurrent"><a href="index.html" alt="項目" itemprop="url" title="項目"><span>項目</span></a></li>
+                            <li class="nav-item"><a href="page.html" alt="項目" itemprop="url" title="項目"><span>項目</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <comingsoon></comingsoon>
+        <!-- render nav view-->
+        <div class="l-fb">
+            <div class="l-container">
+                <div class="fb-box">
+                    <div class="fb-like" data-href="#" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="l-main">
+            <section class="index">
+                <div id="map"></div>
+            </section>
+            <!--render main view-->
+        </div>
+        <div class="l-footer footer">
+            <div class="l-container">
+                <p>footer</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/x-template" id="comingsoon">
+        <transition name="fade">
+            <div class="comingsoon-main" v-if="openCome &amp;&amp; open" key="comingsoon">
+                <div class="comingsoon">
+                    <div class="comingsoon__box">
+                        <div class="comingsoon__hd">
+                            <h2 class="comingsoon__title">
+                                <p>Coming soon...</p>
+                            </h2>
+                        </div>
+                        <div class="comingsoon__bd">
+                            <div class="counter">
+                                <div class="days">
+                                    <div class="value">{{date.days || '00'}}</div><span>日</span>
+                                </div>
+                                <div class="hours">
+                                    <div class="value">{{date.hours || '00'}}</div><span>時</span>
+                                </div>
+                                <div class="minutes">
+                                    <div class="value">{{date.minutes || '00'}}</div><span>分</span>
+                                </div>
+                                <div class="seconds">
+                                    <div class="value">{{date.seconds || '00'}}</div><span>秒</span>
+                                </div>
+                            </div>
+                            <p class="coming-text">coming soon</p>
+                        </div>
+                        <div class="comingsoon__fd">
+                            <div class="content"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </script>
+    <script type="text/x-template" id="lotteryBackfill">
+        <div class="content">
+            <h2>樂透回填</h2>
+            <form class="form" @submit.prevent="postback">
+                <ul>
+                    <li class="head">
+                        <div class="mobile">
+                            <p><span>手機號碼 :</span>{{mobile}}</p>
+                        </div>
+                        <div class="ticket" v-if="type=='Invoice'">
+                            <p><span>發票號碼 :</span>{{invNumber}}</p>
+                        </div>
+                        <div class="fb" v-if="type=='FB'">
+                            <transition name="fade">
+                                <div class="fblogin" @click="fbLogin" v-if="!fblogin">登入FB</div>
+                                <p v-if="fblogin"><i><img :src="fbData.fbPic" v-if="fblogin"></i>{{fbData.fbName}}</p>
+                            </transition>
+                        </div>
+                    </li>
+                    <li>
+                        <p><span>獎品名稱 :</span>{{awardItem}}</p>
+                    </li>
+                    <li>
+                        <label for="name">收件人</label>
+                        <input id="name" type="text" placeholder="請輸入收件人姓名" maxlength="50" v-model="name">
+                    </li>
+                    <li>
+                        <label for="address">地　址</label>
+                        <input id="address" type="text" placeholder="請輸入收件人收址" maxlength="50" v-model="address">
+                    </li>
+                    <li v-if="paper">
+                        <a :href="paper.path" download>
+                            <p>{{paper.awardName}}</p>
+                        </a>
+                    </li>
+                    <li>
+                        <h3>電子檔照片上傳</h3>
+                        <ul class="pictures">
+                            <li v-if="type=='Invoice'">
+                                <label for="certificate"> </label>
+                                <div class="preview" id="certificatepre">
+                                    <p>發票正本</p><img :src="imageShow.CertificatePhoto" v-if="imageShow.CertificatePhoto">
+                                </div>
+                                <input id="certificate" type="file" accept="image/*" @change="readpoto">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="agree">
+                        <input id="agree" type="checkbox" v-model="agree">
+                        <label for="agree">我已詳閱活動辦法和個資法相關聲明。</label>
+                    </li>
+                </ul>
+                <div class="btnarea">
+                    <div class="btnsend">
+                        <button type="submit" v-if="!loading" gtm-data="發票登錄_送出">資訊送出</button>
+                        <div class="loading" v-if="loading"><img src="images/loading.gif" alt=""></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </script>
+    <script type="text/javascript" src="js/vendor.js"></script>
+    <script type="text/javascript" src="js/lib.js"></script>
+    <script type="text/javascript" id="appjs" src="js/app.js?v=1590638157066" data-mode="true" data-site="https://devapi.friendo.com.tw/api/"></script>
+    <script type="text/javascript" src="js/component/comingsoon.js"></script>
+    <script src="js/index.js?v=1590638157066"></script>
+    <script type="text/javascript"></script>
+</body>
+
+</html>

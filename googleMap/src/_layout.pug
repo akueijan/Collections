@@ -1,0 +1,44 @@
+﻿doctype
+html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
+    //page default Information
+    - var compJs = ["comingsoon.js"]
+    block pageInfo
+        - var pageTitle = "首頁"
+        - var pageDesc = "敘述"
+        - var isVue = true
+    //html head
+    include _head.pug
+    //html body
+    body
+        noscript
+            iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-5W6ZPBT" height="0" width="0" style="display:none;visibility:hidden")
+        div.l-wrap#app(v-cloak=isVue)
+            include _nav.pug
+            comingsoon
+            // render nav view
+            div.l-fb
+                div.l-container
+                    div.fb-box
+                        .fb-like(data-href='#', data-layout='button_count', data-action='like', data-show-faces='false', data-share='true') 
+            div.l-main
+                block page_main
+                //render main view
+            div.l-footer.footer
+                div.l-container
+                    p footer
+                    
+        //- components
+        include component/_comingsoon.pug
+        include component/_lotteryBackfill.pug
+
+        script(type="text/javascript" src=jsFolder+"vendor.js")
+        script(type="text/javascript" src=jsFolder+"lib.js")
+        if moreJs
+            script(type="text/javascript" src= jsFolder + moreJs)
+        script(type="text/javascript" id="appjs" src= jsFolder + "app.js?v="+timestamp data-mode=`${dev_mode}` data-site=`${apiUrl}`)
+        if compJs
+            each js in compJs
+                script(type="text/javascript" src= jsFolder + "component/" + js)
+        if pageJs
+            script(src= jsFolder + pageJs+"?v="+timestamp)
+        script(type='text/javascript')

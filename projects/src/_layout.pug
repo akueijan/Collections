@@ -36,4 +36,6 @@ html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
         script(type="text/javascript" id="appjs" src= jsFolder + "app.js?v="+timestamp data-mode=`${dev_mode}` data-site=`${apiUrl}`)
         if pageJs
             script(src= jsFolder + pageJs+"?v="+timestamp)
+        if moreJs
+            script(src= jsFolder + moreJs+"?v="+timestamp)
         script(type='text/javascript')
