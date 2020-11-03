@@ -1,0 +1,183 @@
+$header-lg-height: vw(90)
+$header-mobile-height: mvw(100)
+
+header
+    width: 100%
+    padding: 20px 50px
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+.nav
+    background: url(../images/menuBg.png) top center no-repeat
+    background-size: 100% 100%
+    height: $header-lg-height
+    line-height: $header-lg-height
+    width: 100%
+    position: fixed
+    left: 0
+    top: 0
+    z-index: 99
+    // display: none
+    +rwd($pad)
+        background: none
+    a 
+        cursor: pointer
+    p
+        display: inline-block
+        margin-right: 10px  
+    & .l-container
+        height: 100%
+    &-bd 
+        height: 100%
+        padding: 0 vw(20) vw(10)
+        display: flex
+        align-items: center
+        justify-content: flex-end
+        +rwd($desktop)
+            padding: 0 mvw(23)
+    &-logo 
+        display: none
+        width: vw(213)
+        line-height: 0
+        vertical-align: middle
+        +rwd($desktop)
+            display: none
+            width: mvw(360)
+        img
+            width: 100%
+            height: auto
+    &-btn
+        display: none
+        +rwd($pad)
+            width: mvw(60)
+            height: mvw(40)
+            cursor: pointer
+            // background: #fff
+            // border-radius: mvw(6)
+            position: relative
+            right: mvw(0)
+            top: mvw(30)
+            display: flex
+            align-items: center
+            justify-content: flex-end
+            flex-wrap: wrap
+            // flex-flow: column wrap
+            // justify-content: space-between
+            // padding: mvw(15) mvw(15)
+            text-align: right
+            z-index: 99
+            >.one,
+            >.two,
+            >.three 
+                // width: 100%
+                // display: inline-block
+                height: mvw(8)
+                background: #ffffff
+                backface-visibility: hidden
+                transition-duration: 0.3s
+                margin: mvw(5) 0
+                // border-radius: mvw(3)
+            .one
+                width: 100%
+            .two
+                width: 80%
+            .three
+                width: 60%
+    &-menu
+        float: right
+        // width: 100%
+        // display: none
+        li 
+            display: inline-block
+            line-height: 0
+            vertical-align: middle
+            // margin-right: 30px
+            cursor: pointer
+            span
+                color: #fff
+                font-weight: bold
+                font-size: vw(20)
+                font-style: italic
+                line-height: 1
+                
+            &:after
+                content: "/"
+                display: inline-block
+                margin: 0 vw(20)
+                color: #ffffff
+                font-size: vw(25)
+                +rwd($pad)
+                    display: none
+            a
+                display: block
+            .pconly
+                display: inline-block
+                +rwd($pad)
+                    display: none
+
+            .mbonly
+                display: none
+                +rwd($pad)
+                    display: block
+        +rwd($pad)
+            display: block
+            width: 100%
+            background: rgba(#1d073e, 0.9)
+            height: 100vh
+            right: -100%
+            top: 0
+            position: absolute
+            transition: all 0.2s ease-out
+            ul 
+                margin: 0
+                padding-top: mvw(20)
+                padding-left: mvw(22)
+                line-height: mvw(75)
+                transform: scale(0.85)
+                li 
+                    width: 100%
+                    position: relative
+    &--active 
+        +rwd($pad)
+            .nav-menu 
+                right: 0
+                position: absolute
+                top: 0
+                overflow: auto
+                width: 100%
+                text-align: center
+            ul
+                padding-top: mvw(100)
+                padding-left: 0
+            .nav-btn 
+                >.one
+                    width: 100%
+                    position: absolute
+                    top: 50%
+                    transform: (rotate(44deg) translateY(-50%) translateX(-5%))
+                >.two 
+                    opacity: 0
+                >.three
+                    width: 100%
+                    position: absolute
+                    top: 50%
+                    transform: (rotate(-46deg) translateY(-50%) translateX(6%))
+    .menu_fb
+        width: vw(40)
+        height: vw(40)
+        margin: 0 vw(20) 0 0
+        +rwd($pad)
+            width: mvw(100)
+            height: mvw(100)
+            margin: 0 mvw(100) 0 0
+        &:after
+            display: none
+    .menu_line
+        width: vw(40)
+        height: vw(40)
+        +rwd($pad)
+            width: mvw(100)
+            height: mvw(100)
+        &:after
+            display: none

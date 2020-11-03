@@ -1,0 +1,392 @@
+﻿.award
+    position: relative
+    padding: vw(100) 0 vw(60) 0
+    text-align: center
+    +rwd($pad)
+         padding: mvw(100) 0 0 0
+    h2
+        width: vw(911)
+        margin: 0 auto
+        +rwd($pad)
+            width: 90%
+    p
+        font-size: vw(18)
+        color: #ffffff
+        line-height: 1.5
+        +rwd($pad)
+            font-size: mvw(24)
+            line-height: 2
+    .nodata
+        color: #ffffff
+        font-size: vw(28)
+        border-bottom: 0 !important
+        // display: none !important
+        +rwd($pad)
+            font-size: mvw(28)
+    .content
+        width: vw(976)
+        margin: 0 auto 0
+        +rwd($pad)
+            width: 100%
+            padding: 0 mvw(20)
+    .bigaward, .weekaward, .gameaward
+        margin: 0 auto vw(60)
+        +rwd($pad)
+            margin: 0 auto mvw(100)
+    .bigaward
+        width: vw(950)
+        height: vw(430)
+        background: url(../images/bigaward-bg.png) top center no-repeat
+        background-size: cover
+        padding: vw(55) vw(70) 0
+        +rwd($pad)
+            width: mvw(700)
+            height: mvw(430)
+            background: url(../images/bigaward-bg.png) top center no-repeat
+            background-size: 100% 100%
+            padding: mvw(55) mvw(60) 0
+        .title
+            width: vw(424)
+            margin: 0 auto vw(20)
+            +rwd($pad)
+                width: mvw(424)
+                margin: 0 auto mvw(20)
+        .txt
+            width: 100%
+            height: vw(85)
+            background: #43266f
+            border: 2px solid #7958a9
+            border-radius: vw(15)
+            margin: vw(20) auto 0
+            line-height: vw(85)
+            display: flex
+            justify-content: space-around
+            align-items: center
+            +rwd($pad)
+                height: mvw(85)
+                border-radius: mvw(15)
+        span
+            color: #ffffff
+            font-size: vw(28)
+            display: inline-block
+            width: 48%
+            position: relative
+            +rwd($pad)
+                font-size: mvw(28)
+            &:after
+                content: ""
+                width: 2px
+                height: vw(60)
+                background: #7958a9
+                position: absolute
+                top: 50%
+                right: 0
+                transform: translateY(-50%)
+                +rwd($pad)
+                    height: mvw(60)
+            &:nth-last-of-type(1)
+                &:after
+                    display: none
+    .weekaward
+        width: vw(949)
+        height: vw(794)
+        background: url(../images/weekaward-bg.png) top center no-repeat
+        background-size: cover
+        padding: vw(55) vw(70) 0
+        +rwd($pad)
+            width: mvw(700)
+            height: mvw(794)
+            background: url(../images/weekaward-bg.png) top center no-repeat
+            background-size: 100% 100%
+            padding: mvw(55) mvw(70) 0
+        .title
+            width: vw(355)
+            margin: 0 auto vw(20)
+            +rwd($pad)
+                width: mvw(355)
+                margin: 0 auto mvw(20)
+        ul
+            margin: vw(20) auto 0
+            display: flex
+            justify-content: space-around
+            align-items: center
+            flex-wrap: wrap
+            +rwd($pad)
+                margin: mvw(20) auto 0
+            li
+                width: vw(354)
+                height: vw(100)
+                background: url(../images/weekaward-li-bg.png) top center no-repeat
+                background-size: cover
+                margin: vw(15)
+                cursor: pointer
+                text-align: left
+                padding: vw(20) 0 0 vw(80)
+                +rwd($pad)
+                    width: mvw(240)
+                    height: mvw(80)
+                    background: url(../images/weekaward-li-bg.png) top center no-repeat
+                    background-size: 100% 100%
+                    margin: mvw(20)
+                    padding: mvw(10) 0 0 mvw(40)
+            h3
+                font-size: vw(14)
+                color: #fffc00
+                +rwd($pad)
+                    font-size: mvw(12)
+            p
+                font-size: vw(28)
+                font-weight: bold
+                margin: vw(5) 0 0 0
+                color: #e6d4ff
+                text-shadow: 1px 1px 3px rgba(#000000,0.8)
+                +rwd($pad)
+                    font-size: mvw(20)
+    .gameaward
+        width: vw(949)
+        height: vw(2149)
+        background: url(../images/gameaward-bg.png) top center no-repeat
+        background-size: cover
+        padding: vw(55) vw(70) 0
+        +rwd($pad)
+            width: mvw(700)
+            height: mvw(2000)
+            background: url(../images/gameaward-bg.png) top center no-repeat
+            background-size: 100% 100%
+            padding: mvw(55) mvw(70) 0
+        .title
+            width: vw(327)
+            margin: 0 auto vw(30)
+            +rwd($pad)
+                width: mvw(327)
+                margin: 0 auto mvw(30)
+        .block
+            margin: 0 auto vw(90)
+            +rwd($pad)
+                margin: 0 auto mvw(90)
+            &:nth-last-of-type(1)
+                margin: 0 auto
+        .applewatch
+            .awtitle
+                width: vw(263)
+                margin: 0 auto vw(10)
+                +rwd($pad)
+                    width: mvw(263)
+                    margin: 0 auto mvw(10)
+            ul
+                width: 100%
+                height: vw(90)
+                background: #462871
+                border: 2px solid #7554a4
+                border-radius: vw(15)
+                line-height: vw(90)
+                margin: vw(20) auto 0
+                +rwd($pad)
+                    height: mvw(90)
+                    border-radius: mvw(15)
+                    line-height: mvw(90)
+                    margin: mvw(20) auto 0
+                li
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                .pic
+                    width: vw(55)
+                    height: vw(55)
+                    padding: vw(2)
+                    border: 1px solid #e6da0f
+                    border-radius: 50%
+                    margin: 0 vw(30) 0 0
+                    position: relative
+                    +rwd($pad)
+                        width: mvw(55)
+                        height: mvw(55)
+                        padding: mvw(2)
+                        margin: 0 mvw(15)
+                    img
+                        border-radius: 50%
+                        position: absolute
+                        top: 50%
+                        left: 50%
+                        transform: translate(-50%,-50%)
+                .name
+                    font-size: vw(28)
+                    color: #ffffff
+                    width: vw(200)
+                    margin: 0 vw(60) 0 0
+                    +rwd($pad)
+                        font-size: mvw(28)
+                        width: mvw(200)
+                        margin: 0 mvw(60) 0 0
+                .mobile
+                    font-size: vw(28)
+                    color: #ffffff
+                    width: vw(200)
+                    +rwd($pad)
+                        font-size: mvw(28)
+                        width: mvw(200)
+        .sogo200
+            .awtitle
+                width: vw(268)
+                margin: 0 auto vw(10)
+                +rwd($pad)
+                    width: mvw(268)
+                    margin: 0 auto mvw(10)
+            .listbg
+                width: vw(755)
+                height: vw(530)
+                background: url(../images/gameaward-list-bg.png) top center no-repeat
+                background-size: cover
+                margin: vw(20) auto 0
+                padding: vw(80) vw(20) 0 vw(30)
+                +rwd($pad)
+                    width: mvw(516)
+                    height: mvw(440)
+                    background: url(../images/gameaward-list-bg.png) top center no-repeat
+                    background-size: 100% 100%
+                    margin: mvw(20) auto 0
+                    padding: mvw(70) mvw(20) 0 mvw(30)
+            ul
+                height: vw(430)
+                overflow-y: auto
+                padding: 0 vw(20) 0 0
+                +rwd($pad)
+                    height: mvw(350)
+                &::-webkit-scrollbar-thumb
+                    // height: vw(60)
+                    box-shadow: 0 0 vw(3) 0 rgba(#d4b6ff, 0.8)
+                    background-color: #d4b6ff
+                    border-radius: vw(20)
+                    +rwd($pad)
+                        box-shadow: 0 0 mvw(3) 0 rgba(#d4b6ff, 0.8)
+                        border-radius: mvw(20)
+                &::-webkit-scrollbar
+                    background-color: #2c105b
+                    width: vw(5)
+                    border-radius: vw(20)
+                    +rwd($pad)
+                        width: mvw(5)
+                        border-radius: mvw(20)
+                li
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    border-bottom: 2px solid #815fb1
+                    padding: vw(15) 0
+                    +rwd($pad)
+                        padding: mvw(15) 0
+                    &:nth-last-of-type(1)
+                        border-bottom: 0
+                .pic
+                    width: vw(55)
+                    height: vw(55)
+                    padding: vw(2)
+                    border: 1px solid #e6da0f
+                    border-radius: 50%
+                    margin: 0 vw(30) 0 0
+                    +rwd($pad)
+                        width: mvw(55)
+                        height: mvw(55)
+                        padding: mvw(2)
+                        margin: 0 mvw(10) 0 0
+                    img
+                        border-radius: 50%
+                .name
+                    font-size: vw(28)
+                    color: #ffffff
+                    width: vw(200)
+                    margin: 0 vw(60) 0 0
+                    +rwd($pad)
+                        font-size: mvw(28)
+                        color: #ffffff
+                        width: mvw(200)
+                        margin: 0 mvw(10) 0 0
+                .mobile
+                    font-size: vw(28)
+                    color: #ffffff
+                    width: vw(200)
+                    +rwd($pad)
+                        font-size: mvw(28)
+                        width: mvw(200)
+        .joinaward
+            .awtitle
+                width: vw(277)
+                margin: 0 auto vw(10)
+                +rwd($pad)
+                    width: mvw(277)
+                    margin: 0 auto mvw(10)
+            .listbg
+                width: vw(755)
+                height: vw(530)
+                background: url(../images/gameaward-list-bg.png) top center no-repeat
+                background-size: cover
+                margin: vw(20) auto 0
+                padding: vw(80) vw(20) 0 vw(30)
+                +rwd($pad)
+                    width: mvw(516)
+                    height: mvw(440)
+                    background: url(../images/gameaward-list-bg.png) top center no-repeat
+                    background-size: 100% 100%
+                    margin: mvw(20) auto 0
+                    padding: mvw(70) mvw(20) 0 mvw(30)
+            ul
+                height: vw(430)
+                overflow-y: auto
+                padding: 0 vw(20) 0 0
+                +rwd($pad)
+                    height: mvw(350)
+                &::-webkit-scrollbar-thumb
+                    // height: vw(60)
+                    box-shadow: 0 0 vw(3) 0 rgba(#d4b6ff, 0.8)
+                    background-color: #d4b6ff
+                    border-radius: vw(20)
+                    +rwd($pad)
+                        box-shadow: 0 0 mvw(3) 0 rgba(#d4b6ff, 0.8)
+                        border-radius: mvw(20)
+                &::-webkit-scrollbar
+                    background-color: #2c105b
+                    width: vw(5)
+                    border-radius: vw(20)
+                    +rwd($pad)
+                        width: mvw(5)
+                        border-radius: mvw(20)
+                li
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    border-bottom: 2px solid #815fb1
+                    padding: vw(15) 0
+                    +rwd($pad)
+                        padding: mvw(15) 0
+                    &:nth-last-of-type(1)
+                        border-bottom: 0
+                .pic
+                    width: vw(55)
+                    height: vw(55)
+                    padding: vw(2)
+                    border: 1px solid #e6da0f
+                    border-radius: 50%
+                    margin: 0 vw(30) 0 0
+                    +rwd($pad)
+                        width: mvw(55)
+                        height: mvw(55)
+                        padding: mvw(2)
+                        margin: 0 mvw(10) 0 0
+                    img
+                        border-radius: 50%
+                .name
+                    font-size: vw(28)
+                    color: #ffffff
+                    width: vw(200)
+                    margin: 0 vw(60) 0 0
+                    +rwd($pad)
+                        font-size: mvw(28)
+                        width: mvw(200)
+                        margin: 0 mvw(10) 0 0
+                .mobile
+                    font-size: vw(28)
+                    color: #ffffff
+                    width: vw(200)
+                    +rwd($pad)
+                        font-size: mvw(28)
+                        width: mvw(200)

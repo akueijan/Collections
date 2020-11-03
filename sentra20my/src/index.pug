@@ -1,0 +1,172 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "先潮耐力賽挑戰駕駛技術抽任天堂Switch等多項好禮！"
+    - var pageDesc = "挑戰 ALL NEW SENTRA《先潮耐力賽》即可抽Switch、7-11實體禮券$100元...等好禮"
+    - var pageJs = "index.js"
+    - var isVue = true
+//- page html
+block page_main
+    section.index
+        transition(name="fade")
+            .block.pckv(v-if="step=='pcindex'" key="pcindex")
+                img(src="images/pc_indexbg.jpg")
+            .block.kv(v-if="step=='kv'" key="kv")
+                h2
+                    img(src="images/index_slogn.png" alt="先潮耐力賽")
+                .togame(@click="togame" gtm-data="首頁_立即挑戰")
+                    img(src="images/index_acbtn.png" alt="立即挑戰" gtm-data="首頁_立即挑戰")
+                .kvcar
+                    img(src="images/kv_car.png")
+                .kvft
+                    img(src="images/index_ft.png"  alt="ALL NEW SENTRA 全新上市")
+            .block.gameplay(v-if="step=='start'" key="start")
+                canvas#canvas
+                .startbtn Start
+                .decoarr
+                    img(src="images/game_arrow.png")
+                .playbtn
+                //- button.playbtn play
+            .block.reason(v-if="step=='reason'" key="reason")
+                h2(v-if="reason=='near'")
+                    img(src="images/reason_neartxt.png")
+                h2(v-if="reason=='far'")
+                    img(src="images/reason_fartxt.png")
+                .btn(@click="toGrades" gtm-data="遊戲結束_本次挑戰成績")
+                    img(src="images/reason_btn.gif" alt="本次挑戰成績" gtm-data="遊戲結束_本次挑戰成績")
+            .block.result(v-if="step=='result'" key="result")
+                .winner
+                    .userbox
+                        i.pic
+                            img(:src="linePic")
+                        p.name {{lineName}}
+                        p.score 本次成績:
+                            span.orange {{userMin}}'{{userSec}}"
+                    p.word(v-html="resultWord")
+                    .checkleader(@click="scrollTo('.leaderul')")
+                        img(src="images/checkleader.png")
+                    .hr
+                        img(src="images/result_hr.png")
+                    .awardbox
+                        img.switch(src="images/result_switch.png")
+                        p 恭喜獲得
+                            span.orange 任天堂 Switch 
+                            | 抽獎機會！
+                    .btn_toform(@click="toProfile" gtm-data="遊戲成績_填寫抽獎資料")
+                        img(src="images/result_toform.png" alt="填寫抽獎資料" gtm-data="遊戲成績_填寫抽獎資料")
+                    .btn_retry(@click="rePlay" gtm-data="遊戲成績_重新挑戰")
+                        img(src="images/result_retry.png" alt="重新挑戰" gtm-data="遊戲成績_重新挑戰")
+                .leader
+                    h2 先潮耐力賽排行榜
+                    .box
+                        .hd
+                            img(src="images/leader_hd.png")
+                        .bd
+                            ul.leaderul
+                                li(v-for="(item, key, index) in userArr")
+                                    .icon(:class="[{first: item.seq == '1'}, {second: item.seq == '2'}, {third: item.seq == '3'}]") {{item.seq}}
+                                    .player
+                                        .userpic
+                                            img(:src="item.piclink")
+                                        .name {{item.name}}
+                                    .score {{item.min}}'{{item.sec}}"
+                        .ft
+                            //- img(src="images/leader_ft.png")
+            .block.profile(v-if="step=='profile'" key="profile")
+                h2
+                    img(src="images/member-title1.png" v-if="isMember")
+                    img(src="images/member-title2.png" v-if="!isMember")
+                form.form(@submit.prevent = "checkData")
+                    ul
+                        li
+                            label(for="name") 姓　　名：
+                            input#name(type="text" v-model="userName" placeholder="請輸入收件人姓名" maxlength="30")
+                        li
+                            label(for="phone") 手機號碼：
+                            input#phone(type="text" v-model="userPhone" placeholder="請輸入手機號碼" maxlength="10")
+                        li.birthday
+                            label 出生日期：
+                            .options
+                                .year
+                                    select#year(v-model="userbir.year")
+                                        option(v-for="year in yearArr" :value="year") {{year}}
+                                    label(for="year") 年
+                                .month
+                                    select#month(v-model="userbir.month")
+                                        option(v-for="month in monthArr" :value="month") {{month}}
+                                    label(for="month")  月
+                                .day
+                                    select#day(v-model="userbir.day")
+                                        option(v-for="day in dayArr" :value="day") {{day}}
+                                    label(for="month")  日
+                        li
+                            label 您目前是否為NISSAN車主：
+                            input#yes.radio(type="radio" name="ismer" value="true" v-model="isNissan")
+                            label(for="yes") 是
+                            input#no.radio(type="radio" name="ismer" value="false" v-model="isNissan")
+                            label(for="no") 否
+                    .agree
+                        input#iagree(type="checkbox" v-model="isAgree")
+                        label 我已詳閱
+                            span(for="iagree" @click="evtpopup=true").orange 活動辦法
+                            | 和
+                            a(href="https://new.nissan.com.tw/nissan/info/line-bc" target="_blank" rel="noreferrer noopener").orange NISSAN服務會員曁使用條款
+                            | 並同意以上資料提供裕隆日產汽車使用。
+                    .btnarea
+                        button.btnsend(v-if="isMember" type="submit" gtm-data="填寫抽獎資料_已綁定好友確認送出")
+                            img(src="images/btn_send.png" gtm-data="填寫抽獎資料_已綁定好友確認送出")
+                        button.btnsend(v-if="!isMember" type="submit" gtm-data="填寫抽獎資料_未綁定好友確認送出")
+                            img(src="images/btn_send.png" gtm-data="填寫抽獎資料_未綁定好友確認送出")
+            .block.done(v-if="step=='done'" key="done")
+                h2
+                    img(src="images/done_title.png")
+                //- .content
+                //-     img(src="images/done_pic.png")
+                .btn_tolottery(@click="toLottery" gtm-data="填寫抽獎資料_分享活動抽LINEPOINTS點數")
+                    img(src="images/btn_tolottery.png" gtm-data="填寫抽獎資料_分享活動抽LINEPOINTS點數")
+            .block.lottery(v-if="step=='lottery'" key="lottery")
+                h2
+                    img(src="images/lottery_title.png")
+                .page
+                    .lotteryarea
+                        p 分享本活動給LINE好友
+                            br
+                            | 完成後，點擊下方
+                            span.orange GO
+                            | 立即抽獎
+                        .lotterybox
+                            .lotterybg
+                                img(src="images/turntable.png")
+                            .lotteryarr(@click="playturn" v-if="!lotteryPlay" gtm-data="分享活動抽_GO")
+                                img(src="images/turnarr.png" gtm-data="分享活動抽_GO")
+                            .lotteryarr(v-if="lotteryPlay")
+                                img(src="images/turnarr.png")
+                        .btnshare(@click="lotteryShare" gtm-data="分享活動抽_立即分享")
+                            img(src="images/btn_share.png" gtm-data="分享活動抽_立即分享")
+            .block.useraward(v-if="step=='useraward'" key="useraward")
+                h2
+                    img(src="images/useraward_title.png")
+                .page
+                    .awardbox
+                        p 本獎項為電子序號券，
+                            br
+                            | 請點擊下方
+                            span.orange 立即領獎
+                            | 按鈕,
+                            br
+                            | 前往兌獎網頁領獎。
+                        p.sp ※領獎需輸入下列專屬兌換序號。
+                            br
+                            | ※本分享活動每人僅有一次中獎機會，
+                            br
+                            | 中獎後，則無法再抽獎囉！
+                        .awardlink
+                            h3 專屬兌換序號
+                            .number
+                                p {{awardCode}}
+                    .btnarea
+                        a.getaward(:href="awardShortUrl" gtm-data="分享活動得獎頁_立即領獎")
+                            img(src="images/btn_getaward.png" gtm-data="分享活動得獎頁_立即領獎")
+                        .btnreadme(@click="awardreadme" gtm-data="分享活動得獎頁_領獎說明")
+                            img(src="images/btn_awardreadme.png" gtm-data="分享活動得獎頁_領獎說明")

@@ -1,0 +1,44 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css)
+// @import url(//fonts.googleapis.com/icon?family=Material+Icons)
+// @import url(//fonts.googleapis.com/icon?family=Material+Icons)
+// @import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css)
+
+@font-face
+  font-family: 'DFKangKaiStd-W5'
+  src: url('../static/DFKangKaiStd-W5.woff') format("woff")
+
+
+$font_arr: ()
+$font_src: ()
+$extension: (eot,woff,ttf,svg)
+$src_path: "../fonts"
+@mixin font-face($name,$file,$extension,$weight:false,$style:false)
+    @font-face 
+        font-family: quote(#{$name})
+        $files: null
+        @for $x from 1 through length($extension)
+            $var: nth($extension,$x)
+            $eot: quote("#{$src_path}/#{$file}.#{$var}")
+            @if $var == eot 
+                src: url('#{$eot}')
+                $files: #{$files} url(unquote("#{$eot}?#iefix")) unquote("format('embedded-opentype')")
+            @else
+                $files: #{$files} url("#{$eot}") format("#{$var}")
+            
+            @if $x != length($extension)
+                $files: #{$files} unquote(",")            
+        
+        src: $files
+        @if $weight 
+            font-weight: $weight
+        
+        @if $style
+            font-style: $style
+        
+@if length($font_arr) > 0 
+    @for $i from 1 through length($font_arr) 
+        $name: nth($font_arr, $i)
+        $src: nth($font_src, $i)
+        +font-face($name,$src,$extension)
+        .f_family_#{$i}
+            font-family: quote(#{$name}),'Microsoft JhengHei', 'Helvetica Neue', Arial, Helvetica, sans-serif

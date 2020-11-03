@@ -1,0 +1,258 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "挑戰遊戲｜好運鼠來寶 有能量就是帥｜康貝特"
+    - var pageDesc = "好運鼠來寶，有能量就是帥！選擇關卡並挑戰成功者，就有機會抽中Apple Watch、SOGO禮券、超商購物金！"
+    - var pageJs = "game.js"
+    - var isVue = true
+//- page html
+block page_main
+    section.game
+        transition(name="fade" mode="out-in")
+            .step(v-if="stepPage=='fblogin'" key="1").fblogin
+                h2
+                    img(src="images/fblogin-title.png")
+                .btn.fbbtn(@click="fbLogin" gtm-data="遊戲_登入FB開始遊戲")
+                    img(src="images/btn-fblogin.png" gtm-data="遊戲_登入FB開始遊戲")
+            .step(v-if="stepPage=='selgame'" key="2").selgame
+                h2
+                    img(src="images/selgame-title.png")
+                .content
+                    .level
+                        .open(@click="selLv(1)" gtm-data="遊戲_關卡1")
+                            img(src="images/level-1.png" gtm-data="遊戲_關卡1")
+                    .level
+                        .open(@click="selLv(2)" gtm-data="遊戲_關卡2")
+                            img(src="images/level-2.png" gtm-data="遊戲_關卡2")
+                        .lock(v-if="lock.game2")
+                            img(src="images/level-2-lock.png")
+                    .level
+                        .open(@click="selLv(3)" gtm-data="遊戲_關卡3")
+                            img(src="images/level-3.png" gtm-data="遊戲_關卡3")
+                        .lock.lock(v-if="lock.game3")
+                            img(src="images/level-3-lock.png")
+            .step(v-if="stepPage=='voltest'" key="3").voltest
+                h2
+                    img(src="images/voltest-title.png")
+                .content
+                    transition(name="fade" mode="out-in")
+                        .textbox(v-if="voltest" key="1")
+                            img.sample(src="images/voltest-txt.png")
+                            .txtbox
+                                p 請按下錄音鍵
+                                p.small 10秒內大聲念出
+                                p.sp “好運鼠來寶
+                                p.sp 有能量就是帥”
+                            #d
+                            transition(name="fade" mode="out-in")
+                                .btn(@click="testStart" v-if="!testing" key="1" gtm-data="遊戲_聲音測試")
+                                    img(src="images/btn-voltest.png" gtm-data="遊戲_聲音測試")
+                                .btn(v-if="testing" key="2")
+                                    img(src="images/btn-voltest-on.gif")
+                        //- .testfail(v-if="!voltest" key="2")
+                        //-     img(src="images/voltest-fail.png")
+                        //-     .btn(@click="retest")
+                        //-         img(src="images/btn-retest.png")
+            .step(v-if="stepPage=='game'" key="4").gamearea
+                .content(v-if="lvpage== 1")
+                    //- button(@click="startGame") 遊戲開始
+                    h2
+                        img(src="images/game1-title.png")
+                    .textbox
+                        p#sec(v-if="gameStart") 3
+                        audio#player(src="images/glv-1.m4a")
+                        //- p.comment {{comment}}
+                        transition(name="jump" mode="out-in")
+                            .comment(v-if="gamecom=='good'" key="1")
+                                img(:src="comment" v-if="comment!=''")
+                            .comment(v-if="gamecom=='perefect'" key="2")
+                                img(:src="comment" v-if="comment!=''")
+                            .comment(v-if="gamecom=='miss'" key="3")
+                                img(:src="comment" v-if="comment!=''")
+                            .comment(v-if="gamecom=='bad'" key="4")
+                                img(:src="comment" v-if="comment!=''")
+                        .word
+                            .front
+                                img(src="images/level-word1-front.png")
+                            .back
+                                .mask.mask1
+                                    img(src="images/level-word1-back_01.png")
+                                .mask.mask2
+                                    img(src="images/level-word1-back_02.png")
+                                .mask.mask3
+                                    img(src="images/level-word1-back_03.png")
+                                .mask.mask4
+                                    img(src="images/level-word1-back_04.png")
+                                .mask.mask5
+                                    img(src="images/level-word1-back_05.png")
+                                .mask.mask6
+                                    img(src="images/level-word1-back_06.png")
+                                .mask.mask7
+                                    img(src="images/level-word1-back_07.png")
+                                .mask.mask8
+                                    img(src="images/level-word1-back_08.png")
+                        #d
+                .content(v-if="lvpage== 2")
+                    //- button(@click="startGame") 遊戲開始
+                    h2
+                        img(src="images/game2-title.png")
+                    .textbox
+                        p#sec(v-if="gameStart") 3
+                        audio#player(src="images/glv-2.m4a")
+                        //- p.comment {{comment}}
+                        transition(name="jump" mode="out-in")
+                            .comment(v-if="gamecom=='good'" key="1")
+                                img(:src="comment" v-if="comment!=''")
+                            .comment(v-if="gamecom=='perefect'" key="2")
+                                img(:src="comment" v-if="comment!=''")
+                            .comment(v-if="gamecom=='miss'" key="3")
+                                img(:src="comment" v-if="comment!=''")
+                            .comment(v-if="gamecom=='bad'" key="4")
+                                img(:src="comment" v-if="comment!=''")
+                        .word
+                            .front
+                                img(src="images/level-word2-front.png")
+                            .back
+                                .mask.mask1
+                                    img(src="images/level-word2-back_01.png")
+                                .mask.mask2
+                                    img(src="images/level-word2-back_02.png")
+                                .mask.mask3
+                                    img(src="images/level-word2-back_03.png")
+                                .mask.mask4
+                                    img(src="images/level-word2-back_04.png")
+                                .mask.mask5
+                                    img(src="images/level-word2-back_05.png")
+                                .mask.mask6
+                                    img(src="images/level-word2-back_06.png")
+                                .mask.mask7
+                                    img(src="images/level-word2-back_07.png")
+                                .mask.mask8
+                                    img(src="images/level-word2-back_08.png")
+                                .mask.mask9
+                                    img(src="images/level-word2-back_09.png")
+                                .mask.mask10
+                                    img(src="images/level-word2-back_10.png")
+                                .mask.mask11
+                                    img(src="images/level-word2-back_11.png")
+                                .mask.mask12
+                                    img(src="images/level-word2-back_12.png")
+                        #d
+                .content(v-if="lvpage== 3")
+                    //- button(@click="startGame") 遊戲開始
+                    h2
+                        img(src="images/game3-title.png")
+                    .textbox
+                        p#sec(v-if="gameStart") 3
+                        audio#player(src="images/glv-3.m4a")
+                        //- p.comment {{comment}}
+                        transition(name="jump" mode="out-in")
+                            .comment(v-if="gamecom=='good'" key="1")
+                                img(:src="comment" v-if="comment!=''")
+                            .comment(v-if="gamecom=='perefect'" key="2")
+                                img(:src="comment" v-if="comment!=''")
+                            .comment(v-if="gamecom=='miss'" key="3")
+                                img(:src="comment" v-if="comment!=''")
+                            .comment(v-if="gamecom=='bad'" key="4")
+                                img(:src="comment" v-if="comment!=''")
+                        .word
+                            .front
+                                img(src="images/level-word3-front.png")
+                            .back
+                                .mask.mask1
+                                    img(src="images/level-word3-back_01.png")
+                                .mask.mask2
+                                    img(src="images/level-word3-back_02.png")
+                                .mask.mask3
+                                    img(src="images/level-word3-back_03.png")
+                                .mask.mask4
+                                    img(src="images/level-word3-back_04.png")
+                                .mask.mask5
+                                    img(src="images/level-word3-back_05.png")
+                                .mask.mask6
+                                    img(src="images/level-word3-back_06.png")
+                                .mask.mask7
+                                    img(src="images/level-word3-back_07.png")
+                                .mask.mask8
+                                    img(src="images/level-word3-back_08.png")
+                                .mask.mask9
+                                    img(src="images/level-word3-back_09.png")
+                                .mask.mask10
+                                    img(src="images/level-word3-back_10.png")
+                                .mask.mask11
+                                    img(src="images/level-word3-back_11.png")
+                                .mask.mask12
+                                    img(src="images/level-word3-back_12.png")
+                        #d
+            .step(v-if="stepPage=='success'" key="5").success
+                h2
+                    img(src="images/victory.png")
+                .content
+                    .textbox
+                        h3 獲得抽獎資格!
+                        .img
+                            img(src="images/game-pd.png")
+                        p.big “1到10分，我給11分”
+                        p 能量滿點的你，我覺得很可以！
+                        .btn(@click="golotter" gtm-data="遊戲_立即抽獎")
+                            img(src="images/btn-lottery.png" gtm-data="遊戲_立即抽獎")
+                        p 成功挑戰全部關卡者
+                        p 中獎機會越高!
+            .step(v-if="stepPage=='fail'" key="6").fail
+                h2
+                    img(src="images/defeat.png")
+                .content
+                    .textbox
+                        .img
+                            img(src="images/game-pd.png")
+                        p.big “一句話，加油好嗎！”
+                        p 再來瓶康貝特補充能量，讓聲音宏亮！建議您跟著拍子持續大聲唱出聲音
+                        .btn(@click="playagain" gtm-data="遊戲_再次挑戰")
+                            img(src="images/btn-retry.png" gtm-data="遊戲_再次挑戰")
+                        .btn(@click="conplay" gtm-data="遊戲_重選關卡")
+                            img(src="images/btn-sellv.png" gtm-data="遊戲_重選關卡")
+            .step(v-if="stepPage=='loydata'" key="7").loydata
+                h2
+                    img(src="images/loydata-title.png")
+                .content
+                    .textbox
+                        .fbpic
+                            img(:src="fbData.fbPic" v-if="fbData.fbPic")
+                        p.fbname {{fbData.fbName}}
+                        .form
+                            ul
+                                li
+                                    input(type="tel" placeholder="輸入手機號碼ex:0912345678" maxlength="10" v-model="userPhone")
+                                li.agree
+                                    input#agree(type="checkbox" v-model="agree")
+                                    label(for="agree") 我已詳閱《好運鼠來寶》活動辦法和個資法相關聲明，並同意提供個人資料做為日後相關活動使用。
+                    .btn(@click="goData" gtm-data="填寫抽獎資料_送出")
+                        img(src="images/btn-send.png" gtm-data="填寫抽獎資料_送出")
+            .step(v-if="stepPage=='done'" key="8").done
+                h2
+                    img(src="images/done-title.png")
+                .hdcon
+                    p 成功挑戰三個關卡
+                        br
+                        | 還有機會帶走Apple Watch
+                    .btn(@click="conplay" gtm-data="填寫抽獎資料_繼續挑戰")
+                        img(src="images/btn-continue.png" alt="繼續挑戰" gtm-data="填寫抽獎資料_繼續挑戰")
+                .content
+                    .textbox
+                        .img
+                            img(src="images/GOLD-omuse.png")
+                        p.small (圖片僅供示意)
+                        p 參加登錄發票活動再抽
+                        p.awardtxt 十萬元黃金鼠
+                        .btnarea
+                            a.btn(href="index.html#inv_event" title="怎麼抽跟我來" gtm-data="填寫抽獎資料_怎麼抽")
+                                img(src="images/btn-fllow.png" gtm-data="填寫抽獎資料_怎麼抽")
+        .result
+            button#p(@click="startGame()") 遊戲開始
+            button#s 結束
+            button#test(@click="testStart()") 收音測試
+            ul#recordingslist
+            br
+            p 收音平均數據: {{deScore}}
+            br

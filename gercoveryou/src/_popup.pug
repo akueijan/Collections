@@ -1,0 +1,83 @@
+﻿transition(name="fade")
+    .popup(v-if="popup")
+        .events(v-if="poPage=='events'")
+            .popclose(@click="popClose")
+            h2
+                img(src="images/events-title.png")
+            .content
+                ul
+                    li
+                        h3 活動期間
+                        p 2020/6/1至2020/6/19(五)
+                    li
+                        h3 活動對象
+                        p 擁有Instagram (以下稱「IG」) 帳號之使用者。
+                    li
+                        h3 活動內容
+                        p 如何獲得抽獎資格：
+                            br
+                            | 
+                            span.red 步驟一
+                            | ：活動期間追蹤郵政鴿Instagram帳號「ger_cover_you」
+                            a(href="https://pse.is/S2SKG" target="_blank") https://pse.is/S2SKG
+                            br
+                            br
+                            span.red 步驟二
+                            | ：活動期間內，使用郵政鴿 IG濾鏡挑戰搶存在感，並將影片上傳至個人IG限時動態，且IG帳號須設定公開。
+                            br
+                            br
+                            span.red 步驟三
+                            | ：於個人IG限動標記郵政鴿IG帳號「@ger_cover_you」、並標註兩位朋友「@xxx @xxx」即可獲得抽獎資格。（共抽出200名，不得重複獲獎）
+                    li
+                        h3 活動注意事項
+                        ul.list-1
+                            li
+                                p 參加本活動則視為同意本活動之活動辦法與注意事項。
+                            li
+                                p 本活動由中華郵政及Visa金融卡舉辦，並委由春樹科技股份有限公司(以下稱主辦單位)製作執行，主辦單位保留審核資格，決定修正及變更活動內容之權利。消費者如有任何疑問，請來信
+                                    span.blue service@friendo.com.tw
+                                    | 詢問。
+                            li
+                                p 活動辦法、期間及相關詳情，以活動網站之公告為準，主辦單位保有修改、變更、終止及解釋活動內容之權利，如有任何變更將公布於活動網站，恕不另行通知。
+                            li
+                                p 參加者帳號若使用假帳號或2個(含)以上帳號，等違反公平性行為參加活動，經由主辦單位發現則有權取消得獎資格。
+                            li
+                                p 參加本活動所提供之限時動態資料，視同個人資料保護法授權並同意可做為本活動行銷使用，主辦單位可逕行將消費者之限時動態分享至活動帳號IG。
+                            li
+                                p 活動獎項包含7-ELEVEN 200元購物金、共200名，獎項為活動結束後由主辦單位以電腦系統隨機抽選。每一獎項每帳號僅限得乙次，票券經兌換後不得重複使用，請妥善保管獎項序號。
+                            li
+                                p 得獎公告時間為2020/6/29 (一) 於IG活動帳號及活動網站公告得獎名單，得獎者須於活動公告後3個工作天內私訊提供限時動態截圖證明，主辦單位收到後將確認得獎者是否符合得獎資格。未於指定時間內提供證明，視同放棄得獎資格。
+                            li
+                                p 主辦單位將於確認得獎資格後的7個工作天內派發虛擬電子票券至得獎者之IG收件夾，得獎者可於IG訊息中查收電子票券，並截圖下載使用。如未收到訊息，請留意收件夾，獎項序號請截圖保管，遺失恕不再重複派發。
+                            li
+                                p 使用活動獎項票券請至全台7-ELEVEN便利商店櫃台直接出示本券掃碼兌換(請將螢幕亮度調到最大)，本活動購物金僅限於實體門市使用，詳細使用說明參閱宜睿電子券須知。
+                            li
+                                p 本活動序號券使用期限，以票面為準，請於使用期限內使用完畢，若因故逾期，恕無法補發，且獎品不得要求折換現金。
+                            li
+                                p 活動參加者如違反本活動之活動辦法及相關注意事項之行為，主辦單位得取消其得獎資格。
+                            li
+                                p 本活動票券使用規範以宜睿智慧股份有限公司為準，若有票券相關使用規範疑問，請洽宜睿智慧客服窗口：
+                                    br
+                                    | 
+                                    span.blue Ticketxpress-cs-tw@edenred.com
+        .toplay(v-if="poPage=='toplay'")
+            .popclose(@click="popClose")
+            h2
+                img(src="images/toig-title.png")
+            .content
+                ul
+                    li
+                        p 使用鴿挺你濾鏡
+                            br
+                            | 拍攝上傳到IG限時動態
+                    li
+                        p 標記並追蹤
+                            br
+                            | 「
+                            span.red @ger_cover_you
+                            | 」
+                            br
+                            | 和＠兩名好友即可抽200元超商購物金！
+                a(:href="gameLink" target="_blank" :gtm-data="gtmdata").btn-toig
+                    img(src="images/btn-toig.png" :gtm-data="gtmdata")
+                p.ps (詳情請見活動辦法)

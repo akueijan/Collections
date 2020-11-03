@@ -1,0 +1,172 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "期間限定! Visa線上賞櫻團"
+    - var pageDesc = "不想錯過一期一會的櫻花季? 立即邀請好友入席線上賞櫻, 紀錄2020年專屬櫻花紀念,加碼再抽最高百元超商購物金!"
+    - var pageJs = "game.js"
+    - var moreJs = ["tranbg.js"]
+    - var isVue = true
+//- page html
+block page_main
+    section.game
+        //- canvas#canvas
+        transition(name="fade" mode="out-in")
+            .step.step1(v-show="stepPage=='1'" key="1")
+                transition(name="fade" mode="out-in")
+                    .scenes.scenes1(v-show="scenPage=='1'" key="1")
+                        .word1
+                            //- img(src="images/step1_txt.png")
+                            p 傳說中看見櫻吹雪
+                                br
+                                | 就是一年美好的開始
+                                br
+                                br
+                                | 是時候揪人賞櫻了!
+                transition(name="fade" mode="out-in")
+                    .scenes.scenes2(v-show="scenPage=='2'" key="2")
+                        h2
+                            img(src="images/step1-sce2-title.png")
+                        ul
+                            li.selbtn1(@click="step_sel('family')" gtm-data="揪家人")
+                                img(src="images/sel-family.png" gtm-data="揪家人")
+                            li.selbtn2(@click="step_sel('bf')" gtm-data="揪哥們")
+                                img(src="images/sel-bf.png" gtm-data="揪哥們")
+                            li.selbtn3(@click="step_sel('gf')" gtm-data="揪閨蜜")
+                                img(src="images/sel-gf.png" gtm-data="揪閨蜜")
+                            li.selbtn4(@click="step_sel('lover')" gtm-data="揪情人")
+                                img(src="images/sel-love.png" gtm-data="揪情人")
+        transition(name="fade" mode="out-in")
+            .step.step2(v-show="stepPage=='2'" key="2")
+                transition(name="fade" mode="out-in")
+                    .scenes.scenes1(v-show="scenPage=='1'" key="1")
+                        .stationbg
+                        .wordbg
+                            .txt
+                                p 出發賞櫻 GOGO!
+                        .shock
+                            .content
+                                img(src="images/icon-shock.png")
+                                p 售票機竟然大排長龍!
+                                    br
+                                    | 這人潮太不科學了…
+                transition(name="fade" mode="out-in")
+                    .scenes.scenes2(v-show="scenPage=='2'" key="2")
+                        .stationbg
+                        .hand
+                            img(src="images/step2-hand.png")
+                        //- .alert
+                        //-     img(src="images/icon-bi.png")
+                        .wordbg
+                            .txt
+                                p 幸好!!!
+                                    br
+                                    | 我都用Visa儲值交通票券
+                                    br
+                                    | 手機直接嗶不用排隊買票~
+        transition(name="fade" mode="out-in")
+            .step.step3(v-show="stepPage=='3'" key="3")
+                transition(name="fade" mode="out-in")
+                    .scenes.scenes1(v-show="scenPage=='1'" key="1")
+                        .storebg
+                        .wordbg
+                            .txt
+                                p 賞櫻就該配美食~
+                                    br
+                                    | 先來便利商店逛逛吧!
+                        .selbox
+                            h2
+                                img(src="images/step3-sel-title.png")
+                            ul
+                                li.selbtn1(@click="step3_sel('sasimi')" gtm-data="生魚片")
+                                    img(src="images/sel-sasimi.png" gtm-data="生魚片")
+                                li.selbtn2(@click="step3_sel('tea')" gtm-data="午茶組")
+                                    img(src="images/sel-tea.png" gtm-data="午茶組")
+                                li.selbtn3(@click="step3_sel('food')" gtm-data="野餐組")
+                                    img(src="images/sel-food.png" gtm-data="野餐組")
+                        .shock
+                            .content
+                                img(src="images/icon-shock.png")
+                                p 前面的人是在 hello ?
+                                    br
+                                    | 付錢付太久了吧...
+                transition(name="fade" mode="out-in")
+                    .scenes.scenes2(v-show="scenPage=='2'" key="2")
+                        .storebg
+                        .hand
+                            img(src="images/step3-hand.png")
+                        .wordbg
+                            .txt
+                                p 跟我一樣刷卡
+                                    br
+                                    | 就不用排隊結帳啦~
+        transition(name="fade" mode="out-in")
+            .step.step4(v-show="stepPage=='4'" key="4")
+                transition(name="fade" mode="out-in")
+                    .scenes.scenes1(v-show="scenPage=='1'" key="1")
+                        .machinebg
+                        .wordbg
+                            .txt
+                                p 咦? 這裡有台販賣機耶!
+                                    br
+                                    | 買點助興小物Chill一下~
+                        .selbox
+                            h2
+                                img(src="images/step4-sel-title.png")
+                            ul
+                                li.selbtn1(@click="step4_sel('kol')" gtm-data="拍照道具")
+                                    img(src="images/sel-kol.png" gtm-data="拍照道具")
+                                li.selbtn2(@click="step4_sel('sing')" gtm-data="卡拉OK")
+                                    img(src="images/sel-sing.png" gtm-data="卡拉OK")
+                                li.selbtn3(@click="step4_sel('tgame')" gtm-data="櫻花桌遊")
+                                    img(src="images/sel-tgame.png" gtm-data="櫻花桌遊")
+                        .shock
+                            .content
+                                img(src="images/icon-shock.png")
+                                p 要投幣才發現
+                                    br
+                                    | 身上竟然沒零錢...
+                transition(name="fade" mode="out-in")
+                    .scenes.scenes2(v-show="scenPage=='2'" key="2")
+                        .machinebg
+                        .hand
+                            img(src="images/step4-hand.png")
+                        .alert
+                            img(src="images/icon-bi.png")
+                        .wordbg
+                            .txt
+                                p 幸好販賣機可以刷卡
+                                    br
+                                    | 不怕身上沒零錢~
+        transition(name="fade" mode="out-in")
+            .step.step5(v-show="stepPage=='5'" key="5")
+                transition(name="fade" mode="out-in")
+                    .scenes.scenes1(v-show="scenPage=='1'" key="1")
+                        .parkbg
+                            img(src="images/step5bg-1.jpg")
+                        .wordbg
+                            .word1
+                                p 抵達公園準備賞櫻~
+                            .word2
+                                p 哇! 是傳說中的櫻吹雪!
+                                    br
+                                    | 看到這一幕真是太幸運了~
+                transition(name="fade" mode="out-in")
+                    .scenes.scenes2(v-show="scenPage=='2'" key="2")
+                        .canarea
+                            canvas#rescan
+                        .content
+                            .name
+                                p {{fbData.fbName}}
+                        .btnarea
+                            .btn-replay(@click="replay" gtm-data="重新賞櫻")
+                                img(src="images/btn-replay.png" alt="重新賞櫻" gtm-data="重新賞櫻")
+                            .btn-share(@click="sendImg" gtm-data="邀請好友")
+                                img(src="images/btn-share.png" alt="邀請好友抽購物金" gtm-data="邀請好友")
+                        .note
+                            img(src="images/sharetxt.png" alt="邀請好友入席賞櫻")
+        .trans
+        .mask
+        transition(name="fade" mode="out-in")
+            .transpage(v-show="transPage")
+                main#tranarea

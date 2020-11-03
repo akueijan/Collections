@@ -1,0 +1,221 @@
+.popup 
+    display: block
+    background: rgba(#000000, 1)
+    position: fixed
+    top: 0
+    left: 50%
+    width: 100%
+    max-width: 750px
+    height: 100vh
+    // height: 1334px
+    overflow: hidden
+    transform: translateX(-50%)
+    z-index: 99
+    & img 
+        width: 100%
+        height: auto
+    &__area 
+        position: relative
+    
+    &__content 
+        position: relative
+        height: 80vh
+        overflow: scroll
+        padding: 0 15px
+        width: 80%
+        margin: 100px auto 0
+        text-align: center
+        //-webkit-overflow-scrolling:touch
+        &::-webkit-scrollbar 
+            display: none
+        
+    &__close 
+        top: -70px
+        right: 30px
+        font-size: 30px
+        width: 50px
+        height: 50px
+        line-height: 50px
+        text-align: center
+        background: #aaa
+        color: #fff
+        border-radius: 50%
+        position: absolute
+        cursor: pointer
+        &:before
+            content: "✖"
+    
+    .anipage
+        width: 100%
+        height: 1334px
+        background: url(../images/popanibg.jpg) center top no-repeat
+        background-size: cover
+        position: relative
+        +rwd($pad)
+            height: 100%
+        .content
+            width: 2140px
+            position: absolute
+            bottom: 0
+            left: -550px
+        .door
+            width: 674px
+            position: absolute
+            top: 270px
+            left: 600px
+    .slickpage
+        width: 100%
+        height: 1334px
+        background: url(../images/pop-slickbg.jpg) center top no-repeat
+        background-size: 100% 100%
+        position: relative
+        padding: 75px 93px 0
+        +rwd($pad)
+            height: 100%
+        .close
+            width: 80px
+            cursor: pointer
+            position: absolute
+            top: 0
+            right: 0
+        .content
+            position: relative
+            width: 509px
+            height: 822px
+            background: url(../images/slickbg.png) center top no-repeat
+            background-size: cover
+            margin: 20px auto 0
+            padding: 30px 0 0 0
+        .btn-prev
+            width: 67px
+            position: absolute
+            top: 50%
+            left: 0
+            transform: translate(-50%, -50%)
+            cursor: pointer
+            z-index: 9
+        .btn-next
+            width: 67px
+            position: absolute
+            top: 50%
+            right: 0
+            transform: translate(50%, -50%) rotate(180deg)
+            cursor: pointer
+            z-index: 9
+        .slickblock
+            width: 509px
+            text-align: center
+            margin: -60px auto 0
+        .slickbox
+            width: 400px
+            position: relative
+        .steptitle
+            width: 186px
+            margin: 0 auto 23px
+        .slickstep
+            width: 375px
+            height: 100%
+            margin: 0 auto
+        h3
+            font-size: 28px
+            color: #e4e4e4
+            line-height: 1.2
+            // margin: 0 auto 15px
+            height: 70px
+        .img
+            width: 375px
+            margin: 0 auto
+        .poplink
+            display: inline-block
+            margin: 60px auto 0
+            width: 507px
+        .decoline
+            width: 200px
+            height: 53px
+            border-radius: 10px
+            border: 8px solid #ffa233
+            position: absolute
+        .decohand
+            width: 81px
+            height: 76px
+            background: url(../images/pop-hand.png) center top no-repeat
+            background-size: cover
+            position: absolute
+        .long
+            width: 326px
+    .fixed
+        .img
+            width: 326px
+        .deco1
+            position: absolute
+            bottom: 148px
+            left: 50%
+            transform: translateX(-50%)
+        .deco2
+            width: 303px
+            top: 356px
+            left: 100px
+        .deco3
+            width: 303px
+            top: 442px
+            left: 100px
+        .deco4
+            width: 303px
+            top: 300px
+            left: 100px
+        .deco5
+            width: 303px
+            top: 476px
+            left: 100px
+        .deco6
+            width: 303px
+            bottom: 16px
+            left: 100px
+        .deco7
+            width: 303px
+            bottom: 32px
+            left: 100px
+        .hand1
+            bottom: 100px
+            right: 115px
+        .hand2
+            bottom: 288px
+            right: 55px
+        .hand3
+            bottom: -5px
+            right: 55px
+        .hand4
+            bottom: 0
+            right: 55px
+    .exchange
+        .slickbox
+            .img
+                height: 656px
+                width: auto
+                img
+                    width: auto
+                    margin: 0 auto
+                    height: 100%
+                    max-width: none
+        .deco1
+            width: 182px
+            height: 67px
+            top: 250px
+            left: 85px
+        .deco2
+            width: 182px
+            height: 67px
+            top: 250px
+            left: 244px
+        .hand1
+            top: 290px
+            left: 240px
+        .hand2
+            top: 290px
+            left: 400px
+        .poplink
+            display: inline-block
+            margin: 70px auto 0
+            width: 507px
+        
+    

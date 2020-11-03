@@ -1,0 +1,171 @@
+﻿transition(name="fade")
+    .popup(v-if="popup")
+        .anipage(v-if="popPage")
+            .content
+                img(src="images/anicar.png")
+                .door
+                    img(src="images/anidoor.png")
+        transition(name="fade")
+            .slickpage(v-if="slickPage=='notice'" key="notice")
+                .close(@click="popClose")
+                    img(src="images/menu-close.png")
+                h2
+                    img(src="images/notice-title.png")
+                .content
+                    .btn-prev
+                        img(src="images/pop-arr.png")
+                    .btn-next
+                        img(src="images/pop-arr.png")
+                    .slickblock
+                        .slickbox
+                            .steptitle
+                                img(src="images/pop-step1.png")
+                            h3 進入Richart LINE點擊【更多服務】
+                            .img
+                                img(src="images/notice-pic1.png")
+                        .slickbox
+                            .steptitle
+                                img(src="images/pop-step2.png")
+                            h3 選擇【設定匯率到價通知】
+                            .img
+                                img(src="images/notice-pic2.png")
+                        .slickbox
+                            .steptitle
+                                img(src="images/pop-step3.png")
+                            h3 進行綁定個人化服務3步驟
+                            .slickstep
+                                .img
+                                    img(src="images/notice-pic3.png")
+                                .img
+                                    img(src="images/notice-pic4.png")
+                                .img
+                                    img(src="images/notice-pic5.png")
+                        .slickbox
+                            .steptitle
+                                img(src="images/pop-step4.png")
+                            h3 確認【身分驗證】
+                            .img
+                                img(src="images/notice-pic6.png")
+                        .slickbox
+                            .steptitle
+                                img(src="images/pop-step5.png")
+                            h3 設定最低價通知幣別
+                            .img
+                                img(src="images/notice-pic7.png")
+                        .slickbox
+                            .steptitle
+                                img(src="images/pop-step6.png")
+                            h3 選擇【幣別】與輸入【通知匯率】
+                            .img.long
+                                img(src="images/notice-pic8.png")
+                    a.poplink(href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1515344613&&state=ok&bot_prompt=aggressive&scope=openid%20profile&redirect_uri=https://richart.tw/TSDIB_RichartWeb/RC08/Line11&utm_source=line&utm_medium=click&utm_campaign=chefevent_202006&utm_content=mission1_start2" title="立即設定外幣到價通知" target="_blank" gtm-data="任務1_到價通知_教學_立即設定")
+                        img(src="images/btn-notice.png" alt="立即設定外幣到價通知" gtm-data="任務1_到價通知_教學_立即設定")
+            .slickpage.fixed(v-if="slickPage=='fixed'" key="fixed")
+                .close(@click="popClose")
+                    img(src="images/menu-close.png")
+                h2
+                    img(src="images/fixed-title.png")
+                .content
+                    .btn-prev
+                        img(src="images/pop-arr.png")
+                    .btn-next
+                        img(src="images/pop-arr.png")
+                    .slickblock
+                        .slickbox
+                            .steptitle
+                                img(src="images/pop-step1.png")
+                            h3 點選「總覽」中的
+                                br
+                                | 「定存」功能，並點選「申辦定存」
+                            .img
+                                img(src="images/fixed-pic1.png")
+                            .decoline.deco1
+                            .decohand.hand1
+                        .slickbox
+                            .steptitle
+                                img(src="images/pop-step2.png")
+                            h3 選擇要定存的「外幣」、「定存類型」
+                            .img
+                                img(src="images/fixed-pic2.png")
+                            .decoline.deco2
+                            .decoline.deco3
+                            .decohand.hand2
+                        .slickbox
+                            .steptitle
+                                img(src="images/pop-step3.png")
+                            h3 選擇「定存期間」、
+                                br
+                                | 填寫「存款金額」，並同意條款
+                            .img
+                                img(src="images/fixed-pic3.png")
+                            .decoline.deco4
+                            .decoline.deco5
+                            .decoline.deco6
+                            .decohand.hand3
+                        .slickbox
+                            .steptitle
+                                img(src="images/pop-step4.png")
+                            h3 確認定存資訊，並輸入使用者密碼
+                            .img
+                                img(src="images/fixed-pic4.png")
+                            .decoline.deco7
+                            .decohand.hand4
+                        .slickbox
+                            .steptitle
+                                img(src="images/pop-step5.png")
+                            h3 外幣定存申請完成！
+                            .img
+                                img(src="images/fixed-pic5.png")
+                    a.poplink(href="https://richart.tw/TSDIB_RichartWeb/RC04/RC040302?openpage=exchangeRate&utm_source=app&utm_medium=click&utm_campaign=chefevent_202006&utm_content=mission3_start2" title="立即承作外幣定存" target="_blank" gtm-data="任務3_外幣定存_教學_立即承作")
+                        img(src="images/btn-fixed.png" alt="立即承作外幣定存" gtm-data="任務3_外幣定存_教學_立即承作")
+            .slickpage.exchange(v-if="slickPage=='exchange'" key="exchange")
+                .close(@click="popClose")
+                    img(src="images/menu-close.png")
+                h2
+                    img(src="images/exchange-title.png")
+                .content
+                    .btn-prev
+                        img(src="images/pop-arr.png")
+                    .btn-next
+                        img(src="images/pop-arr.png")
+                    .slickblock
+                        .slickbox
+                            .steptitle
+                                img(src="images/pop-step1.png")
+                            h3 點選「總覽」中的「外匯」
+                                br
+                                | 功能，並點選「匯率表」中的前往換匯
+                            .img
+                                img(src="images/exchange-pic1.png")
+                        .slickbox
+                            .steptitle
+                                img(src="images/pop-step2.png")
+                            h3 選擇要兌換的外幣，並選擇交易性質
+                                br
+                                | (幣別任選)
+                            .img
+                                img(src="images/exchange-pic2.png")
+                            .decoline.deco1
+                            .decohand.hand1
+                        .slickbox
+                            .steptitle
+                                img(src="images/pop-step3.png")
+                            h3 輸入兌換外幣金額
+                            .img
+                                img(src="images/exchange-pic2.png")
+                            .decoline.deco2
+                            .decohand.hand2
+                        .slickbox
+                            .steptitle
+                                img(src="images/pop-step4.png")
+                            h3 確認換匯資訊，並輸入使用者密碼
+                            .img
+                                img(src="images/exchange-pic4.png")
+                        .slickbox
+                            .steptitle
+                                img(src="images/pop-step5.png")
+                            h3 線上換匯成功！
+                            .img
+                                img(src="images/exchange-pic5.png")
+                    a.poplink(href="https://richart.tw/TSDIB_RichartWeb/RC04/RC040302?openpage=exchangeRate&utm_source=app&utm_medium=click&utm_campaign=chefevent_202006&utm_content=mission2_start2" title="立即兌換外幣" target="_blank" gtm-data="任務2_兌換外幣_教學_立即兌換")
+                        img(src="images/btn-exchange.png" alt="立即兌換外幣" gtm-data="任務2_兌換外幣_教學_立即兌換")

@@ -1,0 +1,102 @@
+﻿.game
+    position: relative
+    background: #ffffff
+    .intro
+        width: 750px
+        height: 100vh
+        background: url(../images/introbg.jpg) center top no-repeat
+        background-size: cover
+        position: relative
+        .word
+            width: 639px
+            height: 429px
+            background: url(../images/wordbg.png) center top no-repeat
+            background-size: cover
+            position: absolute
+            top: 166px
+            left: 50%
+            transform: translateX(-50%)
+            text-align: center
+            padding: 95px 0 0 0
+            p
+                color: #333333
+                font-size: 45px
+                line-height: 1.5
+                position: relative
+                &:after
+                    content: ""
+                    width: 38px
+                    height: 31px
+                    background: url(../images/btn-intro.png) center center no-repeat
+                    background-size: cover
+                    position: absolute
+                    bottom: 18px
+                    right: 60px
+    .gamearea
+        width: 100%
+        height: 100%
+        position: relative
+        .btn-prev
+            position: absolute
+            top: 757px
+            left: 46px
+            width: 88px
+            transform: rotate(180deg)
+            z-index: 2
+        .btn-next
+            position: absolute
+            top: 757px
+            right: 46px
+            width: 88px
+            z-index: 2
+    .gameslick
+    .gameblock
+        width: 750px
+        height: 100vh
+        position: relative
+        padding: 44px 0 0 0
+        text-align: center
+        h2
+            text-align: center
+            margin: 0 auto
+        a
+            display: inline-block
+            width: 452px
+            margin: 0 auto
+        .btn-play
+            cursor: pointer
+            width: 452px
+            margin: 0 auto
+    .game1
+        background: url(../images/game1bg.jpg) center top no-repeat
+        background-size: cover
+        h2
+            width: 571px
+        .btn-next
+            position: absolute
+            top: 757px
+            right: 46px
+            width: 88px
+    .game2
+        background: url(../images/game2bg.jpg) center top no-repeat
+        background-size: cover
+        h2
+            width: 571px
+    .game3
+        background: url(../images/game3bg.jpg) center top no-repeat
+        background-size: cover
+        h2
+            width: 629px
+        .btn-prev
+            position: absolute
+            top: 757px
+            left: 46px
+            width: 88px
+            transform: rotate(180deg)
+    .btn-home
+        width: 100px
+        position: absolute
+        bottom: 30px
+        left: 30px
+    .red
+        color: #cb0016

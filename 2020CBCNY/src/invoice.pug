@@ -1,0 +1,44 @@
+﻿extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "好運鼠來寶 登錄發票抽十萬元黃金鼠"
+    - var pageDesc = "購買康貝特系列及PowerBOMB，登錄發票抽十萬元黃金鼠，加碼週週抽現金8888元等多項好禮！參加遊戲挑戰抽Apple Watch！"
+    - var pageJs = "invoice.js"
+    - var isVue = true
+//- page html
+block page_main
+    section.invoice
+        .hd
+            h2
+                img(src="images/invoice-title.png")
+            p 本活動僅限登錄紙本電子發票；若電子發票存於載具
+                br
+                | 請務必於購買活動指定商品時告知店家
+                span.highline 『印出紙本發票及明細』
+        .content
+            form.form(@submit.prevent = "saveInvo()")
+                ul.formbg
+                    li
+                        label(for="date") 發票期別
+                        select#date(v-model="inv_date")
+                            option(disabled value="") 請選擇期別
+                            option(value="2020-01-01") 109年 1月-2月
+                            option(value="2020-03-01") 109年 3月-4月
+                    li.flex
+                        .ticnum
+                            label(for="number") 發票號碼
+                            input#number(type="text" placeholder="格式:AB12345678" maxlength="10" v-model="inv_num")
+                        .ticran
+                            label(for="random") 隨機碼
+                            input#random(type="text" placeholder="請輸入4位數字" maxlength="4" v-model="inv_random")
+                    li
+                        label(for="mobile") 手機號碼
+                        input#mobile(type="tel" placeholder="格式:0912345678" maxlength="10" v-model="mobile")
+                    li.agree
+                        input#agree(type="checkbox" v-model="agree")
+                        label(for="agree") 我已詳閱《好運鼠來寶》活動辦法和個資法相關聲明，並同意提供個人資料做為日後相關活動使用。
+                .btnarea
+                    .sample(@click="sampleOpen" gtm-data="登錄發票_電子發票範例")
+                        img(src="images/btn-sample.png" gtm-data="登錄發票_電子發票範例")
+                    .send(gtm-data="登錄發票_送出")
+                        button(type="submit" gtm-data="登錄發票_送出") 送出

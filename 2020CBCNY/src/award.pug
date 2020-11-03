@@ -1,0 +1,91 @@
+﻿extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "得獎名單｜好運鼠來寶 有能量就是帥｜康貝特"
+    - var pageDesc = "新春開工大禮包將於2020年4月14日公布得獎名單、鼠來寶運週週抽將於2020年2月19日起公布得獎名單、好運鼠來寶將於2020年4月14日公布得獎名單。"
+    - var pageJs = "award.js"
+    - var isVue = true
+//- page html
+block page_main
+    section.award
+        h2
+            img(src="images/award-title.png" alt="得獎名單")
+            //- img(src="images/mb-award-title.png" alt="得獎名單" v-if="isMobile")
+        .content
+            .bigaward
+                .title
+                    img(src="images/bigaward-title.png")
+                p 於2020年04月14日(二)公布得獎名單
+                .txt.nodata(v-if="!hasBig") 尚未公布，敬請期待
+                .txt(v-if="hasBig" v-for="items in awardlist.cash100000")
+                    span.mobile {{items.Mobile}}
+                    span.ticket {{items.ReferenceInfo}}
+            .weekaward
+                .title
+                    img(src="images/weekaward-title.png")
+                p 自2020年2月19日起每週三公布得獎名單，共八週
+                    br
+                    | (遇連假延後至下一個工作日公布，詳見活動辦法)。
+                ul
+                    li(@click="weekShow(1)")
+                        h3 第一週得獎名單
+                        p 公佈時間02/19
+                    li(@click="weekShow(2)")
+                        h3 第二週得獎名單
+                        p 公佈時間02/26
+                    li(@click="weekShow(3)")
+                        h3 第三週得獎名單
+                        p 公佈時間03/04
+                    li(@click="weekShow(4)")
+                        h3 第四週得獎名單
+                        p 公佈時間03/11
+                    li(@click="weekShow(5)")
+                        h3 第五週得獎名單
+                        p 公佈時間03/18
+                    li(@click="weekShow(6)")
+                        h3 第六週得獎名單
+                        p 公佈時間03/25
+                    li(@click="weekShow(7)")
+                        h3 第七週得獎名單
+                        p 公佈時間04/01
+                    li(@click="weekShow(8)")
+                        h3 第八週得獎名單
+                        p 公佈時間04/14
+            .gameaward
+                .title
+                    img(src="images/gameaward-title.png")
+                .block.applewatch
+                    .awtitle
+                        img(src="images/applewatch-title.png")
+                    p 於2020年04月14日(二)公布得獎名單
+                    ul
+                        li.nodata(v-if="!hasBig") 尚未公布，敬請期待
+                        li(v-if="hasBig" v-for="items in awardlist.appleWatch")
+                            .pic
+                                img(:src="items.PhotoLink")
+                            .name {{ items.ReferenceInfo }}
+                            .mobile {{ items.Mobile }}
+                .block.sogo200
+                    .awtitle
+                        img(src="images/sogo200-title.png")
+                    p 於2020年04月14日(二)公布得獎名單
+                    .listbg
+                        ul
+                            li.nodata(v-if="!hasBig") 尚未公布，敬請期待
+                            li(v-if="hasBig" v-for="items in awardlist.sogo200")
+                                .pic
+                                    img(:src="items.PhotoLink")
+                                .name {{ items.ReferenceInfo }}
+                                .mobile {{ items.Mobile }}
+                .block.joinaward
+                    .awtitle
+                        img(src="images/joinaward-title.png")
+                    p 於2020年04月14日(二)公布得獎名單
+                    .listbg
+                        ul
+                            li.nodata(v-if="!hasBig") 尚未公布，敬請期待
+                            li(v-if="hasBig" v-for="items in awardlist.cvs50")
+                                .pic
+                                    img(:src="items.PhotoLink")
+                                .name {{ items.ReferenceInfo }}
+                                .mobile {{ items.Mobile }}

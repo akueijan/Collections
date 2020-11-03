@@ -1,0 +1,814 @@
+.index
+    position: relative
+    min-height: 100vh
+.pcindex
+    width: 100%
+    height: 100%
+    background: url(../images/pcindex-bg.jpg) center top no-repeat
+    padding: 60px 0 0 0
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 999
+    text-align: center
+    h2
+        // max-width: 1183px
+        // width: percentage(1183/1920)
+        max-height: 242px
+        height: percentage(242/1080)
+        margin: 0 auto
+        img
+            width: auto
+            height: 100%
+            max-width: none
+    .content
+        height: 100%
+        margin: 0 auto
+        position: relative
+    .car
+        // max-width: 1807px
+        // width: percentage(1807/1920)
+        max-height: 721px
+        height: percentage(721/1080)
+        position: absolute
+        bottom: 0
+        left: 50%
+        transform: translateX(-50%)
+        img
+            width: auto
+            height: 100%
+            max-width: none
+    .qrcode
+        // max-width: 345px
+        // width: percentage(345/1300)
+        max-height: 344px
+        height: percentage(344/1080)
+        position: absolute
+        top: 27%
+        left: 55%
+        img
+            width: auto
+            height: 100%
+            max-width: none
+
+.kv
+    width: 750px
+    height: 1334px
+    position: relative
+    background: url(../images/kv-bg.jpg) center top no-repeat
+    background-size: cover
+    padding: 12vh 0 0 0
+    text-align: center
+    position: relative
+    overflow: hidden
+    .slogn
+        width: 722px
+        margin: 0 auto
+        img
+            position: relative
+            z-index: 2
+        // padding: 110px 0 0 0
+        .underline
+            width: 0
+            position: absolute
+            top: 115px
+            left: 290px
+            z-index: 1
+            overflow: hidden
+            transition: 0.6s
+        .udline-active
+            width: 254px
+            transition: 0.6s
+    h3
+        font-size: 28px
+        line-height: 1.4
+        color: #ffffff
+        text-align: center
+        margin: 15px auto 0
+        transform: rotate(-3deg) skewX(-15deg)
+        transform-origin: bottom left
+        display: inline-block
+    .content
+        width: 100%
+        position: relative
+        margin: 25px 0 0 0
+    .warning
+        width: 427px
+        position: absolute
+        top: 0
+        left: 50%
+        transform: translateX(-50%)
+        opacity: 0.4
+    .warning-active
+        animation: warningshine 3s 3s infinite
+    .car
+        width: 750px
+        height: 639px
+        background: url(../images/kv-car-light.png) center top no-repeat
+        background-size: 100% auto
+        position: absolute
+        top: 46px
+        transition: 0.6s
+        filter: brightness(40%)
+    .car-active
+        // width: 750px
+        // height: 639px
+        // background: url(../images/kv-car-light.png) center top no-repeat
+        // background-size: 100% auto
+        transition: 0.6s
+        filter: brightness(100%)
+    .fogleft
+        width: 558px
+        position: absolute
+        top: -150px
+        left: 0
+        transform-origin: bottom right
+    .fogright
+        width: 575px
+        position: absolute
+        top: -150px
+        right: 0
+        transform-origin: bottom left
+    .acbtn
+        width: 531px
+        cursor: pointer
+        position: absolute
+        top: 560px
+        left: 130px
+        // transform: translateX(-50%)
+        z-index: 2
+        // transition: 0.3s
+    .acbtn-active
+        background-image: url(../images/kv-acbtn.png)
+        background-size: cover
+        background-position: center
+        transition: 0.3s
+    @supports (mix-blend-mode: multiply) 
+        .acbtn-active
+            position: relative
+            overflow: hidden
+            background-color: magenta
+            background-blend-mode: screen
+        .acbtn-active:before, .acbtn-active:after
+            display: block
+            content: ""
+            position: absolute
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            background: inherit
+            mix-blend-mode: multiply
+            transform: scale(1.02)
+        .acbtn-active:before
+            background-color: yellow
+            background-blend-mode: screen
+            transform-origin: top left
+        .acbtn-active:after 
+            background-color: cyan
+            background-blend-mode: screen
+            transform-origin: bottom right
+    .sp
+        font-size: 36px
+        font-weight: bold
+    .yellow
+        color: #ffeb3f
+    .note
+        position: absolute
+        bottom: 5vh
+        left: 50%
+        transform: translateX(-50%)
+        p
+            font-size: 20px
+            color: #ffffff
+.game
+    // display: none
+    position: relative
+    min-height: 100vh
+    .ready
+        width: 100%
+        height: 100vh
+        background: url(../images/road_bg.jpg) center top no-repeat
+        background-size: cover
+        position: relative
+        padding: 40px 0 0 0
+        overflow: hidden
+        h2
+            width: 302px
+            margin: 0 auto
+        .carbox
+            width: 390px
+            height: 200px
+            position: absolute
+            top: 190px
+            left: 100px
+        .car
+            width: 220px
+            position: absolute
+            // top: 190px
+            left: 220px
+            z-index: 1
+            &:after
+                content: ""
+                width: 180px
+                height: 180px
+                background: url(../images/car-circle.png) center top no-repeat
+                background-size: cover
+                position: absolute
+                top: -40px
+                left: 50%
+                transform: translateX(-50%) scale(0.6)
+                z-index: -1
+                animation: cirscale 1.5s infinite
+                transition: 0.3s
+        .car-active
+            &:after
+                display: none
+                transition: 0.3s
+        .car-run
+            left: 1000px
+            transition: 1.2s
+        .readme
+            width: 160px
+            position: absolute
+            top: 202px
+            left: 65px
+        .arr
+            width: 121px
+            height: 40px
+            position: absolute
+            top: 222px
+            left: 200px
+            transform-origin: right center
+            transform: scaleX(0.5)
+            animation: arrgoleft 1.5s infinite
+            z-index: 2
+            // img
+            //     height: 100%
+            //     width: auto
+            //     max-width: none
+    .levelpage
+        height: 100vh
+        .videoarea
+            z-index: 1
+        .question
+            width: 100vw
+            height: 110vh
+            background: rgba(#000000, 0.7)
+            padding: 45px 0 0 0
+            position: absolute
+            top: 0
+            left: 0
+            text-align: center
+            // overflow: hidden
+            z-index: 2
+            .quebox
+                opacity: 0
+                // transition: 0.6s
+            h2
+                width: 371px
+                margin: 0 auto
+            p
+                font-size: 16px
+                font-weight: 600
+                text-shadow: 2px 2px 5px rgba(#000000, 0.9)
+                color: #ffffff
+                transform: rotate(-3deg) skewX(-10deg)
+            .hr
+                width: 100%
+            .content
+                text-align: center
+                width: 380px
+                height: 170px
+                padding: 20px 0 0 0
+                margin: 0 auto
+                position: relative
+                p
+                    text-shadow: none
+                    transform: none
+                    font-size: 15px
+                    font-weight: 500
+                    color: #707070
+            .btns
+                p
+                    color: #ffffff
+            .quebg
+                width: 374px
+                margin: 0 auto
+            .sel1
+                position: absolute
+                top: 40px
+                left: 5px
+            .sel2
+                position: absolute
+                top: -5px
+                left: 140px
+            .sel3
+                position: absolute
+                top: 50px
+                right: 5px
+            .handpoint
+                width: 36px
+                position: absolute
+                bottom: 13px
+                left: 170px
+                transform: rotate(0deg) translateX(-80px) rotate(0deg)
+                animation: rotatemove 2.4s 1.2s infinite
+                z-index: 9
+            .rotabg
+                width: 156px
+                height: 155px
+                background: url(../images/knob-bg.png) center top no-repeat
+                background-size: cover
+                position: absolute
+                top: 24px
+                left: 114px
+            #rotabox
+                // width: 156px
+                // height: 155px
+                position: absolute
+                left: -5px
+                top: -15px
+                // transform-origin: center center
+                img
+                    transform: scale(1.15)
+            .note
+                position: absolute
+                bottom: 0
+                right: -50px
+                p
+                    font-size: 14px
+                    color: #ffef43
+                    transform: skewX(-10deg)
+            .btns
+                width: 100%
+                display: flex
+                justify-content: space-between
+                align-items: flex-start
+            .stepcun
+                position: absolute
+                top: 95vh
+                left: 10px
+                p
+                    font-weight: 500
+                    text-shadow: none
+                    transform: none
+            .ftnote
+                position: absolute
+                bottom: 10px
+                right: 10px
+                p
+                    color: #707070
+                    font-size: 12px
+                    font-weight: 400
+                    text-shadow: none
+                    transform: none
+            .listbtn-active
+                p
+                    color: #000000
+        .que1
+            background: url(../images/game-1-bg.jpg) center top no-repeat
+            background-size: cover
+        .que2
+            background: url(../images/game-2-bg.jpg) center top no-repeat
+            background-size: cover
+        .que3
+            background: url(../images/game-3-bg.jpg) center top no-repeat
+            background-size: cover
+        .que4
+            background: url(../images/game-4-bg.jpg) center top no-repeat
+            background-size: cover
+        .que5
+            background: url(../images/game-5-bg.jpg) center top no-repeat
+            background-size: cover
+        .que6
+            background: url(../images/game-6-bg.jpg) center top no-repeat
+            background-size: cover
+    .yellow
+        color: #ffeb3f
+.result
+    position: relative
+    height: 110vh
+    background: url(../images/road_bg.jpg) center top no-repeat
+    background-size: cover
+    padding: 35px 0 0 0
+    text-align: center
+    overflow: hidden
+    h2
+        width: 360px
+        margin: 0 auto
+    h3
+        color: #ffffff
+        font-size: 15px
+        font-weight: 400
+        margin: 5px 0 0 0
+        transform: rotate(-3deg) skewX(-10deg)
+    .content
+        width: 400px
+        height: 225px
+        // width: 360px
+        // height: 203px
+        background: url(../images/result-card-bg.png) center top no-repeat
+        background-size: cover
+        // margin: 20px 0 0 240px
+        position: absolute
+        top: 30px
+        left: 50%
+        padding: 80px 0 0 0
+        position: relative
+        transform: rotate(2deg) translateX(-30%) scale(0.9)
+        .title
+            height: 34px
+            margin: 0 auto 10px
+            img
+                height: 100%
+                width: auto
+        .txt
+            text-align: center
+            padding: 0 0 0 20px
+            p
+                font-family: "微軟正黑體"
+                font-size: 18px
+                font-weight: bold
+                line-height: 1.2
+        .fraction
+            position: absolute
+            bottom: 20px
+            right: 20px
+            width: 260px
+            height: 30px
+            line-height: 30px
+            // background: #000000
+            p
+                font-size: 15px
+        .btn-fb
+            width: 130px
+            // margin: 60px 0 0 120px
+            position: absolute
+            bottom: -10px
+            left: 50%
+            transform: rotate(-3deg) translateX(-50%)
+        .man
+            width: 400px
+            position: absolute
+            top: -110px
+            left: -290px
+    .note
+        position: absolute
+        bottom: 10px
+        right: 10px
+        p
+            font-size: 12px
+            color: #ffffff
+    .sp
+        font-weight: bold
+    .yellow
+        color: #ffeb3f
+.userinfo
+    position: relative
+    min-height: 100vh
+    background: url(../images/info-bg.jpg) center top no-repeat
+    background-size: cover
+    padding: 165px  0 0 0
+    text-align: center
+    .awarditem
+        margin: 40px auto 0
+    .form
+        margin: 50px auto 0
+        padding: 0 80px
+        text-align: left
+        li
+            display: flex
+            justify-content: space-between
+            align-items: center
+            margin: 0 0 45px 0
+        .inputbox
+            width: 388px
+            height: 54px
+            line-height: 54px
+            input
+                width: 100%
+                height: 100%
+                padding: 5px 10px
+                font-size: 30px
+        label
+            font-size: 30px
+            font-weight: 500
+            color: #ffffff
+        span
+            font-size: 30px
+            font-weight: 500
+            color: #ffffff
+            padding: 0 10px 0 0
+        .spli
+            .gender
+                label
+                    margin: 0 15px 0 0
+                input
+                    width: 30px
+                    height: 30px
+                    vertical-align: middle
+            .age
+                select
+                    width: 200px
+                    height: 54px
+                    // vertical-align: middle
+                    font-size: 30px
+                    padding: 0 5px
+                    background: #ffffff
+                option
+                    font-size: 24px
+        #agree
+            width: 30px
+            height: 30px
+            border-radius: 50%
+        .agree
+            font-size: 28px
+            letter-spacing: 1.1px
+            // text-decoration: underline
+            &:after
+                content: ""
+                width: 100%
+                height: 2px
+                background: #ffffff
+                display: block
+                margin: 5px 0 0 0
+        .btn-send
+            margin: 50px auto 0
+            width: 270px
+            height: 56px
+            // line-height: 50px
+            text-align: center
+            background: #e3001e
+            position: relative
+            button
+                // width: 100%
+                height: 100%
+                font-size: 36px
+                font-weight: bold
+                line-height: 56px
+                color: #ffffff
+                border: 0
+                background: none
+                box-shadow: none
+                &:after
+                    content: ""
+                    width: 33px
+                    height: 24px
+                    background: url(../images/right-arr.png) center top no-repeat
+                    background-size: cover
+                    display: inline-block
+                    margin: 0 0 0 10px
+            // .loading
+            //     height: 56px
+            //     img
+            //         height: 100%
+            //         width: auto
+            //         max-width: none
+    .note
+        margin: 50px auto 0
+        p
+            font-size: 20px
+            color: #ffffff
+.fbweb
+    .index
+        background: url(../images/info-bg.jpg) center top / cover no-repeat
+    .game
+        background: url(../images/info-bg.jpg) center top no-repeat
+        background-size: cover
+        .viodearea
+            top: 50%
+            transform: translateY(-50%)
+            width: 100%
+            max-height: 450px
+        .question
+            width: 100%
+            height: 450px
+            top: 50%
+            transform: translateY(-50%)
+            .head
+                transform-origin: center bottom
+                transform: scale(1.4)
+            .hr
+                margin: -10px auto
+            .content
+                transform-origin: center top
+                transform: scale(1.4)
+                margin: 10px auto 0
+            .stepcun
+                top: auto
+                bottom: 2vh
+        .que2,
+        .que4
+            .content
+                margin: -30px auto 0
+        .ready 
+            h2
+                width: 500px
+                margin-top: 30%
+            .carbox
+                top: 42%
+                left: 130px
+            .readme
+                top: 40%
+                left: 0
+                width: 300px
+            .arr
+                top: 44%
+    .result
+        width: 100%
+        height: 450px
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        h2
+            transform-origin: top center
+            transform: scale(1.3)
+        h3
+            transform-origin: top center
+            transform: scale(1.3) rotate(-3deg) skewX(-10deg)
+            margin: 10px auto 0
+        .content
+            top: 50px
+            transform-origin: top center
+            transform: scale(1.2) rotate(2deg) translateX(-20%)
+    .userinfo
+        .form
+            padding: 0 65px
+            .agree
+                font-size: 26px
+                // letter-spacing: 1
+    .carowner
+        .ownerbox
+            p
+                font-size: 24px
+                // line-height: 1.5
+            .name
+                p
+                    font-size: 28px
+            .ps
+                margin: 170px 0 0 50px
+    .popup
+        // height: 650px
+        height: 100%
+        // position: absolute
+        // top: 50%
+        // transform: translateY(-90%)
+        display: flex
+        align-items: center
+        .warning,
+        .fail
+            margin-top: 0px
+            width: 624px
+            height: 426px
+            padding-top: 150px
+            p
+                font-size: 36px
+                line-height: 1.5
+            .btn
+                width: 250px
+                height: 54px
+                p
+                    font-size: 36px
+        //     position: absolute
+        //     top: 50%
+        //     left: 50%
+        //     transform: translateY(-50%) 
+        .savecheck
+            position: relative
+            h2
+                width: 700px
+                height: 102px
+            ul
+                width: 560px
+                margin: 40px auto 0
+                li
+                    margin-bottom: 30px
+                    text-align: center
+            p
+                font-size: 30px
+            .btn
+                width: 520px
+                margin: 40px auto
+        .popPage
+            .content
+                transform-origin: center top
+                transform: scale(1.4) translate(-20%, -50%)
+            .note
+                bottom: 35%
+        .done
+            padding: 0
+            width: 80%
+            margin: -15vh auto 0
+            .content
+                transform: scale(1) translate(0, 0)
+                width: 100%
+                margin: 0 auto
+                padding: 30px 10px
+                background: #000000
+                border: 1px solid #e3001e
+                text-align: center
+            
+            
+.viodearea
+    width: 100vw
+    height: 100vh
+    position: absolute
+    top: 0
+    left: 0
+    overflow: hidden
+    z-index: 1
+    &:nth-child(1)
+        z-index: 2
+    &:nth-child(2)
+        z-index: 1
+    video
+        width: 100vw
+        // height: 100%
+        position: absolute
+        top: 0
+        left: 0
+        transition: 0.9s
+        transform-origin: bottom left
+        &.video-test1
+            position: absolute
+            width: 100%
+            top: 0
+            left: 0
+            // animation: zoomOut 5s infinite alternate-reverse
+        &.video-test2
+            position: absolute
+            width: 100%
+            top: 0
+            left: 0
+            transition: 0.9s
+            transform: scale(0.3)
+            transform-origin: bottom left
+            // animation: zoomIn 5s infinite alternate-reverse
+// #videoarea
+//     z-index: 2
+// #videoarea2
+//     z-index: 1
+.btnarea
+    position: fixed
+    top: 10px
+    left: 10px
+    z-index: 9
+    display: none
+.btnplay
+    font-size: 30px
+    padding: 10px 15px
+    background: #ff6600
+    color: #ffffff
+    cursor: pointer
+    display: inline-block
+.btnnext
+    font-size: 30px
+    padding: 10px 15px
+    background: #ff6600
+    color: #ffffff
+    cursor: pointer
+    display: inline-block
+
+
+@keyframes zoomIn
+    0%
+        width: 30%
+    100% 
+        width: 100%
+@keyframes zoomOut
+    0% 
+        width: 100%
+    100%
+        width: 30%
+        right: 10px
+        top: 10px
+        // z-index: 1
+@keyframes arrgoleft
+    0%
+        transform: scaleX(0.5)
+    80%
+        transform: scaleX(1.5)
+    100%
+        transform: scaleX(1.5)
+@keyframes cirscale
+    0%
+        transform: translateX(-50%) scale(0.6)
+    100%
+        transform: translateX(-50%) scale(1)
+@keyframes rotatemove
+    0%
+        transform: rotate(0deg) translateX(-80px) rotate(0deg)
+    100%
+        transform: rotate(180deg) translateX(-80px) rotate(-180deg)
+@keyframes warningshine
+    0%, 100%
+        opacity: 1
+    5%
+        opacity: 0.4
+    10%
+        opacity: 1
+    15%
+        opacity: 0.4
+    20%
+        opacity: 1

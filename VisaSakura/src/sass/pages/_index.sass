@@ -1,0 +1,98 @@
+.index
+    position: relative
+    width: mvw(750)
+    height: mvw(1334)
+    min-height: 100vh
+    background: url(../images/bg.jpg) top center no-repeat
+    background-size: cover
+    // top: 100px
+    // max-width: 750px
+    overflow: hidden
+    p
+        color: #ffffff
+        font-size: 36px
+        font-family: "DFKangKaiStd-W5"
+        font-weight: 500
+        line-height: 1.2
+    .yellow
+        color: #fad240
+    .sakuratree
+        position: absolute
+        top: 0
+        left: 0
+    .kv_slogn
+        width: 316px
+        margin: 0 auto
+        position: relative
+        z-index: 1
+    .kv_acbtn
+        cursor: pointer
+        width: mvw(472)
+        position: absolute
+        top: percentage(1016/1334)
+        // bottom: percentage(145/1334)
+        left: 50%
+        transform: translateX(-50%)
+        z-index: 2
+    .kv_txt
+        width: mvw(470)
+        position: absolute
+        top: percentage(1141/1334)
+        // bottom: percentage(60/1334)
+        left: 50%
+        transform: translateX(-50%)
+        text-align: center
+    main
+        position: fixed
+        top: 0
+        left: 50%
+        transform: translateX(-50%)
+        z-index: 1
+        width: 750px
+        overflow: hidden
+        // canvas
+        //     width: 100% !important
+    .deco1
+        width: 265px
+        position: absolute
+        top: -15px
+        left: 6%
+        // transform: translateX(60%) rotate(0)
+        // transition: 0.9s
+        animation: updw 6s 2s infinite
+        z-index: 2
+    .deco2
+        width: 330px
+        position: absolute
+        top: 40%
+        right: -15%
+        // transform: translate(-60%, 50%) rotateY(180deg)
+        animation: updw2 6s 3s infinite
+        z-index: 2
+    #iframe
+        display: none
+
+
+@keyframes updw
+    0%
+        transform: rotate(0deg)
+    20%
+        transform: rotate(-5deg)
+    30%
+        transform: rotate(5deg)
+    40%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(0deg)
+
+@keyframes updw2
+    0%
+        transform: rotate(0deg)
+    20%
+        transform: rotate(-5deg)
+    30%
+        transform: rotate(5deg)
+    40%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(0deg)

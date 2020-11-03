@@ -1,0 +1,356 @@
+.index
+    position: relative
+    .bottom
+        width: 100%
+        height: vw(58)
+        background: url(../images/bottom-line.png) top center no-repeat
+        background-size: 100% 100%
+        position: absolute
+        bottom: vw(-30)
+        left: 0
+        z-index: 2
+        overflow: hidden
+        +rwd($pad)
+            height: mvw(30)
+            bottom: mvw(-20)
+        &:after
+            content: ""
+            width: vw(280)
+            height: vw(58)
+            background: url(../images/bline-deco.png) top center no-repeat
+            background-size: cover
+            position: absolute
+            top: vw(-9)
+            left: 0
+            transform: translateX(-100%)
+            animation: lrplay 3s linear 3s infinite
+            +rwd($pad)
+                width: mvw(145)
+                height: mvw(30)
+                top: vw(-9)
+    .kvarea
+        width: 100%
+        height: vw(1080)
+        background: url(../images/kvBg.jpg) top center no-repeat
+        background-size: 100% 100%
+        position: relative
+        padding: vw(150) 0 0 0
+        +rwd($pad)
+            height: mvw(1334)
+            background: url(../images/mb-kvBg.jpg) top center no-repeat
+            background-size: 100% 100%
+            padding: mvw(50) 0 0 0
+        .content
+            width: vw(1600)
+            height: 100%
+            margin: 0 auto
+            position: relative
+            overflow: hidden
+            +rwd($pad)
+                width: 100%
+                padding: 0 mvw(40)
+            .slogn
+                width: vw(915)
+                position: absolute
+                top: vw(72)
+                left: vw(100)
+                +rwd($pad)
+                    position: relative
+                    width: 100%
+                    top: auto
+                    left: auto
+            .slogntxt
+                width: vw(702)
+                position: absolute
+                top: vw(403)
+                left: vw(180)
+                +rwd($pad)
+                    position: relative
+                    width: 100%
+                    top: auto
+                    left: auto
+                    width: mvw(510)
+                    margin: mvw(-80) auto 0
+            .btnarea
+                // width: vw(700)
+                position: absolute
+                top: vw(620)
+                left: vw(150)
+                text-align: center
+                +rwd($pad)
+                    position: relative
+                    width: 100%
+                    top: auto
+                    left: auto
+                a
+                    width: vw(360)
+                    display: inline-block
+                    +rwd($pad)
+                        width: mvw(320)
+                .btn_game
+                    transform: translateY(-18%)
+            .kv_peo
+                width: vw(736)
+                position: absolute
+                top: 0
+                right: 0
+                +rwd($pad)
+                    position: relative
+                    width: mvw(630)
+                    top: auto
+                    right: auto
+                    margin: 0 auto
+        .kv_more
+            width: vw(37)
+            position: absolute
+            top: vw(650)
+            right: vw(50)
+            animation: tdplay 1.5s linear 1s infinite alternate-reverse
+            +rwd($pad)
+                width: mvw(37)
+                top: mvw(1100)
+                right: mvw(20)
+    .inv_event
+        width: 100%
+        height: vw(990)
+        background: url(../images/regist-bg.jpg) top center no-repeat
+        background-size: 100% 100%
+        text-align: center
+        padding: vw(60) 0 0 0
+        position: relative
+        opacity: 0
+        +rwd($pad)
+            height: auto
+            background: url(../images/mb-regist-bg.jpg) top center no-repeat
+            background-size: cover
+            padding: mvw(60) 0 mvw(30) 0
+        .content
+            width: vw(1200)
+            margin: 0 auto
+            +rwd($pad)
+                width: 100%
+                padding: 0 mvw(40)
+            h2
+                width: vw(1040)
+                margin: 0 auto
+                +rwd($pad)
+                    width: 100%
+            p
+                font-size: vw(26)
+                font-weight: 400
+                color: #ffffff
+                line-height: 1.5
+                +rwd($pad)
+                    font-size: mvw(30)
+                    text-align: left
+                    padding: 0 mvw(40)
+                    line-height: 2
+                    margin: mvw(20) 0 0 0
+            .awardimg
+                margin: vw(20) auto 0
+                +rwd($pad)
+                    margin: mvw(40) auto 0
+            .sp
+                font-size: vw(22)
+                color: rgba(255, 255, 255, 0.6)
+                margin: vw(25) 0 0 0
+                +rwd($pad)
+                    font-size: mvw(28)
+                    color: rgba(255, 255, 255, 0.6)
+                    margin: mvw(30) 0 0 0
+                    text-align: center
+    .product
+        width: 100%
+        height: vw(900)
+        background: url(../images/supplies-bg.jpg) top center no-repeat
+        background-size: 100% 100%
+        text-align: center
+        padding: vw(60) 0 0 0
+        position: relative
+        opacity: 0
+        +rwd($pad)
+            height: auto
+            background: url(../images/mb-supplies-bg.jpg) top center no-repeat
+            background-size: 100% 100%
+            padding: mvw(60) 0 mvw(60) 0
+        .content
+            width: vw(1200)
+            margin: 0 auto
+            +rwd($pad)
+                width: 100%
+                padding: 0 mvw(40)
+            h2
+                width: vw(960)
+                margin: 0 auto
+                +rwd($pad)
+                    width: 100%
+            .prodimg
+                margin: vw(20) auto vw(40)
+                +rwd($pad)
+                    width: 96%
+                    margin: mvw(20) auto mvw(40)
+            .btn_toshop
+                width: vw(446)
+                margin: vw(20) 0 0 0
+                display: inline-block
+                +rwd($pad)
+                    width: mvw(446)
+                    margin: 0
+    .gameread
+        width: 100%
+        height: vw(990)
+        background: url(../images/regist-bg.jpg) top center no-repeat
+        background-size: 100% 100%
+        text-align: center
+        padding: vw(60) 0 0 0
+        position: relative
+        opacity: 0
+        +rwd($pad)
+            height: auto
+            background: url(../images/mb-regist-bg.jpg) top center no-repeat
+            background-size: cover
+            padding: mvw(60) 0 mvw(30) 0
+        .content
+            width: vw(1200)
+            margin: 0 auto
+            +rwd($pad)
+                width: 100%
+                padding: 0 mvw(40)
+            h2
+                width: vw(978)
+                margin: 0 auto
+                +rwd($pad)
+                    width: 100%
+            p
+                font-size: vw(26)
+                font-weight: 400
+                color: #ffffff
+                line-height: 1.5
+                +rwd($pad)
+                    font-size: mvw(30)
+                    text-align: left
+                    padding: 0 mvw(20)
+                    line-height: 2
+                    margin: mvw(20) 0 0 0
+            .gameimg
+                margin: vw(40) auto 0
+                +rwd($pad)
+                    // width: 96%
+                    margin: mvw(20) auto mvw(40)
+            .sp
+                font-size: vw(22)
+                color: rgba(255, 255, 255, 0.6)
+                margin: vw(30) 0 0 0
+                +rwd($pad)
+                    font-size: mvw(28)
+                    color: rgba(255, 255, 255, 0.6)
+                    margin: mvw(30) 0 0 0
+                    text-align: center
+    .readme
+        width: 100%
+        // height: vw(1921)
+        text-align: center
+        padding: vw(60) 0 vw(30) 0
+        position: relative
+        opacity: 0
+        // background-attachment: fixed
+        +rwd($pad)
+            background: url(../images/readme-bg.jpg) top center repeat
+            background-size: mvw(40) auto
+            padding: mvw(60) 0 mvw(30) 0
+        .content
+            width: vw(1200)
+            margin: 0 auto
+            text-align: left
+            +rwd($pad)
+                width: 100%
+                padding: 0 mvw(60)
+            h2
+                width: vw(915)
+                margin: 0 auto
+                +rwd($pad)
+                    width: 100%
+                    margin: 0 auto mvw(40)
+            .block
+                text-align: left
+                margin: 0 0 vw(50) 0
+                +rwd($pad)
+                    margin: 0 0 mvw(50) 0
+            h3
+                color: #fdfdda
+                font-size: vw(28)
+                font-weight: bold
+                margin: 0 0 vw(20) 0
+                position: relative
+                letter-spacing: 1.1px
+                +rwd($pad)
+                    font-size: mvw(36)
+                    margin: 0 0 mvw(20) 0
+                &:before
+                    content: ""
+                    width: vw(18)
+                    height: vw(25)
+                    background: url(../images/h3_deco.png) top center no-repeat
+                    background-size: cover
+                    position: absolute
+                    top: 0
+                    left: 0
+                    transform: translateX(-120%)
+                    +rwd($pad)
+                        width: mvw(22)
+                        height: mvw(33)
+                        background: url(../images/h3_deco.png) top center no-repeat
+                        background-size: cover
+            h4
+                color: #fdfdda
+                font-size: vw(22)
+                margin: vw(20) 0 0 0
+                letter-spacing: 1.1px
+                +rwd($pad)
+                    font-size: mvw(36)
+                    margin: mvw(40) 0 0 0
+            a
+                color: #fdfdda
+            p
+                color: #fdfdda
+                font-size: vw(18)
+                line-height: 1.5
+                letter-spacing: 1.1px
+                +rwd($pad)
+                    font-size: mvw(28)
+            ul
+                margin: vw(15) 0 0 0
+                +rwd($pad)
+                    margin: mvw(30) 0 0 0
+            li
+                margin: 0 0 vw(15) 0
+                line-height: 1.5
+                font-size: vw(18)
+                color: #fdfdda
+                letter-spacing: 1.1px
+                +rwd($pad)
+                    margin: 0 0 mvw(30) 0
+                    font-size: mvw(28)
+            .one
+                list-style: square
+                padding: 0 0 0 2em
+            .two
+                list-style: decimal
+                padding: 0 0 0 2em
+            .three
+                padding: 0 0 0 1em
+    .page-active
+        opacity: 1
+        transition: 0.3s
+
+@keyframes lrplay
+    from
+        transform: translateX(-100%)
+    to
+        transform: translateX(600%)
+
+@keyframes tdplay
+    from
+        transform: translateY(0%)
+    to
+        transform: translateY(50%)

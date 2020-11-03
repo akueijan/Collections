@@ -1,0 +1,65 @@
+html, body 
+    position: relative
+    margin: 0 auto
+    height: 100%
+    font-family: Arial,'Noto Sans TC','Microsoft JhengHei',Verdana,Arial,Helvetica,sans-serif,'Microsoft Yahei', 'Microsoft JhengHei','新細明體'
+body
+    background: url(../images/bg.jpg) top center no-repeat
+    background-attachment: fixed
+    background-color: #4a136b
+a 
+    cursor: pointer
+    
+.fb-root 
+    height: 0
+    overflow: hidden
+
+._freeze 
+    // overflow: hidden
+    position: fixed
+    width: 100%
+    height: 100%
+
+.l-container 
+    margin: 0 auto
+    position: relative
+
+
+.l-wrap 
+    width: 100%
+    position: relative
+    // overflow: hidden
+    
+.l-main
+    // padding-bottom: $ft_height
+    min-height: 100vh
+
+.l-footer 
+    position: relative
+    text-align: center
+    height: vw(55)
+    line-height: vw(55)
+    background: url(../images/footer-bg.jpg) top center no-repeat
+    background-size: cover
+    font-size: vw(16)
+    color: #ffffff
+    +rwd($pad)
+        height: mvw(55)
+        line-height: mvw(55)
+    p
+        font-size: vw(16)
+        +rwd($pad)
+            font-size: mvw(16)
+
+.container-area
+    width: 100%
+    max-width: vw(1440)
+    margin: 0 auto
+.hidden
+    display: none
+.hide-text 
+    overflow: hidden
+    padding: 0
+    text-indent: 101%
+    white-space: nowrap
+

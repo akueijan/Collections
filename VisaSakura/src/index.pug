@@ -1,0 +1,25 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "期間限定! Visa線上賞櫻團"
+    - var pageDesc = "不想錯過一期一會的櫻花季? 立即邀請好友入席線上賞櫻, 紀錄2020年專屬櫻花紀念,加碼再抽最高百元超商購物金!"
+    - var pageJs = "index.js"
+    - var moreJs = ["tranbg.js"]
+    - var isVue = true
+//- page html
+block page_main
+    section.index
+        main#tranarea
+        .deco2
+            img(src="images/deco-tree2.png")
+        .deco1
+            img(src="images/deco-tree1.png")
+        .sakuratree
+            img(src="images/sakuratree.png")
+        .kv_slogn
+            img(src="images/kv_slogn.png" alt="一期一會 櫻花盛宴")
+        a.kv_acbtn(href="javascript::void(0)" @click="fbLogin" title="入席賞櫻去" gtm-data="KV_入席賞櫻")
+            img(src="images/action_btn.png" alt="入席賞櫻去" gtm-data="KV_入席賞櫻")
+        .kv_txt
+            img(src="images/kv_txt.png")

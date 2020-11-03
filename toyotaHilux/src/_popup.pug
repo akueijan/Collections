@@ -1,0 +1,177 @@
+﻿transition(name="gamefade")
+    .alertpopup(v-show="alertPopup")
+        .popPage.alert(v-show="alertPage=='alert'")
+            .content
+                .txt
+                    p 請調整螢幕方向
+                        br
+                        | 以橫式操作進行遊戲
+                .mbbox
+                    .garymb
+                        img(src="images/gary_mobile.png")
+                    .whitemb
+                        img(src="images/mobile-white.png")
+        .popPage.oops(v-show="alertPage=='oops'")
+                .content
+                    h2 請以Chrome或Safari遊玩獲得最佳體驗
+                    p 點擊瀏覽器右上角按鈕
+                        br
+                        | 選擇以
+                        span.yellow Chrome
+                        | 或
+                        span.yellow Safari
+                        | 開啟網站
+                        br
+                        | 即可順利進行遊戲挑戰
+                    .btn(@click="popClose('fb')")
+                        img(src="images/ans-iknow2.png")
+transition(name="fade")
+    .loadingpopup(v-show="loading")
+        .popPage.formloading(v-show="loadPage=='formloading'")
+            img(src="images/loading.gif")
+        .popPage.poploading(v-show="loadPage=='poploading'")
+                .content
+                    .loading2(data-text="Loading...") Loading...
+transition(name="fade")
+    .popup(v-show="popup")
+        transition(name="fade")
+            .popPage.savecheck(v-if="popPage=='save'" key="save")
+                h2
+                    //- img(src="images/savecheck.png" alt="線上安全同意書")
+                ul
+                    li
+                        .title
+                            p 是否患有心臟病?
+                        .checkbox
+                            .box(@click="savecheck.q1=1" :class="{ boxsel: savecheck.q1==1 }")
+                                p 是
+                            .box(@click="savecheck.q1=2" :class="{ boxsel: savecheck.q1==2 }")
+                                p 否
+                    li
+                        .title
+                            p 是否患有高血壓?
+                        .checkbox
+                            .box(@click="savecheck.q2=1" :class="{ boxsel: savecheck.q2==1 }")
+                                p 是
+                            .box(@click="savecheck.q2=2" :class="{ boxsel: savecheck.q2==2 }")
+                                p 否
+                    li
+                        .title
+                            p 頸椎曾受過傷?
+                        .checkbox
+                            .box(@click="savecheck.q3=1" :class="{ boxsel: savecheck.q3==1 }")
+                                p 是
+                            .box(@click="savecheck.q3=2" :class="{ boxsel: savecheck.q3==2 }")
+                                p 否
+                .btn(@click="savebtn")
+                    img(src="images/btn-determine.png" alt="確定")
+            .popPage.fail(v-if="popPage=='fail'" key="fail")
+                p 請依照個人病史
+                    br
+                    | 完成圈選同意書事項
+                .btn(@click="failbtn")
+                    p 我知道了
+            .popPage.warning(v-if="popPage=='warning'" key="warning")
+                p(v-if="warning==1") 有心臟病還敢挑戰？
+                    br
+                    | 記得上路前先吃藥！
+                p(v-if="warning==2") 高血壓要注意了
+                    br
+                    | HILUX會讓你血壓飆高！
+                p(v-if="warning==3") 頸椎有傷嗎？
+                    br
+                    | 沒事～戴好護頸出發吧 !
+                p(v-if="warning==4") 這麼多狀況還認真要玩？
+                    br
+                    | 小心別把手機摔壞了！
+                .btn(@click="warningbtn")
+                    p 確認
+            .popPage.correct(v-if="popPage=='correct'" key="correct")
+                .content
+                    h2
+                        img(src="images/ans-correct.png")
+                    p 車神秘訣：
+                        br
+                        | {{gameAns.txt}}
+                        br
+                        span.yellow {{gameAns.keyword}}
+                    .btn
+                        img(src="images/ans-ok.png")
+                .note
+                    img(src="images/note-txt.png")
+            .popPage.error(v-if="popPage=='error'" key="error")
+                .content
+                    h2
+                        img(src="images/ans-err.png")
+                    p 車神教學：
+                        br
+                        | {{gameAns.txt}}
+                        br
+                        span.yellow {{gameAns.keyword}}
+                    .btn
+                        img(src="images/ans-iknow.png")
+                .note
+                    img(src="images/note-txt.png")
+            //- .popPage.poploading(v-if="popPage=='poploading'" key="poploading")
+            //-     .content
+            //-         .loading2(data-text="Loading...") Loading...
+            .popPage.done(v-if="popPage=='done'" key="done")
+                .content
+                    h2 已獲得抽獎資格！！
+                    .txt
+                        p 中獎名單將在2020/09/30前
+                            br
+                            | 公告於TOYOTA Taiwan臉書粉絲專頁
+                        p.toowner 挑戰完還意猶未盡嗎？
+                            br
+                            | 快來聽聽車主怎麼說！
+                        a(href="carowner.html" title="我知道了").btn-iknow
+                            img(src="images/btn-towoner.png" alt="我知道了")
+//- transition(name="gamefade")
+.eventpopup(v-show="eventPopup")
+    .popPage
+        .close(@click="popClose")
+            img(src="images/btn-close.png")
+        h2
+            img(src="images/event-title.png")
+        .content
+            ul.one
+                li
+                    h3 活動期間
+                    p 2020/07/29 12:00起，至2020/08/31 23:59截止
+                li
+                    h3 參加辦法
+                    ul.decimal
+                        li 於本活動網站內完成6關卡挑戰
+                        li 公開分享挑戰結果於個人臉書貼文
+                        li 完成填寫收件人資訊並同意活動辦法相關規定後送出
+                    p ＊參加者需完成以上3步驟，始具備抽獎資格
+                li
+                    h3 活動獎項
+                    p 【Nintendo Switch】主機1組，共1名。
+                    p 中獎者可獲得1組【Nintendo Switch】主機。
+                li
+                    h3 得獎通知及領獎辦法
+                    p 活動主辦小組將以電腦隨機方式抽獎，並於2020/9/30前公告於【TOYOTA Taiwan】Facebook粉絲專頁。
+                        br
+                        | 得獎者須於2020/10/31前主動聯繫【TOYOTA Taiwan】Facebook粉絲專頁小編，並提供收件人資訊，主辦單位將以收件人資訊寄出活動獎項，中獎者逾期未回覆則視同放棄中獎資格。
+                li
+                    h3 【注意事項】
+                    ul.disc
+                        li 本活動由和泰汽車股份有限公司（下稱主辦單位）主辦，參加者參加本活動同時，即同意受本活動「注意事項」、「個人資料告知事項」之規範，如有任何違反之情事，主辦單位得取消其中獎資格，並對於任何破壞本活動之行為保留法律追訴權。
+                        li 本活動僅限於設籍於台灣、金門、澎湖、馬祖地區之中華民國國民參加，獎品將以郵局掛號寄送，寄送地址亦僅限於台灣、金門、澎湖、馬祖地區。
+                        li 參加者保證所有填寫或提出資料均為正確，且未冒用或盜用任何第三人資料，如有不實、資料不全或不正確之情事，將被取消參加及中獎資格；如因填寫或提出之資料有錯誤致主辦單位無法通知其中獎訊息或逾期不提出時，或所提出之資料雖正確，主辦單位仍無法聯繫上參加者時，主辦單位不負任何責任，且視為其放棄獎品資格。如有致損害於主辦單位或其他第三人，參加者應負一切民刑事責任。
+                        li 參加者若以惡意之電腦程式、違反法律及其他不正當或違反活動公平性之方式，混淆或影響活動結果者，一經主辦單位發現或經第三人檢舉，主辦單位除得立即取消其參與本活動資格外，若該活動參與者已受領獎品，主辦單位得追回獎品，若獎品有任何滅失或無法繳回者，中獎者並應按市價賠償。參加者對於因違反相關規定所產生之一切法律責任，應自行負擔。
+                        li 獎項詳細內容與規格、顏色以實物為準，獎項均不得轉換、轉讓或折換現金。主辦單位保留修改活動及贈品等細節之權利，獎品一經寄出後，如有遺失、盜領、損毀等情事發生，主辦單位不負補發之責，中獎者同意主辦單位對所有因使用或領取獎項之後果無須負責，且不負任何擔保責任。
+                        li 參加者同意所留存或產生之任何參與本活動的資料或記錄，皆以主辦單位之電腦系統與時間紀錄為主。本活動如有任何因電腦、網路、電話、技術或其他不可歸責於主辦單位之事由，而使參加者所登錄、填寫或寄出之資訊或資料有延遲、遺失、錯誤、無法辨識、毀損或無效之狀況，主辦單位不負任何法律責任，亦不另作通知，參加者及得獎者不得異議。
+                        li 依中華民國稅法規定，獎項金額若達新台幣1,000元以上，獎項所得將列入個人年度綜合所得稅申報，故中獎者需提供身份證影本(未成年人應提供戶口名簿及法定代理人或監護人之身分證影本)，且依規定填寫並繳交相關收據方可領獎；;若主辦單位依稅法規定須扣繳應扣繳稅額者，中獎者應依主辦單位指示預先繳交獎項之應扣繳稅額，由主辦單位扣繳，年度報稅時並須計入個人所得，故中獎者於中獎後須將稅款給付主辦單位後方可領獎，且在申報所得稅時仍需計入計算。以上稅法規定若中獎者不願意配合，則視為自動棄權，不具中獎資格。其他未盡事宜，悉依中華民國稅法相關規定辦理。
+                        li 主辦單位保留修改活動及獎品、審查參加者及中獎者資格等之權利，並保留隨時取消、終止、修改或暫停與調整活動內容、活動辦法、注意事項、獎品及領獎方式等相關細節，無須作事前通知；如有前述修改，將公告於【TOYOTA Taiwan】Facebook粉絲專頁，不另做通知。
+                        li 對本活動有任何疑問，請洽【TOYOTA Taiwan】Facebook粉絲專頁，服務時間週一~週五，9:30~12:00、13:30~17:00，例假日及國定假日暫不提供服務。
+                        li 本網站受reCAPTCHA保護，適用Google
+                            a(href="https://policies.google.com/privacy" target="_blank") 隱私政策
+                            | 和
+                            a(href="https://policies.google.com/terms" target="_blank") 服務條款
+                            | 。
+                li
+                    h3 《個人資料提供聲明》
+                    p 參加者同意主辦單位依個人資料保護法規定，得為參加者基於行銷、消費者、客戶管理與服務、廣告或商業行為管理、調查、統計與研究分析之目的，於台灣地區及網際網路可達區域蒐集、處理及利用參加者之個人資料（包含參加者姓名、性別、手機號碼、聯絡地址等)。主辦單位將以簡訊、電話、Facebook等參加者留存之聯絡方式，使參加者知悉權益事項，並將個人資料提供配合之廠商進行贈獎相關事宜。參加者依照個人資料保護法得隨時請求主辦單位查閱、給予複本、或補正參加者之個人資料，亦得隨時洽主辦單位表達拒絕相對人繼續蒐集、處理、利用或刪除參加者之個人資料；參加者同意由主辦單位持續蒐集、處理、利用參加者所提供之個人資料，截至參加者主動請求主辦單位刪除、停止處理或利用該個人資料之日或相對人執行業務所必需之保存期間止，主辦單位始終止其個人資料之蒐集、處理及利用。參加者得自由選擇是否提供相關個人資料，惟若參加者不提供時，參加者瞭解將無法參與本活動及抽獎。

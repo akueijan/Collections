@@ -1,0 +1,32 @@
+//- page laytout name
+//- extends _layout.pug；
+//- page html
+script(type="text/x-template" id="comingsoon")
+    transition(name="fade")
+        div.comingsoon-main(v-if="comingsoon" key="comingsoon")
+            div.comingsoon
+                div.comingsoon__box
+                    div.comingsoon__hd
+                        h2.comingsoon__title 
+                            img(src="images/visual-title.png", alt="")
+                            img.subtitle(src="images/visual-subtitle.png", alt="")
+                    div.comingsoon__bd
+                        div.counter 
+                            div.days
+                                div.value {{date.days || '00'}}
+                                span 日
+                            div.hours
+                                div.value {{date.hours || '00'}}
+                                span 時
+                            div.minutes
+                                div.value {{date.minutes || '00'}}
+                                span 分
+                            div.seconds
+                                div.value {{date.seconds || '00'}}
+                                span 秒
+                        p.coming-text coming soon
+                    //- div.comingsoon__fd
+                    //-     div.content
+                    //-         p.info-title 第一次普渡就上手
+                    //-         p.info-sub 還有萬元提貨券等你抽！
+                    //-         img.pic(src="images/table.png", alt="")

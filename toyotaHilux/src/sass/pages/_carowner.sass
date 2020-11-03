@@ -1,0 +1,180 @@
+﻿.carowner
+    position: relative
+    min-height: 100vh
+    width: 750px
+    overflow-x: hidden
+    height: 100%
+    .content
+        width: 750px
+        position: relative
+        height: 100%
+        overflow: hidden
+        .bg
+            position: absolute
+            top: 0
+            left: 0
+            height: 100%
+            img
+                width: auto
+                max-width: none
+                height: 100%
+        .car
+            position: absolute
+            top: 600px
+            left: -500px
+            width: 1300px
+            img
+                width: 1200px
+        h2
+            width: 640px
+            position: absolute
+            left: 50%
+            top: 270px
+            transform: translateX(-50%)
+    .more
+        position: fixed
+        bottom: 40px
+        right: 20px
+        width: 260px
+        height: 36px
+        text-align: right
+        .txt
+            display: inline-block
+            // transform: skewX(-10deg)
+        p
+            font-size: 24px
+            font-weight: 500
+            color: #ffffff
+            letter-spacing: 2px
+        .arr
+            width: 90px
+            height: 18px
+            display: inline-block
+            margin: 0 0 0 10px
+            transform: rotate(180deg)
+            padding: 0 20px 0 0
+            margin: 0 10px 0 0
+        .arrimg
+            width: 90px
+            // width: 0
+            height: 18px
+            background: url(../images/owner-arr.png) right center no-repeat
+            transform: rotate(180deg)
+            animation: arrRun 1.5s infinite
+    .ownerbox
+        // width: 14500px
+        height: 100%
+        background: url(../images/owner-box-bg.jpg) left top repeat-x
+        background-size: auto 100%
+        position: absolute
+        top: 0
+        left: 750px
+        padding: 0px 0 0 25px
+        // padding: 200px 0 0 25px
+        display: flex
+        align-items: center
+        .ownerlist
+            display: flex
+            justify-content: flex-start
+            align-items: flex-start
+            width: 100%
+            margin-top: -10vh
+            // vertical-align: top
+            li
+                height: 830px
+                background: rgba(#051833, 0.5)
+                border-radius: 15px
+                padding: 20px 0
+                margin: 0 25px
+                position: relative
+        .owner
+            display: flex
+            justify-content: flex-start
+            align-items: flex-start
+            li
+                background: none
+                width: 600px
+                padding: 0
+                margin: 0 25px
+                // height: 800px
+                // text-align: center
+                // overflow: hidden
+                // display: inline-block
+                vertical-align: top
+        p
+            color: #ffffff
+            font-size: 28px
+            font-weight: 300
+            line-height: 1.5
+            letter-spacing: 2px
+            text-align: justify
+            text-justify: inter-ideograph
+            word-wrap: break-word
+            word-break: break-all
+        i
+            display: inline-block
+            margin: 0 10px 0 0
+        .name
+            margin: 30px 0 10px
+            p
+                font-weight: 600
+                font-size: 30px 
+                color: #ffed57
+                // text-decoration: underline
+        .img
+            margin: 30px 0 0 0
+        .pa1
+            position: relative
+            // &:before
+            //     content: ""
+            //     width: 2px
+            //     height: 100%
+            //     background: #e3001e
+            //     position: absolute
+            //     top: 0
+            //     left: -10px
+            .img
+                margin: 0
+        .pa2
+            padding: 0 20px
+        .pa3
+            padding: 0 20px
+            .img
+                margin: 0 0 30px 0
+        .pa4
+            width: 1330px
+            .txt
+                display: flex
+                justify-content: space-between
+                align-items: flex-start
+                > div
+                    width: 49%
+        .sp
+            padding: 0 20px
+        .ps
+            margin: 170px 0 0 120px
+            // position: absolute
+            // bottom: 10px
+            // right: 10px
+            text-align: right
+            p
+                font-size: 16px
+                text-align: right
+    .btn-totry
+        position: fixed
+        bottom: 30px
+        left: 50px
+        // transform: translateX(-50%)
+        opacity: 0
+        transition: 0.6s
+
+.stop-scrolling
+    height: 100%
+    overflow: hidden
+                
+
+@keyframes arrRun
+    0%,
+        width: 90px
+    100%
+        width: 0px

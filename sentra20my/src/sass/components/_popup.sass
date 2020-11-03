@@ -1,0 +1,565 @@
+.popup 
+    display: block
+    background: url(../images/popup_bg.png) center top repeat
+    background-size: cover
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    z-index: 9
+    text-align: center
+    & img 
+        width: 100%
+        height: auto
+    &__area 
+        position: relative
+    
+    &__content 
+        position: relative
+        height: 80vh
+        overflow: scroll
+        padding: 0 15px
+        width: 80%
+        margin: 100px auto 0
+        text-align: center
+        //-webkit-overflow-scrolling:touch
+        &::-webkit-scrollbar 
+            display: none
+        
+    &__close 
+        top: -70px
+        right: 30px
+        font-size: 30px
+        width: 50px
+        height: 50px
+        line-height: 50px
+        text-align: center
+        background: #aaa
+        color: #fff
+        border-radius: 50%
+        position: absolute
+        cursor: pointer
+        &:before
+            content: "✖"
+    .content
+        position: relative
+        height: 100%
+    .gamestart
+        h2
+            font-size: 60px
+            font-style: italic
+            color: #d4eefe
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -100%)
+    .gameover
+        height: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+        img
+            max-width: 160px
+    .readme
+        padding: 30px 20px
+        h2
+            width: 170px
+            margin: 0 auto
+        p
+            color: #d4eefe
+            font-size: 18px
+            font-style: italic
+            line-height: 1.2
+            margin: 5px auto 0
+        .slickbox
+            margin: 20px auto 0
+            position: relative
+        .arr_left
+            width: 100px
+            height: 200px
+            position: absolute
+            left: 0
+            top: 50%
+            transform: translateY(-70%) scaleX(-1)
+            z-index: 1
+            img
+                width: 25px
+                position: absolute
+                top: 50%
+                right: 10px
+                transform: translateY(-100%)
+                animation: rtol 0.9s infinite
+        .arr_right
+            width: 100px
+            height: 200px
+            position: absolute
+            right: 0
+            top: 50%
+            transform: translateY(-70%)
+            z-index: 1
+            img
+                width: 25px
+                position: absolute
+                top: 50%
+                right: 10px
+                transform: translateY(-100%)
+                animation: ltor 0.9s infinite
+        .pagedot
+            position: absolute
+            bottom: 10px
+            left: 50%
+            transform: translateX(-50%)
+            ul
+                display: flex
+                justify-content: center
+                align-items: center
+            li
+                width: 12px
+                height: 12px
+                border: 2px solid #d4eefe
+                border-radius: 50%
+                margin: 0 5px
+            .active
+                background: #d4eefe
+        .readmebtn
+            width: 156px
+            margin: 15px auto 0
+        .event
+            margin: 10px auto 0
+            p
+                font-size: 16px
+                color: #5391fb
+                display: inline-block
+                margin: 0 auto
+                &:after
+                    content: ""
+                    width: 100%
+                    height: 2px
+                    background: #5391fb
+                    display: block
+                    margin: 2px auto 0
+    .popleader
+        margin: 40px auto 0
+        background: url(../images/leader_popbg.jpg) center top / 100% 100% no-repeat
+        .close
+            width: 25px
+            height: 20px
+            position: absolute
+            top: -15px
+            right: 20px
+            // background: #ffffff
+            &:before
+                background: #ffffff
+                content: ""
+                width: 100%
+                height: 2px
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%) rotate(45deg)
+            &:after
+                background: #ffffff
+                content: ""
+                width: 100%
+                height: 2px
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%) rotate(-45deg)
+        h2
+            color: #f26624
+            font-size: 24px
+            font-weight: bold
+            text-align: center
+            &:before
+                content: ""
+                width: 135px
+                height: 12px
+                background: url(../images/leader_top50.png) center top no-repeat
+                background-size: cover
+                display: block
+                margin: 0 auto 15px
+        .box
+            margin: 20px auto 0
+            width: 320px
+            height: 520px
+            background: url(../images/result_leaderbg.png) center top no-repeat
+            background-size: cover
+            padding: 20px 10px
+        .hd
+            padding: 0 0 5px 0
+        .bd
+            height: 418px
+            // background: #ffffff
+            overflow-y: auto
+            color: #ffffff
+        .leaderul
+            font-style: normal
+            margin: 5px auto 0
+            padding: 5px 0
+            li
+                height: 40px
+                display: flex
+                justify-content: space-around
+                align-items: center
+                color: #c9d9fe
+                text-align: center
+                &:nth-child(odd)
+                    background: url(../images/leader_libg.png) center top repeat
+            .icon
+                font-size: 18px
+                width: 31%
+                position: relative
+            .first, .second, .third
+                color: #f26725
+                &:before
+                    content: ""
+                    width: 37px
+                    height: 24px
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%,-40%)
+            .first
+                &:before
+                    background: url(../images/icon-first.png) center / cover
+            .second
+                &:before
+                    background: url(../images/icon-second.png) center / cover
+            .third
+                &:before
+                    background: url(../images/icon-third.png) center / cover
+            .player
+                width: 37%
+                text-align: left
+            .userpic
+                display: inline-block
+                width: 22px
+                height: 22px
+                background: #c9d9fe
+                border-radius: 50%
+                // vertical-align: middle
+                margin: 0 5px -5px 0
+                img
+                    border-radius: 50%
+            .name
+                font-style: normal
+                font-size: 16px
+                display: inline-block
+                // margin: 0 auto 1px
+                width: 65%
+                white-space: nowrap
+                overflow: hidden
+            .score
+                font-style: normal
+                font-size: 16px
+                width: 31%
+        .ft
+            text-align: center
+            img
+                max-width: 26px
+    .events
+        position: relative
+        padding: 60px 0 0 0
+        background: url(../images/profile_bg.jpg) center top / 100% 100% no-repeat
+        .close
+            width: 25px
+            height: 20px
+            position: absolute
+            top: 20px
+            right: 20px
+            // background: #ffffff
+            &:before
+                background: #ffffff
+                content: ""
+                width: 100%
+                height: 2px
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%) rotate(45deg)
+            &:after
+                background: #ffffff
+                content: ""
+                width: 100%
+                height: 2px
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%) rotate(-45deg)
+        h2
+            max-width: 224px 
+            margin: 0 auto
+        h3
+            font-size: 20px
+            font-weight: bold
+            color: #e56022
+            margin: 0 0 10px 0
+        ul
+            margin: 0 0 25px 0
+        li
+            margin: 0 0 10px 0
+            line-height: 1.5
+            font-size: 14px
+            color: #ffffff
+        .eventbox
+            margin: 20px auto 0
+            text-align: left
+            width: 320px
+            height: 462px
+            background: url(../images/event_bg.png) center top / 100% 100% no-repeat
+            padding: 50px 25px
+            color: #ffffff
+        .txtarea
+            width: 100%
+            height: 100%
+            overflow-y: auto
+            padding: 10px 0
+        .one
+            list-style-type: decimal
+            li
+                margin: 0 0 15px 1.5em
+        .two
+            margin: 15px 0 0 0
+            list-style-type: disc
+    .noaward
+        position: relative
+        width: 320px
+        height: 220px
+        background: url(../images/award_bg.png) center top / 100% 100% no-repeat
+        margin: 120px auto 0
+        padding: 80px 0 0 0
+        .close
+            width: 25px
+            height: 20px
+            position: absolute
+            top: 20px
+            right: 20px
+            // background: #ffffff
+            &:before
+                background: #ffffff
+                content: ""
+                width: 100%
+                height: 2px
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%) rotate(45deg)
+            &:after
+                background: #ffffff
+                content: ""
+                width: 100%
+                height: 2px
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%) rotate(-45deg)
+        h2
+            max-width: 200px 
+            margin: 0 auto
+        .btn
+            max-width: 160px
+            margin: 20px auto 0
+    .noticketcount
+        position: relative
+        width: 320px
+        height: 220px
+        background: url(../images/award_bg.png) center top / 100% 100% no-repeat
+        margin: 120px auto 0
+        padding: 60px 0 0 0
+        .close
+            width: 25px
+            height: 20px
+            position: absolute
+            top: 20px
+            right: 20px
+            // background: #ffffff
+            &:before
+                background: #ffffff
+                content: ""
+                width: 100%
+                height: 2px
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%) rotate(45deg)
+            &:after
+                background: #ffffff
+                content: ""
+                width: 100%
+                height: 2px
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%) rotate(-45deg)
+        p
+            font-size: 18px
+            line-height: 1.5
+            letter-spacing: 1.2px
+            color: #ffffff
+        .orange
+            color: #fb8219
+            font-weight: bold
+        .btn
+            max-width: 160px
+            margin: 30px auto 0
+    .awardreadme
+        position: relative
+        width: 320px
+        height: 500px
+        background: url(../images/awardreadme_bg.png) center top / 100% 100% no-repeat
+        margin: 60px auto 0
+        padding: 40px 0 0 20px
+        .close
+            width: 25px
+            height: 20px
+            position: absolute
+            top: 20px
+            right: 20px
+            // background: #ffffff
+            &:before
+                background: #ffffff
+                content: ""
+                width: 100%
+                height: 2px
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%) rotate(45deg)
+            &:after
+                background: #ffffff
+                content: ""
+                width: 100%
+                height: 2px
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%) rotate(-45deg)
+        h3
+            font-size: 18px
+            color: #ffffff
+            text-align: left
+            margin: 15px 0 5px 0
+        p
+            font-size: 14px
+            color: #ffffff
+            text-align: left
+            line-height: 1.5
+            margin: 0 0 5px 0
+        ul
+            margin: 0 0 20px 0
+            text-align: left
+            list-style: disc
+        li
+            color: #ffffff
+            font-size: 14px
+            line-height: 1.4
+            margin: 0 0 10px 1em
+    .loading
+        width: 100%
+        height: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+        .loadingbox
+            width: 80px
+            opacity: 0.8
+.entpopup
+    display: block
+    background: url(../images/popup_bg.png) center top repeat
+    background-size: cover
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    z-index: 99
+    text-align: center
+    .content
+        position: relative
+        height: 100%
+    .events
+        position: relative
+        padding: 60px 0 0 0
+        background: url(../images/profile_bg.jpg) center top / 100% 100% no-repeat
+        .close
+            width: 25px
+            height: 20px
+            position: absolute
+            top: 20px
+            right: 20px
+            // background: #ffffff
+            z-index: 1
+            &:before
+                background: #ffffff
+                content: ""
+                width: 100%
+                height: 2px
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%) rotate(45deg)
+            &:after
+                background: #ffffff
+                content: ""
+                width: 100%
+                height: 2px
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%) rotate(-45deg)
+        h2
+            max-width: 224px 
+            margin: 0 auto
+        h3
+            font-size: 20px
+            font-weight: bold
+            color: #e56022
+            margin: 0 0 10px 0
+        p
+            font-size: 14px
+            line-height: 1.5
+            margin: 0 0 10px 0
+        .bold
+            font-weight: bold
+            font-size: 16px
+            margin: 0 0 5px 0
+        ul
+            margin: 0 0 25px 0
+        li
+            margin: 0 0 10px 0
+            line-height: 1.5
+            font-size: 14px
+            color: #ffffff
+        .eventbox
+            margin: 20px auto 0
+            text-align: left
+            width: 320px
+            height: 462px
+            background: url(../images/event_bg.png) center top / 100% 100% no-repeat
+            padding: 50px 25px
+            color: #ffffff
+        .txtarea
+            width: 100%
+            height: 100%
+            overflow-y: auto
+            padding: 10px 0
+        .one
+            list-style-type: decimal
+            li
+                margin: 0 0 15px 2em
+        .two
+            margin: 15px 0 0 0
+            list-style-type: disc
+
+@keyframes ltor
+    from
+        transform: translate(0,-100%)
+    to
+        transform: translate(20%,-100%)
+@keyframes rtol
+    from
+        transform: translate(0%,-100%)
+    to
+        transform: translate(20%,-100%)

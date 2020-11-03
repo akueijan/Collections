@@ -1,0 +1,315 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "TOYOTA｜HILUX壯遊行"
+    - var pageDesc = "HILUX全新改款！快來與越野車神陳和皇一起，完成6關越野挑戰，就有機會抽中任天堂Switch！"
+    - var pageJs = "index.js"
+    - var isVue = true
+//- page html
+block page_main
+    section.index
+        .pcindex(v-if="isPc")
+            h2
+                img(src="images/pcindex-title.png")
+            .car
+                img(src="images/pcindex-car.png")
+            .content
+            .qrcode
+                img(src="images/QRcode.png")
+        .mbindex(v-if="!isPc")
+            transition(name="fade")
+                .kv(v-if="page=='kv'" key="kv")
+                    h2.slogn
+                        img(src="images/kv-slogn.png" alt="HILUX 壯遊行")
+                        .underline
+                            img(src="images/kv-slogn-underline.png")
+                    h3(v-if="projectStatus!==3").desc 完成六項越野駕車挑戰
+                        br
+                        | 即可抽 
+                        span.sp.yellow 任天堂  SWITCH
+                        | ！
+                    .content
+                        .warning
+                            img(src="images/kv-warning.png")
+                        .car
+                            //- img(src="images/kv-car.png")
+                        .acbtn(@click="gameStrat" title="立即挑戰")
+                            img(src="images/kv-acbtn.png" alt="立即挑戰")
+                        .fogleft
+                            img(src="images/fog-left.png")
+                        .fogright
+                            img(src="images/fog-right.png")
+                    .note
+                        p 活動辦法及限制詳情請見官網說明
+                .game(v-if="page=='game'" key="game")
+                    .step(v-if="step=='ready'").ready
+                        h2
+                            img(src="images/ready-title.png")
+                        .carbox
+                            .car#car
+                                img(src="images/game-car.png")
+                        .readme
+                            img(src="images/game-readme.png")
+                        .arr
+                            img(src="images/game-arr.png")
+                    .step(v-show="step=='start'").levelpage
+                        .viodearea#videoarea0
+                            //- video#video_intro
+                            //-     source(src="https://TOYOTAcdn.azureedge.net/event/HILUXMc/video-intro.mp4" muted playsinline)
+                        .viodearea#videoarea
+                        .viodearea#videoarea2
+                        .viodearea#videoarea3
+                        .viodearea#videoarea4
+                        .viodearea#videoarea5
+                        .viodearea#videoarea6
+                            //- video(playsinline loop autoplay muted).video-test1
+                            //-     source( src="./static/youtube-test1.mp4" )
+                            //- video(playsinline loop autoplay muted).video-test2
+                            //-     source( src="./static/youtube-test2.mp4" )
+                        transition(name="gamefade")
+                            .question.que1(v-if="question=='que1'" key="que1")
+                                .quebox
+                                    .head
+                                        h2
+                                            img(src="images/level1-title.png" alt="關卡1")
+                                        p 前方為
+                                            span.yellow 濕滑陡坡
+                                            | ，請問應選擇哪個檔才能順利爬上坡?
+                                    .hr
+                                        img(src="images/game-hr.png")
+                                    .content
+                                        .quebg
+                                            img(src="images/level-1-q.png")
+                                        .sel1
+                                            p 高速二輪傳動
+                                        .sel2
+                                            p 高速四輪傳動
+                                        .sel3
+                                            p 低速四輪傳動
+                                        .handpoint
+                                            img(src="images/handpoint.png")
+                                        .rotabg
+                                            #rotabox
+                                                img.rotaIetm(src="images/knob.png")
+                                        .note
+                                            p 請拖曳指向檔次後放開
+                                    .stepcun
+                                        p 當前進度 1/6
+                            .question.que2(v-if="question=='que2'" key="que2")
+                                .head
+                                    h2
+                                        img(src="images/level2-title.png" alt="關卡2")
+                                    p 準備下坡時，
+                                        span.yellow 不知前方有人或是障礙物
+                                        | ，請問應選擇什麼功能?
+                                .hr
+                                    img(src="images/game-hr.png")
+                                .content
+                                    ul.btns
+                                        li(@click="listbtn(1)")
+                                            .img
+                                                img(src="images/btn-opt-1.png")
+                                            .txt
+                                                p 後差速器鎖定
+                                        li(@click="listbtn(2)")
+                                            .img
+                                                img(src="images/btn-opt-2.png")
+                                            .txt
+                                                p 陡坡緩降
+                                        li(@click="listbtn(3)")
+                                            .img
+                                                img(src="images/btn-opt-3.png")
+                                            .txt
+                                                p 循跡系統
+                                        li(@click="listbtn(4)")
+                                            .img
+                                                img(src="images/btn-opt-4.png")
+                                            .txt
+                                                p 環景功能
+                                .stepcun
+                                    p 當前進度 2/6
+                                .ftnote
+                                    p *按鈕形式請以實車為主
+                            .question.que3(v-if="question=='que3'" key="que3")
+                                .head
+                                    h2
+                                        img(src="images/level3-title.png" alt="關卡3")
+                                    p
+                                        span.yellow 輪胎陷入
+                                        | 崎嶇路面，請問要選擇哪個檔脫困?
+                                .hr
+                                    img(src="images/game-hr.png")
+                                .content
+                                    .quebg
+                                        img(src="images/level-1-q.png")
+                                    .sel1
+                                        p 高速二輪傳動
+                                    .sel2
+                                        p 高速四輪傳動
+                                    .sel3
+                                        p 低速四輪傳動
+                                    .handpoint
+                                        img(src="images/handpoint.png")
+                                    .rotabg
+                                        #rotabox
+                                            img.rotaIetm(src="images/knob.png")
+                                    .note
+                                        p 請拖曳指向檔次後放開
+                                .stepcun
+                                    p 當前進度 3/6
+                            .question.que4(v-if="question=='que4'" key="que4")
+                                .head
+                                    h2
+                                        img(src="images/level4-title.png" alt="關卡4")
+                                    p 爬坡過程中
+                                        span.yellow 後輪懸空
+                                        | ，請問要選擇什麼系統才能順利上坡?
+                                .hr
+                                    img(src="images/game-hr.png")
+                                .content
+                                    ul.btns
+                                        li(@click="listbtn(1)")
+                                            .img
+                                                img(src="images/btn-opt-1.png")
+                                            .txt
+                                                p 後差速器鎖定
+                                        li(@click="listbtn(2)")
+                                            .img
+                                                img(src="images/btn-opt-2.png")
+                                            .txt
+                                                p 陡坡緩降
+                                        li(@click="listbtn(3)")
+                                            .img
+                                                img(src="images/btn-opt-3.png")
+                                            .txt
+                                                p 循跡系統
+                                        li(@click="listbtn(4)")
+                                            .img
+                                                img(src="images/btn-opt-4.png")
+                                            .txt
+                                                p 環景功能
+                                .stepcun
+                                    p 當前進度 4/6
+                                .ftnote
+                                    p *按鈕形式請以實車為主
+                            .question.que5(v-if="question=='que5'" key="que5")
+                                .head
+                                    h2
+                                        img(src="images/level5-title.png" alt="關卡5")
+                                    p 想在
+                                        span.yellow 沙地
+                                        | 的水牛坑
+                                        span.yellow 狂奔
+                                        | ，哪個檔最合適?
+                                .hr
+                                    img(src="images/game-hr.png")
+                                .content
+                                    .quebg
+                                        img(src="images/level-1-q.png")
+                                    .sel1
+                                        p 高速二輪傳動
+                                    .sel2
+                                        p 高速四輪傳動
+                                    .sel3
+                                        p 低速四輪傳動
+                                    .handpoint
+                                        img(src="images/handpoint.png")
+                                    .rotabg
+                                        #rotabox
+                                            img.rotaIetm(src="images/knob.png")
+                                    .note
+                                        p 請拖曳指向檔次後放開
+                                .stepcun
+                                    p 當前進度 5/6
+                            .question.que6(v-if="question=='que6'" key="que6")
+                                .head
+                                    h2
+                                        img(src="images/level6-title.png" alt="關卡5")
+                                    p 想在沙坑
+                                        span.yellow 360度甩尾
+                                        | ，哪個檔最合適?
+                                .hr
+                                    img(src="images/game-hr.png")
+                                .content
+                                    .quebg
+                                        img(src="images/level-1-q.png")
+                                    .sel1
+                                        p 高速二輪傳動
+                                    .sel2
+                                        p 高速四輪傳動
+                                    .sel3
+                                        p 低速四輪傳動
+                                    .handpoint
+                                        img(src="images/handpoint.png")
+                                    .rotabg
+                                        #rotabox
+                                            img.rotaIetm(src="images/knob.png")
+                                    .note
+                                        p 請拖曳指向檔次後放開
+                                .stepcun
+                                    p 當前進度 6/6
+                .result(v-if="page=='result'" key="result")
+                    h2
+                        img(src="images/result-title.png")
+                    h3(v-if="projectStatus!==3") 完成公開分享並填寫抽獎資料，即可抽 
+                        span.sp.yellow 任天堂  SWITCH
+                        | ！
+                    .content
+                        .title
+                            img(:src="result.img" :alt="result.title")
+                        .txt
+                            p(v-html="result.word")
+                        .fraction
+                            p {{result.fraction}}
+                        .btn-fb(@click="fbShare")
+                            img(src="images/btn-result-share.png")
+                        .man
+                            img(:src="resultMan")
+                    .note
+                        p 活動辦法及限制詳情請見官網說明
+                .userinfo(v-if="page=='info'" key="info")
+                    h2
+                        img(src="images/info-title.png")
+                    .awarditem
+                        img(src="images/switch.png")
+                    form.form(@submit.prevent = "userInfobtn")
+                        ul
+                            li
+                                label(for="name") 收件人姓名 : 
+                                .inputbox
+                                    input#name(type="text" placeholder="例:王大明" maxlength="20" v-model="userInfo.name")
+                            li.spli
+                                .gender
+                                    span 性 別 : 
+                                    label(for="male") 男 
+                                        input#male(type="radio" name="gender" v-model="userInfo.gender" value="M")
+                                    label(for="female") 女 
+                                        input#female(type="radio" name="gender" v-model="userInfo.gender" value="F")
+                                .age
+                                    span 年 齡 : 
+                                    select(v-model="userInfo.age")
+                                        //- option(v-for="item in agreeArr") {{item}}
+                                        option(value="19") 19以下
+                                        option(value="29") 20~29
+                                        option(value="39") 30~39
+                                        option(value="49") 40~49
+                                        option(value="59") 50~59
+                                        option(value="60") 60以上
+                            li
+                                label(for="phone") 聯 絡 電 話 : 
+                                .inputbox
+                                    input#phone(type="tel" placeholder="例:0987654321" maxlength="10" v-model="userInfo.mobile")
+                            li
+                                label(for="email") 聯 絡 信 箱 : 
+                                .inputbox
+                                    input#email(type="text" placeholder="例:123@gmail.com" maxlength="50" v-model="userInfo.email")
+                            li
+                                input#agree(type="checkbox" v-model="userInfo.agree")
+                                label.agree(for="agree" @click="eventOpen") 本人已詳閱並同意活動辦法及個資使用條例
+                        .btn-send
+                            button(type="submit") 確認送出
+                            //- .loading(v-if="loading")
+                            //-     img(src="images/loading.gif")
+                    .note
+                        p 活動辦法及限制詳情請見官網說明

@@ -1,0 +1,28 @@
+nav.nav(itemscope itemtype="http://schema.org/SiteNavigationElement" v-if="!isPc")
+    div.l-container
+        div.nav-bd
+            h1.nav-logo
+                a(href="https://richart.tw/TSDIB_RichartWeb/RC00/RC000000?utm_source=richart&utm_medium=click&utm_campaign=chefevent_202006&utm_content=header" title="台新richart" target="_blank")
+                    img(src="images/logo.png" alt="台新richart")
+            div.nav-btn
+                div.one
+                div.two
+                div.three
+                .close
+                    img(src="images/menu-close.png")
+            div.nav-menu(role="navigation")
+                //- .nav-close
+                //-     img(src="images/menu-close.png")
+                ul.clearfix
+                    li.nav-item.nav-item--iscurrent
+                        a(href="javascript:void(0)" itemprop="url" title="成為新汪客" @click="outLink('menu_new')" gtm-data="menu_成為新汪客")
+                            img(src="images/menu-li1.png" alt="成為新汪客" gtm-data="menu_成為新汪客")
+                    li.nav-item
+                        a(href="javascript:void(0)" itemprop="url" @click="scrollTo('#meals')" title="汪廚上菜" gtm-data="menu_汪廚上菜")
+                            img(src="images/menu-li2.png" alt="汪廚上菜" gtm-data="menu_汪廚上菜")
+                    li.nav-item
+                        a(href="javascript:void(0)" itemprop="url" @click="scrollTo('#classroom')" title="汪廚小教室" gtm-data="menu_汪廚小教室")
+                            img(src="images/menu-li3.png" alt="汪廚小教室" gtm-data="menu_汪廚小教室")
+                    li.nav-item
+                        a(href="javascript:void(0)" itemprop="url" @click="scrollTo('#events')" title="活動辦法" gtm-data="menu_活動辦法")
+                            img(src="images/menu-li4.png" alt="活動辦法" gtm-data="menu_活動辦法")

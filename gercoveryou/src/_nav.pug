@@ -1,0 +1,27 @@
+nav.nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+    div.l-container
+        div.nav-bd
+            h1.nav-logo
+                img.visa(src="images/logo-visa.png")
+                img.post(src="images/logo-post.png")
+            div.nav-btn
+                div.one
+                div.two
+                div.three
+            div.nav-menu(role="navigation")
+                ul.clearfix
+                    li.nav-item.nav-item--iscurrent
+                        a(href="game.html" itemprop="url" title="立即挑戰" gtm-data="主選單_立即挑戰")
+                            img(src="images/nav-game.png" alt="立即挑戰" gtm-data="主選單_立即挑戰")
+                    li.nav-item
+                        a(href="javascript:void(0)" itemprop="url" @click="scrollTo('#discount')" title="鴿的好康優惠" gtm-data="主選單_好康優惠")
+                            img(src="images/nav-discount.png" alt="鴿的好康優惠" gtm-data="主選單_好康優惠")
+                    li.nav-item
+                        a(href="javascript:void(0)" itemprop="url" @click="scrollTo('#showvideo')" title="看鴿怎麼刷" gtm-data="主選單_看鴿怎麼刷")
+                            img(src="images/nav-showvideo.png" alt="看鴿怎麼刷" gtm-data="主選單_看鴿怎麼刷")
+                    li.nav-item
+                        a(href="javascript:void(0)" itemprop="url" @click="scrollTo('#award')" title="得獎公告" gtm-data="主選單_得獎公告")
+                            img(src="images/nav-award.png" alt="得獎公告" gtm-data="主選單_得獎公告")
+                    li.nav-item
+                        a(href="javascript:void(0)" itemprop="url" @click="eventOpen('events')" title="活動辦法" gtm-data="主選單_活動辦法")
+                            img(src="images/nav-events.png" alt="活動辦法" gtm-data="主選單_活動辦法")

@@ -1,0 +1,81 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "鴿挺你! 刷存在感抽200元購物金 | 郵政金融Visa卡"
+    - var pageDesc = "使用IG濾鏡挑戰刷存在感,即可抽200元超商購物金!"
+    - var pageJs = "index.js"
+    - var isVue = true
+//- page html
+block page_main
+    section.index
+        .pcindex(v-if="isPc")
+            //- img.kvimg(src="images/pc_index.jpg" alt="鴿挺你!刷出你的存在感")
+            .pc-slogn
+                img(src="images/pc-slogn.png" alt="鴿挺你!刷出你的存在感")
+            .pc-kv
+                img(src="images/pc-kv.png")
+            .qrcode
+                img(src="images/qrcode.png")
+            .pc-footer
+                p © Copyright 1996-2020. All Rights Reserved.
+        .mbindex(v-if="!isPc")
+            .kv#kv
+                .deco.deco1
+                    img(src="images/shine.png")
+                .deco.deco2
+                    img(src="images/shine.png")
+                .deco.deco3
+                    img(src="images/shine.png")
+                .deco.deco4
+                    img(src="images/shine.png")
+                .deco.deco5
+                    img(src="images/shine.png")
+                .deco.deco6
+                    img(src="images/shine.png")
+                .spotlight
+                    img(src="images/spotlight.png")
+                h2.slogn
+                    img(src="images/kv-slogn.png" alt="鴿挺你!刷出你的存在感")
+                a.actionbtn(href="game.html" title="立即挑戰" gtm-data="首頁_立即挑戰")
+                    img(src="images/actionbtn.gif" alt="立即挑戰" gtm-data="首頁_立即挑戰")
+                .postarea
+                    img.postbd(src="images/kv-body.png")
+                    img.posthand(src="images/kv-hand.png")
+                .more
+                    img(src="images/kv-more.png")
+            .block.discount#discount
+                .content
+                    img(src="images/content-sec1.png")
+                    a.btn(href="https://result.friendo.com.tw/post1" title="立即看優惠" target="_blank" gtm-data="首頁_立即看優惠")
+                        img(src="images/btn-discount.gif" gtm-data="首頁_立即看優惠")
+            .block.showvideo#showvideo
+                h2
+                    img(src="images/sec2-title.png")
+                .content
+                    .slickbg
+                        .btn-prev(gtm-data="首頁_左按鈕")
+                        .btn-next(gtm-data="首頁_右按鈕")
+                        .slickbd
+                            .slickbox
+                                video#video1(src="./static/video/video-sec1.mp4" muted playsinline)
+                            .slickbox
+                                video#video2(src="./static/video/video-sec2.mp4" muted playsinline)
+                            .slickbox
+                                video#video3(src="./static/video/video-sec3.mp4" muted playsinline)
+                    a.btn(href="game.html" title="立即挑戰" gtm-data="首頁_影片立即挑戰")
+                        img(src="images/btn-togame.gif" alt="立即挑戰" gtm-data="首頁_影片立即挑戰")
+            .block.award#award
+                h2
+                    img(src="images/title-award.png" alt="得獎公告")
+                .content
+                    p 7-Eleven 超商200元購物金(200名)
+                    p.sp 於2020/6/29(一)公布
+                    .awardlist
+                        ul
+                            li.nodata(v-if="!awardOpen") 得獎名單
+                                br
+                                | 尚未公佈
+                            li(v-for="data in awardList" v-if="awardOpen") {{ data }}
+                .psinfo
+                    img(src="images/psinfo.png")

@@ -1,0 +1,79 @@
+html, body 
+    position: relative
+    margin: 0 auto
+    height: 100%
+    font-family: Arial,'Noto Sans TC','Microsoft JhengHei',Verdana,Arial,Helvetica,sans-serif,'Microsoft Yahei', 'Microsoft JhengHei','新細明體'
+    background: #d1f2f3
+a 
+    cursor: pointer
+    
+.fb-root 
+    height: 0
+    overflow: hidden
+
+._freeze 
+    // overflow: hidden
+    position: fixed
+    width: 100%
+    height: 100%
+
+.l-container 
+    margin: 0 auto
+    position: relative
+
+
+.l-wrap 
+    width: 100%
+    position: relative
+    max-width: 750px
+    margin: 0 auto
+    // overflow: hidden
+    
+.l-main
+    // padding-bottom: $ft_height
+    min-height: 100vh
+
+.l-footer 
+    position: relative
+    text-align: center
+    height: 88px
+    background: #42aed3
+    text-align: center
+    padding: 16px 0 0 0
+    p
+        font-size: 18px
+        font-weight: 400
+        color: #ffffff
+        line-height: 1.5
+
+.container-area
+    width: 100%
+    max-width: 750px
+    margin: 0 auto
+.hidden
+    display: none
+.hide-text 
+    overflow: hidden
+    padding: 0
+    text-indent: 101%
+    white-space: nowrap
+
+.fixed-btn
+    width: 157px
+    position: fixed
+    right: 0
+    bottom: 10%
+    transform: translateX(100%)
+    transition: 0.6s
+    opacity: 0
+    z-index: 99
+    .btn-gotop
+        width: 45px
+        position: absolute
+        right: 30px
+        bottom: -80px
+        cursor: pointer
+.btnactive
+    transform: translateX(0%)
+    transition: 0.6s
+    opacity: 1

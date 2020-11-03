@@ -1,0 +1,227 @@
+transition(name="fade")
+    .popup(v-if="popup")
+        transition(name="fade")
+            .popupbd.loading(v-if="poPage=='loading'" key="loading")
+                img(src="images/loading.gif")
+            .popupbd(v-if="poPage=='suc'" key="suc")
+                .close(@click="popClose")
+                    img(src="images/menu-close.png")
+                h2
+                    img(src="images/check-title.png")
+                .content
+                    p 恭喜你踏出邀好友賞櫻的第一步啦!
+                        br
+                        | 每成功邀請
+                        span.red 2名
+                        | 好友入席，
+                        br
+                        | 即可獲得
+                        span.red 1次
+                        | 抽獎機會!
+                        br
+                        br
+                        | 邀請愈多好友入席賞櫻，
+                        br
+                        span.red 抽獎機會愈多!
+                        br
+                        br
+                        | 記得回到網站查看邀請進度~
+                        br
+                        | 祝你抽中最高超商百元購物金!
+                .btn_check(@click="getRecord" gtm-data="分享結束_查看邀請進度")
+                    img(src="images/btn-check.png" gtm-data="分享結束_查看邀請進度")
+            .popupbd(v-if="poPage=='yourlink'" key="yourlink")
+                .close(@click="popClose")
+                    img(src="images/menu-close.png")
+                h2
+                    img(src="images/check-title.png")
+                .content
+                    p 賞櫻當然要揪團一起來!
+                        br
+                        | 成功邀請
+                        span.red 2名
+                        | 好友賞櫻，
+                        br
+                        | 即可線上抽
+                        span.red 超商購物金!
+                        br
+                        br
+                        | 邀請愈多好友入席，
+                        br
+                        | 抽獎機會愈多！
+                        br
+                        br
+                        | 你的邀請網址：
+                        br
+                    input.link(type="text" readonly v-model="fbLink")
+                .btnarea
+                    .btn_line(@click="tolineShare" gtm-data="邀請好友_LINE邀請")
+                        img(src="images/btn-line.png" gtm-data="邀請好友_LINE邀請")
+                    .btn_fb(@click="tofbShare" gtm-data="邀請好友_FB邀請")
+                        img(src="images/btn-fb.png" gtm-data="邀請好友_FB邀請")
+            .popupbd(v-if="poPage=='ticket'" key="ticket")
+                .close(@click="popClose")
+                    img(src="images/menu-close.png")
+                h2
+                    img(src="images/check-title.png")
+                .content(v-if="awarditem")
+                    p Hi 
+                        span.name {{fbData.fbName}}
+                        br
+                        | 恭喜你紀錄你的櫻花盛宴~
+                        br
+                        | 與重要的人一同賞櫻是件幸福的事!
+                        br
+                        | 你成功獲得:
+                    .ticketbox
+                        #iframe(scrolling="yes")
+                            iframe#iframe_src(:src="awardUrl")
+                .content(v-if="!awarditem")
+                    p Hi {{fbData.fbName}}
+                        br
+                        | 可惜還沒搖到專屬櫻花好禮…
+                        br
+                        | 繼續邀請好友入席賞櫻吧!
+                    .btn_inv(@click="invfriend" gtm-data="賞櫻好禮_沒成功_邀請好友")
+                        img(src="images/btn-invbig.png" gtm-data="賞櫻好禮_沒成功_邀請好友")
+            .popupbd(v-if="poPage=='nodata'" key="nodata")
+                .close(@click="popClose")
+                    img(src="images/menu-close.png")
+                h2
+                    img(src="images/check-title.png")
+                .content
+                    p 你尚未預定專屬線上賞櫻席，
+                        br
+                        | 記得線上賞櫻後，
+                        br
+                        | 邀請好友入席訂製你們專屬浮世繪，
+                        br
+                        | 即有機會可獲得
+                        br
+                        | 超商櫻花季購物金等好禮…!
+                .btn_toplay(@click="userLogin" gtm-data="主選單_未入席_邀請入席")
+                    img(src="images/action_btn.png" gtm-data="主選單_未入席_邀請入席")
+            .popupbd(v-if="poPage=='friend'" key="friend")
+                .close(@click="popClose")
+                    img(src="images/menu-close.png")
+                h2
+                    img(src="images/check-title.png")
+                .content
+                    p
+                        span.red.name {{invName}}
+                        | 邀請你一起
+                        br
+                        | 加入Visa線上賞櫻團
+                        br
+                        br
+                        | 一期一會的櫻花季
+                        br
+                        | 讓你們擁有一幅最美的賞櫻紀念...
+                .btn_toplay(@click="fbLogin" gtm-data="被邀請者_入席賞櫻")
+                    img(src="images/action_btn.png" gtm-data="被邀請者_入席賞櫻")
+            .popupbd.lottery(v-if="poPage=='lottery'" key="lottery") 
+                .close(@click="popClose")
+                    img(src="images/menu-close.png")
+                h2
+                    img(src="images/check-title.png")
+                .content
+                    p 目前已有
+                        span.red {{userlottery.invited}} 名好友
+                        | 與你一同賞櫻囉!
+                        br
+                        | 你總共獲得
+                        span.red {{userlottery.total}} 次
+                        | 抽獎機會!
+                    p(v-if="!lotcun") 加把勁邀請好友入席賞櫻~
+                        br
+                        | 最高抽超商
+                        span.red 百元購物金
+                        | !!
+                .frequency
+                    p 已用 {{userlottery.used}} 次抽獎機會
+                    p 剩餘 {{userlottery.available}} 次抽獎機會
+                .boxbg
+                    .ball
+                        img(v-if="lotBall" :src="lotBall")
+                        //- img(src="images/ball-r.png")
+                    .box
+                        img(src="images/boxbg.png")
+                    .handle
+                        img(src="images/handle.png")
+                .btnarea
+                    .btn_nocun(v-if="!lotcun" @click="invfriend" gtm-data="查看邀請進度_尚未_邀好友")
+                        img(src="images/btn-invbig.png" gtm-data="查看邀請進度_尚未_邀好友")
+                    .btn_invite(v-if="lotcun" @click="invfriend" gtm-data="查看邀請進度_可抽_邀好友")
+                        img(src="images/btn-invite.png" gtm-data="查看邀請進度_可抽_邀好友")
+                    .btn_play(v-if="lotcun")
+                        .btn_on(@click="lottery" v-if="!playon" gtm-data="查看邀請進度_可抽_抽獎")
+                            img(src="images/btn-play.png" gtm-data="查看邀請進度_可抽_抽獎")
+                        .btn_off(v-if="playon")
+                            img(src="images/loading.gif")
+            .popupbd.lottery.ckaward(v-if="poPage=='result'" key="result")
+                .close(@click="popClose")
+                    img(src="images/menu-close.png")
+                h2
+                    img(src="images/check-title.png")
+                .block(v-if="winaward")
+                    .content
+                        p 恭喜你! 春神來了好運到!
+                            br
+                            | 今天的你，沒有極限!
+                            br
+                            | 幸運獲得
+                            span.red {{getAward}}
+                            | !
+                        .img
+                            img(src="images/pic-win.png")
+                    .btnarea
+                        .btn_ckaward(@click="getWinRec" gtm-data="查看邀請進度_中獎_查看獎品")
+                            img(src="images/btn-ckaward.png" gtm-data="查看邀請進度_中獎_查看獎品")
+                        .btn_golottery(@click="gameRecord" gtm-data="查看邀請進度_中獎_繼續搖獎")
+                            img(src="images/btn-golottery.png" gtm-data="查看邀請進度_中獎_繼續搖獎")
+                .block(v-if="!winaward")
+                    .content
+                        p(v-html="loseWord")
+                        .img
+                            img(src="images/pic-lose.png")
+                    .btnarea
+                        .btn_invfd(@click="invfriend" gtm-data="查看邀請進度_沒中_FB邀好友")
+                            img(src="images/btn-invfd.png" gtm-data="查看邀請進度_沒中_FB邀好友")
+                        .btn_golottery(@click="gameRecord" gtm-data="查看邀請進度_沒中_繼續搖獎")
+                            img(src="images/btn-golottery.png" gtm-data="查看邀請進度_沒中_繼續搖獎")
+            .popupbd.note(v-if="poPage=='note'" key="note") 
+                .close(@click="popClose")
+                    img(src="images/menu-close.png")
+                h2
+                    img(src="images/note-title.png")
+                .content
+                    .block
+                        h3 活動期間
+                        p 2020/3/24至 2020/4/10
+                    .block
+                        h3 活動內容
+                        ul
+                            li
+                                span.red 入席體驗線上賞櫻
+                                | ：使用者於活動期間登入Facebook帳號，進入Visa線上賞櫻團活動網站後，即可展開線上賞櫻體驗。
+                            li
+                                span.red 邀請好友入席賞櫻
+                                | ：使用者完成線上賞櫻體驗後，系統將產出一組個人專屬網址，透過個人專屬網址即可透過Facebook、LINE…等方式邀請好友入席賞櫻。
+                            li
+                                span.red 獲得線上賞櫻抽獎機會
+                                | ：每成功邀請2名好友以Facebook帳號登入線上賞櫻團，即可獲得乙次抽獎機會；成功邀請4名好友以Facebook帳號登入參加線上賞櫻團，總共可獲得兩次抽獎機會，依此類推。抽獎機會無上限，邀請愈多好友入席抽獎機會愈多。
+                            li
+                                span.red 查看抽獎次數
+                                | ：使用者可於主選單之「查詢好友邀請進度」查看抽獎次數。好友名單之認列，以好友成功登入Facebook帳號體驗線上賞櫻活動為準，如好友僅透過使用者之專屬連結，點擊查看活動網站，並未登入網站體驗線上賞櫻，則無法計入好友名單。
+                            li 本活動由台灣威士卡股份有限公司舉辦，並委由春樹科技股份有限公司製作執行，春樹科技股份有限公司保留審核資格。消費者如有任何疑問，請於來信 service@friendo.com.tw詢問。
+                            li 主辦單位保有最終修改、變更、活動解釋及取消本活動之權利，若有相關異動將會公告於網站，恕不另行通知。
+                            li 如因電腦病毒、駭客入侵、技術失誤、數據遺失、網路擠塞等網路技術的任何因素，以致遞交資料缺失或活動無法進行，台灣威士卡股份有限公司與春樹科技股份有限公司無需承擔任何責任。
+                    .block
+                        h3 活動獎項規範
+                        ul
+                            li 活動獎項包含7-ELEVEN 25元購物金/ 2,100名；7-ELEVEN 50元購物金/ 1,000名、7-ELEVEN 100元購物金/ 160名，總計活動獎項3,260名，各獎項採活動網站系統隨機抽選。全獎項每帳號僅限得乙次，票券經兌換後不得重複使用，請妥善保管獎項序號。
+                            li 本活動獎項採用虛擬序號票券，得獎者可於活動網頁點擊右上方主選單之「我的賞櫻好禮」查詢獎項，並截圖下載使用。活動網站僅開放至2020/4/30，獎項序號請截圖保管，恕不另外開放查詢。
+                            li 使用活動獎項票券請至全台7-ELEVEN便利商店櫃台直接出示本券掃碼兌換(請將螢幕亮度調到最大)，本活動購物金僅限於實體門市使用，詳細使用說明參閱宜睿電子券須知。
+                            li 本活動序號券使用期限，以票面為準，請於使用期限內使用完畢，若因故逾期，恕無法補發，且獎品不得要求折換現金。
+                            li 活動參加者如違反本活動之活動辦法及相關注意事項之行為，主辦單位得取消其得獎資格。
+                            li 活動票券使用規範以宜睿智慧股份有限公司為準，若有票券相關使用規範疑問，請洽宜睿智慧客服窗口：Ticketxpress-cs-tw@edenred.com。

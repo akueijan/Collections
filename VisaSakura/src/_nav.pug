@@ -1,0 +1,21 @@
+nav.nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+    div.l-container
+        div.nav-bd
+            h1.nav-logo
+                a(href="index.html" title="VISA")
+                    img(src="images/logo.png" alt="VISA")
+            div.nav-btn
+            div.nav-menu(role="navigation")
+                ul.clearfix
+                    li.nav-item.nav-item--iscurrent
+                        a(href="javascript::void(0)" alt="Visa線上賞櫻" itemprop="url" title="Visa線上賞櫻" @click="fbLogin" gtm-data="主選單_線上賞櫻")
+                            img(src="images/menu-btn1.png" alt="Visa線上賞櫻" gtm-data="主選單_線上賞櫻")
+                    li.nav-item
+                        a(href="javascript::void(0)" alt="登入查看邀請進度" itemprop="url" title="登入查看邀請進度" @click="userRecord" gtm-data="主選單_好友入席進度")
+                            img(src="images/menu-btn3.png" alt="登入查看邀請進度" gtm-data="主選單_好友入席進度")
+                    li.nav-item
+                        a(href="javascript::void(0)" alt="登入查看賞櫻好禮" itemprop="url" title="登入查看賞櫻好禮" @click="userGift" gtm-data="主選單_賞櫻好禮")
+                            img(src="images/menu-btn2.png" alt="登入查看賞櫻好禮" gtm-data="主選單_賞櫻好禮")
+                    li.nav-item
+                        a(href="javascript::void(0)" alt="線上賞櫻參加辦法" itemprop="url" title="線上賞櫻參加辦法" @click="noteOpen" gtm-data="主選單_參加辦法")
+                            img(src="images/menu-btn4.png" alt="線上賞櫻參加辦法" gtm-data="主選單_參加辦法")

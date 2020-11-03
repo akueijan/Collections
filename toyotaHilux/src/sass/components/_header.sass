@@ -1,0 +1,102 @@
+$header-lg-height: 120px
+$header-mobile-height: 120px
+
+header
+    width: 100%
+    padding: 0 40px
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+.nav
+    // background: #bf0e29
+    height: $header-lg-height
+    line-height: $header-lg-height
+    width: 100%
+    // position: fixed
+    position: absolute
+    left: 0
+    top: 0
+    z-index: 9
+    // overflow: hidden
+    +rwd($pad)
+        height: $header-mobile-height
+        line-height: $header-mobile-height
+    a 
+        cursor: pointer
+        display: inline-block
+    p
+        display: inline-block
+        margin-right: 10px  
+    & .l-container
+        height: 100%
+    &-bd 
+        height: 100%
+        padding: 0 40px
+        display: flex
+        align-items: center
+        justify-content: space-between
+    &-logo 
+        display: inline-block
+        width: 241px
+        // max-width: 241px
+        line-height: 0
+        vertical-align: middle
+        // +rwd($desktop)
+        //     width: mvw(360)
+        img
+            width: 100%
+            height: auto
+    &-btn
+        width: 69px
+        height: 42px
+        background: url(../images/btn-menu.png) center top no-repeat
+        background-size: cover
+        cursor: pointer
+        transition: 0.3s
+        position: relative
+        z-index: 9
+    &-menu
+        width: 100%
+        background: rgba(#000000, 0.9)
+        height: 100vh
+        right: 0
+        top: -250vh
+        position: absolute
+        transition: all 0.2s ease-out
+        // transform: translateY(-100%)
+        ul 
+            margin: 0
+            height: 40%
+            text-align: center
+            padding: 360px 0 0 0
+            li 
+                width: 96%
+                position: relative
+                transform: rotate(-3deg)
+                margin: 0 auto
+                &:after
+                    content: ""
+                    width: 360px
+                    height: 19px
+                    background: url(../images/menu-li-des.png) center top no-repeat
+                    background-size: cover
+                    display: block
+                    margin: -20px auto 40px
+                    transform: rotate(3deg)
+            a
+                transform: skewX(-15deg)
+        span
+            color: #fff
+            font-weight: 500
+            font-size: 48px
+            line-height: 1
+    &--active 
+        .nav-btn
+            width: 57px
+            height: 51px
+            background: url(../images/btn-close.png) center top no-repeat
+            background-size: cover
+            transition: 0.3s
+        .nav-menu
+            top: 0

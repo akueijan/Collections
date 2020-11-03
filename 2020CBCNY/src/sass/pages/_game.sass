@@ -1,0 +1,656 @@
+﻿.game
+    position: relative
+    min-height: 100vh
+    .step
+        padding: 50px 15px
+        max-width: 750px
+        min-height: 100vh
+        margin: 0 auto
+        background: url(../images/gameBg.jpg) top center no-repeat
+        background-size: 100% 100%
+        text-align: center
+        .btn
+            cursor: pointer
+    .result
+        display: none
+    .fblogin
+        h2
+            margin: percentage(300/1330) 0 0 -20px
+            +rwd($pad)
+                transform: scale(0.85)
+        .fbbtn
+            margin: 20px 0 0 10px
+            +rwd($pad)
+                transform: scale(0.85)
+        
+    .selgame
+        h2
+            margin: 0 auto 30px
+            +rwd($pad)
+                transform: scale(0.85)
+        .content
+            margin: 0 auto
+            overflow: hidden
+            +rwd($pad)
+                transform: scale(0.85)
+                margin: -60px auto 0
+            .level
+                width: 90%
+                margin: 0 auto 30px
+                cursor: pointer
+                position: relative
+                &:nth-last-of-type(1)
+                    margin: 0 auto
+            .open
+                width: 100%
+                position: relative
+                z-index: 1
+            .lock
+                width: 100%
+                position: absolute
+                top: 0
+                left: 0
+                z-index: 2
+    .voltest
+        // padding: 50px 0 100px 0
+        +rwd($pad)
+            padding: 50px 15px 100px
+        h2
+            +rwd($pad)
+                transform: scale(0.85)
+        .content
+            margin: 2% auto 0
+            +rwd($pad)
+                transform: scale(0.85)
+                margin: -40px auto 0
+            .textbox
+                max-width: 660px
+                height: 898px
+                background: url(../images/voltestBg.png) top center no-repeat
+                background-size: 100% 100%
+                // padding: 75px 0 0 0
+                margin: 0 auto
+                position: relative
+                transform-origin: top center
+                transform: scale(0.85)
+                padding: 0 20px
+                +rwd($pad)
+                    transform: scale(1)
+                    height: 640px
+                &:before
+                    content: ""
+                    width: 268px
+                    height: 39px
+                    background: url(../images/testbox-deco.png) top center no-repeat
+                    position: absolute
+                    top: 0
+                    left: 0
+                    transform: translate(0%,-40%)
+                    // animation: fadelr 1s infinite
+                &:after
+                    content: ""
+                    width: 26px
+                    height: 436px
+                    background: url(../images/testbox-deco2.png) top center no-repeat
+                    position: absolute
+                    top: 0
+                    right: 0
+                    transform: translate(40%,0%)
+                    // animation: fadetd 1s infinite
+                .sample
+                    margin: 60px 0 0 150px
+                    +rwd($pad)
+                        margin: 60px 0 0 percentage(200/750)
+                        width: 50%
+                .txtbox
+                    margin: -30px 0 0 0
+                    +rwd($pad)
+                        margin: 0
+                p
+                    font-size: 40px
+                    font-weight: bold
+                    color: #ffffff
+                    line-height: 1
+                    margin: 0 0 15px 0
+                    &:nth-last-of-type(1)
+                        margin: 0
+                    +rwd($pad)
+                        font-size: 24px
+                .small
+                    font-size: 30px
+                    font-weight: 500
+                    +rwd($pad)
+                        font-size: 20px
+                .sp
+                    font-size: 50px
+                    color: #f6ff00
+                    +rwd($pad)
+                        font-size: 28px
+                #d
+                    // height: 100px
+                    overflow: hidden
+                    border-bottom: 2px solid rgba(#ffffff,0.4)
+                    width: 50%
+                    margin: 30px auto 0
+                    +rwd($pad)
+                        width: 70%
+                .btn
+                    margin: 30px auto 0
+                    cursor: pointer
+                    // position: absolute
+                    // bottom: 0
+                    // left: 50%
+                    // transform: translate(-50%,40%)
+                    +rwd($pad)
+                        width: 40%
+                        // transform: translate(-50%,20%) scale(0.85)
+            .testfail
+                width: 490px
+                height: 485px
+                background: url(../images/testfailBg.png) top center no-repeat
+                background-size: cover
+                padding: 75px 0 0 0
+                margin: 0 auto
+                position: relative
+                transform: scale(0.85)
+                .btn
+                    padding: 60px 0 0 0
+                    cursor: pointer
+    .gamearea
+        .content
+            margin: 2% auto 0
+            position: relative
+            +rwd($pad)
+                transform: scale(0.85)
+                margin: -50px auto 0
+            #sec
+                color: #ffffff
+                font-size: 150px
+                font-weight: bold
+                position: absolute
+                top: 100px
+                left: 50%
+                transform: translateX(-50%)
+                z-index: 9
+                +rwd($pad)
+                    font-size: 100px
+                    top: 50px
+            .textbox
+                max-width: 660px
+                height: 898px
+                background: url(../images/playBg.png) top center no-repeat
+                background-size: 100% 100%
+                // padding: 75px 0 0 0
+                margin: 0 auto
+                position: relative
+                padding: 160px 15px 0
+                // transform: scale(0.85)
+                +rwd($pad)
+                    transform: scale(1)
+                    height: 600px
+                    padding: 100px 15px 0
+                &:before
+                    content: ""
+                    width: 268px
+                    height: 39px
+                    background: url(../images/testbox-deco.png) top center no-repeat
+                    position: absolute
+                    top: 0
+                    left: 0
+                    transform: translateY(-40%)
+                &:after
+                    content: ""
+                    width: 26px
+                    height: 436px
+                    background: url(../images/testbox-deco2.png) top center no-repeat
+                    position: absolute
+                    top: 10%
+                    right: 0
+                    transform: translateX(40%)
+        .comment
+            position: absolute
+            top: 50px
+            left: 50%
+            transform: translateX(-50%)
+            z-index: 5
+        .word
+            margin: 0 auto
+            position: relative
+            height: 450px
+            overflow: hidden
+            +rwd($pad)
+                height: 300px
+            //     transform: scale(0.9)
+            &:before
+                content: ""
+                max-width: 500px
+                width: 100%
+                height: 452px
+                background: url(../images/word-mask.png) top center no-repeat
+                background-size: 100% 100%
+                position: absolute
+                top: 0
+                left: 50%
+                transform: translateX(-50%)
+                z-index: 2
+                +rwd($pad)
+                    top: -2px
+                    height: 300px
+            .front, .back
+                max-width: 385px
+                width: 100%
+                position: absolute
+                top: 160px
+                left: 50%
+                transform: translateX(-50%)
+                overflow: hidden
+                +rwd($pad)
+                    top: 60px
+                    width: 290px
+                img
+                    width: 100%
+                    // height: 651px
+                    max-width: none
+                .mask
+                    width: 0
+                    height: 65px
+                    // position: absolute
+                    // left: 0
+                    overflow: hidden
+                    +rwd($pad)
+                        height: 49px
+                    img
+                        width: 385px
+                        height: 65px
+                        // height: 100%
+                        max-width: none
+                        +rwd($pad)
+                            width: 290px
+                            height: 49px
+        #d
+            // height: 100px
+            overflow: hidden
+            border-bottom: 2px solid rgba(#ffffff,0.4)
+            width: 50%
+            margin: 30px auto 0
+            +rwd($pad)
+                width: 70%
+    .success
+        h2
+            position: relative
+            z-index: 2
+            transform-origin: top center
+            transform: scale(0.85)
+            // +rwd($pad)
+            //     transform: scale(1)
+        .content
+            +rwd($pad)
+                transform: scale(0.85)
+                margin: -140px auto 0
+        h3
+            font-size: 60px
+            font-weight: bold
+            color: #f6ff03
+            +rwd($pad)
+                font-size: 36px
+        p
+            font-size: 28px
+            color: #ffffff
+            line-height: 1.5
+            +rwd($pad)
+                font-size: 16px
+        .big
+            font-size: 50px
+            font-weight: bold
+            +rwd($pad)
+                font-size: 24px
+        .textbox
+            max-width: 660px
+            height: 990px
+            background: url(../images/voltestBg.png) top center no-repeat
+            background-size: 100% 100%
+            // padding: 75px 0 0 0
+            margin: -180px auto 0
+            position: relative
+            padding: 160px 40px 0
+            transform-origin: top center
+            transform: scale(0.85)
+            z-index: 1
+            +rwd($pad)
+                transform: scale(1)
+                margin: -70px auto 0
+                padding: 80px 20px 0
+                height: 600px
+            &:before
+                content: ""
+                width: 268px
+                height: 39px
+                background: url(../images/testbox-deco.png) top center no-repeat
+                position: absolute
+                top: 0
+                left: 0
+                transform: translateY(-40%)
+            &:after
+                content: ""
+                width: 26px
+                height: 436px
+                background: url(../images/testbox-deco2.png) top center no-repeat
+                position: absolute
+                top: 0
+                right: 0
+                transform: translateX(40%)
+            .img
+                img
+                    height: 270px
+                    +rwd($pad)
+                        height: 200px
+        .btn
+            margin: 30px auto 0
+    .fail
+        h2
+            position: relative
+            transform-origin: top center
+            transform: scale(0.85)
+            z-index: 2
+        .content
+            +rwd($pad)
+                transform: scale(0.85)
+                margin: -140px auto 0
+        p
+            font-size: 28px
+            color: #ffffff
+            line-height: 1.5
+            +rwd($pad)
+                font-size: 16px
+        .big
+            font-size: 50px
+            font-weight: bold
+            +rwd($pad)
+                font-size: 24px
+        .textbox
+            max-width: 660px
+            height: 990px
+            background: url(../images/voltestBg.png) top center no-repeat
+            background-size: 100% 100%
+            // padding: 75px 0 0 0
+            margin: -180px auto 0
+            position: relative
+            padding: 160px 40px 0
+            transform-origin: top center
+            transform: scale(0.85)
+            z-index: 1
+            +rwd($pad)
+                transform: scale(1)
+                margin: -100px auto 0
+                padding: 80px 20px 0
+                height: 600px
+            &:before
+                content: ""
+                width: 268px
+                height: 39px
+                background: url(../images/testbox-deco.png) top center no-repeat
+                position: absolute
+                top: 0
+                left: 0
+                transform: translateY(-40%)
+            &:after
+                content: ""
+                width: 26px
+                height: 436px
+                background: url(../images/testbox-deco2.png) top center no-repeat
+                position: absolute
+                top: 10%
+                right: 0
+                transform: translateX(40%)
+            .img
+                img
+                    height: 270px
+                    +rwd($pad)
+                        height: 200px
+            .btn
+                margin: 30px auto 0
+                +rwd($pad)
+                    margin: 15px auto 0
+    .loydata
+        h2
+            transform-origin: top center
+            transform: scale(0.85)
+        .content
+            margin: 2% auto 0
+            +rwd($pad)
+                transform: scale(0.85)
+                margin: -50px auto 0
+            .textbox
+                max-width: 660px
+                height: 670px
+                background: url(../images/playBg.png) top center no-repeat
+                background-size: 100% 100%
+                // padding: 75px 0 0 0
+                margin: 0 auto
+                position: relative
+                padding: 60px 40px 0
+                transform-origin: top center
+                transform: scale(0.85)
+                +rwd($pad)
+                    transform: scale(1)
+                    height: 500px
+                    padding: 100px 15px 0
+                &:before
+                    content: ""
+                    width: 268px
+                    height: 39px
+                    background: url(../images/testbox-deco.png) top center no-repeat
+                    position: absolute
+                    top: 0
+                    left: 0
+                    transform: translateY(-40%)
+                &:after
+                    content: ""
+                    width: 26px
+                    height: 436px
+                    background: url(../images/testbox-deco2.png) top center no-repeat
+                    position: absolute
+                    top: 10%
+                    right: 0
+                    transform: translateX(40%)
+            .fbpic
+                width: 190px
+                height: 190px
+                border: 1px solid #fff600
+                border-radius: 50%
+                margin: 0 auto
+                overflow: hidden
+                padding: 5px
+                +rwd($pad)
+                    width: 100px
+                    height: 100px
+                img
+                    width: 100%
+                    height: 100%
+                    border-radius: 50%
+            .fbname
+                font-size: 50px
+                font-weight: bold
+                color: #ffffff
+                margin: 20px auto 0
+                +rwd($pad)
+                    font-size: 30px
+            .form
+                margin: 40px auto 0
+                li
+                    margin: 0 0 30px 0
+                    &:nth-last-of-type(1)
+                        margin: 0
+                input
+                    background: #23014a
+                    border-radius: 15px
+                    color: #ffffff
+                    height: 86px
+                    line-height: 86px
+                    letter-spacing: 1.2px
+                    padding: 20px
+                    font-size: 32px
+                    text-align: center
+                    width: 90%
+                    +rwd($pad)
+                        height: 45px
+                        line-height: 45px
+                        font-size: 20px
+                        padding: 5px
+                input::placeholder
+                    color: #532a93
+                    font-size: 28px
+                    +rwd($pad)
+                        font-size: 18px
+                label
+                    font-size: 26px
+                    color: #9886eb
+                    text-align: left
+                    line-height: 1.2
+                    margin: 0 0 0 10px
+                    +rwd($pad)
+                        font-size: 18px
+                        line-height: 1.5
+                .agree
+                    display: flex
+                    justify-content: flex-start
+                    align-items: flex-start
+                    #agree
+                        width: 40px
+                        height: 40px
+                        +rwd($pad)
+                            width: 45px
+                            height: 45px
+                            margin: -10px 0 0 5px
+                    label
+                        cursor: pointer
+            .btn
+                margin: -50px auto 0
+                transform-origin: top center
+                transform: scale(0.85)
+                +rwd($pad)
+                    transform: scale(1)
+                    margin: 20px auto 0
+    .done
+        h2
+            transform-origin: top center
+            transform: scale(0.85)
+        .hdcon
+            transform-origin: top center
+            transform: scale(0.85)
+            p
+                font-size: 36px
+                color: #ffffff
+                line-height: 1.5
+                +rwd($pad)
+                    font-size: 24px
+        .content
+            margin: 2% auto 0
+            +rwd($pad)
+                transform: scale(0.85)
+                margin: -60px auto 0
+            .textbox
+                max-width: 660px
+                height: 750px
+                background: url(../images/playBg.png) top center no-repeat
+                background-size: 100% 100%
+                // padding: 75px 0 0 0
+                margin: 0 auto
+                position: relative
+                padding: 100px 40px 0
+                transform-origin: top center
+                transform: scale(0.85)
+                +rwd($pad)
+                    transform: scale(1)
+                    height: 630px
+                    padding: 100px 15px 0
+                &:before
+                    content: ""
+                    width: 268px
+                    height: 39px
+                    background: url(../images/testbox-deco.png) top center no-repeat
+                    position: absolute
+                    top: 0
+                    left: 0
+                    transform: translateY(-40%)
+                &:after
+                    content: ""
+                    width: 26px
+                    height: 436px
+                    background: url(../images/testbox-deco2.png) top center no-repeat
+                    position: absolute
+                    top: 10%
+                    right: 0
+                    transform: translateX(40%)
+            .img
+                margin: 0 0 30px 0
+                img
+                    +rwd($pad)
+                        height: 200px
+            p
+                font-size: 40px
+                font-weight: 400
+                line-height: 1.5
+                color: #ffffff
+                +rwd($pad)
+                    font-size: 24px
+            .small
+                font-size: 24px
+                margin: -30px auto 30px
+                +rwd($pad)
+                    font-size: 20px
+            .awardtxt
+                font-size: 60px
+                font-weight: bold
+                letter-spacing: 5px
+                color: #f6ff00
+                +rwd($pad)
+                    font-size: 36px
+            .btnarea
+                margin: -20px 0 0 0
+                +rwd($pad)
+                    margin: 20px 0 0 0
+                a
+                    display: inline-block
+            .btn
+                margin: 10px 0 0 0
+                transform-origin: top center
+                transform: scale(0.85)
+                +rwd($pad)
+                    transform: scale(1)
+    button
+        font-size: 24px
+        margin: 10px
+    #d
+        height: 100px
+        &:after
+            content: ''
+            display: inline-block
+            height: 100px
+            width: 2px
+        // vertical-align: bottom
+        div
+            display: inline-block
+            // height: 30px
+            width: 10px
+            background: #a00
+            margin: 0 5px 0 0
+            vertical-align: bottom
+            +rwd($pad)
+                width: 7px
+
+@keyframes fadelr
+    0%
+        opacity: 0
+        transform: translate(0%,-40%)
+    100%
+        opacity: 1
+        transform: translate(120%,-40%)
+
+@keyframes fadetd
+    0%
+        opacity: 0
+        transform: translate(40%,-20%)
+    100%
+        opacity: 1
+        transform: translate(40%,100%)

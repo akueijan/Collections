@@ -1,0 +1,353 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "立即取餐 享五星好禮｜Richart 五星汪廚快餐車"
+    - var pageDesc = "成為Richart 新戶立即送LINE PONITS 100點, 完成指定任務，再抽LINE PONITS 10000點+私房料理神器! 點餐免排隊，好禮帶著走!"
+    - var pageJs = "index.js"
+    - var isVue = true
+//- page html
+block page_main
+    section.index
+        .pcindex(v-if="isPc")
+            h2
+                img(src="images/pc-title.png" alt="五星汪廚快餐車")
+            .bd
+                img(src="images/pc-bd.png")
+            .content
+                .qrcode
+                    img(src="images/qrcode.png")
+                .pckv
+                    img(src="images/pc-kv.png")
+            .ft
+                p © 台新國際商業銀行 Copyright Taishin International Bank. All Rights Reserved.建議使用 iOS 11 或 Android 8 以上版本
+        .mbindex(v-if="!isPc")
+            .kv
+                .sloganarea
+                    .richartbg
+                        img(src="images/kv-sloganbg.png")
+                    .richartani
+                        .aniblock
+                    h2.slogan
+                        img(src="images/kv-slogan.png")
+                .btnarea
+                    //- a(href="javascript:void(0)" @click="scrollTo('#old')" title="汪客點餐去" gtm-data="KV_汪客點餐去").order
+                        //- img(src="images/kv-btn-order.gif" alt="汪客點餐去" gtm-data="KV_汪客點餐去")
+                    a(href="javascript:void(0)" @click="scrollTo('#new')" title="成為汪客" gtm-data="KV_成為汪客").tomember
+                        img(src="images/kv-btn-member.gif" alt="成為汪客" gtm-data="KV_成為汪客")
+                .cararea
+                    .car
+                        img(src="images/kv-car.png")
+                    .richartarea
+                        .richart
+                            img(src="images/kv-richart.png")
+                        .hand
+                            img(src="images/kv-hand.png")
+                        .shine
+                            img(src="images/kv-shine.png")
+                .kvmore(@click="scrollTo('#member')")
+                    img(src="images/gotop.png")
+            .bd
+                .member#member
+                    h2
+                        img(src="images/member-title.png")
+                        #new
+                    .block.block1
+                        .picarea
+                            img(src="images/member-block1-pic.gif")
+                        p 新汪客於2020/10/31前，成功完成
+                        p.left
+                            i.icon1
+                            | 註冊Richart存款帳戶
+                        p.left
+                            i.icon1
+                            | 綁定Richart LINE 個人化服務
+                        p 就送新汪客
+                            span.yellow LINE POINTS 100點
+                        a(href="javascript:void(0)" title="成為新汪客" @click="outLink('new_oa')" gtm-data="成為新汪客")
+                            img(src="images/btn-newmem.png" alt="成為新汪客" gtm-data="成為新汪客")
+                        p.sp#old *須於專屬代碼欄位內輸入「LINE07」代碼
+                    .block.block2
+                        p ～新汪客和舊汪客通通有～
+                        p.font27 完成外幣專屬套餐抽
+                            span.yellow 10,000點 LINE POINTS
+                        .picarea
+                            img(src="images/member-block2-pic.gif")
+                            #mem3
+                    .block.block3
+                        p 於活動期間內，完成指定任務，即可抽
+                        ul
+                            li
+                                .pic
+                                    img(src="images/member-block3-pic1.png")
+                                .txt
+                                    p.title 設定外幣到價通知
+                                    p.name.yellow Domo電煮鍋
+                            li
+                                .pic
+                                    img(src="images/member-block3-pic2.png")
+                                .txt
+                                    p.title 兌換外幣
+                                    p.name.yellow Bruno電烤盤
+                            li
+                                .pic
+                                    img(src="images/member-block3-pic3.png")
+                                .txt
+                                    p.title 承作外幣定存
+                                    p.name.yellow Philips氣炸鍋
+                        .picarea
+                            img(src="images/member-block3-pic4.png")
+                        a(href="javascript:void(0)" title="立即點餐" @click="scrollTo('#meals')" gtm-data="立即點餐")
+                            img(src="images/btn-rightnow.png" alt="立即點餐" gtm-data="立即點餐")      
+                .gifts#meals
+                    h2
+                        img(src="images/gifts-title.png")
+                    .content
+                        .block.block1
+                            .aniarea
+                                .head
+                                    img(src="images/gifts-title1.png")
+                                .bd
+                                    img(src="images/gifts-bl1-bd.png")
+                                .action
+                                    img(src="images/gifts-bl1-hand.png")
+                                .deco
+                                    img(src="images/gifts-deco.png")
+                            p.end 新汪客與舊汪客於活動期間內，成功於
+                                br
+                                | Richart LINE中設定【外幣到價通知】
+                                br
+                                | 服務，即可抽 
+                                span.red Domo電煮鍋（20名）
+                            .btnarea
+                                .btn-teach(@click="popAni('notice')" gtm-data="任務1_到價通知_教學")
+                                    img(src="images/btn-teach.png" gtm-data="任務1_到價通知_教學")
+                                a(href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1515344613&&state=ok&bot_prompt=aggressive&scope=openid%20profile&redirect_uri=https://richart.tw/TSDIB_RichartWeb/RC08/Line11&utm_source=line&utm_medium=click&utm_campaign=chefevent_202006&utm_content=mission1_start1" title="立即設定" target="_blank" gtm-data="任務1_到價通知_立即設定").btn-link
+                                    img(src="images/btn-link1.png" gtm-data="任務1_到價通知_立即設定")
+                        .block.block2
+                            .aniarea
+                                .head
+                                    img(src="images/gifts-title2.png")
+                                .bd
+                                    img(src="images/gifts-bl2-bd.png")
+                                .deco
+                                    img(src="images/gifts-bl2-deco.png")
+                                .hand.bl2hand
+                                    img(src="images/gifts-bl2-hand.png")
+                                .richart
+                                    img(src="images/gifts-bl2-richart.png")
+                            p.end 新汪客與舊汪客於活動期間內，成功於
+                                br
+                                | Richart APP進行【兌換外幣】服務，
+                                br
+                                | 即可抽 
+                                span.red Bruno電烤盤 （10名）
+                            .btnarea
+                                .btn-teach(@click="popAni('exchange')" gtm-data="任務2_兌換外幣_教學")
+                                    img(src="images/btn-teach.png" gtm-data="任務2_兌換外幣_教學")
+                                a(href="https://richart.tw/TSDIB_RichartWeb/RC04/RC040302?openpage=exchangeRate&utm_source=app&utm_medium=click&utm_campaign=chefevent_202006&utm_content=mission2_start1" title="立即兌換" target="_blank" gtm-data="任務2_兌換外幣_立即兌換").btn-link
+                                    img(src="images/btn-link2.png" gtm-data="任務2_兌換外幣_立即兌換")
+                            p.sp 兌換1次即可以獲得1次抽獎機會，兌換2次即可獲得
+                                br
+                                | 2次抽獎機會，以此類推。
+                        .block.block3
+                            .aniarea
+                                .head
+                                    img(src="images/gifts-title3.png")
+                                .hand.bl3hand
+                                    img(src="images/gifts-bl3-hand.png")
+                                .bd
+                                    img(src="images/gifts-bl3-bd.png")
+                                .deco
+                                    img(src="images/gifts-deco.png")
+                            p.end 新汪客與舊汪客於活動期間內，於Richart
+                                br
+                                | APP內承作【外幣定存】且單筆金額達
+                                br
+                                | NT5,000元以上即可抽 
+                                span.red Philips氣炸鍋 （5名）
+                            .btnarea
+                                .btn-teach(@click="popAni('fixed')" gtm-data="任務3_外幣定存_教學")
+                                    img(src="images/btn-teach.png" gtm-data="任務3_外幣定存_教學")
+                                a(href="https://richart.tw/TSDIB_RichartWeb/RC04/RC040302?openpage=exchangeRate&utm_source=app&utm_medium=click&utm_campaign=chefevent_202006&utm_content=mission3_start1" title="立即承作" target="_blank" gtm-data="任務3_外幣定存_立即承作").btn-link
+                                    img(src="images/btn-link3.png" gtm-data="任務3_外幣定存_立即承作")
+                            p.sp 定存1筆即可以獲得1次抽獎機會，定存2筆即可獲得2
+                                br
+                                | 次抽獎機會，以此類推。
+                            p.sp 承作外幣存款須承擔匯兌風險且如涉及幣別轉換可能
+                                br
+                                | 有匯兌損失，申請人應審慎考量評估，自行決定是否
+                                br
+                                | 承作。
+                    .entertain
+                        .anibox
+                            .title
+                                img(src="images/entertain-title.png")
+                            .point
+                                img(src="images/entertain-point.png")
+                            .richart
+                                img(src="images/entertain-richart.png")
+                            .coins
+                                img(src="images/entertain-coins.png")
+                        .content
+                            p 新汪客與舊汪客於活動期間內，
+                            p.list 設定「外幣到價通知」
+                            p.list 完成「外幣兌換」服務
+                            p.list 承作「外幣定存」
+                            p 即可抽  
+                                span.red LINE POINTS 10,000點（3名）
+                        p.sp 記得要加入Richart LINE官方帳號，並完成個人化服務綁定唷！
+                .classroom#classroom
+                    h2
+                        img(src="images/classroom-title.png")
+                    .content
+                        .word.word1
+                            img(src="images/word-1.png")
+                        .word.word2
+                            img(src="images/word-2.png")
+                        .word.word3
+                            img(src="images/word-3.png")
+                        .word.word4
+                            img(src="images/word-4.png")
+                        .wordtab
+                            h3 汪廚幫你算
+                            img(src="images/classroom-tab.png")
+                        .icons
+                            .appdownload
+                                p Richart數位銀行APP下載
+                                a(href="https://richart.tw/TSDIB_RichartWeb/Redirect/DownloadAppLink?utm_source=app&utm_medium=click&utm_campaign=chefevent_202006&utm_content=applink" target="_blank" title="Appstore" gtm-data="APP_download").apprichart
+                                    img(src="images/icon-richart.png" gtm-data="APP_download")
+                                //- a(href="https://richart.tw/TSDIB_RichartWeb/Redirect/DownloadAppLink?utm_source=click&utm_medium=chefevent_202006&utm_campaign=googlelink&utm_content=googlelink" target="_blank" title="Googleplay" gtm-data="APP_google").googleplay
+                                //-     img(src="images/icon-googleplay.png" gtm-data="APP_google")
+                            .community
+                                a(href="https://www.facebook.com/richart.tw/?utm_source=fb&utm_medium=click&utm_campaign=chefevent_202006&utm_content=fblink" target="_blank" title="RichartFb" gtm-data="fb").fb
+                                    p Richart
+                                        br
+                                        | FACEBOOK 粉絲專頁
+                                a(href="https://line.me/R/ti/p/%40richart?utm_source=line&utm_medium=click&utm_campaign=chefevent_202006&utm_content=linelink" target="_blank" title="RichartLine" gtm-data="line").line
+                                    p Richart
+                                        br
+                                        | LINE官方帳號
+                                a(href="https://www.instagram.com/hellorichart/?utm_source=ig&utm_medium=click&utm_campaign=chefevent_202006&utm_content=iglink" target="_blank" title="RichartIg" gtm-data="Instagram").ig
+                                    p Richart
+                                        br
+                                        | Instagram帳號
+            .events#events
+                h2(@click="events=!events" gtm-data="活動辦法" :class="{ h2active: events }")
+                    img(src="images/events-title.png")
+                transition(name="fade")
+                    ul.list1(v-if="events")
+                        li
+                            .txt
+                                span.bold 活動期間：
+                                | 即日起~延長至2020年10月31日止
+                        li
+                            .txt
+                                span.bold 活動內容：
+                                h3 【新戶專屬活動】
+                                ul.list2
+                                    li (一)活動對象：尚未申辦Richart存款帳戶且未曾成功參加Richart存款帳戶同期行銷推廣活動之本國自然人。
+                                    li (二)任務內容：於活動期間內，成功完成註冊Richart存款帳戶，並於申請流程中之專屬代碼欄位內輸入「
+                                        span.red LINE07
+                                        | 」代碼，
+                                        span.red 並完成個人化服務綁定者
+                                        | ，即可獲得用戶禮LINE POINTS 100點。
+                                        br
+                                        | 活動登錄網址：
+                                        a(href="https://reurl.cc/R4QYL9" target="_blank") (https://reurl.cc/R4QYL9）
+                                h3 【新舊用戶專屬活動】(抽獎活動於9/30結束不延長)
+                                ul.list2
+                                    li (一) 活動對象：已加入Richart LINE官方帳號，並完成個人化服務綁定者，惟部分指示任務內容，須持有Richart存款帳戶方得進行。
+                                    li (二)任務內容：於活動期間內成功完成以下任務即可享有抽獎機會，
+                                        span.red 任務2&任務3不限參與次數
+                                        | ，每完成一次可享一次抽獎機會，如累積兩次任務2，則可獲得兩次抽獎機會，以此類推。
+                                    li 任務1：成功設定一次(含)以上之外幣到價通知，即可享有Domo多功能隨行烹飪電煮鍋抽獎機會，共抽出20名。
+                                    li 任務2：成功使用Richart APP完成一筆(含)以上之換匯
+                                        span.red (詳見四、換匯任務說明)
+                                        | ，即可享有Bruno多功能電烤盤抽獎機會，共抽出10名。
+                                    li 任務3：成功承作一筆(含)NT5,000以上之「外幣」定存
+                                        span.red (詳見五、外幣定存任務說明)
+                                        | ，即可享有Philip TurboStar健康氣炸鍋抽獎機會，共抽出5名。
+                                    li 任務4：
+                                        span.red 完成任務1、任務2、任務3者可再享有抽LINE POINTS 10,000的機會
+                                        | ，共抽出３名。
+                                h3 抽獎機會說明
+                                img(src="images/events-tab.png")
+                        li
+                            .txt
+                                span.bold 獎項發放流程 :
+                                ul.list3
+                                    li.red LINE POINTS 100點：台新銀行將於參加者成功完成註冊Richart存款帳戶，並完成個人化服務綁定者，統一於2020年11月10日前，將LINE POINTS點數匯入獲獎者之LINE錢包。
+                                    li LINE POINTS 10,000點：台新銀行將於2020年10月15日檢核名單過後進行抽獎，並以簡訊通知中獎客戶，簡訊將發送至中獎客戶於台新銀行所留存之手機號碼為準。
+                                        br
+                                        | 中獎客戶應於2020年10月26日前，填妥中獎回覆函(公告於Richart官網)，並以電子郵件方式將中獎回覆函連同相關資料寄至marketing@richart.tw，主旨為『五星汪廚快餐車_LINE POINTS 10,000點』，經台新銀行檢核並確認無誤後，本活動獎項LINE POINTS 10,000點將於2020年10月30日前，將LINE POINTS點數匯入獲獎者之LINE錢包，惟若中獎客戶逾期未完成上開領獎相關程序，將視為中獎客戶自動放棄中獎資格及獎項。
+                                    li Domo多功能隨行烹飪電煮鍋、Bruno多功能電烤盤、Philip TurboStar健康氣炸鍋：台新銀行將於2020年10月15日檢核名單過後進行抽獎，並以簡訊通知中獎客戶，簡訊將發送至中獎客戶於台新銀行所留存之手機號碼為準。中獎客戶應於2020年10月26日前，填妥中獎回覆函(公告於Richart官網)，並以電子郵件方式將中獎回覆函連同相關資料寄至marketing@richart.tw，主旨為『五星汪廚快餐車_ Domo多功能隨行烹飪電煮鍋/Bruno多功能電烤盤/Philip TurboStar健康氣炸鍋』，經台新銀行檢核並確認無誤後，本活動獎項將於2020年11月5日前依中獎客戶於中獎回覆函所留存之通訊地址寄出，惟若中獎客戶逾期未完成上開領獎相關程序，將視為中獎客戶自動放棄中獎資格及獎項。
+                        li
+                            .txt
+                                span.bold.red 換匯任務說明：
+                                ul.list3
+                                    li 本活動之換匯任務，指透過Richart APP以Richart新臺幣活期存款帳戶及Richart外幣活期存款帳戶進行外幣即期結匯(僅限於Richart APP完成之新臺幣轉外幣、外幣轉新臺幣交易)，不限外幣幣別、交易金額、交易筆數等，每完成一次換匯，可獲得一次抽獎機會，如換匯兩次，則可獲得兩次抽獎機會，以此類推。
+                                    li 外幣轉換可能因匯率變動而發生機會或風險，參加者應自行承擔各項有關外匯兌換限制及損失等風險(包括但不限於價格、匯率、政治、國家之風險)，以及將所投資之外幣兌換至原持有幣別或其他幣別時可能遭受之匯兌損失，可能發生之最大損失為全部投資本金及利息之喪失。任何時間的相關匯兌水準並不保證有利的投資報酬，因此參加者應評估自身之外幣需求，並衡量實際收益利息和外幣匯率到期時反轉的損失估計，台新銀行並不為任何收益或損失保證。
+                        li
+                            .txt
+                                span.bold.red 外幣定存任務說明：
+                                ul.list3
+                                    li 本活動之外幣定存任務，指持有Richart外幣定期存款帳戶，完成開立外幣定期存款，資金來源不限新舊資金、幣別，但
+                                        span.red 單筆須達新臺幣5,000元(含)以上
+                                        | ，即符合抽獎資格，每完成一次開立外幣定期存款新臺幣5,000元(含)以上，可獲得一次抽獎機會，如累積兩筆，則可獲得兩次抽獎機會，以此類推，
+                                        span.red 客戶須於活動資格檢核時仍持有該外幣定存
+                                        | 。
+                                    li 承作外幣存款須承擔匯兌風險且如涉及幣別轉換可能有匯兌損失，請審慎考量評估，自行決定是否承作。
+                        li
+                            .txt
+                                span.bold 注意事項：
+                                ul.list3
+                                    li 本活動之參加者限居住於臺、澎、金、馬地區之本國國民參加，資料若有不實，將取消其參加及領獎資格，台新銀行保留審核參加者資格之權利。
+                                    li 本活動各項任務每人僅限參加一次，且不得重複獲獎，台新銀行保有審核參加者資格之權利；活動獎項皆以實物或台新銀行公告為準，恕不提供交換、挑選、轉讓及折現，亦不得更換中獎人。
+                                    li 本活動所稱之Richart「存款帳戶」，包含Richart數位銀行綜合存款帳戶及同享Richart數位銀行綜合存款帳戶優惠之存款帳戶。
+                                    li 若曾成功參加任何與Richart用戶禮相關之行銷推廣活動，即無法參加本活動【新戶專屬】；已成功參加本活動【新戶專屬】者，亦不得再參加Richart其他涉及用戶禮之行銷推廣活動，即無法綁定被推薦人邀請序號。
+                                        br
+                                        | 前述「成功參加」包含：
+                                        br
+                                        | (1)成功綁定「好友分享日」活動被推薦人邀請序號、(2)於開戶流程已確認送出專屬代碼，或(3)曾輸入R幣用戶禮序號者，則以該活動為準。
+                                    li 【活動專屬代碼預先登錄作業】說明
+                                        br
+                                        | 客戶參加各活動專屬代碼預先登錄作業，即可於辦理開戶程序時自動帶入該專屬代碼，惟客戶於開戶流程之「建立使用者代號」建立完成前，仍可變更專屬代碼：
+                                        br
+                                        | (1) 進入開戶流程-「建立使用者代號」頁面前，可透過各活動專屬代碼預先登錄網頁，變更專屬代碼。
+                                        br
+                                        | (2) 於開戶流程-「建立使用者代號」頁面時，可選擇重新輸入專屬代碼，即可變更。
+                                        br
+                                        | 客戶實際參加之活動，將以客戶於開戶流程之「建立使用者代號」頁面中最終送出的專屬代碼而定。
+                                        br
+                                        | 客戶參加專屬代碼預先登錄後，需依各活動辦法於活動期間結束前完成該檔活動條件，始得符合活動回饋資格；各活動辦法依活動公告為主，活動期間結束後仍未符合活動回饋資格者，該預先登錄之專屬代碼即自動失效。
+                                        br
+                                        | 客戶如已參加Richart「好友分享日」活動之被推薦人邀請序號綁定者，即無法參加各活動專屬代碼預先登錄作業。
+                                    li 參加者應保證所有填寫或提出之資料均為真實且正確，且未冒用或盜用任何第三人之資料。如有不實或不正確之情事，台新銀行有權取消參加者之獲獎資格;若因資料不正確，而導致無法聯繫以及收取獎品，恕無法要求補發。如有致損害於台新銀行或其他第三人，參加者應負一切法律責任。
+                                    li 本活動各獎項之獲獎名單將依照台新銀行審核或公告為準，不得異議。本活動【新戶專屬】、【新舊用戶專屬活動】各獎項發放前，若參加者已辦理Richart存款帳戶之結清銷戶，即失去參加本活動及獲得獎項之資格。
+                                    li 台新銀行非本活動獎品「LINE POINTS」之製造者，且與該獎品之提供廠商並無任何代理或合夥關係；中獎人如因使用該獎品發生任何爭議或相關限制，請逕洽該獎品之實際製造或提供廠商處理。
+                                    li 本活動【新戶專屬】屬其他所得，【新舊用戶專屬活動】為機會中獎，依所得稅法規定，中獎人為中華民國境內居住之個人時，參加台新銀行活動所得之年度累積中獎總額若超過新臺幣1,000元者，應列入中獎人年度綜合所得，台新銀行將依各類所得扣繳率標準申報予國稅局，提供中獎客戶將此所得併入所得計算及報繳所得稅。台新銀行依所得稅法第94-1條規定，得免填發各類所得扣繳暨免扣繳憑單予中獎人，若中獎人有需求時請另行提出申請。
+                                    li 本活動嚴禁參加者使用程式或其他方式進行系統干擾偽造之行為，任何破壞活動進行、破壞網站管理者運作、違反網站管理使用條款者，如經台新銀行查證發現不法情形，台新銀行具有得取消其參加活動資格之權利。同時，對於任何以詐騙行動或其他足以傷及本活動或網站之個人，台新銀行將追究其法律責任。
+                                    li Richart服務由台新銀行提供，台新銀行保留隨時修改、變更、終止本活動及替換其他等值獎項之權利；本活動如有變更或終止時，將於Richart官網公告。若有其他未盡事宜，悉依Richart相關規定或解釋辦理，並得隨時補充公告之。
+                                    li 參加本活動即表示同意接受本活動條款；若有違反者，台新銀行有權取消參加者之參加資格，如對本活動有任何疑義，請參考Richart APP公告或撥打Richart客服專線：(02)2655-3355 / 0800-888-800。
+                                    li 個人資料保護之法定告知事項：
+                                        br
+                                        | 您的身分證字號、姓名、手機號碼、通訊地址、E-mail等，台新銀行僅限於辦理Richart行銷活動及其相關程序（包括但不限於獲獎通知與領取獎品及代辦所得稅申報）之目的範圍內為蒐集、處理與利用。
+                                        br
+                                        | 台新銀行(含受台新銀行委託處理事務之委外機構)及依法有權機關或金融監理機關利用您的個人資料僅限於上述特定目的存續期間，依相關法令所定〈例如商業會計法等〉或因執行業務所必須之保存期間或依個別契約就資料之保存所定之保存年限〈以期限最長者為準〉，地區僅限台新銀行(含受台新銀行委託處理事務之委外機構)及依法有權機關或金融監理機關之國內所在地 。
+                                        br
+                                        | 您得自由選擇是否提供相關個人資料及類別，惟您所拒絕提供之個人資料及類別，如果是作業所需之資料，將影響台新銀行進行必要之作業程序而無法提供您相關服務，敬請見諒。
+                                        br
+                                        | 依據個人資料保護法第3條規定，您就台新銀行保有您的個人資料，得行使下列權利：
+                                        br
+                                        | (1)除有個人資料保護法第10條所規定之例外情形外，得向台新銀行查詢、請求閱覽或請求製給複製本，惟台新銀行依個人資料保護法第14條規定，得酌收必要成本費用。
+                                        br
+                                        | (2)得向台新銀行請求補充或更正個人資料，惟依個人資料保護法施行細則第19條規定，您應適當釋明其原因及事實。
+                                        br
+                                        | (3)台新銀行如有違反個人資料保護法規定蒐集、處理或利用您的個人資料，依個人資料保護法第11條第4項規定，您得向台新銀行請求停止蒐集您的個人資料。
+                                        br
+                                        | (4)依個人資料保護法第11條第2項規定，個人資料正確性有爭議者，得向台新銀行請求停止處理或利用您的個人資料。惟依該項但書規定，台新銀行因執行業務所必須並註明其爭議或經您書面同意者，不在此限。
+                                        br
+                                        | (5)依個人資料保護法第11條第3項規定，個人資料蒐集之特定目的消失或期限屆滿時，得向台新銀行請求刪除、停止處理或利用您的個人資料。惟依該項但書規定，台新銀行因執行業務所必須或經您書面同意者，不在此限。
+                                        br
+                                        | 您如欲行使上述個人資料保護法第3條規定之各項權利，有關如何行使之方式，您得向台新銀行(申請各項業務專線0800-000-456或客戶服務專線02-26553355)或於台新銀行網址(www.taishinbank.com.tw)查詢。

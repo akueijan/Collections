@@ -1,0 +1,25 @@
+nav.nav(itemscope itemtype="http://schema.org/SiteNavigationElement" v-show="page=='kv' || page=='info' || page=='carowner'")
+    div.l-container
+        div.nav-bd
+            h1.nav-logo
+                a(href="https://www.toyota.com.tw/?utm_source=202007_HILUXMCEVENT&utm_medium=header_logo" alt="TOYOTA" title="TOYOTA" target="_blank" @click="gaEvent('btn_header_logo','click')")
+                    img(src="images/logo.png" alt="TOYOTA")
+                //- a(href="https://www.toyota.com.tw/?utm_source=202007_HILUXMCEVENT&utm_medium=header_logo" alt="TOYOTA" title="TOYOTA" target="_blank" @click="gtmEvent('btn_header_logo')")
+            div.nav-btn
+                //- div.one
+                //- div.two
+                //- div.three
+            div.nav-menu(role="navigation")
+                ul.clearfix
+                    li.nav-item.nav-item--iscurrent
+                        a(href="index.html" alt="回首頁" itemprop="url" title="回首頁" @click="gaEvent('btn_menu_回首頁','click')"): span 回首頁
+                        //- a(href="index.html" alt="回首頁" itemprop="url" title="回首頁" @click="gtmEvent('btn_menu_回首頁')"): span 回首頁
+                    li.nav-item
+                        a(href="carowner.html" alt="車主證言" itemprop="url" title="車主證言" @click="gaEvent('btn_menu_車主證言','click')"): span 車主證言
+                        //- a(href="carowner.html" alt="車主證言" itemprop="url" title="車主證言" @click="gtmEvent('btn_menu_車主證言')"): span 車主證言
+                    li.nav-item
+                        a(href="https://www.toyota.com.tw/testdrive.aspx?utm_source=202007_HILUXMCEVENT&utm_medium=menu" alt="預約試乘" itemprop="url" title="預約試乘" @click="gaEvent('btn_menu_預約試乘','click')" target="_blank"): span 預約試乘
+                        //- a(href="https://www.toyota.com.tw/testdrive.aspx?utm_source=202007_HILUXMCEVENT&utm_medium=menu" alt="預約試乘" itemprop="url" title="預約試乘" @click="gtmEvent('btn_menu_預約試乘')" target="_blank"): span 預約試乘
+                    li.nav-item
+                        a(href="https://www.toyota.com.tw/showroom/HILUX/?utm_source=202007_HILUXMCEVENT&utm_medium=menu" alt="前往官網了解更多" itemprop="url" title="前往官網了解更多" @click="gaEvent('btn_menu_前往官網了解更多','click')" target="_blank"): span 前往官網了解更多
+                        //- a(href="https://www.toyota.com.tw/showroom/HILUX/?utm_source=202007_HILUXMCEVENT&utm_medium=menu" alt="前往官網了解更多" itemprop="url" title="前往官網了解更多" @click="gtmEvent('btn_menu_前往官網了解更多')" target="_blank"): span 前往官網了解更多

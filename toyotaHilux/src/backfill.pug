@@ -1,0 +1,12 @@
+//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "index"
+    - var pageDesc = "pageDesc"
+    - var pageJs = "index.js";
+    - var compJs = ["comingsoon.js","lotteryBackfill.js"]
+//- page html
+block page_main
+    section.backfill
+        lottery-backfill

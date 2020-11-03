@@ -1,0 +1,49 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "IG濾鏡刷出你的存在感"
+    - var pageDesc = "立即使用IG濾鏡，挑戰刷出存在感,即可抽200元超商購物金!"
+    - var pageJs = "game.js"
+    - var isVue = true
+//- page html
+block page_main
+    section.game
+        transition(name="fade")
+            .intro(v-if="gameBlock==0" key="0")
+                .word
+                    p 想登上成熟大人殿堂?
+                        br
+                        | 讓鴿教你
+                        span.red 三招
+                        br
+                        | 輕鬆刷出存在感!
+            .gamearea(v-if="gameBlock==1" key="1")
+                .btn-prev
+                    img(src="images/game-arrow.png")
+                .btn-next
+                    img(src="images/game-arrow.png")
+                .gameslick
+                    .gameblock.game1
+                        h2
+                            img(src="images/game1-title.png" alt="吃飯當大人")
+                        a.btn-play(href="https://instagram.com/ar/2667678300175161/" target="_blank" gtm-data="遊戲頁_我要挑戰第一招")
+                            img(src="images/btn-play.png" alt="我要挑戰" gtm-data="遊戲頁_我要挑戰第一招")
+                        .btn-play(@click="selgame(1)" gtm-data="挑戰頁_第一招")
+                            img(src="images/btn-howplay.png" alt="我要挑戰" gtm-data="挑戰頁_第一招")
+                    .gameblock.game2
+                        h2
+                            img(src="images/game2-title.png" alt="網購不求人")
+                        a.btn-play(href="https://instagram.com/ar/1342910316098878/" target="_blank" gtm-data="遊戲頁_我要挑戰第二招")
+                            img(src="images/btn-play.png" alt="我要挑戰" gtm-data="遊戲頁_我要挑戰第二招")
+                        .btn-play(@click="selgame(2)" gtm-data="挑戰頁_第二招")
+                            img(src="images/btn-howplay.png" alt="我要挑戰" gtm-data="挑戰頁_第二招")
+                    .gameblock.game3
+                        h2
+                            img(src="images/game3-title.png" alt="搭車搶票超快")
+                        a.btn-play(href="https://instagram.com/ar/551610642194908/" target="_blank" gtm-data="遊戲頁_我要挑戰第三招")
+                            img(src="images/btn-play.png" alt="我要挑戰" gtm-data="遊戲頁_我要挑戰第三招")
+                        .btn-play(@click="selgame(3)" gtm-data="挑戰頁_第三招")
+                            img(src="images/btn-howplay.png" alt="我要挑戰" gtm-data="挑戰頁_第三招")
+                a(href="./index.html" title="回首頁").btn-home
+                    img(src="images/btn-home.png")

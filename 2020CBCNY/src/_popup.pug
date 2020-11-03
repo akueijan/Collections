@@ -1,0 +1,336 @@
+﻿transition(name="fade")
+    .popup(v-if="popup")
+        .content
+            .loading(v-if="loading")
+                img(src="images/loading.gif")
+            .testfail(v-if="poPage=='testfail'")
+                .textbox
+                    .title
+                        img(src="images/testfail.png")
+                    ul
+                        li 請確認麥克風是否開啟
+                        li 測試時聲音是否太小聲
+                    .btn(@click="retest" gtm-data="遊戲_重新測試")
+                        img(src="images/btn-retest.png" alt="重新測試" gtm-data="遊戲_重新測試")
+            .testfail(v-if="poPage=='testsuc'")
+                .textbox
+                    .title
+                        img(src="images/testsuc.png")
+                        //- p#sec(v-if="gameStart") 3
+                    h3 準備好～演奏即將開始!!
+                    p 目前挑戰歌曲
+                    p 康貝特新春歌 : {{song}}
+                    .btn#btnStart(@click="startGame" v-if="!gameStart")
+                        img(src="images/btn-start.png" alt="開始遊戲")
+                    .btn(v-if="gameStart")
+                        img(src="images/btn-start.png" alt="開始遊戲")
+            .invosuc(v-if="poPage=='invosuc'")
+                h2
+                    img(src="images/invosuc-title.png")
+                p 繼續登錄發票
+                    br
+                    | 提高更多中獎機會吧！
+                .btnarea
+                    .btn-continu(@click="invAgain" gtm-data="登錄發票_繼續登錄")
+                        img(src="images/btn-invcon.png" gtm-data="登錄發票_繼續登錄")
+                    a.btn-gogame(href="game.html" title="立即抽Apple Watch" gtm-data="登錄發票_立即抽AppleWatch")
+                        img(src="images/btn-gogame.png" gtm-data="登錄發票_立即抽AppleWatch")
+            .sample(v-if="poPage=='sample'")
+                .bd
+                    img(src="images/sample.png")
+                    .btn-close(@click="popClose")
+            .awardlist(v-if="poPage=='weekaward'")
+                .hd
+                    .btn-close(@click="popClose")
+                .bd(v-if="popweek=='1'")
+                    .block.nt888
+                        h2
+                            img(src="images/award-nt888.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[0].cash8888")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.movtic
+                        h2
+                            img(src="images/award-movtic.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[0].movieTicket")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.linep50
+                        h2
+                            img(src="images/award-linep50.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[0].linePoints50")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.suci50
+                        h2
+                            img(src="images/award-suci50.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[0].sushiCoupon")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.restic
+                        h2
+                            img(src="images/award-restic.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[0].chainCoupon")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                .bd(v-if="popweek=='2'")
+                    .block.nt888
+                        h2
+                            img(src="images/award-nt888.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[1].cash8888")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.movtic
+                        h2
+                            img(src="images/award-movtic.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[1].movieTicket")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.linep50
+                        h2
+                            img(src="images/award-linep50.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[1].linePoints50")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.suci50
+                        h2
+                            img(src="images/award-suci50.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[1].sushiCoupon")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.restic
+                        h2
+                            img(src="images/award-restic.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[1].chainCoupon")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                .bd(v-if="popweek=='3'")
+                    .block.nt888
+                        h2
+                            img(src="images/award-nt888.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[2].cash8888")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.movtic
+                        h2
+                            img(src="images/award-movtic.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[2].movieTicket")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.linep50
+                        h2
+                            img(src="images/award-linep50.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[2].linePoints50")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.suci50
+                        h2
+                            img(src="images/award-suci50.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[2].sushiCoupon")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.restic
+                        h2
+                            img(src="images/award-restic.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[2].chainCoupon")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                .bd(v-if="popweek=='4'")
+                    .block.nt888
+                        h2
+                            img(src="images/award-nt888.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[3].cash8888")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.movtic
+                        h2
+                            img(src="images/award-movtic.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[3].movieTicket")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.linep50
+                        h2
+                            img(src="images/award-linep50.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[3].linePoints50")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.suci50
+                        h2
+                            img(src="images/award-suci50.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[3].sushiCoupon")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.restic
+                        h2
+                            img(src="images/award-restic.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[3].chainCoupon")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                .bd(v-if="popweek=='5'")
+                    .block.nt888
+                        h2
+                            img(src="images/award-nt888.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[4].cash8888")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.movtic
+                        h2
+                            img(src="images/award-movtic.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[4].movieTicket")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.linep50
+                        h2
+                            img(src="images/award-linep50.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[4].linePoints50")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.suci50
+                        h2
+                            img(src="images/award-suci50.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[4].sushiCoupon")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.restic
+                        h2
+                            img(src="images/award-restic.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[4].chainCoupon")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                .bd(v-if="popweek=='6'")
+                    .block.nt888
+                        h2
+                            img(src="images/award-nt888.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[5].cash8888")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.movtic
+                        h2
+                            img(src="images/award-movtic.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[5].movieTicket")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.linep50
+                        h2
+                            img(src="images/award-linep50.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[5].linePoints50")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.suci50
+                        h2
+                            img(src="images/award-suci50.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[5].sushiCoupon")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.restic
+                        h2
+                            img(src="images/award-restic.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[5].chainCoupon")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                .bd(v-if="popweek=='7'")
+                    .block.nt888
+                        h2
+                            img(src="images/award-nt888.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[6].cash8888")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.movtic
+                        h2
+                            img(src="images/award-movtic.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[6].movieTicket")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.linep50
+                        h2
+                            img(src="images/award-linep50.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[6].linePoints50")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.suci50
+                        h2
+                            img(src="images/award-suci50.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[6].sushiCoupon")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.restic
+                        h2
+                            img(src="images/award-restic.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[6].chainCoupon")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                .bd(v-if="popweek=='8'")
+                    .block.nt888
+                        h2
+                            img(src="images/award-nt888.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[7].cash8888")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.movtic
+                        h2
+                            img(src="images/award-movtic.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[7].movieTicket")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.linep50
+                        h2
+                            img(src="images/award-linep50.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[7].linePoints50")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.suci50
+                        h2
+                            img(src="images/award-suci50.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[7].sushiCoupon")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                    .block.restic
+                        h2
+                            img(src="images/award-restic.png")
+                        ul
+                            li(v-for="items in awardlist.weekAward[7].chainCoupon")
+                                .mobile {{items.Mobile}}
+                                .ticket {{items.ReferenceInfo}}
+                .ft
+    .alert(v-if="index_alert")
+        .close(@click="index_alert=false")
+        p 您所使用的瀏覽器可能無法正常瀏覽網頁以及遊玩遊戲。若想體驗完整的活動網頁請您使用(Safari、Chrome、edge、firefox)瀏覽器開啟

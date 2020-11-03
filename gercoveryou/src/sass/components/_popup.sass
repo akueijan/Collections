@@ -1,0 +1,157 @@
+.popup 
+    display: block
+    background: rgba(#000000, 0.85)
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    padding: 87px 50px
+    z-index: 99
+    overflow-y: auto
+    .events
+        width: 650px
+        background: #ffffff
+        border: solid 8px #90c31f
+        border-radius: 50px
+        padding: 70px 30px 35px 50px
+        position: relative
+        .popclose
+            width: 70px
+            height: 70px
+            background: #90c31f
+            border-top-right-radius: 40px
+            border-bottom-left-radius: 40px
+            position: absolute
+            top: -1px
+            right: -1px
+            cursor: pointer
+            &:before, &:after
+                content: ""
+                width: 40px
+                height: 6px
+                background: #ffffff
+                border-radius: 10px
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%) rotate(45deg)
+            &:after
+                transform: translate(-50%, -50%) rotate(-45deg)
+        h2
+            width: 422px
+            margin: 0 auto
+        .content
+            margin: 50px auto 0
+            h3
+                color: #036841
+                font-size: 30px
+                font-weight: bold
+                display: inline-block
+                padding: 0 15px
+                background: url(../images/events-h3bg.png) center 80% no-repeat
+                background-size: 100% 50%
+                margin: 0 0 10px -15px
+            p
+                color: #333333
+                font-size: 30px
+                line-height: 1.5
+            a
+                color: #0071bc
+            li
+                margin: 0 0 50px 0
+                color: #333333
+                font-size: 30px
+                line-height: 1.5
+                overflow-wrap: break-word
+            .list-1
+                margin: 0 0 0 1.2em
+                li
+                    list-style-type: decimal
+                    position: relative
+                    font-size: 26px
+                    color: #ffffff
+                    padding: 0 0 0 10px
+                    z-index: 1
+                    &:before
+                        content: ""
+                        width: 46px
+                        height: 46px
+                        background: #036841
+                        border-radius: 50%
+                        position: absolute
+                        top: 0px
+                        left: -44px
+                        z-index: -1
+    .toplay
+        width: 650px
+        background: #ffffff
+        border: solid 8px #90c31f
+        border-radius: 50px
+        padding: 70px 30px
+        position: relative
+        .popclose
+            width: 70px
+            height: 70px
+            background: #90c31f
+            border-top-right-radius: 40px
+            border-bottom-left-radius: 40px
+            position: absolute
+            top: -1px
+            right: -1px
+            cursor: pointer
+            &:before, &:after
+                content: ""
+                width: 40px
+                height: 6px
+                background: #ffffff
+                border-radius: 10px
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%) rotate(45deg)
+            &:after
+                transform: translate(-50%, -50%) rotate(-45deg)
+        h2
+            width: 541px
+            margin: 0 auto
+        p
+            color: #333333
+            font-size: 32px
+            line-height: 1.5
+        .content
+            margin: 20px auto 0
+            text-align: center
+            ul
+                text-align: left
+                width: 90%
+                margin: 0 auto
+                padding: 0 0 0 30px
+                li
+                    margin: 0 0 20px 30px
+                    padding: 0 0 0 20px
+                    list-style-type: decimal
+                    font-size: 36px
+                    color: #ffffff
+                    position: relative
+                    z-index: 1
+                    &:before
+                        content: ""
+                        width: 50px
+                        height: 50px
+                        background: #036841
+                        border-radius: 15px
+                        position: absolute
+                        top: -3px
+                        left: -50px
+                        z-index: -1
+            .btn-toig
+                width: 503px
+                display: inline-block
+                margin: 0 auto
+            .ps
+                margin: 15px auto 0
+    .blue
+        color: #0071bc
+    .red
+        color: #cb0016

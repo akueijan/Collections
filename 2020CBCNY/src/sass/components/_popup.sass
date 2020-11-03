@@ -1,0 +1,343 @@
+.popup 
+    display: block
+    background-color: rgba(#000000,0.9)
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    // +zindex("popup")
+    z-index: 99
+    overflow-y: auto
+    // & img 
+    //     width: 100%
+    //     height: auto
+    &__area 
+        position: relative
+    
+    &__content 
+        position: relative
+        height: 80vh
+        overflow: scroll
+        padding: 0 15px
+        width: 80%
+        margin: 100px auto 0
+        text-align: center
+        //-webkit-overflow-scrolling:touch
+        &::-webkit-scrollbar 
+            display: none
+        
+    &__close 
+        top: -70px
+        right: 30px
+        font-size: 30px
+        width: 50px
+        height: 50px
+        line-height: 50px
+        text-align: center
+        background: #aaa
+        color: #fff
+        border-radius: 50%
+        position: absolute
+        cursor: pointer
+        &:before
+            content: "✖"
+    .btn
+        cursor: pointer
+        margin: 15px auto 0
+    .content
+        max-width: 750px
+        margin: 0 auto
+        position: relative
+        min-height: 100vh
+    .testfail
+        padding: 30px 15px 0
+        .textbox
+            max-width: 660px
+            height: 898px
+            background: url(../images/playBg.png) top center no-repeat
+            background-size: 100% 100%
+            // padding: 75px 0 0 0
+            margin: 0 auto
+            position: relative
+            padding: 100px 15px 0
+            text-align: center
+            transform-origin: top center
+            transform: scale(0.85)
+            +rwd($pad)
+                // transform: scale(1)
+                height: 90%
+                padding: 60px 15px 60px
+            &:before
+                content: ""
+                width: 268px
+                height: 39px
+                background: url(../images/testbox-deco.png) top center no-repeat
+                position: absolute
+                top: 0
+                left: 0
+                transform: translateY(-40%)
+            &:after
+                content: ""
+                width: 26px
+                height: 436px
+                background: url(../images/testbox-deco2.png) top center no-repeat
+                position: absolute
+                top: 10%
+                right: 0
+                transform: translateX(40%)
+        h3
+            font-size: 28px
+            font-weight: 400
+            color: #ffffff
+            margin: 10px auto 20px
+            +rwd($pad)
+                font-size: 22px
+        p
+            font-size: 28px
+            font-weight: 400
+            color: #ffffff
+            line-height: 1.5
+            +rwd($pad)
+                font-size: 18px
+        ul
+            width: 50%
+            margin: 30px auto
+            +rwd($pad)
+                width: 80%
+            li
+                list-style-type: disc
+                font-size: 28px
+                font-weight: 400
+                color: #ffffff
+                line-height: 1.5
+                +rwd($pad)
+                    font-size: 18px
+        .title
+            min-height: 380px
+            text-align: center
+            +rwd($pad)
+                min-height: 180px
+                height: 150px
+            img
+                +rwd($pad)
+                    height: 100%
+        // #sec
+        //     font-size: 150px
+        //     font-weight: bold
+        //     +rwd($pad)
+        //         font-size: 100px
+    .invosuc
+        text-align: center
+        padding: vw(150) 0 0 0
+        +rwd($pad)
+            padding: mvw(250) 0 0 0
+        h2
+            width: vw(477)
+            margin: 0 auto vw(20)
+            +rwd($pad)
+                width: mvw(477)
+                margin: 0 auto mvw(40)
+        p
+            font-size: vw(24)
+            color: #ffffff
+            line-height: 1.5
+            +rwd($pad)
+                font-size: mvw(30)
+        .btnarea
+            margin: vw(20) auto 0
+            +rwd($pad)
+                margin: mvw(40) auto 0
+        .btn-continu
+            width: vw(543)
+            margin: 0 auto vw(20)
+            cursor: pointer
+            +rwd($pad)
+                width: mvw(543)
+                margin: 0 auto mvw(20)
+        .btn-gogame
+            width: vw(543)
+            margin: 0 auto
+            display: inline-block
+            +rwd($pad)
+                width: mvw(543)
+    .sample
+        text-align: center
+        padding: vw(100) 0 0 0
+        +rwd($pad)
+            padding: mvw(200) 0 0 0
+        .bd
+            position: relative
+            width: vw(608)
+            margin: 0 auto
+            +rwd($pad)
+                width: mvw(608)
+            // img
+            .btn-close
+                width: vw(65)
+                height: vw(75)
+                cursor: pointer
+                position: absolute
+                top: vw(15)
+                right: vw(15)
+                +rwd($pad)
+                    width: mvw(65)
+                    height: mvw(75)
+                    top: mvw(15)
+                    right: mvw(15)
+    .awardlist
+        text-align: center
+        padding: vw(60) 0
+        +rwd($pad)
+            padding: mvw(60) 0
+        .hd
+            position: relative
+            width: vw(807)
+            height: vw(90)
+            background: url(../images/pop-award-hd.png) bottom center no-repeat
+            background-size: 100% auto
+            margin: 0 auto
+            +rwd($pad)
+                width: mvw(600)
+                height: mvw(67)
+            .btn-close
+                width: vw(56)
+                height: vw(66)
+                position: absolute
+                top: vw(15)
+                right: vw(15)
+                cursor: pointer
+                +rwd($pad)
+                    width: mvw(56)
+                    height: mvw(46)
+                    top: mvw(15)
+                    right: mvw(15)
+        .ft
+            width: vw(807)
+            height: vw(90)
+            background: url(../images/pop-award-ft.png) top center no-repeat
+            background-size: 100% auto
+            margin: 0 auto
+            +rwd($pad)
+                width: mvw(600)
+                height: mvw(67)
+        .bd
+            background: url(../images/pop-award-bd.png) top center repeat-y
+            background-size: 100% auto
+            width: vw(807)
+            margin: 0 auto
+            padding: vw(10) 0 0 0
+            +rwd($pad)
+                width: mvw(600)
+            .block
+                margin: 0 0 vw(60) 0
+                +rwd($pad)
+                    margin: 0 0 mvw(60) 0
+                &:nth-last-of-type(1)
+                    margin: 0
+            h2
+                margin: 0 auto
+            ul
+                width: 80%
+                background: #4f2f79
+                border: 2px solid #7853a6
+                border-radius: vw(15)
+                margin: vw(10) auto 0
+                padding: vw(10) 0
+                +rwd($pad)
+                    border-radius: mvw(15)
+                    margin: mvw(10) auto 0
+                    padding: mvw(10) 0
+                li
+                    display: flex
+                    justify-content: space-around
+                    align-items: center
+                    padding: vw(15) 0
+                    border-bottom: 2px solid #815fb1
+                    width: 90%
+                    margin: 0 auto
+                    +rwd($pad)
+                        padding: mvw(15) 0
+                    &:nth-last-of-type(1)
+                        border-bottom: 0
+                .mobile, .ticket
+                    font-size: vw(24)
+                    color: #ffffff
+                    +rwd($pad)
+                        font-size: mvw(24)
+        .nt888
+            h2
+                width: vw(380)
+                +rwd($pad)
+                    width: mvw(380)
+        .movtic
+            h2
+                width: vw(396)
+                +rwd($pad)
+                    width: mvw(396)
+        .linep50
+            h2
+                width: vw(496)
+                +rwd($pad)
+                    width: mvw(496)
+        .suci50
+            h2
+                width: vw(476)
+                +rwd($pad)
+                    width: mvw(476)
+        .restic
+            h2
+                width: vw(396)
+                +rwd($pad)
+                    width: mvw(396)
+    .loading
+        text-align: center
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+        width: 100px
+
+.alert
+    background: rgba(#1b1141,0.9)
+    border-radius: 15px
+    box-shadow: 0 0 5px rgba(#ffffff,0.9)
+    width: 90%
+    max-width: 824px
+    padding: 30px 10px 20px
+    position: fixed
+    bottom: 30px
+    left: 50%
+    transform: translateX(-50%)
+    z-index: 9
+    +rwd($pad)
+        bottom: 10px
+    .close
+        position: absolute
+        top: 5px
+        right: 5px
+        width: 25px
+        height: 25px
+        cursor: pointer
+        &:before, &:after
+            content: ""
+            width: 100%
+            height: 6px
+            background: #ffffff
+            border-radius: 10px
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%,-50%)
+        &:before
+            transform: translate(-50%,-50%) rotate(45deg)
+        &:after
+            transform: translate(-50%,-50%) rotate(-45deg)
+    p
+        color: #ffffff
+        font-size: 18px
+        line-height: 1.5
+        letter-spacing: 1.2px
+        text-align: center
+        +rwd($pad)
+            font-size: 14px

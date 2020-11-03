@@ -1,0 +1,140 @@
+<transition name="fade">
+    <div class="popup" v-if="popup">
+        <div class="anipage" v-if="popPage">
+            <div class="content"><img src="images/anicar.png" />
+                <div class="door"><img src="images/anidoor.png" /></div>
+            </div>
+        </div>
+        <transition name="fade">
+            <div class="slickpage" v-if="slickPage=='notice'" key="notice">
+                <div class="close" @click="popClose"><img src="images/menu-close.png" /></div>
+                <h2><img src="images/notice-title.png" /></h2>
+                <div class="content">
+                    <div class="btn-prev"><img src="images/pop-arr.png" /></div>
+                    <div class="btn-next"><img src="images/pop-arr.png" /></div>
+                    <div class="slickblock">
+                        <div class="slickbox">
+                            <div class="steptitle"><img src="images/pop-step1.png" /></div>
+                            <h3>進入Richart LINE點擊【更多服務】</h3>
+                            <div class="img"><img src="images/notice-pic1.png" /></div>
+                        </div>
+                        <div class="slickbox">
+                            <div class="steptitle"><img src="images/pop-step2.png" /></div>
+                            <h3>選擇【設定匯率到價通知】</h3>
+                            <div class="img"><img src="images/notice-pic2.png" /></div>
+                        </div>
+                        <div class="slickbox">
+                            <div class="steptitle"><img src="images/pop-step3.png" /></div>
+                            <h3>進行綁定個人化服務3步驟</h3>
+                            <div class="slickstep">
+                                <div class="img"><img src="images/notice-pic3.png" /></div>
+                                <div class="img"><img src="images/notice-pic4.png" /></div>
+                                <div class="img"><img src="images/notice-pic5.png" /></div>
+                            </div>
+                        </div>
+                        <div class="slickbox">
+                            <div class="steptitle"><img src="images/pop-step4.png" /></div>
+                            <h3>確認【身分驗證】</h3>
+                            <div class="img"><img src="images/notice-pic6.png" /></div>
+                        </div>
+                        <div class="slickbox">
+                            <div class="steptitle"><img src="images/pop-step5.png" /></div>
+                            <h3>設定最低價通知幣別</h3>
+                            <div class="img"><img src="images/notice-pic7.png" /></div>
+                        </div>
+                        <div class="slickbox">
+                            <div class="steptitle"><img src="images/pop-step6.png" /></div>
+                            <h3>選擇【幣別】與輸入【通知匯率】</h3>
+                            <div class="img long"><img src="images/notice-pic8.png" /></div>
+                        </div>
+                    </div><a class="poplink" href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&amp;client_id=1515344613&amp;&amp;state=ok&amp;bot_prompt=aggressive&amp;scope=openid%20profile&amp;redirect_uri=https://richart.tw/TSDIB_RichartWeb/RC08/Line11&amp;utm_source=line&amp;utm_medium=click&amp;utm_campaign=chefevent_202006&amp;utm_content=mission1_start2" title="立即設定外幣到價通知" target="_blank" gtm-data="任務1_到價通知_教學_立即設定"><img src="images/btn-notice.png" alt="立即設定外幣到價通知" gtm-data="任務1_到價通知_教學_立即設定" /></a>
+                </div>
+            </div>
+            <div class="slickpage fixed" v-if="slickPage=='fixed'" key="fixed">
+                <div class="close" @click="popClose"><img src="images/menu-close.png" /></div>
+                <h2><img src="images/fixed-title.png" /></h2>
+                <div class="content">
+                    <div class="btn-prev"><img src="images/pop-arr.png" /></div>
+                    <div class="btn-next"><img src="images/pop-arr.png" /></div>
+                    <div class="slickblock">
+                        <div class="slickbox">
+                            <div class="steptitle"><img src="images/pop-step1.png" /></div>
+                            <h3>點選「總覽」中的<br />「定存」功能，並點選「申辦定存」</h3>
+                            <div class="img"><img src="images/fixed-pic1.png" /></div>
+                            <div class="decoline deco1"></div>
+                            <div class="decohand hand1"></div>
+                        </div>
+                        <div class="slickbox">
+                            <div class="steptitle"><img src="images/pop-step2.png" /></div>
+                            <h3>選擇要定存的「外幣」、「定存類型」</h3>
+                            <div class="img"><img src="images/fixed-pic2.png" /></div>
+                            <div class="decoline deco2"></div>
+                            <div class="decoline deco3"></div>
+                            <div class="decohand hand2"></div>
+                        </div>
+                        <div class="slickbox">
+                            <div class="steptitle"><img src="images/pop-step3.png" /></div>
+                            <h3>選擇「定存期間」、<br />填寫「存款金額」，並同意條款</h3>
+                            <div class="img"><img src="images/fixed-pic3.png" /></div>
+                            <div class="decoline deco4"></div>
+                            <div class="decoline deco5"></div>
+                            <div class="decoline deco6"></div>
+                            <div class="decohand hand3"></div>
+                        </div>
+                        <div class="slickbox">
+                            <div class="steptitle"><img src="images/pop-step4.png" /></div>
+                            <h3>確認定存資訊，並輸入使用者密碼</h3>
+                            <div class="img"><img src="images/fixed-pic4.png" /></div>
+                            <div class="decoline deco7"></div>
+                            <div class="decohand hand4"></div>
+                        </div>
+                        <div class="slickbox">
+                            <div class="steptitle"><img src="images/pop-step5.png" /></div>
+                            <h3>外幣定存申請完成！</h3>
+                            <div class="img"><img src="images/fixed-pic5.png" /></div>
+                        </div>
+                    </div><a class="poplink" href="https://richart.tw/TSDIB_RichartWeb/RC04/RC040302?openpage=exchangeRate&amp;utm_source=app&amp;utm_medium=click&amp;utm_campaign=chefevent_202006&amp;utm_content=mission3_start2" title="立即承作外幣定存" target="_blank" gtm-data="任務3_外幣定存_教學_立即承作"><img src="images/btn-fixed.png" alt="立即承作外幣定存" gtm-data="任務3_外幣定存_教學_立即承作" /></a>
+                </div>
+            </div>
+            <div class="slickpage exchange" v-if="slickPage=='exchange'" key="exchange">
+                <div class="close" @click="popClose"><img src="images/menu-close.png" /></div>
+                <h2><img src="images/exchange-title.png" /></h2>
+                <div class="content">
+                    <div class="btn-prev"><img src="images/pop-arr.png" /></div>
+                    <div class="btn-next"><img src="images/pop-arr.png" /></div>
+                    <div class="slickblock">
+                        <div class="slickbox">
+                            <div class="steptitle"><img src="images/pop-step1.png" /></div>
+                            <h3>點選「總覽」中的「外匯」<br />功能，並點選「匯率表」中的前往換匯</h3>
+                            <div class="img"><img src="images/exchange-pic1.png" /></div>
+                        </div>
+                        <div class="slickbox">
+                            <div class="steptitle"><img src="images/pop-step2.png" /></div>
+                            <h3>選擇要兌換的外幣，並選擇交易性質<br />(幣別任選)</h3>
+                            <div class="img"><img src="images/exchange-pic2.png" /></div>
+                            <div class="decoline deco1"></div>
+                            <div class="decohand hand1"></div>
+                        </div>
+                        <div class="slickbox">
+                            <div class="steptitle"><img src="images/pop-step3.png" /></div>
+                            <h3>輸入兌換外幣金額</h3>
+                            <div class="img"><img src="images/exchange-pic2.png" /></div>
+                            <div class="decoline deco2"></div>
+                            <div class="decohand hand2"></div>
+                        </div>
+                        <div class="slickbox">
+                            <div class="steptitle"><img src="images/pop-step4.png" /></div>
+                            <h3>確認換匯資訊，並輸入使用者密碼</h3>
+                            <div class="img"><img src="images/exchange-pic4.png" /></div>
+                        </div>
+                        <div class="slickbox">
+                            <div class="steptitle"><img src="images/pop-step5.png" /></div>
+                            <h3>線上換匯成功！</h3>
+                            <div class="img"><img src="images/exchange-pic5.png" /></div>
+                        </div>
+                    </div><a class="poplink" href="https://richart.tw/TSDIB_RichartWeb/RC04/RC040302?openpage=exchangeRate&amp;utm_source=app&amp;utm_medium=click&amp;utm_campaign=chefevent_202006&amp;utm_content=mission2_start2" title="立即兌換外幣" target="_blank" gtm-data="任務2_兌換外幣_教學_立即兌換"><img src="images/btn-exchange.png" alt="立即兌換外幣" gtm-data="任務2_兌換外幣_教學_立即兌換" /></a>
+                </div>
+            </div>
+        </transition>
+    </div>
+</transition>
