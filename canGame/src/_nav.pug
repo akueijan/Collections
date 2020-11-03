@@ -1,0 +1,24 @@
+nav.nav(itemscope itemtype="http://schema.org/SiteNavigationElement" v-show="!isGame")
+    div.l-container
+        div.nav-bd
+            h1.nav-logo
+                a(href="index.html" title="Nissan")
+                    img(src="images/logo.png" alt="Nissan")
+            div.nav-btn
+                div.one
+                div.two
+                div.three
+            div.nav-menu(role="navigation")
+                ul.clearfix
+                    li.nav-item.nav-item--iscurrent
+                        a(href="javascript:void(0)" @click="togame" itemprop="url" title="開始挑戰" gtm-data="menu_開始挑戰"): span 開始挑戰
+                    li.nav-item
+                        a(href="javascript:void(0)" @click="evtpopup=true" itemprop="url" title="活動辦法" gtm-data="menu_活動辦法"): span 活動辦法
+                    li.nav-item
+                        a(href="javascript:void(0)" @click="openPop('popleader')" itemprop="url" title="先潮耐力賽排行榜" gtm-data="menu_先潮耐力賽排行榜"): span 先潮耐力賽排行榜
+                    li.nav-item
+                        a(href="https://lihi1.com/3i3xb" itemprop="url" title="NISSAN官網" target="_blank" gtm-data="menu_ALLNEWSENTRA" rel="noreferrer noopener"): span SENTRA車型網
+                    li.nav-item
+                        a(href="javascript:void(0)" @click="checkAward" itemprop="url" title="查看得獎紀錄" gtm-data="menu_查詢分享活動中獎紀錄"): span 查詢分享活動中獎紀錄
+                    li.nav-item
+                        a(href="javascript:void(0)" @click="eventShare" itemprop="url" title="分享活動" gtm-data="menu_分享活動"): span 分享活動

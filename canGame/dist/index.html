@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title></title>
+    <meta name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
+    <meta itemprop="name">
+    <meta itemprop="description">
+    <meta itemprop="image" content="指定顯示圖片">
+    <meta property="og:title">
+    <meta property="og:description">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="指定顯示圖片">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<!--html body-->
+
+<body>
+    <noscript></noscript>
+    <div class="l-wrap" id="app" v-cloak>
+        <!-- render nav view-->
+        <div class="l-fb">
+            <div class="l-container">
+                <div class="fb-box">
+                    <div class="fb-like" data-href="#" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="l-main">
+            <section class="index">
+                <canvas id="canvas"></canvas>
+            </section>
+            <!--render main view-->
+        </div>
+        <div class="l-footer footer">
+            <div class="l-container"></div>
+        </div>
+        <transition name="fade">
+            <div class="popup" v-show="popup">
+                <div class="content gamestart" v-if="popPage=='gamestart'">
+                    <h2 class="gamecun">3</h2>
+                </div>
+                <div class="content gameover" v-if="popPage=='gameover'"><img src="images/gameover.png"></div>
+                <div class="content readme" v-if="popPage=='readme'">
+                    <h2><img src="images/readme_title.png"></h2>
+                    <p>駕駛您的車操控油門跟上前方車輛<br>挑戰跟車最久的時間紀錄吧！</p>
+                    <div class="slickbox"><img src="images/readme_pic1.png" v-show="slick"><img src="images/readme_pic2.png" v-show="!slick">
+                        <div class="arr_left" v-show="!slick" @click="slick=true"><img src="images/arr_right.png"></div>
+                        <div class="arr_right" v-show="slick" @click="slick=false"><img src="images/arr_right.png"></div>
+                        <div class="pagedot">
+                            <ul>
+                                <li :class="{active: slick}"></li>
+                                <li :class="{active: !slick}"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="readmebtn" gtm-data="挑戰說明_立即挑戰"><img src="images/readme_btn.png" alt="立即挑戰" gtm-data="挑戰說明_立即挑戰"></div>
+                    <div class="event" @click="evtpopup=true">
+                        <p>活動辦法</p>
+                    </div>
+                </div>
+                <div class="content popleader" v-if="popPage=='popleader'">
+                    <div class="close" @click="closePop"></div>
+                    <h2>先潮耐力賽排行榜
+                        <div class="box">
+                            <div class="hd"><img src="images/leader_hd.png"></div>
+                            <div class="bd">
+                                <ul class="leaderul">
+                                    <li v-for="(item, key, index) in userArr">
+                                        <div class="icon" :class="[{first: item.seq == '1'}, {second: item.seq == '2'}, {third: item.seq == '3'}]">{{item.seq}}</div>
+                                        <div class="player">
+                                            <div class="userpic"><img :src="item.piclink"></div>
+                                            <div class="name">{{item.name}}</div>
+                                        </div>
+                                        <div class="score">{{item.min}}'{{item.sec}}"</div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="ft"></div>
+                        </div>
+                    </h2>
+                </div>
+                <div class="content noaward" v-if="popPage=='noAward'">
+                    <div class="close" @click="closePop"></div>
+                    <h2><img src="images/noaward_title.png"></h2>
+                    <div class="btn" @click="closePop"><img src="images/btn_iknow.png"></div>
+                </div>
+                <div class="content noticketcount" v-if="popPage=='noticketcount'">
+                    <div class="close" @click="closePop"></div>
+                    <p>請先<span class="orange">分享本活動</span>給好友<br>就可以參加抽獎囉～!</p>
+                    <div class="btn" @click="noticketShare" gtm-data="分享活動抽_立即分享"><img src="images/btn_share.png" gtm-data="分享活動抽_立即分享"></div>
+                </div>
+                <div class="content awardreadme" v-if="popPage=='awardreadme'">
+                    <div class="close" @click="closePop"></div>
+                    <h3>電子券兌換流程：</h3>
+                    <p>步驟一、點選「立即領獎」至專屬領獎頁面。</p>
+                    <p>步驟二、輸入「專屬兌換序號」(即驗證碼)領取電子券。</p>
+                    <p>步驟三、點選電子券畫面中的「立即入點」後自動開啟LINE Edenred官方帳號認證並按下「許可」。</p>
+                    <p>步驟四、LINE錢包通知點數入帳，完成領獎。</p>
+                    <h3>電子券兌換須知：</h3>
+                    <ul>
+                        <li>本券序號具唯一性，一組序號僅供儲值一次，儲值後該序號視同已兌換，不接受取消或返還。</li>
+                        <li>本券為不記名，任何人持本券皆可使用，請自行妥善保管，如遭他人盜用，本券不再補發。</li>
+                        <li>本券無法直接折抵現金，須先歸戶後方得使用。</li>
+                        <li>本券須於2021.03.31前兌換完成。</li>
+                    </ul>
+                </div>
+                <div class="content loading" v-if="popPage=='loading'">
+                    <div class="loadingbox"><img src="images/loading.gif"></div>
+                </div>
+            </div>
+        </transition>
+        <transition name="fade">
+            <div class="entpopup" v-if="evtpopup">
+                <div class="content events">
+                    <div class="close" @click="evtpopup=false"></div>
+                    <h2><img src="images/event-title.png"></h2>
+                    <div class="eventbox">
+                        <div class="txtarea">
+                            <h3>活動期間</h3>
+                            <p>2020年10月29日起至2020年11月18日23:59截止</p><br>
+                            <h3>主辦單位 :</h3>
+                            <p class="bold">裕隆日產汽車股份有限公司</p><br>
+                            <h3>活動資格與參加方式</h3>
+                            <p class="bold">《先潮耐力賽》</p>
+                            <p>NISSAN LINE官方帳號好友，完成《先潮耐力賽》線上挑戰後，即可填寫資料參加抽獎。每人僅限中獎一次，恕不重複給獎，以手機號碼為識別依據。如有發現有重複中獎之情況，或冒用他人姓名參加活動，將取消中獎資格。</p><br>
+                            <p class="bold">《分享活動抽LINE POINTS點數》</p>
+                            <p>NISSAN LINE官方帳號好友，完成《先潮耐力賽》線上挑戰後，點選「立即分享」按鈕將本活動給LINE好友後，就能進行即時抽獎。本活動可多次分享，獲得多次抽獎機會，惟中獎僅限乙次。</p><br>
+                            <h3>活動獎項</h3>
+                            <p class="bold">《先潮耐力賽》</p>
+                            <ul class="one">
+                                <li>Nintendo Switch主機一台(市價新臺幣9,780元整)（1名）</li>
+                                <li>ALL NEW SENTRA 合金模型車一台（20名）</li>
+                                <li>7-11實體禮券$100元一份（20名）</li>
+                            </ul>
+                            <p class="bold">《分享活動抽LINE POINTS點數》</p>
+                            <ul>
+                                <li>LINE POINTS 10點（600名）</li>
+                            </ul><br>
+                            <h3>抽獎說明：</h3>
+                            <p class="bold">《先潮耐力賽》</p>
+                            <ul>
+                                <li>中獎名單將於第三人見證下採電腦隨機方式抽獎，並於2020/12/10 公布於 NISSAN 官網，主辦單位將以NISSAN LINE官方帳號發出中獎通知給中獎者，中獎者須於7天內回填相關資料進行領獎，逾時即喪失中獎資格。主辦單位確認中獎者資料無誤後，將於30天內寄出獎品。</li>
+                            </ul>
+                            <p class="bold">《分享活動抽LINE POINTS點數》</p>
+                            <ul>
+                                <li>採即時抽獎方式，中獎者將立即獲得電子序號券，並依照領獎說明操作來完成領獎。活動期間內若須查詢電子序號券，中獎者可以從網站選單中的「查詢分享活動中獎紀錄」找到相關資訊。</li>
+                            </ul>
+                            <h3>注意事項</h3>
+                            <ul class="one">
+                                <li>活動參與者應保證填寫或提出之資料均為真實，且未冒用或盜用任何第三人之資料，如冒用或盜用任何第三人之資料之法律責任由活動參與者自行負責，概與主辦單位及承辦單位無關。如查獲不實，主辦單位及承辦單位春樹科技(股)公司(下稱承辦單位)除撤銷其得獎資格，並無提供所獲獎項之義務，若獎項業經配送，並有向中獎者請求新臺幣六百元之懲罰性賠償金及相關行政費用與其他損害賠償之權利。</li>
+                                <li>本活動參加資格與獎項寄送僅限居住於中華民國台澎金馬地區之中華民國國籍居民，海外地區恕無法配送。</li>
+                                <li>活動過程中若因不可抗力或電腦系統故障等因素，直接或間接造成主辦單位無法履行其全部或部分義務，或參加者伺服器故障、損壞、延誤或資料有訛誤或其他失責情況，主辦單位均無須負任何責任。</li>
+                                <li>獎品寄送予中獎者，倘遭拒絕受領(不論實際拒絕受領者為何人)、無人收受、地址錯誤、或查無此人者，或有遺失、冒領、被竊等喪失占有之情形，不論原因為何，亦不論中獎者是否可歸責，主辦單位概不負責補發，並有權視中獎者為棄權，而有權拒絕核發其所中之獎品，中獎者不得異議。</li>
+                                <li>本活動獎項其規格和外觀以實物為準，主辦單位保留更換等值獎品的權利。獎品亦不得要求更換、轉讓或折換現金，也不得更換中獎者。獎品日後之使用、保固與維修，主辦單位恕不負責，如獎品有瑕疵、保固與維修等問題，請洽獎品製造商或服務廠商處理。</li>
+                                <li>依所得稅法規定，機會中獎之獎項價值若超過NT$1,000，所得將列入個人年度綜合所得稅申報，若獎品價值總額超過NT$20,010，必須代扣10%中獎獎金稅額；非中華民國國境內居住之國人（即在中華民國境內居住未達183天之本國人及外國人）不論中獎者所得之金額，須就中獎所得扣繳20%機會中獎稅。中獎者須提供身份證件影本、填寫兌獎確認單後方可領獎，並由主辦單位代為申報及寄送扣繳憑單；若不願意配合，視為自動放棄得獎權利。</li>
+                                <li>中獎者若未滿20歲，須獲得法定監護人同意及代為領取。其他未盡事宜，悉依中華民國稅法相關規定辦理。</li>
+                                <li>主辦單位及其所屬經銷據點、承辦單位之員工（含約聘、臨時雇員），不得參加本活動。中獎者經查為上述人員者將取消中獎資格，並追還所領獎項。</li>
+                                <li>活動參與者同意接受主辦單位於其官方網站之隱私權保護政策，並同意主辦單位為辦理本活動處理、利用參加者所提供之資料。</li>
+                                <li>活動參與者參與本活動視為同意接受本活動之活動辦法所列之各項規範。</li>
+                                <li>活動參與者同意收取由主辦單位及承辦公司發出與本活動有關的電話、電子郵件及手機簡訊、LINE訊息。</li>
+                                <li>如有任何爭議，主辦單位保留最終決定權。</li>
+                                <li>主辦單位保留隨時變更本活動辦法、獎項內容，以及暫停、延長、取消、提前終止本活動之權利，本活動辦法若未盡詳細事宜，主辦單位得隨時修訂公佈，修改訊息將於NISSAN官方網站公佈，不另行通知。主辦單位並有權就本活動所有事宜進行審查並做出解釋，任何人均不得異議。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </div>
+    <script type="text/javascript" src="js/vendor.js"></script>
+    <script type="text/javascript" src="js/lib.js"></script>
+    <script type="text/javascript" src="js/Game.js"></script>
+    <script type="text/javascript" id="appjs" src="js/app.js?v=1604396937591" data-mode="true" data-site="https://devapi.friendo.com.tw/api/"></script>
+    <script src="js/index.js?v=1604396937591"></script>
+    <script type="text/javascript"></script>
+</body>
+
+</html>
