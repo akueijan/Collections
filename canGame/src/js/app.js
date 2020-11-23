@@ -166,38 +166,82 @@ Vue.mixin({
                 });
             });
         },
-        initLiff(myliffId) {
+        liffInit(myliffId) {
             var vm = this;
-            liff
-                .init({
-                    liffId: myliffId
-                })
-                .then(() => {
-                    // console.log(liff.isLoggedIn())
-                    liff.ready.then(()=> {
-                        // console.log('ready')
+            async function main() {
+                await liff.init({ liffId: myliffId })
+                liff.ready.then(() => {
+                    if(liff.isInClient()) { //是否用LIFF browser
+                        document.getElementById("isInClient").append(liff.isInClient())
+                        vm.liffGetUserProfile()
+                    } else {
                         if(liff.isLoggedIn()) {
-                            // const name = profile.displayName
-                            liff.getProfile().then(profile => {
-                                // console.log(profile)
-                                vm.linePic = profile.pictureUrl
-                                vm.lineName = profile.displayName
-                                vm.lineId = profile.userId
-                                // vm.saveLeader()
-                            })
-                            .catch((err) => {
-                                // console.log('error', err);
-                            });
+                            document.getElementById("isLoggedIn").append(liff.isLoggedIn())
+                            vm.liffGetUserProfile()
                         } else {
-                            // window.location = "https://lin.ee/wLVkkm9" // 應加入nissan的好友
+                            liff.login()
                         }
-                    }) 
+                    }
                 })
-                .catch((err) => {
-                    // console.log('err: ', err)
-                })
+            }
+            main()
         },
-        
+        liffReady() {
+            liff.ready.then(()=> {
+                console.log('ready')
+                console.log(liff.isLoggedIn())
+            })
+        },
+        liffIsLogin() {
+            if(liff.isLoggedIn()) {
+                console.log('用戶已登入')
+                .catch((err) => {
+                    console.log('getfrierr: ',err)
+                })
+            } else {
+                console.log('用戶未登入')
+                // liff.login()
+                // window.location = "https://lin.ee/wLVkkm9" // 應加入nissan的好友
+            }
+        },
+        liffGetUserProfile() {
+            async function getUserProfile() {
+                let profile = await liff.getProfile()
+                document.querySelector('#lindId').append(profile.userId)
+                document.querySelector('#name').append(profile.displayName)
+                document.querySelector('#pictureUrl').src = profile.pictureUrl
+            }
+            getUserProfile()
+        },
+        liffGetFriendship() {
+            return liff.getFriendship().then(data => {
+                // console.log(data)
+                if(data.friendFlag) {
+                    console.log('isfriend')
+                } else {
+                    if(confirm("請先加入好友")) {
+                        window.location = 'https://line.me/R/ti/p/@712yjgpg'
+                    }
+                }
+            })
+        },
+        liffLogout() {
+            async function reload() {
+                await liff.logout()
+                location.reload()
+            }
+            reload()
+        },
+        liffpermanentLink() {
+            let lifflink = liff.permanentLink.createUrl()
+            console.log(lifflink)
+            document.querySelector('#liffpermanentLink').append(lifflink)
+        },
+        checkFriend() {
+            this.liffGetFriendship().then(() => {
+                
+            })
+        },
         openPop(page) {
             var vm = this
             vm.popup = true
@@ -237,5 +281,6 @@ Vue.mixin({
     },
     mounted: function () {
         var vm = this;
+        // vm.liffInit('1655101302-eL3vWGZZ')
     }
 })

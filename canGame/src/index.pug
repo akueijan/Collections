@@ -9,8 +9,25 @@ block pageInfo
 //- page html
 block page_main
     section.index
-        canvas#canvas
+        //- canvas#canvas
         //- .startbtn Start
         //- .decoarr
         //-     img(src="images/game_arrow.png")
         //- .playbtn
+        ul
+            li
+                .title 姓名:
+                #name
+            li
+                .title lindId:
+                #lindId
+            li
+                .title pictureUrl:
+                img#pictureUrl
+        #btnLogIn
+        p#isLoggedIn isLoggedIn: 
+        p#isInClient isInClient: 
+        button#btncheck(@click="checkFriend") check
+        button#btnlogout(@click="liffLogout") logout
+        button#creatlink(@click="liffpermanentLink") permanentLink
+        p#liffpermanentLink permanentLink: 
