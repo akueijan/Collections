@@ -58,6 +58,7 @@
     "lazypipe": "^1.0.1",
     "orchestrator": "^0.3.8",
     "parent-folder": "^1.1.0",
-    "sass": "^1.21.0"
+    "sass": "^1.21.0",
+    "vue-router": "^3.4.9"
   }
 }
