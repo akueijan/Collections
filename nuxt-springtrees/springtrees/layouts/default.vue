@@ -1,22 +1,22 @@
 <template lang="pug">
   .nuxt-wrap
+    logo
+    sidemenu
     nuxt
+    //- approach
 </template>
 
-<style lang="sass">
-html
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif
-  font-size: 16px
-  word-spacing: 1px
-  -ms-text-size-adjust: 100%
-  -webkit-text-size-adjust: 100%
-  -moz-osx-font-smoothing: grayscale
-  -webkit-font-smoothing: antialiased
-  box-sizing: border-box
-  background: #1a1a1a
+<script>
+import logo from '~/components/Logo.vue'
+import sidemenu from '~/components/Menu.vue'
+// import approach from '~/components/Approach.vue'
 
-*, *:before, *:after
-  box-sizing: border-box
-  margin: 0
-
-</style>
+export default {
+  // ssr: false,
+  components: {
+      // approach,
+      logo,
+      sidemenu
+  },
+}
+</script>

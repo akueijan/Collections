@@ -1,7 +1,8 @@
 <template lang="pug">
     .menu
         ul
-            li 服務客戶
+            li 
+                NuxtLink(to="/about") 服務客戶
             li 精選案例
             li 社群360
             li Martech
@@ -14,6 +15,7 @@
     top: 50%
     right: 30px
     transform: translateY(-50%)
+    z-index: 9
     li
         color: #dddddd
         cursor: pointer

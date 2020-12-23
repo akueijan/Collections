@@ -1,10 +1,6 @@
 <template lang="pug">
     .container
-        .index
-            .kvani(v-if="step=='kvani'")
-            .kv(v-if="step=='kv'")
-                h1.title springtrees
-                h2.subtitle 新一代數位廣告代理商
+        .about
         approach
 </template>
 
@@ -17,7 +13,7 @@ export default {
     },
     data() {
         return {
-            step: 'kvani'
+            // step: 'appr'
         }
     }
 }
