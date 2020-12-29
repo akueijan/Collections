@@ -5,16 +5,15 @@
             .kv(v-if="step=='kv'")
                 h1.title springtrees
                 h2.subtitle 新一代數位廣告代理商
-        approach
+        //- approach
 </template>
 
 <script>
-import approach from '~/components/Approach.vue'
-
+// import approach from '~/components/Approach.vue'
 export default {
-    components: {
-        approach
-    },
+    // components: {
+    //     approach
+    // },
     data() {
         return {
             step: 'kvani'

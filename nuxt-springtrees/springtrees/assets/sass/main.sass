@@ -3,6 +3,7 @@
     margin: 0
 
 @import "assets/sass/pages/index.sass"
+@import "assets/sass/pages/about.sass"
 
 @import "assets/sass/components/_approach.sass"
 
@@ -24,24 +25,37 @@ a
     min-height: 100vh
     position: relative
 
-.page-enter-active, .page-leave-active
-    transition: .9s
-    .approach
-        .leftimg
-            animation: page-out-left .9s
-        .rightimg
-            animation: page-out-right .9s
+$transec: 0.9s
 
-.page-enter, .page-leave-to
-    transition: .9s
-    .approach
-        .leftimg
-            animation: page-in-left .9s
-        .rightimg
-            animation: page-in-right .9s
+// .page-leave-to
+//     transition: $transec
+//     opacity: 1
+//     .approach
+//         visibility: inherit
+//         .leftimg
+//             animation: page-in-left $transec
+//         .rightimg
+//             animation: page-in-right $transec
+
+// .page-enter-to
+//     transition: $transec
+//     opacity: 1
+//     .approach
+//         visibility: inherit
+//         .leftimg
+//             animation: page-out-left $transec
+//         .rightimg
+//             animation: page-out-right $transec
+
+// .page-enter-to, .page-leave
+//     transition: 9s
+//     opacity: 1
+
 
 @keyframes page-in-left
     0%
+        left: -50%
+    10%
         left: -50%
     100%
         left: 0%
@@ -49,17 +63,23 @@ a
 @keyframes page-in-right
     0%
         right: -50%
+    10%
+        right: -50%
     100%
         right: 0%
 
 @keyframes page-out-left
     0%
         left: 0
+    10%
+        left: 0
     100%
         left: -50%
 
 @keyframes page-out-right
     0%
+        right: 0
+    10%
         right: 0
     100%
         right: -50%
