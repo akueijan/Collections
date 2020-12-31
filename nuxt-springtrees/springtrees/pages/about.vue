@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { getData } from '@/api/about';
+import { getData } from '~/api/api';
 // import approach from '~/components/Approach.vue'
 
 export default {
