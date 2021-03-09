@@ -1,0 +1,32 @@
+//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "index"
+    - var pageDesc = "pageDesc"
+    //- - var pageJs = "index.js"
+//- page html
+block page_main
+    section.page2
+        .kv
+            img(src='images/pic-kv-1.png' alt='立即綁定')
+        form
+            .bd
+                h2
+                    img(src="images/page2_form_title.png")
+                ul
+                    li
+                        label(for='perid') 身分證字號
+                        input#perid(type='text' maxlength='10' placeholder='請輸入身分證字號')
+                    li
+                        label(for='mobile') 行動電話
+                        input#mobile(type='tel' maxlength='10' placeholder='請輸入行動電話')
+                    li.codearea
+                        .code
+                            img(src='images/code.jpg')
+                        .codeinput
+                            input(type='tel' placeholder='輸入驗證碼')
+                button.btnarea
+                    img(src="images/page2_acbtn.png")
+            .ft
+                p 你所提供的個人資料僅供Richart之LINE個人化服務使用，欲解除綁定請洽Richart客服專線0800-888-800。

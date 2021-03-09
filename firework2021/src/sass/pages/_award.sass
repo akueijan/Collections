@@ -1,0 +1,180 @@
+.award
+    position: relative
+    z-index: 1
+    padding: mvw(60) 0 0 0
+    .ballon
+        position: absolute
+        top: 0
+        left: 0
+        z-index: -1
+    .bold
+        font-weight: bold
+    a
+        color: #0554aa
+        text-decoration: underline
+    .bd
+        margin: 0 0 mvw(60) 0
+    .block
+        margin: 0 0 mvw(60) 0
+        padding: 0 mvw(40)
+        position: relative
+        h2
+            width: mvw(400)
+            margin: 0 auto mvw(20)
+    .conbg
+            padding: mvw(15)
+            border-radius: mvw(30)
+            background: #ffda00
+    .conbox
+        // width: mvw(640)
+        background: #ffffff
+        box-shadow: 0 mvw(8) mvw(10) rgba(#cccccc, 1)
+        border-radius: mvw(30)
+        padding: mvw(50) mvw(90) mvw(30)
+        position: relative
+    .block1
+        margin: 0 0 mvw(210) 0
+        &:after
+            content: ""
+            width: mvw(601)
+            height: mvw(236)
+            background: url(../images/deco-award-1.png) center top / cover no-repeat
+            position: absolute
+            bottom: 0
+            left: 50%
+            transform: translate(-50%, 70%)
+        .conbox
+            padding: mvw(25) mvw(10) mvw(30)
+        h3
+            width: 100%
+            margin: 0 auto
+        .content
+            width: mvw(600)
+            height: mvw(120)
+            background: url(../images/bg-award-num.png) center top / cover no-repeat
+            margin: 0 auto
+            text-align: center
+            padding: mvw(20) 0
+        .name
+            font-size: mvw(30)
+            font-weight: 600
+            color: #363d48
+            margin: 0 0 mvw(10) 0
+        .code
+            font-size: mvw(48)
+            font-weight: bold
+            color: #363d48
+        .note
+            text-align: center
+            margin: mvw(20) 0 0 0
+            position: relative
+            z-index: 1
+            p
+                line-height: 1.5
+                font-size: mvw(26)
+                color: #363d48
+    .block2
+        h2
+            margin: 0 auto mvw(40)
+        h3
+            position: absolute
+            top: 0
+            left: 50%
+            transform: translate(-50%, -40%)
+            width: mvw(407)
+        .slickctr
+            width: mvw(564)
+            position: absolute
+            top: 60%
+            left: 50%
+            transform: translateX(-50%)
+            z-index: 1
+            .prev
+                width: mvw(60)
+                position: absolute
+                top: 0
+                left: 0
+                transform: scaleX(-1)
+            .next
+                width: mvw(60)
+                position: absolute
+                top: 0
+                right: 0
+        .slickbox
+            position: relative
+        .event-over
+            position: absolute
+            width: mvw(553)
+            height: mvw(296)
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            background: rgba(#ffffff,0.7)
+            display: flex
+            justify-content: center
+            align-items: center
+            visibility: hidden
+            img
+                width: mvw(315)
+        .tns-outer
+            button
+                display: none
+        .awardlist
+            width: mvw(512)
+            margin: mvw(30) auto 0
+        .readme
+            width: mvw(671)
+            margin: mvw(20) auto 0
+            li
+                font-size: mvw(26)
+                line-height: 1.3
+                margin: 0 0 mvw(10) 0
+                color: #363d48
+    .usertitle
+        width: mvw(656)
+        margin: 0 auto
+    .userpage
+        background: url(../images/bg-usersev.png) center top / 100% auto no-repeat
+        padding: 0 0 mvw(20) 0
+    .btnarea
+        display: flex
+        justify-content: space-around
+        align-items: center
+    .notmember
+        width: mvw(329)
+        height: mvw(359)
+        background: url(../images/btn-norichart-close.png) center top / cover no-repeat
+    .notmemberActive
+        background: url(../images/btn-norichart-open.png) center top / cover no-repeat
+    .ismember
+        width: mvw(329)
+        height: mvw(359)
+        background: url(../images/btn-haverichart-close.png) center top / cover no-repeat
+    .ismemberActive
+        background: url(../images/btn-haverichart-open.png) center top / cover no-repeat
+    .userbox
+        margin: mvw(60) auto 0
+        li
+            width: mvw(430)
+            margin: 0 auto mvw(40)
+            &:nth-last-child(1)
+                margin: 0 auto
+    .fixedbtn
+        position: fixed
+        right: mvw(-40)
+        bottom: mvw(50)
+        width: mvw(188)
+        height: mvw(313)
+        background: url(../images/btn-fixed-1.png) center top / cover no-repeat
+        animation: fixedbtn 1.8s steps(1, start) infinite 
+        // animation: name duration timing-function delay iteration-count direction fill-mode
+    .isPc
+        .bd
+            margin: 0 auto
+
+
+@keyframes fixedbtn
+    0, 100%
+        background: url(../images/btn-fixed-1.png) center top / cover no-repeat
+    50%
+        background: url(../images/btn-fixed-2.png) center top / cover no-repeat

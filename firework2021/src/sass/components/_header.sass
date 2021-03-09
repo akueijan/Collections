@@ -1,0 +1,137 @@
+$header-lg-height: vw(70)
+$header-mobile-height: mvw(100)
+
+header
+    width: 100%
+    padding: 20px 50px
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+.nav
+    // background: #bf0e29
+    height: $header-lg-height
+    line-height: $header-lg-height
+    width: 100%
+    position: fixed
+    // position: relative
+    left: 0
+    top: 0
+    // overflow: hidden
+    // display: none
+    z-index: 9
+    +rwd($pad)
+        height: $header-mobile-height
+        line-height: $header-mobile-height
+    a 
+        cursor: pointer
+    p
+        display: inline-block
+        margin-right: 10px  
+    & .l-container
+        height: 100%
+    &-bd 
+        height: 100%
+        padding: 0 vw(28)
+        display: flex
+        align-items: center
+        justify-content: space-between
+        +rwd($desktop)
+            padding: 0 mvw(23)
+    &-logo 
+        display: inline-block
+        width: vw(213)
+        line-height: 0
+        vertical-align: middle
+        position: relative
+        // z-index: 1
+        +rwd($desktop)
+            width: mvw(219)
+        img
+            width: 100%
+            height: auto
+    &-btn
+        display: none
+        +rwd($pad)
+            width: mvw(70)
+            height: mvw(70)
+            cursor: pointer
+            background: #fff
+            border-radius: mvw(10)
+            box-shadow: mvw(5) mvw(5) mvw(8) rgba(#1f4ea2, 0.6)
+            position: relative
+            display: inline-flex
+            align-items: center
+            flex-flow: column wrap
+            justify-content: space-between
+            padding: mvw(15) mvw(15)
+            order: 3
+            z-index: 1
+            >.one,
+            >.two,
+            >.three 
+                width: 100%
+                height: 3px
+                background: #0a95ea
+                backface-visibility: hidden
+                transition-duration: 0.3s
+                border-radius: mvw(3)
+    &-menu
+        li 
+            display: inline-block
+            line-height: 0
+            vertical-align: middle
+            // margin-right: mvw(30)
+            position: relative
+            span
+                color: #fff
+                font-weight: bold
+                font-size: 16px
+                line-height: 1
+        +rwd($pad)
+            background: url(../images/nav-bg.jpg) center top / cover  no-repeat
+            width: 100%
+            height: 100vh
+            // right: -100%
+            // top: mvw(100)
+            top: 0
+            left: 0
+            position: absolute
+            transition: all 0.2s ease-out
+            opacity: 0
+            visibility: hidden
+            transform: scale(0.8)
+            // overflow: hidden
+            ul 
+                line-height: mvw(75)
+                text-align: center
+                padding: mvw(300) 0 0 0
+                li 
+                    width: mvw(494)
+                    position: relative
+                    margin: 0 auto mvw(120)
+    &--active 
+        +rwd($pad)
+            .nav-menu 
+                // right: 0
+                position: absolute
+                // top: mvw(100)
+                overflow: auto
+                opacity: 1
+                visibility: inherit
+                transform: scale(1)
+            .nav-btn 
+                >.one
+                    width: 80%
+                    position: absolute
+                    top: 50%
+                    left: 10%
+                    transform: (rotate(45deg) translateY(-50%))      
+                >.two 
+                    opacity: 0
+                >.three 
+                    width: 80%
+                    position: absolute
+                    top: 50%
+                    left: 10%
+                    transform: (rotate(-45deg) translateY(-50%))

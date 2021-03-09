@@ -1,0 +1,201 @@
+.popup 
+    display: block
+    background: #373b42
+    position: fixed
+    padding: mvw(120) mvw(30)
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    z-index: 99
+    & img 
+        width: 100%
+        height: auto
+    &__area 
+        position: relative
+    
+    &__content 
+        position: relative
+        height: 80vh
+        overflow: scroll
+        padding: 0 15px
+        width: 80%
+        margin: 100px auto 0
+        text-align: center
+        //-webkit-overflow-scrolling:touch
+        &::-webkit-scrollbar 
+            display: none
+        
+    &__close 
+        top: -70px
+        right: 30px
+        font-size: 30px
+        width: 50px
+        height: 50px
+        line-height: 50px
+        text-align: center
+        background: #aaa
+        color: #fff
+        border-radius: 50%
+        position: absolute
+        cursor: pointer
+        &:before
+            content: "✖"
+    .popclose
+        width: mvw(90)
+        position: absolute
+        top: mvw(5)
+        right: mvw(5)
+    .poppagebg
+        padding: mvw(15)
+        border-radius: mvw(30)
+        background: #ffda00
+        position: relative
+        h2
+            width: mvw(407)
+            position: absolute
+            top: 0
+            left: 50%
+            transform: translate(-50%,-30%)
+            z-index: 1
+    .poppage
+        // width: mvw(640)
+        height: 80vh
+        background: #ffffff
+        box-shadow: 0 mvw(8) mvw(10) rgba(#cccccc, 1)
+        border-radius: mvw(30)
+        padding: mvw(70) 0 mvw(30)
+        .popcon
+            height: 100%
+            padding: 0 mvw(20) 0 mvw(30)
+            overflow-y: auto
+            // overflow-x: hidden
+            position: relative
+        .bold
+            font-weight: bold
+        .ps
+            color: #ff77b9
+            font-weight: bold
+        a
+            color: #0554aa
+        p
+            // color: #000000
+        li
+            font-size: mvw(30)
+            word-wrap: break-word
+            line-height: 1.5
+            margin: 0 0 mvw(20) 0
+        .one
+            list-style: decimal
+            padding: 0 0 0 2em
+            position: relative
+            z-index: 1
+            li
+                position: relative
+                // z-index: 1
+                // color: #ffffff
+                &:before
+                    content: ""
+                    width: mvw(40)
+                    height: mvw(40)
+                    background: #a2e5ff
+                    border-radius: 50%
+                    position: absolute
+                    top: mvw(3)
+                    left: mvw(-45)
+                    z-index: -1
+        .two
+            margin: mvw(15) 0 0 0
+            li
+                &:before
+                    display: none
+        .three
+            list-style: decimal
+            padding: 0 0 0 2em
+            margin: mvw(15) 0 0 0
+            li
+                &:before
+                        display: none
+        .poptab
+            width: mvw(610)
+            margin: 0 0 0 mvw(-40)
+            td, th
+                width: 25%
+                border: 1px solid #000000
+                text-align: left
+                padding: 5px
+            th
+                text-align: center
+                background: #d0f5fd
+
+.userpop
+    display: block
+    background: url(../images/bg.png) center top / 100% 100% no-repeat
+    position: fixed
+    // padding: mvw(120) mvw(30)
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    z-index: 99
+    overflow-y: scroll
+    overflow-x: hidden
+    padding: mvw(90) 0 0 0
+    .popclose
+        width: mvw(90)
+        position: absolute
+        top: mvw(5)
+        right: mvw(5)
+    h2
+        width: mvw(656)
+        margin: 0 auto
+    .userpage
+        background: url(../images/bg-usersev.png) center top / 100% 100% no-repeat
+        padding: 0 0 mvw(200) 0
+    .btnarea
+        display: flex
+        justify-content: space-around
+        align-items: center
+    .notmember
+        width: mvw(329)
+        height: mvw(359)
+        background: url(../images/btn-norichart-close.png) center top / cover no-repeat
+    .notmemberActive
+        background: url(../images/btn-norichart-open.png) center top / cover no-repeat
+    .ismember
+        width: mvw(329)
+        height: mvw(359)
+        background: url(../images/btn-haverichart-close.png) center top / cover no-repeat
+    .ismemberActive
+        background: url(../images/btn-haverichart-open.png) center top / cover no-repeat
+    .userbox
+        margin: mvw(60) auto 0
+        li
+            width: mvw(430)
+            margin: 0 auto mvw(40)
+            &:nth-last-child(1)
+                margin: 0 auto
+
+.sendpopup
+    display: block
+    background: rgba(#000000, 0.7)
+    position: fixed
+    // padding: mvw(120) mvw(30)
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    z-index: 99
+    .sendpoppage
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        width: 80%
+        text-align: center
+        img
+            width: mvw(150)
+        p
+            font-size: mvw(36)
+            color: #ffffff
+            line-height: 1.25

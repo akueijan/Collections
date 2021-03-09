@@ -1,0 +1,18 @@
+nav.nav(itemscope itemtype="http://schema.org/SiteNavigationElement" v-if="!isPc")
+    div.l-container
+        div.nav-bd
+            h1.nav-logo
+                a(href="index.html" alt="LOGO" title="LOGO")
+                    img(src="images/logo.png")
+            div.nav-btn(gtm-data="menu")
+                div.one
+                div.two
+                div.three
+            div.nav-menu(role="navigation")
+                ul.clearfix
+                    li.nav-item.nav-item--iscurrent
+                        a(href="javascript:void(0)" alt="活動辦法" @click="popOpen('event')" itemprop="url" title="活動辦法" gtm-data="menu_活動辦法")
+                            img(src="images/nav-events.png" gtm-data="menu_活動辦法")
+                    li.nav-item
+                        a(href="javascript:void(0)" alt="個人化服務" @click="popOpen('usersev')" itemprop="url" title="個人化服務" gtm-data="menu_個人化服務")
+                            img(src="images/nav-usersev.png" gtm-data="menu_個人化服務")

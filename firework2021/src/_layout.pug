@@ -1,0 +1,60 @@
+﻿doctype
+html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
+    //page default Information
+    //- - var compJs = ["comingsoon.js"]
+    block pageInfo
+        - var pageTitle = "2021 Richart 蹦好運 拉拉炮好禮週週抽"
+        - var pageDesc = "現在完成LINE個人化服務綁定,分享給好友,就能立即抽好禮,週週還能再抽大獎!"
+        - var isVue = true
+    //html head
+    include _head.pug
+    //html body
+    body
+        noscript
+            iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-NLRR4GV" height="0" width="0" style="display:none;visibility:hidden")
+        div.l-wrap#app(v-cloak=isVue)
+            .robbinarea(v-if="!isPc")
+                -for (var i=1; i<7; i++)
+                    .robbin-b-b(class='robbin-b-b'+i)
+                        img(src="images/ribbon-s-b.png")
+                    .robbin-b-w(class='robbin-b-w'+i)
+                        img(src="images/ribbon-b-w.png")
+                    .robbin-b-y(class='robbin-b-y'+i)
+                        img(src="images/ribbon-s-y.png")
+                    .robbin-b-r(class='robbin-b-r'+i)
+                        img(src="images/ribbon-s-r.png")
+            include _nav.pug
+            //- comingsoon
+            // render nav view
+            div.l-fb
+                div.l-container
+                    div.fb-box
+                        .fb-like(data-href='#', data-layout='button_count', data-action='like', data-show-faces='false', data-share='true') 
+            div.l-main
+                block page_main
+                //render main view
+            div(v-if="isPc").l-footer.footer
+                div.l-container
+                    p © 台新國際商業銀行 Copyright Taishin International Bank. All Rights Reserved. 建議使用 iOS 11 或 Android 8 以上版本
+            include _popup.pug
+            
+        //- components
+        //- include component/_comingsoon.pug
+        //- include component/_lotteryBackfill.pug
+
+        script(type="text/javascript" src=jsFolder+"vendor.js")
+        script(type="text/javascript" src=jsFolder+"lib.js")
+        //- script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js")
+        script(type="text/javascript" src="static/js/tiny-slider.js")
+        if more_js
+            each js in more_js
+                script(type="text/javascript" src= jsFolder + js)
+        script(type="text/javascript" id="appjs" src= jsFolder + "app.js?v="+timestamp data-mode=`${dev_mode}` data-site=`${apiUrl}`)
+        //- script(type="text/javascript" id="appjs" src= jsFolder + "app.js?v="+timestamp data-mode=`${dev_mode}` data-site=`${apiUrl}`)
+        script(type="text/javascript" src="js/api.js")
+        if compJs
+            each js in compJs
+                script(type="text/javascript" src= jsFolder + "component/" + js)
+        if pageJs
+            script(src= jsFolder + pageJs+"?v="+timestamp)
+        script(type='text/javascript')

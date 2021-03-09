@@ -56,12 +56,9 @@ class carGame {
         let y1
         let y2
         let y3
-        let y4
-        let objx
         let targetY = 2
         let offsetY = 150
         let userCarY
-        let tCarspeed = 70
         let score = 0
         let sec = 0
         let min = 0
@@ -76,9 +73,6 @@ class carGame {
         let hardcun = 0
         // let stop = false
         let playbtn = document.querySelector('.playbtn')
-
-        _self.can1 = can1
-        // _self.canctx = canctx
 
         roadimg1.src = _self.imgs.roadimg.src
         roadimg2.src = _self.imgs.roadimg.src
@@ -134,13 +128,6 @@ class carGame {
                 resolve()
             }
         })
-
-        _self.creatCar()
-        // let carObjset = setInterval(function(){
-        //     _self.creatCar()
-        //     objx = Math.random() < 0.5 ? 35 : can1.width - (_self.carObj.width/2+35)
-        //     console.log('car bulid')
-        // }, 1500)
         //canvas畫面初始化
         Promise.all([roadBg1,roadBg2,userCarimg,userCarwanimg,targetCarimg,targetCarbrkimg,gameoverCarimg,scoreBgimg,overImgBg]).then(function() {
             y1 = -((roadimg1.height/_self.rot)-can1.height)
@@ -164,32 +151,26 @@ class carGame {
             canctx.font = 'italic 40px Helvetica'
             canctx.fillText(Math.floor(kilo), 20, 50)
             // gameStart()
-            objx = Math.random() < 0.5 ? 35 : can1.width - (_self.carObj.width/2+35)
-            y4 = can1.height
-            canctx.drawImage(_self.carObj, 0, 0, _self.carObj.width, _self.carObj.height, objx, y4, _self.carObj.width/2, _self.carObj.height/2)
         })
-        document.querySelector('.startbtn').addEventListener('click', function(){
-            // let second = 3
-            // let gameCun = setInterval(() => {
-            //     second -= 1
-            //     // document.querySelector('.gamecun').innerHTML = second
-            //     if(second <= 0) {
-            //         // document.querySelector('.gamecun').innerHTML = 'GO!!'
-            //         clearInterval(gameCun)
-            //         setTimeout(function() {
-            //             document.querySelector('.decoarr').style = 'display: none'
-            //             document.querySelector('.startbtn').style = 'display: none'
-            //             index_view.popup = false
-            //             index_view.popPage = ''
-            //             gameStart()
-            //         }, 1000)
-            //     }
-            // }, 1000)
-            document.querySelector('.decoarr').style = 'display: none'
-            document.querySelector('.startbtn').style = 'display: none'
-            index_view.popup = false
-            index_view.popPage = ''
-            gameStart()
+        document.querySelector('.readmebtn').addEventListener('click', function(){
+            index_view.popPage = 'gamestart'
+            document.querySelector('.popup').style = 'background: none'
+            let second = 3
+            let gameCun = setInterval(() => {
+                second -= 1
+                document.querySelector('.gamecun').innerHTML = second
+                if(second <= 0) {
+                    document.querySelector('.gamecun').innerHTML = 'GO!!'
+                    clearInterval(gameCun)
+                    setTimeout(function() {
+                        document.querySelector('.decoarr').style = 'display: none'
+                        document.querySelector('.popup').style = 'background: url(./images/popup_bg.png) center top repeat'
+                        index_view.popup = false
+                        index_view.popPage = ''
+                        gameStart()
+                    }, 1000)
+                }
+            }, 1000)
         })
         function gameStart() {
             gameSetin = setInterval(drawCan, 20)
@@ -209,7 +190,6 @@ class carGame {
         //         // console.log(targetY)
         //     }, 1200)
         // }, 10000)
-        
 
         function drawCan() {
             if(y1 > can1.height) {
@@ -291,15 +271,8 @@ class carGame {
             // console.log('targetY: ', targetY)
             // console.log('cun: ', cun)
             // console.log('hardcun: ', hardcun)
+
             // console.log(offsetY)
-
-            y4 -= Math.random() * (2-1) + 1
-            if(y4 <= - _self.carObj.height) {
-                y4 = can1.height
-                objx = Math.random() < 0.5 ? 35 : can1.width - (_self.carObj.width/2+35)
-            }
-            canctx.drawImage(_self.carObj, 0, 0, _self.carObj.width, _self.carObj.height, objx, y4, _self.carObj.width/2, _self.carObj.height/2)
-
             canctx.fillStyle = "#ffffff"
             canctx.font = 'italic 20px Helvetica'
             canctx.fillText('km/h', 70, 50)
@@ -331,28 +304,24 @@ class carGame {
             }
             if(offsetY >= nearLine) {
                 // console.log('進入安全距離')
-                // clearInterval(gameSetin)
-                // playbtn.removeEventListener('touchstart',handleStart)
-                // playbtn.removeEventListener('touchend',handleEnd)
-                // clearInterval(timeDel)
-                // clearInterval(timeAdd)
-                // clearInterval(timeCun)
-
-                // clearInterval(carObjset)
-                // gameoverNear()
+                clearInterval(gameSetin)
+                playbtn.removeEventListener('touchstart',handleStart)
+                playbtn.removeEventListener('touchend',handleEnd)
+                clearInterval(timeDel)
+                clearInterval(timeAdd)
+                clearInterval(timeCun)
+                gameoverNear()
             }
 
             if(offsetY <= overLine) {
                 // console.log('車已遠')
-                // clearInterval(gameSetin)
-                // playbtn.removeEventListener('touchstart',handleStart)
-                // playbtn.removeEventListener('touchend',handleEnd)
-                // clearInterval(timeDel)
-                // clearInterval(timeAdd)
-                // clearInterval(timeCun)
-
-                // clearInterval(carObjset)
-                // gameoverFar()
+                clearInterval(gameSetin)
+                playbtn.removeEventListener('touchstart',handleStart)
+                playbtn.removeEventListener('touchend',handleEnd)
+                clearInterval(timeDel)
+                clearInterval(timeAdd)
+                clearInterval(timeCun)
+                gameoverFar()
             }
         }
         function gamePlay() {
@@ -489,17 +458,6 @@ class carGame {
                 index_view.step = 'reason'
                 index_view.reason = 'far'
             }, 1200)
-        }
-    }
-    creatCar() {
-        let _self = this
-        let carObj = new Image()
-        // let crtx = _self.can1.getContext('2d')
-        carObj.src = _self.imgs.targetCar.src
-        carObj.onload = function() {
-            // crtx.drawImage(carObj, 0, 0, carObj.width, carObj.height, 20, 20, carObj.width/2, carObj.height/2)
-            _self.carObj = carObj
-            // console.log(carObj)
         }
     }
 }

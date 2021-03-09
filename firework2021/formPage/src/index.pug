@@ -1,0 +1,34 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "index"
+    - var pageDesc = "pageDesc"
+    //- - var pageJs = "index.js"
+//- page html
+block page_main
+    section.index
+        .kv
+            img(src="images/pic-kv-1.png" alt='立即綁定')
+        .bd
+            .bdbox
+                h2
+                    img(src="images/page1_form_title.png")
+                h3 為保障你的使用權益，請你詳閱以下條款後勾選同意以繼續申請程序。
+                ul
+                    li
+                        a(href='#' title='Richart LINE個人化服務(LINE BusinessConnect)會員身份驗證及服務條款') Richart LINE個人化服務(LINE BusinessConnect)會員身份驗證及服務條款
+                    li
+                        a(href='#' title='個人資料運用告知聲明') 個人資料運用告知聲明
+                    li
+                        a(href='#' title='R幣會員服務條款') R幣會員服務條款
+                .checkbox
+                    input#check(type='checkbox')
+                    label(for='check')
+                        p 我已於合理期間詳細審閱並了解同意全部以上條款
+                button.btnarea
+                    img(src="images/page1_acbtn.png" alt="同意以上條款與聲明並繼續")
+        .ft
+            img(src="images/page1_ftbg.png")
+        
+

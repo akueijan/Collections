@@ -1,0 +1,49 @@
+ul.pictures
+    background: none
+    padding: 0
+    margin: 0
+    display: flex
+    justify-content: space-around
+    align-items: center
+    flex-wrap: wrap
+    width: 100%
+    li
+        border: 1px dashed #dddddd
+        width: 150px
+        height: 150px
+        margin: 0
+        text-align: center
+        position: relative
+        label
+            width: 100%
+            height: 100%
+            line-height: 150px
+            font-size: 24px
+            margin: 0
+            display: block
+            cursor: pointer
+            position: relative
+            z-index: 2
+            ~ input
+                opacity: 0
+                display: none
+            ~ .preview
+                width: 100%
+                height: 100%
+                text-align: center
+                line-height: 150px
+                position: absolute
+                top: 0
+                left: 0
+                z-index: 1
+                overflow: hidden
+                p
+                    font-size: 24px
+                    color: #000
+                img
+                    max-width: 100%
+                    max-height: 100%
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%,-50%)

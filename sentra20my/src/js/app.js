@@ -189,7 +189,7 @@ Vue.mixin({
                                 // console.log('error', err);
                             });
                         } else {
-                            // window.location = "https://lin.ee/wLVkkm9" // 應加入nissan的好友
+                            window.location = "https://lin.ee/wLVkkm9" // 應加入nissan的好友
                         }
                     }) 
                 })
@@ -197,7 +197,48 @@ Vue.mixin({
                     // console.log('err: ', err)
                 })
         },
-        
+        getLeader() {
+            var vm = this;
+            return $.ajax({
+                url: `${vm.apiUrl}api/lottery/${vm.entId}/leader`,
+                headers: {
+                    'Authorization': 'Bearer ' + vm.mainToken
+                },
+                method: 'GET',
+                dataType: 'json'
+            }).done((res) => {
+                // console.log('getLeader: ', res)
+                vm.scoreArr = res.data.leader
+            })
+        },
+        showArr() {
+            var vm = this;
+            vm.userArr = [];
+            for(let i=1; i<11; i++) {
+                vm.userArr.push({
+                    'seq': i,
+                    'name': i + 'aaa',
+                    'min': i*10,
+                    'sec': i+10,
+                    'piclink': ""
+                })
+            }
+            // vm.getLeader().then(() => {
+            //     vm.scoreArr.forEach(function(item, index){
+            //         // console.log(index)
+            //         vm.userArr.push({
+            //             'seq': index + 1,
+            //             'name': item.name,
+            //             'min': ''+ Math.floor(item.second / 60),
+            //             'sec': (item.second % 60 > 9) ? ''+ item.second % 60 : '0'+ item.second % 60,
+            //             'piclink': item.pictureLink
+            //         })
+            //         // if(vm.userArr.length < 10) {
+            //         //     document.querySelector('.ft img').style = "display: none"
+            //         // }
+            //     })
+            // })
+        },
         openPop(page) {
             var vm = this
             vm.popup = true
@@ -217,15 +258,19 @@ Vue.mixin({
             window.location = `http://line.naver.jp/R/msg/text/?欸~這超~~~難的！你要不要玩玩看~還可以抽 Switch 和 LINE POINTS 點數哦！%0D%0A《ALL NEW SENTRA 先潮耐力賽》%0D%0A${sUrl}`;
         },
         checkAward() {
-            var vm = this
-            if(vm.awardName == '' || vm.awardName == null) {
-                vm.popup = true
-                vm.popPage = 'noAward'
-            } else {
-                vm.step = 'useraward'
-                vm.isGame = false
-                // vm.haveAward = true
-            }
+            var vm = this;
+            vm.popup = true
+            vm.popPage = 'noAward'
+            // vm.getData().then(() => {
+            //     if(vm.awardName == '' || vm.awardName == null) {
+            //         vm.popup = true
+            //         vm.popPage = 'noAward'
+            //     } else {
+            //         vm.step = 'useraward'
+            //         vm.isGame = false
+            //         // vm.haveAward = true
+            //     }
+            // })
         },
         noticketShare() {
             var vm = this

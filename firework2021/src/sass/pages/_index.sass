@@ -1,0 +1,433 @@
+$playtop: mvw(1100)
+
+.index
+    max-width: 750px
+    margin: 0 auto
+    height: 100%
+    position: relative
+    overflow: hidden
+    .step
+        min-height: 100vh
+        position: relative
+    .kv
+        position: relative
+        min-height: 100vh
+        height: mvw(1334)
+        background: url(../images/bg.png) center top / cover no-repeat
+        .deco
+            width: mvw(254)
+            position: absolute
+            top: mvw(462)
+            left: 0
+        .bd
+            width: mvw(659)
+            height: mvw(483)
+            position: absolute
+            top: mvw(106)
+            left: mvw(54)
+            z-index: 1
+        .slogn
+            width: mvw(470)
+            max-width: 470px
+            position: absolute
+            top: mvw(54)
+            left: mvw(101)
+        .acbtn
+            width: mvw(308)
+            position: absolute
+            top: mvw(376)
+            left: mvw(173)
+        .ft
+            position: absolute
+            bottom: mvw(30)
+            left: 0
+        .richart
+            width: mvw(833)
+            position: absolute
+            bottom: mvw(140)
+            left: mvw(-40)
+        .dogs
+            width: mvw(360)
+            position: absolute
+            bottom: 0
+            right: 0
+        .table
+            // position: absolute
+            // width: mvw(750)
+            // left: 0
+            bottom: mvw(-250)
+            position: relative
+            z-index: 1
+    .aniarea
+        background: url(../images/bg-layout.jpg) center top / 100% 100% repeat-y
+        .ballon
+            position: absolute
+            top: 0
+            left: 0
+            // display: none
+        .playkv
+            position: absolute
+            width: mvw(587)
+            top: mvw(124)
+            left: mvw(92)
+            z-index: 1
+            animation: rerota 0.6s infinite
+            // display: none
+        .playarea
+            width: mvw(500)
+            position: absolute
+            top: mvw(550)
+            left: 50%
+            transform: translateX(-50%)
+            transform-origin: center center
+            z-index: 2
+            // display: none
+            .playitem
+                width: mvw(342)
+                height: mvw(400)
+                position: absolute
+                top: 0
+                left: mvw(80)
+                transform-origin: center bottom
+                // transform: rotate(25deg)
+                // transition: 0.3s
+                z-index: 1002
+                .front
+                    width: mvw(320)
+                    position: absolute
+                    top: mvw(30)
+                    left: 50%
+                    transform: translateX(-50%)
+                    transform-origin: center bottom
+                    z-index: 3
+                .back
+                    width: mvw(318)
+                    position: absolute
+                    top: 0
+                    left: 50%
+                    transform: translateX(-50%)
+                    transform-origin: center bottom
+                    z-index: 1
+            .playhand
+                width: mvw(215)
+                position: absolute
+                top: mvw(320)
+                left: mvw(270)
+                animation: reupdw 1.2s infinite
+            .playline
+                width: mvw(35)
+                position: absolute
+                top: mvw(180)
+                left: mvw(210)
+                // transform: rotate(25deg)
+                z-index: 1
+            .linearea
+                width: mvw(50)
+                height: mvw(1334)
+                // background: #000000
+                position: absolute
+                top: mvw(180)
+                left: mvw(210)
+        .dragbox
+            width: 100%
+            height: mvw(1200)
+            // background: #ffffff
+            position: absolute
+            top: 0
+            left: 0
+            z-index: 9
+        .playback
+            width: mvw(318)
+            height: mvw(400)
+            position: absolute
+            top: mvw(550)
+            left: 50%
+            transform: translateX(-50%)
+        .robbinarea
+            opacity: 0
+            position: relative
+        .robbin-b-b
+            width: mvw(60)
+            position: absolute
+            top: $playtop
+            left: mvw(350)
+            // transition: 0.6s
+        .robbin-b-r
+            width: mvw(70)
+            position: absolute
+            top: $playtop
+            left: mvw(350)
+        .robbin-b-w
+            width: mvw(60)
+            position: absolute
+            top: $playtop
+            left: mvw(350)
+        .robbin-b-y
+            width: mvw(30)
+            position: absolute
+            top: $playtop
+            left: mvw(350)
+        .robbin-s-b
+            width: mvw(34)
+            position: absolute
+            top: $playtop
+            left: mvw(350)
+        .robbin-s-r
+            width: mvw(30)
+            position: absolute
+            top: $playtop
+            left: mvw(350)
+        .robbin-s-w
+            width: mvw(34)
+            position: absolute
+            top: $playtop
+            left: mvw(350)
+        .robbin-s-y
+            width: mvw(30)
+            position: absolute
+            top: $playtop
+            left: mvw(350)
+        @for $i from 1 through 4
+            .robbin-b-b#{$i}--active
+                animation: fireworkbb#{$i} 0.6s cubic-bezier(0,.44,.61,.57) forwards
+            .robbin-b-w#{$i}--active
+                animation: fireworkbw#{$i} 0.6s cubic-bezier(0,.44,.61,.57) forwards
+            .robbin-b-y#{$i}--active
+                animation: fireworkby#{$i} 0.6s cubic-bezier(0,.44,.61,.57) forwards
+            .robbin-b-r#{$i}--active
+                animation: fireworkbr#{$i} 0.6s cubic-bezier(0,.44,.61,.57) forwards
+        @for $i from 1 through 10
+            .robbin-s-b#{$i}--active
+                animation: fireworksb#{$i} 0.6s cubic-bezier(0,.44,.61,.57) forwards
+            .robbin-s-w#{$i}--active
+                animation: fireworksw#{$i} 0.6s cubic-bezier(0,.44,.61,.57) forwards
+            .robbin-s-y#{$i}--active
+                animation: fireworksy#{$i} 0.6s cubic-bezier(0,.44,.61,.57) forwards
+            .robbin-s-r#{$i}--active
+                animation: fireworksr#{$i} 0.6s cubic-bezier(0,.44,.61,.57) forwards              
+        .happynewyear
+            height: 100%
+            position: absolute
+            top: 0
+            left: 0
+            opacity: 0
+            z-index: 1
+            .robbinrichart
+                width: mvw(540)
+                margin: 0 auto
+                position: relative
+            .robbinrichart-active
+                animation: fuwo 2.4s infinite
+            .ballon2021
+                position: relative
+            .ballon2021-active
+                animation: fuwo 2.4s infinite
+        .fireworkarea
+            position: relative
+            height: 100%
+            opacity: 1
+            .firework
+                position: absolute
+                top: 0
+                left: 0
+                width: mvw(300)
+                transform: scale(0)
+            .firework1
+                top: mvw(50)
+                left: mvw(50)
+            .firework2
+                top: mvw(100)
+                left: mvw(450)
+            .firework3
+                top: mvw(300)
+                left: mvw(0)
+            .firework4
+                top: mvw(450)
+                left: mvw(200)
+            .firework5
+                top: mvw(550)
+                left: mvw(350)
+            .firework6
+                top: mvw(750)
+                left: mvw(250)
+            .firework7
+                top: mvw(950)
+                left: mvw(500)
+            .firework8
+                top: mvw(1000)
+                left: mvw(50)
+            @for $i from 1 through 8
+                // .firework#{$i}
+                //     top: mvw($i*100 + random(200))
+                //     left: mvw($i*50 + random(100))
+                .firework#{$i}--active
+                    animation: fireworkrandom 1.2s linear infinite
+                    animation-delay: random(2)+s
+    .linelogin
+        padding: mvw(65) mvw(40) 0
+        text-align: center
+        .bd
+            margin: mvw(25) 0 0 0
+        .content
+            margin: 0 0 mvw(30) 0
+            // &:nth-child(2)
+            //     margin: 0 0 mvw(30) 0
+        .conbg
+            padding: mvw(15)
+            border-radius: mvw(30)
+            background: #ffda00
+        .conbox
+            width: mvw(640)
+            background: #ffffff
+            box-shadow: 0 mvw(8) mvw(10) rgba(#cccccc, 1)
+            border-radius: mvw(30)
+            padding: mvw(50) mvw(90) mvw(30)
+            position: relative
+            h3
+                width: mvw(390)
+                position: absolute
+                top: 0
+                left: 50%
+                transform: translate(-50%,-40%)
+        .note
+            margin: mvw(10) 0 0 0
+            color: #363d48
+            p
+                font-size: mvw(26)
+                font-weight: 400
+                line-height: 1.25
+            a
+                color: #0554aa
+                text-decoration: underline
+        .slickctr
+            width: mvw(564)
+            position: absolute
+            top: 60%
+            left: 50%
+            transform: translateX(-50%)
+            z-index: 1
+            .prev
+                width: mvw(60)
+                position: absolute
+                top: 0
+                left: 0
+                transform: scaleX(-1)
+            .next
+                width: mvw(60)
+                position: absolute
+                top: 0
+                right: 0
+        .slickbox
+            position: relative
+        .tns-outer
+            button
+                display: none
+        .btn-linelogin
+            width: mvw(592)
+            margin: 0 auto mvw(45)
+        .event-over
+            position: absolute
+            width: mvw(553)
+            height: mvw(296)
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            background: rgba(#ffffff,0.7)
+            display: flex
+            justify-content: center
+            align-items: center
+            visibility: hidden
+            img
+                width: mvw(315)
+        // .event-over1
+        //     visibility: inherit
+    .logintest
+        padding: 10px
+        button
+            margin: 10px 0
+            font-size: 24px
+
+
+@keyframes rerota
+    0, 100%
+        transform: rotate(3deg)
+    50%
+        transform: rotate(-3deg)
+
+@keyframes reupdw
+    0
+        transform: translateY(0px)
+    100%
+        transform: translateY(50px)
+
+@for $i from 1 through 4
+    @keyframes fireworkbb#{$i}
+        0
+            top: $playtop
+            left: mvw(350)
+        100%
+            left: mvw(random(750))
+            top: mvw(random(1100))
+    @keyframes fireworkbw#{$i}
+        0
+            top: $playtop
+            left: mvw(350)
+        100%
+            left: mvw(random(750))
+            top: mvw(random(1100))
+    @keyframes fireworkby#{$i}
+        0
+            top: $playtop
+            left: mvw(350)
+        100%
+            left: mvw(random(750))
+            top: mvw(random(1100))
+    @keyframes fireworkbr#{$i}
+        0
+            top: $playtop
+            left: mvw(350)
+        100%
+            left: mvw(random(750))
+            top: mvw(random(1100))
+
+@for $i from 1 through 10
+    @keyframes fireworksb#{$i}
+        0
+            top: $playtop
+            left: mvw(350)
+        100%
+            left: mvw(random(750))
+            top: mvw(random(1100))
+    @keyframes fireworksw#{$i}
+        0
+            top: $playtop
+            left: mvw(350)
+        100%
+            left: mvw(random(750))
+            top: mvw(random(1100))
+    @keyframes fireworksy#{$i}
+        0
+            top: $playtop
+            left: mvw(350)
+        100%
+            left: mvw(random(750))
+            top: mvw(random(1100))
+    @keyframes fireworksr#{$i}
+        0
+            top: $playtop
+            left: mvw(350)
+        100%
+            left: mvw(random(750))
+            top: mvw(random(1100))
+
+@keyframes fuwo
+    0, 100%
+        transform: translateY(0)
+    50%
+        transform: translateY(10%)
+
+@keyframes fireworkrandom
+    0
+        transform: scale(0)
+    100%
+        transform: scale(1)

@@ -1,0 +1,135 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "2021 Richart 蹦好運 拉拉炮好禮週週抽"
+    - var pageDesc = "現在參加Richart蹦好運互動遊戲，完成LINE個人化服務綁定，並分享給好友，即可抽蝦皮購物金、R幣~等開獎禮！再享週週抽萬元好禮抽獎資格！"
+    - var pageJs = "index.js"
+    - var isVue = true
+    //- - var compJs = ["comingsoon.js"]
+//- page html
+block page_main
+    .module
+        section.index
+            .isMobile(v-if="!isPc")
+                transition(name="fade")
+                    .step(v-if="step=='kv'" key="kv").kv
+                        .ballon
+                            img(src="images/kv-ballon.png")
+                        .deco
+                            img(src="images/kv-deco.png")
+                        .bd
+                            .cloud
+                                img(src="images/kv-cloud.png")
+                            .slogn
+                                img(src="images/slogn.png" alt="2021蹦好運")
+                            .acbtn(@click="checkTime" title="來個蹦蹦"  gtm-data="KV_來個蹦蹦")
+                                img(src="images/kv-acbtn.gif" alt="來個蹦蹦" gtm-data="KV_來個蹦蹦")
+                        .ft
+                            .richart
+                                img(src="images/kv-richart.gif")
+                            .dogs
+                                img(src="images/kv-dogs.png")
+                            .table
+                                img(src="images/kv-ft.png")
+                    .step(v-if="step=='aniplay'" key="aniplay").aniarea
+                        .ballon
+                            img(src="images/kv-ballon.png")
+                        .playkv
+                            img(src="images/play-kv.png")
+                        .playarea
+                            .playhand
+                                img(src="images/play-hand.png")
+                            .playline
+                                img(src="images/play-line.png")
+                            .playitem
+                                img.front(src="images/play-item-front.png")
+                                //- img.back(src="images/play-item-back.png")
+                            .linearea
+                        .dragbox
+                        .playback
+                            img(src="images/play-item-back.png")
+                        .robbinarea
+                            -for (var i=1; i<4; i++)
+                                .robbin-b-b(class='robbin-b-b'+i)
+                                    img(src="images/ribbon-b-b.png")
+                                .robbin-b-w(class='robbin-b-w'+i)
+                                    img(src="images/ribbon-b-w.png")
+                                .robbin-b-y(class='robbin-b-y'+i)
+                                    img(src="images/ribbon-b-y.png")
+                                .robbin-b-r(class='robbin-b-r'+i)
+                                    img(src="images/ribbon-b-r.png")
+                            -for (var i=1; i<10; i++)
+                                .robbin-s-b(class='robbin-s-b'+i)
+                                    img(src="images/ribbon-s-b.png")
+                                .robbin-s-w(class='robbin-s-w'+i)
+                                    img(src="images/ribbon-s-w.png")
+                                .robbin-s-y(class='robbin-s-y'+i)
+                                    img(src="images/ribbon-s-y.png")
+                                .robbin-s-r(class='robbin-s-r'+i)
+                                    img(src="images/ribbon-s-r.png")
+                        .happynewyear
+                            .robbinrichart
+                                img(src="images/ani-logo.png")
+                            .ballon2021
+                                img(src="images/ani-kv.png")
+                        .fireworkarea
+                            -for (var i=1; i<5; i++)
+                                .firework(class='firework'+i)
+                                    img(src="images/fireworks-"+i+".png")
+                            -for (var i=5; i<9; i++)
+                                .firework(class='firework'+i)
+                                    img(src="images/fireworks-"+(i-4)+".png")
+                    .step(v-if="step=='linelogin'" key="linelogin").linelogin
+                        h2
+                            img(src="images/uesrsev-title.png")
+                        .bd
+                            .content
+                                .conbg
+                                    .conbox
+                                        h3
+                                            img(src="images/title-big-award.png")
+                                        img(src="images/richart-coin.png")
+                                .note
+                                    p *完整獎項請見
+                                        a(href="javascript:void(0)" @click="popOpen('event')" gtm-data="抽獎資訊_活動辦法") 活動辦法
+                            .btn-linelogin(@click="lineOpen" title="立即綁定抽迎新好禮" gtm-data="抽獎資訊_立即綁定抽迎新好禮")
+                                img(src="images/btn-toline.gif" alt="立即綁定抽迎新好禮" gtm-data="抽獎資訊_立即綁定抽迎新好禮")
+                            .content
+                                .conbg
+                                    .conbox
+                                        h3
+                                            img(src="images/title-week-award.png")
+                                        .slickctr
+                                            .prev
+                                                img(src="images/arr-play.png")
+                                            .next
+                                                img(src="images/arr-play.png")
+                                        .slickbd
+                                            -for (var i=1; i<6; i++)
+                                                .slickbox
+                                                    img(src="images/award-week-"+i+".png")
+                                                    .event-over(class="event-over"+i)
+                                                        img(src="images/event-over.png")
+                                .note
+                                    p *每週還有威秀電影票、HomePod mini、
+                                        br
+                                        | Richart2021超Q桌曆等好禮等你抽！
+                    .step(v-if="step=='logintest'" key="logintest").logintest
+                        h1 串接測試
+                        button(@click="lineOpen") lineLogin
+                        br
+                        button(@click="openAward") 得獎頁
+            .isPc(v-if="isPc")
+                .bd
+                    .pcslogn
+                        img(src="images/pc-slogn.png")
+                    .qrcodebox
+                        .pcqrcode
+                            img(src="images/pc-qrcode.png")
+                    .pckv
+                        img(src="images/pc-kv.png")
+                        .pckvtxt
+                            img(src="images/pc-kv-txt.png")
+                .ft
+                    p © 台新國際商業銀行 Copyright Taishin International Bank. All Rights Reserved. 建議使用 iOS 11 或 Android 8 以上版本

@@ -1,0 +1,126 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "發票怪獸 - 喚醒年獸大挑戰"
+    - var pageDesc = "發票怪獸 - 喚醒年獸大挑戰"
+    - var pageJs = "index.js";
+    //- - var compJs = ["comingsoon.js"]
+    - var isVue = true
+//- page html
+block page_main
+    .module
+        section.index
+            transition(name="fade")
+                .kv(v-if="pages=='kv'" key="kv")
+                    h2.kvslogn
+                        img(src="images/kv-slogn.png" alt="喚醒年獸大挑戰")
+                    .kvtxt
+                        img(src="images/kv-description.png" alt="重複點擊Q摸直到成功叫醒牠")
+                    .kvmonster
+                    .btnarea
+                        .btnrank(@click="getRanking" gtm-data="首頁-查看排行榜")
+                            img(src="images/btn-checkrank.png" alt="查看排行榜" gtm-data="首頁-查看排行榜")
+                        .btnstart(@click="beforeGame" gtm-data="首頁-開始遊戲")
+                            img(src="images/btn-gamestart.png" alt="開始遊戲" gtm-data="首頁-開始遊戲")
+                    .btnreadme(@click="readmeOpen" gtm-data="首頁-活動說明")
+                        img(src="images/btn-readme.png" alt="活動說明" gtm-data="首頁-活動說明")
+                    .deco.deco1
+                        img(src="images/deco-coin1.png")
+                    .deco.deco2
+                        img(src="images/deco-coin2.png")
+                    .deco.deco3
+                        img(src="images/deco-coin1.png")
+                    .deco.deco4
+                        img(src="images/deco-coin2.png")
+                    .deco.deco5
+                        img(src="images/deco-coin1.png")
+                .game(v-if="pages=='game'" key="game")
+                    h2
+                        img(src="images/game-title.png"  alt="喚醒年獸大挑戰")
+                    h3.time {{time.min}} : {{time.sec}} ' {{time.milli}}
+                    .progressbar
+                        img(src="images/game-barbg.png")
+                        .progress
+                        .clock
+                            img(src="images/game-clock.png")
+                    .wordbox
+                        img(src="images/game-wordbg.png")
+                        p {{randomtxt}}
+                    .gamemonster
+                    .clickarea(gtm-data="遊戲中-點擊Q摸")
+                .success(v-if="pages=='success'" key="success")
+                    h2
+                        img(src="images/success-title.png" alt="成功喚醒年獸")
+                    h3
+                        img(src="images/success-desc.png" alt="紅包已送到您的禮物盒囉!")
+                    .monster
+                    .resultbox
+                        .timebox
+                            img(src="images/success-timebox.png")
+                            .time
+                                p {{time.min}} : {{time.sec}} ' {{time.milli}}
+                        .btngetgift(@click="postGivebox" gtm-data="遊戲成功-開啟禮物盒抽好禮")
+                            img(src="images/btn-getgift.png" alt="開啟禮物盒" gtm-data="遊戲成功-開啟禮物盒抽好禮")
+                        .btnretry(@click="gameRetry" gtm-data="遊戲成功-再玩一次")
+                            img(src="images/btn-retry.png" alt="再玩一次" gtm-data="遊戲成功-再玩一次")
+                .sucagain(v-if="pages=='sucagain'" key="sucagain")
+                    h2
+                        img(src="images/success-title.png" alt="成功喚醒年獸")
+                    .monster
+                    .resultbox
+                        .timebox
+                            img(src="images/success-timebox.png")
+                            .time
+                                p {{time.min}} : {{time.sec}} ' {{time.milli}}
+                        .myresult(:class="{newscore: isNewscore}")
+                            img(src="images/sucagain-myresult.png")
+                            .time
+                                p {{besttime.min}} : {{besttime.sec}} ' {{besttime.milli}}
+                        .btnarea
+                            .btncheckrank(@click="getRanking" gtm-data="遊戲成功-查看排行榜")
+                                img(src="images/btn-checkrank.png" alt="查看排行榜" gtm-data="遊戲成功-查看排行榜")
+                            .btnretry(@click="gameRetry" gtm-data="遊戲成功-再玩一次")
+                                img(src="images/btn-retry2.png" alt="再玩一次" gtm-data="遊戲成功-再玩一次")
+                .fail(v-if="pages=='fail'" key="fail")
+                    h2
+                        img(src="images/fail-title.png" alt="挑戰失敗")
+                    h3
+                        img(src="images/fail-desc.png" alt="太久了啦~")
+                    .monster
+                    .resultbox
+                        .myresult
+                            img(src="images/sucagain-myresult.png")
+                            .time
+                                p {{besttime.min}} : {{besttime.sec}} ' {{besttime.milli}}
+                        .btnarea
+                            .btncheckrank(@click="getRanking" gtm-data="遊戲失敗-查看排行榜")
+                                img(src="images/btn-checkrank.png" alt="查看排行榜" gtm-data="遊戲失敗-查看排行榜")
+                            .btnretry(@click="gameRetry" gtm-data="遊戲失敗-再玩一次")
+                                img(src="images/btn-retry2.png" alt="再玩一次" gtm-data="遊戲失敗-再玩一次")
+                .ranking(v-if="pages=='ranking'" key="ranking")
+                    h2
+                        img(src="images/game-title.png" alt="喚醒年獸大挑戰")
+                    h3
+                        img(v-if="new Date() > new Date('2021/2/17')" src="images/overgame.png" alt="活動已結束")
+                    .rankbox
+                        .formtop
+                            img(src="images/form-top.png")
+                        .formbox
+                            .myresult
+                                img(src="images/sucagain-myresult.png")
+                                .time
+                                    p {{besttime.min}} : {{besttime.sec}} ' {{besttime.milli}}
+                            ul(:class="{overgameul: new Date() > new Date('2021/2/17')}")
+                                li(v-for="item in rankArr" :class="{highline: item.rank == rank.userRank}")
+                                    .id(:class="[{first: item.rank == '1'}, {second: item.rank == '2'}, {third: item.rank == '3'}]")
+                                        span {{item.rank}}
+                                    .info
+                                        .name {{item.name}}
+                                        .mobile {{item.mobile}}
+                                    .ultime
+                                        p {{item.min}} : {{item.sec}} ' {{item.milli}}
+                            .btnretry(@click="gameRetry" gtm-data="排行榜-重新挑戰")
+                                img(src="images/btn-retry3.png" alt="重新挑戰" gtm-data="排行榜-重新挑戰")
+                        .formbottom
+                            img(src="images/form-bottom.png")

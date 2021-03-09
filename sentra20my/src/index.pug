@@ -23,7 +23,6 @@ block page_main
                     img(src="images/index_ft.png"  alt="ALL NEW SENTRA 全新上市")
             .block.gameplay(v-if="step=='start'" key="start")
                 canvas#canvas
-                .startbtn Start
                 .decoarr
                     img(src="images/game_arrow.png")
                 .playbtn
@@ -166,7 +165,8 @@ block page_main
                             .number
                                 p {{awardCode}}
                     .btnarea
-                        a.getaward(:href="awardShortUrl" gtm-data="分享活動得獎頁_立即領獎")
+                        //- a.getaward(:href="awardShortUrl" gtm-data="分享活動得獎頁_立即領獎")
+                        .getaward(:href="awardShortUrl" gtm-data="分享活動得獎頁_立即領獎")
                             img(src="images/btn_getaward.png" gtm-data="分享活動得獎頁_立即領獎")
                         .btnreadme(@click="awardreadme" gtm-data="分享活動得獎頁_領獎說明")
                             img(src="images/btn_awardreadme.png" gtm-data="分享活動得獎頁_領獎說明")

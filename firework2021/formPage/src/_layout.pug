@@ -1,0 +1,19 @@
+﻿doctype
+html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
+    //page default Information
+    block pageInfo
+        - var pageTitle = "首頁"
+        - var pageDesc = "敘述"
+    //html head
+    include _head.pug
+    //html body
+    body
+        div.l-wrap#app
+            // render nav view
+            div.l-main
+                block page_main
+                //render main view
+            //- div.l-footer.footer
+            //-     div.l-container
+            //-         p footer
+        script(type='text/javascript')

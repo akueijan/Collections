@@ -1,0 +1,68 @@
+.mdLoading
+    width: 100vw
+    height: 100vh
+    position: fixed
+    z-index: 100
+    background: url(../images/bg-layout.jpg) center top / 100% 100% repeat
+    top: 0px
+    left: 0px
+    z-index: 10
+    .loadingBox
+        width: mvw(640)
+        max-width: 640px
+        // margin: mvw(250) auto 0
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+        text-align: center
+        .title
+            position: absolute
+            width: 450px
+            height: 120px
+            top: 50%
+            margin-top: -120px
+            left: 50%
+            margin-left: -225px
+            .titleBox
+                position: relative
+            
+        
+        .line2
+            width: mvw(640)
+        
+        .percentage
+            position: absolute
+            color:#ffffff
+            font-size: 3rem
+            font-family: sans-serif
+            top: 50%
+            width: 100%
+            text-align: center
+            left: 0
+            height: 75px
+            margin-top: -43px
+        
+        .progressBar
+            width: 80%
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translateX(-50%)
+            overflow: hidden
+            border-radius: 40px
+            background: red
+            height: 10px
+            display: none
+            .progress
+                width: 90px
+                height: 10px
+                background: #ffffff
+                transition-property: all
+                transition: 0.1s
+                // transition-delay: 0s
+
+            
+        
+    
+

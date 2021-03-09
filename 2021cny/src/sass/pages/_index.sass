@@ -1,0 +1,390 @@
+.index
+    min-height: 100vh
+    height: mvw(1334)
+    position: relative
+.kv
+    height: 100%
+    padding: 12% 0 0 0
+    position: relative
+    .kvtxt
+        width: 75%
+        margin: -5% auto 0
+    .kvmonster
+        width: 100%
+        margin: -40% auto 0
+    .btnarea
+        width: 87%
+        margin: 0 auto 0
+        display: flex
+        justify-content: space-around
+        align-items: center
+        position: relative
+        z-index: 1
+        > div
+            width: 47%
+    .btnreadme
+        width: 27%
+        position: absolute
+        top: 1%
+        right: 0
+    .deco
+        position: absolute
+    .deco1
+        width: 7%
+        right: 5%
+        top: 33%
+    .deco2
+        width: 7%
+        left: 6%
+        top: 38%
+    .deco3
+        width: 7%
+        right: 2%
+        top: 44%
+        transform: rotate(90deg)
+    .deco4
+        width: 7%
+        left: 7%
+        top: 60%
+        transform: rotate(90deg)
+    .deco5
+        width: 7%
+        right: 8%
+        top: 70%
+        transform: rotate(-90deg)
+.game
+    height: 100%
+    padding: 7% 0 0 0
+    position: relative
+    h2
+        width: 90%
+        margin: 0 auto
+    .time
+        text-align: center
+        font-size: 36px
+        font-weight: bold
+        color: #f9ebbe
+        margin: -5% auto 0
+    .progressbar
+        width: 88%
+        margin: 3% auto 0
+        position: relative
+        .progress
+            width: 0% // 84%
+            height: 26px
+            background: #f4ce55
+            border-radius: 6px
+            position: absolute
+            top: 50%
+            left: 9%
+            transform: translateY(-52%)
+        .clock
+            width: 10%
+            position: absolute
+            top: 50%
+            left: 7% // 84%
+            transform: translateY(-50%)
+    .wordbox
+        width: 57%
+        margin: 3% 0 0 33%
+        position: relative
+        p
+            width: 80%
+            height: 100%
+            position: absolute
+            top: 50%
+            left: 10%
+            transform: translateY(-30%)
+            color: #42474D
+            font-size: 20px
+            line-height: 1.25
+    .gamemonster
+        width: 90%
+        margin: -10% auto 0
+        position: relative
+    .clickarea
+        width: 100%
+        height: 100%
+        min-height: 50vh
+        position: absolute
+        top: 0
+        left: 0
+        z-index: 1
+        // background: #ffffff
+.success
+    height: 100%
+    padding: 7% 0 0 0
+    position: relative
+    h2
+        width: 60%
+        margin: 0 auto
+    h3
+        width: 50%
+        margin: 2% auto 0
+        position: relative
+        z-index: 1
+    .monster
+        width: 70%
+        margin: -5% auto 0
+    .resultbox
+        width: 318px
+        height: 206px
+        background: url(../images/success-resultbox.png) center top / cover no-repeat
+        margin: 0 auto
+        padding: 20px
+        .timebox
+            position: relative
+            .time
+                position: absolute
+                top: 50%
+                right: 6%
+                transform: translateY(-50%)
+            p
+                font-size: 24px
+                font-weight: bold
+                color: #ffffff
+                letter-spacing: -0.7px
+        .btngetgift, .btnretry
+            width: 90%
+            margin: 3% auto 0
+.sucagain
+    height: 100%
+    padding: 7% 0 0 0
+    position: relative
+    h2
+        width: 74%
+        margin: 0 auto
+    .monster
+        width: 80%
+        margin: -5% auto 0
+    .resultbox
+        width: 318px
+        height: 206px
+        background: url(../images/success-resultbox.png) center top / cover no-repeat
+        margin: 0 auto
+        padding: 20px
+    .timebox
+        position: relative
+        .time
+            position: absolute
+            top: 50%
+            right: 6%
+            transform: translateY(-50%)
+        p
+            font-size: 24px
+            font-weight: bold
+            color: #ffffff
+            letter-spacing: -0.7px
+    .myresult
+        position: relative
+        margin: 2% auto 0
+        .time
+            position: absolute
+            top: 50%
+            right: 6%
+            transform: translateY(-50%)
+        p
+            font-size: 24px
+            font-weight: bold
+            color: #a73d3f
+            letter-spacing: -0.7px
+    .newscore
+        &:after
+            content: ""
+            width: 35px
+            height: 35px
+            background: url(../images/deco-new.png) center top / cover no-repeat
+            position: absolute
+            top: 0
+            right: 0
+            transform: translate(30%, -20%)
+    .btnarea
+        margin: 4% auto 0
+        display: flex
+        justify-content: space-around
+        align-items: center
+        > div
+            width: 47%
+.fail
+    height: 100%
+    padding: 7% 0 0 0
+    position: relative
+    h2
+        width: 74%
+        margin: 0 auto
+    h3
+        width: 53%
+        margin: 0 auto
+    .monster
+        width: 90%
+        margin: -20% auto 0
+    .resultbox
+        width: 318px
+        height: 167px
+        background: url(../images/success-resultbox.png) center top / 100% 100% no-repeat
+        margin: 0 auto
+        padding: 20px
+    .myresult
+        position: relative
+        margin: 2% auto 0
+        .time
+            position: absolute
+            top: 50%
+            right: 6%
+            transform: translateY(-50%)
+        p
+            font-size: 24px
+            font-weight: bold
+            color: #a73d3f
+            letter-spacing: -0.7px
+    .btnarea
+        margin: 6% auto 0
+        display: flex
+        justify-content: space-around
+        align-items: center
+        > div
+            width: 47%
+.ranking
+    height: 100%
+    padding: 7% 0 0 0
+    position: relative
+    h2
+        width: 89%
+        margin: 0 auto
+    h3
+        width: 70%
+        margin: 0 auto
+    .rankbox
+        width: 85%
+        margin: 2% auto 0
+    .formbox
+        width: 100%
+        height: 100%
+        background: url(../images/form-line.png) center top / 100% auto repeat-y
+        padding: 0 5%
+        margin: -2% auto 0
+        .overgameul
+            max-height: 35vh
+        ul
+            height: 100%
+            max-height: 50vh
+            overflow-y: auto
+            overflow-x: hidden
+            margin: 0 0 5% 0
+            position: relative
+        li
+            width: 100%
+            height: 50px
+            background: url(../images/rank-barbg.png) center top / cover no-repeat
+            margin: 0 0 2% 0
+            display: flex
+            justify-content: flex-start
+            align-items: center
+            padding: 0 5%
+            position: relative
+        .highline
+            &:after
+                content: ""
+                width: 102%
+                height: 55px
+                background: url(../images/rank-highline.png) center top / cover no-repeat
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+        .id
+            width: 30px
+            margin: 1% 6% 0 0
+            text-align: center
+            position: relative
+            &:before
+                content: ""
+                width: 26px
+                height: 26px
+                background: #57c3ae
+                border-radius: 50%
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+            span 
+                font-size: 18px
+                color: #ffffff
+                position: relative
+                z-index: 1
+        .first, .second, .third
+            &:before
+                display: none
+            span
+                display: none
+            &:after
+                content: ""
+                width: 30px
+                height: 33px
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-45%,-55%)
+        .first
+            &:after
+                background: url(../images/first.png) center top / cover no-repeat
+        .second
+            &:after
+                background: url(../images/second.png) center top / cover no-repeat
+        .third
+            &:after
+                background: url(../images/third.png) center top / cover no-repeat
+        .info
+            margin: 0 5% 0 0
+            text-align: center
+            width: 45%
+            overflow: hidden
+        .name
+            font-size: 18px
+            font-weight: bold
+            color: #f5cf48
+            margin: 5% auto 0
+            text-align: left
+            white-space: nowrap
+        .mobile
+            font-size: 12px
+            color: #79d0bf
+            margin: 2% auto 0
+            text-align: left
+        .ultime
+            padding: 0 0 0 3%
+            width: 42%
+            p
+                font-size: 20px
+                font-weight: bold
+                color: #ffffff
+                letter-spacing: -0.7px
+    .myresult
+        position: relative
+        .time
+            position: absolute
+            top: 50%
+            right: 6%
+            transform: translateY(-50%)
+        p
+            font-size: 24px
+            font-weight: bold
+            color: #a73d3f
+            letter-spacing: -0.7px
+    .formbottom
+        margin: -1% auto 0
+
+button
+    font-size: 24px
+    padding: 5px 8px
+.lottiearea
+    width: 90%
+    max-width: 400px
+// .ranking
+//     width: 100%
+//     height: 400px
+//     max-width: 750px
+//     // margin: 0 auto
+//     overflow-y: auto
+//     li
+//         margin: 0 0 15px 0

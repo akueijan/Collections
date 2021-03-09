@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>pageTitle</title>
+    <meta name="description" content="pageDesc">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
+    <meta itemprop="name" content="pageTitle">
+    <meta itemprop="description" content="pageDesc">
+    <meta itemprop="image" content="images/fb-share.png">
+    <meta property="og:title" content="pageTitle">
+    <meta property="og:description" content="pageDesc">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="images/fb-share.png">
+    <link rel="Shortcut Icon" type="images/x-icon" href="images/fav.ico">
+    <link rel="stylesheet" href="static/css/tiny-slider.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="//cloudfront.loggly.com/js/loggly.tracker-latest.min.js" async></script>
+    <script>
+        var _LTracker = _LTracker || [];
+        _LTracker.push({
+            'logglyKey': '8016ea6d-fa64-4c93-bddb-461c5e78fd99',
+            'sendConsoleErrors': true,
+            'tag': 'project-name'
+        });
+    </script>
+    <script>
+        dataLayer = [{}];
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NLRR4GV');
+    </script>
+</head>
+<!--html body-->
+
+<body>
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLRR4GV" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <div class="l-wrap" id="app" v-cloak>
+        <div class="robbinarea" v-if="!isPc">
+            <div class="robbin-b-b robbin-b-b1"><img src="images/ribbon-s-b.png"></div>
+            <div class="robbin-b-w robbin-b-w1"><img src="images/ribbon-b-w.png"></div>
+            <div class="robbin-b-y robbin-b-y1"><img src="images/ribbon-s-y.png"></div>
+            <div class="robbin-b-r robbin-b-r1"><img src="images/ribbon-s-r.png"></div>
+            <div class="robbin-b-b robbin-b-b2"><img src="images/ribbon-s-b.png"></div>
+            <div class="robbin-b-w robbin-b-w2"><img src="images/ribbon-b-w.png"></div>
+            <div class="robbin-b-y robbin-b-y2"><img src="images/ribbon-s-y.png"></div>
+            <div class="robbin-b-r robbin-b-r2"><img src="images/ribbon-s-r.png"></div>
+            <div class="robbin-b-b robbin-b-b3"><img src="images/ribbon-s-b.png"></div>
+            <div class="robbin-b-w robbin-b-w3"><img src="images/ribbon-b-w.png"></div>
+            <div class="robbin-b-y robbin-b-y3"><img src="images/ribbon-s-y.png"></div>
+            <div class="robbin-b-r robbin-b-r3"><img src="images/ribbon-s-r.png"></div>
+            <div class="robbin-b-b robbin-b-b4"><img src="images/ribbon-s-b.png"></div>
+            <div class="robbin-b-w robbin-b-w4"><img src="images/ribbon-b-w.png"></div>
+            <div class="robbin-b-y robbin-b-y4"><img src="images/ribbon-s-y.png"></div>
+            <div class="robbin-b-r robbin-b-r4"><img src="images/ribbon-s-r.png"></div>
+            <div class="robbin-b-b robbin-b-b5"><img src="images/ribbon-s-b.png"></div>
+            <div class="robbin-b-w robbin-b-w5"><img src="images/ribbon-b-w.png"></div>
+            <div class="robbin-b-y robbin-b-y5"><img src="images/ribbon-s-y.png"></div>
+            <div class="robbin-b-r robbin-b-r5"><img src="images/ribbon-s-r.png"></div>
+            <div class="robbin-b-b robbin-b-b6"><img src="images/ribbon-s-b.png"></div>
+            <div class="robbin-b-w robbin-b-w6"><img src="images/ribbon-b-w.png"></div>
+            <div class="robbin-b-y robbin-b-y6"><img src="images/ribbon-s-y.png"></div>
+            <div class="robbin-b-r robbin-b-r6"><img src="images/ribbon-s-r.png"></div>
+        </div>
+        <nav class="nav" itemscope itemtype="http://schema.org/SiteNavigationElement" v-if="!isPc">
+            <div class="l-container">
+                <div class="nav-bd">
+                    <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO"><img src="images/logo.png"></a></h1>
+                    <div class="nav-btn" gtm-data="menu">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                    <div class="nav-menu" role="navigation">
+                        <ul class="clearfix">
+                            <li class="nav-item nav-item--iscurrent"><a href="javascript:void(0)" alt="活動辦法" @click="popOpen('event')" itemprop="url" title="活動辦法" gtm-data="menu_活動辦法"><img src="images/nav-events.png" gtm-data="menu_活動辦法"></a></li>
+                            <li class="nav-item"><a href="javascript:void(0)" alt="個人化服務" @click="popOpen('usersev')" itemprop="url" title="個人化服務" gtm-data="menu_個人化服務"><img src="images/nav-usersev.png" gtm-data="menu_個人化服務"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- render nav view-->
+        <div class="l-fb">
+            <div class="l-container">
+                <div class="fb-box">
+                    <div class="fb-like" data-href="#" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="l-main">
+            <section class="sample" id="el">
+                <div class="sample__hd"></div>
+                <div class="sample__bd"></div>
+                <div class="sample__ft"></div>
+                <section>
+                    <div class="l-container">
+                        <h2>{{initText}}</h2>
+                        <div class="vue">
+                            <form v-on:submit.prevent="signup">
+                                <select v-model="selectOpt">
+                                    <option v-for="obj in selectLists" :disabled="obj.value == ''" v-bind:value="obj.value">{{obj.text}}</option>
+                                </select>
+                                <p>select Val : {{selectOpt}}</p>
+                                <button type="submit">submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="sample__content">
+                        <div class="l-container">
+                            <div class="l-vm">
+                                <div class="l-vm__content">
+                                    <h2>demo verticle</h2>
+                                    <p>灰色區塊內垂直置中</p>
+                                    <div class="sprite__demo"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="l-container">
+                        <div class="mdDemo">
+                            <h2>#jade scss example</h2>
+                            <div>
+                                <h3>##<span>Interpolation</span>by jade</h3>
+                            </div>
+                            <div>
+                                <h3>##jade loop</h3>
+                                <div class="row1">
+                                    <p>row+1</p>
+                                </div>
+                                <div class="row2">
+                                    <p>row+2</p>
+                                </div>
+                                <div class="row3">
+                                    <p>row+3</p>
+                                </div>
+                                <div class="next">
+                                    <p>next</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <!--render main view-->
+        </div>
+        <div class="l-footer footer" v-if="isPc">
+            <div class="l-container">
+                <p>© 台新國際商業銀行 Copyright Taishin International Bank. All Rights Reserved. 建議使用 iOS 11 或 Android 8 以上版本</p>
+            </div>
+        </div>
+        <transition name="fade">
+            <div class="popup" v-if="popup=='event'">
+                <div class="popclose" @click="popupClose"><img src="images/popclose.png"></div>
+                <div class="poppagebg">
+                    <h2><img src="images/title-event.png"></h2>
+                    <div class="poppage">
+                        <div class="popcon">
+                            <ul class="one">
+                                <li>
+                                    <p><span class="bold">活動名稱：</span>Richart蹦好運</p>
+                                </li>
+                                <li>
+                                    <p><span class="bold">活動期間：</span>2020/12/29-2021/2/3</p>
+                                </li>
+                                <li>
+                                    <p><span class="bold">活動對象：</span>Richart LINE官方帳號有效好友（亦即無封鎖官方帳號）</p>
+                                </li>
+                                <li>
+                                    <p><span class="bold">活動內容：</span>活動對象於活動期間內，完成Richart蹦好運互動遊戲，並完成LINE個人化服務綁定者，即可抽「立即開獎禮」，並再享「週週抽好禮」抽獎資格。(本活動不限參加名額，不保證中獎)。</p>
+                                </li>
+                                <li>
+                                    <p><span class="bold">獎項內容：</span></p>
+                                    <ul class="two">
+                                        <li>(一) 立即開獎禮，每人僅可獲得1次抽獎機會，獎項與名額如下：
+                                            <ul class="three">
+                                                <li>5R幣序號：10,000名</li>
+                                                <li>10R幣序號：10,000名</li>
+                                                <li>全家LET’S CAFÉ 35元折價序號：1,000名</li>
+                                                <li>myBook雜誌樂讀包14天服務序號：900名</li>
+                                                <li>myVideo豪華月租14天服務序號：900名</li>
+                                                <li>蝦皮NT$100購物金：50名</li>
+                                            </ul>
+                                        </li>
+                                        <li>(二) 好禮週週抽，活動期間內每人僅可獲得1次抽獎機會，獎項與名額如下：
+                                            <ul class="three">
+                                                <li>第一週：Marshall KILBURN II攜帶式藍芽喇叭，經典黑：1名</li>
+                                                <li>第二週：Switch主機+超級瑪利歐派對遊戲片：1名</li>
+                                                <li>第三週：GoPro HERO9 BLACK，1名</li>
+                                                <li>第四週：iPhone 12 64G不挑色，1名</li>
+                                                <li>第五週：現金獎NT5,000元，3名</li>
+                                                <li>Richart 2021年超Q桌曆，200名(40名/週)</li>
+                                                <li>威秀影城電影票，50名(10名/週)</li>
+                                                <li>掌上KTV無線麥克風，5名(1名/週)</li>
+                                                <li>HomePod mini (白)，5名(1名/週)</li>
+                                            </ul>※如客戶於「好禮週週抽」每週檢核時間點前，封鎖Richart LINE官方帳號或解除個人化綁定，將視同放棄好禮週週抽之中獎資格，詳見「六、獎項發送流程」。<br>※如客戶於活動期間當週未中獎，抽獎機會可以累積至下一週，但每人僅得獲獎一次。
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <p><span class="bold">獎項發送流程：</span></p>
+                                    <ul class="two">
+                                        <li>(一)立即開獎禮：<br>活動對象完成活動內容後，即可於活動網頁上立即隨機抽取，如有獲獎者將立即並顯示獲得獎品及相關兌換序號，各獎品之兌換方式請見「獎項使用說明」。</li>
+                                        <li>(二) 週週送好禮：
+                                            <ul class="three">
+                                                <li>台新銀行將依下列檢核時間點，檢核具抽獎資格名單過後進行抽獎，中獎名單將公告於Richart官網，並以簡訊提供「數位機會中獎回覆函填寫網址」予中獎者，簡訊將發送至中獎者於台新銀行所留存之手機號碼為準。</li>
+                                                <li>中獎者需於「<span class="ps">收到訊息通知後14日內(含例假日)</span>」，填妥數位機會中獎回覆函，回傳至台新銀行Richart數位中獎回函系統(以台新銀行Richart數位中獎回函系統紀錄成功回傳時間為準)，經台新銀行檢核並確認內容無誤後：
+                                                    <ul class="four">
+                                                        <li>(1)「實體獎項」將於2021/2/8後，陸續依中獎者於中獎回覆函中留存之地址寄發。</li>
+                                                        <li>(2)「NT$5,000」，將於2021/4/15前，將現金匯入中獎者之Richart存款帳戶，<span class="ps">惟若中獎客戶未持有Richart存款帳戶，需於2021/3/15前完成開立Richart存款帳戶，並首次登入App方可領獎。</span></li>
+                                                        <li>(3)若中獎客戶逾期未完成上開領獎相關程序，將視為中獎客戶自動放棄中獎資格及獎項。</li>
+                                                    </ul>
+                                                </li>
+                                                <li>本活動贈品以實物為主，中獎者不可指定贈品款式及型號、亦不可要求兌換、折讓或退換獎項，實際寄送時間視庫存狀況，若遇缺貨將另行通知中獎者，以延後出貨或以等值商品替代。</li>
+                                                <li>抽獎檢核、公告、中獎回函回傳時間點</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <table class="poptab">
+                                        <tr>
+                                            <th></th>
+                                            <th>檢核抽獎時間</th>
+                                            <th>得主公告/發送簡訊</th>
+                                            <th>回函回傳</th>
+                                        </tr>
+                                        <tr>
+                                            <td>第一週</td>
+                                            <td>2021/1/8</td>
+                                            <td>2021/1/15</td>
+                                            <td>2021/1/29</td>
+                                        </tr>
+                                        <tr>
+                                            <td>第二週</td>
+                                            <td>2021/1/15</td>
+                                            <td>2021/1/22</td>
+                                            <td>2021/2/5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>第三週</td>
+                                            <td>2021/1/22</td>
+                                            <td>2021/1/29</td>
+                                            <td>2021/2/11</td>
+                                        </tr>
+                                        <tr>
+                                            <td>第四週</td>
+                                            <td>2021/1/29</td>
+                                            <td>2021/2/5</td>
+                                            <td>2021/2/19</td>
+                                        </tr>
+                                        <tr>
+                                            <td>第五週</td>
+                                            <td>2021/2/5</td>
+                                            <td>2021/2/9</td>
+                                            <td>2021/2/23</td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li>
+                                    <p><span class="bold">獎項使用說明：</span></p>
+                                    <ul class="two">
+                                        <li>(一)Richart 5R、10R幣序號：
+                                            <ul class="three">
+                                                <li>請至Richart LINE官方帳號點選「R幣專區」，或Richart APP點選APP首頁下方「我的」，輸入R幣序號即可成功累積R幣；尚未開立Richart存款帳戶者，需以身分證字號及手機號碼註冊R幣會員。</li>
+                                                <li> <span class="ps">R幣累積有效期限：至2021/2/28止。</span>提醒：於2021年所累積之R幣，<span class="ps">需於2022年3月1日(含)以前完成兌換，逾期未兌換則自動失效歸零。</span></li>
+                                                <li>更多R幣詳細使用規則及限制，請詳見注意事項(八)。</li>
+                                            </ul>
+                                        </li>
+                                        <li>(二)全家LET’S CAFÉ 35元折價序號
+                                            <ul class="three">
+                                                <li>請至全家便利商店FamiPort輸入序號兌換並列印優惠券，結帳時請出示優惠券，即可兌換LET’S CAFÉ NT$35元商品，可補差價換購價高商品，兌換後店舖人員將會收回此券，且不得重覆使用。</li>
+                                                <li> <span class="ps">兌換期限：2021/06/30止，須於活動期限內完成兌換，逾期兌換無效</span>，且不得以任何理由要求補發商品兌換券或等值商品，亦不得要求找零、折抵現金或優惠購買非指定商品。</li>
+                                                <li>本券限使用乙次，一經使用，一律不接受退貨。</li>
+                                                <li> <span class="ps">本券請妥善保管，遺失、毀損或保存不當造成辨識不清，恕不補發</span>；影印亦不得使用。</li>
+                                                <li>部分非開立全家發票店舖無法使用，以單店公告為主。</li>
+                                                <li>全家便利商店保留本活動修改及購買優惠指定商品之權利，且不另行通知。</li>
+                                                <li>詳細兌換方式請以實際FamiPort操作流程為準。</li>
+                                            </ul>
+                                        </li>
+                                        <li>(三)myBook 雜誌樂讀包14天服務序號(兌換網址：<a href="https://richart.pse.is/388k8g" target="_blank" gtm-data="活動辦法頁__My Book">https://richart.pse.is/388k8g</a>)
+                                            <ul class="three">
+                                                <li> <span class="ps">序號限當下無myBook合約狀態會員使用。</span></li>
+                                                <li> <span class="ps">序號兌換期限：2021/06/30止，逾期或遺失恕不補發</span>，不得與其他優惠併用。</li>
+                                                <li>序號使用期間可享受myBook雜誌樂讀包千本電子雜誌看到飽，適用於手機/平板/電腦閱讀。</li>
+                                                <li>本序號不得要求兌換現金、轉售等其他使用。</li>
+                                                <li>myBook客服：台灣大門號手機直撥188/非台灣大門號請撥打市話(02)6606-2999</li>
+                                            </ul>
+                                        </li>
+                                        <li>(四)myVideo豪華月租14天服務序號(兌換網址：<a href="https://richart.pse.is/39bqmp" target="_blank" gtm-data="活動辦法頁_My Video">https://richart.pse.is/39bqmp</a>)
+                                            <ul class="three">
+                                                <li> <span class="ps">序號限當下無myVideo合約狀態會員使用。</span></li>
+                                                <li> <span class="ps">序號兌換期限：2021/06/30止，逾期或遺失恕不補發。</span></li>
+                                                <li>兌換後可於14天內無限次觀看豪華月租影片，到期後需加入月租會員即可繼續觀看。</li>
+                                                <li>「我的服務」內可確認優惠到期日。</li>
+                                                <li>若發生個人網路或系統問題導致無法兌換，將保留myVideo變更或終止活動時間、內容權利。</li>
+                                                <li>每組序號僅可兌換一次，逾期視同放棄。請序號送出後靜待數分鐘，勿於短時間內重複輸入，以免序號失效造成損失。</li>
+                                                <li>myVideo客服：台灣大門號手機直撥188/非台灣大門號請撥打市話(02)6606-2999</li>
+                                            </ul>
+                                        </li>
+                                        <li>(五)蝦皮購物金NT100元序號：
+                                            <ul class="three">
+                                                <li>請至蝦皮全站使用，消費滿NT$101(含)以上可折NT$100，<span class="ps">使用期限為2021/2/13 23:59。</span></li>
+                                                <li>折扣代碼<span class="ps">不適用於部分服務票券類商品與特定店家與特定商品。</span></li>
+                                                <li>若有任何使用上的問題請洽詢蝦皮客服(02)6636-6559。</li>
+                                            </ul>
+                                        </li>
+                                        <li>(六)威秀影城電影票
+                                            <ul class="three">
+                                                <li> <span class="ps">使用期限：2021/11/30。</span></li>
+                                                <li> <span class="ps">本券不可轉賣，亦無現金兌換價值、遺失恕不補發，亦不可掛失。</span></li>
+                                                <li> <span class="ps">本券不保證座位，請至售票處劃位換票，劃位後恕不退票。本券適用於官網網路訂位。</span></li>
+                                                <li>本券於MUVIE CINEMAS、台北信義、台北京站、板橋大遠百貨新竹巨城威秀影城售出，餘優惠期限內，得以本券於台北信義、台北京站、板橋大遠百貨新竹巨城威秀影城兌換公開販售電影場次內一般廳2D電影票一張。若逾優惠期限兌換，則每張須酌收手續費30元，並開立正式發票惟賦稅憑證。若欲觀賞3D影片、特殊影廳、片長150分鐘(含)以上影片或遇特殊節日，則須加價，加價金額請洽影城售票櫃台。</li>
+                                                <li>本券因毀損或變形，而其票根條碼仍可經由紹票機台辨識者，得至上述之威秀影城申請補發，補發費用每次為新台幣50元，每次申請補發之張數不得超過一張。</li>
+                                                <li>其它未盡之事宜與聯絡電話，請見電影票背面使用須知。</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <p><span class="bold">注意事項：</span></p>
+                                    <ul class="two">
+                                        <li>(一)本活動之參加者限居住於臺、澎、金、馬地區之本國國民參加，資料若有不實，將取消參加及領獎資格，台新銀行保留審核參加者資格之權利。</li>
+                                        <li>(二)本活動所稱之Richart「存款帳戶」，包含Richart數位銀行綜合存款帳戶及同享Richart數位銀行綜合存款帳戶優惠之存款帳戶。</li>
+                                        <li>(三)活動獎項皆以台新銀行審核或公告為準，恕不提供交換、挑選、轉讓及折現，亦不得更換中獎人。</li>
+                                        <li>(四)參加者應保證所有填寫或提出之資料均為真實且正確，且未冒用或盜用任何第三人之資料。如有不實或不正確之情事，台新銀行有權取消參加者之獲獎資格;若因資料不正確，而導致無法聯繫以及收取獎品，恕無法要求補發。如有致損害於台新銀行或其他第三人，參加者應負一切法律責任。</li>
+                                        <li>(五)本活動各獎項之獲獎名單將依照台新銀行審核或公告為準，不得異議。</li>
+                                        <li>(六)本活動均為機會中獎，依所得稅法規定，中獎人如為中華民國境內居住之個人時，參加台新銀行活動所得之年度累積中獎價值若超過新臺幣1,000元者，應列入中獎人年度綜合所得，台新銀行將依各類所得扣繳率標準申報予國稅局，提供中獎人將此所得併入所得計算及報繳所得稅，台新銀行依所得稅法第94-1條規定，得免填發各類所得扣繳暨免扣繳憑單予中獎人，若中獎人有需求時請另行提出申請。</li>
+                                        <li>(七)台新銀行非本活動獎品「Marsall KILBURN II攜帶式藍芽喇叭」、「Nintendo Switch主機+超級瑪利歐派對遊戲片」、「GoPro HERO9 BLACK」、「iPhone 12 64G」、「掌上KTV無線麥克風」、「HomePod mini (白)」、「myBook雜誌樂讀包14天服務序號」、「myVideo豪華月租14天服務序號」、「全家LET’S CAFÉ 35元折價序號」、「蝦皮購物金NT$100」、「威秀影城電影票」之製造者，且與該獎品之提供廠商並無任何代理或合夥關係；中獎人如因使用該獎品發生任何爭議或相關限制，請逕洽該獎品之實際製造或提供廠商處理。</li>
+                                        <li>(八)R幣累積與兌換辦法：
+                                            <ul class="three">
+                                                <li>R幣累積說明：
+                                                    <ul class="four">
+                                                        <li>(1)客戶需申請成為 R 幣會員，方得累積 R 幣。</li>
+                                                        <li>(2)如客戶所獲得者為 R 幣序號，則需在該 R 幣序號的累積有效期間內，透過 Richart Line 官方帳號主選單或 Richart APP 輸入序號，才能成功累積 R 幣;每組 R 幣序號僅限使用一次，若未於序號累積有效期限內成功累積 R 幣即為失效。</li>
+                                                    </ul>
+                                                </li>
+                                                <li>R 幣兌換說明：
+                                                    <ul class="four">
+                                                        <li>(1)每 1 R 幣可兌換 NT$1，可分次兌換所累積之 R 幣，惟每次兌換最少須兌換 100 R 幣。</li>
+                                                        <li>(2)R 幣會員需持有 Richart 存款帳戶始得將累積之 R 幣兌換為現金。</li>
+                                                        <li>(3)R 幣兌換現金將於完成開立Richart存款帳戶並首次登入 Richart APP 後， 45 個 工作天內匯入客戶之 Richart 存款帳戶。</li>
+                                                        <li>(4)兌換期限：於當年度(1 月 1 日至 12 月 31 日)所累積之 R 幣，需於次年度 3 月 1 日(含)以前完成兌換，逾期未兌換則自動失效歸零。</li>
+                                                        <li>(5)其他未盡之說明事宜，詳見：<a href="https://richart.pse.is/3aaf37" target="_blank">https://richart.pse.is/3aaf37</a>。</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>(九)本活動嚴禁參加者使用程式或其他方式進行系統干擾偽造之行為，任何破壞活動進行、破壞網站管理者運作、違反網站管理使用條款者，如經台新銀行查證發現不法情形，台新銀行具有得取消其參加活動資格之權利。同時，對於任何以詐騙行動或其他足以傷及本活動或網站之個人主辦單位將追究其法律責任。</li>
+                                        <li>(十)Richart服務由台新銀行提供，台新銀行保留隨時修改、變更、終止本活動及替換其他等值獎項之權利；本活動如有變更或終止時，將於Richart官網公告。若有其他未盡事宜，悉依Richart相關規定或解釋辦理，並得隨時補充公告之。</li>
+                                        <li>(十一)參加本活動即表示同意接受本活動條款；若有違反者，台新銀行有權取消參加者之參加資格，如對本活動有任何疑義，請參考Richart官網公告或撥打Richart客服專線：(02)8798-9088 / 0800-888-800。</li>
+                                        <li>(十二)個人資料保護之法定告知事項：
+                                            <ul class="three">
+                                                <li>您的身分證字號、姓名、手機號碼、通訊地址、E-mail等，台新銀行僅限於辦理Richart行銷活動及其相關程序（包括但不限於獲獎通知與領取獎品及代辦所得稅申報）之目的範圍內為蒐集、處理與利用。</li>
+                                                <li>台新銀行(含受台新銀行委託處理事務之委外機構)及依法有權機關或金融監理機關利用您的個人資料僅限於上述特定目的存續期間，依相關法令所定〈例如商業會計法等〉或因執行業務所必須之保存期間或依個別契約就資料之保存所定之保存年限〈以期限最長者為準〉，地區僅限台新銀行(含受台新銀行委託處理事務之委外機構)及依法有權機關或金融監理機關之國內所在地 。</li>
+                                                <li>您得自由選擇是否提供相關個人資料及類別，惟您所拒絕提供之個人資料及類別，如果是作業所需之資料，將影響台新銀行進行必要之作業程序而無法提供您相關服務，敬請見諒。</li>
+                                                <li>依據個人資料保護法第3條規定，您就台新銀行保有您的個人資料，得行使下列權利：
+                                                    <ul class="four">
+                                                        <li>(1)除有個人資料保護法第10條所規定之例外情形外，得向台新銀行查詢、請求閱覽或請求製給複製本，惟台新銀行依個人資料保護法第14條規定，得酌收必要成本費用。</li>
+                                                        <li>(2)得向台新銀行請求補充或更正個人資料，惟依個人資料保護法施行細則第19條規定，您應適當釋明其原因及事實。</li>
+                                                        <li>(3)台新銀行如有違反個人資料保護法規定蒐集、處理或利用您的個人資料，依個人資料保護法第11條第4項規定，您得向台新銀行請求停止蒐集您的個人資料。</li>
+                                                        <li>(4)依個人資料保護法第11條第2項規定，個人資料正確性有爭議者，得向台新銀行請求停止處理或利用您的個人資料。惟依該項但書規定，台新銀行因執行業務所必須並註明其爭議或經您書面同意者，不在此限。</li>
+                                                        <li>(5)依個人資料保護法第11條第3項規定，個人資料蒐集之特定目的消失或期限屆滿時，得向台新銀行請求刪除、停止處理或利用您的個人資料。惟依該項但書規定，台新銀行因執行業務所必須或經您書面同意者，不在此限。</li>
+                                                    </ul>
+                                                </li>
+                                                <li>您如欲行使上述個人資料保護法第3條規定之各項權利，有關如何行使之方式，您得向台新銀行(申請各項業務專線0800-000-456或客戶服務專線02-26553355)或於台新銀行網址(<a href="https://www.taishinbank.com.tw" target="_blank">www.taishinbank.com.tw</a>)查詢。</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+        <transition name="fade">
+            <div class="userpop" v-if="popup=='usersev'">
+                <div class="popclose" @click="popupClose"><img src="images/popclose.png"></div>
+                <h2><img src="images/title-award-usersev.png"></h2>
+                <div class="userpage">
+                    <div class="btnarea">
+                        <div class="notmember" @click="haveRichart=false" :class="{notmemberActive: !haveRichart}"></div>
+                        <div class="ismember" @click="haveRichart=true" :class="{ismemberActive: haveRichart}"></div>
+                    </div>
+                    <transition name="fade">
+                        <div class="userbox" v-if="haveRichart" key="haveRichart">
+                            <ul>
+                                <li><img src="images/rcoin-usersev.png"></li>
+                                <li><img src="images/exchange-usersev.png"></li>
+                                <li><img src="images/check-usersev.png"></li>
+                                <li><img src="images/nocard-usersev.png"></li>
+                            </ul>
+                        </div>
+                        <div class="userbox" v-if="!haveRichart" key="!haveRichart">
+                            <ul>
+                                <li><img src="images/rcoin-usersev.png"></li>
+                                <li><img src="images/exchange-usersev.png"></li>
+                                <li><img src="images/mbmoney-usersev.png"></li>
+                            </ul>
+                        </div>
+                    </transition>
+                </div>
+            </div>
+        </transition>
+        <transition name="fade">
+            <div class="sendpopup" v-if="sendLoading">
+                <div class="sendpoppage"><img src="images/sendloading.gif">
+                    <p>系統讀取中，請勿關閉網頁</p>
+                </div>
+            </div>
+        </transition>
+    </div>
+    <script type="text/javascript" src="js/vendor.js"></script>
+    <script type="text/javascript" src="js/lib.js"></script>
+    <script type="text/javascript" src="static/js/tiny-slider.js"></script>
+    <script type="text/javascript" id="appjs" src="js/app.js?v=1613716266948" data-mode="false" data-site="https://cmpnapi.friendo.com.tw/api/"></script>
+    <script type="text/javascript" src="js/api.js"></script>
+    <script src="js/sample.js?v=1613716266948"></script>
+    <script type="text/javascript"></script>
+</body>
+
+</html>

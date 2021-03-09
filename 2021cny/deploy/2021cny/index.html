@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>發票怪獸 - 喚醒年獸大挑戰</title>
+    <meta name="description" content="發票怪獸 - 喚醒年獸大挑戰">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
+    <meta itemprop="name" content="發票怪獸 - 喚醒年獸大挑戰">
+    <meta itemprop="description" content="發票怪獸 - 喚醒年獸大挑戰">
+    <meta itemprop="image" content="指定顯示圖片">
+    <meta property="og:title" content="發票怪獸 - 喚醒年獸大挑戰">
+    <meta property="og:description" content="發票怪獸 - 喚醒年獸大挑戰">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="指定顯示圖片">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="//cloudfront.loggly.com/js/loggly.tracker-latest.min.js" async></script>
+    <script>
+        var _LTracker = _LTracker || [];
+        _LTracker.push({
+            'logglyKey': '8016ea6d-fa64-4c93-bddb-461c5e78fd99',
+            'sendConsoleErrors': true,
+            'tag': 'project64-qmonster2021cny'
+        });
+    </script>
+    <script>
+        dataLayer = [{}];
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5FKB7GM');
+    </script>
+</head>
+<!--html body-->
+
+<body>
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FKB7GM" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <div class="l-wrap" id="app" v-cloak>
+        <nav class="nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <div class="l-container">
+                <div class="nav-bd">
+                    <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO">LOGO</a></h1>
+                    <div class="nav-btn">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                    <div class="nav-menu" role="navigation">
+                        <ul class="clearfix">
+                            <li class="nav-item nav-item--iscurrent"><a href="#" alt="項目" itemprop="url" title="項目"><span>項目</span></a></li>
+                            <li class="nav-item"><a href="#" alt="項目" itemprop="url" title="項目"><span>項目</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- render nav view-->
+        <div class="l-fb">
+            <div class="l-container">
+                <div class="fb-box">
+                    <div class="fb-like" data-href="#" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="l-main">
+            <div class="module">
+                <section class="index">
+                    <transition name="fade">
+                        <div class="kv" v-if="pages=='kv'" key="kv">
+                            <h2 class="kvslogn"><img src="images/kv-slogn.png" alt="喚醒年獸大挑戰"></h2>
+                            <div class="kvtxt"><img src="images/kv-description.png" alt="重複點擊Q摸直到成功叫醒牠"></div>
+                            <div class="kvmonster"></div>
+                            <div class="btnarea">
+                                <div class="btnrank" @click="getRanking" gtm-data="首頁-查看排行榜"><img src="images/btn-checkrank.png" alt="查看排行榜" gtm-data="首頁-查看排行榜"></div>
+                                <div class="btnstart" @click="beforeGame" gtm-data="首頁-開始遊戲"><img src="images/btn-gamestart.png" alt="開始遊戲" gtm-data="首頁-開始遊戲"></div>
+                            </div>
+                            <div class="btnreadme" @click="readmeOpen" gtm-data="首頁-活動說明"><img src="images/btn-readme.png" alt="活動說明" gtm-data="首頁-活動說明"></div>
+                            <div class="deco deco1"><img src="images/deco-coin1.png"></div>
+                            <div class="deco deco2"><img src="images/deco-coin2.png"></div>
+                            <div class="deco deco3"><img src="images/deco-coin1.png"></div>
+                            <div class="deco deco4"><img src="images/deco-coin2.png"></div>
+                            <div class="deco deco5"><img src="images/deco-coin1.png"></div>
+                        </div>
+                        <div class="game" v-if="pages=='game'" key="game">
+                            <h2><img src="images/game-title.png" alt="喚醒年獸大挑戰"></h2>
+                            <h3 class="time">{{time.min}} : {{time.sec}} ' {{time.milli}}</h3>
+                            <div class="progressbar"><img src="images/game-barbg.png">
+                                <div class="progress"></div>
+                                <div class="clock"><img src="images/game-clock.png"></div>
+                            </div>
+                            <div class="wordbox"><img src="images/game-wordbg.png">
+                                <p>{{randomtxt}}</p>
+                            </div>
+                            <div class="gamemonster"></div>
+                            <div class="clickarea" gtm-data="遊戲中-點擊Q摸"></div>
+                        </div>
+                        <div class="success" v-if="pages=='success'" key="success">
+                            <h2><img src="images/success-title.png" alt="成功喚醒年獸"></h2>
+                            <h3><img src="images/success-desc.png" alt="紅包已送到您的禮物盒囉!"></h3>
+                            <div class="monster"></div>
+                            <div class="resultbox">
+                                <div class="timebox"><img src="images/success-timebox.png">
+                                    <div class="time">
+                                        <p>{{time.min}} : {{time.sec}} ' {{time.milli}}</p>
+                                    </div>
+                                </div>
+                                <div class="btngetgift" @click="postGivebox" gtm-data="遊戲成功-開啟禮物盒抽好禮"><img src="images/btn-getgift.png" alt="開啟禮物盒" gtm-data="遊戲成功-開啟禮物盒抽好禮"></div>
+                                <div class="btnretry" @click="gameRetry" gtm-data="遊戲成功-再玩一次"><img src="images/btn-retry.png" alt="再玩一次" gtm-data="遊戲成功-再玩一次"></div>
+                            </div>
+                        </div>
+                        <div class="sucagain" v-if="pages=='sucagain'" key="sucagain">
+                            <h2><img src="images/success-title.png" alt="成功喚醒年獸"></h2>
+                            <div class="monster"></div>
+                            <div class="resultbox">
+                                <div class="timebox"><img src="images/success-timebox.png">
+                                    <div class="time">
+                                        <p>{{time.min}} : {{time.sec}} ' {{time.milli}}</p>
+                                    </div>
+                                </div>
+                                <div class="myresult" :class="{newscore: isNewscore}"><img src="images/sucagain-myresult.png">
+                                    <div class="time">
+                                        <p>{{besttime.min}} : {{besttime.sec}} ' {{besttime.milli}}</p>
+                                    </div>
+                                </div>
+                                <div class="btnarea">
+                                    <div class="btncheckrank" @click="getRanking" gtm-data="遊戲成功-查看排行榜"><img src="images/btn-checkrank.png" alt="查看排行榜" gtm-data="遊戲成功-查看排行榜"></div>
+                                    <div class="btnretry" @click="gameRetry" gtm-data="遊戲成功-再玩一次"><img src="images/btn-retry2.png" alt="再玩一次" gtm-data="遊戲成功-再玩一次"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fail" v-if="pages=='fail'" key="fail">
+                            <h2><img src="images/fail-title.png" alt="挑戰失敗"></h2>
+                            <h3><img src="images/fail-desc.png" alt="太久了啦~"></h3>
+                            <div class="monster"></div>
+                            <div class="resultbox">
+                                <div class="myresult"><img src="images/sucagain-myresult.png">
+                                    <div class="time">
+                                        <p>{{besttime.min}} : {{besttime.sec}} ' {{besttime.milli}}</p>
+                                    </div>
+                                </div>
+                                <div class="btnarea">
+                                    <div class="btncheckrank" @click="getRanking" gtm-data="遊戲失敗-查看排行榜"><img src="images/btn-checkrank.png" alt="查看排行榜" gtm-data="遊戲失敗-查看排行榜"></div>
+                                    <div class="btnretry" @click="gameRetry" gtm-data="遊戲失敗-再玩一次"><img src="images/btn-retry2.png" alt="再玩一次" gtm-data="遊戲失敗-再玩一次"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ranking" v-if="pages=='ranking'" key="ranking">
+                            <h2><img src="images/game-title.png" alt="喚醒年獸大挑戰"></h2>
+                            <h3><img v-if="new Date() &gt; new Date('2021/2/17')" src="images/overgame.png" alt="活動已結束"></h3>
+                            <div class="rankbox">
+                                <div class="formtop"><img src="images/form-top.png"></div>
+                                <div class="formbox">
+                                    <div class="myresult"><img src="images/sucagain-myresult.png">
+                                        <div class="time">
+                                            <p>{{besttime.min}} : {{besttime.sec}} ' {{besttime.milli}}</p>
+                                        </div>
+                                    </div>
+                                    <ul :class="{overgameul: new Date() &gt; new Date('2021/2/17')}">
+                                        <li v-for="item in rankArr" :class="{highline: item.rank == rank.userRank}">
+                                            <div class="id" :class="[{first: item.rank == '1'}, {second: item.rank == '2'}, {third: item.rank == '3'}]"><span>{{item.rank}}</span></div>
+                                            <div class="info">
+                                                <div class="name">{{item.name}}</div>
+                                                <div class="mobile">{{item.mobile}}</div>
+                                            </div>
+                                            <div class="ultime">
+                                                <p>{{item.min}} : {{item.sec}} ' {{item.milli}}</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="btnretry" @click="gameRetry" gtm-data="排行榜-重新挑戰"><img src="images/btn-retry3.png" alt="重新挑戰" gtm-data="排行榜-重新挑戰"></div>
+                                </div>
+                                <div class="formbottom"><img src="images/form-bottom.png"></div>
+                            </div>
+                        </div>
+                    </transition>
+                </section>
+            </div>
+            <!--render main view-->
+        </div>
+        <div class="l-footer footer">
+            <div class="l-container">
+                <p>footer</p>
+            </div>
+        </div>
+        <transition name="fade">
+            <div class="popup" v-show="popup">
+                <transition name="fade">
+                    <div class="poppage" v-if="popPage=='readme'" key="readme">
+                        <div class="popclose" @click="popClose"><img src="images/popup-close.png"></div>
+                        <div class="readmehd"><img src="images/form-top.png">
+                            <h2><img src="images/readme-title.png" alt="活動詳細說明"></h2>
+                        </div>
+                        <div class="readmebd">
+                            <ul>
+                                <li>
+                                    <p>過年期間(2/10~2/16)，只要參加「喚醒年獸大挑戰」，每日皆有一次獲得抽紅包的機會，紅包內有AirPods二代、各連鎖店家兌換券、怪獸幣等好禮等你抽。</p>
+                                </li>
+                                <li>
+                                    <p>每日參加「喚醒年獸大挑戰」活動的次數不限，可重複參加並刷新個人紀錄。（抽紅包機會每天只能獲得一次）</p>
+                                </li>
+                                <li>
+                                    <p>本活動將於 2021/02/16 23:59:59 進行結算，結算時個人最佳成績低於十秒，即可抽 1,000 怪獸幣(共100名)＆AirPods 二代 (共1名)。</p>
+                                </li>
+                                <li>
+                                    <p>1000怪獸幣之寶箱將於 2021/02/22抽出後自動發出，AirPods 二代將在抽出後公布於「發票怪獸」→「怪獸商城」→「得獎公告」內；系統將自動派發「AirPods兌換券」予得獎者，得獎者請於2021/3/8前至「發票怪獸」→「我的」→「兌換券」完成填寫資料，逾時視同放棄。</p>
+                                </li>
+                                <li>
+                                    <p>主辦單位保有一切修改或補充本活動辦法及注意事項規範之權利。如對本活動辦法及注意事項之規範有疑義或爭議時，主辦單位擁有最終解釋權及決定權。 如有未盡事宜，主辦單位得隨時補充公告，相關異動公告於活動網站及發票怪獸FB粉絲專頁。</p>
+                                </li>
+                                <li>
+                                    <p>本活動獎項寄送地區僅限台、澎、金、馬之郵局可送達地區，請恕無法寄送至海外地區。</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="readmebt"><img src="images/form-bottom.png"></div>
+                    </div>
+                    <div class="poppage gamealert" v-if="popPage=='gamealert'" key="gamealert">
+                        <div class="clickarea" v-show="recun==0" @click="reciprocal"></div><img v-show="recun==0" src="images/game-start.png" alt="開始點擊"><img class="recun" v-show="recun==1" src="images/recun-1.png"><img class="recun" v-show="recun==2" src="images/recun-2.png"><img class="recun" v-show="recun==3" src="images/recun-3.png">
+                    </div>
+                    <div class="poppage loading" v-if="popPage=='loading'" key="loading"><img src="images/loading.gif"></div>
+                </transition>
+            </div>
+        </transition>
+    </div>
+    <script type="text/javascript" src="js/vendor.js"></script>
+    <script type="text/javascript" src="js/lib.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.min.js"></script>
+    <script type="text/javascript" id="appjs" src="js/app.js?v=1613723713954" data-mode="false" data-site="https://cmpnapi.friendo.com.tw/api/"></script>
+    <script type="text/javascript" src="js/api.js"></script>
+    <script src="js/index.js?v=1613723713954"></script>
+    <script type="text/javascript"></script>
+</body>
+
+</html>

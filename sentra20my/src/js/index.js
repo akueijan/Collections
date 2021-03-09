@@ -1,7 +1,7 @@
 ﻿var index_view = new Vue({
     el: "#app",
     data: {
-        step: 'start', //kv start reason result profile done lottery useraward
+        step: 'kv', //kv start reason result profile done lottery useraward
         reason: '', // near far
         lineuserid: '',
         linePic: '',
@@ -36,6 +36,123 @@
         isGet: false
     },
     methods: {
+        saveLeader() {
+            var vm = this; 
+            var data = {
+                "line_user_id": vm.lineId,
+                "second": vm.userScore
+            };
+            return $.ajax({
+                url: `${vm.apiUrl}api/lottery/${vm.entId}/leader`,
+                headers: {
+                    'Authorization': 'Bearer ' + vm.mainToken
+                },
+                method: 'POST',
+                data: data,
+                dataType: 'json'
+            }).done((res) => {
+                // console.log('saveLeader: ', res)
+            })
+        },
+        getData() {
+            var vm = this
+            var data = {
+                "line_user_id": vm.lineId
+            };
+            return $.ajax({
+                url: `${vm.apiUrl}api/lottery/${vm.entId}/profile`,
+                headers: {
+                    'Authorization': 'Bearer ' + vm.mainToken
+                },
+                method: 'GET',
+                data: data,
+                dataType: 'json'
+            }).done((res) => {
+                // console.log('getData: ', res)
+                vm.userName = res.data.name
+                vm.userPhone = res.data.phone
+                vm.isMember = res.data.isMember
+                vm.isPlay = res.data.isPlay
+                vm.isNissan = res.data.isNissan
+                if(!res.data.birthday == '' || !res.data.birthday == null) {
+                    vm.userbir.year = parseInt(res.data.birthday.slice(0,4))
+                    vm.userbir.month = parseInt(res.data.birthday.slice(5,7))
+                    vm.userbir.day = parseInt(res.data.birthday.slice(8,10))
+                }
+                // vm.ticketCount = res.data.ticketCount
+                vm.awardName = res.data.awardName
+                vm.awardCode = res.data.awardCode
+                vm.awardShortUrl = res.data.awardShortUrl
+            })
+        },
+        saveData() {
+            var vm = this
+            if(vm.userbir.month < 10) {
+                vm.userbir.month = '0' + vm.userbir.month
+            }
+            if(vm.userbir.day < 10) {
+                vm.userbir.day = '0' + vm.userbir.day
+            }
+            if(vm.isNissan) {
+                vm.isNissan = 1
+            } else {
+                vm.isNissan = 0
+            }
+            var data = {
+                "line_user_id": vm.lineId,
+                "name": vm.userName,
+                "phone": vm.userPhone,
+                "birthday": vm.userbir.year + '-' + vm.userbir.month + '-' + vm.userbir.day,
+                "is_nissan": vm.isNissan
+            };
+            return $.ajax({
+                url: `${vm.apiUrl}api/lottery/${vm.entId}/profile`,
+                headers: {
+                    'Authorization': 'Bearer ' + vm.mainToken
+                },
+                method: 'POST',
+                data: data,
+                dataType: 'json'
+            }).done((res) => {
+                // console.log('saveData: ', res)
+            })
+        },
+        getLottery() {
+            var vm = this
+            var data = {
+                "line_user_id": vm.lineId
+            };
+            return $.ajax({
+                url: `${vm.apiUrl}api/lottery/${vm.entId}/drawing`,
+                headers: {
+                    'Authorization': 'Bearer ' + vm.mainToken
+                },
+                method: 'POST',
+                data: data,
+                dataType: 'json'
+            }).done((res) => {
+                // console.log('getLottery: ', res)
+                // vm.awardName = res.data.awardName
+            })
+        },
+        saveShare() {
+            var vm = this
+            var data = {
+                "line_user_id": vm.lineId
+            };
+            return $.ajax({
+                url: `${vm.apiUrl}api/lottery/${vm.entId}/share`,
+                headers: {
+                    'Authorization': 'Bearer ' + vm.mainToken
+                },
+                method: 'POST',
+                data: data,
+                dataType: 'json'
+            }).done((res) => {
+                // console.log('saveShare: ', res)
+                // vm.ticketCount = res.data.ticketCount
+            })
+        },
         togame() {
             var vm = this
             vm.isGame = true
@@ -54,26 +171,33 @@
             vm.reason = ''
         },
         toProfile() {
-            var vm = this
-            if(vm.isPlay) {
-                vm.step = 'done'
-                vm.isGame = false
-            } else {
-                vm.step = 'profile'
-                setTimeout(() => {
-                    if(vm.isMember) {
-                        document.querySelector('#phone').setAttribute('disabled', 'disabled')
-                    }
-                }, 50)
-            }
+            var vm = this;
+            vm.step = 'done'
+            vm.isGame = false;
+            // vm.getData().then(() => {
+            //     if(vm.isPlay) {
+            //         vm.step = 'done'
+            //         vm.isGame = false
+            //     } else {
+            //         vm.step = 'profile'
+            //         setTimeout(() => {
+            //             if(vm.isMember) {
+            //                 document.querySelector('#phone').setAttribute('disabled', 'disabled')
+            //             }
+            //         }, 50)
+            //     }
+            // })
         },
         toLottery() {
-            var vm = this
-            if(!vm.awardName == "" || !vm.awardName == null) {
-                vm.step = 'useraward'
-            } else {
-                vm.step = 'lottery'
-            }
+            var vm = this;
+            vm.step = 'lottery';
+            // vm.getData().then(() => {
+            //     if(!vm.awardName == "" || !vm.awardName == null) {
+            //         vm.step = 'useraward'
+            //     } else {
+            //         vm.step = 'lottery'
+            //     }
+            // })
         },
         rePlay() {
             var vm = this
@@ -97,36 +221,88 @@
                 if(vm.isGet) {
                     vm.step = 'useraward'
                     vm.isGame = false
+                    // vm.getData().then(()=>{
+                    //     vm.step = 'useraward'
+                    //     vm.isGame = false
+                    // })
                 }
             }})
-            if(vm.ticketCount <= 0) {
-                vm.popup = true
-                vm.popPage = 'noticketcount'
-            } else {
-                vm.lotteryPlay = true
-                tl.fromTo(".lotterybg", sec*5, {
-                    rotation: 0
-                },
-                {
-                    rotation: round*5
-                })
-                if(vm.isGet) {
-                    offset = Math.floor(Math.random() * (80-30)) + 30
-                    vm.lotteryPlay = false
-                    vm.isGet = true
-                    vm.ticketCount -= 1
-                    tl.to(".lotterybg", sec*2,{
-                        rotation: round*5 + offset
-                    },'-=0.3')
-                } else {
-                    offset = Math.floor(Math.random() * (170-100)) + 100
-                    vm.lotteryPlay = false
-                    vm.ticketCount -= 1
-                    tl.to(".lotterybg", sec*2,{
-                        rotation: round*5 + offset
-                    },'-=0.3')
-                }
+            vm.lotteryPlay = true
+            tl.fromTo(".lotterybg", sec*5, {
+                rotation: 0
+            },
+            {
+                rotation: round*5
+            })
+            let isGet = Math.floor(Math.random()*2);
+            if(isGet == 0) {
+                offset = Math.floor(Math.random() * (170-100)) + 100
+                vm.lotteryPlay = false
+                vm.ticketCount -= 1
+                tl.to(".lotterybg", sec*2,{
+                    rotation: round*5 + offset
+                },'-=0.3')
             }
+            if(isGet == 1) {
+                offset = Math.floor(Math.random() * (80-30)) + 30
+                // vm.awardName = res.data.awardName
+                vm.lotteryPlay = false
+                vm.isGet = true
+                vm.ticketCount -= 1
+                tl.to(".lotterybg", sec*2,{
+                    rotation: round*5 + offset
+                },'-=0.3')
+            }
+            // if(vm.ticketCount <= 0) {
+            //     vm.popup = true
+            //     vm.popPage = 'noticketcount'
+            // } else {
+            //     vm.lotteryPlay = true
+            //     tl.fromTo(".lotterybg", sec*5, {
+            //         rotation: 0
+            //     },
+            //     {
+            //         rotation: round*5
+            //     })
+            //     let isGet = Math.floor(Math.random()*2);
+            //     if(isGet == 0) {
+            //         offset = Math.floor(Math.random() * (170-100)) + 100
+            //         vm.lotteryPlay = false
+            //         vm.ticketCount -= 1
+            //         tl.to(".lotterybg", sec*2,{
+            //             rotation: round*5 + offset
+            //         },'-=0.3')
+            //     }
+            //     if(isGet == 1) {
+            //         offset = Math.floor(Math.random() * (80-30)) + 30
+            //         vm.awardName = res.data.awardName
+            //         vm.lotteryPlay = false
+            //         vm.isGet = true
+            //         vm.ticketCount -= 1
+            //         tl.to(".lotterybg", sec*2,{
+            //             rotation: round*5 + offset
+            //         },'-=0.3')
+            //     }
+            //     vm.getLottery().then((res) => {
+            //         if(res.data.isGet) {
+            //             offset = Math.floor(Math.random() * (80-30)) + 30
+            //             vm.awardName = res.data.awardName
+            //             vm.lotteryPlay = false
+            //             vm.isGet = true
+            //             vm.ticketCount -= 1
+            //             tl.to(".lotterybg", sec*2,{
+            //                 rotation: round*5 + offset
+            //             },'-=0.3')
+            //         } else {
+            //             offset = Math.floor(Math.random() * (170-100)) + 100
+            //             vm.lotteryPlay = false
+            //             vm.ticketCount -= 1
+            //             tl.to(".lotterybg", sec*2,{
+            //                 rotation: round*5 + offset
+            //             },'-=0.3')
+            //         }
+            //     })
+            // }
         },
         birthdayArr() {
             var vm = this
@@ -188,9 +364,11 @@
             }
             vm.popup = true
             vm.popPage = 'loading'
-            vm.step = 'done'
-            vm.popup = false
-            vm.popPage = ''
+            vm.saveData().then(() => {
+                vm.step = 'done'
+                vm.popup = false
+                vm.popPage = ''
+            })
         },
         lotteryShare() {
             var vm = this
@@ -208,9 +386,12 @@
     },
     mounted: function() {
         var vm = this
+        if(window.innerWidth > 1000) {
+            vm.step = 'pcindex'
+            vm.isGame = true
+        }
+        // vm.initLiff('1514260586-2OkdXWoe')
         vm.birthdayArr()
-        // vm.kvAni()
-        var cargame = new carGame()
-        cargame.init()
+        vm.kvAni()
     }
 })

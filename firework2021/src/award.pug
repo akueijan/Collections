@@ -1,0 +1,105 @@
+//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "得獎名單｜2021 Richart 蹦好運 拉拉炮好禮週週抽"
+    - var pageDesc = "參加2021 Richart 蹦好運拉拉炮互動遊戲，並完成LINE個人化服務綁定，分享給好友，就可以立即抽好禮，週週再抽大獎!"
+    - var pageJs = "award.js"
+    - var isVue = true
+    //- - var compJs = ["comingsoon.js"]
+//- page html
+block page_main
+    .module
+        section.award(v-if="awPage=='start'")
+            .isMobile(v-if="!isPc")
+                .ballon
+                    img(src="images/kv-ballon.png")
+                .bd
+                    .block.block1
+                        h2
+                            img(src="images/award-title.png")
+                        .conbg
+                            .conbox
+                                h3
+                                    img(:src="awardImg")
+                                .content
+                                    p.name {{ awardName }}
+                                    p.code {{ awardCode }}
+                                    //- p.name 5R幣
+                                    //- p.code RA123456789009
+                                .note
+                                    p
+                                        span.bold 使用期限：{{ awardTxt }}
+                                    p 使用方式詳見
+                                        a(href="javascript:void(0)" @click="popOpen('event')" gtm-data="派獎序號_活動辦法") 活動辦法
+                    .block.block2
+                        h2
+                            img(src="images/title-award-2.png")
+                        .conbg
+                            .conbox
+                                h3
+                                    img(src="images/title-week-award.png")
+                                .slickctr
+                                    .prev
+                                        img(src="images/arr-play.png")
+                                    .next
+                                        img(src="images/arr-play.png")
+                                .slickbd
+                                    -for (var i=1; i<6; i++)
+                                        .slickbox
+                                            img(src="images/award-week-"+i+".png")
+                                            .event-over(class="event-over"+i)
+                                                img(src="images/event-over.png")
+                        .awardlist
+                            img(src="images/award-itemlist.png")
+                        .readme
+                            ul
+                                li *詳細獎項、抽獎說明請見
+                                    a(href="javascript:void(0)" @click="popOpen('event')" gtm-data="詳細獎項_活動辦法") 活動辦法
+                                li *週週抽好禮活動期間(2020/12/29~2021/02/03)，將於每週五抽出上週中獎名單，中獎名單將公告於
+                                    a(href="https://richart.tw/TSDIB_RichartWeb/RC00/RC000000?utm_source=richart&utm_medium=line&utm_campaign=richart_bcbonbon_20201229&utm_content=textlink_index" target="_blank" gtm-data="詳細獎項_Richart官網") Richart官網。
+                h2.usertitle
+                    img(src="images/title-award-usersev.png")
+                .userpage
+                    .btnarea
+                        .notmember(@click="pagehaveRichart=false" :class="{notmemberActive: !pagehaveRichart}" gtm-data="派獎頁_我沒有Richart帳戶")
+                        .ismember(@click="pagehaveRichart=true" :class="{ismemberActive: pagehaveRichart}" gtm-data="派獎頁_我有Richart帳戶")
+                    transition(name="fade")
+                        .userbox(v-if="pagehaveRichart" key="pagehaveRichart")
+                            ul
+                                li
+                                    img(src="images/rcoin-usersev.png")
+                                li
+                                    img(src="images/exchange-usersev.png")
+                                li
+                                    img(src="images/check-usersev.png")
+                                li
+                                    img(src="images/nocard-usersev.png")
+                        .userbox(v-if="!pagehaveRichart" key="!pagehaveRichart")
+                            ul
+                                li
+                                    img(src="images/rcoin-usersev.png")
+                                li
+                                    img(src="images/exchange-usersev.png")
+                                li
+                                    img(src="images/mbmoney-usersev.png")
+                a(href="javascript:void(0)" @click="lineShare" gtm-data="派獎頁_馬上揪好友立即蹦好運").fixedbtn
+            .isPc(v-if="isPc")
+                .bd
+                    .pcslogn
+                        img(src="images/pc-slogn.png")
+                    .qrcodebox
+                        .pcqrcode
+                            img(src="images/pc-qrcode.png")
+                    .pckv
+                        img(src="images/pc-kv.png")
+                        .pckvtxt
+                            img(src="images/pc-kv-txt.png")
+                .ft
+                    p © 台新國際商業銀行 Copyright Taishin International Bank. All Rights Reserved. 建議使用 iOS 11 或 Android 8 以上版本
+        section.award(v-if="awPage=='test'")
+            h1 得獎測試
+            br
+            h2.name 獎項:  {{ awardName }}
+            br
+            h2.code 序號:  {{ awardCode }}

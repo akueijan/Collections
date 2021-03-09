@@ -1,0 +1,153 @@
+html, body 
+    position: relative
+    margin: 0 auto
+    height: 100%
+    font-family: Arial,'Noto Sans TC','Microsoft JhengHei',Verdana,Arial,Helvetica,sans-serif,'Microsoft Yahei', 'Microsoft JhengHei','新細明體'
+    background: #77e0ff
+    // overflow: hidden
+a 
+    cursor: pointer
+    
+.fb-root 
+    height: 0
+    overflow: hidden
+
+._freeze, ._popfreeze
+    // overflow: hidden
+    position: fixed
+    width: 100%
+    height: 100%
+
+.l-container 
+    margin: 0 auto
+    position: relative
+
+
+.l-wrap 
+    width: 100%
+    position: relative
+    // overflow: hidden
+    background: url(../images/bg-layout.jpg) center top / 100% auto  repeat-y
+    
+.l-main
+    // padding-bottom: $ft_height
+    min-height: 100vh
+
+.l-footer 
+    position: relative
+    text-align: center
+    display: none
+
+.container-area
+    width: 100%
+    max-width: vw(1440)
+    margin: 0 auto
+.hidden
+    display: none
+.hide-text 
+    overflow: hidden
+    padding: 0
+    text-indent: 101%
+    white-space: nowrap
+
+.robbinarea
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    .robbin-b-b
+        width: mvw(35)
+        position: absolute
+    .robbin-b-r
+        width: mvw(38)
+        position: absolute
+    .robbin-b-w
+        width: mvw(43)
+        position: absolute
+    .robbin-b-y
+        width: mvw(18)
+        position: absolute
+    @for $i from 1 through 7
+        .robbin-b-b#{$i}
+            top: mvw(random(1200))
+            left: mvw(random(700))
+        .robbin-b-w#{$i}
+            top: mvw(random(1200))
+            left: mvw(random(700))
+        .robbin-b-y#{$i}
+            top: mvw(random(1200))
+            left: mvw(random(700))
+        .robbin-b-r#{$i}
+            top: mvw(random(1200))
+            left: mvw(random(700))
+
+.isPc
+    background: url(../images/pc-bg.jpg) center top / cover no-repeat
+    width: 100%
+    height: 100%
+    position: fixed
+    top: 0
+    left: 0
+    .bd
+        max-width: 1220px
+        width: percentage(1220/1920)
+        margin: 0 auto
+    .pcslogn
+        max-width: 525px
+        width: percentage(525/1220)
+        margin: 30px auto 0
+    .qrcodebox
+        max-width: 222px
+        // width: percentage(222/1220)
+        width: 222px
+        max-height: 215px
+        height: 215px
+        background: url(../images/pc-bg-qrcode.png) center top / cover no-repeat
+        margin: -70px auto 0
+        padding: 15px
+        position: relative
+        transform: scale(0.9)
+        z-index: 1
+        +rwd($desktop-hd)
+            margin: -90px auto 0
+            transform: scale(0.7)
+        +rwd($desktop-w)
+            margin: -90px auto 0
+            transform: scale(0.6)
+        +rwd($desktop)
+            margin: -90px auto 0
+            transform: scale(0.6)
+        &:after
+            content: ""
+            width: percentage(186/222)
+            height: 16px
+            background: url(../images/pc-note.png) center top / cover no-repeat
+            position: absolute
+            bottom: 0
+            left: 50%
+            transform: translate(-50%, 150%)
+    .pckv
+        position: absolute
+        bottom: -2px
+        left: 50%
+        transform: translateX(-53%)
+    .pckvtxt
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, 0%)
+        max-width: 315px
+        width: percentage(315/1220)
+    .ft
+        height: 40px
+        line-height: 40px
+        background: #0891cc
+        color: #ffffff
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+        height: 40px
+        line-height: 40px
+        text-align: center

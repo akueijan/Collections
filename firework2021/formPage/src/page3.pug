@@ -1,0 +1,27 @@
+//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "index"
+    - var pageDesc = "pageDesc"
+    //- - var pageJs = "index.js"
+//- page html
+block page_main
+    section.page3
+        .kv
+            img(src="images/pic-kv-1.png" alt='立即綁定')
+        .bd
+            h2
+                img(src="images/page3_form_title.png")
+            p 已發送密碼至你的手機
+                br
+                | 確認碼將在
+                span.red 9:54
+                | 失效
+            .inputarea
+                input(type='tel' maxlength='4' placeholder='請輸入4位數密碼')
+            a.resend(href='javascript:void(0)' title='重新發送') 重新發送
+            button.btnarea
+                img(src="images/page2_acbtn.png")
+        .ft
+            img(src="images/page1_ftbg.png")
