@@ -7,12 +7,18 @@ window.addEventListener("DOMContentLoaded", () => {
     let control = {
         x: 0,
         y: 0,
-        face: ''
+        eyes: '',
+        eyesInt: 0,
+        mouth: '',
+        mouthInt: 0
     }
     const gui = new dat.gui.GUI()
     gui.add(control, 'x', -100, 100)
     gui.add(control, 'y', -45, 45)
-    gui.add(control, 'face', ['fun', 'angry', 'joy', 'sorrow'])
+    gui.add(control, 'eyes', ['fun', 'angry', 'joy', 'sorrow'])
+    gui.add(control, 'eyesInt', 0, 10)
+    gui.add(control, 'mouth', ['a', 'o'])
+    gui.add(control, 'mouthInt', 0, 10)
 
     // canvasの取得
     const canvas = document.getElementById('canvas')
@@ -45,8 +51,12 @@ window.addEventListener("DOMContentLoaded", () => {
                 // シーンへの追加
                 scene.add(vrm.scene)
                 console.log(vrm)
+
+                vrm.blendShapeProxy.setValue('fun', 0)
+                vrm.blendShapeProxy.setValue('a', 0)
                 // const head = vrm.humanoid.getBoneNode(VRMSchema.HumanoidBoneName.Head)
                 // head.rotation.x = Math.PI /6
+                // vrm.humanoid.getBoneNode( VRMSchema.HumanoidBoneName.Hips ).rotation.y = Math.PI /2;
 
                 // vrm.blendShapeProxy.setValue(VRMSchema.BlendShapePresetName.Fun, 1.0)
                 // vrm.blendShapeProxy.setValue(VRMSchema.BlendShapePresetName.O, 1.0)
@@ -80,31 +90,21 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     body.addEventListener('keydown', getkeycode, false)
 
-    // let controlface
-    // setTimeout(() => {
-    //     controlface = 'fun'
-    //     setTimeout(() => {
-    //         controlface = 'angry'
-    //         setTimeout(() => {
-    //             controlface = 'joy'
-    //             setTimeout(() => {
-    //                 controlface = 'fun'
-    //                 console.log('faceover')
-    //             }, 1000);
-    //         }, 1000);
-    //     }, 1000);
-    // }, 1000);
+    const clock = new THREE.Clock()
 
     // フレーム毎に呼ばれる
     const update = (vrm) => {
         // console.log(x)
+        const deltaTime = clock.getDelta();
         const head = vrm.humanoid.getBoneNode(VRMSchema.HumanoidBoneName.Head)
         // head.rotation.x = control.y
         head.rotation.x = control.y * 0.01
         head.rotation.y = control.x * 0.01
 
-        vrm.blendShapeProxy.setValue(control.face, 1.0)
-        vrm.blendShapeProxy.update()
+        
+        vrm.blendShapeProxy.setValue(control.eyes, control.eyesInt/10)
+        vrm.blendShapeProxy.setValue(control.mouth, control.mouthInt/10)
+        vrm.update(deltaTime)
         // vrm.blendShapeProxy.setValue(VRMSchema.BlendShapePresetName.A, 1.0)
         // vrm.blendShapeProxy.update()
 
