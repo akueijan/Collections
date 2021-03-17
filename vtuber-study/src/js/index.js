@@ -217,6 +217,17 @@
             head.rotation.x = offsetY
             head.rotation.y = offsetX
 
+            const LeftUpperLeg = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.LeftUpperLeg)
+            // console.log(LeftUpperLeg.rotation.x)
+            // console.log(LeftUpperLeg.position.y)
+            LeftUpperLeg.rotation.y = offsetX
+            LeftUpperLeg.rotation.x = offsetY * 0.1
+            // console.log(LeftFoot)
+
+            const RightUpperLeg = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.RightUpperLeg)
+            RightUpperLeg.rotation.y = -offsetX
+            RightUpperLeg.rotation.x = offsetY * 0.1
+
             aniS = control.eyesInt/10
             if(acTemp) {
                 // console.log(timeCun)
@@ -260,7 +271,7 @@
         // mouse listener
         let offsetX = 0
         let offsetY = 0
-        window.addEventListener( 'mousemove', ( event ) => {
+        canvas.addEventListener( 'mousemove', ( event ) => {
             // lookAtTarget.position.x =  10.0 * ( ( event.clientX - 0.5 * canvas.offsetWidth ) / canvas.offsetHeight );
             // lookAtTarget.position.y = -10.0 * ( ( event.clientY - 0.5 * canvas.offsetHeight ) / canvas.offsetHeight );
             offsetX = ( ( event.clientX - 0.5 * canvas.offsetWidth ) / canvas.offsetHeight ) * 1.0;
