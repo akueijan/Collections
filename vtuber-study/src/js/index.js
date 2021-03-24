@@ -13,6 +13,16 @@
             eyesInt: 0,
             mouth: 'A',
             mouthInt: 0,
+            head: {
+                x: 0,
+                y: 0,
+                z: 0
+            },
+            chest: {
+                x: 0,
+                y: 0,
+                z: 0
+            },
             leftUpperArm: {
                 x: 0,
                 y: 0,
@@ -24,6 +34,16 @@
                 z: 0
             },
             leftHand: {
+                x: 0,
+                y: 0,
+                z: 0
+            },
+            leftUpperLeg: {
+                x: 0,
+                y: 0,
+                z: 0
+            },
+            leftLowerLeg: {
                 x: 0,
                 y: 0,
                 z: 0
@@ -43,10 +63,21 @@
                 y: 0,
                 z: 0
             },
+            rightUpperLeg: {
+                x: 0,
+                y: 0,
+                z: 0
+            },
+            rightLowerLeg: {
+                x: 0,
+                y: 0,
+                z: 0
+            },
             actionName: {
                 none: false,
                 walk: false,
                 run: false,
+                wave: false,
             },
             actionEyes: {
                 fun: false,
@@ -61,30 +92,54 @@
         gui.add(control, 'eyesInt', 0, 10)
         gui.add(control, 'mouth', ['A', 'O'])
         gui.add(control, 'mouthInt', 0, 10)
+        let headFolder = gui.addFolder('head')
+            headFolder.add(control.head, 'x', -2.0, 2.0)
+            headFolder.add(control.head, 'y', -2.0, 2.0)
+            headFolder.add(control.head, 'z', -2.0, 2.0)
+        let chestFolder = gui.addFolder('chest')
+            chestFolder.add(control.chest, 'x', -2.0, 2.0)
+            chestFolder.add(control.chest, 'y', -2.0, 2.0)
+            chestFolder.add(control.chest, 'z', -2.0, 2.0)
         let leftUpperArmFolder = gui.addFolder('leftUpperArm')
-            leftUpperArmFolder.add(control.leftUpperArm, 'x', 0, 1.0)
+            leftUpperArmFolder.add(control.leftUpperArm, 'x', -1.0, 1.0)
             leftUpperArmFolder.add(control.leftUpperArm, 'y', -2.0, 1.0)
             leftUpperArmFolder.add(control.leftUpperArm, 'z', -1.0, 1.0)
         let leftLowerArmFolder = gui.addFolder('leftLowerArm')
             leftLowerArmFolder.add(control.leftLowerArm, 'x', -1.0, 1.0)
-            leftLowerArmFolder.add(control.leftLowerArm, 'y', -5.0, 0)
+            leftLowerArmFolder.add(control.leftLowerArm, 'y', -5.0, 5.0)
             leftLowerArmFolder.add(control.leftLowerArm, 'z', -1.0, 1.0)
         let leftHandFolder = gui.addFolder('leftHand')
-            leftHandFolder.add(control.leftHand, 'x', 0, 1)
-            leftHandFolder.add(control.leftHand, 'y', -2, 0)
-            leftHandFolder.add(control.leftHand, 'z', 0, 1)
+            leftHandFolder.add(control.leftHand, 'x', -1, 1)
+            leftHandFolder.add(control.leftHand, 'y', -2, 2)
+            leftHandFolder.add(control.leftHand, 'z', -1, 1)
+        let leftUpperLegFolder = gui.addFolder('leftUpperLeg')
+            leftUpperLegFolder.add(control.leftUpperLeg, 'x', -2, 2.0)
+            leftUpperLegFolder.add(control.leftUpperLeg, 'y', -5.0, 5.0)
+            leftUpperLegFolder.add(control.leftUpperLeg, 'z', -1.0, 1.0)
+        let leftLowerLegFolder = gui.addFolder('leftLowerLeg')
+            leftLowerLegFolder.add(control.leftLowerLeg, 'x', -2, 2)
+            leftLowerLegFolder.add(control.leftLowerLeg, 'y', -5.0, 5) 
+            leftLowerLegFolder.add(control.leftLowerLeg, 'z', -1.0, 1.0)
         let rightUpperArmFolder = gui.addFolder('rightUpperArm')
-            rightUpperArmFolder.add(control.rightUpperArm, 'x', 0, 1.0)
-            rightUpperArmFolder.add(control.rightUpperArm, 'y', -2.0, 1.0)
+            rightUpperArmFolder.add(control.rightUpperArm, 'x', -1.0, 1.0)
+            rightUpperArmFolder.add(control.rightUpperArm, 'y', -2.0, 2.0)
             rightUpperArmFolder.add(control.rightUpperArm, 'z', -1.0, 1.0)
         let rightLowerArmFolder = gui.addFolder('rightLowerArm')
-            rightLowerArmFolder.add(control.rightLowerArm, 'x', 0, 1.0)
-            rightLowerArmFolder.add(control.rightLowerArm, 'y', -5.0, 0)
-            rightLowerArmFolder.add(control.rightLowerArm, 'z', 0, 1.0)
+            rightLowerArmFolder.add(control.rightLowerArm, 'x', -1.0, 1.0)
+            rightLowerArmFolder.add(control.rightLowerArm, 'y', -5.0, 5.0)
+            rightLowerArmFolder.add(control.rightLowerArm, 'z', -1.0, 1.0)
         let rightHandFolder = gui.addFolder('rightHand')
-            rightHandFolder.add(control.rightHand, 'x', 0, 1)
-            rightHandFolder.add(control.rightHand, 'y', -2, 0)
-            rightHandFolder.add(control.rightHand, 'z', 0, 1)
+            rightHandFolder.add(control.rightHand, 'x', -1, 1)
+            rightHandFolder.add(control.rightHand, 'y', -2, 2)
+            rightHandFolder.add(control.rightHand, 'z', -1, 1)
+        let rightUpperLegFolder = gui.addFolder('rightUpperLeg')
+            rightUpperLegFolder.add(control.rightUpperLeg, 'x', -2, 2.0)
+            rightUpperLegFolder.add(control.rightUpperLeg, 'y', -5.0, 5.0)
+            rightUpperLegFolder.add(control.rightUpperLeg, 'z', -1.0, 1.0)
+        let rightLowerLegFolder = gui.addFolder('rightLowerLeg')
+            rightLowerLegFolder.add(control.rightLowerLeg, 'x', -2, 2)
+            rightLowerLegFolder.add(control.rightLowerLeg, 'y', -5.0, 5.0)
+            rightLowerLegFolder.add(control.rightLowerLeg, 'z', -1.0, 1.0)
         // leftUpperArmFolder.add(control.leftUpperArm, 'y', 0, 10)
         // leftUpperArmFolder.add(control.leftUpperArm, 'z', 0, 10)
 
@@ -93,88 +148,30 @@
         let actionFolder = gui.addFolder('Actions')
             actionFolder.add(control.actionName, 'none').name('none').listen().onChange(() => {
                 setChecked('none')
-                actionAni = {
-                    hierarchy: [
-                        {
-                            keys: [
-                                {
-                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, 60*Math.PI/180)).toArray(),
-                                    time: 0
-                                },
-                                {
-                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, 60*Math.PI/180)).toArray(),
-                                    time: 600                        
-                                },
-                                {
-                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, 60*Math.PI/180)).toArray(),
-                                    time: 1200                        
-                                },
-                            ]
-                        },
-                        {
-                            keys: [
-                                {
-                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, -60*Math.PI/180)).toArray(),
-                                    time: 0
-                                },
-                                {
-                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, -60*Math.PI/180)).toArray(),
-                                    time: 600                        
-                                },
-                                {
-                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, -60*Math.PI/180)).toArray(),
-                                    time: 1200                        
-                                },
-                            ]
-                        },
-                        {
-                            keys: [
-                                {
-                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, 0)).toArray(),
-                                    time: 0
-                                },
-                                {
-                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, 0)).toArray(),
-                                    time: 600                        
-                                },
-                                {
-                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, 0)).toArray(),
-                                    time: 1200                        
-                                },
-                            ]
-                        },
-                        {
-                            keys: [
-                                {
-                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, 0)).toArray(),
-                                    time: 0
-                                },
-                                {
-                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, 0)).toArray(),
-                                    time: 600                        
-                                },
-                                {
-                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, 0)).toArray(),
-                                    time: 1200                        
-                                },
-                            ]
-                        },
-                        
-                    ]
+                if(currentAction) {
+                    currentAction.stop()
                 }
-                actionbones = [
-                    THREE.VRMSchema.HumanoidBoneName.LeftUpperArm,
-                    THREE.VRMSchema.HumanoidBoneName.RightUpperArm,
-                    THREE.VRMSchema.HumanoidBoneName.LeftUpperLeg,
-                    THREE.VRMSchema.HumanoidBoneName.RightUpperLeg,
-                ]
-                setupAnimation(currentVrm, actionAni, actionbones)
-                currentAction.stop()
             })
             actionFolder.add(control.actionName, 'walk').name('walk').listen().onChange(() => {
                 setChecked('walk')
                 actionAni = {
                     hierarchy: [
+                        {
+                            keys: [
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, -10*Math.PI/180, 0)).toArray(),
+                                    time: 0
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 10*Math.PI/180, 0)).toArray(),
+                                    time: 600                        
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, -10*Math.PI/180, 0)).toArray(),
+                                    time: 1200                        
+                                },
+                            ]
+                        },
                         {
                             keys: [
                                 {
@@ -243,6 +240,7 @@
                     ]
                 }
                 actionbones = [
+                    THREE.VRMSchema.HumanoidBoneName.Chest,
                     THREE.VRMSchema.HumanoidBoneName.LeftUpperArm,
                     THREE.VRMSchema.HumanoidBoneName.RightUpperArm,
                     THREE.VRMSchema.HumanoidBoneName.LeftUpperLeg,
@@ -256,6 +254,22 @@
                 let second = 450
                 actionAni = {
                     hierarchy: [
+                        {
+                            keys: [
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(-30*Math.PI/180, -20*Math.PI/180, 0)).toArray(),
+                                    time: 0
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(-30*Math.PI/180, 20*Math.PI/180, 0)).toArray(),
+                                    time: second           
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(-30*Math.PI/180, -20*Math.PI/180, 0)).toArray(),
+                                    time: second*2                        
+                                },
+                            ]
+                        },
                         {
                             keys: [
                                 {
@@ -323,15 +337,15 @@
                         {
                             keys: [
                                 {
-                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(-10*Math.PI/180, 0, 0)).toArray(),
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(60*Math.PI/180, 0, 0)).toArray(),
                                     time: 0
                                 },
                                 {
-                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(60*Math.PI/180, 0, 0)).toArray(),
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(-40*Math.PI/180, 0, 0)).toArray(),
                                     time: second                        
                                 },
                                 {
-                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(-10*Math.PI/180, 0, 0)).toArray(),
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(60*Math.PI/180, 0, 0)).toArray(),
                                     time: second*2                        
                                 },
                             ]
@@ -339,15 +353,47 @@
                         {
                             keys: [
                                 {
-                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(10*Math.PI/180, 0, 0)).toArray(),
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(-40*Math.PI/180, 0, 0)).toArray(),
                                     time: 0
                                 },
                                 {
-                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(-60*Math.PI/180, 0, 0)).toArray(),
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(60*Math.PI/180, 0, 0)).toArray(),
                                     time: second                        
                                 },
                                 {
-                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(10*Math.PI/180, 0, 0)).toArray(),
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(-40*Math.PI/180, 0, 0)).toArray(),
+                                    time: second*2                        
+                                },
+                            ]
+                        },
+                        {
+                            keys: [
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(-90*Math.PI/180, 0, 0)).toArray(),
+                                    time: 0
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(20*Math.PI/180, 0, 0)).toArray(),
+                                    time: second                        
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(-90*Math.PI/180, 0, 0)).toArray(),
+                                    time: second*2                        
+                                },
+                            ]
+                        },
+                        {
+                            keys: [
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(20*Math.PI/180, 0, 0)).toArray(),
+                                    time: 0
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(-90*Math.PI/180, 0, 0)).toArray(),
+                                    time: second                        
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(20*Math.PI/180, 0, 0)).toArray(),
                                     time: second*2                        
                                 },
                             ]
@@ -355,14 +401,132 @@
                     ]
                 }
                 actionbones = [
+                    THREE.VRMSchema.HumanoidBoneName.Chest,
                     THREE.VRMSchema.HumanoidBoneName.LeftUpperArm,
                     THREE.VRMSchema.HumanoidBoneName.RightUpperArm,
                     THREE.VRMSchema.HumanoidBoneName.LeftLowerArm,
                     THREE.VRMSchema.HumanoidBoneName.RightLowerArm,
                     THREE.VRMSchema.HumanoidBoneName.LeftUpperLeg,
                     THREE.VRMSchema.HumanoidBoneName.RightUpperLeg,
-                    // THREE.VRMSchema.HumanoidBoneName.LeftLowerLeg,
-                    // THREE.VRMSchema.HumanoidBoneName.RightLowerLeg,
+                    THREE.VRMSchema.HumanoidBoneName.LeftLowerLeg,
+                    THREE.VRMSchema.HumanoidBoneName.RightLowerLeg,
+                ]
+                setupAnimation(currentVrm, actionAni, actionbones)
+                // currentAction.loop = THREE.LoopOnce
+                // currentAction.LoopOnce = true
+                // currentAction.clampWhenFinished = true
+                currentAction.play()
+            })
+            actionFolder.add(control.actionName, 'wave').name('wave').listen().onChange(() => {
+                setChecked('wave')
+                let second = 600
+                actionAni = {
+                    hierarchy: [
+                        {
+                            keys: [
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, -10*Math.PI/180)).toArray(),
+                                    time: 0
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, 10*Math.PI/180)).toArray(),
+                                    time: second           
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, -10*Math.PI/180)).toArray(),
+                                    time: second*2                        
+                                },
+                            ]
+                        },
+                        {
+                            keys: [
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, -2*Math.PI/180)).toArray(),
+                                    time: 0
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, 2*Math.PI/180)).toArray(),
+                                    time: second           
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, -2*Math.PI/180)).toArray(),
+                                    time: second*2                        
+                                },
+                            ]
+                        },
+                        {
+                            keys: [
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(1, -10*Math.PI/180, 1)).toArray(),
+                                    time: 0
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(1, 10*Math.PI/180, 1)).toArray(),
+                                    time: second                        
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(1, -10*Math.PI/180, 1)).toArray(),
+                                    time: second*2                        
+                                },
+                            ]
+                        },
+                        {
+                            keys: [
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(1, -2, 0)).toArray(),
+                                    time: 0
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(-0.5, -2, 0)).toArray(),
+                                    time: second                        
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(1, -2, 0)).toArray(),
+                                    time: second*2                        
+                                },
+                            ]
+                        },
+                        {
+                            keys: [
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(-1, 0, 0)).toArray(),
+                                    time: 0
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(-0.8, 0, 0)).toArray(),
+                                    time: second                        
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(-1, 0, 0)).toArray(),
+                                    time: second*2                        
+                                },
+                            ]
+                        },
+                        {
+                            keys: [
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, -1)).toArray(),
+                                    time: 0
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, -0.9)).toArray(),
+                                    time: second                        
+                                },
+                                {
+                                    rot: new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, -1)).toArray(),
+                                    time: second*2                        
+                                },
+                            ]
+                        },
+                    ]
+                }
+                actionbones = [
+                    THREE.VRMSchema.HumanoidBoneName.Head,
+                    THREE.VRMSchema.HumanoidBoneName.Chest,
+                    THREE.VRMSchema.HumanoidBoneName.LeftUpperArm,
+                    THREE.VRMSchema.HumanoidBoneName.LeftLowerArm,
+                    THREE.VRMSchema.HumanoidBoneName.LeftHand,
+                    THREE.VRMSchema.HumanoidBoneName.RightUpperArm,
                 ]
                 setupAnimation(currentVrm, actionAni, actionbones)
                 // currentAction.loop = THREE.LoopOnce
@@ -583,6 +747,8 @@
         let clock = new THREE.Clock()
 
         let setupAnimation = (vrm, actionAni, actionbones) => {
+            currentMixer = undefined
+            currentAction = undefined
             let bones = actionbones.map(function(boneName) {
                 // console.log(vrm.humanoid.getBoneNode(boneName))
                 return vrm.humanoid.getBoneNode(boneName)
@@ -602,7 +768,7 @@
             console.log(clip)
             // console.log('aasd ', mixer)
 
-            // currentAction.reset()
+            currentAction.reset()
     
             // let action = mixer.clipAction(clip)
             // action.stop()
@@ -630,19 +796,19 @@
             const Chest = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.Chest) // 胸部
             const Hips = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.Hips) // 臀部
             const LeftEye = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.LeftEye) // 左眼
-            const LeftFoot = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.LeftFoot) // 左腳
-            const LeftHand = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.LeftHand) // 左手
             const LeftLowerArm = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.LeftLowerArm) // 左下臂
-            const LeftLowerLeg = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.LeftLowerLeg) // 左下腿
             const LeftUpperArm = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.LeftUpperArm) // 左上臂
+            const LeftHand = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.LeftHand) // 左手
+            const LeftLowerLeg = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.LeftLowerLeg) // 左下腿
             const LeftUpperLeg = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.LeftUpperLeg) // 左上腿
+            const LeftFoot = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.LeftFoot) // 左腳
             const RightEye = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.RightEye) // 右眼
-            const RightFoot = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.RightFoot) // 右腳
-            const RightHand = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.RightHand) // 右手
-            const RightLowerArm = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.RightLowerArm) // 右下臂
-            const RightLowerLeg = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.RightLowerLeg) // 右下腿
             const RightUpperArm = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.RightUpperArm) // 右上臂
+            const RightLowerArm = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.RightLowerArm) // 右下臂
+            const RightHand = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.RightHand) // 右手
             const RightUpperLeg = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.RightUpperLeg) // 右上腿
+            const RightLowerLeg = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.RightLowerLeg) // 右下腿
+            const RightFoot = vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.RightFoot) // 右腳
 
 
 
@@ -652,6 +818,13 @@
 
             // Head.rotation.x = offsetY
             // Head.rotation.y = offsetX
+            Head.rotation.x = control.head.x
+            Head.rotation.y = control.head.y
+            Head.rotation.z = control.head.z
+
+            Chest.rotation.x = control.chest.x
+            Chest.rotation.y = control.chest.y
+            Chest.rotation.z = control.chest.z
 
             LeftUpperArm.rotation.x = control.leftUpperArm.x
             LeftUpperArm.rotation.y = control.leftUpperArm.y
@@ -665,6 +838,14 @@
             LeftHand.rotation.y = control.leftHand.y
             LeftHand.rotation.z = control.leftHand.z
 
+            LeftUpperLeg.rotation.x = control.leftUpperLeg.x
+            LeftUpperLeg.rotation.y = control.leftUpperLeg.y
+            LeftUpperLeg.rotation.z = control.leftUpperLeg.z
+            
+            LeftLowerLeg.rotation.x = control.leftLowerLeg.x
+            LeftLowerLeg.rotation.y = control.leftLowerLeg.y
+            LeftLowerLeg.rotation.z = control.leftLowerLeg.z
+
 
             RightUpperArm.rotation.x = control.rightUpperArm.x
             RightUpperArm.rotation.y = -control.rightUpperArm.y
@@ -677,6 +858,14 @@
             RightHand.rotation.x = control.rightHand.x
             RightHand.rotation.y = -control.rightHand.y
             RightHand.rotation.z = -control.rightHand.z
+
+            RightUpperLeg.rotation.x = control.rightUpperLeg.x
+            RightUpperLeg.rotation.y = control.rightUpperLeg.y
+            RightUpperLeg.rotation.z = control.rightUpperLeg.z
+            
+            RightLowerLeg.rotation.x = control.rightLowerLeg.x
+            RightLowerLeg.rotation.y = control.rightLowerLeg.y
+            RightLowerLeg.rotation.z = control.rightLowerLeg.z
             // LeftLowerArm.rotation.y = Math.PI * Math.sin( control.leftLowerArm )
             // LeftHand.rotation.z = Math.PI * Math.sin( control.leftHand )
 
