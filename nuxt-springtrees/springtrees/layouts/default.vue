@@ -4,12 +4,14 @@
     sidemenu
     nuxt
     approach
+    footer
 </template>
 
 <script>
 import logo from '~/components/Logo.vue'
 import sidemenu from '~/components/Menu.vue'
 import approach from '~/components/Approach.vue'
+import footer from '~/components/Footer.vue'
 import gsap from 'gsap'
 
 export default {
@@ -17,7 +19,8 @@ export default {
   components: {
       approach,
       logo,
-      sidemenu
+      sidemenu,
+      footer
   },
   watch: {
     '$route': function() { //監測router是否改變

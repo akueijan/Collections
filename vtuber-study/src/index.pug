@@ -11,4 +11,8 @@ block page_main
     .module
         section.index
             #canvas
-            button.walk 走路
+            //- video(onloadedmetadata="onPlay(this)" autoplay muted playsinline)#inputVideo
+            video(width="720" height="560" autoplay muted playsinline)#inputVideo
+            #webcanvas
+            //- .test
+            //- img(src="images/test.png")

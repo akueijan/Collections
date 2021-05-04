@@ -7,8 +7,21 @@
         
     },
     mounted: function() {
+        console.log('faceapi: ', faceapi.nets)
+        // let input = document.querySelector('#webcanvas')
+        // let detections = faceapi.detectAllFaces(input)
+        // let video = document.querySelector('#inputVideo')
+
+        // videoRun()
+
         // this.projApi.post(uri, data)  //Ex
         let control = {
+            bgColor: '#212121',
+            light: {
+                x: -1,
+                y: 1,
+                z: -1
+            },
             eyes: 'sorrow',
             eyesInt: 0,
             mouth: 'A',
@@ -88,9 +101,13 @@
         }
         
         let gui = new dat.GUI()
-        // let conEyes = gui.add(control, 'eyes', ['Fun', 'Angry', 'Joy', 'Sorrow'])
+            gui.addColor(control, 'bgColor')
+        let lightFolder = gui.addFolder('light')
+            lightFolder.add(control.light, 'x', -1.0, 1.0)
+            lightFolder.add(control.light, 'y', -1.0, 1.0)
+            lightFolder.add(control.light, 'z', -1.0, 1.0)
         gui.add(control, 'eyesInt', 0, 10)
-        gui.add(control, 'mouth', ['A', 'O'])
+        gui.add(control, 'mouth', ['A', 'E', 'I', 'O', 'U'])
         gui.add(control, 'mouthInt', 0, 10)
         let headFolder = gui.addFolder('head')
             headFolder.add(control.head, 'x', -2.0, 2.0)
@@ -149,7 +166,9 @@
             actionFolder.add(control.actionName, 'none').name('none').listen().onChange(() => {
                 setChecked('none')
                 if(currentAction) {
-                    currentAction.stop()
+                    for(let i=0; i<currentAction.length; i++) {
+                        currentAction[i].stop()
+                    }
                 }
             })
             actionFolder.add(control.actionName, 'walk').name('walk').listen().onChange(() => {
@@ -247,7 +266,10 @@
                     THREE.VRMSchema.HumanoidBoneName.RightUpperLeg,
                 ]
                 setupAnimation(currentVrm, actionAni, actionbones)
-                currentAction.play()
+                for(let i=0; i<currentAction.length; i++) {
+                    // currentAction[i].stop()
+                    currentAction[i].play()
+                }
             })
             actionFolder.add(control.actionName, 'run').name('run').listen().onChange(() => {
                 setChecked('run')
@@ -415,7 +437,10 @@
                 // currentAction.loop = THREE.LoopOnce
                 // currentAction.LoopOnce = true
                 // currentAction.clampWhenFinished = true
-                currentAction.play()
+                for(let i=0; i<currentAction.length; i++) {
+                    // currentAction[i].stop()
+                    currentAction[i].play()
+                }
             })
             actionFolder.add(control.actionName, 'wave').name('wave').listen().onChange(() => {
                 setChecked('wave')
@@ -532,7 +557,10 @@
                 // currentAction.loop = THREE.LoopOnce
                 // currentAction.LoopOnce = true
                 // currentAction.clampWhenFinished = true
-                currentAction.play()
+                for(let i=0; i<currentAction.length; i++) {
+                    // currentAction[i].stop()
+                    currentAction[i].play()
+                }
             })
         
         let eyeFolder = gui.addFolder('Eyes')
@@ -541,16 +569,16 @@
                 eyeFolder.add(control.actionEyes, eyename).name(eyename).listen().onChange(() => {
                     setChecked(eyename)
                     if(eyename === 'fun') {
-                        eyesAnimation(currentVrm, THREE.VRMSchema.BlendShapePresetName.Fun)
+                        eyesAnimation(currentVrm, THREE.VRMSchema.BlendShapePresetName.A)
                     }
                     if(eyename === 'angry') {
-                        eyesAnimation(currentVrm, THREE.VRMSchema.BlendShapePresetName.Angry)
+                        eyesAnimation(currentVrm, THREE.VRMSchema.BlendShapePresetName.E)
                     }
                     if(eyename === 'joy') {
-                        eyesAnimation(currentVrm, THREE.VRMSchema.BlendShapePresetName.Joy)
+                        eyesAnimation(currentVrm, THREE.VRMSchema.BlendShapePresetName.O)
                     }
                     if(eyename === 'sorrow') {
-                        eyesAnimation(currentVrm, THREE.VRMSchema.BlendShapePresetName.Sorrow)
+                        eyesAnimation(currentVrm, THREE.VRMSchema.BlendShapePresetName.I)
                     }
                     eyeAction.loop = THREE.LoopOnce
                     eyeAction.LoopOnce = true
@@ -603,7 +631,7 @@
         const loader = new THREE.GLTFLoader()
         loader.crossOrigin = 'anonymous'
 
-        let currentVrm = undefined
+        let currentVrm = []
         let mixer = undefined
         let currentMixer = undefined
         let currentAction = undefined
@@ -611,18 +639,115 @@
         let eyeAction = undefined
 
 
-        loader.load('./static/alicia.vrm',
+        // loader.load('./static/alicia.vrm',
+        //     (gltf) => {
+        //         THREE.VRM.from(gltf).then( (vrm) => {
+        //             // シーンへの追加
+        //             scene.add(vrm.scene)
+        //             console.log(vrm)
+
+        //             currentVrm.push(vrm)
+
+        //             vrm.scene.position.x = -1
+        //             // vrm.scene.position.y = 0
+        //             // vrm.scene.position.z = 0.3
+        //             // vrm.scene.rotation.y = 0.3
+
+        //             vrm.lookAt.target = lookAtTarget;
+
+        //             // IKの準備
+        //             let ikList = [new THREE.IK(), new THREE.IK()] // IKシステム
+        //             let chainList = [new THREE.IKChain(), new THREE.IKChain()] // チェーン
+        //             let pivotList = [] // ピボット
+        //             let bonesList = [] // ボーン
+        //             let nodesList = [] // ノード
+
+        //             // ボーン名
+        //             let boneName = [
+        //                 [THREE.VRMSchema.HumanoidBoneName.LeftUpperArm,
+        //                 THREE.VRMSchema.HumanoidBoneName.LeftLowerArm,
+        //                 THREE.VRMSchema.HumanoidBoneName.LeftHand],
+        //                 [THREE.VRMSchema.HumanoidBoneName.RightUpperArm,
+        //                 THREE.VRMSchema.HumanoidBoneName.RightLowerArm,
+        //                 THREE.VRMSchema.HumanoidBoneName.RightHand]
+        //             ]
+
+        //             // for (let j = 0; j < 2; j++) {
+        //             //     // ターゲットの生成
+        //             //     let movingTarget = new THREE.Mesh(
+        //             //         new THREE.SphereGeometry(0.01),
+        //             //         new THREE.MeshBasicMaterial({color: 0xff0000})
+        //             //     )
+        //             //     movingTarget.position.x = -0.2
+        //             //     let pivot = new THREE.Object3D()
+        //             //     pivot.add(movingTarget)
+        //             //     pivot.position.x =  j == 0 ? -0.3 : 0.3
+        //             //     pivot.position.y = 1.2
+        //             //     pivot.position.z = -0.3
+        //             //     scene.add(pivot)
+        //             //     pivotList.push(pivot)
+            
+        //             //     // チェーンの生成
+        //             //     let bones = [] // ボーン
+        //             //     let nodes = [] // ノード
+        //             //     for (let i = 0; i < 3; i++) {
+        //             //     // ボーンとノードの生成
+        //             //     let bone = new THREE.Bone()
+        //             //     let node = vrm.humanoid.getBoneNode(boneName[j][i])
+            
+        //             //     if (i == 0) {
+        //             //         node.getWorldPosition(bone.position)
+        //             //     } else {
+        //             //         bone.position.set(node.position.x, node.position.y, node.position.z)
+        //             //         bones[i - 1].add(bone)
+        //             //     }
+        //             //     bones.push(bone)
+        //             //     nodes.push(node)
+            
+        //             //     // チェーンに追加
+        //             //     let target = i === 2 ? movingTarget : null
+        //             //     chainList[j].add(new THREE.IKJoint(bone, {}), {target})
+        //             //     }
+            
+        //             //     // IKシステムにチェーン追加
+        //             //     ikList[j].add(chainList[j])
+            
+        //             //     // リストに追加
+        //             //     bonesList.push(bones)
+        //             //     nodesList.push(nodes)
+            
+        //             //     // ルートボーンの追加
+        //             //     scene.add(ikList[j].getRootBone())
+            
+        //             //     // ヘルパーの追加
+        //             //     // let helper = new IKHelper(ikList[j])
+        //             //     // scene.add(helper)
+        //             // }
+
+        //             // vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.Sorrow, 0)
+        //             // vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.A, 0)
+
+        //             // setupAnimation(vrm)
+        //             // eyesAnimation(vrm)
+        //             update(vrm, ikList, pivotList, bonesList, nodesList)
+
+        //         })
+        //     }
+        // )
+
+        loader.load('./static/QMO_facetest.vrm',
             (gltf) => {
                 THREE.VRM.from(gltf).then( (vrm) => {
                     // シーンへの追加
                     scene.add(vrm.scene)
                     console.log(vrm)
-                    currentVrm = vrm
+                    // currentVrm = vrm
+                    currentVrm.push(vrm)
 
-                    // vrm.scene.position.x = 1
-                    // vrm.scene.position.y = 0
-                    // vrm.scene.position.z = 0.3
-                    // vrm.scene.rotation.y = 0.3
+                    // vrm.scene.position.x = -1
+                    // vrm.scene.position.y = 0.8
+                    // vrm.scene.position.z = 0.5
+                    // vrm.scene.rotation.y = -0.3
 
                     vrm.lookAt.target = lookAtTarget;
 
@@ -695,8 +820,8 @@
                     //     // scene.add(helper)
                     // }
 
-                    vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.Sorrow, 0)
-                    vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.A, 0)
+                    // vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.Sorrow, 0)
+                    // vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.A, 0)
 
                     // setupAnimation(vrm)
                     // eyesAnimation(vrm)
@@ -706,7 +831,9 @@
             }
         )
 
+        
         // helper
+        
         const gridHelper = new THREE.GridHelper( 10, 10 );
         scene.add( gridHelper )
 
@@ -747,34 +874,43 @@
         let clock = new THREE.Clock()
 
         let setupAnimation = (vrm, actionAni, actionbones) => {
-            currentMixer = undefined
-            currentAction = undefined
-            let bones = actionbones.map(function(boneName) {
-                // console.log(vrm.humanoid.getBoneNode(boneName))
-                return vrm.humanoid.getBoneNode(boneName)
-            })
+            currentMixer = []
+            let currentActionTemp = []
+            for(let i=0; i<vrm.length; i++) {
+                let bones = actionbones.map(function(boneName) {
+                    // console.log(vrm.humanoid.getBoneNode(boneName))
+                    return vrm[i].humanoid.getBoneNode(boneName)
+                })
+                let clip = THREE.AnimationClip.parseAnimation(actionAni, bones)
+                clip.tracks.some((track) => {
+                    track.name = track.name.replace(/^\.bones\[([^\]]+)\].(position|quaternion|scale)$/, '$1.$2')
+                })
+                currentMixer.push(new THREE.AnimationMixer(vrm[i].scene))
+                // for(let j=0; j<currentMixer.length; j++) {
+                //     currentActionTemp.push(currentMixer[j].clipAction(clip))
+                // }
+                currentActionTemp.push(currentMixer[i].clipAction(clip))
+                console.log(currentActionTemp)
+                currentAction = currentActionTemp
+            }
+            // for(let i=0; i<currentActionTemp.length; i++) {
+            //     // console.log(currentActionTemp[i])
+            //     currentActionTemp[i].reset()
+            // }
+            // console.log(currentMixer)
 
-            
-            let clip = THREE.AnimationClip.parseAnimation(actionAni, bones)
 
-            clip.tracks.some((track) => {
-                track.name = track.name.replace(/^\.bones\[([^\]]+)\].(position|quaternion|scale)$/, '$1.$2')
-            })
-
-            currentMixer = new THREE.AnimationMixer(vrm.scene)
             // console.log('bones: ', bones)
             // currentMixer = mixer
-            currentAction = currentMixer.clipAction(clip)
-            console.log(clip)
+            // console.log(clip)
             // console.log('aasd ', mixer)
-
-            currentAction.reset()
     
             // let action = mixer.clipAction(clip)
             // action.stop()
         }
 
         let eyesAnimation = (vrm, eyeActionAni) => {
+            // console.log(eyeActionAni)
             let blinkTrack = new THREE.NumberKeyframeTrack(
                 vrm.blendShapeProxy.getBlendShapeTrackName( eyeActionAni ), // name
                 [ 0.0, 0.3, 0.6 ], // times
@@ -901,7 +1037,9 @@
             let delta = time - lastTime
             
             if (currentMixer) {
-                currentMixer.update(delta)
+                for(let i=0; i<currentMixer.length; i++) {
+                    currentMixer[i].update(delta)
+                }
             }
 
             if (eyeCurrentMixer) {
@@ -911,12 +1049,28 @@
 
             lastTime = time
 
-            // vrm.blendShapeProxy.setValue(action, aniS)
-            vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.A, control.mouthInt/10)
+            vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.Sorrow, control.mouthInt/10)
+            if(control.mouth == 'A') {
+                vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.A, control.mouthInt/10)
+            }
+            if(control.mouth == 'E') {
+                vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.E, control.mouthInt/10)
+            }
+            if(control.mouth == 'I') {
+                vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.I, control.mouthInt/10)
+            }
+            if(control.mouth == 'O') {
+                vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.O, control.mouthInt/10)
+            }
+            if(control.mouth == 'U') {
+                vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.U, control.mouthInt/10)
+            }
     
             vrm.update(deltaTime)
 
             requestAnimationFrame(() => update(vrm, ikList, pivotList, bonesList, nodesList))
+            renderer.setClearColor(control.bgColor, 1.0)
+            light.position.set(control.light.x, control.light.y, control.light.z).normalize()
             renderer.render(scene, camera)
         }
 
@@ -947,3 +1101,44 @@
         // })
     }
 })
+
+function videoRun() {
+    let video = document.querySelector('#inputVideo')
+    
+    Promise.all([
+        faceapi.nets.tinyFaceDetector.loadFromUri('/static/models'),
+        faceapi.nets.faceLandmark68Net.loadFromUri('/static/models'),
+        faceapi.nets.faceRecognitionNet.loadFromUri('/static/models'),
+        faceapi.nets.faceExpressionNet.loadFromUri('/static/models'),
+    ])
+    .then(startVideo)
+    
+    function startVideo() {
+        navigator.getUserMedia(
+            { video: {} },
+            stream => video.srcObject = stream,
+            err => console.error(err)
+        )
+    }
+    
+    video.addEventListener('play', () => {
+        const canvas = faceapi.createCanvasFromMedia(video)
+        document.querySelector('#webcanvas').append(canvas)
+        const displaySize = { width: video.width, height: video.height }
+        faceapi.matchDimensions(canvas, displaySize)
+        setInterval(async () => {
+            const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
+                .withFaceLandmarks()
+                .withFaceExpressions()
+            if(detections[0]) {
+                console.log(detections)
+            }
+            const resizedDetections = faceapi.resizeResults(detections, displaySize)
+            canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
+            faceapi.draw.drawDetections(canvas, resizedDetections)
+            faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
+            faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
+        }, 100)
+    })
+}
+

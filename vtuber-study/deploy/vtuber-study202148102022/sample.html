@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>pageTitle</title>
+    <meta name="description" content="pageDesc">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
+    <meta itemprop="name" content="pageTitle">
+    <meta itemprop="description" content="pageDesc">
+    <meta itemprop="image" content="指定顯示圖片">
+    <meta property="og:title" content="pageTitle">
+    <meta property="og:description" content="pageDesc">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="指定顯示圖片">
+    <link rel="Shortcut Icon" type="images/x-icon" href="../images/fav.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="//cloudfront.loggly.com/js/loggly.tracker-latest.min.js" async></script>
+    <script>
+        var _LTracker = _LTracker || [];
+        _LTracker.push({
+            'logglyKey': '8016ea6d-fa64-4c93-bddb-461c5e78fd99',
+            'sendConsoleErrors': true,
+            'tag': 'project-name'
+        });
+    </script>
+</head>
+<!--html body-->
+
+<body>
+    <div class="l-wrap" id="app" v-cloak>
+        <nav class="nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <div class="l-container">
+                <div class="nav-bd">
+                    <h1 class="nav-logo"><a href="index.html" alt="LOGO" title="LOGO">LOGO</a></h1>
+                    <div class="nav-btn">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                    <div class="nav-menu" role="navigation">
+                        <ul class="clearfix">
+                            <li class="nav-item nav-item--iscurrent"><a href="#" alt="項目" itemprop="url" title="項目"><span>項目</span></a></li>
+                            <li class="nav-item"><a href="#" alt="項目" itemprop="url" title="項目"><span>項目</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- render nav view-->
+        <div class="l-fb">
+            <div class="l-container">
+                <div class="fb-box">
+                    <div class="fb-like" data-href="#" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="l-main">
+            <section class="sample" id="el">
+                <div class="sample__hd"></div>
+                <div class="sample__bd"></div>
+                <div class="sample__ft"></div>
+                <section>
+                    <div class="l-container">
+                        <h2>{{initText}}</h2>
+                        <div class="vue">
+                            <form v-on:submit.prevent="signup">
+                                <select v-model="selectOpt">
+                                    <option v-for="obj in selectLists" :disabled="obj.value == ''" v-bind:value="obj.value">{{obj.text}}</option>
+                                </select>
+                                <p>select Val : {{selectOpt}}</p>
+                                <button type="submit">submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="sample__content">
+                        <div class="l-container">
+                            <div class="l-vm">
+                                <div class="l-vm__content">
+                                    <h2>demo verticle</h2>
+                                    <p>灰色區塊內垂直置中</p>
+                                    <div class="sprite__demo"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="l-container">
+                        <div class="mdDemo">
+                            <h2>#jade scss example</h2>
+                            <div>
+                                <h3>##<span>Interpolation</span>by jade</h3>
+                            </div>
+                            <div>
+                                <h3>##jade loop</h3>
+                                <div class="row1">
+                                    <p>row+1</p>
+                                </div>
+                                <div class="row2">
+                                    <p>row+2</p>
+                                </div>
+                                <div class="row3">
+                                    <p>row+3</p>
+                                </div>
+                                <div class="next">
+                                    <p>next</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <!--render main view-->
+        </div>
+        <div class="l-footer footer">
+            <div class="l-container">
+                <p>footer</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/vendor.js"></script>
+    <script type="text/javascript" src="js/lib.js"></script>
+    <script type="text/javascript" src="static/three.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@pixiv/three-vrm@0.6.2/lib/three-vrm.min.js"></script>
+    <script type="text/javascript" src="static/OrbitControls.js"></script>
+    <script type="text/javascript" src="static/three-ik.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
+    <script type="text/javascript" id="appjs" src="js/app.js?v=1617848422341" data-mode="false" data-site="https://cmpnapi.friendo.com.tw/api/"></script>
+    <script type="text/javascript" src="js/api.js"></script>
+    <script src="js/sample.js?v=1617848422341"></script>
+    <script type="text/javascript"></script>
+</body>
+
+</html>
