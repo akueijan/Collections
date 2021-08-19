@@ -12,7 +12,7 @@
         // let detections = faceapi.detectAllFaces(input)
         // let video = document.querySelector('#inputVideo')
 
-        // videoRun()
+        videoRun()
 
         // this.projApi.post(uri, data)  //Ex
         let control = {
@@ -913,12 +913,12 @@
             // action.stop()
         }
 
-        let eyesAnimation = (vrm, eyeActionAni) => {
+        let eyesAnimation = (vrm, eyeActionAni, aniTime, aniValue) => {
             let action = undefined
             let blinkTrack = new THREE.NumberKeyframeTrack(
                 vrm.blendShapeProxy.getBlendShapeTrackName( eyeActionAni ), // name
-                [ 0.0, 0.6, 1.2 ], // times
-                [ 0.0, 1, 0.0 ] // values
+                aniTime, // times
+                aniValue // values
             )
             eyeCurrentMixer = new THREE.AnimationMixer( vrm.scene )
             let clip = new THREE.AnimationClip( 'blink', 1.0, [blinkTrack] )
@@ -926,11 +926,11 @@
             // eyeAction.play()
         }
 
-        let mounthAnimation = (vrm, mounthActionAni) => {
+        let mounthAnimation = (vrm, mounthActionAni, aniTime, aniValue) => {
             let blinkTrack2 = new THREE.NumberKeyframeTrack(
                 vrm.blendShapeProxy.getBlendShapeTrackName( mounthActionAni ), // name
-                [ 0.0, 0.6, 1.2 ], // times
-                [ 0.0, 1, 0.0 ] // values
+                aniTime, // times
+                aniValue // values
             )
 
             mounthCurrentMixer = new THREE.AnimationMixer( vrm.scene )
@@ -1139,25 +1139,71 @@
                 document.querySelector('#webcanvas').append(canvas)
                 const displaySize = { width: video.width, height: video.height }
                 faceapi.matchDimensions(canvas, displaySize)
-                let happyAni
                 setInterval(async () => {
                     const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
                         .withFaceLandmarks()
                         .withFaceExpressions()
                     if(detections[0]) {
-                        if(detections[0].expressions.happy > 0.5) {
+                        console.log(detections[0].expressions)
+                        if(detections[0].expressions.happy > 0.75) {
                             console.log('happy')
-                            happyAni = setTimeout(() => {
-                                eyesAnimation(currentVrm[0], THREE.VRMSchema.BlendShapePresetName.Fun)
-                                mounthAnimation(currentVrm[0], THREE.VRMSchema.BlendShapePresetName.A)
-                                eyeAction.loop = THREE.LoopOnce
-                                eyeAction.LoopOnce = true
-                                eyeAction.play()
+                            eyesAnimation(currentVrm[0], 
+                                THREE.VRMSchema.BlendShapePresetName.Fun,
+                                [ 0.0, 0.6, 0.9, 1.2 ],
+                                [ 0.0, 1.0, 0.6, 0.0 ]
+                            )
+                            mounthAnimation(currentVrm[0], 
+                                THREE.VRMSchema.BlendShapePresetName.A,
+                                [ 0.0, 0.6, 0.9, 1.2 ],
+                                [ 0.0, 1.0, 0.6, 0.0 ]
+                            )
+                            eyeAction.loop = THREE.LoopOnce
+                            eyeAction.LoopOnce = true
+                            eyeAction.play()
 
-                                mounthAction.loop = THREE.LoopOnce
-                                mounthAction.LoopOnce = true
-                                mounthAction.play()
-                            }, 600)
+                            mounthAction.loop = THREE.LoopOnce
+                            mounthAction.LoopOnce = true
+                            mounthAction.play()
+                        } 
+                        if(detections[0].expressions.angry > 0.75) {
+                            console.log('angry')
+                            eyesAnimation(currentVrm[0], 
+                                THREE.VRMSchema.BlendShapePresetName.Angry,
+                                [ 0.0, 0.6, 0.9, 1.2 ],
+                                [ 0.0, 1.0, 0.6, 0.0 ]
+                            )
+                            mounthAnimation(currentVrm[0], 
+                                THREE.VRMSchema.BlendShapePresetName.E,
+                                [ 0.0, 0.6, 0.9, 1.2 ],
+                                [ 0.0, 1.0, 0.6, 0.0 ]
+                            )
+                            eyeAction.loop = THREE.LoopOnce
+                            eyeAction.LoopOnce = true
+                            eyeAction.play()
+
+                            mounthAction.loop = THREE.LoopOnce
+                            mounthAction.LoopOnce = true
+                            mounthAction.play()
+                        }  
+                        if(detections[0].expressions.neutral > 0.75) {
+                            console.log('neutral')
+                            eyesAnimation(currentVrm[0], 
+                                THREE.VRMSchema.BlendShapePresetName.Blink,
+                                [ 0.0, 0.6, 0.9, 1.2 ],
+                                [ 0.0, 1.0, 0.0, 0.0 ]
+                            )
+                            mounthAnimation(currentVrm[0], 
+                                THREE.VRMSchema.BlendShapePresetName.E,
+                                [ 0.0, 0.6, 0.9, 1.2 ],
+                                [ 0.0, 0.0, 0.0, 0.0 ]
+                            )
+                            eyeAction.loop = THREE.LoopOnce
+                            eyeAction.LoopOnce = true
+                            eyeAction.play()
+
+                            mounthAction.loop = THREE.LoopOnce
+                            mounthAction.LoopOnce = true
+                            mounthAction.play()
                         }
                     }
                     const resizedDetections = faceapi.resizeResults(detections, displaySize)
@@ -1165,7 +1211,7 @@
                     faceapi.draw.drawDetections(canvas, resizedDetections)
                     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
                     faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-                }, 1200)
+                }, 1500)
             })
         }
     }
