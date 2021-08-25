@@ -644,101 +644,6 @@
         let mounthCurrentMixer = undefined
         let mounthAction = undefined
 
-
-        // loader.load('./static/alicia.vrm',
-        //     (gltf) => {
-        //         THREE.VRM.from(gltf).then( (vrm) => {
-        //             // シーンへの追加
-        //             scene.add(vrm.scene)
-        //             console.log("vrm: ", vrm)
-
-        //             currentVrm.push(vrm)
-
-        //             // vrm.scene.position.x = -1
-        //             // vrm.scene.position.y = 0
-        //             // vrm.scene.position.z = 0.3
-        //             // vrm.scene.rotation.y = 0.3
-
-        //             vrm.lookAt.target = lookAtTarget;
-
-        //             // IKの準備
-        //             let ikList = [new THREE.IK(), new THREE.IK()] // IKシステム
-        //             let chainList = [new THREE.IKChain(), new THREE.IKChain()] // チェーン
-        //             let pivotList = [] // ピボット
-        //             let bonesList = [] // ボーン
-        //             let nodesList = [] // ノード
-
-        //             // ボーン名
-        //             let boneName = [
-        //                 [THREE.VRMSchema.HumanoidBoneName.LeftUpperArm,
-        //                 THREE.VRMSchema.HumanoidBoneName.LeftLowerArm,
-        //                 THREE.VRMSchema.HumanoidBoneName.LeftHand],
-        //                 [THREE.VRMSchema.HumanoidBoneName.RightUpperArm,
-        //                 THREE.VRMSchema.HumanoidBoneName.RightLowerArm,
-        //                 THREE.VRMSchema.HumanoidBoneName.RightHand]
-        //             ]
-
-        //             // for (let j = 0; j < 2; j++) {
-        //             //     // ターゲットの生成
-        //             //     let movingTarget = new THREE.Mesh(
-        //             //         new THREE.SphereGeometry(0.01),
-        //             //         new THREE.MeshBasicMaterial({color: 0xff0000})
-        //             //     )
-        //             //     movingTarget.position.x = -0.2
-        //             //     let pivot = new THREE.Object3D()
-        //             //     pivot.add(movingTarget)
-        //             //     pivot.position.x =  j == 0 ? -0.3 : 0.3
-        //             //     pivot.position.y = 1.2
-        //             //     pivot.position.z = -0.3
-        //             //     scene.add(pivot)
-        //             //     pivotList.push(pivot)
-            
-        //             //     // チェーンの生成
-        //             //     let bones = [] // ボーン
-        //             //     let nodes = [] // ノード
-        //             //     for (let i = 0; i < 3; i++) {
-        //             //     // ボーンとノードの生成
-        //             //     let bone = new THREE.Bone()
-        //             //     let node = vrm.humanoid.getBoneNode(boneName[j][i])
-            
-        //             //     if (i == 0) {
-        //             //         node.getWorldPosition(bone.position)
-        //             //     } else {
-        //             //         bone.position.set(node.position.x, node.position.y, node.position.z)
-        //             //         bones[i - 1].add(bone)
-        //             //     }
-        //             //     bones.push(bone)
-        //             //     nodes.push(node)
-            
-        //             //     // チェーンに追加
-        //             //     let target = i === 2 ? movingTarget : null
-        //             //     chainList[j].add(new THREE.IKJoint(bone, {}), {target})
-        //             //     }
-            
-        //             //     // IKシステムにチェーン追加
-        //             //     ikList[j].add(chainList[j])
-            
-        //             //     // リストに追加
-        //             //     bonesList.push(bones)
-        //             //     nodesList.push(nodes)
-            
-        //             //     // ルートボーンの追加
-        //             //     scene.add(ikList[j].getRootBone())
-            
-        //             //     // ヘルパーの追加
-        //             //     // let helper = new IKHelper(ikList[j])
-        //             //     // scene.add(helper)
-        //             // }
-
-        //             // vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.Sorrow, 0)
-        //             // vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.A, 0)
-
-        //             // setupAnimation(vrm)
-        //             // eyesAnimation(vrm)
-        //             update(vrm, ikList, pivotList, bonesList, nodesList)
-        //         })
-        //     }
-        // )
         // loader.load('./static/alicia.vrm',
         loader.load('./static/QMO_1.vrm',
             (gltf) => {
@@ -913,32 +818,80 @@
             // action.stop()
         }
 
-        let eyesAnimation = (vrm, eyeActionAni, aniTime, aniValue) => {
-            let action = undefined
-            let blinkTrack = new THREE.NumberKeyframeTrack(
-                vrm.blendShapeProxy.getBlendShapeTrackName( eyeActionAni ), // name
-                aniTime, // times
-                aniValue // values
-            )
-            eyeCurrentMixer = new THREE.AnimationMixer( vrm.scene )
-            let clip = new THREE.AnimationClip( 'blink', 1.0, [blinkTrack] )
-            eyeAction = eyeCurrentMixer.clipAction( clip )
-            // eyeAction.play()
+        let eyesAnimation = (eyeActionAni, aniTime, aniValue) => {
+            return new Promise((resolve) => {
+                let vrm = currentVrm[0]
+                let blinkTrack = new THREE.NumberKeyframeTrack(
+                    vrm.blendShapeProxy.getBlendShapeTrackName( eyeActionAni ), // name
+                    aniTime, // times
+                    aniValue // values
+                )
+                eyeCurrentMixer = new THREE.AnimationMixer( vrm.scene )
+                let clip = new THREE.AnimationClip( 'blink', 1.0, [blinkTrack] )
+                eyeAction = eyeCurrentMixer.clipAction( clip )
+                // eyeAction.play()
+                eyeAction.loop = THREE.LoopOnce
+                eyeAction.LoopOnce = true
+                eyeAction.play()
+                resolve()
+            })
         }
 
-        let mounthAnimation = (vrm, mounthActionAni, aniTime, aniValue) => {
-            let blinkTrack2 = new THREE.NumberKeyframeTrack(
-                vrm.blendShapeProxy.getBlendShapeTrackName( mounthActionAni ), // name
-                aniTime, // times
-                aniValue // values
-            )
+        let mounthAnimation = (mounthActionAni, aniTime, aniValue) => {
+            return new Promise((resolve) => {
+                let vrm = currentVrm[0]
+                let blinkTrack2 = new THREE.NumberKeyframeTrack(
+                    vrm.blendShapeProxy.getBlendShapeTrackName( mounthActionAni ), // name
+                    aniTime, // times
+                    aniValue // values
+                )
+    
+                mounthCurrentMixer = new THREE.AnimationMixer( vrm.scene )
+                let clip2 = new THREE.AnimationClip( mounthActionAni, 1.0, [blinkTrack2] )
+                mounthAction = mounthCurrentMixer.clipAction( clip2 )
+    
+                mounthAction.loop = THREE.LoopOnce
+                mounthAction.LoopOnce = true
+                mounthAction.play()
+                resolve()
+            })
+        }
 
-            mounthCurrentMixer = new THREE.AnimationMixer( vrm.scene )
-            let clip2 = new THREE.AnimationClip( 'blink', 1.0, [blinkTrack2] )
-            mounthAction = mounthCurrentMixer.clipAction( clip2 )
+        let moodAnimation = (eyesName, mounthName, aniTime, aniValue) => {
+            let vrm = currentVrm[0]
+            return new Promise((resolve) => {
+                let blinkTrack = new THREE.NumberKeyframeTrack(
+                    vrm.blendShapeProxy.getBlendShapeTrackName( eyesName ), // name
+                    aniTime, // times
+                    aniValue // values
+                )
+                eyeCurrentMixer = new THREE.AnimationMixer( vrm.scene )
+                let clip = new THREE.AnimationClip( eyesName, 1.0, [blinkTrack] )
+                eyeAction = eyeCurrentMixer.clipAction( clip )
+                // eyeAction.play()
+                eyeAction.loop = THREE.LoopOnce
+                eyeAction.LoopOnce = true
+                eyeAction.play()
+    
+                let blinkTrack2 = new THREE.NumberKeyframeTrack(
+                    vrm.blendShapeProxy.getBlendShapeTrackName( mounthName ), // name
+                    aniTime, // times
+                    aniValue // values
+                )
+    
+                mounthCurrentMixer = new THREE.AnimationMixer( vrm.scene )
+                let clip2 = new THREE.AnimationClip( mounthName, 1.0, [blinkTrack2] )
+                mounthAction = mounthCurrentMixer.clipAction( clip2 )
+    
+                mounthAction.loop = THREE.LoopOnce
+                mounthAction.LoopOnce = true
+                mounthAction.play()
+                resolve()
+            })
         }
 
         let lastTime = (new Date()).getTime()
+        let speakIng = false
 
         let update = (vrm, ikList, pivotList, bonesList, nodesList) => {
             const deltaTime = clock.getDelta()
@@ -1047,6 +1000,9 @@
             // updateArm(bonesList[0], nodesList[0], Math.PI / 2)
             // updateArm(bonesList[1], nodesList[1], -Math.PI / 2)
             // walkAni()
+            speakIng? 
+                vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.I, Math.sin( Math.PI * clock.elapsedTime )) :
+                vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.I, 0)
 
             let time = (new Date()).getTime()
             let delta = time - lastTime
@@ -1064,22 +1020,22 @@
 
             lastTime = time
 
-            vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.Sorrow, control.mouthInt/10)
-            if(control.mouth == 'A') {
-                vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.A, control.mouthInt/10)
-            }
-            if(control.mouth == 'E') {
-                vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.E, control.mouthInt/10)
-            }
-            if(control.mouth == 'I') {
-                vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.I, control.mouthInt/10)
-            }
-            if(control.mouth == 'O') {
-                vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.O, control.mouthInt/10)
-            }
-            if(control.mouth == 'U') {
-                vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.U, control.mouthInt/10)
-            }
+            // vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.Sorrow, control.mouthInt/10)
+            // if(control.mouth == 'A') {
+            //     vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.A, control.mouthInt/10)
+            // }
+            // if(control.mouth == 'E') {
+            //     vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.E, control.mouthInt/10)
+            // }
+            // if(control.mouth == 'I') {
+            //     vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.I, control.mouthInt/10)
+            // }
+            // if(control.mouth == 'O') {
+            //     vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.O, control.mouthInt/10)
+            // }
+            // if(control.mouth == 'U') {
+            //     vrm.blendShapeProxy.setValue(THREE.VRMSchema.BlendShapePresetName.U, control.mouthInt/10)
+            // }
     
             vrm.update(deltaTime)
 
@@ -1093,10 +1049,10 @@
         let offsetX = 0
         let offsetY = 0
         canvas.addEventListener( 'mousemove', ( event ) => {
-            // lookAtTarget.position.x =  10.0 * ( ( event.clientX - 0.5 * canvas.offsetWidth ) / canvas.offsetHeight );
-            // lookAtTarget.position.y = -10.0 * ( ( event.clientY - 0.5 * canvas.offsetHeight ) / canvas.offsetHeight );
-            offsetX = ( ( event.clientX - 0.5 * canvas.offsetWidth ) / canvas.offsetHeight ) * 1.0;
-            offsetY = ( ( event.clientY - 0.5 * canvas.offsetHeight ) / canvas.offsetHeight ) * -1.0;
+            lookAtTarget.position.x =  10.0 * ( ( event.clientX - 0.5 * canvas.offsetWidth ) / canvas.offsetHeight );
+            lookAtTarget.position.y = -10.0 * ( ( event.clientY - 0.5 * canvas.offsetHeight ) / canvas.offsetHeight );
+            // offsetX = ( ( event.clientX - 0.5 * canvas.offsetWidth ) / canvas.offsetHeight ) * 1.0;
+            // offsetY = ( ( event.clientY - 0.5 * canvas.offsetHeight ) / canvas.offsetHeight ) * -1.0;
             if(offsetX >= 0.8) {
                 offsetX = 0.8
             }
@@ -1133,85 +1089,152 @@
                     err => console.error(err)
                 )
             }
-            
+            let aniIng = false
+            let sensitivity = 0.6
+            let mounthAngle = 0
             video.addEventListener('play', () => {
+                const vrm = currentVrm[0]
                 const canvas = faceapi.createCanvasFromMedia(video)
                 document.querySelector('#webcanvas').append(canvas)
                 const displaySize = { width: video.width, height: video.height }
                 faceapi.matchDimensions(canvas, displaySize)
-                setInterval(async () => {
+                let setIntervalAndExecute = async (fn, t) => {
+                    fn()
+                    return(setInterval(fn, t))
+                }
+                let setIntervalIng = setIntervalAndExecute(faceDetect, 150)
+                async function faceDetect() {
+                    // const mouth = await faceapi.detectFaceLandmarks(video).landmarks.getMouth()
+                    const detectFaceLandmarks = await faceapi.detectFaceLandmarks(video)
+                    // const mouth = detectFaceLandmarks.getMouth()
+                    // console.log(detectFaceLandmarks.positions[63].y, detectFaceLandmarks.positions[67].y)
+
                     const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
                         .withFaceLandmarks()
                         .withFaceExpressions()
                     if(detections[0]) {
                         console.log(detections[0].expressions)
-                        if(detections[0].expressions.happy > 0.75) {
-                            console.log('happy')
-                            eyesAnimation(currentVrm[0], 
-                                THREE.VRMSchema.BlendShapePresetName.Fun,
-                                [ 0.0, 0.6, 0.9, 1.2 ],
-                                [ 0.0, 1.0, 0.6, 0.0 ]
-                            )
-                            mounthAnimation(currentVrm[0], 
-                                THREE.VRMSchema.BlendShapePresetName.A,
-                                [ 0.0, 0.6, 0.9, 1.2 ],
-                                [ 0.0, 1.0, 0.6, 0.0 ]
-                            )
-                            eyeAction.loop = THREE.LoopOnce
-                            eyeAction.LoopOnce = true
-                            eyeAction.play()
-
-                            mounthAction.loop = THREE.LoopOnce
-                            mounthAction.LoopOnce = true
-                            mounthAction.play()
-                        } 
-                        if(detections[0].expressions.angry > 0.75) {
-                            console.log('angry')
-                            eyesAnimation(currentVrm[0], 
-                                THREE.VRMSchema.BlendShapePresetName.Angry,
-                                [ 0.0, 0.6, 0.9, 1.2 ],
-                                [ 0.0, 1.0, 0.6, 0.0 ]
-                            )
-                            mounthAnimation(currentVrm[0], 
-                                THREE.VRMSchema.BlendShapePresetName.E,
-                                [ 0.0, 0.6, 0.9, 1.2 ],
-                                [ 0.0, 1.0, 0.6, 0.0 ]
-                            )
-                            eyeAction.loop = THREE.LoopOnce
-                            eyeAction.LoopOnce = true
-                            eyeAction.play()
-
-                            mounthAction.loop = THREE.LoopOnce
-                            mounthAction.LoopOnce = true
-                            mounthAction.play()
-                        }  
-                        if(detections[0].expressions.neutral > 0.75) {
+                        if(aniIng == false) {
+                            aniIng = true
+                            if(detections[0].expressions.sad > sensitivity) {
+                                console.log('sad')
+                                moodAnimation(THREE.VRMSchema.BlendShapePresetName.Sorrow,
+                                    THREE.VRMSchema.BlendShapePresetName.E,
+                                    [ 0.0, 0.6, 0.9, 1.2 ],
+                                    [ 0.0, 1.0, 0.0, 0.0 ]
+                                )
+                                .then(() => {
+                                    setTimeout(() => {
+                                        aniIng = false
+                                        // setIntervalIng
+                                    }, 3000)
+                                })
+                            } 
+                        }
+                    } else {
+                        speakIng = true
+                        if(aniIng == false) {
+                            aniIng = true
                             console.log('neutral')
-                            eyesAnimation(currentVrm[0], 
-                                THREE.VRMSchema.BlendShapePresetName.Blink,
+                            eyesAnimation(THREE.VRMSchema.BlendShapePresetName.Blink,
                                 [ 0.0, 0.6, 0.9, 1.2 ],
                                 [ 0.0, 1.0, 0.0, 0.0 ]
                             )
-                            mounthAnimation(currentVrm[0], 
-                                THREE.VRMSchema.BlendShapePresetName.E,
-                                [ 0.0, 0.6, 0.9, 1.2 ],
-                                [ 0.0, 0.0, 0.0, 0.0 ]
-                            )
-                            eyeAction.loop = THREE.LoopOnce
-                            eyeAction.LoopOnce = true
-                            eyeAction.play()
-
-                            mounthAction.loop = THREE.LoopOnce
-                            mounthAction.LoopOnce = true
-                            mounthAction.play()
+                            .then(() => {
+                                setTimeout(() => {
+                                    aniIng = false
+                                    // setIntervalIng
+                                }, 3000)
+                            })
                         }
                     }
+                    // if(aniIng == false) {
+                    //     aniIng = true
+                    //     // clearInterval(setIntervalIng)
+                    //     console.log('neutral')
+                    //     moodAnimation(THREE.VRMSchema.BlendShapePresetName.Blink,
+                    //         THREE.VRMSchema.BlendShapePresetName.O,
+                    //         [ 0.0, 0.6, 0.9, 1.2 ],
+                    //         [ 0.0, 1.0, 0.0, 0.0 ]
+                    //     )
+                    //     .then(() => {
+                    //         setTimeout(() => {
+                    //             aniIng = false
+                    //             // setIntervalIng
+                    //         }, 3000)
+                    //     })
+                    // }
                     const resizedDetections = faceapi.resizeResults(detections, displaySize)
                     canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
                     faceapi.draw.drawDetections(canvas, resizedDetections)
                     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
                     faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-                }, 1500)
+                }
+                // let timeIng = setInterval(async () => {
+                //     if(aniIng == false) {
+                //         aniIng = true
+                //         clearInterval(timeIng)
+                //         console.log('neutral')
+                //         moodAnimation(THREE.VRMSchema.BlendShapePresetName.Blink,
+                //             THREE.VRMSchema.BlendShapePresetName.O,
+                //             [ 0.0, 0.6, 0.9, 1.2 ],
+                //             [ 0.0, 1.0, 0.0, 0.0 ]
+                //         )
+                //         .then(() => {
+                //             aniIng = false
+                //             timeIng
+                //         })
+                //     }
+                //     const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
+                //         .withFaceLandmarks()
+                //         .withFaceExpressions()
+                //     if(detections[0]) {
+                //         console.log(detections[0].expressions)
+                //         if(!aniIng) {
+                //             if(detections[0].expressions.happy > 0.75) {
+                //                 aniIng = true
+                //                 console.log('happy')
+                //                 moodAnimation(THREE.VRMSchema.BlendShapePresetName.Fun,
+                //                     [ 0.0, 0.6, 0.9, 1.2 ],
+                //                     [ 0.0, 1.0, 0.6, 0.0 ]
+                //                 ).then(() => {
+                //                     aniIng = false
+                //                 })
+                //             } 
+                //             if(detections[0].expressions.angry > 0.75) {
+                //                 console.log('angry')
+                //                 moodAnimation(THREE.VRMSchema.BlendShapePresetName.Angry,
+                //                     [ 0.0, 0.6, 0.9, 1.2 ],
+                //                     [ 0.0, 1.0, 0.6, 0.0 ]
+                //                 ).then(() => {
+                //                     aniIng = false
+                //                 })
+                //             }  
+                //             if(detections[0].expressions.neutral > 0.75) {
+                //                 console.log('neutral')
+                //                 moodAnimation(THREE.VRMSchema.BlendShapePresetName.Blink,
+                //                     [ 0.0, 0.6, 0.9, 1.2 ],
+                //                     [ 0.0, 1.0, 0.0, 0.0 ]
+                //                 ).then(() => {
+                //                     aniIng = false
+                //                 })
+                //             }
+                //         } else {
+                //             console.log('neutral')
+                //             moodAnimation(THREE.VRMSchema.BlendShapePresetName.Blink,
+                //                 [ 0.0, 0.6, 0.9, 1.2 ],
+                //                 [ 0.0, 1.0, 0.0, 0.0 ]
+                //             ).then(() => {
+                //                 aniIng = false
+                //             })
+                //         }
+                //     }
+                //     const resizedDetections = faceapi.resizeResults(detections, displaySize)
+                //     canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
+                //     faceapi.draw.drawDetections(canvas, resizedDetections)
+                //     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
+                //     faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
+                // }, 300)
             })
         }
     }
