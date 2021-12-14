@@ -1,0 +1,21 @@
+nav.nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+    div.l-container
+        div.nav-bd
+            h1.nav-logo
+                a(href="index.html" title="葡萄王生技" gtm-data="menu_首頁") 
+                    img(src="images/logo.png" alt="葡萄王生技")
+            div.nav-btn
+                div.one
+                div.two
+                div.three
+            div.nav-menu(role="navigation")
+                ul.clearfix
+                    li.nav-item.nav-item--iscurrent
+                        a(href="invoice.html" itemprop="url" title="登錄發票抽十萬" gtm-data="menu_登錄發票抽十萬"): span 登錄發票抽十萬
+                    li.nav-item
+                        a(href="game.html" itemprop="url" title="身心減壓運動" gtm-data="menu_身心減壓運動"): span 身心減壓運動
+                    li.nav-item
+                        a(href="index.html#readme" v-if="!isIndex" itemprop="url" title="活動辦法" gtm-data="menu_活動辦法"): span 活動辦法
+                        a(href="javascript:void(0)" v-if="isIndex" v-scroll-to="'#readme'" itemprop="url" title="活動辦法" gtm-data="menu_活動辦法"): span 活動辦法
+                    li.nav-item
+                        a(href="award.html" itemprop="url" title="得獎公告" gtm-data="menu_得獎公告"): span 得獎公告

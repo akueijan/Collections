@@ -1,0 +1,33 @@
+@charset "UTF-8"
+
+@import "setup/_rwd.sass"
+@import "setup/_color.sass"
+@import "setup/_variable.sass"
+@import "setup/_functions.sass"
+@import "setup/_font-face.sass"
+@import "setup/_mixin.sass"
+@import "setup/_animation.sass"
+@import "setup/_normalize.sass"
+//A set of Sass mixins to write well-structured, maintainable, idiomatic BEM-style  source:
+@import "base/_typography.sass"
+@import "base/_layout.sass"
+
+@import "pages/_index.sass"
+
+
+[v-cloak] *
+    display: none
+
+.fade-enter-active, .fade-leave-active
+    transition: opacity .2s
+
+.fade-enter, .fade-leave-to
+    transition: .2s
+    opacity: 0
+
+.grecaptcha-badge
+    visibility: hidden
+
+.l-fb
+    visibility: hidden
+    display: none

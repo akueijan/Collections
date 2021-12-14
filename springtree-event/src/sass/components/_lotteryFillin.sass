@@ -1,0 +1,131 @@
+.backfill
+    background: url(../images/invoice-bg.png) center top / cover no-repeat
+    text-align: center
+    min-height: 100vh
+    position: relative
+    padding: 110px 0
+    +rwd($pad)
+        padding: 70px 0 35px
+    h2
+        color: #00a6e0
+        font-size: 36px
+    .content
+        background: #fff
+        border: 3px solid #178eb7
+        width: 80%
+        max-width: 1000px
+        margin: 0 auto
+        padding: 2% 6%
+        +rwd($pad)
+            width: 90%
+            padding: 4%
+    .form
+        text-align: left
+        margin: 30px auto 0
+    li
+        margin: 0 0 20px 0
+        +rwd($pad)
+            margin: 0 0 30px 0
+    .head
+        display: flex
+        justify-content: space-between
+        align-items: center
+        +rwd($pad)
+            display: inline-block
+            .mobile
+                margin: 0 0 30px auto
+    label
+        font-size: 20px
+        margin: 0 20px 0 0
+    input
+        // background: #00a6e0
+        border: 1px solid #00a6e0
+        color: #000
+        padding: 10px
+        font-size: 20px
+        width: 80%
+        height: 40px
+        +rwd($pad)
+            width: 100%
+            margin: 10px auto 0
+        &::placeholder
+            color: #666
+    .agree
+        input
+            width: 20px
+            height: 20px
+            margin: 0 5px 0 0
+    .btnarea
+        text-align: center
+        margin: 15px auto 0
+        button
+            background: #00a6e0
+            border: 0
+            border-radius: 6px
+            color: #fff
+            font-size: 20px
+            padding: 12px 20px
+    .fblogin
+        background: #00a6e0
+        border-radius: 6px
+        cursor: pointer
+        color: #fff
+        font-size: 20px
+        padding: 12px 20px
+    .fb
+        i
+            border: 1px solid #00a6e0
+            width: 60px
+            height: 60px
+            display: inline-block
+            
+
+ul.pictures
+    background: none
+    padding: 0
+    margin: 10px auto 0
+    display: flex
+    justify-content: space-around
+    align-items: center
+    flex-wrap: wrap
+    width: 100%
+    li
+        border: 1px dashed #dddddd
+        width: 150px
+        height: 150px
+        margin: 0
+        text-align: center
+        position: relative
+        label
+            width: 100%
+            height: 100%
+            line-height: 150px
+            font-size: 24px
+            margin: 0
+            display: block
+            cursor: pointer
+            position: relative
+            z-index: 2
+            ~ input
+                opacity: 0
+                display: none
+            ~ .preview
+                width: 100%
+                height: 100%
+                text-align: center
+                line-height: 150px
+                position: absolute
+                top: 0
+                left: 0
+                z-index: 1
+                overflow: hidden
+                p
+                    font-size: 24px
+                    color: #000
+                img
+                    max-width: 100%
+                    max-height: 100%
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%,-50%)

@@ -1,0 +1,23 @@
+
+script(type="text/x-template" id="comingsoon")
+    transition(name="fade")
+        div.comingsoon-main(v-if="openCome && open" key="comingsoon")
+            div.comingsoon
+                div.comingsoon__box
+                    div.comingsoon__hd
+                        h2.comingsoon__title COMING SOON
+                        p.coming-text 活動將於2021/11/1開跑，敬請期待！
+                    div.comingsoon__bd
+                        div.counter 
+                            div.days
+                                div.value {{date.days || '00'}}
+                                span 日
+                            div.hours
+                                div.value {{date.hours || '00'}}
+                                span 時
+                            div.minutes
+                                div.value {{date.minutes || '00'}}
+                                span 分
+                            div.seconds
+                                div.value {{date.seconds || '00'}}
+                                span 秒

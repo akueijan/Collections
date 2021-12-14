@@ -1,0 +1,199 @@
+.popup 
+    display: block
+    background-color: rgba(28, 28, 28, 0.9)
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    z-index: 9999
+    padding: 0 0 30px 0
+    overflow-x: hidden
+    overflow-y: auto
+    & img 
+        width: 100%
+        height: auto
+    .poparea 
+        background: #fff
+        position: relative
+        width: vw(865)
+        padding: vw(90) 0
+        margin: vw(120) auto 0
+        text-align: center
+        +rwd($pad)
+            width: mvw(650)
+            padding: mvw(80) 0
+            margin: mvw(120) auto 0
+        &:before
+            content: ""
+            border-style: solid
+            border-width: vw(43) vw(39) 0 0
+            border-color: #fff808 transparent transparent transparent
+            position: absolute
+            top: 0
+            left: 0
+            +rwd($pad)
+                border-width: mvw(72) mvw(64) 0 0
+        &:after
+            content: ""
+            background: url(../images/box-decobg.png) left top / vw(20) auto repeat
+            border: vw(1) solid #fff
+            width: 100%
+            height: 100%
+            position: absolute
+            top: vw(10)
+            left: vw(10)
+            z-index: -1
+            +rwd($pad)
+                background: url(../images/box-decobg.png) left top / mvw(20) auto repeat
+                border: mvw(1) solid #fff
+                top: mvw(10)
+                left: mvw(10)
+    
+    &__content 
+        position: relative
+        height: 80vh
+        overflow: scroll
+        padding: 0 15px
+        width: 80%
+        margin: 100px auto 0
+        text-align: center
+        //-webkit-overflow-scrolling:touch
+        &::-webkit-scrollbar 
+            display: none
+        
+    .popclose 
+        top: vw(15)
+        right: vw(15)
+        font-size: vw(32)
+        width: vw(32)
+        height: vw(32)
+        line-height: vw(32)
+        text-align: center
+        color: #e862a6
+        position: absolute
+        cursor: pointer
+        +rwd($pad)
+            top: mvw(15)
+            right: mvw(15)
+            font-size: mvw(48)
+            width: mvw(48)
+            height: mvw(48)
+            line-height: mvw(48)
+        &:before
+            content: "✖"
+    .listbox
+        margin: 0 0 vw(30) 0
+        +rwd($pad)
+            margin: 0 0 mvw(30) 0
+    .poptitle
+        font-size: vw(26)
+        font-weight: bold
+        color: #333
+        +rwd($pad)
+            font-size: mvw(28)
+    .poptab
+        width: vw(600)
+        margin: vw(15) auto 0
+        +rwd($pad)
+            width: mvw(530)
+            margin: mvw(15) auto 0
+        th
+            background: #ea6eac
+            border: vw(1) solid #ea6eac
+            color: #fff
+            font-size: vw(24)
+            font-weight: bold
+            padding: vw(7) 0 vw(8)
+            +rwd($pad)
+                border: mvw(1) solid #ea6eac
+                font-size: mvw(28)
+                padding: mvw(7) 0 mvw(8)
+            &:nth-child(1)
+                border-right: vw(1) solid #fff
+                +rwd($pad)
+                    border-right: mvw(1) solid #fff
+        td
+            background: #fff
+            border: vw(1) solid #ea6eac
+            color: #e862a6
+            font-size: vw(24)
+            text-align: center
+            padding: vw(7) 0 vw(8)
+            +rwd($pad)
+                border: mvw(1) solid #ea6eac
+                font-size: mvw(28)
+                padding: mvw(7) 0 mvw(8)
+    .shareover
+        h2
+            margin: 0 auto
+            width: mvw(372)
+        p
+            color: #333
+            margin: mvw(20) auto 0
+            font-size: mvw(32)
+        a
+            display: inline-block
+            margin: mvw(60) auto 0
+            width: mvw(420)
+    .oops
+        p
+            color: #333
+            font-size: mvw(32)
+            line-height: 1.5
+        .oopspic
+            margin: mvw(40) auto 0
+            width: mvw(417)
+        .tryagain
+            display: inline-block
+            margin: mvw(40) auto 0
+            width: mvw(282)
+    .invoend
+        h2
+            margin: 0 auto
+            width: vw(344)
+            +rwd($pad)
+                width: mvw(344)
+        .btnarea
+            margin: vw(80) auto 0
+            display: flex
+            justify-content: center
+            align-items: flex-start
+            +rwd($pad)
+                margin: mvw(80) auto 0
+        a
+            display: inline-block
+            margin: 0 vw(10)
+            width: vw(264)
+            +rwd($pad)
+                margin: 0 mvw(10)
+                width: mvw(264)
+
+.loading
+    background: rgba(#000, 0.85)
+    width: 100%
+    height: 100vh
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 9999
+    .loadbox
+        width: 60px
+        height: 60px
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+    .loaditem
+        border: 8px solid #f3f3f3
+        border-radius: 50%
+        border-top: 8px solid #3498db
+        width: 60px
+        height: 60px
+        animation: spin 2s linear infinite
+
+@keyframes spin
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
