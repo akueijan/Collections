@@ -1,0 +1,145 @@
+$header-lg-height: vw(70)
+$header-mobile-height: mvw(100)
+
+header
+    width: 100vw
+    padding: 20px 50px
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+.nav
+    // background: #bf0e29
+    height: $header-lg-height
+    line-height: $header-lg-height
+    width: 100%
+    // position: fixed
+    position: absolute
+    left: 0
+    top: 0
+    z-index: 999
+    overflow: hidden
+    +rwd($pad)
+        height: $header-mobile-height
+        line-height: $header-mobile-height
+        position: fixed
+    a 
+        cursor: pointer
+    p
+        display: inline-block
+        margin-right: 10px  
+    & .l-container
+        height: 100%
+    &-bd 
+        height: 100%
+        padding: 0 vw(28)
+        display: flex
+        align-items: center
+        justify-content: space-between
+        +rwd($desktop)
+            padding: 0 mvw(23)
+    &-logo
+        display: inline-block
+        width: vw(231)
+        line-height: 0
+        vertical-align: middle
+        +rwd($desktop)
+            width: mvw(231)
+            position: relative
+            z-index: 9
+        img
+            width: 100%
+            height: auto
+    &-btn
+        display: none
+        +rwd($pad)
+            width: mvw(52)
+            height: mvw(37)
+            cursor: pointer
+            position: relative
+            display: inline-flex
+            align-items: flex-end
+            flex-flow: column wrap
+            justify-content: space-between
+            order: 3
+            z-index: 9
+            .one, .two, .three 
+                width: 100%
+                height: 2px
+                background: #fff
+                backface-visibility: hidden
+                transition-duration: 0.3s
+            .two
+                width: 80%
+            .three
+                width: 60%
+    &-menu
+        padding: 0 vw(40) 0 0
+        li 
+            display: inline-block
+            line-height: 0
+            vertical-align: middle
+            margin-right: 0
+            transform: skewX(-8deg)
+            &:nth-last-child(1)
+                span
+                    &::after
+                        display: none
+            a
+                display: inline-block
+            span
+                color: #fff
+                font-weight: bold
+                font-size: vw(20)
+                line-height: 1
+                +rwd($pad)
+                    color: #fff808
+                    font-size: mvw(54)
+                    // text-shadow: #d63875 1px 1px 10px
+                    text-shadow: -3px 2px 5px #d63875, 2px 3px 5px #d63875, 3px 2px 5px #d63875, 2px -3px 5px #d63875
+                &::after
+                    content: "|"
+                    display: inline-block
+                    margin: 0 vw(40)
+                    +rwd($pad)
+                        display: none
+
+        +rwd($pad)
+            width: 100%
+            background: #e862a6
+            height: 100vh
+            right: 0
+            top: 0
+            position: absolute
+            transform: translateX(100%)
+            transition: all 0.2s ease-out
+            overflow: hidden
+            ul 
+                margin: 0
+                padding-top: mvw(220)
+                line-height: mvw(75)
+                text-align: center
+                li 
+                    width: 100%
+                    position: relative
+                    margin: 0 0 mvw(80) 0
+    &--active
+        overflow: inherit
+        +rwd($pad)
+            .nav-menu 
+                transform: translateX(0)
+                overflow: auto
+            .nav-btn
+                >.one 
+                    position: absolute
+                    top: 50%
+                    left: 0
+                    transform: (rotate(45deg) translateY(-50%))      
+                >.two 
+                    opacity: 0
+                >.three
+                    width: 100%
+                    position: absolute
+                    top: 50%
+                    left: 0
+                    transform: (rotate(-45deg) translateY(-50%))

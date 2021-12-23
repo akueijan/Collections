@@ -1,0 +1,28 @@
+﻿doctype
+html(itemscope,itemtype="http://schema.org/Article" lang="zh-TW")
+    //page default Information
+    block pageInfo
+        - var pageTitle = "首頁"
+        - var pageDesc = "敘述"
+        - var isVue = true
+    //html head
+    include _head.pug
+    //html body
+    body
+        div.l-wrap#app(v-cloak=isVue)
+            div.l-main
+                block page_main
+            include _popup.pug
+        script(type="text/javascript" src=jsFolder+"vendor.js")
+        script(type="text/javascript" src=jsFolder+"lib.js")
+        if more_js
+            each js in more_js
+                script(type="text/javascript" src= jsFolder + js)
+        script(type="text/javascript" id="appjs" src= jsFolder + "app.js?v="+timestamp data-mode=`${dev_mode}` data-site=`${apiUrl}`)
+        //script(type="text/javascript" src="js/api.js")
+        if compJs
+            each js in compJs
+                script(type="text/javascript" src= jsFolder + "component/" + js)
+        if pageJs
+            script(src= jsFolder + pageJs+"?v="+timestamp)
+        script(type='text/javascript')

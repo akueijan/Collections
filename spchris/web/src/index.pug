@@ -1,0 +1,45 @@
+﻿//- page laytout name
+extends _layout.pug
+
+block pageInfo
+    - var pageTitle = "聖誔福委會"
+    - var pageDesc = ""
+    - var pageJs = "index.js";
+    - var isVue = true
+//- page html
+block page_main
+    .module
+        section.index
+            transition(name="fade")
+                .intro(v-if="step=='intro'" key="intro")
+                    .introbox
+                        .introarea
+                            .bd
+                                h2 《 聖誕評選委員會 》
+                                .block
+                                    p.center 關於我們
+                                    p 系2021年度春樹科技成立之獨立部門，奉神聖不可分割唯一聖誕真神聖誕老人之名，致力於春樹科技內部推廣【善】與【良】的價值。
+                                .block
+                                    p.center 部門技術
+                                    p 透過本部研發專屬科技系統【雉能評選系統】我們於2021/12/01進行第一次的春樹科技360度組織淨化，於評分期間，透過日常行為觀察，將組織成員劃分【好孩子】、【壞孩子】並於12/24日聖誕活動當日，予以適當適性之處置，以延續我司優異傳統價值，並發揚【善】與【良】的真諦。
+                    .confirmbtn(@click="stepPage('kv')") 確　認
+                .step1(v-if="step=='kv'" key="kv")
+                    .events
+                        .slogn
+                            img(src="images/slogn.png")
+                        .inputbox
+                            input(type="text" placeholder="請輸入你的公司信箱" v-model="email")
+                        .btn(@click="send")
+                .step2(v-if="step=='result'" key="result")
+                    .content
+                        .result 
+                            //- span.txt 一個月不小心請兩次生理假
+                            span.txt {{resData.reason}}
+                        //- .name {{resData.name}}
+                        .identity
+                            img(src="images/good.png" v-if="resData.identity=='好孩子'")
+                            img(src="images/bad.png" v-if="resData.identity=='壞孩子'")
+                        .group {{resData.group}}
+                        .number {{resData.number}}
+                        .btn(@click="openReadme")
+                    

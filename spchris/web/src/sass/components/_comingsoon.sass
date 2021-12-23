@@ -1,0 +1,109 @@
+.comingsoon-main 
+    width: 100%
+    height: 100vh
+    background: rgba(28, 28, 28, 0.9)
+    position: fixed
+    left: 0
+    top: 0
+    overflow: auto
+    z-index: 9999
+
+.comingsoon 
+    width: 100%
+    max-width: 750px
+    margin: 0 auto
+    padding: 60px 0px
+    min-height: 100vh
+    // background: url("~/assets/images/bg.png")
+    &__box 
+        text-align: center
+    
+    &__title 
+        margin: vw(120) auto 0
+        color: #fff
+        font-size: vw(78)
+        font-weight: bold
+        +rwd($pad)
+            font-size: mvw(80)
+    
+    &__bd 
+        box-sizing: border-box
+        padding: 40px 0 0 0
+    .coming-text
+        margin-top: vw(20)
+        color: #fff
+        font-size: vw(34)
+        text-align: center
+        letter-spacing: -0.5px
+        font-weight: 500
+        text-transform:uppercase
+        +rwd($pad)
+            margin-top: mvw(30)
+            font-size: mvw(36)
+    &__fd
+        position: relative
+        padding: 50px 35px 
+        margin-top: 55px
+        .info-title 
+            font-size: 48px
+            font-weight: 900
+            line-height: 1.13
+            color: #fff
+        
+        .info-sub 
+            margin-top: 5px
+            font-size: 33px
+            font-weight: 400
+            line-height: 1.64
+            text-align: center
+            color: #ffffff
+        
+        .pic
+            margin-top: 30px
+        
+        &:after
+            content: ""
+            width: 470px
+            height: 100%
+            position: absolute
+            top: -5px
+            left: 50%
+            transform: translateX(-50%)
+            border: 5px solid #fff
+
+.comingsoon 
+    .counter 
+        display: inline-block
+        padding: 10px 15px
+        background-color: rgba(#000,.5)
+        border-radius: 8px
+        border: solid 3px #fff
+        font-size: 0
+        >div 
+            display: inline-block
+            padding: 0 15px
+        
+        .days,
+        .hours,
+        .minutes,
+        .seconds 
+            text-align: center
+            color: #fff
+            .value 
+                display: block
+                font-size: 35px
+                width: 100%
+                display: block
+                font-weight: 900
+            
+            span 
+                font-size: 16px
+                width: 100%
+                display: block
+                opacity: .75
+    .centerIt 
+        position: absolute
+        top: 40%
+        left: 50%
+        transform: translateX(-50%) translateY(-50%)
+    

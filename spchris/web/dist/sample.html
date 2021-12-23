@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="zh-TW">
+<!--page default Information-->
+<!--html head-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge,chrome=1">
+    <title>pageTitle</title>
+    <meta name="description" content="pageDesc">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
+    <meta itemprop="name" content="pageTitle">
+    <meta itemprop="description" content="pageDesc">
+    <meta itemprop="image" content="images/fb-share.png">
+    <meta property="og:title" content="pageTitle">
+    <meta property="og:description" content="pageDesc">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="images/fb-share.png">
+    <link rel="Shortcut Icon" type="images/x-icon" href="images/fav.jpg">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<!--html body-->
+
+<body>
+    <div class="l-wrap" id="app" v-cloak>
+        <div class="l-main">
+            <section class="sample" id="el">
+                <div class="sample__hd"></div>
+                <div class="sample__bd"></div>
+                <div class="sample__ft"></div>
+                <section>
+                    <div class="l-container">
+                        <h2>{{initText}}</h2>
+                        <div class="vue">
+                            <form v-on:submit.prevent="signup">
+                                <select v-model="selectOpt">
+                                    <option v-for="obj in selectLists" :disabled="obj.value == ''" v-bind:value="obj.value">{{obj.text}}</option>
+                                </select>
+                                <p>select Val : {{selectOpt}}</p>
+                                <button type="submit">submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="sample__content">
+                        <div class="l-container">
+                            <div class="l-vm">
+                                <div class="l-vm__content">
+                                    <h2>demo verticle</h2>
+                                    <p>灰色區塊內垂直置中</p>
+                                    <div class="sprite__demo"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="l-container">
+                        <div class="mdDemo">
+                            <h2>#jade scss example</h2>
+                            <div>
+                                <h3>##<span>Interpolation</span>by jade</h3>
+                            </div>
+                            <div>
+                                <h3>##jade loop</h3>
+                                <div class="row1">
+                                    <p>row+1</p>
+                                </div>
+                                <div class="row2">
+                                    <p>row+2</p>
+                                </div>
+                                <div class="row3">
+                                    <p>row+3</p>
+                                </div>
+                                <div class="next">
+                                    <p>next</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </div>
+        <transition name="fade">
+            <div class="popup" v-if="popup">
+                <div class="readme">
+                    <div class="content">
+                        <h2>《 禮物挑選規則 》</h2>
+                        <ul class="desc">
+                            <li>當日請按照組別上台，挑選該組分配到的禮物池。(好孩子請戴上聖誕帽)</li>
+                            <li>順序為壞孩子1~6號先依序挑選禮物池中的禮物，挑選完請先別拆禮物。</li>
+                            <li>接著由好孩子1~6號依序選擇要 (以下二選一)
+                                <ul class="nodesc">
+                                    <li>- 挑禮物池中剩下的禮物</li>
+                                    <li>- 搶壞孩子手上的禮物</li>
+                                </ul>
+                            </li>
+                            <li>好孩子若搶別人的禮物，則會立即變成壞孩子（將聖誕帽摘下），亦即有可能被後面的好孩子搶禮物。</li>
+                            <li>壞孩子被搶禮物的當下，可從池子裡挑選剩下的禮物（挑完即可坐在椅子上）</li>
+                            <li>每個壞孩子僅會被搶一次禮物。</li>
+                            <li>待該組所有好孩子選(搶)完禮物，即可開始拆禮物，送禮者將上台說明贈送該禮物之原因。</li>
+                        </ul>
+                    </div>
+                    <div class="btn" @click="popup=false">回 上 一 頁</div>
+                </div>
+            </div>
+        </transition>
+        <transition name="fade">
+            <div class="loading" v-if="loading">
+                <div class="loadingbox"><img src="images/loading.gif"></div>
+            </div>
+        </transition>
+    </div>
+    <script type="text/javascript" src="js/vendor.js"></script>
+    <script type="text/javascript" src="js/lib.js"></script>
+    <script type="text/javascript" id="appjs" src="js/app.js?v=1640157950044" data-mode="true" data-site="https://sp-develop.azurewebsites.net/api/"></script>
+    <!--script(type="text/javascript" src="js/api.js")-->
+    <script src="js/sample.js?v=1640157950044"></script>
+    <script type="text/javascript"></script>
+</body>
+
+</html>

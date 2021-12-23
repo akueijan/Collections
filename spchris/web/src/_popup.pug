@@ -1,0 +1,21 @@
+﻿transition(name="fade")
+    .popup(v-if="popup")
+        .readme
+            .content
+                h2 《 禮物挑選規則 》
+                ul.desc
+                    li 當日請按照組別上台，挑選該組分配到的禮物池。(好孩子請戴上聖誕帽)
+                    li 順序為壞孩子1~6號先依序挑選禮物池中的禮物，挑選完請先別拆禮物。
+                    li 接著由好孩子1~6號依序選擇要 (以下二選一)
+                        ul.nodesc
+                            li - 挑禮物池中剩下的禮物
+                            li - 搶壞孩子手上的禮物
+                    li 好孩子若搶別人的禮物，則會立即變成壞孩子（將聖誕帽摘下），亦即有可能被後面的好孩子搶禮物。
+                    li 壞孩子被搶禮物的當下，可從池子裡挑選剩下的禮物（挑完即可坐在椅子上）
+                    li 每個壞孩子僅會被搶一次禮物。
+                    li 待該組所有好孩子選(搶)完禮物，即可開始拆禮物，送禮者將上台說明贈送該禮物之原因。
+            .btn(@click="popup=false") 回 上 一 頁
+transition(name="fade")
+    .loading(v-if="loading")
+        .loadingbox
+            img(src="images/loading.gif")
