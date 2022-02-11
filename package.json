@@ -44,7 +44,7 @@
     "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11",
     "imagemin-jpeg-recompress": "^6.0.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "vinyl-ftp": "^0.6.1"
   },
   "dependencies": {
