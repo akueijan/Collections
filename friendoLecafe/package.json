@@ -17,7 +17,7 @@
     "gulp-changed": "^3.2.0",
     "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.1",
-    "gulp-connect": "^2.3.1",
+    "gulp-connect": "^5.7.0",
     "gulp-html-beautify": "^1.0.1",
     "gulp-if": "^2.0.2",
     "gulp-image": "^4.3.0",
