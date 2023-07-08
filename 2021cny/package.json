@@ -37,13 +37,13 @@
     "gulp-plumber": "^1.2.0",
     "gulp-pug": "^3.3.0",
     "gulp-rev": "^9.0.0",
-    "gulp-sass": "^3.2.1",
+    "gulp-sass": "^5.1.0",
     "gulp-sass-glob": "^1.0.9",
     "gulp-uglify": "^3.0.2",
     "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11",
     "imagemin-jpeg-recompress": "^6.0.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^9.0.0",
     "vinyl-ftp": "^0.6.1"
   },
   "dependencies": {
